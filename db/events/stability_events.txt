@@ -1,0 +1,2301 @@
+################################
+# Events for changing stability
+# ID range 5100-5199
+# By Byakhiam
+################################
+
+character_event = { # The state of your realm has seen significant improvements lately and in general things are much more stable, orderly and productive
+	id = 5100
+
+	picture = "event_agriculture"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = stability value = 3 } }
+		condition = { type = not value = { type = trait value = realm_duress } }
+		condition = { type = efficiency value = 0.5 }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+
+		modifier = {
+			condition = { type = atwar }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = has_law value = { elective_law  = yes } } #elective realms are more unstable
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = war_invalid }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = kinslayer }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = gold value = 0 } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = gold value = 100 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = gold value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = gold value = 5000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = prestige value = 100 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = prestige value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = prestige value = 2000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 2000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { feudal_contract_law = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_province_effect value = { revolt = yes } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_improvement value = { grand_palace = yes } } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = papacy }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 6 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 10 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 40 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 60 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 70 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 100 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 5 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 10 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 15 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 20 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 25 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.9 }
+			factor = 0.8
+		}
+	}
+
+	action_a = { # Good!
+		effect = { type = stability value = 1 }
+	}
+}
+
+character_event = { # This current state of war is deteoriating the productive state of your realm
+	id = 5101
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = atwar }
+		condition = { type = stability value = -2 }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = on_crusade }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = has_law value = { elective_law  = yes } } #elective realms are more unstable
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.9 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.7 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.5 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.1 } }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = war_invalid }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = kinslayer }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = not value = { type = gold value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = gold value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = gold value = 1000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = gold value = 5000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = prestige value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 2000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = piety value = 2000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = { feudal_contract_law = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_province_effect value = { revolt = yes } } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_improvement value = { grand_palace = yes } } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = papacy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 6 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 10 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 40 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 60 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 70 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 100 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 5 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 10 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 15 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 20 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 25 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # That's too bad
+		ai_chance = 25
+		effect = { type = stability value = -1 }
+	}
+	action_b = { # Try to maintain the current level
+		ai_chance = 75
+		effect = { type = gold scale = -1.0 }
+		effect = { type = random chance = 25
+			effect = { type = stability value = -1 }
+		}
+	}
+}
+
+character_event = { # Your incapacity to rule properly is deteoriating the state of law and order in your realm
+	id = 5102
+
+	picture = "event_sickness"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = or
+			condition = { type = trait value = pneumonia }
+			condition = { type = trait value = leper }
+			condition = { type = trait value = plagueinfested }
+			condition = { type = trait value = depression }
+			condition = { type = trait value = schizofrenia }
+			condition = { type = trait value = maniac }
+		}
+		condition = { type = stability value = -2 }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = atwar }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.9 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_law value = { elective_law  = yes } } #elective realms are more unstable
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.7 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.5 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.1 } }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = kinslayer }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = not value = { type = gold value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = gold value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = gold value = 1000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = gold value = 5000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = prestige value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 2000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = piety value = 2000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = { feudal_contract_law = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_province_effect value = { revolt = yes } } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_improvement value = { grand_palace = yes } } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = papacy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 6 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 10 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 40 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 60 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 70 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 100 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 5 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 10 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 15 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 20 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 25 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # That's too bad
+		ai_chance = 25
+		effect = { type = stability value = -1 }
+	}
+	action_b = { # Try to maintain the current level
+		ai_chance = 75
+		effect = { type = gold scale = -1.0 }
+		effect = { type = random chance = 25
+			effect = { type = stability value = -1 }
+		}
+	}
+}
+
+character_event = { # Your public separation from the grace of God is causing severe problems with law and order in your realm
+	id = 5103
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = trait value = excommunicated }
+		condition = { type = stability value = -2 }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = atwar }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.9 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.7 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.5 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.1 } }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = war_invalid }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = kinslayer }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = not value = { type = gold value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = gold value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = gold value = 1000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = gold value = 5000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = prestige value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 2000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = piety value = 2000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = { feudal_contract_law = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_province_effect value = { revolt = yes } } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_improvement value = { grand_palace = yes } } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 6 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 10 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 40 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 60 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 70 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 100 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 5 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 10 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 15 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 20 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 25 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # That's too bad
+		ai_chance = 25
+		effect = { type = stability value = -1 }
+	}
+	action_b = { # Try to maintain the current level
+		ai_chance = 75
+		effect = { type = gold scale = -1.0 }
+		effect = { type = random chance = 25
+			effect = { type = stability value = -1 }
+		}
+	}
+}
+
+character_event = { # The poor efficiency of your demesne is causing severe problems with law and order in your realm
+	id = 5104
+
+	picture = "event_agriculture"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = efficiency value = 0.5 } }
+		condition = { type = stability value = -2 }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = atwar }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_law value = { elective_law  = yes } } #elective realms are more unstable
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.1 } }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = war_invalid }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = kinslayer }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = not value = { type = gold value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = gold value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = gold value = 1000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = gold value = 5000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = prestige value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 2000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = piety value = 2000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = { feudal_contract_law = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_province_effect value = { revolt = yes } } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_improvement value = { grand_palace = yes } } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 6 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 10 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 40 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 60 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 70 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 100 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 5 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 10 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 15 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 20 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 25 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # That's too bad
+		ai_chance = 25
+		effect = { type = stability value = -1 }
+	}
+	action_b = { # Try to maintain the current level
+		ai_chance = 75
+		effect = { type = gold scale = -1.0 }
+		effect = { type = random chance = 25
+			effect = { type = stability value = -1 }
+		}
+	}
+}
+
+character_event = { # Your empty coffers are causing severe deteoriation in the state of law and order in your realm
+	id = 5105
+
+	picture = "event_steward"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = gold value = 0 } }
+		condition = { type = stability value = -2 }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = atwar }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_law value = { elective_law  = yes } } #elective realms are more unstable
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.9 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.7 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.5 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.1 } }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = war_invalid }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = kinslayer }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = prestige value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 2000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = piety value = 2000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = { feudal_contract_law = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_province_effect value = { revolt = yes } } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = capital condition = { type = has_improvement value = { grand_palace = yes } } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 6 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = num_total_vassals value = 10 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 40 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 60 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 70 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = num_total_vassals value = 100 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = not value = { type = num_total_vassals value = 5 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 10 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 15 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 20 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 25 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 30 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = duchy }
+			condition = { type = num_total_vassals value = 50 }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # That's too bad
+		ai_chance = 25
+		effect = { type = stability value = -1 }
+	}
+	action_b = { # Try to maintain the current level
+		ai_chance = 75
+		effect = { type = prestige scale = -3.0 }
+		effect = { type = piety scale = -3.0 }
+		effect = { type = random chance = 25
+			effect = { type = stability value = -1 }
+		}
+	}
+}
+
+character_event = { # Your lands are so prosperous that you could round up some extra taxes, if you wanted to
+	id = 5106
+
+	picture = "event_moneycollection"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = stability value = 1 }
+		condition = { type = not value = { type = trait value = generous } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = not value = { type = gold value = 0 } }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = has_law value = { elective_law  = yes } } #elective realms are more unstable
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = gold value = 1000 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = gold value = 2000 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = gold value = 5000 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = gold value = 10000 }
+			factor = 5.0
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = merciful }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+	}
+
+	action_a = { # Surely there could be no harm in that
+		ai_chance = 25
+		effect = { type = gold scale = 1.0 }
+		effect = { type = random chance = 50
+			effect = { type = stability value = -1 }
+		}
+	}
+	action_b = { # Make them harsh extra taxes!
+		ai_chance = 25
+		effect = { type = gold scale = 2.5 }
+		effect = { type = stability value = -1 }
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = selfish }
+		}
+	}
+	action_c = { # Let the peasants keep their spare cattle
+		ai_chance = 50
+		effect = { type = add_trait value = generous }
+	}
+}
+
+character_event = { # Your realm is so prosperous that you could spread out some of the wealth of the land to the local barons for prestige
+	id = 5107
+
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = stability value = 1 }
+		condition = { type = not value = { type = trait value = modest } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = has_law value = { elective_law  = yes } } #elective realms are more unstable
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = prestige value = 100 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = prestige value = 250 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = prestige value = 500 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = prestige value = 1000 }
+			factor = 5.0
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+	}
+
+	action_a = { # Surely there is some to share
+		ai_chance = 25
+		effect = { type = prestige value = 40 }
+		effect = { type = random chance = 50
+			effect = { type = stability value = -1 }
+		}
+	}
+	action_b = { # My barons deserve better than just some
+		ai_chance = 25
+		effect = { type = prestige value = 100 }
+		effect = { type = stability value = -1 }
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = proud }
+		}
+	}
+	action_c = { # It is not my place to take the peasants wealth
+		ai_chance = 50
+		effect = { type = add_trait value = modest }
+	}
+}
+
+character_event = { # When your lands are so abundant with wealth, maybe some of it could be given to the Church?
+	id = 5108
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = stability value = 1 }
+		condition = { type = not value = { type = trait value = sceptical } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = has_law value = { elective_law  = yes } } #elective realms are more unstable
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = piety value = 250 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 5.0
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+	}
+
+	action_a = { # Of course I can spare some for the Church
+		ai_chance = 25
+		effect = { type = piety value = 40 }
+		effect = { type = random chance = 50
+			effect = { type = stability value = -1 }
+		}
+	}
+	action_b = { # I always have plenty for the Church
+		ai_chance = 25
+		effect = { type = piety value = 100 }
+		effect = { type = stability value = -1 }
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = zealous }
+		}
+	}
+	action_c = { # The Church is already rich enough
+		ai_chance = 50
+		effect = { type = add_trait value = sceptical }
+	}
+}
+
+character_event = { # The miserable state of stability in your realm could probably be improved with some monetary investments
+	id = 5109
+
+	picture = "event_steward"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = stability value = 0 } }
+		condition = { type = gold value = 0 }
+		condition = { type = not value = { type = trait value = selfish } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = gold value = 250 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_law value = { elective_law  = yes } } #elective realms are more unstable
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = gold value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = gold value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 0.9
+		}
+	}
+
+	action_a = { # Put in a moderate investment
+		ai_chance = 25
+		effect = { type = gold scale = -1.0 }
+		effect = { type = random chance = 50
+			effect = { type = stability value = 1 }
+		}
+	}
+	action_b = { # Put in a significant investment
+		ai_chance = 25
+		effect = { type = gold scale = -2.5 }
+		effect = { type = stability value = 1 }
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = generous }
+		}
+	}
+	action_c = { # My gold belongs to my treasury
+		ai_chance = 50
+		effect = { type = add_trait value = selfish }
+	}
+}
+
+character_event = { # The local barons could help to improve the miserable state of stability in the realm, but it will mean a loss of face for you
+	id = 5110
+
+	picture = "event_chancellor"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = stability value = 0 } }
+		condition = { type = prestige value = 0 }
+		condition = { type = not value = { type = trait value = proud } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = prestige value = 250 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_law value = { elective_law  = yes } } #elective realms are more unstable
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = prestige value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = prestige value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 0.9
+		}
+	}
+
+	action_a = { # Take in some help
+		ai_chance = 25
+		effect = { type = prestige value = -40 }
+		effect = { type = random chance = 50
+			effect = { type = stability value = 1 }
+		}
+	}
+	action_b = { # The realm's stability is paramount
+		ai_chance = 25
+		effect = { type = prestige value = -100 }
+		effect = { type = stability value = 1 }
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = modest }
+		}
+	}
+	action_c = { # I cannot accept their help
+		ai_chance = 50
+		effect = { type = add_trait value = proud }
+	}
+}
+
+character_event = { # The miserable state of your realm could be improved with the Church's help, but it pressuring them might damage your standing with the Church
+	id = 5111
+
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = stability value = 0 } }
+		condition = { type = piety value = 0 }
+		condition = { type = not value = { type = trait value = zealous } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = piety value = 250 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_law value = { elective_law  = yes } } #elective realms are more unstable
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = stubborn }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = weak_willed }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 0.9
+		}
+	}
+
+	action_a = { # Push them a little
+		ai_chance = 25
+		effect = { type = piety value = -40 }
+		effect = { type = random chance = 50
+			effect = { type = stability value = 1 }
+		}
+	}
+	action_b = { # Push them a lot
+		ai_chance = 25
+		effect = { type = piety value = -100 }
+		effect = { type = stability value = 1 }
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = sceptical }
+		}
+	}
+	action_c = { # The Church is sacrosanct
+		ai_chance = 50
+		effect = { type = add_trait value = zealous }
+	}
+}

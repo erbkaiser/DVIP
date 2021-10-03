@@ -1,0 +1,75 @@
+#
+#
+# Crusader Kings Events Database
+#
+#
+
+event = "db\events\Provincial_Structure_Events.txt"
+event = "db\events\Provincial_Conversion_Events.txt"
+event = "db\events\Global_Diseases_Events.txt"
+event = "db\events\Character_Health_Events.txt"
+event = "db\events\Character_Development_Events.txt"
+event = "db\events\Mongol_Invasion_Events.txt"
+event = "db\events\Religious_Events.txt"
+event = "db\events\Trait_Events.txt"
+event = "db\events\Papal_Events.txt"
+event = "db\events\Claims_Events.txt"
+event = "db\events\Crusader_Events.txt"
+event = "db\events\templar_events.txt"
+event = "db\events\mercenary_events.txt"
+event = "db\events\Lordship_Events.txt"
+event = "db\events\sin_events.txt"
+event = "db\events\improvement_events.txt"
+event = "db\events\battle_events.txt"
+event = "db\events\bankruptcy_events.txt"
+event = "db\events\province_power_events.txt"
+event = "db\events\illness_events.txt"
+event = "db\events\csc_events.txt"
+event = "db\events\evil_events.txt"
+event = "db\events\regency_events.txt"
+event = "db\events\courtier_events.txt"
+event = "db\events\marshal_events.txt"
+event = "db\events\chancellor_events.txt"
+event = "db\events\steward_events.txt"
+event = "db\events\heresy_events.txt"
+event = "db\events\chaplain_events.txt"
+event = "db\events\court_events.txt"
+event = "db\events\pagan_events.txt"
+event = "db\events\law_events.txt"
+event = "db\events\intrigue_events.txt"
+event = "db\events\bastard_events.txt"
+event = "db\events\realm_disruption_events.txt"
+event = "db\events\childhood_events.txt"
+event = "db\events\rival_events.txt"
+event = "db\events\friend_events.txt"
+event = "db\events\romance_events.txt"
+event = "db\events\stability_events.txt"
+event = "db\events\fosterling_events.txt"
+
+
+# Advances
+event = "db\events\advances_discovery.txt"
+event = "db\events\advances_spread.txt"
+
+
+# DVIP
+event = "db\events\DVIP_bugfixes.txt"
+event = "db\events\DVIP_conquests.txt"
+event = "db\events\DVIP_melting_pots.txt"
+event = "db\events\DVIP_set_laws.txt"
+event = "db\events\DVIP_varia.txt"
+
+# DVIP Addon
+event = "db\events\DVIP_break_free.txt"
+event = "db\events\DVIP_female_inheritance.txt"
+event = "db\events\DVIP_friend_events.txt"
+event = "db\events\DVIP_wiz.txt"
+event = "db\events\Grells_events.txt"
+event = "db\events\Grells_Muslim_Kingdom_events.txt"
+
+# Bopack
+event = "db\events\BOP_char_events.txt"
+event = "db\events\BOP_flav_events.txt"
+event = "db\events\BOP_hist_events.txt"
+event = "db\events\BOP_prov_events.txt"
+event = "db\events\BOP_smack_events.txt"

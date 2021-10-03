@@ -1,0 +1,1528 @@
+##;CRUSADER KINGS;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##### Open this document in Excel, version 5 or later.;;;;;;;;;;;X
+##### To convert the semicolon-separated list to a normal Excel table, first click on the 'A' above to select the entire 'A' column.;;;;;;;;;;;X
+##### Select 'Data' -> 'Text to Columns' -> 'Delimited' -> 'Next';;;;;;;;;;;X
+##### Check 'Semicolon' (ONLY!) -> 'Finish';;;;;;;;;;;X
+##### Select column 'A' through 'K' (click + drag on letters above columns);;;;;;;;;;;X
+##### Right-click anywhere on the sheet (inside the selection) and select 'Column width' and set it so that only THREE columns are visible ('45' with 1024 x 768 screen resolution);;;;;;;;;;;X
+##### Right-click anywhere on the sheet again (still inside the selection) and select 'Format Cells' -> 'Alignment' -> check 'Wrap Text' + select 'Vertical: Top' -> 'OK';;;;;;;;;;;X
+##### Place the cursor in cell C1 and select 'Window' -> 'Freeze Panes' (allows you to scroll horizontally to see any language in the rightmost coulmn while still having the string names/comments and the english original text in the left and middle column;;;;;;;;;;;X
+##### CAREFULLY read the instructions in cells B18 ? B36;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;NOTES TO TRANSLATORS:;;;;;;;;;;X
+##;=====================;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;1) '%s' is for indicating where another string is inserted, and MAY NEVER BE REMOVED! If there are more than one '%s' in a string, they may NOT CHANGE PLACES.;;;;;;;;;;X
+##;2) '%d' is for indicating where another integer value is inserted, and MAY NEVER BE REMOVED! If there are more than one '%d' in a string, they may not change places. ('%.1f' is used in exactly the same way but for non-integer values ?  '%c%d' is used for values that are displayed with a '+' or '-' sign in front, DO NOT CHANGE, ADD, OR REMOVE!);;;;;;;;;;X
+##;3) '%t' is for indicating where the player's 'title' is inserted, however only in game message boxes.';;;;;;;;;;X
+##;4) The characters '#' (hashmark), semicolon, '%' (percentage sign), '?' (paragraph sign), quotation marks and '\' (backslash) MAY NOT BE USED (except when used as control codes ? this will otherwise create serious problems!!! Quotation marks may not even be used in comments -- use a 'citation mark' (single) instead if necessary!);;;;;;;;;;X
+##;5) A dollar sign, '$' will always automatically be replaced by the 'ducats' icon.;;;;;;;;;;X
+##;6) Any row with a '#' in the first column (column 'A') will be ignored. However, you cannot use any paragraph characters in these rows!!!;;;;;;;;;;X
+##;7) To insert a carriage return, insert a '\n' (backslash + n);;;;;;;;;;X
+##;8) No formatting can be done in this file. To change the color of a text, insert the following codes in front of the word:;;;;;;;;;;X
+##;§W = white text;;;;;;;;;;X
+##;§Y = orange text;;;;;;;;;;X
+##;Note that the color change will be applied to all words after the code, until the end of the line that the word is printed on. If several words should have a color change, put the code in front of each of them to be on the safe side. If only one word should have a color change, make sure to reset the color after the word.;;;;;;;;;;X
+##;9) Unless otherwise specifically stated, length of words and texts does not really matter THAT much (message boxes, rollover help boxes and buttons WILL stretch to fit the text string) ? however you will notice once the translation is inserted that space IS limited in quite a few areas? so be brief, and try not to use words that are considerably longer than the english original.;;;;;;;;;;X
+##;10) ALL CELLS in column 'L' in this document MUST contain a character!;;;;;;;;;;X
+##;11) The LAST CELL in the 'A' column MUST contain the string '#EOF';;;;;;;;;;X
+##;12) If you want to begin a string with a ' (citation mark), you will need to type it twice (Excel will read the first one as a commentary which is not not exported into the actual text database file);;;;;;;;;;X
+##;;;;;;;;;;;X
+##;WHEN DONE: save as 'Semicolon Separated (.csv)' format, and make sure the file is called 'Text.csv'.;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;NOTE: If Excel complains about an 'Error in formula' when the cell content begins with a '+' or '-' sign, type a ' (citation mark) in front of the plus or minus.;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  STRING NAME (do not change!);English;;;;;;;;;;X
+#  ========================;==========;;;;;;;;;;X
+LANGUAGE;English;;;;;;;;;;X
+#########################################;;;;;;;;;;;X
+######### GENERAL TEXT STRINGS #########;;;;;;;;;;;X
+#########################################;;;;;;;;;;;X
+##;;;;;;;;;;;x
+
+GOTO;Goto;;;;;;;;;;X
+CANCEL;Cancel;;;;;;;;;;X
+DEFAULT;Default;;;;;;;;;;X
+BACK;Back;;;;;;;;;;X
+BACKTOMAIN;Back to Main;;;;;;;;;;X
+OK;OK;;;;;;;;;;X
+NONE;none;;;;;;;;;;X
+NOFILE;No such file!;;;;;;;;;;X
+NO;No;;;;;;;;;;X
+YES;Yes;;;;;;;;;;X
+#  NOTE there should be a space both before and after the 'and' in the following string.;;;;;;;;;;;X
+INVAND; and ;;;;;;;;;;X
+#  NOTE there should be a space after the 'with' in the following string.;;;;;;;;;;;X
+DWBRKALL4;with ;;;;;;;;;;X
+PLEASECONFIRM;Please Confirm:;;;;;;;;;;X
+PLEASESELECT;LEFT-CLICK ON A PROVINCE OR UNIT TO SELECT IT.\n \nRIGHT-CLICK ON A PROVINCE OR UNIT TO ACCESS SHORTCUT COMMANDS.\n \nIF YOU HAVE A UNIT SELECTED, RIGHT-CLICK ON ITS DESTINATION TO MOVE IT.;;;;;;;;;;X
+ADD;Add;;;;;;;;;;X
+REMOVE;Remove;;;;;;;;;;X
+##;;;;;;;;;;;X
+HOSTLEFT;The host has left the game!;;;;;;;;;;X
+CLIENTLEFT;%s (%s) has left the game!;;;;;;;;;;X
+PLAYERLAG_HEADER;Network Latency;;;;;;;;;;X
+PLAYERLAG_MSG_HOST;By dropping a player lag may improve but the dropped player will not be able to continue. If you do a save and quit you can reconnect to the saved game when network latency has improved.;;;;;;;;;;X
+PLAYERLAG_MSG_CLIENT;The more bullets the better connection.;;;;;;;;;;X
+BTN_DROPCONT;Drop and continue playing;;;;;;;;;;X
+BTN_SAVEQUIT;Save and quit;;;;;;;;;;X
+##;;;;;;;;;;;X
+GOTOBOX;Please enter the name of the province you wish to find.;;;;;;;;;;X
+GOTOBOX_FAIL;There is no such province, please enter the name of the province you wish to find.;;;;;;;;;;X
+MP_OK;Status OK;;;;;;;;;;X
+MP_WAITING;Connecting...;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  EVENT WINDOW STRINGS;;;;;;;;;;;X
+##;;;;;;;;;;;X
+EVENTWINDOW_GOTO;Goto;;;;;;;;;;X
+EVENTWINDOW_CLOSE;Close;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  MONTHS;;;;;;;;;;;X
+##;;;;;;;;;;;X
+JANUARY;January;;;;;;;;;;X
+FEBRUARY;February;;;;;;;;;;X
+MARCH;March;;;;;;;;;;X
+APRIL;April;;;;;;;;;;X
+MAY;May;;;;;;;;;;X
+JUNE;June;;;;;;;;;;X
+JULY;July;;;;;;;;;;X
+AUGUST;August;;;;;;;;;;X
+SEPTEMBER;September;;;;;;;;;;X
+OCTOBER;October;;;;;;;;;;X
+NOVEMBER;November;;;;;;;;;;X
+DECEMBER;December;;;;;;;;;;X
+##;;;;;;;;;;;X
+JAN;JAN;;;;;;;;;;X
+FEB;FEB;;;;;;;;;;X
+MAR;MAR;;;;;;;;;;X
+APR;APR;;;;;;;;;;X
+MAYS;MAY;;;;;;;;;;X
+JUN;JUN;;;;;;;;;;X
+JUL;JUL;;;;;;;;;;X
+AUG;AUG;;;;;;;;;;X
+SEP;SEP;;;;;;;;;;X
+OCT;OCT;;;;;;;;;;X
+NOV;NOV;;;;;;;;;;X
+DEC;DEC;;;;;;;;;;X
+##;;;;;;;;;;;X
+TERRAINCOGNITA;Terra Incognita;;;;;;;;;;X
+BORDER;Border between countries;;;;;;;;;;X
+#;;;;;;;;;;;X
+ATTACKER;Attacker;;;;;;;;;;X
+DEFENDER;Defender;;;;;;;;;;x
+TOTALMEN;Men;;;;;;;;;;x
+#;;;;;;;;;;;X
+#;;;;;;;;;;;X
+#;;;;;;;;;;;x
+TIER_COUNTY;County of;;;;;;;;;;x
+TIER_COUNT;Count;;;;;;;;;;x
+TIER_COUNTESS;Countess;;;;;;;;;;x
+TIER_COUNTY_MUSLIM;Sheikdom of;;;;;;;;;;x
+TIER_COUNT_MUSLIM;Sheik;;;;;;;;;;x
+TIER_COUNTY_PAGAN;Chiefdom of;;;;;;;;;;x
+TIER_COUNT_PAGAN;Chief;;;;;;;;;;x
+TIER_COUNTESS_PAGAN;Chieftess;;;;;;;;;;x
+TIER_COUNTY_TURKISH;Beydom of;;;;;;;;;;x
+TIER_COUNT_TURKISH;Bey;;;;;;;;;;X
+TIER_DUCHY;Duchy of;;;;;;;;;;X
+TIER_DUKE;Duke;;;;;;;;;;X
+TIER_DUCHESS;Duchess;;;;;;;;;;X
+TIER_KINGDOM_PAGAN;Tribe of;;;;;;;;;;X
+TIER_DUCHY_PAGAN;Tribe of;;;;;;;;;;X
+TIER_DUKE_PAGAN;High Chief;;;;;;;;;;X
+TIER_DUCHESS_PAGAN;High Chief;;;;;;;;;;X
+TIER_DUCHY_ORTHODOX;Principality of;;;;;;;;;;X
+TIER_DUKE_ORTHODOX;Prince;;;;;;;;;;X
+TIER_DUCHESS_ORTHODOX;Princess;;;;;;;;;;X
+TIER_DUCHY_MUSLIM;Emirate of;;;;;;;;;;X
+TIER_DUKE_MUSLIM;Emir;;;;;;;;;;X
+TIER_EMPIRE;Empire of;;;;;;;;;;X
+TIER_KINGDOM;Kingdom of;;;;;;;;;;X
+TIER_KING;King;;;;;;;;;;X
+TIER_QUEEN;Queen;;;;;;;;;;X
+TIER_KINGDOM_TURKISH;Sultanate of;;;;;;;;;;X
+TIER_KING_TURKISH;Sultan;;;;;;;;;;X
+TIER_COUNTY_REPUBLIC;Republic of;;;;;;;;;;X
+TIER_DUCHY_REPUBLIC;Republic of;;;;;;;;;;X
+TIER_KINGDOM_REPUBLIC;Republic of;;;;;;;;;;X
+TIER_COUNT_REPUBLIC;Magistrate;;;;;;;;;;X
+TIER_DUKE_REPUBLIC;Governor;;;;;;;;;;X
+TIER_KING_REPUBLIC;Consul;;;;;;;;;;X
+TIER_SULTANATE;Sultanate of;;;;;;;;;;X
+TIER_SULTAN;Sultan;;;;;;;;;;X
+TIER_KHALIFATE;Khalifate of;;;;;;;;;;X
+TIER_KHALIF;Khalif;;;;;;;;;;X
+TIER_LORDSHIP;Lordship of;;;;;;;;;;X
+TIER_LORD;Lord;;;;;;;;;;X
+TIER_LADY;Lady;;;;;;;;;;X
+TIER_ARCHDUCHY;Archduchy of;;;;;;;;;;X
+TIER_ARCHDUKE;Archduke;;;;;;;;;;X
+TIER_ARCHDUCHESS;Archduchess;;;;;;;;;;X
+TIER_GRANDDUCHY;Grand Duchy of;;;;;;;;;;X
+TIER_GRANDDUKE;Grand Duke;;;;;;;;;;X
+TIER_GRANDDUCHESS;Grand Duchess;;;;;;;;;;X
+TIER_COUNTY_ECCLESTICAL;Bishopric of;;;;;;;;;;X
+TIER_COUNT_ECCLESTICAL;Bishop;;;;;;;;;;X
+TIER_DUCHY_ECCLESTICAL;Archbishopric of;;;;;;;;;;X
+TIER_DUKE_ECCLESTICAL;Archbishop;;;;;;;;;;X
+TIER_KING_ECCLESTICAL;Pope;;;;;;;;;;x
+TIER_GRANDMASTER;Grandmaster;;;;;;;;;;X
+TIER_KING_EMPIRE;Emperor;;;;;;;;;;x
+TIER_OF;of;;;;;;;;;;X
+#; ;;;;;;;;;;X
+#;;;;;;;;;;;X
+#;;;;;;;;;;;X
+CATHOLIC;Catholic;;;;;;;;;;X
+ORTHODOX;Orthodox;;;;;;;;;;x
+MOSLEM;Muslim;;;;;;;;;;x
+PAGAN;Pagan;;;;;;;;;;x
+JEWISH;Jewish;;;;;;;;;;x
+##;;;;;;;;;;;x
+########################################;;;;;;;;;;;x
+# Leader Information;;;;;;;;;;;x
+########################################;;;;;;;;;;;x
+0TH;th;;;;;;;;;;x
+1ST;st;;;;;;;;;;X
+2ND;nd;;;;;;;;;;X
+3TH;rd;;;;;;;;;;X
+4TH;th;;;;;;;;;;X
+5TH;th;;;;;;;;;;X
+6TH;th;;;;;;;;;;X
+7TH;th;;;;;;;;;;X
+8TH;th;;;;;;;;;;X
+9TH;th;;;;;;;;;;X
+##;;;;;;;;;;;X
+########################################;;;;;;;;;;;x
+BINFO_CULTURE;Culture;;;;;;;;;;x
+BINFO_HOME;From:;;;;;;;;;;x
+BINFO_ATTRITION;Attrition:;;;;;;;;;;x
+BINFO_UPKEEP;Upkeep:;;;;;;;;;;x
+BINFO_MORALE;Morale:;;;;;;;;;;x
+##;;;;;;;;;;;X
+##;;;;;;;;;;;x
+##;;;;;;;;;;;x
+#  INIT TEXTS;;;;;;;;;;;x
+##;;;;;;;;;;;x
+INIT_SOUND;Initializing Sound...;;;;;;;;;;x
+INIT_INTERFACE;Initializing Interface...;;;;;;;;;;X
+INIT_GAMEMAP_SPRITES;Initializing Graphics...;;;;;;;;;;X
+INIT_GLOBALS;Initializing Globals...;;;;;;;;;;X
+INIT_PROVINCES;Initializing Provinces...;;;;;;;;;;X
+INIT_SCENARIO;Reading Scenario...;;;;;;;;;;X
+INIT_SCRIPT;Initializing Script...;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  FRONT END BUTTONS & TEXTS;;;;;;;;;;;X
+##;;;;;;;;;;;X
+FEMAINBTN_TUTORIAL;TUTORIAL;;;;;;;;;;X
+FEMAINBTN_SINGLE;SINGLE PLAYER;;;;;;;;;;X
+FEMAINBTN_MULTIPLAYER;MULTIPLAYER;;;;;;;;;;X
+FEMAINBTN_CREDITS;CREDITS;;;;;;;;;;X
+FEMAINBTN_REPLAYINTRO;REPLAY INTRO;;;;;;;;;;X
+FEMAINBTN_EXIT;EXIT;;;;;;;;;;X
+##;;;;;;;;;;;X
+FECONNBTN_IPX;LOCAL AREA;;;;;;;;;;X
+FECONNBTN_EURONET;VALKYRIENET;;;;;;;;;;X
+FECONNBTN_TCPIP;INTERNET;;;;;;;;;;X
+FECONN_ENTERNAME;ENTER YOUR NAME;;;;;;;;;;X
+##;;;;;;;;;;;X
+FETCPIPXBTN_JOIN;JOIN;;;;;;;;;;X
+FETCPIPXBTN_HOST;HOST;;;;;;;;;;X
+FETCPIPX_CHOOSEGAME;CHOOSE GAME;;;;;;;;;;X
+FETCPIPX_IPADDRESS;ENTER IP;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  LOBBY BUTTONS & TEXTS;;;;;;;;;;;X
+##;;;;;;;;;;;X
+FEBTN_INFO;INFO;;;;;;;;;;X
+FEBTN_VICTORY;VICTORY;;;;;;;;;;X
+FEBTN_OPTIONS;OPTIONS;;;;;;;;;;X
+FEBTN_START;START;;;;;;;;;;X
+FEBTN_ACCEPT;ACCEPT;;;;;;;;;;X
+FEBTN_STRATEGY;STRATEGY;;;;;;;;;;X
+FEBTN_BACK;BACK;;;;;;;;;;X
+FEBTN_CANCEL;CANCEL;;;;;;;;;;X
+FEBTN_BAN;BAN;;;;;;;;;;X
+##;;;;;;;;;;;X
+FESTR_SCENARIOS;SCENARIOS;;;;;;;;;;X
+FESTR_SAVEDGAMES;SAVED GAMES;;;;;;;;;;X
+FESTR_PLAYERS;PLAYERS;;;;;;;;;;X
+FESTR_NOSELECTION;(no selection);;;;;;;;;;X
+FESTR_STRATEGY;STRATEGY;;;;;;;;;;X
+FESTR_DIFFICULTY;DIFFICULTY:;;;;;;;;;;X
+FESTR_ECONOMY;ECONOMY:;;;;;;;;;;X
+FESTR_MILITARY;MILITARY:;;;;;;;;;;X
+FESTR_DIPLOMACY;DIPLOMACY:;;;;;;;;;;X
+FESTR_CHANGECOUNTRY;RIGHT-CLICK ON A FLAG TO CHANGE IT.;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  INFO BOX TAG;;;;;;;;;;;X
+##;;;;;;;;;;;X
+FESTR_HISTORICALINFO;Historical info;;;;;;;;;;X
+##;;;;;;;;;;;X
+FESTR_NOSCENARIO;Please select a scenario in the list to the left.;;;;;;;;;;X
+FESTR_NOCOUNTRY;Please select a realm to play.;;;;;;;;;;X
+FESTR_WAITSCENARIO;No scenario chosen by host.;;;;;;;;;;X
+##;;;;;;;;;;;X
+FECLI_HOSTSET1;<%s changed;;;;;;;;;;X
+FECLI_HOSTSET2;to %s>;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  TUTORIAL;;;;;;;;;;;X
+##;;;;;;;;;;;X
+FETUTORIAL_1;Interface;;;;;;;;;;X
+FETUTORIAL_2;Diplomacy and Government;;;;;;;;;;X
+FETUTORIAL_3;Resources;;;;;;;;;;X
+FETUTORIAL_4;Research;;;;;;;;;;X
+FETUTORIAL_5;Military Management;;;;;;;;;;X
+FETUTORIAL_6;Warfare;;;;;;;;;;X
+FETUTORIAL_7;BACK TO MAIN;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  OPTIONS;;;;;;;;;;;X
+##;;;;;;;;;;;X
+FEOPT_HEADER;OPTIONS;;;;;;;;;;X
+FEOPT_AIAGGRE;A.I. AGGRESSIVENESS;;;;;;;;;;X
+FEOPT_DIFFICULTY;DIFFICULTY;;;;;;;;;;X
+FEOPT_GAMESPEED;GAME SPEED;;;;;;;;;;X
+FEOPT_FOGOFWAR;FOG OF WAR;;;;;;;;;;X
+FEOPT_GAMEEVENTS;GAME EVENTS;;;;;;;;;;X
+FEOPT_CONQCAP;FORCED ANNEXATION;;;;;;;;;;X
+FEOPT_MISSIONS;DYNAMIC MISSIONS;;;;;;;;;;X
+FEOPT_BASEVP;BASE VICTORY POINTS;;;;;;;;;;X
+FEOPT_COUNTERS;USE COUNTERS;;;;;;;;;;x
+FEOPT_OK;OK;;;;;;;;;;X
+FEOPT_RANDOM;Random Events;;;;;;;;;;X
+FEOPT_MONARCH;Historical Events;;;;;;;;;;X
+FEOPT_AUTOSAVE;AUTOSAVE;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  A.I. AGGRESSIVENESS SETTINGS;;;;;;;;;;;X
+##;;;;;;;;;;;X
+FEOPT_AI_LEVEL1;Coward;;;;;;;;;;X
+FEOPT_AI_LEVEL2;Weakling;;;;;;;;;;X
+FEOPT_AI_LEVEL3;Normal;;;;;;;;;;X
+FEOPT_AI_LEVEL4;Aggressive;;;;;;;;;;X
+FEOPT_AI_LEVEL5;Furious;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  AUTOSAVE FREQUENCY;;;;;;;;;;;X
+##;;;;;;;;;;;X
+FEOPT_AUTOSAVE1;Never;;;;;;;;;;X
+FEOPT_AUTOSAVE2;Yearly;;;;;;;;;;X
+FEOPT_AUTOSAVE3;Once every three years;;;;;;;;;;X
+FEOPT_AUTOSAVE4;Once every five years;;;;;;;;;;X
+FEOPT_AUTOSAVE5;Once every ten years;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  GAME SPEEDS;;;;;;;;;;;X
+##;;;;;;;;;;;X
+GAMESPEED7;Game Speed set to Extremely Fast;;;;;;;;;;X
+GAMESPEED6;Game Speed set to Very Fast;;;;;;;;;;X
+GAMESPEED5;Game Speed set to Fast;;;;;;;;;;X
+GAMESPEED4;Game Speed set to Above Normal;;;;;;;;;;X
+GAMESPEED3;Game Speed set to Normal;;;;;;;;;;X
+GAMESPEED2;Game Speed set to Below Normal;;;;;;;;;;X
+GAMESPEED1;Game Speed set to Slow;;;;;;;;;;X
+GAMESPEED0;Game Speed set to Very Slow;;;;;;;;;;X
+FEOPT_GAMESPEED7;Extremely Fast;;;;;;;;;;X
+FEOPT_GAMESPEED6;Very Fast;;;;;;;;;;X
+FEOPT_GAMESPEED5;Fast;;;;;;;;;;X
+FEOPT_GAMESPEED4;Above Normal;;;;;;;;;;X
+FEOPT_GAMESPEED3;Normal;;;;;;;;;;X
+FEOPT_GAMESPEED2;Below Normal;;;;;;;;;;X
+FEOPT_GAMESPEED1;Slow;;;;;;;;;;X
+FEOPT_GAMESPEED0;Very Slow;;;;;;;;;;X
+##;;;;;;;;;;;X
+FEOPT_ON;ON;;;;;;;;;;X
+FEOPT_OFF;OFF;;;;;;;;;;X
+##;;;;;;;;;;;X
+FEOPT_EVENS_NO;None;;;;;;;;;;X
+FEOPT_EVENTS_RANDOM;Random Events Only;;;;;;;;;;X
+FEOPT_EVENTS_HISTORICAL;Historical Events Only;;;;;;;;;;X
+FEOPT_EVENTS_BOTH;Random & Historical Events;;;;;;;;;;X
+##;;;;;;;;;;;X
+FEVIC_HEADER;VICTORY CONDITIONS;;;;;;;;;;X
+FEVIC_STANDARD;STANDARD;;;;;;;;;;X
+FEVIC_MISSION;MISSION;;;;;;;;;;X
+FEVIC_SUPREMACY;SUPREMACY;;;;;;;;;;X
+FEVIC_DEATHMATCH;DEATHMATCH;;;;;;;;;;X
+##;;;;;;;;;;;X
+FEVIC_STANDARD_DESC;Most victory points at the end of the Scenario wins.;;;;;;;;;;X
+FEVIC_SUPREMACY_DESC;The first country to reach specified number of Victory Points wins.;;;;;;;;;;X
+FEVIC_DEATHMATCH_DESC;The first nation to conquer the specified number of new provinces wins.;;;;;;;;;;X
+FEVIC_MISSION_DESC;The country that first succeeds with its Scenario Mission wins.;;;;;;;;;;X
+##;;;;;;;;;;;X
+FEVIC_STANDARD_LOG;<Victory Condition changed to Standard (to year %d).>;;;;;;;;;;X
+FEVIC_SUPREMACY_LOG;<Victory Condition changed to Supremacy (%d Victory Points).>;;;;;;;;;;X
+FEVIC_DEATHMATCH_LOG;<Victory Condition changed to Death Match (%d Provinces).>;;;;;;;;;;X
+FEVIC_MISSION_LOG;<Victory Condition changed to Mission mode.>;;;;;;;;;;X
+##;;;;;;;;;;;X
+FE_DIFFI5;Very Easy;;;;;;;;;;X
+FE_DIFFI4;Easy;;;;;;;;;;X
+FE_DIFFI3;Normal;;;;;;;;;;X
+FE_DIFFI2;Hard;;;;;;;;;;X
+FE_DIFFI1;Very Hard;;;;;;;;;;X
+##;;;;;;;;;;;X
+FE_STAT1;Very Weak;;;;;;;;;;X
+FE_STAT2;Weak;;;;;;;;;;X
+FE_STAT3;Medium;;;;;;;;;;X
+FE_STAT4;Strong;;;;;;;;;;X
+FE_STAT5;Very Strong;;;;;;;;;;X
+##;;;;;;;;;;;X
+BAN_HEADER;BANNED!;;;;;;;;;;X
+BAN_TEXT;You have been kicked out of the game by the host.;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  BACK END TEXTS;;;;;;;;;;;X
+##;;;;;;;;;;;X
+FINVP_MILITARY;Military;;;;;;;;;;X
+FINVP_RESOURCE;Economy;;;;;;;;;;X
+FINVP_DIPLOMACY;Diplomacy;;;;;;;;;;X
+FINVP_MISSION;Mission;;;;;;;;;;X
+FINVP_TOTAL;Total;;;;;;;;;;X
+##;;;;;;;;;;;X
+VP_PEACE;Peace Resolution;;;;;;;;;;X
+VP_BATTLE;Battle;;;;;;;;;;X
+VP_ECONOMY;Economy;;;;;;;;;;X
+VP_DISCOVERIES;Discoveries;;;;;;;;;;X
+VP_ESTABLISHMENT;Establishment;;;;;;;;;;X
+VP_DIPLOMACY;Diplomacy;;;;;;;;;;X
+VP_MISSION;Mission;;;;;;;;;;X
+VP_DEATHMATCH;Provinces;;;;;;;;;;X
+VP_TOTAL;Total;;;;;;;;;;X
+##;;;;;;;;;;;X
+VP_COUNTRY;Country;;;;;;;;;;X
+AICONTROLL;Computer Controlled;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  ERROR MESSAGES;;;;;;;;;;;X
+##;;;;;;;;;;;X
+FETCP_FAIL;Failed to find game;;;;;;;;;;X
+FETCP_FAILTEXT;No game host found at IP address %s. Please check the address and Internet connection and try again.;;;;;;;;;;X
+DROPDOWN_NO_SELECTION;<No Game Found>;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  HEADER IN VICTORY PROGRESS BOX;;;;;;;;;;;X
+##;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+# STARTUP AND MISSION BOXES (IN-GAME) ##;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+##;;;;;;;;;;;X
+SCENARIO_MISSION_HEADER;Mission Stats;;;;;;;;;;X
+##;;;;;;;;;;;X
+SCENARIO_STANDSUP_INFO1;You can view the current ranking list any time during the game by pressing F2.;;;;;;;;;;X
+SCENARIO_STANDSUP_BASEVP;The ranking points are calculated by how many vassals you have, how large a demesne you have, and by how much prestige and piety your ruler has.;;;;;;;;;;X
+##;;;;;;;;;;;X
+STANDARDGAME_HEADER;Game Objective Summary;;;;;;;;;;X
+STANDARDGAME_1;Standard Scenario;;;;;;;;;;X
+STANDARDGAME_2;The realm with the highest rank on the;;;;;;;;;;X
+STANDARDGAME_3;%s;;;;;;;;;;X
+STANDARDGAME_4;will win this game.;;;;;;;;;;X
+##;;;;;;;;;;;X
+STANDARDGAME_INFO_HEADER;Victory Progress;;;;;;;;;;X
+STANDARDGAME_INFO_1;Standard Scenario;;;;;;;;;;X
+STANDARDGAME_INFO_2;The realm with the highest rank on the;;;;;;;;;;X
+STANDARDGAME_INFO_3;%s;;;;;;;;;;X
+STANDARDGAME_INFO_4;will win this game.;;;;;;;;;;X
+STANDARDGAME_INFO_5;Current Standing;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+END_GOOD_HEADER;%t, we have a good message for you:;;;;;;;;;;X
+END_GOOD_1;Congratulations, you were victorious!;;;;;;;;;;X
+END_GOOD_2;Final Standing;;;;;;;;;;X
+##;;;;;;;;;;;X
+END_BAD_HEADER;%t, we have bad news for you:;;;;;;;;;;X
+END_BAD_1;We failed to achieve victory!;;;;;;;;;;X
+END_BAD_2;Final Standing;;;;;;;;;;X
+##;;;;;;;;;;;X
+BOX_BUTTON;START GAME!;;;;;;;;;;X
+RESUME_BUTTON;RESUME;;;;;;;;;;X
+END_BUTTON;END SCENARIO;;;;;;;;;;X
+DEATHMATCH_ACTIVE;Active;;;;;;;;;;X
+DEATHMATCH_ELIMINATED;Eliminated;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+######## GENERAL IN-GAME STRINGS ########;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+##;;;;;;;;;;;X
+AUTOSAVE;AUTOSAVING...;;;;;;;;;;X
+QUICKSAVE;QUICKSAVING...;;;;;;;;;;X
+QUICKLOAD;QUICKLOADING...;;;;;;;;;;X
+NORMALSAVE;SAVING GAME...;;;;;;;;;;X
+WAITING_FOR_PLAYERS;(Waiting for other player(s)...);;;;;;;;;;X
+##;;;;;;;;;;;X
+PAUSE;GAME PAUSED;;;;;;;;;;X
+PAUSEOK;Press OK to continue;;;;;;;;;;X
+PAUSEREMOVAL;GAME WILL BE RESUMABLE IN %d SECONDS...;;;;;;;;;;X
+PAUSETIMEOUT;PAUSE REQUESTED IN %d SECONDS...;;;;;;;;;;X
+NOPAUSE;(NO PAUSE AVAILABLE);;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+############# INTERFACE TEXTS #############;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  CONFIRM MESSAGES;;;;;;;;;;;X
+##;;;;;;;;;;;X
+CONFIRMDISBAND;Do you really want to disband this regiment? You will lose its service for the current campaign, and they will go back to %s.;;;;;;;;;;X
+CONFIRMCANCELBUILDING;Do you really want to cancel the construction of %s in %s?;;;;;;;;;;X
+CONFIRMNAVALTRA;Do you really want to ship these troops across the seas to %s. It will cost you %.1f$ in fees.;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+######### ROLLOVER HELP TEXTS ###########;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  MAIN MAP ROLLOVERS;;;;;;;;;;;X
+##;;;;;;;;;;;X
+ALR_WAR;%s is a at war with %s.\n;;;;;;;;;;X
+ALR_MILITARY;%s has a Military Alliance (expires %s %d).\n;;;;;;;;;;X
+##;;;;;;;;;;;X
+RVIEW;Info about %s;;;;;;;;;;X
+ROWN;Owned by %s;;;;;;;;;;X
+ROWNCON;Owned by %s\nControlled by %s;;;;;;;;;;X
+RINFO;Info about %s;;;;;;;;;;X
+##;;;;;;;;;;;X
+MECENATROLLOVER;Settler from %s enroute to %s;;;;;;;;;;X
+##;;;;;;;;;;;X
+RPPORT;Port;;;;;;;;;;X
+RPARMY;Army;;;;;;;;;;X
+RPEMPTY;Empty;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  MAIN MAP BAR ? GENERAL;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  LOCATOR MAP;;;;;;;;;;;X
+##;;;;;;;;;;;X
+MINIMAP_DRO;Left-click to center main map over clicked area. Right-click to view locate function or give move order to selected unit.;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+########### IN-GAME MAIN MENU ############;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+##;;;;;;;;;;;X
+OPTHEADER;GAME MANAGEMENT;;;;;;;;;;X
+OPTBTN_EXPORT;EXPORT;;;;;;;;;;X
+OPTBTN_SAVE;SAVE;;;;;;;;;;X
+OPTBTN_OPTIONS;OPTIONS;;;;;;;;;;X
+OPTBTN_HINTS;HINTS;;;;;;;;;;X
+OPTBTN_QUIT;SURRENDER;;;;;;;;;;X
+OPTBTN_BACK;RETURN;;;;;;;;;;X
+OPTIONHEADER;OPTION;;;;;;;;;;X
+INGAME_MESSAGES;MESSAGE SETTINGS;;;;;;;;;;X
+##;;;;;;;;;;;X
+OPTION_SFXVOLUME;SFX VOLUME;;;;;;;;;;X
+OPTION_MUSICVOLUME;MUSIC VOLUME;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  MESSAGE DISPLAY OPTIONS;;;;;;;;;;;X
+##;;;;;;;;;;;X
+HEADER_MISSIONS_AND_MONARCHS;GLOBAL EVENTS;;;;;;;;;;X
+HEADER_CHARACTER;CHARACTER;;;;;;;;;;X
+HEADER_ECONOMICAL;ECONOMIC;;;;;;;;;;X
+HEADER_DIPLOMATIC;DIPLOMATIC;;;;;;;;;;X
+HEADER_BATTLES_AND_MILITARY;BATTLES AND MILITARY;;;;;;;;;;X
+HEADER_COLONIZATION_AND_EXPLORATION;COLONIZATION AND EXPLORATION;;;;;;;;;;X
+HEADER_RELIGION;RELIGION;;;;;;;;;;X
+##;;;;;;;;;;;X
+DO_NOT_DISPLAY;§YDo not display this message;;;;;;;;;;X
+DISPLAY_IN_LOG;§YDisplay this type of message in the game log;;;;;;;;;;X
+DISPLAY_IN_BOX;§YDisplay this type of message in a message box;;;;;;;;;;X
+DISPLAY_PAUSE;§YDisplay this type in a message box & Pause;;;;;;;;;;x
+MESSAGE_HEADER;§YINGAME MESSAGES;;;;;;;;;;X
+MESSAGE_HEADER_PROPERTIES;§YMESSAGE PROPERTIES;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  SIDEBAR BUTTONS;;;;;;;;;;;X
+##;;;;;;;;;;;X
+BUILDSHIPYARD;;;;;;;;;;;X
+BUILDBARRACK;;;;;;;;;;;X
+BUTTON_0001;;;;;;;;;;;X
+BUTTON_0002;;;;;;;;;;;X
+BUTTON_0003;;;;;;;;;;;X
+BUTTON_0004;;;;;;;;;;;X
+BUTTON_0005;;;;;;;;;;;X
+BUTTON_0006;Cancel;;;;;;;;;;X
+BUTTON_0007;;;;;;;;;;;X
+BUTTON_0008;;;;;;;;;;;X
+BUTTON_0009;;;;;;;;;;;X
+BUTTON_0010;;;;;;;;;;;X
+BUTTON_0011;;;;;;;;;;;X
+BUTTON_0012;;;;;;;;;;;X
+BUTTON_0013;;;;;;;;;;;X
+BUTTON_0014;;;;;;;;;;;X
+BUTTON_0015;;;;;;;;;;;X
+BUTTON_0016;;;;;;;;;;;X
+BUTTON_0017;;;;;;;;;;;X
+BUTTON_0018;;;;;;;;;;;X
+BUTTON_0019;;;;;;;;;;;X
+BUTTON_0020;;;;;;;;;;;X
+BUTTON_0021;;;;;;;;;;;X
+BUTTON_0022;;;;;;;;;;;X
+BUTTON_0023;;;;;;;;;;;X
+BUTTON_0024;;;;;;;;;;;X
+BUTTON_0025;;;;;;;;;;;X
+BUTTON_0026;;;;;;;;;;;X
+BUTTON_0036;;;;;;;;;;;X
+BUTTON_0037;;;;;;;;;;;X
+BUTTON_0041;View Game Settings (F10);;;;;;;;;;X
+BUTTON_0043;Zoom In (+);;;;;;;;;;X
+BUTTON_0044;Zoom Out (?);;;;;;;;;;X
+BUTTON_0045;;;;;;;;;;;X
+BUTTON_0046;;;;;;;;;;;X
+BUTTON_0047;;;;;;;;;;;X
+BUTTON_0048;;;;;;;;;;;X
+BUTTON_0049;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+CLOSE;CLOSE;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  FINANCIAL SUMMARY WINDOW;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  TROOPS PURCHASE WINDOW;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  'HIDDEN' PROVINCE INFORMATION WINDOW;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+HPINFOABOUT;(Click for information about %s);;;;;;;;;;X
+##;;;;;;;;;;;X
+HPCONI2;If controlled by other nation than owner the province will not generate any tax incomes and cannot build any troops. To assume control of a province move a military unit into it and defeat all enemy forces.;;;;;;;;;;X
+HPOWNI2;The owner gets all tax and production incomes from the province and can build troops fortresses and manufactories.;;;;;;;;;;X
+HPOWNI1;Province owned by %s;;;;;;;;;;X
+HPCONI1;(province controlled by %s);;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+HPREL_IRO;Province Religion: %s;;;;;;;;;;X
+HPREL_DRO;If your state religion and the province's religion are different, the revolt risk may increase. Click for details.;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  DIPLOMACY WINDOW;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  AREA NAMES;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  Religion Name;;;;;;;;;;;X
+##;;;;;;;;;;;X
+VERYEASY;Very Easy;;;;;;;;;;X
+EASY;Easy;;;;;;;;;;X
+MODERATE;Moderate;;;;;;;;;;X
+DIFFICULT;Difficult;;;;;;;;;;X
+VERYDIFFICULT;Very Difficult;;;;;;;;;;X
+#  COMBAT RESULTS ? describes combat status of armies and navies;;;;;;;;;;;X
+##;;;;;;;;;;;X
+ANWMORALE;MORALE;;;;;;;;;;X
+##;;;;;;;;;;;X
+INVINCIBLE;Invincible;;;;;;;;;;X
+VERYSTRONG;Very Strong;;;;;;;;;;X
+STRONG;Strong;;;;;;;;;;X
+DISCIPLINED;Disciplined;;;;;;;;;;X
+WEAK;Weak;;;;;;;;;;X
+BREAKING;Breaking;;;;;;;;;;X
+PANIC;Panic;;;;;;;;;;X
+##;;;;;;;;;;;X
+ANW_MORALE_IRO;The higher the morale, the longer can your troops fight before breaking from a combat. Morale increases automatically whenever the unit is not in combat.;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+UIW_NOREORG;You cannot reorganize units that are moving, in combat or in different provinces;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+# ERROR MESSAGES;;;;;;;;;;;X
+##;;;;;;;;;;;X
+# misc errors;;;;;;;;;;;X
+NOUNLOADSPACE;Sire, we can't unload here.;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+########### IN-GAME MESSAGES ############;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+##;;;;;;;;;;;X
+INVACCEPT;ACCEPT;;;;;;;;;;X
+INVDECLINE;DECLINE;;;;;;;;;;X
+##;;;;;;;;;;;X
+POPDIPLO;Envoy from;;;;;;;;;;X
+POPRESP;What is your response?;;;;;;;;;;X
+##;;;;;;;;;;;X
+ANSWERINVITATION;%t, %s invites us to enter a;;;;;;;;;;X
+INVDYN;ROYAL MARRIAGE;;;;;;;;;;X
+INVMIL;MILITARY ALLIANCE;;;;;;;;;;X
+INVVAS;VASSALIZATION;;;;;;;;;;X
+INVALONG; along with ;;;;;;;;;;X
+INVAGAINST;directed against ;;;;;;;;;;X
+INWARWITH;They are at war with ;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  PLAYER TITLES;;;;;;;;;;;X
+##;;;;;;;;;;;X
+MESS_RANK0;Sir;;;;;;;;;;X
+MESS_RANK1;Sir;;;;;;;;;;X
+MESS_RANK2;Sir;;;;;;;;;;X
+MESS_RANK3;Sir;;;;;;;;;;X
+MESS_RANK4;Sir;;;;;;;;;;X
+MESS_RANK5;Sir;;;;;;;;;;X
+MESS_RANK6;Sir;;;;;;;;;;X
+##;;;;;;;;;;;X
+MESS_MASTERCALL1;Sir;;;;;;;;;;X
+MESS_MASTERCALL2;Sir;;;;;;;;;;X
+MESS_MASTERCALL3;Sir;;;;;;;;;;X
+MESS_MASTERCALL4;Sir;;;;;;;;;;X
+MESS_MASTERCALL5;Sir;;;;;;;;;;X
+MESS_MASTERCALL6;Sir;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  These following pejorative adjectives are randomly inserted in some messages. The definite article ('the') can either be in the actual message or in this string ? the syntax in the english version is 'the %s [in %s have declared war on us]'.;;;;;;;;;;;X
+##;;;;;;;;;;;X
+MESS_BADWORDS1;the bastards;;;;;;;;;;X
+MESS_BADWORDS2;the rotten swine;;;;;;;;;;X
+MESS_BADWORDS3;the infidels;;;;;;;;;;X
+MESS_BADWORDS4;the traitors;;;;;;;;;;X
+##;;;;;;;;;;;X
+EFFECTS;Effect;;;;;;;;;;X
+HISTORY;History;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+HINT_HEADER;Game Hint #%d;;;;;;;;;;X
+HINT_SHOWHINTS;Show tips at startup;;;;;;;;;;X
+HINT_BTN_MORE;More;;;;;;;;;;X
+HINT_BTN_NEXT;Next;;;;;;;;;;X
+HINT_BTN_CLOSE;Close;;;;;;;;;;X
+HINT_BTN_PREVIOUS;Previous;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+# CREDITS;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+CR_PRESIDENT;PRESIDENT;;;;;;;;;;X
+CR_EXECUTIVE_PRODUCER;EXECUTIVE PRODUCER;;;;;;;;;;X
+CR_PRODUCER;PRODUCER;;;;;;;;;;X
+CR_CREATIVE_DIRECTOR;CREATIVE DIRECTOR;;;;;;;;;;X
+CR_PRODUCT_MANAGER;PRODUCT MANAGER;;;;;;;;;;X
+CR_CODE;PROGRAMMING;;;;;;;;;;X
+CR_LPROGRAMMING;LEAD PROGRAMMER;;;;;;;;;;X
+CR_PROGRAMMING;PROGRAMERS;;;;;;;;;;X
+CR_ADDITIONAL_PROGRAMMING;ADDITIONAL PROGRAMMING;;;;;;;;;;X
+CR_ART;ART;;;;;;;;;;X
+HINT_1;By pressing 'ctrl' and '+' or '-' simultaneously, you can change the time compression (game speed).;;;;;;;;;;X
+HINT_2;Pressing '+' or '-' works as a shortcut to changing the map zoom level.;;;;;;;;;;X
+HINT_3;Hitting the 'Pause/Break' button will pause or resume the game.;;;;;;;;;;X
+HINT_4;You can hold down the 'shift' key to add additional destinations to a unit's movement path.;;;;;;;;;;X
+HINT_5;If you hold the mouse still over a button number or symbol on the screen more detailed information will usually appear after 2 seconds.;;;;;;;;;;X
+HINT_6;Double clicking locks/unlocks sliders.;;;;;;;;;;X
+HINT_7;If you click on the date uppermost centre the game will pause. Click again and it will continue.;;;;;;;;;;X
+HINT_8;To make your attributes (martial, diplomacy, intrigue, stewardship) effective you need to appoint advisors (marshal, chancellor, spymaster, steward) from your court.;;;;;;;;;;X
+HINT_9;Remember that if you change your laws your vassals will be mightily upset. At least a few of your vassals might make armed resistance against your break of tradition.;;;;;;;;;;X
+HINT_10;Don't forget to set your focus on developing advances. It does speed up the process of getting advances in areas of your interest.;;;;;;;;;;X
+HINT_11;Sea movement is simple just mark the unit(s) you want to move and right-click in the province you want to move to by sea and then make the confirmation in the action pop-up and it will move to its destination.;;;;;;;;;;X
+HINT_12;You portrait (uppermost right) takes you to your dynasty screen where you can see all persons related to you, and where you can check out your spouse, your children and your vassals.;;;;;;;;;;X
+HINT_13;Your shield (uppermost right) take you to all the realm screens where you can access the court, the treasury, actions etc.;;;;;;;;;;X
+HINT_14;Remember that to marry well you will need children and grandchildren to inherit from you. When your character dies you will most probably play one of your children.;;;;;;;;;;X
+HINT_15;Remember that a liege can arrange marriages for his vassals. If you are a vassal your liege can fix your marriage for you, and if you are a liege and have children that are rulers in independent realms then you cannot marry them.;;;;;;;;;;X
+HINT_16;Fertility follows the same patterns as the real world. Characters that are very young or old do not get children.;;;;;;;;;;X
+HINT_17;It is always better to have more men in your army than your enemy has. Also an enemy with a commander with much higher martial value than you will be a very tough nut to crack.;;;;;;;;;;X
+HINT_18;If you do not arrange marriages for your daughters you will slowly loose prestige over time. When you arrange such marriage you get prestige in proportion to the rank of your new son-in-law. Also if your new son-in-law is your vassal his loyalty will increase.;;;;;;;;;;X
+HINT_19;When appointing advisors remember that women cannot be appointed to Diocese Bishops or Marshals. However they can be appointed to Steward, Chancellor and Spy Master.;;;;;;;;;;X
+HINT_20;If the character portrait has a red square behind it and a royal crown then the character is a King. If it has a blue banner rolled around the portrait then the character is a Duke. If there are no attributes to the portrait then it is a Count.;;;;;;;;;;X
+HINT_21;You automatically get prestige over time for holding titles, the higher the title the higher prestige.;;;;;;;;;;X
+HINT_22;A big white banner with a red cross beneath your portrait and shield in the uppermost right means that the Pope has called for the crusade. The effects are that you get a piety penalty over time if you do not fight pagans and/or muslims, and a bonus if you do.;;;;;;;;;;X
+HINT_23;In the province window you see the buildings in your province and here you can upgrade them, but did you know that the landscape also show the terrain type in the province?;;;;;;;;;;X
+HINT_24;A big white cross near you character portrait means that the character is the controller of the Pope.;;;;;;;;;;X
+HINT_25;Beware of your character traits. Be careful when picking actions in the events as the traits you may get can trigger other events.;;;;;;;;;;X
+HINT_26;In the mid-13th century the Mongols will sweep into Europe from the East attacking on two fronts. One route will go from Bukhara over Bagdad and then towards Cairo and Constantinople, while the other will go through Russia towards Poland and Hungary. If Europe has warred too much you might have to stop them outside the gates of Paris...;;;;;;;;;;X
+HINT_27;In the mid-14th century the Black Death will arrive in Europe and start spreading. This will hurt the economy of most countries, but afterwards the economy will surge again. See to it that you have many successors as the grim reaper will take is toll.;;;;;;;;;;X
+HINT_28;Did you know that archers and horse archers are the only troops types that can hit in several combat phases?;;;;;;;;;;X
+HINT_29;Did you know that not only do Knights have the highest Shock value in combat, but also have the absolute highest morale value in the game.;;;;;;;;;;X
+HINT_30;Did you know that you loose prestige if you do not give titles to your sons?;;;;;;;;;;X
+HINT_31;Did you know that you will be able to choose educational path for your children when they are 5 years old?;;;;;;;;;;X
+HINT_32;Did you know that the quality of the education of your children will be decided when they are between 16 and 19?;;;;;;;;;;X
+HINT_33;Did you know that Pike Men have special bonuses against all forms of Cavalry?;;;;;;;;;;X
+HINT_34;Did you know that the attack and defence values of any unit are increased with different types of armour and weaponry advances being available?;;;;;;;;;;X
+HINT_35;Did you know that the controller of the Pope can excommunicate and revoke excommunication?;;;;;;;;;;X
+HINT_36;If you want to make one of your courtiers a duke then you first have to grant him a count title and then a duke title.;;;;;;;;;;X
+HINT_37;A duke can hold many counties making him a stronger vassal than a mere count.;;;;;;;;;;X
+HINT_38;Remember that sawmill decreases build time in your province. However you need a forestry first.;;;;;;;;;;X
+HINT_39;;;;;;;;;;;X
+HINT_40;;;;;;;;;;;X
+HINT_41;;;;;;;;;;;X
+HINT_42;;;;;;;;;;;X
+HINT_43;;;;;;;;;;;X
+HINT_44;;;;;;;;;;;X
+HINT_45;;;;;;;;;;;X
+HINT_46;;;;;;;;;;;X
+HINT_47;;;;;;;;;;;X
+HINT_48;;;;;;;;;;;X
+HINT_49;;;;;;;;;;;X
+HINT_50;;;;;;;;;;;X
+HINT_51;;;;;;;;;;;X
+HINT_52;;;;;;;;;;;X
+HINT_53;;;;;;;;;;;X
+HINT_54;;;;;;;;;;;X
+HINT_55;;;;;;;;;;;X
+HINT_56;;;;;;;;;;;X
+HINT_57;;;;;;;;;;;X
+HINT_58;;;;;;;;;;;X
+HINT_59;;;;;;;;;;;X
+HINT_60;;;;;;;;;;;X
+HINT_61;;;;;;;;;;;X
+HINT_62;;;;;;;;;;;X
+HINT_63;;;;;;;;;;;X
+HINT_64;;;;;;;;;;;X
+HINT_65;;;;;;;;;;;X
+HINT_66;;;;;;;;;;;X
+HINT_67;;;;;;;;;;;X
+HINT_68;;;;;;;;;;;X
+HINT_69;;;;;;;;;;;X
+HINT_70;;;;;;;;;;;X
+HINT_71;;;;;;;;;;;X
+HINT_72;;;;;;;;;;;X
+HINT_73;;;;;;;;;;;X
+HINT_74;;;;;;;;;;;X
+HINT_75;;;;;;;;;;;X
+HINT_76;;;;;;;;;;;X
+HINT_77;;;;;;;;;;;X
+HINT_78;;;;;;;;;;;X
+HINT_79;;;;;;;;;;;X
+HINT_80;;;;;;;;;;;X
+HINT_81;;;;;;;;;;;X
+HINT_82;;;;;;;;;;;X
+HINT_83;;;;;;;;;;;X
+HINT_84;;;;;;;;;;;X
+HINT_85;;;;;;;;;;;X
+HINT_86;;;;;;;;;;;X
+HINT_87;;;;;;;;;;;X
+HINT_88;;;;;;;;;;;X
+HINT_89;;;;;;;;;;;X
+HINT_90;;;;;;;;;;;X
+HINT_91;;;;;;;;;;;X
+HINT_92;;;;;;;;;;;X
+HINT_93;;;;;;;;;;;X
+HINT_94;;;;;;;;;;;X
+HINT_95;;;;;;;;;;;X
+HINT_96;;;;;;;;;;;X
+HINT_97;;;;;;;;;;;X
+HINT_98;;;;;;;;;;;X
+HINT_99;;;;;;;;;;;X
+HINT_100;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+########### SCENARIO INFO TEXTS ##########;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+##;;;;;;;;;;;X
+CR_ART_LEAD;LEAD ARTIST;;;;;;;;;;X
+CR_ARTISTS;ARTISTS;;;;;;;;;;X
+CR_FMV_SEQUENCES;FMV SEQUENCES;;;;;;;;;;X
+CR_ADDITIONAL_ART;ADDITIONAL ART;;;;;;;;;;X
+CR_DESIGN;DESIGN;;;;;;;;;;X
+CR_SCENARIO;SCENARIO DESIGN;;;;;;;;;;X
+CR_ASCENARIO;ADDITIONAL SCENARIO DESIGN;;;;;;;;;;X
+CR_PROJECT_LEAD_CREATIVE_DIRECTOR;PROJECT LEAD / CREATIVE DIRECTOR;;;;;;;;;;X
+CR_BASED;BASED ON DESIGN BY;;;;;;;;;;X
+CR_MUSIC;MUSIC & SFX;;;;;;;;;;X
+CR_ORIGINAL_MUSIC;ORIGINAL MUSIC;;;;;;;;;;X
+CR_SOUND_EFFECTS;SOUND EFFECTS;;;;;;;;;;X
+CR_VOICES;VOICES;;;;;;;;;;X
+CR_MEDIA;MEDIA;;;;;;;;;;X
+CR_EDITOR;EDITOR;;;;;;;;;;X
+CR_MANUAL;MANUAL;;;;;;;;;;X
+CR_TRANSLATION;TRANSLATION;;;;;;;;;;X
+CR_DTP;DTP;;;;;;;;;;X
+CR_COVER_DESIGN;COVER DESIGN;;;;;;;;;;X
+CR_TESTING;TESTING;;;;;;;;;;X
+CR_TEST_MANAGER;TEST MANAGER;;;;;;;;;;X
+CR_TESTERS;TESTERS;;;;;;;;;;X
+CR_SPECIAL_CONTRIBUTIONS;SPECIAL CONTRIBUTIONS;;;;;;;;;;X
+CR_ADDITIONAL_CONTRIBUTIONS;ADDITIONAL CONTRIBUTIONS;;;;;;;;;;X
+CR_EU1;The Original Europa Univeralis was made by;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+# BZIP Texts;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+BZIP_COMPRESSING_FILE_WAIT;Compressing the Scenario File, please wait! This will take about 15-30 seconds during which time the computer may seem frozen.;;;;;;;;;;X
+BZIP_COMPRESSION_FAILED;The compression of the Scenario File failed. Please contact support.;;;;;;;;;;X
+BZIP_DECOMPRESSION_FAILED;The decompression of the Scenario File failed. Please contact support.;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+# End of BZIP Texts;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+# VALKYRIENET;;;;;;;;;;;X
+###########################################;;;;;;;;;;;X
+EN_GAME_NAME;EU2;;;;;;;;;;X
+EN_VERSION;Version: ;;;;;;;;;;X
+EN_WRONG_VERSION;Your version doesn't correspond to the hosted game;;;;;;;;;;X
+EN_NAME;Valkyrienet;;;;;;;;;;X
+EN_USER_LEFT_CHANNEL;has left the channel...;;;;;;;;;;X
+EN_HOST_GAME_NAME;'s game;;;;;;;;;;X
+EN_CHOOSE_CHANNEL;Choose a channel to log into, among the channels listed.;;;;;;;;;;X
+EN_CHANGING_CHANNEL;Changing Channel;;;;;;;;;;X
+EN_GETTING_CHANNEL_LIST;Retrieving list of channels, please wait...;;;;;;;;;;X
+EN_CONNECT_CHANNEL_FIRST;Please connect to a channel first.;;;;;;;;;;X
+EN_GAME_CHANNEL_FOUND;Game and channel found!;;;;;;;;;;X
+EN_GAME_NOT_FOUND;The requested game was not found.;;;;;;;;;;X
+EN_CHANNEL_NOT_FOUND;The requested channel was not connectable.;;;;;;;;;;X
+EN_NO_NAME_SERVER;The mainserver was not reachable. Please check that you are connected to the Internet.;;;;;;;;;;X
+EN_SERVER_TIMED_OUT;The server does not respond.;;;;;;;;;;X
+EN_CONNECTION_BROKE;You were disconnected.;;;;;;;;;;X
+EN_NO_CONNECTION;Connection is not active. Please check that you are connected to the internet.;;;;;;;;;;X
+EN_ERROR_RPC_THREAD;There was an error when the client’s RPC was called.;;;;;;;;;;X
+EN_GAME_INFO_IP_ADDRESS;IP Address: ;;;;;;;;;;X
+EN_GAME_INFO_DESCRIPTION;Description:;;;;;;;;;;X
+EN_GAME_INFO_PLAYER_LIMIT;Maximum Players: %d;;;;;;;;;;X
+EN_GAME_INFO_HOSTED_BY;Owner:;;;;;;;;;;X
+EN_GAME_INFO_PLAYERS;Player:;;;;;;;;;;X
+EN_USER_EXISTS_CHANNEL;A player with that name is already connected to that channel. Please change name or channel.;;;;;;;;;;X
+EN_GAME_EXISTS;That game already exists.;;;;;;;;;;X
+EN_GAME_LIMIT_REACHED;There can not be anymore games created on this channel;;;;;;;;;;X
+EN_GAME_USER_ALREADY_JOINED;You are already logged into a game.;;;;;;;;;;X
+EN_GAME_OK;You were connected to the game.;;;;;;;;;;X
+EN_GAME_FULL;You could not connect to that game, since it was already at maximum players.;;;;;;;;;;X
+EN_GAME_JOINED_FAILED_NOT_EXIST;The game does not exist anymore.;;;;;;;;;;X
+EN_GAME_LEAVE_OK;You left the game.;;;;;;;;;;X
+EN_GAME_LEAVE_FAILED_NO_EXISTS;You couldn't leave the game since it doesn't exist anymore.;;;;;;;;;;X
+EN_GAME_LEAVE_HOST;The host left the game, cancelling it.;;;;;;;;;;X
+EN_GAME_REMOVE_OK;The game was removed.;;;;;;;;;;X
+EN_GAME_REMOVE_NO_EXISTS;The game could not be removed, as it does not exist any longer.;;;;;;;;;;X
+EN_GAME_REMOVE_NOT_HOST;Only the creator of a game can remove it.;;;;;;;;;;X
+EN_LAUNCH_GAME_OK;The game was started.;;;;;;;;;;X
+EN_LAUNCH_GAME_FAILED_NO_EXIST;The game could not be started as it does not exist.;;;;;;;;;;X
+EN_LAUNCH_GAME_NOT_HOST;Only the creator of a game can start it.;;;;;;;;;;X
+EN_RPC_UPDATE_MESSAGE_GAME_LAUNCH;The host started the game;;;;;;;;;;X
+EN_RPC_UPDATE_MESSAGE_GAME_FORCE_LEAVE;The host left your game.;;;;;;;;;;X
+EN_GAME_STARTED_WITH_NAME;§W created a game with the name: ;;;;;;;;;;X
+EN_PLAYER_LOGGED_IN_TO_CHANNEL;§W logged into the channel.;;;;;;;;;;X
+EN_NO_CHANNEL;NO CHANNEL SELECTED;;;;;;;;;;X
+EN_GAMEINFO_STANDARD;EU2 Game;;;;;;;;;;X
+EN_NOT_CREATE_STATUS_THREAD;Status thread was not creatable.;;;;;;;;;;X
+EN_NOT_CREATE_CONNECT_THREAD;Connection thread was not creatable.;;;;;;;;;;X
+EURONET_CHAT_HEADLINE;CHAT;;;;;;;;;;X
+EURONET_PLAYER_LIST_HEADLINE;PLAYERLIST;;;;;;;;;;X
+EURONET_CURRENT_GAMES_HEADLINE;CURRENT GAMES;;;;;;;;;;X
+EURONET_GAME_INFO;GAME INFO;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  ROLLOVER of Event Commands;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+EVENTBUTTON_INFO;(For effects of your decision, check the information appearing when you move the mouse over the button.);;;;;;;;;;X
+##;;;;;;;;;;;X
+EVENT_SELECTION;%s : We went with %s in %s.;;;;;;;;;;X
+EVENT_SIMPLE;%s : %s happened to us.;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  Date and Time order strings use M for month name, D for day, Y for year, and H for hour...;;;;;;;;;;;x
+DATE;M D, Y;;;;;;;;;;x
+TIME;H:00 M D, Y;;;;;;;;;;x
+EXPORTGAME;Export to Eu2;;;;;;;;;;x
+SAVEGAME;Save Game;;;;;;;;;;x
+##### 021204 ################;;;;;;;;;;;x
+ERROR_SOUND_NAME;Critical Error!;;;;;;;;;;x
+ERROR_SOUND_DESC;CK has encountered a problem with your sound card. Please obtain and install the latest sound drivers from the sound card manufacturer. If the problem persists, contact the technical support.;;;;;;;;;;x
+##;;;;;;;;;;;x
+JOINMPGAME;<%s has joined>;;;;;;;;;;x
+LEFTMPGAME;<%s has left>;;;;;;;;;;x
+##;;;;;;;;;;;x
+3RD;rd;;;;;;;;;;X
+1TH;St;;;;;;;;;;X
+2TH;Nd;;;;;;;;;;X
+##CK;;;;;;;;;;;X
+INFANT_NAME;Unnamed infant;;;;;;;;;;X
+COUNTY_OF;County of;;;;;;;;;;X
+DUCHY_OF;Duchy of;;;;;;;;;;X
+MALE_CHILD;son;;;;;;;;;;X
+FEMALE_CHILD;daughter;;;;;;;;;;X
+MALE_PRONOM;He;;;;;;;;;;X
+FEMALE_PRONOM;she;;;;;;;;;;X
+MALE_POSSESIVE_PRONOM;his;;;;;;;;;;X
+FEMALE_POSSESIVE_PRONOM;her;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+BTN_MAPMODE_TOG_A_IRO;Toggle Coat of Arms ON/OFF (y);;;;;;;;;;X
+BTN_MAPMODE_TOG_A_DRO;This hides or shows all Coats of Arms on the main map.;;;;;;;;;;X
+BTN_MAPMODE_TOG_B_IRO;Toggle Units ON/OFF (u);;;;;;;;;;X
+BTN_MAPMODE_TOG_B_DRO;This hides or shows all visible units on the main map.;;;;;;;;;;X
+BTN_MAPMODE_TOG_C_IRO;Toggle Forts ON/OFF (i);;;;;;;;;;X
+BTN_MAPMODE_TOG_C_DRO;This Hides or shows all fortifications on the main map.;;;;;;;;;;X
+BTN_MAPMODE_A_IRO;View Terrain Map (q);;;;;;;;;;X
+BTN_MAPMODE_A_DRO;This is the standard map view.;;;;;;;;;;X
+BTN_MAPMODE_B_IRO;View Relational Map (w);;;;;;;;;;X
+BTN_MAPMODE_B_DRO;This is the relationship map mode where dark green is the chosen province and all other demesne provinces of the same ruler, light green is a province belonging to his vassal and red is a province belonging to his enemy.;;;;;;;;;;X
+BTN_MAPMODE_C_IRO;View Economic Map (e);;;;;;;;;;X
+BTN_MAPMODE_C_DRO;This is the economic map mode where the economic strength are coloured from dark red (Poor) to green (Rich).;;;;;;;;;;X
+BTN_MAPMODE_D_IRO;View Realm Map (r);;;;;;;;;;X
+BTN_MAPMODE_D_DRO;This is the realm map mode where you can view all realms at the same time in different colours.;;;;;;;;;;X
+BTN_MAPMODE_E_IRO;View Religion Map (t);;;;;;;;;;X
+BTN_MAPMODE_E_DRO;This is the religion map mode where you can view the religion of the population of each province, and where Muslim is light green, Orthodox is brown, Pagan is grey, and Catholic is white.;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+SLIGHTLY;Slightly;;;;;;;;;;X
+MODERATELY;Moderately;;;;;;;;;;X
+VERY;Very;;;;;;;;;;X
+EXTREMELY;Extremely;;;;;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+NO_TITLE;No titles;;;;;;;;;;X
+NOTATCOURT;Not at court!;;;;;;;;;;x
+COURTIER;Courtier;;;;;;;;;;X
+MARSHAL;Marshal;;;;;;;;;;X
+STEWARD;Steward;;;;;;;;;;X
+CHANCELLOR;Chancellor;;;;;;;;;;X
+SPYMASTER;Spy Master;;;;;;;;;;X
+CHAPLAIN;Diocese Bishop;;;;;;;;;;x
+##;;;;;;;;;;;X
+APPOINT;Appoint;;;;;;;;;;X
+LIEGE;Liege;;;;;;;;;;X
+SPOUSE;Spouse;;;;;;;;;;X
+VASSALS;Vassals;;;;;;;;;;X
+SIBLINGS;Siblings;;;;;;;;;;X
+CHILDREN;Children;;;;;;;;;;X
+PIETY;Piety;;;;;;;;;;X
+PRESTIGE;Prestige;;;;;;;;;;X
+SCOREGOLD;Gold;;;;;;;;;;X
+MOTHER;Mother;;;;;;;;;;X
+FATHER;Father;;;;;;;;;;X
+PARENTS;Parents;;;;;;;;;;X
+PREDECESSORS;Predecessors;;;;;;;;;;X
+SUCCESSORS;Successors;;;;;;;;;;X
+COURTMEM;Court Members;;;;;;;;;;x
+#;;;;;;;;;;;X
+PRESTIGE_DRO;Prestige is to be understood as your standing among you equals, in Glory, in Fame and in Power.;;;;;;;;;;X
+PIETY_DRO;Piety is how well you incarnate the ideals of the perfected Christian ruler, in Justice, in Honesty, and in Meekness. ;;;;;;;;;;X
+GOLD_DRO;Gold is the amount of monetary resources you have. In other words, how rich you are.;;;;;;;;;;X
+##;;;;;;;;;;;X
+COURT;Court;;;;;;;;;;X
+BUDGET;Treasury;;;;;;;;;;X
+REALM;Realm;;;;;;;;;;X
+DIPLOMACY;Diplomacy;;;;;;;;;;X
+MOBILIZE_HOST;Mobilize Host;;;;;;;;;;X
+##;;;;;;;;;;;X
+PHASE_MANEUVER;Manoeuvre;;;;;;;;;;X
+PHASE_ADVANCE;Advance;;;;;;;;;;X
+PHASE_SKIRMISH;Skirmish;;;;;;;;;;X
+PHASE_FRONT;Front;;;;;;;;;;X
+PHASE_FLANK;Flank;;;;;;;;;;X
+PHASE_RETREAT;Retreat;;;;;;;;;;X
+PHASE_PURSUE;Pursuit;;;;;;;;;;X
+##;;;;;;;;;;;X
+BATTLE_OF;Battle Of;;;;;;;;;;X
+##;;;;;;;;;;;X
+HEAVY_CAV;Knights;;;;;;;;;;X
+LIGHT_CAV;Light Cavalry;;;;;;;;;;X
+ARCHERS_CAV;Horse Archers;;;;;;;;;;X
+PIKEMEN;Pike Men;;;;;;;;;;X
+HEAVY_INF;Heavy Infantry;;;;;;;;;;X
+ARCHERS;Archers;;;;;;;;;;X
+MILITIA;Light Infantry;;;;;;;;;;X
+WINTER_EQUIPMENT;Winter equipment;;;;;;;;;;X
+SIEGE_TRAIN;Siege train;;;;;;;;;;X
+##;;;;;;;;;;;X
+IW_ROLLOVER_PROVINCE_IMPROVEMENT_SELECT;Click here to construct a province improvement.;;;;;;;;;;X
+IW_ROLLOVER_PROVINCE_IMPROVEMENT_DESELECT;Click here to cancel.;;;;;;;;;;X
+##;;;;;;;;;;;X
+PEASANT;Peasant;;;;;;;;;;X
+BURGHER;Burgher;;;;;;;;;;X
+CLERGY;Clergy;;;;;;;;;;X
+NOBILITY;Nobility;;;;;;;;;;X
+##;;;;;;;;;;;X
+INC_PEASANT;Click to increase the power of the peasants in this province.;;;;;;;;;;X
+INC_BURGHER;Click to increase the power of the burghers in this province.;;;;;;;;;;X
+INC_CLERGY;Click to increase the power of the clergy in this province.;;;;;;;;;;X
+INC_NOBLE;Click to increase the power of the nobles in this province.;;;;;;;;;;X
+INC_ERR_PEASANT;The peasants can not become more powerful in this province.;;;;;;;;;;X
+INC_ERR_BURGHER;The burghers can not become more powerful in this province.;;;;;;;;;;X
+INC_ERR_CLERGY;The clergy can not become more powerful in this province.;;;;;;;;;;X
+INC_ERR_NOBLE;The nobles can not become more powerful in this province.;;;;;;;;;;X
+#;;;;;;;;;;;X
+PEASANTS_TAX_BONUS;Peasant tax:;;;;;;;;;;X
+BURGHERS_TAX_BONUS;Burgher tax:;;;;;;;;;;X
+CLERGY_TAX_BONUS;Clergy tax:;;;;;;;;;;X
+NOBLES_TAX_BONUS;Nobles tax:;;;;;;;;;;X
+GOLD_BONUS;Gold:;;;;;;;;;;X
+PIETY_BONUS;Piety:;;;;;;;;;;X
+PRESTIGE_BONUS;Prestige:;;;;;;;;;;X
+ABSOLUTE_GOLD_BONUS;Yearly gold:;;;;;;;;;;X
+ABSOLUTE_PRESTIGE_BONUS;Yearly prestige:;;;;;;;;;;X
+ABSOLUTE_PIETY_BONUS;Yearly piety:;;;;;;;;;;X
+BUILDTIME_BONUS;Build time:;;;;;;;;;;X
+ABSOLUTE_PILLAGE_GOLD_BONUS;Pillage effect (gold):;;;;;;;;;;X
+ABSOLUTE_PILLAGE_PRESTIGE_BONUS;Pillage effect (prestige):;;;;;;;;;;X
+ABSOLUTE_PILLAGE_PIETY_BONUS;Pillage effect (piety):;;;;;;;;;;X
+PEASANTS_PERIODIC_LOYALTY_BONUS;Monthly peasants loyalty:;;;;;;;;;;X
+BURGHERS_PERIODIC_LOYALTY_BONUS;Monthly burghers loyalty:;;;;;;;;;;X
+CLERGY_PERIODIC_LOYALTY_BONUS;Monthly clergy loyalty:;;;;;;;;;;X
+NOBLES_PERIODIC_LOYALTY_BONUS;Monthly nobles loyalty:;;;;;;;;;;X
+PEASANTS_LOYALTY_BONUS;Peasants loyalty:;;;;;;;;;;X
+BURGHERS_LOYALTY_BONUS;Burghers loyalty:;;;;;;;;;;X
+CLERGY_LOYALTY_BONUS;Clergy loyalty:;;;;;;;;;;X
+NOBLES_LOYALTY_BONUS;Nobles loyalty:;;;;;;;;;;X
+SPEED_BONUS;Speed:;;;;;;;;;;X
+CRIMINAL_BONUS;Risk of criminal enterprise:;;;;;;;;;;X
+ASSASINATION_BONUS;Vulnerability to assassination:;;;;;;;;;;X
+ATTRITION_MODIFIER;Attrition Modifier:;;;;;;;;;;X
+SUPPORT_MODIFIER;Supportable Troops Modifier:;;;;;;;;;;X
+DEMESNE_MODIFIER;Demesne Penalty Modifier:;;;;;;;;;;x
+TOLL_MODIFIER;Tolls Efficiency:;;;;;;;;;;x
+RECRUIT_MODIFIER;Recruitment Speed:;;;;;;;;;;x
+##;;;;;;;;;;;X
+OVERSUPPORT;Over maximum support: +%.f \n;;;;;;;;;;x
+LACKOFPAY;Lack of Pay: +%.f\n;;;;;;;;;;x
+BASE_SUPPORT;Base value: %d\n;;;;;;;;;;x
+##;;;;;;;;;;;X
+MONTHS;months;;;;;;;;;;X
+GOLD_COST;Cost:;;;;;;;;;;X
+PRESTIGE_COST;Prestige cost:;;;;;;;;;;X
+PIETY_COST;Piety cost:;;;;;;;;;;X
+CONSTRUCTION_TIME;Construction time:;;;;;;;;;;X
+GOLD_COMPLETION_BONUS;Gold completion bonus:;;;;;;;;;;X
+PRESTIGE_COMPLETION_BONUS;Prestige completion bonus:;;;;;;;;;;X
+PIETY_COMPLETION_BONUS;Piety completion bonus:;;;;;;;;;;X
+PEASANTS_LOYALTY_COMPLETION_BONUS;Onetime peasants loyalty:;;;;;;;;;;X
+BURGHERS_LOYALTY_COMPLETION_BONUS;Onetime burgher loyalty:;;;;;;;;;;X
+CLERGY_LOYALTY_COMPLETION_BONUS;Onetime clergy loyalty:;;;;;;;;;;X
+NOBLES_LOYALTY_COMPLETION_BONUS;Onetime nobles loyalty:;;;;;;;;;;X
+##;;;;;;;;;;;X
+IW_BUILDING;Under construction;;;;;;;;;;X
+MONTH_REMAINING;month remaining;;;;;;;;;;X
+MONTHS_REMAINING;months remaining;;;;;;;;;;X
+IW_LESS_THAN_1;less than 1;;;;;;;;;;X
+##;;;;;;;;;;;X
+IW_ADV_MAP_MODE;Show on map;;;;;;;;;;X
+##;;;;;;;;;;;X
+MARTIAL;Martial;;;;;;;;;;X
+INTRIGUE;Intrigue;;;;;;;;;;X
+STEWARDSHIP;Stewardship;;;;;;;;;;X
+##;;;;;;;;;;;X
+AND;and;;;;;;;;;;X
+##;;;;;;;;;;;X
+IW_ACTION_PROPOSE_MARRIGE_ACCEPTABLE_DESC;Send a proposal to %s about a marriage between %s and %s.;;;;;;;;;;X
+IW_ACTION_PROPOSE_MARRIGE_UNACCEPTABLE_DESC;A marriage between %s and %s would be unacceptable.;;;;;;;;;;X
+##;;;;;;;;;;;X
+IW_PROV_MONTHLY_GOLD;Monthly gold income:;;;;;;;;;;X
+IW_PROV_MONTHLY_PRESTIGE;Monthly prestige income:;;;;;;;;;;X
+IW_PROV_MONTHLY_PIETY;Monthly piety income:;;;;;;;;;;X
+IW_PROV_PLUNDER_GOLD;Plunder gold value:;;;;;;;;;;X
+IW_PROV_PLUNDER_PRESTIGE;Plunder prestige value:;;;;;;;;;;X
+IW_PROV_PLUNDER_PIETY;Plunder piety value:;;;;;;;;;;X
+IW_PROV_INCOME;Income;;;;;;;;;;X
+IW_PROV_PLUNDER;Plunder;;;;;;;;;;X
+IW_PROV_RELIGION;Religion;;;;;;;;;;X
+IW_PROV_CULTURE;Culture;;;;;;;;;;X
+IW_PROV_TERRAIN;Terrain;;;;;;;;;;X
+IW_PROV_FORTS;Fortification;;;;;;;;;;X
+IW_PROV_PILLAGE_ACTION;Pillage!;;;;;;;;;;x
+IW_PROV_SUPPORT;Supply Limit;;;;;;;;;;x
+##;;;;;;;;;;;X
+IW_ROLLOVER_PROVINCE_TAX;Taxation:;;;;;;;;;;X
+IW_ROLLOVER_PROVINCE_LOYALTY;Loyalty:;;;;;;;;;;X
+IW_ROLLOVER_PROVINCE_PRIVILEGES;Power:;;;;;;;;;;X
+##;;;;;;;;;;;X
+IW_REALM_LAWS;Laws;;;;;;;;;;X
+IW_REALM_ADVANCES;Advances;;;;;;;;;;X
+IW_REALM_TAXES;Taxes;;;;;;;;;;X
+##;;;;;;;;;;;X
+IW_MOBILIZE_HOST;Mobilize host;;;;;;;;;;X
+IW_GRAND_MOBILZATION;Grand Mobilization;;;;;;;;;;X
+IW_OFFER_VASSALIZATION;Offer Vassalization;;;;;;;;;;X
+IW_PLEDGE_ALLEGIENCE;Pledge Allegiance;;;;;;;;;;X
+IW_OFFER_MARRIAGE;Offer Marriage;;;;;;;;;;X
+IW_SEND_ASSASSIN;Send Assassin;;;;;;;;;;X
+##;;;;;;;;;;;X
+IW_MOBILIZE_HOST_DESC;Mobilize all regiments from this demesne.;;;;;;;;;;X
+IW_GRAND_MOBILZATION_DESC;Mobilize all regiments in the realm, this is a drastic action and will severely test the loyalty of your vassals.;;;;;;;;;;X
+IW_OFFER_VASSALIZATION_DESC;You offer your protection and in return demand the loyalty of the local ruler. If accepted he will become your vassal.;;;;;;;;;;X
+IW_PLEDGE_ALLEGIENCE_DESC;You offer to become this lord’s vassal.;;;;;;;;;;X
+IW_DECLARE_WAR_DESC;This will put you in a state of war against this ruler. All claims you have on each other will be at stake.;;;;;;;;;;X
+IW_DECLARE_WAR;Declare War;;;;;;;;;;X
+IW_SUE_FOR_PEACE_DESC;Compose a peace offer to send to your enemy.;;;;;;;;;;X
+IW_SUE_FOR_PEACE;Sue for peace;;;;;;;;;;X
+##;;;;;;;;;;;X
+IW_COURT_EMPTY;Your court is empty. As time passes it will be filled with local nobles.;;;;;;;;;;X
+##;;;;;;;;;;;X
+ECO_SCUTAGE;Scutage;;;;;;;;;;X
+ECO_CROWN_DUTY;Crown Duty;;;;;;;;;;X
+ECO_DINCOME;Demesne Income;;;;;;;;;;X
+ECO_VINCOME;Vassal Income;;;;;;;;;;X
+ECO_CENSUS_TAX;Census Tax;;;;;;;;;;X
+ECO_TOLLS;Tolls;;;;;;;;;;X
+ECO_UPKEEP;Army Upkeep;;;;;;;;;;x
+ECO_CHURCH;Church Donations;;;;;;;;;;x
+ECO_DUTY;Duty to Liege;;;;;;;;;;x
+ECO_INCOME;Income;;;;;;;;;;x
+ECO_EXPENSE;Expense;;;;;;;;;;x
+ECO_TOTAL;Total;;;;;;;;;;x
+##;;;;;;;;;;;X
+IW_PEACE_LOSE_OUR_TITLE;Give up the title as %s to %s.;;;;;;;;;;X
+IW_PEACE_DRAW_OUR_TITLE;Keep %s as %s.;;;;;;;;;;X
+IW_PEACE_WIN_OUR_TITLE;Force %s to recognize %s as the rightful %s.;;;;;;;;;;X
+IW_PEACE_LOSE_THEIR_TITLE;Recognize %s as the rightful %s.;;;;;;;;;;X
+IW_PEACE_DRAW_THEIR_TITLE;Do not press the claim;;;;;;;;;;X
+IW_PEACE_WIN_THEIR_TITLE;Install %s as %s;;;;;;;;;;X
+IW_PEACE_NO_TRIBUTE;No tribute will be paid.;;;;;;;;;;X
+IW_PEACE_RECEIVE_TRIBUTE;We shall receive %d gold as tribute.;;;;;;;;;;X
+IW_PEACE_GIVE_TRIBUTE;We shall pay %d gold as tribute.;;;;;;;;;;X
+##;;;;;;;;;;;X
+POPUP_PEACE_WHITE;White peace;;;;;;;;;;X
+POPUP_PEACE_WE_YIELD;They demand we yield our claims on the following titles: ;;;;;;;;;;X
+POPUP_PEACE_THEY_CLAIM;They claim the following titles: ;;;;;;;;;;X
+POPUP_PEACE_THEY_YIELD;They offer to yield their claims on the following titles: ;;;;;;;;;;X
+POPUP_PEACE_WE_CLAIM;They recognize our claims on the following titles: ;;;;;;;;;;X
+POPUP_PEACE_THEY_PAY;They offer to pay a tribute of %d $;;;;;;;;;;X
+POPUP_PEACE_WE_PAY;They demand we pay a tribute of %d $;;;;;;;;;;X
+POPUP_PEACE_YIELD;%s yield %s claims on the following titles: ;;;;;;;;;;X
+POPUP_PEACE_GIVEN;%s was given the following titles: ;;;;;;;;;;X
+POPUP_PEACE_INDEMNITIES;%s paid %d $ in indemnities.;;;;;;;;;;X
+IW_REVOKE_TITLE_TO;Revoke the title %s from %s.;;;;;;;;;;X
+IW_REVOKE_TITLE;Revoke Title;;;;;;;;;;X
+IW_GRANT_TITLE;Grant Title;;;;;;;;;;X
+IW_GRAB_TITLE;Grab Title;;;;;;;;;;x
+IW_USURP_TITLE;Usurp Title;;;;;;;;;;x
+IW_GRAB_TITLE_TO;Add claim on %s to %s.;;;;;;;;;;x
+IW_GRANT_TITLE_TO;Grant the title %s to %s.;;;;;;;;;;x
+IW_USURP_TITLE_TO;Usurp the title %s, and claim it for %s.;;;;;;;;;;x
+##;;;;;;;;;;;x
+AINFO_TOP;The §Y%s§W has a demesne of %d provinces. They are ruled by §Y%s§W. Monthly Income around %.f$.;;;;;;;;;;x
+AINFO_VASSAL;Current Vassals: ;;;;;;;;;;x
+AINFO_WAR;At War with:;;;;;;;;;;x
+AINFO_OURCLAIMS;We have a claim on the following titles in this realm: ;;;;;;;;;;x
+AINFO_THEIRCLAIMS;§Y%s§W has a legitimate claim on the following titles: ;;;;;;;;;;x
+AINFO_CLAIMONTITLE;The following have a claim on our title of §Y%s§W: ;;;;;;;;;;x
+AINFO_OTHERCLAIMS;We have claims on the following titles: ;;;;;;;;;;x
+AINFO_ISVASSAL;They are a part of §Y%s§W, and §Y%s§W is a vassal of §Y%s§W.;;;;;;;;;;x
+AINFO_LOYALINFO;They are %s to us.;;;;;;;;;;x
+##;;;;;;;;;;;X
+MOUNTAIN_NAME;Mountains;;;;;;;;;;X
+HILL_NAME;Hills;;;;;;;;;;X
+FOREST_NAME;Forest;;;;;;;;;;X
+PLAINS_NAME;Plains;;;;;;;;;;X
+DESERT_NAME;Desert;;;;;;;;;;X
+MARSH_NAME;Marshes;;;;;;;;;;X
+OCEAN_NAME;Ocean;;;;;;;;;;X
+LAKE_NAME;Lake;;;;;;;;;;X
+RIVER_NAME;River;;;;;;;;;;X
+##;;;;;;;;;;;X
+PILLAGE_IRO_1;This province has already been pillaged, and can not be pillaged again for quite a time.;;;;;;;;;;x
+PILLAGE_IRO_0;(Click to plunder this province of its riches.);;;;;;;;;;X
+PILLAGE_IRO_2;You can only pillage provinces which you have full control over.;;;;;;;;;;x
+PILLAGE_DRO;Pillaging (or Looting) a province means that the forces in control of the province grabs everything that is valuable from the province and leaves the inhabitants with not even the a piece of bread to last the winter.;;;;;;;;;;X
+#;;;;;;;;;;;x
+IWUNIT_REORG;Split;;;;;;;;;;x
+BUTTON_0208;Merge;;;;;;;;;;x
+AGE_ALIVE;%d-, Age %d;;;;;;;;;;x
+AGE_DEAD;(%d - %d);;;;;;;;;;x
+CLICK_TO_MOB;(click to mobilize this regiment.);;;;;;;;;;x
+OTHER_MOB;The provincial regiment is not mobilised for duty.;;;;;;;;;;x
+DWMLORD;Please Confirm;;;;;;;;;;x
+DWAREYOUSURE1;(Effects are immediate and;;;;;;;;;;x
+DWAREYOUSURE2;cannot be undone.);;;;;;;;;;x
+AGE;Age %d;;;;;;;;;;x
+#;;;;;;;;;;;x
+USURP_IRO1;We need to own at least %d percent of the following provinces to be able to usurp and lay a claim to this title. Currently we own %d of %d.\n;;;;;;;;;;x
+USURP_IRO2;We control %d of %d provinces that make up this title, and can usurp it to get a legitimate claim.\n;;;;;;;;;;x
+IW_CLAIM_TITLE;Create Title;;;;;;;;;;x
+IW_CLAIM_TITLE_TO;Make %s %s!;;;;;;;;;;x
+CLAIM_IRO1;We need to own at least %d percent of the following provinces to be able to create this title. Currently we own %d of %d.\n;;;;;;;;;;x
+CLAIM_IRO2;We control %d of %d provinces that make up this title, and can actually add this title now!\n;;;;;;;;;;x
+IW_EXCOMMUNICATE;Excommunicate;;;;;;;;;;x
+IW_REVOKE_EXCOMMUNICATION;Revoke Excommunication;;;;;;;;;;x
+IW_EXCOMMUNICATE_CHARACTER;Excommunicate %s, costing the Pope %d prestige.;;;;;;;;;;x
+IW_REVOKE_EXCOMMUNICATION_CHARACTER;Revoke the excommunication of %s;;;;;;;;;;x
+IW_EXCO_IRO;Excommunicating %s will cost the Pope %d prestige. He currently has %d prestige.;;;;;;;;;;x
+REVOKE_EXC_IRO_0;Select this to revoke the excommunication on a character in this court.;;;;;;;;;;x
+REVOKE_EXC_IRO_1;There are no excommunicated characters in this court.;;;;;;;;;;x
+EXC_IRO_0;Select this action to excommunicate a character at this court. This is only possible if the Pope has more prestige than the targeted character has piety. However, a heretic can always be excommunicated at no cost.;;;;;;;;;;x
+EXC_IRO_1;There are no characters that can possibly be excommunicated in this court.;;;;;;;;;;x
+#;;;;;;;;;;;x
+APP_NONE;None;;;;;;;;;;x
+APP_COUR;A courtier is free to be assigned to any other service his ruler may deem fit.;;;;;;;;;;x
+APP_MARS;A Marshal is helping his ruler with the task of running his lord's army. His martial attribute is added to the ruler's martial attribute.;;;;;;;;;;x
+APP_STEW;A Steward is helping his ruler with the task of running his lord's treasury. His stewardship attribute is added to the ruler's stewardship attribute.;;;;;;;;;;x
+APP_CHAN;A Chancellor is helping his ruler with the task of coordinating his lord's negotiations with foreign courts. His diplomacy attribute is added to the ruler's diplomacy attribute.;;;;;;;;;;x
+APP_SPYM;A Spymaster is helping his ruler with the task of running his lord's personal affairs and supplying him with information. His intrigue attribute is added to the ruler's intrigue attribute.;;;;;;;;;;x
+APP_CHAP;A Diocese Bishop serves as the main clerical figure in the rulers own demesne. He may be elected to Papacy, and his piety influences the piety of the ruler.;;;;;;;;;;x
+#;;;;;;;;;;;x
+IWGRAB_NOPRESTIGE;You need at least %.0f prestige to be able to do this.;;;;;;;;;;x
+IWGRAB_ALREADY;We already have a claim on that title.;;;;;;;;;;x
+IWGRAB_COST;It will cost you %.0f prestige to get a claim on this title.;;;;;;;;;;x
+NO_MOB_OCCU;You can not mobilize a regiment if the province is under control by the enemy.;;;;;;;;;;x
+NO_MOB_RESERVES;There are no soldiers to levy from this province.;;;;;;;;;;x
+NO_MOB_ALREADY;The regiment is already levied and in action.;;;;;;;;;;x
+CLICK_TO_MOB_VAS;(click to mobilize this regiment.)\nPlease note that mobilizing the regiment of a vassal before you have at least half of your own regiments mobilized will reduce his loyalty towards you.;;;;;;;;;;x
+NO_MOB_DISL;The ruler of this province is not loyal enough and does not feel safe to let you recruit this regiment directly.;;;;;;;;;;x
+#;;;;;;;;;;;x
+IW_DISBAND;Disband;;;;;;;;;;x
+#;;;;;;;;;;;x
+ANSWERVASSAL1;My Lord, our vassals are under attack.;;;;;;;;;;x
+ANSWERVASSAL2;%s have attacked %s.;;;;;;;;;;x
+ANSWERVASSAL3;Shall we go to war to help them?;;;;;;;;;;x
+ANSWERVASSAL1B;My Lord, our vassals in %s have started a war.;;;;;;;;;;x
+ANSWERVASSAL2B;They have attacked %s.;;;;;;;;;;x
+ANSWERVASSAL3B; In support of their vassals, who were attacked.;;;;;;;;;;x
+#;;;;;;;;;;;x
+MULTISEL;Multiple Units Selected;;;;;;;;;;x
+#;;;;;;;;;;;x
+LOYALTY_0;Disloyalty Incarnate;;;;;;;;;;x
+LOYALTY_1;Extremely Disloyal;;;;;;;;;;x
+LOYALTY_2;Very Disloyal;;;;;;;;;;x
+LOYALTY_3;Rather Disloyal;;;;;;;;;;x
+LOYALTY_4;Somewhat Disloyal;;;;;;;;;;x
+LOYALTY_5;Loyal;;;;;;;;;;x
+LOYALTY_6;Rather Loyal;;;;;;;;;;x
+LOYALTY_7;Very Loyal;;;;;;;;;;x
+LOYALTY_8;Extremely Loyal;;;;;;;;;;x
+LOYALTY_9;Devotedly Loyal;;;;;;;;;;x
+#;;;;;;;;;;;x
+CRUSADES_INSTANT_ROLLOVER;You lose about %d piety every month.;;;;;;;;;;x
+CRUSADES_DELAYED_ROLLOVER;The Christian world's expectations of you make you lose piety every month. Send troops to fight the infidels and pagans to gain piety and prestige.;;;;;;;;;;x
+OURCLAIMS;Our claims on %s.;;;;;;;;;;x
+THEIRCLAIMS;Their claims on us;;;;;;;;;;x
+WARINFO;We can raise an army of §Y%d§W men, while they can get at least §Y%d§W men to defend them.;;;;;;;;;;x
+#;;;;;;;;;;;x
+IW_CREATE_BISHOPRY;Create Bishopric;;;;;;;;;;x
+IW_CREATE_BISHOPRY_TO;Make %s Bishop of %s.;;;;;;;;;;x
+#;;;;;;;;;;;x
+DESC_MAYACCEPTOFFERVASSALIZATION;May accept offers of vassalization from other lieges.;;;;;;;;;;x
+DESC_MAYPLESGEALLEGIENCE;May pledge allegiance to a new liege.;;;;;;;;;;x
+DESC_MAYDOWLIEGE;May break the vassalization and declare war on his former liege.;;;;;;;;;;x
+DESC_MAYRECRUIT;Allows his liege to recruit his regiments directly.;;;;;;;;;;x
+#;;;;;;;;;;;x
+DESC_LOY_CHANGE;%+3.1f %% per month;;;;;;;;;;x
+DESC_LOY_SCUTAGE;%+3.1f %% from scutage;;;;;;;;;;x
+DESC_LOY_GENERALOPINION;%+3.1f %% from character traits;;;;;;;;;;x
+DESC_LOY_FAMILY;%+3.1f %% from family ties;;;;;;;;;;x
+DESC_LOY_SUCCESSION;%+3.1f %% from succession order;;;;;;;;;;x
+DESC_LOY_LAWS;%+3.1f %% from laws;;;;;;;;;;x
+DESC_LOY_PRESTIGE;%+3.1f %% from the prestige of the liege;;;;;;;;;;x
+DESC_LOY_PIETY;%+3.1f %% from the piety of the liege;;;;;;;;;;x
+DESC_LOY_LIEGE_INTRIGUE;%+3.1f %% from the diplomacy value of the liege;;;;;;;;;;x
+DESC_LOY_BYZANTINE;%+3.1f %% from being part of the Byzantine Empire;;;;;;;;;;x
+DESC_LOY_REGIMENT;%+3.1f %% from liege using his regiments.;;;;;;;;;;x
+DESC_LOY_REPUTATION;%+3.1f %% from reputation.;;;;;;;;;;x
+#;;;;;;;;;;;x
+IWC_ACTI_IRO;Access Action Screen;;;;;;;;;;x
+IWC_COUR_IRO;Access Court Screen;;;;;;;;;;x
+IWC_BUDG_IRO;Access Treasury Screen;;;;;;;;;;x
+IWC_REAL_IRO;Access Laws Screen;;;;;;;;;;x
+IWC_ACTI_DRO;Here all your actions, such as diplomatic negotiation, mobilization and declaration of war, are located.;;;;;;;;;;x
+IWC_COUR_DRO;Here you can view all your courtiers and advisors and appoint and dismiss them.;;;;;;;;;;x
+IWC_BUDG_DRO;Here you can change the economic sliders that regulate your income and expenses.;;;;;;;;;;x
+IWC_REAL_DRO;Here you can change your current laws.;;;;;;;;;;x
+#;;;;;;;;;;;x
+IW_RPP_PROG;With the current census tax in this demesne, the loyalty of the peasants is changing by %+2.2f each month.;;;;;;;;;;x
+IW_RPB_PROG;With the current tolls in this demesne, the loyalty of the burghers is changing by %+2.2f each month.;;;;;;;;;;x
+IW_RPC_PROG;With the current church donations in this demesne, the loyalty of the clergy is changing by %+2.2f each month.;;;;;;;;;;x
+IW_RPN_PROG;With the current crown duty in this demesne, the loyalty of the nobles is changing by %+2.2f each month.;;;;;;;;;;x
+#;;;;;;;;;;;x
+BUDG_CT_IRO;The loyalty of the peasants will change by %+2.2f monthly with this census tax.;;;;;;;;;;x
+BUDG_TO_IRO;The loyalty of the burghers will change by %+2.2f monthly with these tolls.;;;;;;;;;;x
+BUDG_CH_IRO;The loyalty of the clergy will change by %+2.2f monthly with these church donations.;;;;;;;;;;x
+BUDG_CD_IRO;The loyalty of the nobles will change by %+2.2f monthly with this crown duty.;;;;;;;;;;x
+#;;;;;;;;;;;x
+IW_PLEDGEALLEGIENCE_COST;It will cost you %2.0f prestige to ask %s to become your liege.;;;;;;;;;;x
+IW_PLEDGEALLEGIENCE_TREACHERY;Your treachery will give %s claims to all your titles.;;;;;;;;;;x
+IW_PLEDGE_IRO_TIER_MISMATCH;A %s cannot pledge allegiance to a %s.;;;;;;;;;;x
+IW_PLEDGE_IRO_TO_LOYAL;You are too loyal to switch allegiance.;;;;;;;;;;x
+IW_PLEDGE_IRO_CANNOT_AFFORD;You need %.0f prestige to pledge allegiance.;;;;;;;;;;x
+#;;;;;;;;;;;x
+IW_VASSALIZE_IRO_TIER_MISMATCH;A %s cannot vassalize a %s.;;;;;;;;;;x
+IW_VASSALIZE_IRO_TO_LOYAL;They are too loyal to switch allegiance.;;;;;;;;;;x
+#;;;;;;;;;;;x
+IW_CLAIM_GAIN;Creating this title will give you %.0f prestige and cost you %.0f gold.;;;;;;;;;;x
+#;;;;;;;;;;;x
+IW_NEED_2_COUNTIES;You need at least two counties to be able to give one away.;;;;;;;;;;x
+IW_NEED_ECCLESTICAL_COURMEMBER;You need a courtier with ecclesiastic education.;;;;;;;;;;x
+IW_CREATE_BISHOPRY_GIVE;Making %s a Bishopric will give you %.0f piety.;;;;;;;;;;x
+#;;;;;;;;;;;x
+#;;;;;;;;;;;x
+#;;;;;;;;;;;x
+NOBLES_DESC;They belonged to the highest societal stand and were often called 'Those who Fight'. They were Barons, Baronets and Household Knights upholding the law and defending the country. Defined by bloodline alone they held special status and rarely paid taxes.;;;;;;;;;;x
+CLERGY_DESC;They belonged to the next highest societal stand and were often called 'Those who Prayed'. The Men of God were the Shepherds of the Lamb who helped the lesser to serve God due their own abilities. The Clergy rarely paid taxes and were often the keystone in any serious administration.;;;;;;;;;;x
+BURGHERS_DESC;They belonged to the next lowest societal stand and were often called 'Those who Worked'. They are free men and city-dwellers specialized in goods production and trade.;;;;;;;;;;x
+PEASANTS_DESC;They belonged to the lowest societal stand and were often called 'Those who Worked'. They might be anything from free men to serfs, and worked the lands the dwelt on.;;;;;;;;;;x
+CHANGE_NOBLES;If you increase the power and loyalty of the Nobles you do it at the expense of the Peasants. Your regiment will hold more knights and heavy troops, you will get an instant prestige bonus, but you will get less tax income from the province.;;;;;;;;;;x
+CHANGE_CLERGY;If you increase the power and loyalty of the Clergy you do it at the expense of the Burghers. Your regiment will hold more light cavalry and heavy infantry, you will get an instant piety bonus, but you will get less tax income from the province.;;;;;;;;;;x
+CHANGE_BURGHERS;If you increase the power and loyalty of the Burghers you do it at the expense of the Clergy. Your regiment will hold more archers and pike men, you will get an instant piety penalty, but you will get more tax income from the province.;;;;;;;;;;x
+CHANGE_PEASANTS;If you increase the power and loyalty of the Peasant you do it at the expense of the Nobles. Your regiment will hold more militia and light troops, you will get an instant prestige penalty, but you will get more tax income from the province.;;;;;;;;;;x
+#;;;;;;;;;;;x
+#;;;;;;;;;;;x
+IW_PEACE_VALUE;Peace Value;;;;;;;;;;x
+IW_WARSCORE;Warscore;;;;;;;;;;x
+#;;;;;;;;;;;x
+DEMESNE_PENALTYINFO;You currently gain %.1f percent of the income from your demesne. You currently have %d provinces in your demesne, and your ruler can only control %d directly.;;;;;;;;;;x
+DPA_STEWARDSHIP;Rulers Stewardship allows %d\n;;;;;;;;;;x
+DPA_DUCHY;Duchy: x1.0\n;;;;;;;;;;x
+DPA_COUNTY;County: x0.5\n;;;;;;;;;;x
+DPA_KING;Kingdom: x2.0\n;;;;;;;;;;x
+DPA_EMPEROR;Byzantine Emperor: +%d\n;;;;;;;;;;x
+DPA_TIME;Current Century: +%d\n;;;;;;;;;;x
+#;;;;;;;;;;;x
+DESC_PRESTIGE_CHANGE;Monthly change: %+.1f;;;;;;;;;;x
+DESC_PRESTIGE_UNKNIGHTED;%s is without land: %+.1f;;;;;;;;;;x
+DESC_PRESTIGE_UNMARRIED;%s is unmarried: %+.1f;;;;;;;;;;x
+DESC_PRESTIGE_KINGDOMS;%d Kingdom Titles: %+.1f;;;;;;;;;;x
+DESC_PRESTIGE_DUCHIES;%d Duchy Titles: %+.1f;;;;;;;;;;x
+DESC_PRESTIGE_COUNT;Count: %+.1f;;;;;;;;;;x
+DESC_PRESTIGE_DUKES;%d Dukes as vassals: %+.1f;;;;;;;;;;x
+DESC_PRESTIGE_COUNTS;%d Counts as vassals: %+.1f;;;;;;;;;;x
+#;;;;;;;;;;;x
+DESC_PIETY_CHANGE;Monthly change: %+.1f;;;;;;;;;;x
+DESC_PIETY_CRUSADES;Crusades expectations: %+.1f;;;;;;;;;;x
+DESC_PIETY_CHURCH_DONATIONS;Church donations: %+.1f;;;;;;;;;;x
+#;;;;;;;;;;;x
+ADV_SHOCK;Shock;;;;;;;;;;x
+ADV_MORALE;Morale;;;;;;;;;;x
+ADV_DEFENCE;Defence;;;;;;;;;;x
+ADV_ATTACK;Attack;;;;;;;;;;x
+ADV_ATTACKMUL;%s v.;;;;;;;;;;x
+ADV_SIEGE;Siege Engine;;;;;;;;;;x
+ADV_IMPR;Allows;;;;;;;;;;x
+#;;;;;;;;;;;x
+IWCOU_LIEGE;Liege;;;;;;;;;;x
+IWCOU_VASSAL;Vassals (%d);;;;;;;;;;x
+IWCOU_CLAIMS;Claims;;;;;;;;;;x
+IWCOU_INCOME;Income: §W%.2f$;;;;;;;;;;x
+IWCOU_DEMESNE;Demesne: §W%d;;;;;;;;;;x
+IWCOU_MEN;Manpower: §W%d;;;;;;;;;;x
+IWCOU_EFF;Efficiency: §W%.0f\%%;;;;;;;;;;x
+#;;;;;;;;;;;x
+MARRY_NO_POSSIBLE;There are no members eligible for marriage in this court.;;;;;;;;;;x
+MARRY_ALL;Propose marriage between %s and %s.;;;;;;;;;;x
+MARRY_ONE;Select who to propose marriage with for %s.;;;;;;;;;;x
+MARRY_SEL;Select who you want to marry away.;;;;;;;;;;x
+#;;;;;;;;;;;x
+NAME_ANONYMOUS_SOLDIER;Anonymous Commander;;;;;;;;;;x
+ANONYMOUS_SOLDIER_DESC;An anonymous commander was often picked from the low titled nobility to fill the spot of regimental commander in times when all higher noblemen where occupied.;;;;;;;;;;x
+REL_ENEMY;These are religious enemies and there is no need for any claims to start a war. When you sign peace the currently occupied provinces will be kept.;;;;;;;;;;x
+#;;;;;;;;;;;x
+IW_REALM_CANNOT_CHANGE_LAW_YET;You cannot change this law again until %s;;;;;;;;;;x
+IW_REALM_SUCCESSION_LAW_CHANGE_EFFECT;Instituting this law will greatly upset your realm.;;;;;;;;;;x
+IW_REALM_ANTAGONIZE_SONS;Instituting this law will antagonize your sons.;;;;;;;;;;x
+IW_REALM_ANTAGONIZE_VASSALS;Instituting this law will antagonize your vassals.;;;;;;;;;;x
+IW_REALM_ANTAGONIZE_ALL_MODERATLY;Instituting this law will moderately antagonize all four stands.;;;;;;;;;;x
+IW_REALM_ANTAGONIZE_BURGERS_AND_PEASANTS;Instituting this law will antagonize peasants and burghers.;;;;;;;;;;x
+IW_REALM_PRESTIGE_LOST;It will cost you %.0f prestige.;;;;;;;;;;x
+IW_REALM_PIETY_LOST;It will cost you %.0f piety.;;;;;;;;;;x
+#;;;;;;;;;;;x
+CHAT_ALL;All;;;;;;;;;;x
+CHAT_NONE;None;;;;;;;;;;x
+CHAT_REALM;Realm;;;;;;;;;;x
+CHAT_ENEMY;Enemies;;;;;;;;;;x
+CHAT_NEIGHBOR;Neighbours;;;;;;;;;;x
+#;;;;;;;;;;;x
+GMA_IRO_0;This action will mobilize all regiments you have, and all your vassals' regiments as well, to serve in your army.;;;;;;;;;;x
+GMA_IRO_1;There are no regiments possible to mobilize in your demesne, nor in your vassal's demesne's.;;;;;;;;;;x
+IW_PLEDGE_IRO_EXPLAIN;If you pledge allegiance to a ruler he will have to choose if to accept or not. If he accepts you will become his vassal and thus enjoy his protection, but will also be ruled by him.;;;;;;;;;;x
+IW_VASSAL_IRO_EXPLAIN;If you offer vassalisation to a ruler he will have to choose if to accept or not. If he accepts he will become your vassal and thus enjoy your protection, but will also be ruled by you.;;;;;;;;;;x
+MHA_IRO_0;This action will mobilize all the regiments in the selected demesne.;;;;;;;;;;x
+MHA_IRO_1;There are no regiments possible to mobilize in this demesne.;;;;;;;;;;x
+MARRY_INTERNAL;This action allows you arrange a marriage between people in your own court.;;;;;;;;;;x
+MARRY_EXTERNAL;This action allows you arrange a marriage between people from this court and your own court.;;;;;;;;;;x
+WAR_NO_IRO;You can not declare war on this character. To be able to do that you need to fulfill one of the following conditions. A) A Claim on one of their titles, or B) They must be at war with one of your vassals, or C) They must be a religious enemy.;;;;;;;;;;X
+WAR_CLAIMS_IRO;You have claims on this ruler, and may declare war upon him.;;;;;;;;;;X
+WAR_VASSAL_IRO;This ruler is at war with one of your vassals and you may declare war upon him.;;;;;;;;;;X
+WAR_RELENEMY_IRO;This ruler is a religious enemy to us, and we may declare war at him at any time.;;;;;;;;;;X
+REVOKE_TITLE_IRO;Revoking a title from one vassal gives the title back to you, unless your vassal wishes to contest that on the battlefield.;;;;;;;;;;x
+NOT_POSSIBLE_GRANT;You do not have any titles which you can grant to anyone.;;;;;;;;;;x
+POSSIBLE_GRANT;Click to grant any of your titles to a vassal, courtier or child of your selection.  This can be used to improve their loyalty, but may make them stronger.;;;;;;;;;;x
+GRAB_IRO_INFO;By grabbing or stealing a title you use your prestige to manufacture a more or less legitimate claim on a title. This is something you can do when you have enough prestige and power to create a war.;;;;;;;;;;x
+USURP_NOT_POSSIBLE;There are no titles that this ruler holds that we can usurp.  We can only usurp when we hold at least half of the provinces in the natural area of the title.;;;;;;;;;;x
+USURP_POSSIBLE;This ruler has some titles that we can usurp. We can only usurp when we hold at least half of the provinces in the natural area of the title. A usurped title will give us a claim upon it, and we may use that claim to fight a war over it.;;;;;;;;;;x
+IW_CLAIM_TITLES_POSSIBLE;By creating a title we gain enormous prestige.  To create an historical and unclaimed title we must control at least half of the provinces in its area.;;;;;;;;;;x
+IW_CLAIM_TITLES_NO_TITLES;There are no titles which we can create at this point.  To create an historical and unclaimed title we must control at least half of the provinces in its area.;;;;;;;;;;x
+PEACE_EXPLANATION;By suing for peace you are negotiating an end to hostilities. You may negotiate settlement of any claims between characters of the same faith, but between religious enemies only status quo peaces can be signed where currently occupied territory is retained. You can also pay or give tributes to sweeten any offer.;;;;;;;;;;x
+ACTION_SEAL;Click this to perform the action selected.;;;;;;;;;;x
+ACTION_SEAL_DIS;It is not possible to do this action.;;;;;;;;;;x
+#;;;;;;;;;;;x
+PLEDGE_CURR_INFO;We are currently attempting to pledge our allegiance to §Y%s§W, to become his vassal. We expect an answer before §Y%s§W.;;;;;;;;;;x
+PLEDGE_MARRIAGE_INFO;We have sent a marriage proposal to §Y%s§W. We are attempting to arrange a marriage between §Y%s§W and §Y%s§W. We expect an answer before §Y%s§W.;;;;;;;;;;x
+PLEDGE_VASSAL_INFO;We are currently offering §Y%s§W to become our vassal. We expect an answer before §Y%s§W.;;;;;;;;;;x
+MOBHOST_CURR_INFO;We have asked §Y%s§W to mobilize his host in our service. We expect an answer before §Y%s§W.;;;;;;;;;;x
+REVOKE_CURR_INFO;We are attempting to revoke the title of '§Y%s§W' from §Y%s§W.  We expect an answer before §Y%s§W.;;;;;;;;;;x
+PEACE_CURR_INFO;We are currently negotiating a peace with §Y%s§W.  We expect an answer before §Y%s§W.;;;;;;;;;;x
+#;;;;;;;;;;;x
+IW_ASSAS;Attempt to Assassinate %s;;;;;;;;;;x
+ASSASSINATE_EXPLAIN;With this action you can attempt to assassinate another character. To succeed with this you will require a high rating in intrigue, and a good spymaster. Please note that assassinating anyone with titles is much harder than a regular courtier, or infertile wife.;;;;;;;;;;x
+ASS_COST;Assassinating %s will cost %s. If we are discovered we will lose (%s).;;;;;;;;;;x
+#;;;;;;;;;;;x
+DISBAND_IRO;This will disband this regiment and return its soldiers to their home province for future recruitment.;;;;;;;;;;x
+REORG_INFO;This action can split the unit into two, and move regiments between the two parts of the army. This is only possible if the unit has more than one regiment, and is not currently moving.;;;;;;;;;;x
+TOTALMEN_INFO;Total number of men in this army.;;;;;;;;;;x
+#;;;;;;;;;;;x
+OUROWNCOA;Click to access our country information screen.;;;;;;;;;;x
+BUTTON_MERGE_DRO;This is only possible if the units are all in the same province and not moving, nor in combat at this time.;;;;;;;;;;x
+BUTTON_MERGE_IRO;Click to merge all these selected armies into the same unit, under the same ruler.;;;;;;;;;;x
+REORG_TO;Click to reassign to %s.;;;;;;;;;;x
+#;;;;;;;;;;;x
+BUDGET_HEADER;Treasury Screen;;;;;;;;;;x
+IW_BUILDING_CANCEL;Click to cancel!;;;;;;;;;;x
+#;;;;;;;;;;;x
+GAME_END_QUIT;You surrendered.;;;;;;;;;;x
+GAME_END_ELIMINATED;You were eliminated!;;;;;;;;;;x
+GAME_END_WINNER;Your dynasty survived!;;;;;;;;;;x
+#;;;;;;;;;;;x
+REALM_ADVANCE_SEAL;Click to focus your research on this advance. There is a random chance that an advance will be discovered in this category every month.;;;;;;;;;;x
+KNOWN;known;;;;;;;;;;x
+NOTKNOWN;not known;;;;;;;;;;x
+ISKNOWN;%s is %s in our realm.;;;;;;;;;;x
+TOTALKNOWN;We have %d out of 5 advances in this category in our realms capital. Map shows geographic spread of these advances.;;;;;;;;;;x
+CLAIM_INFO_IRO;A claim on the title of %s, currently held by %s.;;;;;;;;;;x
+COURTPOS_INX;%s in %s;;;;;;;;;;x
+#;;;;;;;;;;;x
+BADBOY0;We have an honourable reputation.;;;;;;;;;;x
+BADBOY1;We have a respectable reputation.;;;;;;;;;;x
+BADBOY2;We have a slightly tarnished reputation.;;;;;;;;;;x
+BADBOY3;We have a tarnished reputation.;;;;;;;;;;x
+BADBOY4;We have a rather bad reputation.;;;;;;;;;;x
+BADBOY5;We have a very bad reputation;;;;;;;;;;x
+BADBOY6;We have an extremely bad reputation.;;;;;;;;;;x
+BADBOY7;We are dishonourable scum.;;;;;;;;;;x
+BADBOY8;We are worse than dishonourable scum.;;;;;;;;;;x
+BADBOY9;We are hated throughout the entire world.;;;;;;;;;;x
+#;;;;;;;;;;;x
+EXPLAIN_ATTR_MART;The character's ability on the battlefield and his military administrative skill needed to lead and muster large forces.;;;;;;;;;;x
+EXPLAIN_ATTR_STEW;The character's ability to make his gold increase by investments in profitable ventures and to avoid bad business.;;;;;;;;;;x
+EXPLAIN_ATTR_DIPL;The character's ability to get the most out of peace negotiations, and the ability to keep his vassals loyal, and the ability.;;;;;;;;;;x
+EXPLAIN_ATTR_INTR;The character's ability to craft assassinations, the ability to defend against assassination plots. The ability to plot against neighbours and enemies (through Intrigue event series).;;;;;;;;;;x
+#;;;;;;;;;;;x
+AINFO_PAPACY;The current controller of the papacy is %s in %s;;;;;;;;;;x
+NOFORT_EXPLANATION;Without a proper set of fortifications in a province, it will quickly be seized by hostile forces.;;;;;;;;;;x
+MOUNTAIN_DESC;Mountains have always been a formidable obstacle for armies on the move. They hamper movement and enable a prepared defender to hold off an attacker many times its size.;;;;;;;;;;x
+HILL_DESC;Hilly terrain is quite difficult to traverse for armies and slows them down. Defending forces can use Hills for their advantage.;;;;;;;;;;x
+FOREST_DESC;Forests are large areas covered with trees which hamper army movement and limit visibility. They give advantages to any defender because they provide cover.;;;;;;;;;;x
+PLAINS_DESC;An open area filled with high grass which promotes movement and makes defence difficult as there is little cover in it.;;;;;;;;;;x
+DESERT_DESC;An open, sandy area in which movement is not restricted in any way.;;;;;;;;;;x
+MARSH_DESC;Marshes are very hard to traverse for armies. They slow movement down greatly, and give defenders a significant advantage.;;;;;;;;;;x
+OCEAN_DESC;not used;;;;;;;;;;x
+LAKE_DESC;not used;;;;;;;;;;x
+RIVER_DESC;not used;;;;;;;;;;x
+CULTURES_DESC;This is the predominant culture in this province. There may be other cultures in the area, but this one is the most common and holds most of the power.;;;;;;;;;;x
+RELIGION_DESC;This is the creed which almost all who dwell here follow.;;;;;;;;;;x
+IW_PROV_BASEINC;Base Income: %.2f$;;;;;;;;;;x
+TOTAL_EFFECT;\n* Total = %.2f percent\n;;;;;;;;;;x
+DEMESNE_EFF;Large Demesne Penalty;;;;;;;;;;x
+RULER_EFF;Ruler Stewardship;;;;;;;;;;x
+ATTR_AT_SEA;At Sea: %+.2f;;;;;;;;;;x
+#;;;;;;;;;;;x
+NAME_1066;Hastings (1066);;;;;;;;;;x
+NAME_1187;The Third Crusade (1187);;;;;;;;;;x
+NAME_1337;Hundred Years War (1337);;;;;;;;;;x
+#EOF;;;;;;;;;;;x
+#EOF;;;;;;;;;;;x

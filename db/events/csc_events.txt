@@ -1,0 +1,3130 @@
+#################################################
+# csc event					#
+# By Chris Stone - last updated May 15/04	#
+# Reserved event block 6000-6099		#
+#################################################
+
+#################################################
+# csc ruler trait event	series			#
+# ID 6000-6020					#
+#################################################
+
+#################################################
+# ruler commits act of cruelty to peasants	#
+#################################################
+
+province_event = {
+	id = 6000
+
+	picture = "event_crime"
+
+	trigger = {
+		condition = {
+			type = owner
+			condition = {
+				type = trait
+				value = cruel
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = {
+				type = ruler_piety
+				value = 100
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = father_trait
+					value = just
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	action_a = { #Truly, a cruel act!
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = clergy_loyalty value = -0.1 }
+		effect = { type = ruler_piety value = -10 }
+	}
+}
+#################################################
+# ruler commits act of cruelty to burghers	#
+#################################################
+
+province_event = {
+	id = 6001
+
+	picture = "event_crime"
+
+	trigger = {
+		condition = {
+			type = owner
+			condition = {
+				type = trait
+				value = cruel
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = {
+				type = ruler_piety
+				value = 100
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = father_trait
+					value = just
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	action_a = { #Truly, a cruel act!
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = clergy_loyalty value = -0.1 }
+		effect = { type = ruler_piety value = -10 }
+	}
+}
+
+############################################################
+# Peasants fear God's wrath at their ruler's heresy - mild #
+############################################################
+province_event = {
+	id = 6002
+
+	picture = "event_rebellion"
+
+	trigger = {
+		condition = {
+			type = owner
+			condition = {
+				type = trait
+				value = heretic
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3000
+
+#		modifier = {
+#			condition = {
+#				type = has_law
+#				value = { monastic_supremacy = yes }
+#			}
+#			factor = 0.85
+#		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { church_supremacy = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = ruler_piety
+				value = 100
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = -25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+			factor = 50
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { bubonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { pneumonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { malaria = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { dysentery = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { small_pox = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { typhoid_fever = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = excommunicated
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = cruel
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = crusader
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = detached_priest	
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = generous 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = honest 
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = indulgent 
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = just 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = kinslayer 
+				}
+			}
+			factor = 0.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = martial_cleric 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = mastermind_theologian 
+				}
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = merciful 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = sceptical 
+				}
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = scholarly_theologian 
+				}
+			}
+			factor = 1.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = zealous 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	action_a = { #We must resist this evil! 
+		effect = { type = peasant_loyalty value = -0.25 }
+	}
+}
+##############################################################
+# Peasants fear God's wrath at their ruler's heresy - medium #
+##############################################################
+province_event = {
+	id = 6003
+
+	picture = "event_rebellion"
+
+	trigger = {
+		condition = {
+			type = difficulty
+			value = 1
+		}
+		condition = {
+			type = owner
+			condition = {
+				type = trait
+				value = heretic
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4000
+
+#		modifier = {
+#			condition = {
+#				type = has_law
+#				value = { monastic_supremacy = yes }
+#			}
+#			factor = 0.85
+#		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { church_supremacy = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 2
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 3
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 4
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = ruler_piety
+				value = 100
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = -25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+			factor = 50
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { bubonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { pneumonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { malaria = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { dysentery = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { small_pox = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { typhoid_fever = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = excommunicated
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = cruel
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = crusader
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = detached_priest	
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = generous 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = honest 
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = indulgent 
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = just 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = kinslayer 
+				}
+			}
+			factor = 0.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = martial_cleric 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = mastermind_theologian 
+				}
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = merciful 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = sceptical 
+				}
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = scholarly_theologian 
+				}
+			}
+			factor = 1.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = zealous 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	action_a = { #We must resist this evil! 
+		effect = { type = peasant_loyalty value = -0.5 }
+	}
+}
+#############################################################
+# Peasants fear God's wrath at their ruler's heresy - nasty #
+#############################################################
+province_event = {
+	id = 6004
+
+	picture = "event_rebellion"
+
+	trigger = {
+		condition = {
+			type = difficulty
+			value = 2
+		}
+		condition = {
+			type = owner
+			condition = {
+				type = trait
+				value = heretic
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 5000
+
+#		modifier = {
+#			condition = {
+#				type = has_law
+#				value = { monastic_supremacy = yes }
+#			}
+#			factor = 0.85
+#		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { church_supremacy = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 3
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 4
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = ruler_piety
+				value = 100
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = -25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+			factor = 50
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { bubonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { pneumonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { malaria = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { dysentery = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { small_pox = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { typhoid_fever = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = excommunicated
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = cruel
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = crusader
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = detached_priest	
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = generous 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = honest 
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = indulgent 
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = just 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = kinslayer 
+				}
+			}
+			factor = 0.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = martial_cleric 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = mastermind_theologian 
+				}
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = merciful 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = sceptical 
+				}
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = scholarly_theologian 
+				}
+			}
+			factor = 1.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = zealous 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	action_a = { #We must fight this evil! 
+		effect = { type = peasant_loyalty value = -0.95 }
+	}
+}
+############################################################
+# Clergy fear God's wrath at their ruler's excommunication #
+############################################################
+province_event = {
+	id = 6005
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = {
+			type = religion
+			value = catholic
+		}
+		condition = {
+			type = not
+			value = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+		}
+		condition = {
+			type = owner
+			condition = {
+				type = trait
+				value = excommunicated
+			}
+		}
+	}
+
+	mean_time_to_happen = { 
+		months = 3000
+
+#		modifier = {
+#			condition = {
+#				type = has_law
+#				value = { monastic_supremacy = yes }
+#			}
+#			factor = 0.85
+#		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { church_supremacy = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = ruler_piety
+				value = 100
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = -25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { bubonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { pneumonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { malaria = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { dysentery = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { small_pox = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { typhoid_fever = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = heretic
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = cruel
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = crusader
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = detached_priest	
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = generous 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = honest 
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = indulgent 
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = just 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = kinslayer 
+				}
+			}
+			factor = 0.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = martial_cleric 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = mastermind_theologian 
+				}
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = merciful 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = sceptical 
+				}
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = scholarly_theologian 
+				}
+			}
+			factor = 1.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = zealous 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	action_a = { #We must resist this evil! 
+		effect = { type = clergy_loyalty value = -0.25 }
+	}
+}
+##############################################################
+# Clergy fear that God's grace will be denied to his flock   #
+##############################################################
+province_event = {
+	id = 6006
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = {
+			type = difficulty
+			value = 1
+		}
+		condition = {
+			type = religion
+			value = catholic
+		}
+		condition = {
+			type = not
+			value = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+		}
+		condition = {
+			type = owner
+			condition = {
+				type = trait
+				value = excommunicated
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4000
+
+#		modifier = {
+#			condition = {
+#				type = has_law
+#				value = { monastic_supremacy = yes }
+#			}
+#			factor = 0.85
+#		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { church_supremacy = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 2
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 3
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 4
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = ruler_piety
+				value = 100
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = -25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { bubonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { pneumonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { malaria = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { dysentery = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { small_pox = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { typhoid_fever = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = heretic
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = cruel
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = crusader
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = detached_priest	
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = generous 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = honest 
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = indulgent 
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = just 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = kinslayer 
+				}
+			}
+			factor = 0.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = martial_cleric 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = mastermind_theologian 
+				}
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = merciful 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = sceptical 
+				}
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = scholarly_theologian 
+				}
+			}
+			factor = 1.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = zealous 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	action_a = { #We must resist this evil! 
+		effect = { type = clergy_loyalty value = -0.5 }
+	}
+}
+#############################################################
+# Clergy up in arms that Salvation is denied to God's flock #
+#############################################################
+province_event = {
+	id = 6007
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = {
+			type = difficulty
+			value = 2
+		}
+		condition = {
+			type = religion
+			value = catholic
+		}
+		condition = {
+			type = not
+			value = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+		}
+		condition = {
+			type = owner
+			condition = {
+				type = trait
+				value = excommunicated
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 5000
+
+#		modifier = {
+#			condition = {
+#				type = has_law
+#				value = { monastic_supremacy = yes }
+#			}
+#			factor = 0.85
+#		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { church_supremacy = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 3
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 4
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = ruler_piety
+				value = 100
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = -25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { bubonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { pneumonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { malaria = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { dysentery = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { small_pox = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { typhoid_fever = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = heretic
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = cruel
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = crusader
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = detached_priest	
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = generous 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = honest 
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = indulgent 
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = just 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = kinslayer 
+				}
+			}
+			factor = 0.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = martial_cleric 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = mastermind_theologian 
+				}
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = merciful 
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = sceptical 
+				}
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = scholarly_theologian 
+				}
+			}
+			factor = 1.4
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = zealous 
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	action_a = { #We must fight this evil! 
+		effect = { type = clergy_loyalty value = -0.95 }
+	}
+}
+####################################################
+# Clergy support the crown against the false pope. #
+####################################################
+province_event = {
+	id = 6008
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = {
+			type = religion
+			value = catholic
+		}
+		condition = {
+			type = owner
+			condition = {
+				type = trait
+				value = excommunicated
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1000
+
+#		modifier = {
+#			condition = {
+#				type = has_law
+#				value = { monastic_supremacy = yes }
+#			}
+#			factor = 0.9
+#		}
+		modifier = {
+			condition = {
+				type = has_law
+				value = { church_supremacy = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 2
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 3
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = difficulty
+				value = 4
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_piety
+				value = 500
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_piety
+				value = 100
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_piety
+				value = 50
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = -25
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { bubonic_plague = yes }
+			}
+			factor = 20
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { pneumonic_plague = yes }
+			}
+			factor = 20
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { malaria = yes }
+			}
+			factor = 4
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { dysentery = yes }
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { small_pox = yes }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { typhoid_fever = yes }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+			factor = 0.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = heretic
+				}
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = cruel
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = crusader
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = detached_priest	
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = generous 
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = honest 
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = indulgent 
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = just 
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = kinslayer 
+				}
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = martial_cleric 
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = mastermind_theologian 
+				}
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = merciful 
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = sceptical 
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = scholarly_theologian 
+				}
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = zealous 
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = not
+					value = { type = enemy_same_religion }
+				}
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = papacy }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 1.25
+		}
+	}
+
+	action_a = { #Rome is tainted! 
+		effect = { type = clergy_loyalty value = 0.5 }
+		effect = { type = peasant_loyalty value = 0.1 }
+		effect = { type = ruler_gold scale = 0.2 }
+		effect = { type = ruler_prestige value = 25 }
+		effect = { type = ruler_piety value = 50 }
+	}
+}
+
+# more to come...
+
+#################################################
+# csc demesne efficiency event series		#
+# ID 6021-6040					#
+#################################################
+
+#################################################################
+# The realm's inefficencies cannot support provincial industry	#
+#################################################################
+province_event = {
+	id = 6021
+	picture = "event_moneycollection"
+
+	trigger = {
+		condition = {
+			type = owner
+			condition = {
+				type = not
+				value = { type = efficiency value = 0.25 }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { royal_post = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { grand_palace = yes }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { court_of_justice = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = fortune_builder 
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = hole_in_the_pocket 
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = lazy 
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = midas_touched 
+				}
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = trait
+					value = proven_accountant 
+				}
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.3
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { bubonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { pneumonic_plague = yes }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { malaria = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { dysentery = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { small_pox = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { typhoid_fever = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { road_building = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { large_ship_building = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { road_building = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { minor_merchant_houses = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { local_merchant_houses = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { reknown_merchant_houses = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { annual_sailing = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { distant_trading = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { exotic_trading = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 7
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 9
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 11
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	action_a = {
+		effect = { type = prosperity value = -1 }
+		effect = { type = burgher_power value = -0.1 }
+		effect = { type = burgher_loyalty value = -0.1 }
+	}
+}

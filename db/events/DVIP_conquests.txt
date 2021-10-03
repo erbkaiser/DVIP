@@ -1,0 +1,130 @@
+character_event = { #Turks want Anatolia
+	id = 23240
+	picture = "event_war"
+	trigger = {
+		condition = { type = ai }
+		condition = { type = religion value = moslem }
+		condition = { type = culture value = turkish }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = crusade } }
+		condition = { type = not value = { type = badboy value = 5 } }
+		condition = { type = not value = { type = trait value = realm_duress } }
+		condition = { type = any_demesne_province
+			condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+		}
+		condition = { type = not value = { type = exists value = GOLD } }
+		condition = { type = not value = { type = exists value = ILKH } }
+		condition = { type = exists value = BYZA }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = title value = SELJ }
+				condition = { type = not value = { type = exists value = RUMS } }
+				condition = { type = not value = { type = exists value = OTTO } }
+			}
+			condition = { type = and
+				condition = { type = title value = RUMS }
+				condition = { type = not value = { type = exists value = SELJ } }
+				condition = { type = not value = { type = exists value = OTTO } }
+			}
+			condition = { type = and
+				condition = { type = title value = OTTO }
+				condition = { type = not value = { type = exists value = SELJ } }
+				condition = { type = not value = { type = exists value = RUMS } }
+			}
+		}
+		condition = { type = any_ruler
+			condition = { type = not value = { type = religion value = moslem } }
+			condition = { type = capital condition = { type = area value = 737 } }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = or
+				condition = { type = and
+					condition = { type = title value = BYZA }
+					condition = { type = ai }
+				}
+				condition = { type = and
+					condition = { type = ai }
+					condition = { type = is_vassal } 
+					condition = { type = liege condition = { type = title value = BYZA } }
+					condition = { type = not value = { type = trait value = rebellious } }
+				}
+				condition = { type = not value = { type = atwar } }
+			}
+			condition = { type = save_target }
+			}
+		condition = { type = has_target }
+	}
+	mean_time_to_happen = {
+		years = 3
+		modifier = {
+			condition = { type = not value = { type = year value = 1067 } }
+			factor = 0.0001
+		}
+		modifier = {
+			condition = { type = not value = { type = year value = 1068 } }
+			factor = 0.001
+		}
+		modifier = { 
+			condition = { type = any_ruler
+				condition = { type = title value = BYZA }
+				condition = { type = is_rival }
+			}
+			factor = 0.1
+		}
+	}
+	action_a = { # DoW them
+		effect = { type = declare_war value = load_target }
+	}
+}
+character_event = { #Russians want Russia
+	id = 23241
+	picture = "event_war"
+	trigger = {
+		condition = { type = ai }
+		condition = { type = religion value = orthodox }
+		condition = { type = culture value = russian }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = badboy value = 5 } }
+		condition = { type = not value = { type = trait value = realm_duress } }
+		condition = { type = is_independent }
+		condition = { type = duchy }
+		condition = { type = any_demesne_province
+			condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+			condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+		}
+		condition = { type = not value = { type = exists value = GOLD } }
+		condition = { type = not value = { type = exists value = ILKH } }
+		condition = { type = not value = { type = exists value = RUSS } }
+		condition = { type = any_ruler
+			condition = { type = not value = { type = religion value = orthodox } }
+			condition = { type = not value = { type = religion value = catholic } }
+			condition = { type = not value = { type = culture value = russian } }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = capital condition = { type = area value = 387 } }
+			condition = { type = ai }
+			condition = { type = not value = { type = kingdom } } #Safety
+			condition = { type = not value = { type = trait value = rebellious } }
+			condition = { type = not value = { type = atwar } }
+			condition = { type = save_target }
+			}
+		condition = { type = has_target }
+	}
+	mean_time_to_happen = {
+		years = 3
+	}
+	action_a = { # DoW them
+		effect = { type = declare_war value = load_target }
+	}
+}

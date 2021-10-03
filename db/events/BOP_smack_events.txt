@@ -1,0 +1,6382 @@
+# --------------------------
+# BOP_SMACK_EVENTS by Ambrox
+# --------------------------
+# DV version 1.0
+# --------------------------
+# credits to Solmyr for SMACK mod
+#--------------------------------
+#
+# Change log (from original SMACK v.3)
+#------------------------------------- 
+# ver 0.1
+# -> some events were slightly tuned
+# -> some ID changed
+# -> Removed the following file events:
+# 	 - add_trait_events.txt
+# 	 - character_health_events.txt (original paradox used)
+# 	 - cool_courtiers.txt
+#--------------------------------------------------------- 
+# ver 0.2
+# -> corrected muslim religion with moslem
+#----------------------------------------- 
+# ver 0.3
+# -> removed event id 20021 - Investiture Controversy
+#---------------------------------------------------- 
+# ver 0.4
+# -> changed lisp with stutter in event id 20099
+#---------------------------------------------------- 
+# ver 0.5
+# -> CK 1.05 - checked, corrected and/or removed stutter, leper, i.w. traits
+#---------------------------------------------------------------------------
+# ver 0.6-0.7
+# No changelog
+#---------------------------------------------------------------------------
+# ver 0.8
+# Compatibility checked with DV -- Jor
+# Restored stutter, leper, etc. traits where applicable
+#---------------------------------------------------------------------------
+# ver 1.0
+# -> events sorted and renumbered
+# -> updated event pictures using new DV bmps
+# -> raised mtth in 20012/14 (960->1000) and 20015/16 (720->750)
+# -> fixed triggers and costs in mercenary events 20081/92
+# -> event 20011 now fires for ai only - player uses 19540/43
+#---------------------------------------------------------------------------
+#
+# From original madness_events.txt
+#
+character_event = { # 20000 Madness - ruler
+	id = 20000
+	picture = "event_madness"
+	trigger = {
+		condition = { type = trait value = maniac }
+		condition = { type = gender value = male }
+		condition = { type = is_married }
+		condition = { type = ruler }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = vengeful }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = kinslayer }
+			factor = 0.5
+		}
+	}
+	immidiate = {
+		effect = { 
+			type = random 
+			chance = 50
+			effect = { type = add_trait value = cruel }
+			}
+		effect = { type = add_trait value = kinslayer }
+		effect = { type = prestige value = -100 }
+		effect = { type = piety value = -50 }
+		effect = { type = death value = spouse }
+	}
+}
+character_event = { # 20001 Madness - ruler
+	id = 20001
+	picture = "event_madness"
+	trigger = {
+		condition = { type = trait value = maniac }
+		condition = { type = ruler }
+		condition = {
+			type = not
+			value = { type = trait value = chaste }
+		}
+	}
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.9
+		}
+	}
+	immidiate = {
+		effect = { type = add_trait value = lustful }
+		effect = { type = create_courtier value = bastard }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = piety value = -50 }
+		effect = { type = fertility value = 1 }
+	}
+}
+character_event = { # 20002 Madness - ruler
+	id = 20002
+	picture = "event_madness"
+	trigger = {
+		condition = { type = trait value = maniac }
+		condition = { type = ruler }
+	}
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = vengeful }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 0.9
+		}
+	}
+	immidiate = {
+		effect = { type = add_trait value = cruel }
+		effect = { type = add_trait value = arbitrary }
+		effect = { type = add_trait value = vengeful }
+		effect = { type = add_trait value = proud }
+		effect = { type = piety value = -25 }
+		effect = { type = death value = random_courtier }
+		effect = { type = death value = worst_courtier }
+	}
+}
+character_event = { # 20003 Madness - ruler
+	id = 20003
+	picture = "event_madness"
+	trigger = {
+		condition = { type = trait value = maniac }
+		condition = { type = gender value = male }
+		condition = { type = ruler }
+		condition = { 
+			type = any_child
+			condition = { type = gender value = male }
+		}
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = vengeful }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = kinslayer }
+			factor = 0.5
+		}
+	}
+	immidiate = {
+		effect = { 
+			type = random 
+			chance = 50
+			effect = { type = add_trait value = cruel }
+			}
+		effect = { type = add_trait value = kinslayer }
+		effect = { type = prestige value = -100 }
+		effect = { type = piety value = -50 }
+		effect = { type = death value = random_son }
+	}
+}
+character_event = { # 20004 Madness - courtier
+	id = 20004
+	picture = "event_madness"
+	trigger = {
+		condition = { type = trait value = maniac }
+		condition = { type = gender value = male }
+		condition = {
+			type = not
+			value = { type = trait value = lustful }
+		}
+	}
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 0.9
+		}
+	}
+	immidiate = {
+		effect = { type = add_trait value = chaste }
+		effect = { type = add_trait value = cruel }
+		effect = { type = add_trait value = suspicious }
+		effect = { type = add_trait value = proud }
+		effect = { type = fertility value = -5 }
+	}
+}
+character_event = { # 20005 Madness - courtier
+	id = 20005
+	picture = "event_madness"
+	trigger = {
+		condition = { type = trait value = maniac }
+		condition = {
+			type = not
+			value = { type = trait value = energetic }
+		}
+	}
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 0.9
+		}
+	}
+	immidiate = {
+		effect = { type = add_trait value = lazy }
+		effect = { type = add_trait value = suspicious }
+		effect = { type = add_trait value = coward }
+		effect = { type = add_trait value = indulgent }
+		effect = { type = fertility value = -2 }
+		effect = { type = health value = -1 }
+	}
+}
+character_event = { # 20006 Madness - courtier
+	id = 20006
+	picture = "event_madness"
+	trigger = {
+		condition = { type = trait value = maniac }
+		condition = {
+			type = not
+			value = { type = trait value = sceptical }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = excommunicated }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = heretic }
+		}
+	}
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.25
+		}
+	}
+	immidiate = {
+		effect = { type = add_trait value = zealous }
+		effect = { type = add_trait value = chaste }
+		effect = { type = add_trait value = modest }
+		effect = { type = add_trait value = temperate }
+		effect = { type = piety value = 50 }
+		effect = { type = health value = -1 }
+		effect = { type = fertility value = -1 }
+	}
+}
+character_event = { # 20007 Madness - courtier
+	id = 20007
+	picture = "event_madness"
+	trigger = {
+		condition = { type = trait value = maniac }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+	immidiate = {
+		effect = { type = martial value = 3 }
+		effect = { type = diplomacy value = 3 }
+		effect = { type = intrigue value = 3 }
+		effect = { type = stewardship value = 3 }
+	}
+}
+character_event = { # 20008 Madness - courtier
+	id = 20008
+	picture = "event_madness"
+	trigger = {
+		condition = { type = trait value = maniac }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 0.5
+		}
+	}
+	immidiate = {
+		effect = { type = martial value = -3 }
+		effect = { type = diplomacy value = -3 }
+		effect = { type = intrigue value = -3 }
+		effect = { type = stewardship value = -3 }
+	}
+}
+#
+# From original nastiness.txt
+#
+character_event = { # 20009 Ruler child becomes stressed
+	id = 20009
+	picture = "event_education"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 5 }
+		condition = {
+			type = not
+			value = { type = age value = 16 }
+		}
+	}
+	mean_time_to_happen = {
+		months = 240
+	}
+	immidiate = {
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+}
+character_event = { # 20010 Ruler child is omosex
+	id = 20010
+	picture = "event_youngsters"
+	trigger = {
+		condition = { type = ruler_child }
+		condition = { type = gender value = male }
+		condition = { type = age value = 12 }
+		condition = {
+			type = not
+			value = {
+				type = age
+				value = 20
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = trait
+				value = lustful
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 960
+	}
+	action_a = { # Nothing can be done
+		ai_chance = 20
+			#start AI modifier block
+			modifier = { 
+				condition = { type = father_trait value = merciful }
+				factor = 2
+			}
+			modifier = { 
+				condition = { type = father_trait value = forgiving }
+				factor = 2
+			}
+			modifier = { 
+				condition = { type = father_trait value = zealous }
+				factor = 0.25
+			}
+			modifier = { 
+				condition = { type = father_trait value = cruel }
+				factor = 0.5
+			}
+			#close AI modifier block
+		effect = { type = fertility value = -7 }
+		effect = { type = piety value = -100 }
+		effect = { 
+			type = random 
+			chance = 50
+			effect = { type = add_trait for = father value = merciful }
+			}
+		effect = { 
+			type = random 
+			chance = 5
+			effect = { type = add_trait for = father value = sceptical }
+			}
+	}
+	action_b = { # Disown him
+		ai_chance = 80
+		effect = { type = add_trait value = bastard }
+		effect = { type = fertility value = -7 }
+		effect = { type = piety value = -100 }
+		effect = { type = loyalty value = -0.3 }
+		effect = { 
+			type = random 
+			chance = 25
+			effect = { type = add_trait value = stress_symptom }
+			}
+		effect = { 
+			type = random 
+			chance = 25
+			effect = { type = courtier_defect value = none }
+			}
+		effect = { 
+			type = random 
+			chance = 50
+			effect = { type = add_trait for = father value = cruel }
+			}
+		effect = { 
+			type = random 
+			chance = 10
+			effect = { type = add_trait for = father value = zealous }
+			}
+	}
+}
+character_event = { # 20011 Ruler abdication - AI Only
+	id = 20011
+	picture = "event_intrigue"
+	trigger = {
+		condition = { type = ai }
+		condition = { type = ruler }
+	}
+	mean_time_to_happen = {
+		months = 960
+
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = inbred }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.2
+		}
+        modifier = {
+			condition = { 
+			type = not
+				value = { type = stewardship value = 5 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stewardship value = 7 }
+			condition = {
+			type = not
+				value = { type = stewardship value = 10 }
+			}
+			factor = 1.2
+		}
+        modifier = {
+			condition = { type = stewardship value = 10}
+			factor = 1.5
+        }
+        modifier = {
+			condition = {
+			type = not
+				value = { type = intrigue value = 5 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+				value = { type = intrigue value = 10 }
+			}
+			factor = 1.2
+		}
+        modifier = {
+			condition = { type = intrigue value = 10}
+			factor = 1.5
+        }
+	}
+	action_a = { # Resist the usurpers!
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = coward }
+				factor = 0.1
+			}
+			modifier = { 
+				condition = { type = trait value = energetic }
+				factor = 1.25
+			}
+			modifier = { 
+				condition = { type = trait value = lazy }
+				factor = 0.1
+			}
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.25
+			}
+			modifier = { 
+				condition = { type = trait value = reckless }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.25
+			}
+			modifier = { 
+				condition = { type = trait value = valorous }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = vengeful }
+				factor = 1.25
+			}
+			#close AI modifier block
+		effect = { 
+			type = random 
+			chance = 10
+			effect = { type = death }
+			}
+		effect = { 
+			type = random 
+			chance = 25
+			effect = { type = add_trait value = vengeful }
+			}
+		effect = { type = death value = random_courtier }
+		effect = { type = prestige value = 50 }
+	}
+	action_b = { # Abdicate peacefully
+		ai_chance = 50
+		effect = { type = death }
+	}
+}
+#
+# From original age_events.txt
+#
+character_event = { # 20012 Character gains experience - diplomacy
+     id = 20012
+     picture = "event_chancellor"
+     trigger = {
+              condition = { type = age value = 40 }
+     }
+     mean_time_to_happen = {
+              months = 1000
+              modifier = {
+                  condition = { type = age value = 50 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = age value = 60 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = age value = 70 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = deceitful }
+                  factor = 1.2
+              }
+              modifier = {
+                  condition = { type = trait value = energetic }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = honest }
+                  factor = 0.8
+              }
+              modifier = {
+                  condition = { type = trait value = lazy }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = suspicious }
+                  factor = 1.5
+              }
+              modifier = {
+                  condition = { type = trait value = trusting }
+                  factor = 0.8
+              }
+              modifier = {
+                  condition = { type = trait value = wise }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = illness }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = harelip }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = depression }
+                  factor = 3
+              }
+              modifier = {
+                  condition = { type = trait value = inbred }
+                  factor = 5
+              }
+              modifier = {
+                  condition = { type = trait value = leper }
+                  factor = 3
+              }
+              modifier = {
+                  condition = { type = trait value = lisp }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = maniac }
+                  factor = 4
+              }
+              modifier = {
+                  condition = { type = trait value = plagueinfested }
+                  factor = 4
+              }
+              modifier = {
+                  condition = { type = trait value = pneumonia }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = schizofrenia }
+                  factor = 4
+              }
+              modifier = {
+                  condition = { type = trait value = stress_symptom }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = stutter }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = amateurish_pettifogger }
+                  factor = 1.2
+              }
+              modifier = {
+                  condition = { type = trait value = proven_dealbreaker }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = charismatic_negotiator }
+                  factor = 0.8
+              }
+              modifier = {
+                  condition = { type = trait value = grey_eminence }
+                  factor = 0.6
+              }
+              modifier = {
+                  condition = { type = trait value = detached_priest }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = kinslayer }
+                  factor = 5
+              }
+              modifier = {
+                  condition = { type = chancellor }
+                  factor = 0.5
+              }
+     }
+     immidiate = {
+             effect = { type = diplomacy value = 1 }
+     }
+}
+character_event = { # 20013 Character gains experience - intrigue
+     id = 20013
+     picture = "event_spymaster"
+     trigger = {
+              condition = { type = age value = 40 }
+     }
+     mean_time_to_happen = {
+              months = 1000
+              modifier = {
+                  condition = { type = age value = 50 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = age value = 60 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = age value = 70 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = deceitful }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = honest }
+                  factor = 3
+              }
+              modifier = {
+                  condition = { type = trait value = lazy }
+                  factor = 0.8
+              }
+              modifier = {
+                  condition = { type = trait value = suspicious }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = trusting }
+                  factor = 3
+              }
+              modifier = {
+                  condition = { type = trait value = wise }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = illness }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = depression }
+                  factor = 3
+              }
+              modifier = {
+                  condition = { type = trait value = inbred }
+                  factor = 5
+              }
+              modifier = {
+                  condition = { type = trait value = maniac }
+                  factor = 4
+              }
+              modifier = {
+                  condition = { type = trait value = plagueinfested }
+                  factor = 4
+              }
+              modifier = {
+                  condition = { type = trait value = pneumonia }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = schizofrenia }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = stress_symptom }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = naive_wirepuller }
+                  factor = 1.2
+              }
+              modifier = {
+                  condition = { type = trait value = flamboyant_schemer }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = intricate_webweaver }
+                  factor = 0.8
+              }
+              modifier = {
+                  condition = { type = trait value = illusive_shadow }
+                  factor = 0.6
+              }
+              modifier = {
+                  condition = { type = trait value = mastermind_theologian }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = bastard }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = kinslayer }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = spymaster }
+                  factor = 0.5
+              }
+     }
+     immidiate = {
+             effect = { type = intrigue value = 1 }
+     }
+}
+character_event = { # 20014 Character gains experience - stewardship
+     id = 20014
+     picture = "event_steward"
+     trigger = {
+              condition = { type = age value = 40 }
+     }
+     mean_time_to_happen = {
+              months = 1000
+              modifier = {
+                  condition = { type = age value = 50 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = age value = 60 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = age value = 70 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = arbitrary }
+                  factor = 1.2
+              }
+              modifier = {
+                  condition = { type = trait value = generous }
+                  factor = 1.2
+              }
+              modifier = {
+                  condition = { type = trait value = just }
+                  factor = 0.8
+              }
+              modifier = {
+                  condition = { type = trait value = lazy }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = selfish }
+                  factor = 0.8
+              }
+              modifier = {
+                  condition = { type = trait value = wise }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = illness }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = depression }
+                  factor = 3
+              }
+              modifier = {
+                  condition = { type = trait value = inbred }
+                  factor = 5
+              }
+              modifier = {
+                  condition = { type = trait value = maniac }
+                  factor = 4
+              }
+              modifier = {
+                  condition = { type = trait value = plagueinfested }
+                  factor = 4
+              }
+              modifier = {
+                  condition = { type = trait value = pneumonia }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = schizofrenia }
+                  factor = 4
+              }
+              modifier = {
+                  condition = { type = trait value = stress_symptom }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = hole_in_the_pocket }
+                  factor = 1.2
+              }
+              modifier = {
+                  condition = { type = trait value = proven_accountant }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = fortune_builder }
+                  factor = 0.8
+              }
+              modifier = {
+                  condition = { type = trait value = midas_touched }
+                  factor = 0.6
+              }
+              modifier = {
+                  condition = { type = trait value = scholarly_theologian }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = steward }
+                  factor = 0.5
+              }
+     }
+     immidiate = {
+             effect = { type = stewardship value = 1 }
+     }
+}
+character_event = { # 20015 Character suffers effects of age - health
+     id = 20015
+     picture = "event_sickness"
+     trigger = {
+              condition = { type = age value = 40 }
+     }
+     mean_time_to_happen = {
+              months = 750
+              modifier = {
+                  condition = { type = age value = 50 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = age value = 60 }
+                  factor = 0.7
+              }
+              modifier = {
+                  condition = { type = age value = 70 }
+                  factor = 0.5
+              }
+     }
+     immidiate = {
+             effect = { type = health value = -1 }
+     }
+}
+character_event = { # 20016 Character suffers effects of age - fertility
+     id = 20016
+     picture = "event_sickness"
+     trigger = {
+              condition = { type = age value = 40 }
+              condition = { type = gender value = male }
+     }
+     mean_time_to_happen = {
+              months = 750
+              modifier = {
+                  condition = { type = age value = 50 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = age value = 60 }
+                  factor = 0.7
+              }
+              modifier = {
+                  condition = { type = age value = 70 }
+                  factor = 0.5
+              }
+     }
+     immidiate = {
+             effect = { type = fertility value = -1 }
+     }
+}
+character_event = { # 20017 Character gains faith
+     id = 20017
+     picture = "event_religion"
+     trigger = {
+		condition = { type = age value = 40 }
+     }
+     mean_time_to_happen = {
+              months = 960
+              modifier = {
+                  condition = { type = age value = 50 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = age value = 60 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = age value = 70 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = chaste }
+                  factor = 0.6
+              }
+              modifier = {
+                  condition = { type = trait value = cruel }
+                  factor = 1.3
+              }
+              modifier = {
+                  condition = { type = trait value = deceitful }
+                  factor = 1.3
+              }
+              modifier = {
+                  condition = { type = trait value = indulgent }
+                  factor = 1.2
+              }
+              modifier = {
+                  condition = { type = trait value = merciful }
+                  factor = 0.6
+              }
+              modifier = {
+                  condition = { type = trait value = modest }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = proud }
+                  factor = 1.8
+              }
+              modifier = {
+                  condition = { type = trait value = sceptical }
+                  factor = 3
+              }
+              modifier = {
+                  condition = { type = trait value = temperate }
+                  factor = 0.7
+              }
+              modifier = {
+                  condition = { type = trait value = zealous }
+                  factor = 0.5
+              }
+# sick people can get religious
+              modifier = {
+                  condition = { type = trait value = illness }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = leper }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = pneumonia }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = plagueinfested }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = trait value = detached_priest }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = martial_cleric }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = scholarly_theologian }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = mastermind_theologian }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = heretic }
+                  factor = 4
+              }
+              modifier = {
+                  condition = { type = trait value = excommunicated }
+                  factor = 4
+              }
+              modifier = {
+                  condition = { type = trait value = crusader }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = kinslayer }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = chaplain }
+                  factor = 0.5
+              }
+     }
+     action_a = { # Reflect upon your life
+		ai_chance = 80
+		effect = { type = piety value = 25 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = remove_trait value = cruel }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = remove_trait value = deceitful }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = remove_trait value = indulgent }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = remove_trait value = lustful }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = remove_trait value = proud }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = remove_trait value = sceptical }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = remove_trait value = vengeful }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = remove_trait value = heretic }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = remove_trait value = excommunicated }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = zealous }
+		}
+     }
+     action_b = { # Faith is overrated
+		ai_chance = 20
+			#start AI modifier block
+			modifier = { 
+				condition = { type = father_trait value = zealous }
+				factor = 0.1
+			}
+			modifier = { 
+				condition = { type = father_trait value = sceptical }
+				factor = 2.5
+			}
+			modifier = { 
+				condition = { type = father_trait value = heretic }
+				factor = 2.5
+			}
+			#close AI modifier block
+		effect = { type = piety value = -10 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = sceptical }
+		}
+     }
+}
+#
+# From original law_change_events.txt
+#
+character_event = { # 20018 Dynasty establishes itself
+     id = 20018
+     picture = "event_claim"
+     trigger = {
+              condition = { type = ruler }
+              condition = { 
+                  type = or
+                  condition = { type = has_law value = { royal_preorgatory_law  = yes } }
+                  condition = { type = has_law value = { feudal_contract_law  = yes } }
+              }
+              condition = { 
+                  type = or
+                  condition = { type = has_law value = { elective_law  = yes } }
+                  condition = { type = has_law value = { salic_gavelkind_law  = yes } }
+                  condition = { type = has_law value = { semisalic_gavelkind_law  = yes } }
+              }
+              condition = {
+                  type = or
+                  condition = { type = diplomacy value = 9 }
+                  condition = { type = martial value = 9 }
+                  condition = { type = stewardship value = 9 }
+              }
+              condition = {
+                  type = not
+                  value = { type = religion value = pagan }
+              }
+     }
+     mean_time_to_happen = {
+              months = 180
+              modifier = {
+                  condition = { type = duchy }
+                  factor = 0.75
+              }
+              modifier = {
+                  condition = { type = kingdom }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = year value = 1300 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = year value = 1400 }
+                  factor = 0.9
+              }
+     }
+     action_a = { # Claim the throne for my dynasty
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = energetic }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.5
+			}
+			modifier = {
+				condition = {
+					type = any_vassal
+					condition = {
+						type = not
+						value = { type = loyalty value = 1 }
+					}
+				}
+			factor = 0.1
+			}
+			#close AI modifier block
+		effect = { type = set_law value = semisalic_primogeniture_law }
+		effect = { type = prestige value = 50 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = proud }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = arbitrary }
+		}
+     }
+     action_b = { # Keep the old succession laws
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = coward }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = lazy }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = -25 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = just }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = modest }
+		}
+     }
+}
+character_event = { # 20019 Feudalism takes root
+     id = 20019
+     picture = "event_joust"
+     trigger = {
+              condition = { type = ruler }
+              condition = { type = year	value = 1100 }
+              condition = { type = has_law value = { traditional_custom_law  = yes } }
+              condition = {
+                 type = or
+                 condition = { type = religion value = catholic }
+                 condition = { type = religion value = orthodox }
+              }
+     }
+     mean_time_to_happen = {
+              months = 180
+              modifier = {
+                  condition = { type = duchy }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = kingdom }
+                  factor = 0.7
+              }
+              modifier = {
+                  condition = { type = has_vassal }
+                  factor = 0.8
+              }
+              modifier = {
+                  condition = { type = year value = 1200 }
+                  factor = 0.8
+              }
+              modifier = {
+                  condition = { type = year value = 1300 }
+                  factor = 0.5
+              }
+     }
+     action_a = { # Accept feudalism
+		ai_chance = 70
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.25
+			}
+			modifier = { 
+				condition = { type = trait value = wise }
+				factor = 1.25
+			}
+			#close AI modifier block
+		effect = { type = set_law value = feudal_contract_law }
+		effect = { type = prestige value = 25 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = generous }
+		}
+     }
+     action_b = { # Increase royal power instead
+		ai_chance = 20
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.25
+			}
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.25
+			}
+			#close AI modifier block
+		effect = { type = set_law value = royal_preorgatory_law }
+		effect = { type = prestige value = 50 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = arbitrary }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = proud }
+		}
+     }
+     action_c = { # Leave things as they are
+		ai_chance = 10
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = lazy }
+				factor = 1.25
+			}
+			#close AI modifier block
+		effect = { type = prestige value = -25 }
+     }
+}
+character_event = { # 20020 Royal power increases
+     id = 20020
+     picture = "event_law"
+     trigger = {
+              condition = { type = kingdom }
+              condition = { type = year value = 1250 }
+              condition = {
+                 type = or
+                 condition = { type = religion value = catholic }
+                 condition = { type = religion value = orthodox }
+              }
+              condition = {
+                 type = or
+                 condition = { type = has_law value = { feudal_contract_law = yes } }
+                 condition = { type = has_law value = { traditional_custom_law  = yes } }
+              }
+     }
+     mean_time_to_happen = {
+              months = 240
+              modifier = {
+                  condition = { type = year value = 1350 }
+                  factor = 0.7
+              }
+              modifier = {
+                  condition = { type = diplomacy value = 8 }
+                  factor = 0.9
+              }
+              modifier = {
+                  factor = 1.5
+              }
+              modifier = {
+                  condition = { type = not
+                            value = { type = diplomacy value = 3 }
+                  }
+                  factor = 1.5
+              }
+              modifier = {
+                  condition = { type = prestige value = 1000 }
+                  factor = 0.7
+              }
+              modifier = {
+                  condition = { type = trait value = coward }
+                  factor = 2
+              }
+              modifier = {
+                  condition = { type = trait value = energetic }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = trait value = generous }
+                  factor = 1.2
+              }
+              modifier = {
+                  condition = { type = trait value = lazy }
+                  factor = 3
+              }
+              modifier = {
+                  condition = { type = trait value = modest }
+                  factor = 1.5
+              }
+              modifier = {
+                  condition = { type = trait value = proud }
+                  factor = 0.7
+              }
+              modifier = {
+                  condition = { type = trait value = selfish }
+                  factor = 0.7
+              }
+     }
+     action_a = { # Increase royal power
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.25
+			}
+			modifier = { 
+				condition = { type = trait value = energetic }
+				factor = 1.25
+			}
+			#close AI modifier block
+		effect = { type = set_law value = royal_preorgatory_law }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = proud }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = energetic }
+		}
+		effect = { type = prestige value = 50 }
+		effect = { type = loyalty for = random_vassal value = -0.2 }
+     }
+     action_b = { # Leave things as they are
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.25
+			}
+			modifier = { 
+				condition = { type = trait value = lazy }
+				factor = 1.25
+			}
+			modifier = { 
+				condition = { type = trait value = coward }
+				factor = 1.25
+			}
+			#close AI modifier block
+		effect = { type = loyalty for = random_vassal value = 0.2 }
+		effect = { type = prestige value = -25 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = modest }
+		}
+     }
+}
+character_event = { # 20021 Salic Law
+     id = 20021
+     picture = "event_law"
+     trigger = {
+              condition = { type = ruler }
+              condition = { 
+                  type = or
+                  condition = { type = has_law value = { royal_preorgatory_law  = yes } }
+                  condition = { type = has_law value = { feudal_contract_law  = yes } }
+              }
+              condition = {
+                  type = or
+                  condition = { type = has_law value = { semisalic_primogeniture_law  = yes } }
+                  condition = { type = has_law value = { salic_consanguinity_law  = yes } }
+                  condition = { type = has_law value = { semisalic_consanguinity_law  = yes } }
+                  condition = { type = has_law value = { salic_gavelkind_law  = yes } }
+                  condition = { type = has_law value = { semisalic_gavelkind_law  = yes } }
+				  condition = { type = has_law value = { monastic_supremacy = yes } }
+              }
+              condition = {
+                  type = or
+                  condition = { type = diplomacy value = 9 }
+                  condition = { type = martial value = 9 }
+                  condition = { type = stewardship value = 9 }
+              }
+              condition = { type = religion value = catholic }
+     }
+     mean_time_to_happen = {
+              months = 900
+              modifier = {
+                  condition = { type = duchy }
+                  factor = 0.75
+              }
+              modifier = {
+                  condition = { type = kingdom }
+                  factor = 0.5
+              }
+              modifier = {
+                  condition = { type = year value = 1300 }
+                  factor = 0.9
+              }
+              modifier = {
+                  condition = { type = year value = 1400 }
+                  factor = 0.9
+              }
+     }
+     action_a = { # Institute Salic Law
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = energetic }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.5
+			}
+			modifier = {
+				condition = {
+					type = any_vassal
+					condition = {
+						type = not
+						value = { type = loyalty value = 1 }
+					}
+				}
+			factor = 0.1
+			}
+			#close AI modifier block
+		effect = { type = set_law value = salic_primogeniture_law }
+		effect = { type = prestige value = 50 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = proud }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = arbitrary }
+		}
+     }
+     action_b = { # Keep the old succession laws
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = coward }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = lazy }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = -25 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = just }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = modest }
+		}
+     }
+}
+#
+# From original chaplain2_events.txt
+#
+character_event = { # 20025 Chaplain event
+	id = 20025
+	picture = "event_chaplain"
+	trigger = {
+		condition = { type = chaplain }
+		condition = { type = trait value = zealous }
+	}
+	mean_time_to_happen = {
+		months = 900
+	}
+	action_a = { # He is a holy man
+		effect = { type = piety value = 50 }
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = chaste }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = forgiving }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = generous }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = honest }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = just }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = merciful }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = modest }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = temperate }
+		}
+	}
+}
+character_event = { # 20026 Chaplain event
+	id = 20026
+	picture = "event_chaplain"
+	trigger = {
+		condition = { type = ruler }
+		condition = {
+			type = chaplain_csc
+			condition = { type = piety value = 100 }
+		}
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = piety value = 500 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = piety value = 1000 }
+			}
+			factor = 0.5
+		}
+	}
+	immidiate = { 
+		effect = { type = piety value = 50 }
+		effect = { type = random
+				chance = 25
+				effect = { type = prestige value = 50 }
+		}
+	}
+}
+character_event = { # 20027 Chaplain event
+	id = 20027
+	picture = "event_intrigue"
+	trigger = {
+		condition = { type = ruler }
+		condition = {
+			type = chaplain_csc
+			condition = {
+				type = not
+				value = { type = piety value = 0 }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 600
+	}
+	immidiate = { 
+		effect = { type = piety value = -50 }
+		effect = { type = random
+				chance = 25
+				effect = { type = prestige value = -50 }
+		}
+	}
+}
+character_event = { # 20028 Chaplain event
+	id = 20028
+	picture = "event_chaplain"
+	trigger = {
+		condition = { type = ruler }
+		condition = {
+			type = chaplain_csc
+			condition = { type = trait value = chaste }
+		}
+	}
+	mean_time_to_happen = {
+		months = 600
+	}
+	action_a = { # Yes, carnal pleasures are a sin
+		ai_chance = 20
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = chaste }
+				factor = 3
+			}
+			modifier = { 
+				condition = { type = trait value = lustful }
+				factor = 0.25
+			}
+			#close AI modifier block
+		effect = { type = piety value = 20 }
+		effect = { type = remove_trait value = lustful }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = chaste }
+		}
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = fertility value = -1 }
+		}
+	}
+	action_b = { # Bah, what harm could come from it?
+		ai_chance = 80
+		effect = { type = piety value = -20 }
+		effect = { type = remove_trait value = chaste }
+		effect = { type = random
+				chance = 10
+				effect = { type = add_trait value = lustful }
+		}
+	}
+}
+character_event = { # 20029 Chaplain event
+	id = 20029
+	picture = "event_intrigue"
+	trigger = {
+		condition = { type = ruler }
+		condition = {
+			type = or
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = indulgent }
+			}
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = lustful }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 600
+	}
+	action_a = { # He likes wild orgies too much...
+		effect = { type = piety value = -25 }
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = prestige value = -25 }
+		}
+	}
+}
+character_event = { # 20030 Chaplain event
+	id = 20030
+	picture = "event_religion"
+	trigger = {
+		condition = { type = chaplain }
+		condition = { type = trait value = sceptical }
+		condition = {
+			type = not
+			value = { type = trait value = heretic }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = excommunicated }
+		}
+		condition = {
+			type = ruler_csc
+			condition = {
+				type = not
+				value = { type = religion value = pagan }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 600
+	}
+	action_a = { # He is arguing against the religious establishment
+		effect = { type = piety value = -25 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = heretic }
+		}
+	}
+}
+character_event = { # 20031 Chaplain event
+	id = 20031
+	picture = "event_heretic"
+	trigger = {
+		condition = { type = chaplain }
+		condition = {
+			type = or
+			condition = { type = trait value = heretic }
+			condition = { type = trait value = excommunicated }
+		}
+		condition = {
+			type = ruler_csc
+			condition = {
+				type = not
+				value = { type = religion value = pagan }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 600
+	}
+	action_a = { # Exile him
+		ai_chance = 70
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = zealous }
+				}
+				factor = 2
+			}
+			#close AI modifier block
+		effect = { type = piety value = 25 }
+		effect = { type = random
+				chance = 10
+				effect = { type = add_trait for = ruler value = zealous }
+		}
+		effect = { type = courtier_defect value = none }
+	}
+	action_b = { # His teachings are true!
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = sceptical }
+				}
+				factor = 2
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = heretic }
+				}
+				factor = 3
+			}
+			#close AI modifier block
+		effect = { type = piety value = -25 }
+		effect = { type = random
+				chance = 50
+				effect = { type = add_trait for = ruler value = sceptical }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait for = ruler value = heretic }
+		}
+		effect = { type = loyalty value = 0.5 }
+	}
+}
+character_event = { # 20032 Chaplain event
+	id = 20032
+	picture = "event_crusades"
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = religion value = catholic }
+		condition = { type = trait value = zealous }
+		condition = { type = crusade }		
+		condition = { 
+			type = not 
+			value = {
+				type = trait
+				value = crusader
+			}
+		}	
+		condition = {
+			type = or
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = zealous }
+			}
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = valorous }
+			}
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = crusader }
+			}
+		}
+		condition = {
+			type = or
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = detached_priest }
+			}
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = martial_cleric }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 600
+	}
+	action_a = {#Deus Vult!
+		effect = { type = add_trait value = crusader }
+		effect = { type = piety value = 100 }
+	}
+	action_b = {#Pff!
+		effect = { type = piety value = -100 }
+		effect = { type = add_trait value = sceptical }
+	}
+}
+province_event = {  # 20033 Chaplain event
+	id = 20033
+	picture = "event_heretic"
+	trigger = {
+		condition = {
+			type = owner
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = cruel }
+			}
+		}
+		condition = { type = has_advance value = { inquisition = yes } }
+	}
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = trait value = cruel }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = trait value = zealous }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = detached_priest }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = zealous }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { heretic = yes } }
+			factor = 0.75
+		}
+	}
+	action_a = { # Let him do his work
+		effect = { type = peasant_loyalty value = -0.1 }
+		effect = { type = burgher_loyalty value = -0.1 }
+		effect = { type = prosperity value = -2 }
+		effect = { type = ruler_piety value = 25 }
+		effect = {
+			type = random
+			chance = 75
+			effect = { type = remove_province_effect value = heretic }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = set_to_realm_religion }
+		}
+	}
+	action_b = { # Stop these atrocities
+		effect = { type = peasant_loyalty value = 0.25 }
+		effect = { type = burgher_loyalty value = 0.25 }
+		effect = { type = ruler_piety value = -25 }
+	}
+}
+province_event = {  # 20034 Chaplain event
+	id = 20034
+	picture = "event_religion"
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = {
+			type = owner
+			condition = {
+				type = or
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = generous }
+				}
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = detached_priest }
+				}
+			}
+		}
+		condition = { type = ruler_gold value = 1 }
+	}
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = trait value = generous }
+			}
+			factor = 0.75
+		}
+	}
+	action_a = { # Let him do this good work
+		effect = { type = peasant_loyalty value = 0.25 }
+		effect = { type = ruler_piety value = 25 }
+		effect = { type = ruler_gold scale = -0.25 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = prosperity value = 1 }
+		}
+	}
+	action_b = { # Forbid him to do it
+		effect = { type = peasant_loyalty value = -0.25 }
+		effect = { type = ruler_piety value = -0.25 }
+	}
+}
+character_event = { # 20035 Chaplain event
+	id = 20035
+	picture = "event_intrigue"
+	trigger = {
+		condition = { type = chaplain }
+		condition = { type = trait value = selfish }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = {
+					type = any_demesne_province
+					condition = { type = has_advance value = { letters_of_indulgence = yes } }
+				}
+			}
+			factor = 0.9
+		}
+	}
+	action_a = { # I am sure it is all going to the Church...
+		effect = { type = gold scale = 0.1 }
+		effect = { type = random
+				chance = 10
+				effect = { type = add_trait value = arbitrary }
+		}
+		effect = { type = random
+				chance = 10
+				effect = { type = add_trait value = deceitful }
+		}
+	}
+}
+#
+# From original trait_pair_events.txt
+#
+character_event = { # 20036 Ruler pair traits
+	id = 20036
+	picture = "event_tribunal"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = {
+			type = not
+			value = { type = trait value = just }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = arbitrary }
+		}
+	}
+	mean_time_to_happen = {
+		months = 1200
+	}
+	action_a = { # Rule justly
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = honest }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = just }
+		}
+		effect = { type = loyalty for = random_courtier value = -1 }
+	}
+	action_b = { # Favor your friends
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = suspicious }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = arbitrary }
+		}
+		effect = { type = loyalty for = random_vassal value = -0.2 }
+		effect = { type = loyalty for = worst_vassal value = -0.2 }
+	}
+	action_c = { # Maintain a middle ground
+		ai_chance = 40
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = wise }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = { # 20037 Ruler pair traits
+	id = 20037
+	picture = "event_tribunal"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = {
+			type = not
+			value = { type = trait value = cruel }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = merciful }
+		}
+	}
+	mean_time_to_happen = {
+		months = 1200
+	}
+	action_a = { # Punish them harshly
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = vengeful }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = cruel }
+		}
+		effect = { type = death value = random_courtier }
+	}
+	action_b = { # Let them  get off scot-free
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = forgiving }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = generous }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = merciful }
+		}
+		effect = { type = loyalty for = random_vassal value = -0.2 }
+		effect = { type = loyalty for = best_vassal value = -0.2 }
+	}
+	action_c = { # Punish them fairly
+		ai_chance = 40
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = { # 20038 Ruler pair traits
+	id = 20038
+	picture = "event_claim"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = {
+			type = not
+			value = { type = trait value = deceitful }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = honest }
+		}
+	}
+	mean_time_to_happen = {
+		months = 1200
+	}
+	action_a = { # Make things up in your favor
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = deceitful }
+		}
+		effect = { type = prestige value = 50 }
+		effect = { type = piety value = -25 }
+	}
+	action_b = { # Answer honestly
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = honest }
+		}
+		effect = { type = prestige value = -25 }
+		effect = { type = piety value = 25 }
+	}
+	action_c = { # Give a neutral answer
+		ai_chance = 40
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = { # 20039 Ruler pair traits
+	id = 20039
+	picture = "event_law"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = {
+			type = not
+			value = { type = trait value = energetic }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = lazy }
+		}
+	}
+	mean_time_to_happen = {
+		months = 1200
+	}
+	action_a = { # Take an active hand in governing
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = wise }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = energetic }
+		}
+		effect = { type = prestige value = 50 }
+		effect = { type = fertility value = -1 }
+	}
+	action_b = { # Let others handle things
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = trusting }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = lazy }
+		}
+		effect = { type = prestige value = -50 }
+		effect = { type = fertility value = 1 }
+	}
+	action_c = { # Do as much as is needed
+		ai_chance = 40
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = { # 20040 Ruler pair traits
+	id = 20040
+	picture = "event_tribunal"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = {
+			type = not
+			value = { type = trait value = forgiving }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = vengeful }
+		}
+	}
+	mean_time_to_happen = {
+		months = 1200
+	}
+	action_a = { # Execute their relatives!
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = cruel }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = vengeful }
+		}
+		effect = { type = loyalty for = worst_vassal value = -0.2 }
+		effect = { type = death value = random_courtier }
+		effect = { type = prestige value = 50 }
+	}
+	action_b = { # Grant them pardon
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = merciful }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = forgiving }
+		}
+		effect = { type = loyalty for = worst_vassal value = 0.2 }
+		effect = { type = prestige value = -50 }
+	}
+	action_c = { # Send them away
+		ai_chance = 40
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = { # 20041 Ruler pair traits
+	id = 20041
+	picture = "event_children"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = {
+			type = not
+			value = { type = trait value = generous }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = selfish }
+		}
+	}
+	mean_time_to_happen = {
+		months = 1200
+	}
+	action_a = { # Help them as much as you can
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = merciful }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = generous }
+		}
+		effect = { type = gold scale = -0.25 }
+		effect = { type = piety value = 50 }
+	}
+	action_b = { # Send out the tax collectors instead
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = cruel }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = selfish }
+		}
+		effect = { type = gold scale = 0.25 }
+		effect = { type = piety value = -50 }
+	}
+	action_c = { # Let them help themselves
+		ai_chance = 40
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = { # 20042 Ruler pair traits
+	id = 20042
+	picture = "event_appearance"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = {
+			type = not
+			value = { type = trait value = indulgent }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = temperate }
+		}
+		condition = { type = gold value = 100 }
+	}
+	mean_time_to_happen = {
+		months = 1200
+	}
+	action_a = { # Enjoy the finer things in life
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = lazy }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = lustful }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = indulgent }
+		}
+		effect = { type = gold scale = -0.25 }
+		effect = { type = prestige value = 50 }
+		effect = { type = piety value = -25 }
+		effect = { type = health value = -1 }
+	}
+	action_b = { # Maintain a temperate lifestyle
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = chaste }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = temperate }
+		}
+		effect = { type = prestige value = -50 }
+		effect = { type = piety value = 25 }
+		effect = { type = health value = 1 }
+	}
+	action_c = { # Maintain a regular court
+		ai_chance = 40
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = { # 20043 Ruler pair traits
+	id = 20043
+	picture = "event_tribunal"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = {
+			type = not
+			value = { type = trait value = modest }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = proud }
+		}
+	}
+	mean_time_to_happen = {
+		months = 1200
+	}
+	action_a = { # Carry yourself modestly
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = chaste }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = modest }
+		}
+		effect = { type = prestige value = -25 }
+		effect = { type = piety value = 25 }
+	}
+	action_b = { # Carry yourself haughtily
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = proud }
+		}
+		effect = { type = prestige value = 25 }
+		effect = { type = piety value = -25 }
+	}
+	action_c = { # Carry yourself with dignity
+		ai_chance = 40
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = { # 20044 Ruler pair traits
+	id = 20044
+	picture = "event_law"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = {
+			type = not
+			value = { type = trait value = reckless }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = wise }
+		}
+	}
+	mean_time_to_happen = {
+		months = 1200
+	}
+	action_a = { # Let your feelings guide you
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = trusting }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = reckless }
+		}
+		effect = { type = prestige value = -50 }
+	}
+	action_b = { # Let your reason guide you
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = suspicious }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = wise }
+		}
+		effect = { type = piety value = -25 }
+	}
+	action_c = { # Maintain a balance
+		ai_chance = 40
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = { # 20045 Ruler pair traits
+	id = 20045
+	picture = "event_tribunal"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = {
+			type = not
+			value = { type = trait value = suspicious }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = trusting }
+		}
+	}
+	mean_time_to_happen = {
+		months = 1200
+	}
+	action_a = { # Trust no-one but yourself
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = deceitful }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = suspicious }
+		}
+		effect = { type = prestige value = -25 }
+		effect = { type = loyalty for = best_vassal value = -0.2 }
+	}
+	action_b = { # Trust your advisors implicitly
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = honest }
+				factor = 1.2
+			}
+			modifier = { 
+				condition = { type = trait value = generous }
+				factor = 1.2
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = add_trait value = trusting }
+		}
+		effect = { type = loyalty for = best_vassal value = 0.2 }
+		effect = { type = loyalty for = random_vassal value = -0.2 }
+	}
+	action_c = { # Maintain a balanced level of trust
+		ai_chance = 4
+		effect = { type = prestige value = 5 }
+	}
+}
+#
+# From original muslim_events.txt
+#
+province_event = {  # 20024 Ottoman rise
+	id = 20024
+	picture = "event_muslim"
+	trigger = {
+		condition = { type = area value = 742 } # Anatolia
+		condition = { type = ruler_religion value = moslem }
+		condition = {
+			type = not
+			value = { type = title_exists value = OTTO }
+		}
+		condition = { type = year value = 1280 }
+	}
+	mean_time_to_happen = {
+		months = 500
+	}
+	action_a = {
+		effect = { type = create_tag value = OTTO }
+		effect = { type = add_regiment country = OTTO culture = turkish strength = { archer_cav = 2000 light_cav = 2000 } }
+		effect = { type = religion value = moslem }
+		effect = { type = culture value = turkish }
+	}
+}
+province_event = {  # 20046 Assassins series
+	id = 20046
+	picture = "event_muslim"
+	trigger = {
+		condition = {
+			type = or
+			condition = { type = province value = 665 } # Dailam
+			condition = { type = province value = 765 } # Archa
+			}
+		condition = { type = ruler_religion value = moslem }
+		condition = {
+			type = not
+			value = { type = title_exists value = ASSA }
+		}
+		condition = { type = year value = 1097 }
+		condition = {
+			type = not
+			value = { type = year value = 1250 }
+		}
+	}
+	mean_time_to_happen = {
+		months = 60
+	}
+	action_a = {
+		effect = { type = create_tag value = ASSA }
+		effect = { type = add_regiment country = ASSA culture = persian strength = { archers = 500 militia = 1000 } }
+	}
+}
+character_event = { # 20047 Assassins series
+	id = 20047
+	picture = "event_muslim"
+	trigger = {
+		condition = { type = title value = ASSA }
+		condition = { type = ruler_religion value = moslem }
+		condition = { type = ai }
+	}
+	mean_time_to_happen = {
+		years = 5
+	}
+	action_a = {
+		effect = { type = create_courtier value = spymaster }
+		effect = { type = set_law value = elective_law }
+	}
+}
+character_event = { # 20048 Assassins series
+	id = 20048
+	picture = "event_muslim"
+	trigger = {
+		condition = { type = title value = ASSA }
+		condition = { type = ruler_religion value = moslem }
+		condition = { type = ai }
+		condition = { type = atwar }
+	}
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = intricate_webweaver }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = illusive_shadow }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = intrigue value = 12 }
+			factor = 0.7
+		}
+	}
+	action_a = {
+		effect = { type = trigger for = random_enemy value = 20049 }
+	}
+}
+character_event = { # 20049 Assassins series
+	id = 20049
+	picture = "event_muslim"
+	immidiate = {
+		effect = { type = death value = random_courtier }
+	}
+}
+character_event = { # 20050 Assassins series
+	id = 20050
+	picture = "event_muslim"
+	trigger = {
+		condition = { type = title value = ASSA }
+		condition = { type = ruler_religion value = moslem }
+		condition = { type = ai }
+		condition = { type = atwar }
+	}
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = intricate_webweaver }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = illusive_shadow }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = intrigue value = 12 }
+			factor = 0.7
+		}
+	}
+	action_a = {
+		effect = { type = trigger for = random_enemy value = 20051 }
+	}
+}
+character_event = { # 20051 Assassins series
+	id = 20051
+	picture = "event_muslim"
+	immidiate = {
+		effect = { type = death }
+	}
+}
+province_event = {  # 20052 Seljuk series
+	id = 20052
+	picture = "event_muslim"
+	trigger = {
+		condition = { type = region value = Middle_East }
+		condition = { type = exists value = SELJ }
+		condition = { type = demesne value = SELJ }
+		condition = {
+			type = not
+			value = { type = year value = 1100 }
+		}
+		condition = {
+			type = owner
+			condition = { type = atwar }
+		}
+		condition = { type = ai }
+	}
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			condition = { type = year value = 1085 }
+			factor = 5
+		}
+	}
+	action_a = {
+		effect = { type = add_regiment country = SELJ culture = turkish strength = { archer_cav = 5000 light_cav = 5000 } }
+	}
+}
+province_event = {  # 20053 Seljuk series
+	id = 20053
+	picture = "event_muslim"
+	trigger = {
+		condition = {
+			type = or
+			condition = { type = province value = 706 } # Koloneia
+			condition = { type = province value = 707 } # Melitene
+			condition = { type = province value = 737 } # Kaisereia
+			condition = { type = province value = 749 } # Dorylaion
+			condition = { type = province value = 750 } # Nikaea
+			condition = { type = province value = 752 } # Galatia
+			condition = { type = province value = 753 } # Ankyra
+			condition = { type = province value = 759 } # Ikonion
+			condition = { type = province value = 760 } # Tyana
+			}
+		condition = { type = exists value = SELJ }
+		condition = { type = demesne value = SELJ }
+		condition = {
+			type = not
+			value = { type = title_exists value = RUMS }
+		}
+		condition = {
+			type = not
+			value = { type = year value = 1300 }
+		}
+		condition = {
+			type = not
+			value = { type = demesne value = OTTO }
+		}
+	}
+	mean_time_to_happen = {
+		months = 50
+	}
+	action_a = {
+		effect = { type = create_tag value = RUMS }
+		effect = { type = add_regiment country = RUMS culture = turkish strength = { archer_cav = 2000 light_cav = 2000 } }
+		effect = { type = religion value = moslem }
+		effect = { type = culture value = turkish }
+	}
+}
+province_event = {  # 20054 Egypt & North African series
+	id = 20054
+	picture = "event_muslim"
+	trigger = {
+		condition = { type = region value = North_Africa }
+		condition = {
+			type = or
+			condition = { type = exists value = FATI }
+			condition = { type = exists value = AYYU }
+			condition = { type = exists value = ABBA }
+		}
+		condition = {
+			type = or
+			condition = { type = demesne value = FATI }
+			condition = { type = demesne value = AYYU }
+			condition = { type = demesne value = ABBA }
+		}
+		condition = {
+			type = not
+			value = { type = title_exists value = MAML }
+		}
+		condition = { type = year value = 1250 }
+	}
+	mean_time_to_happen = {
+		months = 500
+	}
+	action_a = {
+		effect = { type = create_tag value = MAML }
+		effect = { type = add_regiment country = MAML culture = cuman strength = { light_cav = 1000 archers = 1000 heavy_inf = 1000 } }
+	}
+}
+province_event = {  # 20055 Egypt & North African series
+	id = 20055
+	picture = "event_muslim"
+	trigger = {
+		condition = {
+			type = or
+			condition = { type = area value = 843 } # Haut_Atlas
+			condition = { type = area value = 846 } # Sahara
+		}
+		condition = { type = ruler_religion value = moslem }
+		condition = {
+			type = not
+			value = { type = title_exists value = ALMO }
+		}
+		condition = { type = year value = 1130 }
+		condition = {
+			type = not
+			value = { type = year value = 1260 }
+		}
+	}
+	mean_time_to_happen = {
+		months = 500
+	}
+	action_a = {
+		effect = { type = create_tag value = ALMO }
+		effect = { type = add_regiment country = ALMO culture = abghazian strength = { light_cav = 1000 archers = 1000 militia = 1000 } }
+	}
+}
+#
+# From original jews_events.txt
+#
+province_event = {  # 20056 Jews
+	id = 20056
+	picture = "event_town"
+	trigger = {
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = has_improvement value = { moneylenders = yes } }
+	}
+	mean_time_to_happen = {
+		months = 480
+	}
+	action_a = { # Expel the Jews and seize their property
+		ai_chance = 60
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = selfish }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = arbitrary }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = zealous }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = remove_improvement value = moneylenders }
+		effect = { type = ruler_piety value = 25 }
+		effect = { type = burgher_power value = -0.10 }
+		effect = { type = noble_power value = 0.10 }
+		effect = { type = ruler_gold scale = 0.25 }
+		effect = { type = prosperity value = -1 }
+	}
+	action_b = { # Let them stay
+		ai_chance = 60
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = merciful }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = just }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = generous }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = ruler_piety value = -25 }
+		effect = { type = burgher_loyalty value = 0.10 }
+		effect = { type = clergy_loyalty value = -0.10 }
+	}
+}
+province_event = {  # 20057 Jews
+	id = 20057
+	picture = "event_rebellion"
+	trigger = {
+		condition = { type = ruler_religion value = catholic }
+		condition = {
+			type = not
+			value = { type = religion value = jewish }
+		}
+		condition = { type = has_improvement value = { moneylenders = yes } }
+	}
+	mean_time_to_happen = {
+		months = 480
+	}
+	action_a = { # Ignore it
+		ai_chance = 60
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = selfish }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = lazy }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = remove_improvement value = moneylenders }
+		effect = { type = burgher_power value = -0.10 }
+		effect = { type = peasant_power value = 0.10 }
+	}
+	action_b = { # Stop them
+		ai_chance = 20
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = merciful }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = just }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = ruler_prestige value = 25 }
+		effect = { type = burgher_loyalty value = 0.10 }
+		effect = { type = peasant_loyalty value = -0.10 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_c = { # Help them
+		ai_chance = 20
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = arbitrary }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = zealous }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = cruel }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = remove_improvement value = moneylenders }
+		effect = { type = ruler_piety value = 25 }
+		effect = { type = burgher_loyalty value = -0.10 }
+		effect = { type = peasant_loyalty value = 0.10 }
+		effect = { type = burgher_power value = -0.10 }
+		effect = { type = peasant_power value = 0.10 }
+		effect = { type = ruler_gold scale = 0.1 }
+		effect = { type = prosperity value = -1 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+province_event = {  # 20058 Jews
+	id = 20058
+	picture = "event_templars"
+	trigger = {
+		condition = { type = crusade }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = has_improvement value = { moneylenders = yes } }
+	}
+	mean_time_to_happen = {
+		months = 600
+	}
+	action_a = { # Let them do it
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = selfish }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = arbitrary }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = zealous }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = crusader }
+				}
+				factor = 2
+			}
+			#close AI modifier block
+		effect = { type = remove_improvement value = moneylenders }
+		effect = { type = ruler_piety value = 25 }
+		effect = { type = burgher_loyalty value = -0.10 }
+		effect = { type = clergy_loyalty value = 0.10 }
+		effect = { type = prosperity value = -1 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+	action_b = { # Stop them
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = merciful }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = just }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = ruler_prestige value = 25 }
+		effect = { type = ruler_piety value = -25 }
+		effect = { type = burgher_loyalty value = 0.10 }
+		effect = { type = clergy_loyalty value = -0.10 }
+	}
+}
+character_event = { # 20059 Jews
+	id = 20059
+	picture = "event_law"
+	trigger = {
+		condition = { type = ruler }
+		condition = {
+			type = not
+			value = { type = gold value = 1 }
+		}
+		condition = {
+			type = any_demesne_province
+			condition = { type = has_improvement value = { moneylenders = yes } }
+		}
+		condition = { type = religion value = catholic }
+	}
+	mean_time_to_happen = {
+		months = 240
+	}
+	action_a = { # Let them share their wealth
+		ai_chance = 80
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = zealous }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = gold scale = 0.15 }
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = arbitrary }
+		}
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = selfish }
+		}
+	}
+	action_b = { # Allow them to keep their possessions
+		ai_chance = 20
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = generous }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = merciful }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = just }
+		}
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = generous }
+		}
+	}
+}
+character_event = { # 20060 Jews
+	id = 20060
+	picture = "event_moneycollection"
+	trigger = {
+		condition = { type = ruler }
+		condition = {
+			type = any_demesne_province
+			condition = { type = has_improvement value = { moneylenders = yes } }
+		}
+		condition = { type = religion value = catholic }
+	}
+	mean_time_to_happen = {
+		months = 600
+	}
+	action_a = { # He can wait a while longer
+		ai_chance = 80
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = zealous }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = deceitful }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = arbitrary }
+		}
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = selfish }
+		}
+	}
+	action_b = { # Very well, I will pay this off
+		ai_chance = 20
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = generous }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = honest }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = gold scale = -0.15 }
+		effect = { type = prestige value = 25 }
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = just }
+		}
+	}
+}
+#
+# From original byz_events.txt
+#
+character_event = { # 20061 Rulership & Aristocracy 
+	id = 20061
+	picture = "event_claim"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = has_law value = { royal_preorgatory_law  = yes } }
+		condition = { type = has_law value = { elective_law  = yes } }
+		condition = {
+			type = or
+			condition = { type = martial value = 9 }
+			condition = { type = diplomacy value = 9 }
+			condition = { type = intrigue value = 9 }
+			condition = { type = stewardship value = 9 }
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = year value = 1400 }
+			factor = 0.9
+		}
+	}
+	action_a = { # Claim the throne for my dynasty
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = energetic }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.5
+			}
+			modifier = {
+				condition = {
+					type = any_vassal
+					condition = {
+						type = not
+						value = { type = loyalty value = 0.6 }
+					}
+				}
+			factor = 0.1
+			}
+			#close AI modifier block
+		effect = { type = set_law value = semisalic_consanguinity_law }
+		effect = { type = prestige value = 100 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = proud }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = arbitrary }
+		}
+	}
+	action_b = { # Keep the old succession laws
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = coward }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = lazy }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = -50 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = just }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = modest }
+		}
+	}
+}
+character_event = { # 20062 Rulership & Aristocracy 
+	id = 20062
+	picture = "event_claim"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = {
+			type = any_vassal
+			condition = { type = duchy }
+		}
+		condition = {
+			type = not
+			value = { type = has_law value = { elective_law  = yes } }
+		}
+		condition = {
+			type = or
+			condition = {
+				type = not
+				value = { type = martial value = 5 }
+			}
+			condition = {
+				type = not
+				value = { type = diplomacy value = 5 }
+			}
+			condition = {
+				type = not
+				value = { type = intrigue value = 5 }
+			}
+			condition = {
+				type = not
+				value = { type = stewardship value = 5 }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			condition = { type = year value = 1250 }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = year value = 1350 }
+			factor = 5
+		}
+	}
+	action_a = { # Rein them in
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = energetic }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = valorous }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = reckless }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = 50 }
+		effect = { type = loyalty for = random_vassal value = -0.5 }
+		effect = { type = loyalty for = best_vassal value = -0.5 }
+		effect = { type = loyalty for = worst_vassal value = -0.5 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = proud }
+		}
+		effect = { type = trigger for = random_vassal value = 20063 }
+		effect = { type = trigger for = best_vassal value = 20063 }
+		effect = { type = trigger for = worst_vassal value = 20063 }
+	}
+	action_b = { # We are powerless
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = coward }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = lazy }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = set_law value = elective_law }
+		effect = { type = prestige value = -50 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = coward }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = modest }
+		}
+	}
+}
+character_event = { # 20063 Rulership & Aristocracy 
+	id = 20063
+	picture = "event_claim"
+	immidiate = {
+		effect = { type = add_title_claim value = liege }
+	}
+}
+character_event = { # 20064 Rulership & Aristocracy 
+	id = 20064
+	picture = "event_recovery"
+	trigger = {
+		condition = { type = ruler_child }
+		condition = { type = gender value = male }
+		condition = {
+			type = father
+			condition = { type = title value = BYZA }
+		}
+		condition = {
+			type = father
+			condition = {
+				type = not
+				value = { type = has_law value = { elective_law  = yes } }
+			}
+		}
+		condition = {
+			type = or
+			condition = { type = trait value = inbred }
+			condition = { type = trait value = clubfooted }
+			condition = { type = trait value = harelip }
+			condition = { type = trait value = hunchback }
+			condition = { type = trait value = leper }
+			condition = { type = trait value = lisp }
+			condition = { type = trait value = plagueinfested }
+			condition = { type = trait value = stutter }
+		}
+		condition = {
+			type = not
+			value = { type = trait value = bastard }
+		}
+	}
+	mean_time_to_happen = {
+		months = 60
+	}
+	action_a = { # A future Emperor must be perfect
+		ai_chance = 80
+			#start AI modifier block
+			modifier = { 
+				condition = { type = father_trait value = arbitrary }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = father_trait value = zealous }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = father_trait value = proud }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = father_trait value = cruel }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = father_trait value = selfish }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = add_trait value = bastard }
+		effect = { type = loyalty value = -0.3 }
+		effect = { 
+			type = random 
+			chance = 25
+			effect = { type = add_trait value = stress_symptom }
+			}
+		effect = { 
+			type = random 
+			chance = 25
+			effect = { type = courtier_defect value = none }
+			}
+		effect = { 
+			type = random 
+			chance = 10
+			effect = { type = add_trait for = father value = proud }
+			}
+		effect = { 
+			type = random 
+			chance = 10
+			effect = { type = add_trait for = father value = zealous }
+			}
+	}
+	action_b = { # Ignore the tradition, he is my son
+		ai_chance = 20
+			#start AI modifier block
+			modifier = { 
+				condition = { type = father_trait value = sceptical }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = father_trait value = merciful }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = father_trait value = generous }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = -100 }
+		effect = { type = trigger for = father value = 20065 }
+	}
+}
+character_event = { # 20065 Rulership & Aristocracy 
+	id = 20065
+	picture = "event_tribunal"
+	immidiate = {
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = merciful }
+		}
+		effect = { type = prestige value = -100 }
+		effect = { type = loyalty for = random_vassal value = -0.5 }
+		effect = { type = loyalty for = best_vassal value = -0.5 }
+		effect = { type = loyalty for = worst_vassal value = -0.5 }
+	}
+}
+province_event = {  # 20066 Rulership & Aristocracy 
+	id = 20066
+	picture = "event_appearance"
+	trigger = {
+		condition = { type = demesne value = BYZA }
+		condition = { type = year value = 1150 }
+		condition = { type = religion value = orthodox }
+		condition = {
+			type = or
+			condition = { type = culture value = greek }
+			condition = { type = culture value = armenian }
+			condition = { type = culture value = southslavic }
+			condition = { type = culture value = georgian }
+			condition = { type = culture value = russian }
+		}
+		condition = { type = has_advance value = { divine_rights = yes } }
+		condition = { 
+			type = not 
+			value = { type = noble_power value = 0.60 }
+		}
+	}
+	mean_time_to_happen = {
+		months = 720
+		modifier = {
+			condition = { type = year value = 1200 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = year value = 1400 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { chronicle_writing = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { romantic_poetry = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { heraldry = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { oblige_noblesse = yes } }
+			factor = 0.9
+		}
+	}
+	action_a = { # Oh well
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = modest }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = coward }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = lazy }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = generous }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = ruler_prestige value = -25 }
+		effect = { type = noble_power value = 0.1 }
+		effect = { type = peasant_power value = -0.05 }
+		effect = { type = burgher_power value = -0.05 }
+	}
+	action_b = { # Try to keep them down
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = proud }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = wise }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = energetic }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = selfish }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = ruler_prestige value = 25 }
+		effect = { type = noble_loyalty value = -0.3 }
+		effect = { type = noble_power value = -0.05 }
+		effect = { type = burgher_power value = 0.05 }
+		effect = { type = remove_advance value = divine_rights }
+	}
+}
+province_event = {  # 20067 Rulership & Aristocracy 
+	id = 20067
+	picture = "event_intrigue"
+	trigger = {
+		condition = { type = demesne value = BYZA }
+		condition = { type = religion value = orthodox }
+		condition = {
+			type = or
+			condition = { type = culture value = greek }
+			condition = { type = culture value = armenian }
+			condition = { type = culture value = southslavic }
+			condition = { type = culture value = georgian }
+			condition = { type = culture value = russian }
+		}
+		condition = { type = has_advance value = { divine_rights = yes } }
+		condition = { 
+			type = not 
+			value = { type = noble_power value = 0.60 }
+		}
+	}
+	mean_time_to_happen = {
+		months = 720
+		modifier = {
+			condition = {
+				type = not
+				value = { type = ruler_gold value = 1 }
+			}
+			factor = 0.25
+		}
+	}
+	action_a = { # Sell the offices
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = lazy }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = arbitrary }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = ruler_prestige value = -25 }
+		effect = { type = ruler_gold value = 100 }
+		effect = { type = noble_power value = 0.1 }
+	}
+	action_b = { # Find other ways to raise money
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = proud }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = wise }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = energetic }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = just }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = ruler_prestige value = 25 }
+		effect = { type = noble_loyalty value = -0.2 }
+		effect = { type = remove_advance value = divine_rights }
+	}
+}
+character_event = { # 20068 Theology & Culture
+	id = 20068
+	picture = "event_chaplain"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = religion value = orthodox }
+		condition = {
+			type = or
+			condition = { type = has_law value = { regal_supremacy  = yes } }
+			#condition = { type = has_law value = { monastic_supremacy  = yes } }
+			condition = { type = has_law value = { ecclesical_balance  = yes } }
+		}
+	}
+	mean_time_to_happen = {
+		years = 50
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 1.25
+		}
+	}
+	action_a = { # Look for able clergymen to serve you
+		ai_chance = 25
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = wise }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = energetic }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = create_courtier value = chaplain }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = create_courtier value = chaplain }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = create_courtier value = chaplain }
+		}
+	}
+	action_b = { # Advance your favored theological positions
+		ai_chance = 25
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = zealous }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = heretic }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = 200 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = zealous }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = diplomacy value = 1 }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = heretic }
+			effect = { type = piety value = -100 }
+			effect = { type = add_province_effect value = heretic }
+			effect = { type = add_province_effect value = heretic }
+			effect = { type = add_province_effect value = heretic }
+		}
+	}
+	action_c = { # Secure election of your allies as bishops
+		ai_chance = 25
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = 100 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = arbitrary }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = selfish }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = intrigue value = 1 }
+		}
+	}
+	action_d = { # Defer to the Patriarch on theological points
+		ai_chance = 25
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = lazy }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = generous }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = piety value = 100 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = modest }
+		}
+	}
+}
+character_event = { # 20069 Theology & Culture
+	id = 20069
+	picture = "event_default"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = religion value = orthodox }
+		condition = { type = has_law value = { regal_supremacy  = yes } }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = {
+				type = not
+				value = { type = gold value = 1 }
+			}
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 2
+		}
+	}
+	action_a = { # Confiscate Church property to aid the Empire
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitrary }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = sceptical }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = heretic }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = gold value = 100 }
+		effect = { type = piety value = -50 }
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = arbitrary }
+		}
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = selfish }
+		}
+	}
+	action_b = { # It is not ours to take
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = zealous }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = generous }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = piety value = 50 }
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = generous }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = zealous }
+		}
+	}
+}
+character_event = { # 20070 Theology & Culture
+	id = 20070
+	picture = "event_tribunal"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = { type = has_advance value = universities }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = academic_disciplines }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = aristotelian_logics }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = scholastics }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = astrology }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = natural_philosophy }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = science }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = critical_bible_interpretations }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = bible_translations }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = critical_thinking }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = inquisition }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_advance value = formalized_lithurgy }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_advance value = jubilee }
+			factor = 1.2
+		}
+	}
+	action_a = { # Give your patronage to the philosopher
+		ai_chance = 30
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = wise }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = sceptical }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = heretic }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = 50 }
+		effect = { type = piety value = -50 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = sceptical }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = wise }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = heretic }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_next_advance value = aristotelian_logics }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_next_advance value = ascetism }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_next_advance value = the_seven_liberal_arts }
+		}
+	}
+	action_b = { # Support the Church doctrine
+		ai_chance = 70
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = zealous }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = piety value = 50 }
+		effect = { type = prestige value = -50 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = zealous }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_next_advance value = relics }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_next_advance value = clerical_celibacy }
+		}
+	}
+}
+character_event = { # 20071 Theology & Culture
+	id = 20071
+	picture = "event_tribunal"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = { type = has_advance value = critical_bible_interpretations }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = bible_translations }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = critical_thinking }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = inquisition }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = formalized_lithurgy }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = jubilee }
+			factor = 0.9
+		}
+	}
+	action_a = { # Support traditional dogma
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = zealous }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = piety value = 25 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = zealous }
+		}
+	}
+	action_b = { # Support an innovative view
+		ai_chance = 25
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = sceptical }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = heretic }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = piety value = -25 }
+		effect = { type = prestige value = 100 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = sceptical }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = heretic }
+		}
+	}
+	action_c = { # Try to find a middle ground
+		ai_chance = 25
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = energetic }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = just }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = 50 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = wise }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = just }
+		}
+	}
+}
+character_event = { # 20072 Trade & Monetary
+	id = 20072
+	picture = "event_techspread"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = { type = has_advance value = basilican_structures }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = brickwork_structures }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = romanesque_vaulting }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = cylindrical_structures }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = gothic_buttresses }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = gold value = 1 }
+			}
+			factor = 5
+		}
+	}
+	action_a = { # Build new palaces
+		ai_chance = 45
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = indulgent }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = 150 }
+		effect = { type = gold scale = -1 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = proud }
+		}
+	}
+	action_b = { # Build new churches and monasteries
+		ai_chance = 45
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = zealous }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = temperate }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = piety value = 50 }
+		effect = { type = gold scale = -1 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = zealous }
+		}
+	}
+	action_c = { # Look into new architectural styles
+		ai_chance = 10
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = energetic }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = wise }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = 100 }
+		effect = { type = gold scale = -1 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = energetic }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_next_advance value = basilican_structures }
+		}
+	}
+}
+character_event = { # 20073 Trade & Monetary
+	id = 20073
+	picture = "event_moneycollection"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = {
+				type = not
+				value = { type = gold value = 1 }
+			}
+			factor = 0.25
+		}
+	}
+	action_a = { # Debase the coinage
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitary }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = lazy }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = -100 }
+		effect = { type = gold scale = 0.5 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = arbitrary }
+		}
+		effect = {
+			type = random
+			chance = 20
+			effect = { type = remove_next_advance value = reknown_merchant_houses }
+		}
+		effect = {
+			type = random
+			chance = 20
+			effect = { type = remove_next_advance value = foreign_accreditation }
+		}
+	}
+	action_b = { # Maintain the value of our currency
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = energetic }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = wise }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = 50 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = wise }
+		}
+	}
+}
+province_event = {  # 20074 Trade & Monetary
+	id = 20074
+	picture = "event_law"
+	trigger = {
+		condition = { type = province value = 496 }
+		condition = { type = demesne value = BYZA }
+		condition = {
+			type = or
+			condition = { type = exists value = VENI }
+			condition = { type = exists value = GENO }
+			condition = { type = exists value = PISA }
+		}
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = year value = 1100 }
+	}
+	mean_time_to_happen = {
+		months = 240
+	}
+	action_a = { # Grant them trade concessions
+		ai_chance = 80
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = modest }
+				}
+				factor = 1.1
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = reckless }
+				}
+				factor = 1.25
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = lazy }
+				}
+				factor = 1.25
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = coward }
+				}
+				factor = 1.25
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = trusting }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prosperity value = -1 }
+		effect = { type = ruler_prestige value = -100 }
+		effect = { type = ruler_gold value = 200 }
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = remove_advance value = reknown_merchant_houses }
+		effect = { type = remove_advance value = guilds }
+	}
+	action_b = { # Don't let the leeches profit from our people
+		ai_chance = 20
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = proud }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = wise }
+				}
+				factor = 1.25
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = energetic }
+				}
+				factor = 1.25
+			}
+			modifier = { 
+				condition = {
+					type = owner
+					condition = { type = trait value = suspicious }
+				}
+				factor = 1.25
+			}
+			#close AI modifier block
+		effect = { type = ruler_prestige value = 50 }
+		effect = { type = noble_loyalty value = -0.2 }
+	}
+}
+character_event = { # 20075 Trade & Monetary
+	id = 20075
+	picture = "event_intrigue"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = religion value = orthodox }
+		condition = {
+			type = or
+			condition = { type = exists value = VENI }
+			condition = { type = exists value = GENO }
+			condition = { type = exists value = PISA }
+		}
+	}
+	mean_time_to_happen = {
+		months = 480
+	}
+	action_a = { # Arrest and expel them
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = arbitary }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = energetic }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = proud }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = reckless }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = selfish }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = vengeful }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = 100 }
+		effect = { type = gold scale = -0.5 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = energetic }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = proud }
+		}
+	}
+	action_b = { # Do nothing
+		ai_chance = 50
+			#start AI modifier block
+			modifier = { 
+				condition = { type = trait value = coward }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = forgiving }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = lazy }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = merciful }
+				factor = 1.5
+			}
+			modifier = { 
+				condition = { type = trait value = modest }
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = -100 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = coward }
+		}
+	}
+}
+character_event = { # 20076 Trade & Monetary
+	id = 20076
+	picture = "event_moneycollection"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = ai }
+		condition = {
+			type = or
+			condition = { type = title value = VENI }
+			condition = { type = title value = GENO }
+			condition = { type = title value = PISA }
+		}
+		condition = { type = has_law value = { popular_law  = yes } }
+		condition = { type = has_law value = { elective_law  = yes } }
+		condition = { type = religion value = catholic }
+		condition = { type = year value = 1100 }
+# Byzantium must exist, or the country getting the event must own Constantinople
+		condition = {
+			type = or
+			condition = { type = exists value = BYZA }
+			condition = { type = title value = C496 }
+		}
+	}
+	mean_time_to_happen = {
+		months = 60
+		modifier = { 
+			condition = { type = trait value = energetic }
+			factor = 0.75
+		}
+		modifier = { 
+			condition = { type = trait value = lazy }
+			factor = 3
+		}
+		modifier = { 
+			condition = { type = trait value = wise }
+			factor = 0.75
+		}
+		modifier = { 
+			condition = { type = trait value = hole_in_the_pocket }
+			factor = 3
+		}
+		modifier = { 
+			condition = { type = trait value = proven_accountant }
+			factor = 0.9
+		}
+		modifier = { 
+			condition = { type = trait value = fortune_builder }
+			factor = 0.75
+		}
+		modifier = { 
+			condition = { type = trait value = midas_touched }
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = {
+					type = not 
+					value = { type = ruler_stewardship value = 5 }
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = {
+					type = not 
+					value = { type = ruler_stewardship value = 8 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = {
+					type = not 
+					value = { type = ruler_stewardship value = 11 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = ruler_stewardship value = 16 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = ruler_stewardship value = 21 }
+			}
+			factor = 0.9
+		}
+	}
+	immidiate = { # Our trade is bearing fruit
+		effect = { type = gold value = 500 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_next_advance value = reknown_merchant_houses }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_next_advance value = foreign_accreditation }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_next_advance value = international_fairs }
+		}
+	}
+}
+character_event = { # 20077 Military & Mercenary
+	id = 20077
+	picture = "event_marshal"
+	trigger = {
+		condition = {
+			type = ruler_csc
+			condition = { type = title value = BYZA }
+		}
+		condition = { type = marshal }
+		condition = { type = prestige value = 100 }
+		condition = { type = martial value = 8 }
+		condition = {
+			type = ruler_csc
+			condition = {
+				type = not
+				value = { type = martial value = 8 }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = { 
+			condition = { type = trait value = coward }
+			factor = 3
+		}
+		modifier = { 
+			condition = { type = trait value = energetic }
+			factor = 0.75
+		}
+		modifier = { 
+			condition = { type = trait value = proud }
+			factor = 0.75
+		}
+		modifier = { 
+			condition = { type = trait value = valorous }
+			factor = 0.75
+		}
+		modifier = { 
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = suspicious }
+			}
+			factor = 0.75
+		}
+	}
+	action_a = { # Do nothing
+		ai_chance = 34
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = coward }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = lazy }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = trusting }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = prestige value = 50 }
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = proud }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait for = ruler value = trusting }
+		}
+		effect = { type = trigger for = ruler value = 20078 }
+	}
+	action_b = { # Try to reduce his influence
+		ai_chance = 33
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = energetic }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = suspicious }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = selfish }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = loyalty value = -0.2 }
+		effect = { type = prestige value = -25 }
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = vengeful }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait for = ruler value = energetic }
+		}
+	}
+	action_c = { # Depose and exile him
+		ai_chance = 33
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = arbitrary }
+				}
+				factor = 3
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = cruel }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = vengeful }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = add_title_claim value = ruler }
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait for = ruler value = arbitrary }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_province_effect for = ruler value = revolt }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_province_effect for = ruler value = revolt }
+		}
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = prestige value = -25 }
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = vengeful }
+		}
+	}
+}
+character_event = { # 20078 Military & Mercenary
+	id = 20078
+	picture = "event_claim"
+	immidiate = {
+		effect = { type = prestige value = -100 }
+	}
+}
+character_event = { # 20079 Military & Mercenary
+	id = 20079
+	picture = "event_marshal"
+	trigger = {
+		condition = {
+			type = ruler_csc
+			condition = { type = title value = BYZA }
+		}
+		condition = { type = marshal }
+		condition = { type = prestige value = 400 }
+		condition = { type = martial value = 8 }
+		condition = {
+			type = ruler_csc
+			condition = {
+				type = not
+				value = { type = martial value = 8 }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 600
+# has_claim does not work?
+#		modifier = { 
+#			condition = { type = has_claim value = BYZA }
+#			factor = 0.5
+#		}
+		modifier = { 
+			condition = { type = trait value = coward }
+			factor = 3
+		}
+		modifier = { 
+			condition = { type = trait value = energetic }
+			factor = 0.75
+		}
+		modifier = { 
+			condition = { type = trait value = proud }
+			factor = 0.75
+		}
+		modifier = { 
+			condition = { type = trait value = valorous }
+			factor = 0.75
+		}
+		modifier = { 
+			condition = { type = trait value = selfish }
+			factor = 0.75
+		}
+		modifier = { 
+			condition = { type = trait value = arbitrary }
+			factor = 0.75
+		}
+		modifier = { 
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = coward }
+			}
+			factor = 0.75
+		}
+	}
+	action_a = { # Try to arrest and execute him
+		ai_chance = 25
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = just }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = arbitrary }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = proud }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = cruel }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = vengeful }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = add_title_claim value = ruler }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = death }
+		}
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = vengeful }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait for = ruler value = vengeful }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_province_effect for = ruler value = revolt }
+		}
+		effect = { type = trigger for = ruler value = 20078 }
+	}
+	action_b = { # Exile him
+		ai_chance = 25
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = just }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = merciful }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = forgiving }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = add_title_claim value = ruler }
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait for = ruler value = just }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_province_effect for = ruler value = revolt }
+		}
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = prestige value = -25 }
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = vengeful }
+		}
+	}
+	action_c = { # Bribe him
+		ai_chance = 25
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = coward }
+				}
+				factor = 3
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = deceitful }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = generous }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait for = ruler value = coward }
+		}
+		effect = { type = gold value = 200 }
+		effect = { type = loyalty value = 0.2 }
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait value = selfish }
+		}
+		effect = { type = trigger for = ruler value = 20080 }
+	}
+	action_d = { # Fight him off
+		ai_chance = 25
+			#start AI modifier block
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = valorous }
+				}
+				factor = 1.5
+			}
+			modifier = { 
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = reckless }
+				}
+				factor = 1.5
+			}
+			#close AI modifier block
+		effect = { type = add_title_claim value = ruler }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = death }
+		}
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = prestige value = -25 }
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait for = ruler value = valorous }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_province_effect for = ruler value = revolt }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_province_effect for = ruler value = revolt }
+		}
+		effect = { type = random
+				chance = 25
+				effect = { type = add_province_effect for = ruler value = revolt }
+		}
+	}
+}
+character_event = { # 20080 Military & Mercenary
+	id = 20080
+	picture = "event_moneycollection"
+	immidiate = {
+		effect = { type = gold value = -200 }
+	}
+}
+character_event = { # 20081 Norman sellswords - level 0
+	id = 20081
+	picture = "event_mercenaries"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 200 }
+		condition = { type = not value = { type = gold value = 600 } }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -200 }
+		effect = { 	type = add_regiment 
+				tech_prov = 347
+				culture = norman
+				strength = {
+					heavy_cav = 500
+					heavy_inf = 500
+				}
+		}
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+character_event = { # 20082 Norman sellswords - level 1
+	id = 20082
+	picture = "event_mercenaries"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 600 }
+		condition = { type = not value = { type = gold value = 1000 } }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -600 }
+		effect = { 	type = add_regiment 
+				tech_prov = 347
+				culture = norman
+				strength = {
+					heavy_cav = 800
+					heavy_inf = 800
+				}
+		}
+
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+character_event = { # 20083 Norman sellswords - level 2
+	id = 20083
+	picture = "event_mercenaries"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 1000 }
+		condition = { type = not value = { type = gold value = 1600 } }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -1000 }
+		effect = { 	type = add_regiment 
+				tech_prov = 347
+				culture = norman
+				strength = {
+					heavy_cav = 1100
+					heavy_inf = 1100
+				}
+		}
+
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+character_event = { # 20084 Norman sellswords - level 3
+	id = 20084
+	picture = "event_mercenaries"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 1600 }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -1600 }
+		effect = { 	type = add_regiment 
+				tech_prov = 347
+				culture = norman
+				strength = {
+					heavy_cav = 1600
+					heavy_inf = 1600
+				}
+		}
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+character_event = { # 20085 Rus mercenaries - level 0
+	id = 20085
+	picture = "event_mercenaries"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 120 }
+		condition = { type = not value = { type = gold value = 360 } }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 1200
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -120 }
+		effect = { 	type = add_regiment 
+				tech_prov = 410
+				culture = russian
+				strength = {
+					heavy_inf = 600
+					pikemen = 200				
+				}
+		}
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+character_event = { # 20086 Rus mercenaries - level 1
+	id = 20086
+	picture = "event_mercenaries"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 360 }
+		condition = { type = not value = { type = gold value = 600 } }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 1200
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -360 }
+		effect = { 	type = add_regiment 
+				tech_prov = 410
+				culture = russian
+				strength = {
+					heavy_inf = 1200
+					pikemen = 400				
+				}
+		}
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+character_event = { # 20087 Rus mercenaries - level 2
+	id = 20087
+	picture = "event_mercenaries"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 600 }
+		condition = { type = not value = { type = gold value = 960 } }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 1200
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -600 }
+		effect = { 	type = add_regiment 
+				tech_prov = 410
+				culture = russian
+				strength = {
+					heavy_inf = 1800
+					pikemen = 600				
+				}
+		}
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+character_event = { # 20088 Rus mercenaries - level 3
+	id = 20088
+	picture = "event_mercenaries"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = title value = BYZA }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 960 }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 1200
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -960 }
+		effect = { 	type = add_regiment 
+				tech_prov = 410
+				culture = russian
+				strength = {
+					heavy_inf = 2400
+					pikemen = 800				
+				}
+		}
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+character_event = { # 20089 Pecheneg raiders - level 0
+	id = 20089
+	picture = "event_mongol"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 180 }
+		condition = { type = not value = { type = gold value = 540 } }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 180
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -180 }
+		effect = { 	type = add_regiment 
+				tech_prov = 512
+				culture = pecheneg
+				strength = {
+					light_cav = 600
+				}
+		}
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+character_event = { # 20090 Pecheneg raiders - level 1
+	id = 20090
+	picture = "event_mongol"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 540 }
+		condition = { type = not value = { type = gold value = 900 } }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 180
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -540 }
+		effect = { 	type = add_regiment 
+				tech_prov = 512
+				culture = pecheneg
+				strength = {
+					light_cav = 1200
+				}
+		}
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+character_event = { # 20091 Pecheneg raiders - level 2
+	id = 20091
+	picture = "event_mongol"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 900 }
+		condition = { type = not value = { type = gold value = 1440 } }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 180
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -900 }
+		effect = { 	type = add_regiment 
+				tech_prov = 512
+				culture = pecheneg
+				strength = {
+					light_cav = 1800
+				}
+		}
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+character_event = { # 20092 Pecheneg raiders - level 3
+	id = 20092
+	picture = "event_mongol"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = prestige value = 100 }
+		condition = { type = gold value = 1440 }
+		condition = { type = religion value = orthodox }
+	}
+	mean_time_to_happen = {
+		months = 180
+		modifier = { 
+			condition = { type = atwar }
+			factor = 0.25
+		}
+	}
+	action_a = {#Let us hire them!
+			ai_chance = 80
+			#start AI modifier block
+			modifier = {
+				condition = { type = not value = { type = atwar } }
+				factor = 0.00
+			}
+			#close AI modifier block
+		effect = { type = gold value = -1440 }
+		effect = { 	type = add_regiment 
+				tech_prov = 512
+				culture = pecheneg
+				strength = {
+					light_cav = 2400
+				}
+		}
+	}
+	action_b = {#No we don't need them!
+		ai_chance = 20
+	}
+}
+#
+# From original injury_events.txt
+#
+character_event = { # 20095 Battle injury
+	id = 20095
+	picture = "event_battle"
+	trigger = {
+		condition = { type = combat }
+	}
+	mean_time_to_happen = {
+		days = 600
+		modifier = {
+			condition = { type = not value = { type = martial value =  5 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.9
+		}
+	}
+	immidiate = {
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = stutter }
+		}
+		effect = { type = health value = -1 }
+	}
+}
+character_event = { # 20096 Battle injury
+	id = 20096
+	picture = "event_battle"
+	trigger = {
+		condition = { type = combat }
+	}
+	mean_time_to_happen = {
+		days = 600
+		modifier = {
+			condition = { type = not value = { type = martial value =  5 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.9
+		}
+	}
+	immidiate = {
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = { type = health value = -1 }
+		effect = { type = fertility value = -3 }
+	}
+}
+character_event = { # 20097 Battle injury
+	id = 20097
+	picture = "event_battle"
+	trigger = {
+		condition = { type = combat }
+	}
+	mean_time_to_happen = {
+		days = 600
+		modifier = {
+			condition = { type = not value = { type = martial value =  5 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.9
+		}
+	}
+	immidiate = {
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = { type = health value = -1 }
+		effect = { type = martial value = -1 }
+	}
+}
+character_event = { # 20098 Battle injury
+	id = 20098
+	picture = "event_battle"
+	trigger = {
+		condition = { type = combat }
+	}
+	mean_time_to_happen = {
+		days = 600
+		modifier = {
+			condition = { type = not value = { type = martial value =  5 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.9
+		}
+	}
+	immidiate = {
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = clubfooted }
+		}
+		effect = { type = health value = -1 }
+		effect = { type = martial value = -1 }
+	}
+}
+character_event = { # 20099 Battle injury
+	id = 20099
+	picture = "event_battle"
+	trigger = {
+		condition = { type = combat }
+	}
+	mean_time_to_happen = {
+		days = 600
+		modifier = {
+			condition = { type = not value = { type = martial value =  5 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.9
+		}
+	}
+	immidiate = {
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = lisp }
+		}
+		effect = { type = health value = -1 }
+		effect = { type = diplomacy value = -1 }
+	}
+}

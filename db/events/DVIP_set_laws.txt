@@ -1,0 +1,698 @@
+character_event = { # Laws for Knight Orders
+	id = 23210
+	picture = "event_default"
+	trigger = {
+		condition = { type = or
+			condition = { type = title value = U000 } # Santiago
+			condition = { type = title value = U001 } # Livonian Knights
+			condition = { type = form_of_goverment value = knight_order }
+		}
+		condition = { type = or
+			condition = { type = not value = { type = has_law value = { elective_law = yes } } }
+			condition = { type = not value = { type = has_law value = { royal_preorgatory_law = yes } } }
+			condition = { type = not value = { type = has_law value = { church_supremacy = yes } } }
+		}
+		condition = { type = ruler }
+		condition = { type = ai }
+		condition = { type = not value = { type = trait value = proud } }
+	}
+	mean_time_to_happen = {
+		months = 24
+	}
+	action_a = { #Set laws
+		ai_chance = 95
+		effect = { type = set_law value = elective_law }
+		effect = { type = set_law value = royal_preorgatory_law }
+		effect = { type = set_law value = church_supremacy }
+	}
+	action_b = {
+		ai_chance = 5
+		effect = { type = add_trait value = proud }
+		effect = { type = random
+			chance = 5
+			effect = { type = add_trait value = heretic }
+		}
+	}
+}
+character_event = { # Laws for Republics
+	id = 23211
+	picture = "event_default"
+	trigger = {
+		condition = { type = form_of_goverment value = republican }
+		condition = { type = or
+			condition = { type = not value = { type = has_law value = { elective_law = yes } } }
+			condition = { type = not value = { type = has_law value = { popular_law = yes } } }
+			condition = { type = not value = { type = has_law value = { church_supremacy = yes } } }
+		}
+		condition = { type = ruler }
+		condition = { type = ai }
+		condition = { type = not value = { type = trait value = proud } }
+	}
+	mean_time_to_happen = {
+		months = 24
+	}
+	action_a = { #Set laws
+		ai_chance = 95
+		effect = { type = set_law value = elective_law }
+		effect = { type = set_law value = popular_law }
+		effect = { type = set_law value = church_supremacy }
+	}
+	action_b = {
+		ai_chance = 5
+		effect = { type = add_trait value = proud }
+		effect = { type = random_list
+			65 = { type = no_effect }
+			25 = { type = add_trait value = arbitrary }
+			10 = { type = add_trait value = selfish }
+		}
+	}
+}
+character_event = { # Laws for Bishoprics
+	id = 23212
+	picture = "event_default"
+	trigger = {
+		condition = { type = or
+			condition = { type = title value = PAPA }
+			condition = { type = form_of_goverment value = ecclestical }
+		}
+		condition = { type = or
+			condition = { type = not value = { type = has_law value = { elective_law = yes } } }
+			condition = { type = not value = { type = has_law value = { royal_preorgatory_law = yes } } }
+			condition = { type = not value = { type = has_law value = { church_supremacy = yes } } }
+		}
+		condition = { type = ruler }
+		condition = { type = ai }
+	}
+	mean_time_to_happen = {
+		months = 2
+	}
+	action_a = { #Set laws
+		ai_chance = 95
+		effect = { type = set_law value = elective_law }
+		effect = { type = set_law value = royal_preorgatory_law }
+		effect = { type = set_law value = church_supremacy }
+	}
+	action_b = {
+		ai_chance = 5
+		effect = { type = add_trait value = proud }
+		effect = { type = random
+			chance = 5
+			effect = { type = add_trait value = heretic }
+		}
+	}
+}
+#########################################################
+#Your liege has a different law than you: Primogeniture #
+#########################################################
+
+character_event = { #Your liege’s ruling law is radically different than yours. He is gently encouraging you to conform to his way of doing things. What should we do, my lord?
+
+	id = 23213
+	picture = "event_law"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = form_of_goverment value = feudal }
+		condition = { type = not value = { type = has_law value = { salic_primogeniture_law = yes } } }
+		condition = { type = not value = { type = has_law value = { semisalic_primogeniture_law = yes } } }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = trait value = excommunciated } }
+		condition = { type = not value = { type = trait value = realm_duress } }
+		condition = { type = not value = { type = trait value = rebellious } }
+		condition = {
+			type = liege
+			#condition = { type = is_independent }
+			condition = { type = form_of_goverment value = feudal }
+			condition = { type = or
+				condition = { type = has_law value = { salic_primogeniture_law = yes } }
+				condition = { type = has_law value = { semisalic_primogeniture_law = yes } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 100
+
+		modifier = {
+			condition = { type = has_law value = { feudal_contract_law = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_law value = { traditional_custom_law = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = proud }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = arbitrary }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = selfish }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = modest }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = generous }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = wise }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 300 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = prestige value = 500 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_friend } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_rival } }
+			factor = 2.0
+		}
+	}
+
+
+	action_a = { #Good idea, lord!
+		ai_chance = 50
+			modifier = {
+				condition = { type = trait value = modest }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = generous }
+				factor = 1.1
+			}
+		effect = { type = random_list
+			50 = { type = set_law value = salic_primogeniture_law }
+			50 = { type = set_law value = semisalic_primogeniture_law }
+		}
+		effect = { type = loyalty value = 0.25 }
+		effect = { type = prestige value = -25 }
+		effect = { type = trigger for = liege value = 6604 } #A vassal has changed his laws to match ours!
+	}
+
+	action_b = { #No, I shall rule this land as I always have
+		ai_chance = 50
+			modifier = {
+				condition = { type = trait value = selfish }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = arbitrary }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = just }
+				factor = 1.1
+			}
+		effect = { type = prestige value = 25 }
+		effect = { type = loyalty value = -0.25 }
+		effect = { type = trigger for = liege value = 6605 } #A vassal has refused to modify his laws to match ours!
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = rebellious } #rebeliousness
+		}
+	}
+}
+#########################################################
+#Your liege has a different law than you: Consanguinity #
+#########################################################
+
+character_event = { #Your liege’s ruling law is radically different than yours. He is gently encouraging you to conform to his way of doing things. What should we do, my lord?
+
+	id = 23214
+	picture = "event_law"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = form_of_goverment value = feudal }
+		condition = { type = not value = { type = has_law value = { salic_consanguinity_law = yes } } }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = trait value = excommunciated } }
+		condition = { type = not value = { type = trait value = realm_duress } }
+		condition = { type = not value = { type = trait value = rebellious } }
+		condition = { type = not value = { type = has_law value = { semisalic_consanguinity_law = yes } } }
+		condition = {
+			type = liege
+			#condition = { type = is_independent }
+			condition = { type = form_of_goverment value = feudal }
+			condition = { type = or
+				condition = { type = has_law value = { salic_consanguinity_law = yes } }
+				condition = { type = has_law value = { semisalic_consanguinity_law = yes } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 100
+
+		modifier = {
+			condition = { type = has_law value = { feudal_contract_law = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_law value = { traditional_custom_law = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = proud }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = arbitrary }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = selfish }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = modest }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = generous }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = wise }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 300 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = prestige value = 500 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_friend } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_rival } }
+			factor = 2.0
+		}
+	}
+
+
+	action_a = { #Good idea, lord!
+		ai_chance = 50
+			modifier = {
+				condition = { type = trait value = modest }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = generous }
+				factor = 1.1
+			}
+		effect = { type = random_list
+			50 = { type = set_law value = salic_consanguinity_law }
+			50 = { type = set_law value = semisalic_consanguinity_law }
+		}
+		effect = { type = loyalty value = 0.25 }
+		effect = { type = prestige value = -25 }
+		effect = { type = trigger for = liege value = 6604 } #A vassal has changed his laws to match ours!
+	}
+
+	action_b = { #No, I shall rule this land as I always have
+		ai_chance = 50
+			modifier = {
+				condition = { type = trait value = selfish }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = arbitrary }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = just }
+				factor = 1.1
+			}
+		effect = { type = prestige value = 25 }
+		effect = { type = loyalty value = -0.25 }
+		effect = { type = trigger for = liege value = 6605 } #A vassal has refused to modify his laws to match ours!
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = rebellious } #rebeliousness
+		}
+	}
+}
+#####################################################
+#Your liege has a different law than you: Gavelkind #
+#####################################################
+
+character_event = { #Your liege’s ruling law is radically different than yours. He is gently encouraging you to conform to his way of doing things. What should we do, my lord?
+
+	id = 23215
+	picture = "event_law"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = form_of_goverment value = feudal }
+		condition = { type = not value = { type = has_law value = { salic_gavelkind_law = yes } } }
+		condition = { type = not value = { type = has_law value = { semisalic_gavelkind_law = yes } } }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = trait value = excommunciated } }
+		condition = { type = not value = { type = trait value = realm_duress } }
+		condition = { type = not value = { type = trait value = rebellious } }
+		condition = {
+			type = liege
+			#condition = { type = is_independent }
+			condition = { type = form_of_goverment value = feudal }
+			condition = { type = or
+				condition = { type = has_law value = { salic_gavelkind_law = yes } }
+				condition = { type = has_law value = { semisalic_gavelkind_law = yes } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 100
+
+		modifier = {
+			condition = { type = has_law value = { feudal_contract_law = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_law value = { traditional_custom_law = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = proud }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = arbitrary }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = selfish }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = modest }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = generous }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = wise }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 300 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = prestige value = 500 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_friend } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_rival } }
+			factor = 2.0
+		}
+	}
+
+
+	action_a = { #Good idea, lord!
+		ai_chance = 50
+			modifier = {
+				condition = { type = trait value = modest }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = generous }
+				factor = 1.1
+			}
+		effect = { type = random_list
+			50 = { type = set_law value = salic_gavelkind_law }
+			50 = { type = set_law value = semisalic_gavelkind_law }
+		}
+		effect = { type = loyalty value = 0.25 }
+		effect = { type = prestige value = -25 }
+		effect = { type = trigger for = liege value = 6604 } #A vassal has changed his laws to match ours!
+	}
+
+	action_b = { #No, I shall rule this land as I always have
+		ai_chance = 50
+			modifier = {
+				condition = { type = trait value = selfish }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = arbitrary }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = just }
+				factor = 1.1
+			}
+		effect = { type = prestige value = 25 }
+		effect = { type = loyalty value = -0.25 }
+		effect = { type = trigger for = liege value = 6605 } #A vassal has refused to modify his laws to match ours!
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = rebellious } #rebeliousness
+		}
+	}
+}
+#####################################################
+#Your liege has a different law than you: Elective #
+#####################################################
+
+character_event = { #Your liege’s ruling law is radically different than yours. He is gently encouraging you to conform to his way of doing things. What should we do, my lord?
+
+	id = 23216
+	picture = "event_law"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = form_of_goverment value = feudal }
+		condition = { type = not value = { type = has_law value = { elective_law = yes } } }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = trait value = excommunciated } }
+		condition = { type = not value = { type = trait value = realm_duress } }
+		condition = { type = not value = { type = trait value = rebellious } }
+		condition = {
+			type = liege
+			#condition = { type = is_independent }
+			condition = { type = form_of_goverment value = feudal }
+			condition = { type = or
+				condition = { type = has_law value = { elective_law = yes } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 100
+
+		modifier = {
+			condition = { type = has_law value = { feudal_contract_law = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_law value = { traditional_custom_law = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = proud }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = arbitrary }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = selfish }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = modest }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = generous }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = wise }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 300 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = prestige value = 500 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_friend } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_rival } }
+			factor = 2.0
+		}
+	}
+
+
+	action_a = { #Good idea, lord!
+		ai_chance = 50
+			modifier = {
+				condition = { type = trait value = modest }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = generous }
+				factor = 1.1
+			}
+		effect = { type = set_law value = elective_law }
+		effect = { type = loyalty value = 0.25 }
+		effect = { type = prestige value = -25 }
+		effect = { type = trigger for = liege value = 6604 } #A vassal has changed his laws to match ours!
+	}
+
+	action_b = { #No, I shall rule this land as I always have
+		ai_chance = 50
+			modifier = {
+				condition = { type = trait value = selfish }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = arbitrary }
+				factor = 1.1
+			}
+			modifier = {
+				condition = { type = trait value = just }
+				factor = 1.1
+			}
+		effect = { type = prestige value = 25 }
+		effect = { type = loyalty value = -0.25 }
+		effect = { type = trigger for = liege value = 6605 } #A vassal has refused to modify his laws to match ours!
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = rebellious } #rebeliousness
+		}
+	}
+}

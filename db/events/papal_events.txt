@@ -1,0 +1,2377 @@
+#########################################################
+# The Pope demands the revoking of the lay investiture  #
+#########################################################
+character_event = {
+	id = 1179
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = emperor } }
+		condition = { 
+			type = not 
+			value = {
+				type = papacy
+			}
+		}
+		condition = { 
+			type = not 
+			value = {
+				type = has_law
+				value = { church_supremacy = yes }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.9
+		}
+	}
+
+	action_a = {#Accept
+		ai_chance = 66
+		modifier = {
+			condition = { type = or
+				condition = {type = title value = PAPA }
+				condition = {type = title value = TEMP }
+				condition = {type = title value = TEUT }
+				condition = {type = title value = HOSP }
+			}
+			factor = 100
+		}
+		effect = { type = set_law value = church_supremacy }
+		effect = { type = prestige value = -50 }
+		effect = { type = piety value = 25 }
+	}
+	action_b = {#Refuse
+		ai_chance = 34
+		effect = { type = add_trait value = excommunicated }
+		effect = { type = prestige value = 50 }
+		effect = { type = piety value = -25 }
+	}
+
+}
+########################################
+# Papal Indulgences trickles your way  #
+########################################
+character_event = {
+	id = 1180
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = papacy }
+		condition = { type = religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+	}
+
+	action_a = {#This will come in handy
+		effect = { type = gold scale = 0.15 }
+	}
+	action_b = {#Give it to the poor
+		effect = { type = piety value = 25 }
+	}
+
+}
+########################
+# Indulgences arrives  #
+########################
+character_event = {
+	id = 1181
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = papacy }
+		condition = { type = religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+	}
+
+	action_a = {#This will come in handy
+		ai_chance = 50
+		effect = { type = gold scale = 0.5 }
+		effect = { type = piety value = -25 }
+		effect = { type = prestige scale = -1 }
+	}
+	action_b = {#Give it to the poor
+		ai_chance = 50
+		effect = { type = piety value = 50 }
+		effect = { type = prestige scale = 2 }
+	}
+}
+##############################
+# Papal Blessing in conflict #
+##############################
+character_event = {
+	id = 1182
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = papacy }
+		condition = { type = religion value = catholic }
+		condition = { type = atwar }
+		condition = { type = enemy_same_religion }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+	}
+
+	action_a = {#We have God on our side!
+		effect = { type = add_title_claim value = random_enemy } #add claim on enemy random title
+	}
+
+}
+
+# EVENTS 9105-9110 removed for being needless massive CPU hogs when a simple tweak to advances_discovery would have sufficed
+
+
+####################################################################
+# The following are for recreating the papacy if it has disappeared
+# Thanks to Bismarck for the idea on the Public forum
+# Warning, it has to be checked yet if a re-created PAPA is a proper pope
+
+# Whoever owns Roma and is not the Pope is in trouble:
+
+## THIS EVENT REMOVED BY C.S.
+# TRIGGER CONDITIONS ARE FUBAR
+
+#character_event = {
+#	id = 9115
+#
+#	picture = "event_religion"
+#
+#	trigger = {
+#		condition = { type = title value = C333 } #Roma
+#		condition = { type = not value = { type = title value = PAPA } }
+#		condition = { type = religion value = catholic }
+#		condition = { type = not value = { type = trait value = excommunicated } }
+#		condition = { type = not value = { type = trait value = heretic } }
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 300
+#	}
+#
+#	immidiate = { #Excommunicated
+#		effect = { type = add_trait value = excommunicated }
+#	}
+#}
+#
+
+
+#################################
+# The Papacy moves back to Roma #
+#################################
+province_event = {
+	id = 9116
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = province value = 333 } #Roma
+		condition = { type = not value = { type = exists value = PAPA } }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	action_a = { #Refuse the request
+		ai_chance = 15
+		effect = { type = ruler_prestige value = 50}
+		effect = { type = ruler_piety value = -250 }
+		effect = { type = clergy_loyalty value = -0.9}
+		effect = { type = random chance = 80
+			effect = { type = add_province_effect value = heretic }
+		}
+	}
+	action_b = { # Grant the land
+		ai_chance = 85
+		effect = { type = create_tag value = PAPA }
+		effect = { type = add_improvement value = tilefactory }
+		effect = { type = add_improvement value = church }
+		effect = { type = add_improvement value = large_church }
+		effect = { type = add_advance value = stonepit }
+		effect = { type = add_advance value = brickwork_structures }
+		effect = { type = add_advance value = basilican_structures }
+		effect = { type = add_advance value = romanesque_vaulting }
+		effect = { type = ruler_piety value = 250 }
+		effect = { type = clergy_loyalty value = 0.3}
+		effect = { type = clergy_power value = 0.4}
+	}
+}
+
+###############################
+# The Papacy moves to Avignon #
+###############################
+
+province_event = {
+	id = 9117
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = province value = 222 } #Avignon
+		condition = { type = not value = { type = exists value = PAPA } }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 36
+	}
+
+	action_a = { #It is our duty!
+		ai_chance = 75
+		effect = { type = create_tag value = PAPA }
+		effect = { type = ruler_piety value = 250 }
+		effect = { type = add_improvement value = tilefactory }
+		effect = { type = add_improvement value = church }
+		effect = { type = add_improvement value = large_church }
+		effect = { type = add_advance value = stonepit }
+		effect = { type = add_advance value = brickwork_structures }
+		effect = { type = add_advance value = basilican_structures }
+		effect = { type = add_advance value = romanesque_vaulting }
+		effect = { type = clergy_loyalty value = 0.3}
+		effect = { type = clergy_power value = 0.4}
+	}
+	action_b = { #Refuse the request
+		ai_chance = 25
+		effect = { type = ruler_prestige value = 100}
+		effect = { type = ruler_piety value = -150 }
+		effect = { type = clergy_loyalty value = -0.3}
+		effect = { type = clergy_power value = -0.4}
+	}
+}
+
+##############################
+# The Papacy moves to Aachen #
+##############################
+province_event = {
+	id = 9118
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = province value = 90 } #Aachen
+		condition = { type = not value = { type = exists value = PAPA } }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 48
+	}
+
+	action_a = { #Refuse the request
+		ai_chance = 40
+		effect = { type = ruler_prestige value = 100}
+		effect = { type = ruler_piety value = -150 }
+		effect = { type = clergy_loyalty value = -0.3}
+		effect = { type = clergy_power value = -0.4}
+	}
+	action_b = { # Grant the land
+		ai_chance =60
+		effect = { type = create_tag value = PAPA }
+		effect = { type = ruler_piety value = 250 }
+		effect = { type = clergy_loyalty value = 0.3}
+		effect = { type = clergy_power value = 0.4}
+		effect = { type = add_improvement value = tilefactory }
+		effect = { type = add_improvement value = church }
+		effect = { type = add_improvement value = large_church }
+		effect = { type = add_advance value = stonepit }
+		effect = { type = add_advance value = brickwork_structures }
+		effect = { type = add_advance value = basilican_structures }
+		effect = { type = add_advance value = romanesque_vaulting }
+	}
+}
+
+################################
+# The Papacy moves to Valencia #
+################################
+province_event = {
+	id = 9119
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = province value = 171 } #Valencia
+		condition = { type = not value = { type = exists value = PAPA } }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	action_a = { #Refuse the request
+		ai_chance = 50
+		effect = { type = ruler_prestige value = 100}
+		effect = { type = ruler_piety value = -150 }
+		effect = { type = clergy_loyalty value = -0.3}
+		effect = { type = clergy_power value = -0.4}
+	}
+	action_b = { # Grant the land
+		ai_chance = 50
+		effect = { type = create_tag value = PAPA }
+		effect = { type = ruler_piety value = 250 }
+		effect = { type = clergy_loyalty value = 0.3}
+		effect = { type = clergy_power value = 0.4}
+		effect = { type = add_improvement value = tilefactory }
+		effect = { type = add_improvement value = church }
+		effect = { type = add_improvement value = large_church }
+		effect = { type = add_advance value = stonepit }
+		effect = { type = add_advance value = brickwork_structures }
+		effect = { type = add_advance value = basilican_structures }
+		effect = { type = add_advance value = romanesque_vaulting }
+	}
+}
+
+#################################
+# The Papacy moves to Salisbury #
+#################################
+province_event = {
+	id = 9120
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = province value = 23 } #Salisbury
+		condition = { type = not value = { type = exists value = PAPA } }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 96
+	}
+
+	action_a = { #Refuse the request
+		ai_chance = 60
+		effect = { type = ruler_prestige value = 100}
+		effect = { type = ruler_piety value = -150 }
+		effect = { type = clergy_loyalty value = -0.3}
+		effect = { type = clergy_power value = -0.4}
+	}
+	action_b = { # Grant the land
+		ai_chance = 40
+		effect = { type = create_tag value = PAPA }
+		effect = { type = ruler_piety value = 250 }
+		effect = { type = clergy_loyalty value = 0.3}
+		effect = { type = clergy_power value = 0.4}
+		effect = { type = add_improvement value = tilefactory }
+		effect = { type = add_improvement value = church }
+		effect = { type = add_improvement value = large_church }
+		effect = { type = add_advance value = stonepit }
+		effect = { type = add_advance value = brickwork_structures }
+		effect = { type = add_advance value = basilican_structures }
+		effect = { type = add_advance value = romanesque_vaulting }
+	}
+}
+
+################################
+# The Papacy moves to Salzburg #
+################################
+province_event = {
+	id = 9121
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = province value = 448 } #Salzburg
+		condition = { type = not value = { type = exists value = PAPA } }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	action_a = { #Refuse the request
+		ai_chance = 75
+		effect = { type = ruler_prestige value = 100}
+		effect = { type = ruler_piety value = -150 }
+		effect = { type = clergy_loyalty value = -0.3}
+		effect = { type = clergy_power value = -0.4}
+	}
+	action_b = { # Grant the land
+		ai_chance = 25
+		effect = { type = create_tag value = PAPA }
+		effect = { type = ruler_piety value = 250 }
+		effect = { type = clergy_loyalty value = 0.3}
+		effect = { type = clergy_power value = 0.4}
+		effect = { type = add_improvement value = tilefactory }
+		effect = { type = add_improvement value = church }
+		effect = { type = add_improvement value = large_church }
+		effect = { type = add_advance value = stonepit }
+		effect = { type = add_advance value = brickwork_structures }
+		effect = { type = add_advance value = basilican_structures }
+		effect = { type = add_advance value = romanesque_vaulting }
+	}
+}
+
+#################################
+# The Papacy moves to Jerusalem #
+#################################
+province_event = {
+	id = 9122
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = province value = 774 } #Jerusalem
+		condition = { type = not value = { type = exists value = PAPA } }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+	}
+
+	action_a = { #Refuse the request
+		ai_chance = 10
+		effect = { type = ruler_prestige value = 100}
+		effect = { type = ruler_piety value = -150 }
+		effect = { type = clergy_loyalty value = -0.3}
+		effect = { type = clergy_power value = -0.4}
+	}
+	action_b = { # Grant the land
+		ai_chance = 90
+		effect = { type = create_tag value = PAPA }
+		effect = { type = ruler_piety value = 250 }
+		effect = { type = clergy_loyalty value = 0.3}
+		effect = { type = clergy_power value = 0.4}
+		effect = { type = add_improvement value = tilefactory }
+		effect = { type = add_improvement value = church }
+		effect = { type = add_improvement value = large_church }
+		effect = { type = add_advance value = stonepit }
+		effect = { type = add_advance value = brickwork_structures }
+		effect = { type = add_advance value = basilican_structures }
+		effect = { type = add_advance value = romanesque_vaulting }
+	}
+}
+
+################################
+# Extra chaplains for the pope #
+################################
+
+character_event = { 
+	id = 9123 
+	picture = "event_default" 
+
+	trigger = { 
+		condition = { type = title value = PAPA } 
+		condition = { type = ai } 
+		condition = { type = not value = { type = court value = 30 } }
+	}
+ 
+	mean_time_to_happen = { 
+	months = 180
+ 
+		modifier = { 
+			condition = { type = not value = { type = court value = 20 } }
+			factor = 0.5 
+		}
+		modifier = { 
+			condition = { type = not value = { type = court value = 15 } } 
+			factor = 0.2 
+		} 
+		modifier = { 
+			condition = { type = not value = { type = court value = 10 } } 
+			factor = 0.1 
+		}
+	}
+ 
+	immidiate = { 
+		effect = { type = create_courtier value = chaplain } 
+		effect = { type = create_courtier value = chaplain } 
+		effect = { type = create_courtier value = chaplain } 
+	} 
+}
+
+##############################
+# Rulers may buy indulgences #
+##############################
+
+character_event = { #The Pope offers you a chance to purchase indulgences to regain his blessing.
+
+	id = 9124
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = trait value = excommunicated }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = religion value = catholic }
+		condition = { type = exists value = PAPA }
+		condition = { type = gold value = 0 }
+	}
+
+	mean_time_to_happen = {
+		months = 180
+
+		modifier = { 
+			condition = { type = on_crusade }
+			factor = 0.02
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 5000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 10000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = trait value = ecclesiastical_education }
+				condition = { type = trait value = detached_priest }
+				condition = { type = trait value = martial_cleric }
+				condition = { type = trait value = scholarly_theologian }
+				condition = { type = trait value = mastermind_theologian }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = scholarly_theologian }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = mastermind_theologian }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+	}
+
+	action_a = { #I will gladly pay!
+		ai_chance = 50
+		modifier = {
+			condition = { type = or #just in case
+				condition = { type = title value = PAPA }
+				condition = { type = title value = TEMP }
+				condition = { type = title value = TEUT }
+				condition = { type = title value = HOSP }
+			}
+			factor = 1000
+		}
+		effect = { type = gold scale = -2.5 }
+		effect = { type = piety value = 50 }
+		effect = { type = prestige scale = -5 }
+		effect = { type = remove_trait value = sceptical }
+		effect = { type = remove_trait value = excommunicated }
+	}
+	action_b = { #I cannot afford that much!
+		ai_chance = 35
+		effect = { type = gold scale = -0.5 }
+		effect = { type = piety value = 20 }
+		effect = { type = prestige scale = -3 }
+		effect = { type = remove_trait value = sceptical }
+		effect = { type = random chance = 30
+			effect = { type = remove_trait value = excommunicated }
+		}
+	}
+	action_c = { #I don't need your blessing!
+		ai_chance = 15
+		effect = { type = piety value = -50 }
+		effect = { type = add_trait value = heretic }
+	}
+}
+
+character_event = { #The Pope offers you a chance to purchase indulgences and recant your heresy.
+
+	id = 9125
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = trait value = heretic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = religion value = catholic }
+		condition = { type = exists value = PAPA }
+		condition = { type = gold value = 0 }
+	}
+
+	mean_time_to_happen = {
+		months = 180
+
+		modifier = { 
+			condition = { type = on_crusade }
+			factor = 0.05
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 5000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 10000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = trait value = ecclesiastical_education }
+				condition = { type = trait value = detached_priest }
+				condition = { type = trait value = martial_cleric }
+				condition = { type = trait value = scholarly_theologian }
+				condition = { type = trait value = mastermind_theologian }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = scholarly_theologian }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = mastermind_theologian }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+	}
+
+	action_a = { #I will gladly pay!
+		ai_chance = 50
+		modifier = {
+			condition = { type = or #just in case
+				condition = { type = title value = PAPA }
+				condition = { type = title value = TEMP }
+				condition = { type = title value = TEUT }
+				condition = { type = title value = HOSP }
+			}
+			factor = 1000
+		}
+		effect = { type = gold scale = -1 }
+		effect = { type = piety value = 25 }
+		effect = { type = prestige scale = -3 }
+		effect = { type = remove_trait value = sceptical }
+		effect = { type = remove_trait value = heretic }
+	}
+	action_b = { #I cannot afford that much!
+		ai_chance = 40
+		effect = { type = gold scale = -0.25 }
+		effect = { type = piety value = 10 }
+		effect = { type = prestige scale = -1.5 }
+		effect = { type = remove_trait value = sceptical }
+		effect = { type = random chance = 30
+			effect = { type = remove_trait value = heretic }
+		}
+	}
+	action_c = { #You are a false Pope!
+		ai_chance = 10
+		effect = { type = piety value = -25 }
+		effect = { type = add_trait value = excommunicated }
+	}
+}
+
+character_event = { #The Pope offers you a chance to purchase indulgences to save your immortal soul.
+
+	id = 9126
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = trait value = excommunicated }
+		condition = { type = trait value = heretic }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = religion value = catholic }
+		condition = { type = exists value = PAPA }
+		condition = { type = gold value = 0 }
+	}
+
+	mean_time_to_happen = {
+		months = 180
+
+		modifier = { 
+			condition = { type = on_crusade }
+			factor = 0.02
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 5000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 10000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = trait value = ecclesiastical_education }
+				condition = { type = trait value = detached_priest }
+				condition = { type = trait value = martial_cleric }
+				condition = { type = trait value = scholarly_theologian }
+				condition = { type = trait value = mastermind_theologian }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = scholarly_theologian }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = mastermind_theologian }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+	}
+
+	action_a = { #I will gladly pay!
+		ai_chance = 50
+		modifier = {
+			condition = { type = or #just in case
+				condition = { type = title value = PAPA }
+				condition = { type = title value = TEMP }
+				condition = { type = title value = TEUT }
+				condition = { type = title value = HOSP }
+			}
+			factor = 1000
+		}
+		effect = { type = gold scale = -10 }
+		effect = { type = piety value = 100 }
+		effect = { type = prestige scale = -10 }
+		effect = { type = remove_trait value = heretic }
+		effect = { type = remove_trait value = excommunicated }
+	}
+	action_b = { #I cannot afford that much!
+		ai_chance = 40
+		effect = { type = gold scale = -5 }
+		effect = { type = piety value = 50 }
+		effect = { type = prestige scale = -5 }
+		effect = { type = remove_trait value = heretic }
+		effect = { type = random chance = 50
+			effect = { type = remove_trait value = excommunicated }
+		}
+	}
+	action_c = { #I don't fear for my soul!
+		ai_chance = 10
+		effect = { type = piety value = -50 }
+		effect = { type = add_trait value = sceptical }
+	}
+}
+
+character_event = { #The Pope offers you a chance to purchase indulgences if you have truly had a change of heart.
+
+	id = 9127
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = trait value = excommunicated }
+		condition = { type = trait value = heretic }
+		condition = { type = trait value = sceptical }
+		condition = { type = piety value = 0 }
+		condition = { type = religion value = catholic }
+		condition = { type = exists value = PAPA }
+		condition = { type = on_crusade }
+		condition = { type = gold value = 0 }
+	}
+
+	mean_time_to_happen = {
+		months = 144
+
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 5000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 10000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = trait value = ecclesiastical_education }
+				condition = { type = trait value = detached_priest }
+				condition = { type = trait value = martial_cleric }
+				condition = { type = trait value = scholarly_theologian }
+				condition = { type = trait value = mastermind_theologian }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = scholarly_theologian }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = mastermind_theologian }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+	}
+
+	action_a = { #I kneel before God's will!
+		ai_chance = 50
+		modifier = {
+			condition = { type = or #just in case
+				condition = { type = title value = PAPA }
+				condition = { type = title value = TEMP }
+				condition = { type = title value = TEUT }
+				condition = { type = title value = HOSP }
+			}
+			factor = 1000
+		}
+		effect = { type = gold scale = -12.5 }
+		effect = { type = piety value = 150 }
+		effect = { type = prestige scale = -20 }
+		effect = { type = remove_trait value = sceptical }
+		effect = { type = remove_trait value = heretic }
+		effect = { type = remove_trait value = excommunicated }
+		effect = { type = add_trait value = crusader }
+	}
+	action_b = { #I cannot afford that much!
+		ai_chance = 40
+		effect = { type = gold scale = -7.5 }
+		effect = { type = piety value = 75 }
+		effect = { type = prestige scale = -10 }
+		effect = { type = remove_trait value = heretic }
+		effect = { type = remove_trait value = sceptical }
+		effect = { type = add_trait value = crusader }
+		effect = { type = random chance = 50
+			effect = { type = remove_trait value = excommunicated }
+		}
+	}
+	action_c = { #I have no fears for my soul!
+		ai_chance = 10
+		effect = { type = piety value = -200 }
+		effect = { type = random chance = 50
+			effect = { type = piety value = -200 }
+		}
+	}
+}
+
+
+character_event = { #I have heard the call of God in the wilderness and will pray to him for my salvation!
+
+	id = 9128
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = trait value = excommunicated }
+		condition = { type = trait value = heretic }
+		condition = { type = trait value = sceptical }
+		condition = { type = religion value = catholic }
+		condition = { type = exists value = PAPA }
+		condition = { type = not value = { type = gold value = 0 } }
+		condition = { type = piety value = 0 }
+	}
+
+	mean_time_to_happen = {
+		months = 48
+
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 5000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 10000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = trait value = ecclesiastical_education }
+				condition = { type = trait value = detached_priest }
+				condition = { type = trait value = martial_cleric }
+				condition = { type = trait value = scholarly_theologian }
+				condition = { type = trait value = mastermind_theologian }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = scholarly_theologian }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = mastermind_theologian }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+				}
+			}
+			factor = 0.8
+		}
+	}
+
+	action_a = { #I renounce my secular life forever!
+		effect = { type = death }
+	}
+	action_b = { #No, that's just the wind blowing!
+		effect = { type = piety value = -250 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = maniac }
+		}
+	}
+}
+
+
+###########################################################################
+# A couple more events related to refusing to grant Rome back to the pope #
+###########################################################################
+
+character_event = { #It would appear that you have denied the Pope the lands that are rightfully the seat of his Holy See.
+
+	id = 9129
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = not value = { type = exists value = PAPA } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = religion value = catholic }
+		condition = { type = any_demesne_province
+			condition = { type = and
+				condition = { type = province value = 333 }
+				condition = { type = has_province_effect value = { heretic = yes } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+	}
+
+	action_a = { #I am keeping it for myself!
+		effect = { type = piety value = -100 }
+		effect = { type = add_trait value = excommunicated }
+	}
+}
+
+province_event = { #Perhaps you'd like to reconsider your heresy concerning Rome?
+	id = 9130
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = province value = 333 } #Roma
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = not value = { type = exists value = PAPA } }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	action_a = { #Nope!
+		ai_chance = 15
+		effect = { type = ruler_prestige value = 10}
+		effect = { type = ruler_piety value = -100 }
+		effect = { type = clergy_loyalty value = -0.9}
+	}
+	action_b = { #Grant the Pope the land
+		ai_chance = 85
+		effect = { type = remove_province_effect value = heretic }
+		effect = { type = create_tag value = PAPA }
+		effect = { type = add_improvement value = tilefactory }
+		effect = { type = add_improvement value = church }
+		effect = { type = add_improvement value = large_church }
+		effect = { type = add_advance value = stonepit }
+		effect = { type = add_advance value = brickwork_structures }
+		effect = { type = add_advance value = basilican_structures }
+		effect = { type = add_advance value = romanesque_vaulting }
+		effect = { type = ruler_piety value = 50 }
+		effect = { type = clergy_loyalty value = 1.0 }
+		effect = { type = clergy_power value = 0.4}
+	}
+}
+
+
+##################################################################################################
+# The Pope is not amused with your current exploitive use of muslim military leaders of advisors #
+##################################################################################################
+
+character_event = { #Your chaplain advises that the Pope frowns upon allowing heathen scum to be in your direct employ!
+
+	id = 9131
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = religion value = catholic } }
+		condition = { type = not value = { type = religion value = orthodox } }
+		condition = { type = or
+			condition = { type = marshal }
+			condition = { type = steward }
+			condition = { type = chancellor }
+			condition = { type = spymaster }
+			condition = { type = chaplain }
+		}
+		condition = { type = ruler_csc
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = not value = { type = trait value = excommunicated } }
+				condition = { type = not value = { type = trait value = heretic } }
+				condition = { type = not value = { type = title value = PAPA } }
+				condition = { type = not value = { type = title value = HOSP } }
+				condition = { type = not value = { type = title value = TEUT } }
+				condition = { type = not value = { type = title value = TEMP } }
+				condition = { type = not
+					value = { type = any_courtier 		#could be assigned the post instead
+						condition = { type = age value = 17 } #give a year to notice
+						condition = { type = or
+							condition = { type = religion value = catholic }
+							condition = { type = religion value = orthodox }
+						}
+						condition = { type = not value = { type = marshal } }
+						condition = { type = not value = { type = steward } }
+						condition = { type = not value = { type = chancellor } }
+						condition = { type = not value = { type = spymaster } }
+						condition = { type = not value = { type = chaplain } }
+						condition = { type = not value = { type = trait value = excommunicated } }
+						condition = { type = not value = { type = trait value = heretic } }
+						condition = { type = or
+							condition = { type = gender value = male }
+							condition = { type = not #condition only checked if female so need to confirm that we're not asking for her to be assigned to marshal office
+								value = { type = marshal_csc
+									condition = { type = not value = { type = religion value = catholic } }
+									condition = { type = not value = { type = religion value = orthodox } }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+
+		months = 36
+
+		modifier = {
+			condition = { type = crusade }
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = on_crusade }
+			}
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = trait value = zealous }
+			}
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = trait value = zealous }
+			}
+			factor = 0.1
+		}
+
+	}
+
+	action_a = { #I'll have the heathen scum executed forthwith!
+		effect = { type = death }
+		effect = { type = trigger for = ruler value = 9132 }
+	}
+	action_b = { #Would the Pope be willing to forgive this oversight?
+		effect = { type = trigger for = ruler value = 9133 }
+	}
+	action_c = { #No, I'd rather continue this exploit!
+		effect = { type = add_trait for = ruler value = excommunicated }
+	}
+}
+
+character_event = { #Let us hope that the Pope hasn't learned of your transgression!
+
+	id = 9132
+	picture = "event_heretic"
+
+	#triggered by 9131
+
+	action_a = { #I pray not!
+		effect = { type = prestige value = 50 } #for the execution
+		effect = { type = piety value = -50 } #for letting it happen in the first place
+		effect = { type = add_trait value = arbitrary } #well...hiring him one momenet and then killing him...
+		effect = { type = random chance = 75 #because it is!
+			effect = { type = add_trait value = cruel }
+		}
+		effect = { type = random chance = 50 #seems pretty devoted...
+			effect = { type = add_trait value = zealous }
+		}
+		effect = { type = random chance = 15 #sadly, the pope heard about it
+			effect = { type = add_trait value = excommunicated }
+		}
+	}
+	action_b = { #Perhaps you could see to it that he doesn't?
+		effect = { type = gold scale = -1.0 } #that's the bribe
+		effect = { type = piety value = -100 } #paying off a priestS!!!!
+		effect = { type = prestige value = -100 } #begging a priest!!!!!
+		effect = { type = add_trait value = deceitful } #you are!
+		effect = { type = add_trait value = arbitrary } #well...hiring him one momenet and then killing him...
+		effect = { type = random chance = 85 #that's how your chalplain is going to pitch the idea
+			effect = { type = add_trait value = zealous }
+		}
+		effect = { type = random chance = 50 #it still is!
+			effect = { type = add_trait value = cruel }
+		}
+		effect = { type = random chance = 5 #the pope heard about it anyway
+			effect = { type = add_trait value = excommunicated }
+		}
+	}
+	action_c = { #Maybe I should offer the Pope indulgences directly?
+		effect = { type = add_trait value = cruel } #because you were
+		effect = { type = add_trait value = arbitrary } #because you are
+		effect = { type = trigger for = this value = 9133 }
+	}
+}
+
+character_event = { #The Pope would be willing to consider offering you temporary papal indulgences if you open up your treasury...but he still disapproves and will make such demands again.
+
+	id = 9133
+	picture = "event_heretic"
+
+	#triggered by 9131
+
+	action_a = { #I will gladly pay to save my immortal soul!
+		effect = { type = gold scale = -5 }
+		effect = { type = piety value = 100 }
+		effect = { type = prestige value = -100 }
+		effect = { type = add_trait value = zealous }
+	}
+	action_b = { #Would the Pope be willing to accept less?
+		effect = { type = gold scale = -1 }
+		effect = { type = piety value = -50 }
+		effect = { type = prestige value = -250 }
+		effect = { type = add_trait value = sceptical } #not a very christian thing to do...bartering with your soul
+		effect = { type = random chance = 66 #in fact it could be seen in a very poor light...
+			effect = { type = add_trait value = heretic }
+		}
+		effect = { type = random chance = 33 #and the pope might be disinclined to budge...after all he wants to build a nice new extension to the Vatican
+			effect = { type = add_trait value = excommunicated }
+		}
+	}
+	action_c = { #Feh...who cares? Forget it!
+		effect = { type = prestige value = 5 }
+		effect = { type = add_trait value = sceptical }
+		effect = { type = add_trait value = heretic }
+		effect = { type = add_trait value = excommunicated }
+	}
+}
+
+#####################################
+# The Patriarch isn't amused either #
+#####################################
+
+character_event = { #Your chaplain advises that the Patriarch frowns upon allowing heathen scum to be in your direct employ!
+
+	id = 9134
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = religion value = catholic } }
+		condition = { type = not value = { type = religion value = orthodox } }
+		condition = { type = or
+			condition = { type = marshal }
+			condition = { type = steward }
+			condition = { type = chancellor }
+			condition = { type = spymaster }
+			condition = { type = chaplain }
+		}
+		condition = { type = ruler_csc
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = not value = { type = trait value = heretic } }
+				condition = { type = not value = { type = trait value = excommunicated } }
+				condition = { type = not
+					value = { type = any_courtier 		#could be assigned the post instead
+						condition = { type = age value = 17 } #give a year to notice
+						condition = { type = or
+							condition = { type = religion value = catholic }
+							condition = { type = religion value = orthodox }
+						}
+						condition = { type = not value = { type = marshal } }
+						condition = { type = not value = { type = steward } }
+						condition = { type = not value = { type = chancellor } }
+						condition = { type = not value = { type = spymaster } }
+						condition = { type = not value = { type = chaplain } }
+						condition = { type = not value = { type = trait value = excommunicated } }
+						condition = { type = not value = { type = trait value = heretic } }
+						condition = { type = or
+							condition = { type = gender value = male }
+							condition = { type = not #condition only checked if female so need to confirm that we're not asking for her to be assigned to marshal office
+								value = { type = marshal_csc
+									condition = { type = not value = { type = religion value = catholic } }
+									condition = { type = not value = { type = religion value = orthodox } }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+
+		months = 36
+
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = trait value = zealous }
+			}
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = trait value = zealous }
+			}
+			factor = 0.1
+		}
+
+	}
+
+	action_a = { #I'll have the heathen scum executed forthwith!
+		effect = { type = death }
+		effect = { type = random chance = 75
+			effect = { type = add_trait for = ruler value = cruel }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait for = ruler value = excommunicated }
+		}
+	}
+	action_b = { #Would the Patriarch be willing to forgive this oversight?
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = random chance = 33
+			effect = { type = add_trait for = ruler value = heretic }
+		}
+		effect = { type = random chance = 3
+			effect = { type = add_trait for = ruler value = excommunicated }
+		}
+	}
+	action_c = { #No, I'd rather continue this exploit!
+		effect = { type = add_trait for = ruler value = heretic }
+		effect = { type = add_trait for = ruler value = excommunicated }
+	}
+}
+
+############################################################################################
+# The Pope is not impressed with you allowing a schismatic to hold authority in your realm #
+############################################################################################
+
+character_event = { #Your chaplain advises that the Pope frowns upon allowing a schismatic a position of authority!
+
+	id = 9135
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = religion value = orthodox }
+		condition = { type = or
+			condition = { type = marshal }
+			condition = { type = steward }
+			condition = { type = chancellor }
+			condition = { type = spymaster }
+			condition = { type = chaplain }
+		}
+		condition = { type = ruler_csc
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = not value = { type = trait value = excommunicated } }
+				condition = { type = not value = { type = trait value = heretic } }
+				condition = { type = not value = { type = title value = PAPA } }
+				condition = { type = not value = { type = title value = HOSP } }
+				condition = { type = not value = { type = title value = TEUT } }
+				condition = { type = not value = { type = title value = TEMP } }
+				condition = { type = not
+					value = { type = any_courtier 		#could be assigned the post instead
+						condition = { type = age value = 17 } #give a year to notice
+						condition = { type = religion value = catholic }
+						condition = { type = not value = { type = marshal } }
+						condition = { type = not value = { type = steward } }
+						condition = { type = not value = { type = chancellor } }
+						condition = { type = not value = { type = spymaster } }
+						condition = { type = not value = { type = chaplain } }
+						condition = { type = not value = { type = trait value = excommunicated } }
+						condition = { type = not value = { type = trait value = heretic } }
+						condition = { type = or
+							condition = { type = gender value = male }
+							condition = { type = not #condition only checked if female so need to confirm that we're not asking for her to be assigned to marshal office
+								value = { type = marshal_csc
+									condition = { type = not value = { type = religion value = catholic } }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+
+		months = 120
+
+		modifier = {
+			condition = { type = crusade }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = on_crusade }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = enemy_same_religion }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = trait value = zealous }
+			}
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = trait value = zealous }
+			}
+			factor = 0.1
+		}
+
+	}
+
+	action_a = { #I'll ensure their coversion or death!
+		effect = { type = set_to_realm_religion }
+		effect = { type = random chance = 50
+			effect = { type = death }
+		}
+		effect = { type = random_list
+			50 = { type = add_trait for = ruler value = cruel }
+			50 = { type = add_trait for = ruler value = zealous }
+		}
+	}
+	action_b = { #I will banish the offender!
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = random_list
+			67 = { type = add_trait for = ruler value = arbitrary }
+			33 = { type = add_trait for = ruler value = forgiving }
+		}
+	}
+	action_c = { #The Pope has no right to object!
+		effect = { type = add_trait for = ruler value = heretic }
+		effect = { type = random chance = 25
+			effect = { type = add_trait for = ruler value = excommunicated }
+		}
+	}
+}
+
+##################################################
+# Precautionary event for Holy Orders and Papacy #
+##################################################
+
+character_event = { #God objects to your very existence!
+
+	id = 9136
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = ai }
+		condition = { type = ruler }
+		condition = { type = or
+			condition = { type = title value = PAPA }
+			condition = { type = title value = TEMP }
+			condition = { type = title value = HOSP }
+			condition = { type = title value = TEUT }
+			condition = { type = papacy }
+		}
+		condition = { type = or
+			condition = { type = not value = { type = religion value = catholic } }
+			condition = { type = and
+				condition = { type = gender value = female }
+				condition = { type = not value = { type = papacy } }
+			}
+			condition = { type = not value = { type = age value = 20 } } #should probably be an even higher age but...
+			condition = { type = trait value = heretic }
+			condition = { type = trait value = excommunicated }
+			condition = { type = and
+				condition = { type = title value = PAPA }
+				condition = { type = not
+					value = { type = or
+						condition = { type = trait value = detached_priest }
+						condition = { type = trait value = martial_cleric }
+						condition = { type = trait value = scholarly_theologian }
+						condition = { type = trait value = mastermind_theologian }
+					}
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	action_a = { #What an unexpected thunderstorm!
+		effect = { type = death } #want to change this to a direct set to Catholic when event effect exists
+	}
+}
+
+
+#######################################
+# Nobody expects the Papal Inquisition
+#######################################
+
+character_event = { #There is something wrong with our successor...
+
+	id = 9137
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = ai }
+		condition = { type = ruler }
+		condition = { type = title value = PAPA }
+		condition = { type = primary_heir
+			condition = { type = or
+				condition = { type = not value = { type = religion value = catholic } }
+				condition = { type = gender value = female }
+				condition = { type = trait value = heretic }
+				condition = { type = trait value = excommunicated }
+				condition = { type = not
+					value = { type = or
+						condition = { type = trait value = detached_priest }
+						condition = { type = trait value = martial_cleric }
+						condition = { type = trait value = scholarly_theologian }
+						condition = { type = trait value = mastermind_theologian }
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 15
+
+		modifier = {
+			condition = { type = age value = 45 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = age value = 70 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = trait value = pneumonia }
+				condition = { type = trait value = leper }
+				condition = { type = trait value = intestinal_worm }
+			}
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = trait value = depression }
+				condition = { type = trait value = schizofrenia }
+				condition = { type = trait value = maniac }
+			}
+			factor = 0.25
+		}
+	}
+
+	action_a = { #Send The Papal Assassins!
+		effect = { type = trigger for = primary_heir value = 9138 }
+	}
+}
+
+character_event = { #Our chief elements are fear, surprise, ruthless efficiency, and a fanatical devotion to the...er...
+
+	id = 9138
+	picture = "event_heretic"
+
+	action_a = { #Nobody Expects The Papal Assassins!
+		effect = { type = death }
+	}
+}
+
+
+
+##################################
+# The Pope is impressed with you #
+##################################
+
+character_event = { #The Pope is impressed with you.
+
+	id = 9139									#event proposed by Phoenix in public beta
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = ai }						#prevents player getting free piety if they arrange for ruler to meet other conditions
+		condition = { type = exists value = PAPA }
+		condition = { type = religion value = catholic }
+		condition = { type = age value = 20 }		# Minimum age for popes
+		condition = { type = not value = { type = trait value = heretic } }	#can't be naughty
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = or							#must have right education
+			condition = { type = trait value = ecclesiastical_education }
+			condition = { type = trait value = detached_priest }
+			condition = { type = trait value = martial_cleric }
+			condition = { type = trait value = scholarly_theologian }
+			condition = { type = trait value = mastermind_theologian }
+		}
+		condition = { type = form_of_goverment value = ecclestical } # Gotta be a bishopric
+		condition = { type = or
+			condition = { type = title value = PAPA }			#The Pope can have this event
+			condition = { type = and
+				condition = { type = is_independent }			#Independent bishops/archbishops too
+				condition = { type = not value = { type = kingdom } }	#but avoid accidentally making a king-level one into a pope and having problems with the transition
+			}
+			condition = { type = and
+				condition = { type = is_vassal }
+				condition = { type = liege				#if a bishop/archbishop and vassal to a king with high pretige or piety
+					condition = { type = kingdom }
+					condition = { type = or
+						condition = { type = prestige value = 1000 }
+						condition = { type = piety value = 500 }
+					}
+					condition = { type = piety value = 0 }		#liege can't have negative piety or prestige
+					condition = { type = prestige value = 0 }
+				}
+			}
+			condition = { type = and					#any male living in Pope's court (with right education) can too
+				condition = { type = not value = { type = ruler } }
+				condition = { type = gender value = male }
+				condition = { type = ruler_csc
+					condition = { type = title value = PAPA }
+				}
+			}
+			condition = { type = papacy_csc condition = { type = is_friend } } # And Pope's friends can too
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+
+		#low piety characters should get a bit of an extra boost to start with
+		modifier = { 
+			condition = { type = not value = { type = piety value = 200 } }
+			factor = 0.9
+		}
+		modifier = { 
+			condition = { type = not value = { type = piety value = 100 } }
+			factor = 0.9
+		}
+		modifier = { 
+			condition = { type = not value = { type = piety value = 50 } }
+			factor = 0.9
+		}
+		modifier = { 
+			condition = { type = not value = { type = piety value = 10 } }
+			factor = 0.9
+		}
+
+		#who's who modifiers
+		modifier = {
+			condition = { type = title value = PAPA } 			#popes tend to be very impressed with themselves :D
+			factor = 0.5
+		}
+		modifier = {								#being the KoJ's vassal bishop is kewl
+			condition = { type = is_vassal }
+			condition = { type = liege
+				condition = { type = title value = JERU }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = or						#militant religious orders less likely
+				condition = { type = title value = TEUT }		#cleaned this up to keep Phoenix happy
+				condition = { type = title value = TEMP }
+				condition = { type = title value = HOSP }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = and					#people in pope's court tend to be recognised
+				condition = { type = not value = { type = ruler } }
+				condition = { type = ruler_csc
+					condition = { type = title value = PAPA }
+				}
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = and					#pope's chaplain is well-liked
+				condition = { type = chaplain }
+				condition = { type = ruler_csc
+					condition = { type = title value = PAPA }
+				}
+			}
+			factor = 0.75
+		}
+		modifier = {								#vassals of renowned rulers get perks
+			condition = { type = is_vassal }
+			condition = { type = liege
+				condition = { type = prestige value = 1000 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = is_vassal }
+			condition = { type = liege
+				condition = { type = prestige value = 2000 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = is_vassal }
+			condition = { type = liege
+				condition = { type = prestige value = 4000 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = is_vassal }
+			condition = { type = liege
+				condition = { type = prestige value = 8000 }		#using this value so Phoenix can remain happy about the math he learned in school
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = is_vassal }
+			condition = { type = liege
+				condition = { type = piety value = 500 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = is_vassal }
+			condition = { type = liege
+				condition = { type = piety value = 1000 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = is_vassal }
+			condition = { type = liege
+				condition = { type = piety value = 2000 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = is_vassal }
+			condition = { type = liege
+				condition = { type = piety value = 4000 }		#Phoenix should be elated by now
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = ecclesiastical_education }
+			factor = 1.5							#just learning the trade so probably won't be noticed
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 1.25							#doesn't go out of his way to be noticed
+		}
+		#no martial_cleric modifier since it will be treated as the "baseline" against which the other educations are measured.
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.85							#the pope likes scholars
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.75							#the brightest and the best!
+		}
+		modifier = {
+			condition = { type = papacy_csc condition = { type = is_friend } } # Pope's friends get perks too
+			factor = 0.5
+		}
+	}
+
+	action_a = { #I'm an AI event that you should never see!
+		effect = { type = piety value = 100 }
+	}
+}
+
+character_event = { # This one seems good Pope material
+	id = 9141
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = exists value = PAPA }
+		condition = { type = religion value = catholic }
+		condition = { type = gender value = male }
+		condition = { type = age value = 20 }
+		condition = { type = form_of_goverment value = ecclestical }
+		condition = { type = not value = { type = title value = PAPA } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = kinslayer } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = or							
+			condition = { type = trait value = ecclesiastical_education }
+			condition = { type = trait value = detached_priest }
+			condition = { type = trait value = martial_cleric }
+			condition = { type = trait value = scholarly_theologian }
+			condition = { type = trait value = mastermind_theologian }
+		}
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_csc condition = { type = title value = PAPA } }
+		}
+		condition = { type = not value = { type = num_friends value = 5 } }
+		condition = { type = not value = { type = papacy_csc condition = { type = num_friends value = 10 } } }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = trait value = celibate }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = piety value = 50 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = piety value = 200 }
+			factor = 0.8
+		}
+	}
+
+	action_a = { # Indeed
+		effect = { type = make_friend value = papacy }
+	}
+}
+
+#################################
+# Divine Retribution upon undead
+#################################
+
+character_event = { # God disagrees with your existance!
+	id = 9140
+
+	picture = "event_default"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = is_alive } }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	immidiate = {
+		effect = { type = add_trait value = saint }
+		effect = { type = death }
+	}
+}	
+
+########################################
+# Being Friends with Pope clears Excomm
+########################################
+
+character_event = { # Your friend the Pope has reinstated you in the Catholic Church
+	id = 9142
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = trait value = excommunicated }
+		condition = { type = exists value = PAPA }
+		condition = { type = papacy_csc condition = { type = is_friend } }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = piety value = 200 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = prestige value = 200 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = prestige value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = prestige value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.66
+		}
+	}
+
+	action_a = { # Thanks!
+		effect = { type = remove_trait value = excommunicated }
+	}
+}
+
+character_event = { # Your fierce rival the Pope has decided to excommunicate you!
+	id = 9143
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = exists value = PAPA }
+		condition = { type = papacy_csc condition = { type = is_rival } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = piety value = 200 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = prestige value = 200 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 1000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Oh no!
+		effect = { type = add_trait value = excommunicated }
+	}
+}
+
+character_event = { # The Pope has excommunicated you for waging war against him
+	id = 9144
+
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = religion value = catholic }
+		condition = { type = atwar }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = exists value = PAPA }
+		condition = { type = any_enemy
+			condition = { type = title value = PAPA }
+			condition = { type = form_of_goverment value = ecclestical }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = piety value = 200 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = prestige value = 200 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 500 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = prestige value = 1000 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Oh no!
+		effect = { type = add_trait value = excommunicated }
+	}
+}
+
+### ID free 9144-9149
+#ID 9150 and onwards is in religious_event.txt file

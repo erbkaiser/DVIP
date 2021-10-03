@@ -1,0 +1,758 @@
+###################################
+# Grant Land to Order of Santiago #
+###################################
+province_event = {
+	id = 40024
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = not value = { type = capital value = yes } }
+		condition = { type = or
+				condition = { type = province value = 177 }
+				condition = { type = province value = 193 }
+				condition = { type = province value = 196 }
+			}
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = crusade }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = ruler_piety value = 0 }
+		condition = { type = or
+				condition = { type = exists value = CAST }
+				condition = { type = exists value = LEON }
+				condition = { type = exists value = PORT }
+			}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = U000
+			}
+		}
+		condition = { type = owner condition = { type = not value = { type = trait value = sceptical } } }
+		condition = { type = not value = { type = year value = 1300 } }
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	action_a = { #Deus vult!
+		ai_chance = 90
+		effect = { type = ruler_piety value = 25 }
+		effect = { type = add_regiment country = U000 culture = templar_knight strength = { heavy_cav = 500 heavy_inf = 1000 } }
+		effect = { type = create_tag value = U000 }
+	}
+	action_b = {
+		ai_chance = 10
+		effect = { type = ruler_piety value = -50 }
+		effect = { type = random chance = 33
+			effect = { type = add_province_effect value = heretic }
+		}
+	}
+}
+
+################################
+# Grant Land to Sword Brothers #
+################################
+province_event = {
+	id = 40025
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = not value = { type = capital value = yes } }
+		condition = { type = or
+				condition = { type = province value = 377 }
+				condition = { type = province value = 378 }
+			}
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = crusade }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = ruler_piety value = 0 }
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = U001
+			}
+		}
+		condition = { type = owner condition = { type = not value = { type = trait value = sceptical } } }
+		condition = { type = not value = { type = year value = 1300 } }
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	action_a = { #Deus vult!
+		ai_chance = 90
+		effect = { type = ruler_piety value = 25 }
+		effect = { type = add_regiment country = U001 culture = teutonic_order strength = { heavy_cav = 500 heavy_inf = 1000 } }
+		effect = { type = create_tag value = U001 }
+
+	}
+	action_b = {
+		ai_chance = 10
+		effect = { type = ruler_piety value = -50 }
+		effect = { type = random chance = 33
+			effect = { type = add_province_effect value = heretic }
+		}
+	}
+}
+
+
+############################################
+# Troops for TEMP and Santiago #
+############################################
+character_event = {
+	id = 40026
+
+	picture = "event_default"
+
+	trigger = {
+		condition = { type = or
+				condition = { type = title value = TEMP }
+				condition = { type = title value = U000 }
+			}
+		condition = { type = is_independent }
+		condition = { type = atwar }
+		condition = { type = religion value = catholic }
+		condition = { type = ai }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = not value = { type = enemy_same_religion } }
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = crusade }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = on_crusade }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = command }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 3 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 2 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = enemy_same_religion } }
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 1 } }
+			}
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = enemy_same_religion }
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 1 } }
+			}
+			factor = 5.0
+		}
+		modifier = {
+			condition = { type = martial value = 10 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = martial value = 13 }
+			factor = 0.75
+		}
+	}
+
+	immidiate = {
+		effect = { type = create_courtier value = marshal }
+		effect = { type = add_title_claim value = random_neighbor }
+		effect = { type = gold value = 500 }
+		effect = { type = add_regiment culture = templar_knight strength = { light_cav = 500 heavy_inf = 750 heavy_cav = 1000 } }
+		effect = { type = random
+				chance = 50
+				effect = { type = add_regiment culture = templar_knight strength = { light_cav = 500 heavy_inf = 750 heavy_cav = 1000 } }
+		}
+	}
+}
+###################
+# Troops for HOSP #
+###################
+character_event = {
+	id = 400260
+
+	picture = "event_default"
+
+	trigger = {
+		condition = { type = title value = HOSP }
+		condition = { type = is_independent }
+		condition = { type = atwar }
+		condition = { type = religion value = catholic }
+		condition = { type = ai }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = not value = { type = enemy_same_religion } }
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = crusade }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = on_crusade }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = command }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 3 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 2 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = enemy_same_religion } }
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 1 } }
+			}
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = enemy_same_religion }
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 1 } }
+			}
+			factor = 5.0
+		}
+		modifier = {
+			condition = { type = martial value = 10 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = martial value = 13 }
+			factor = 0.75
+		}
+	}
+
+	immidiate = {
+		effect = { type = create_courtier value = marshal }
+		effect = { type = add_title_claim value = random_neighbor }
+		effect = { type = gold value = 500 }
+		effect = { type = add_regiment culture = hospitaler_knights strength = { light_cav = 500 heavy_inf = 750 heavy_cav = 1000 } }
+		effect = { type = random
+				chance = 50
+				effect = { type = add_regiment culture = hospitaler_knights strength = { light_cav = 500 heavy_inf = 750 heavy_cav = 1000 } }
+		}
+	}
+}
+######################################
+# Troops for TEUT and Sword Brothers #
+######################################
+character_event = {
+	id = 400261
+
+	picture = "event_default"
+
+	trigger = {
+		condition = { type = or
+			condition = { type = title value = HOSP }
+			condition = { type = title value = U001 }
+		}
+		condition = { type = is_independent }
+		condition = { type = atwar }
+		condition = { type = religion value = catholic }
+		condition = { type = ai }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = not value = { type = enemy_same_religion } }
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = crusade }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = on_crusade }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = command }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 3 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 2 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = enemy_same_religion } }
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 1 } }
+			}
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = enemy_same_religion }
+			condition = { type = capital
+				condition = { type = not value = { type = realm_regiments value = 1 } }
+			}
+			factor = 5.0
+		}
+		modifier = {
+			condition = { type = martial value = 10 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = martial value = 13 }
+			factor = 0.75
+		}
+	}
+
+	immidiate = {
+		effect = { type = create_courtier value = marshal }
+		effect = { type = add_title_claim value = random_neighbor }
+		effect = { type = gold value = 500 }
+		effect = { type = add_regiment culture = teutonic_order strength = { light_cav = 500 heavy_inf = 750 heavy_cav = 1000 } }
+		effect = { type = random
+				chance = 50
+				effect = { type = add_regiment culture = teutonic_order strength = { light_cav = 500 heavy_inf = 750 heavy_cav = 1000 } }
+		}
+	}
+}
+
+#############################
+# Aid from Templar House    #
+#############################
+
+character_event = {
+	id = 40027
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = {
+			type = capital 
+				condition = { type = has_improvement value = { templar_house = yes } }
+			}
+		condition = { type = piety value = 0 }
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = region value = eastern_europe } }
+		condition = { type = not value = { type = region value = germany } }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = on_crusade }
+			factor = 0.3
+		}
+	}
+
+	action_a = { #Deus vult!
+		ai_chance = 80
+		effect = { type = add_regiment
+			strength = {
+				heavy_cav = 1000
+				heavy_inf = 750
+				light_cav = 500
+			}
+			culture = templar_knight
+		}
+		effect = { type = piety value = 25 }
+		effect = { type = gold scale = -1.0 }
+	}
+
+	action_b = {#Money would be more helpful!
+		effect = { type = piety value = -25 }
+		effect = { type = gold scale = 3.0 }
+	}
+
+	action_c = {#Dont need their help
+		effect = { type = prestige value = 25 }
+		effect = { type = piety value = -25 }
+		effect = { type = random chance = 50 
+			effect = { type = add_trait value = suspicious }
+		}
+		effect = { type = random chance = 25 
+			effect = { type = add_trait value = sceptical }
+		}
+	}
+}
+
+###########################
+# Aid from Teutonic House #
+###########################
+
+character_event = {
+	id = 40028
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = {
+			type = capital 
+				condition = { type = has_improvement value = { templar_house = yes } }
+			}
+		condition = { type = piety value = 0 }
+		condition = { type = religion value = catholic }
+		condition = {
+			type = or
+			condition = { type = region value = eastern_europe }
+			condition = { type = region value = germany }
+			}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = on_crusade }
+			factor = 0.3
+		}
+	}
+
+	action_a = { #Deus vult!
+		ai_chance = 80
+		effect = { type = add_regiment
+			strength = {
+				heavy_cav = 1000
+				heavy_inf = 750
+				light_cav = 500
+			}
+			culture = teutonic_order
+		}
+		effect = { type = piety value = 25 }
+		effect = { type = gold scale = -1.0 }
+	}
+
+	action_b = {#Money would be more helpful!
+		effect = { type = piety value = -25 }
+		effect = { type = gold scale = 3.0 }
+	}
+
+	action_c = {#Dont need their help
+		effect = { type = prestige value = 25 }
+		effect = { type = piety value = -25 }
+		effect = { type = random chance = 50 
+			effect = { type = add_trait value = suspicious }
+		}
+		effect = { type = random chance = 25 
+			effect = { type = add_trait value = sceptical }
+		}
+	}
+}
+
+###########################
+# Aid to Templar House    #
+###########################
+character_event = {
+	id = 40029
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = crusade }
+		condition = {
+			type = capital 
+				condition = { type = has_improvement value = { templar_house = yes } }
+			}
+		condition = { type = piety value = 0 }
+		condition = { type = religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		months = 340
+	}
+
+	action_a = { #Deus vult!
+		ai_chance = 60
+		effect = { type = piety value = 50 }
+		effect = { type = remove_regiment }
+	}
+	action_b = { #No!
+		ai_chance = 10
+		effect = { type = piety value = -50 }
+		effect = { type = add_trait value = selfish }
+		effect = { type = random chance = 25 
+			effect = { type = add_trait value = sceptical }
+		}
+		effect = { type = random chance = 5 
+			effect = { type = add_trait value = excommunicated }
+		}
+		effect = { type = random chance = 10 
+			effect = { type = add_trait value = heretic }
+		}
+	}
+	action_c = { #Can Spare Gold
+		ai_chance = 30
+		effect = { type = piety value = 50 }
+		effect = { type = gold scale = -2.0 }
+	}
+}
+
+province_event = {
+	id = 40036
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = {
+			type = owner
+			condition = { type = or
+				condition = { type = form_of_goverment value = knight_order }
+				condition = { type = title value = U000 }
+				condition = { type = title value = U001 }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	action_a = {
+		effect = { type = add_improvement value = templar_house }
+	}
+}
+
+
+# Santiago
+
+character_event = { # Your son wishes to join the Knights of Santiago
+	id = 40037
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = exists value = U000 }
+		condition = { type = gender value = male }
+		condition = { type = trait value = martial_cleric }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_child }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = primary_heir } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = any_ruler
+			condition = { type = title value = U000 }
+			condition = { type = form_of_goverment value = knight_order }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+
+		modifier = {
+			condition = { type = martial value = 10 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 12 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 14 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 6 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 4 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chaplain }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Let him go
+		ai_chance = 80
+			modifier = { condition = { type = not value = { type = court value = 10 } } factor = 0.1 }
+			modifier = { condition = { type = is_independent } factor = 0.25 }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = add_trait value = crusader }
+		effect = { type = prestige value = 50 }
+		effect = { type = courtier_defect value = load_target }
+		effect = { type = trigger for = ruler value = 7350 }
+	}
+	action_b = { # I need his services here
+		ai_chance = 20
+		effect = { type = loyalty value = -0.2 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = sceptical }
+		}
+	}
+}
+
+# Livonian Knights
+
+character_event = { # Your son wishes to join the Livonian Knights
+	id = 40038
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = exists value = U001 }
+		condition = { type = gender value = male }
+		condition = { type = trait value = martial_cleric }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_child }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = primary_heir } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = any_ruler
+			condition = { type = title value = U001 }
+			condition = { type = form_of_goverment value = knight_order }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+
+		modifier = {
+			condition = { type = martial value = 10 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 12 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 14 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 6 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 4 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chaplain }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Let him go
+		ai_chance = 80
+			modifier = { condition = { type = not value = { type = court value = 10 } } factor = 0.1 }
+			modifier = { condition = { type = is_independent } factor = 0.25 }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = add_trait value = crusader }
+		effect = { type = prestige value = 50 }
+		effect = { type = courtier_defect value = load_target }
+		effect = { type = trigger for = ruler value = 7350 }
+	}
+	action_b = { # I need his services here
+		ai_chance = 20
+		effect = { type = loyalty value = -0.2 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = sceptical }
+		}
+	}
+}

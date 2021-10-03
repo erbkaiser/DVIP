@@ -1,0 +1,114 @@
+character_event = { # Bugfix - Remove trait from adult fosterling & return home
+	id = 23250
+	picture = "event_youngsters"
+	trigger = {
+		condition = { type = age value = 17 }
+		condition = { type = trait value = fosterling }
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	immidiate = { # Remove it!
+		effect = { type = remove_trait value = fosterling }
+		effect = { type = courtier_defect value = father }
+	}
+}
+character_event = { # Bugfix - Remove trait from fosterling back at home
+	id = 23251
+	picture = "event_youngsters"
+	trigger = {
+		condition = { type = ruler_child }
+		condition = { type = trait value = fosterling }
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	immidiate = { # Remove it!
+		effect = { type = remove_trait value = fosterling }
+	}
+}
+character_event = { # Bugfix - Kill landless AI duke or king with vassal(s)
+	id = 23252
+	picture = "event_death"
+	trigger = {
+		condition = { type = ai }
+		condition = { type = ruler }
+		condition = { type = atwar }
+		condition = { type = has_vassal }
+		condition = { type = not value = { type = size_of_demesne value = 1 } }
+	}
+	mean_time_to_happen = { months = 2 }
+	action_a = { #
+		effect = { type = death }
+	}
+}
+character_event = { # Bugfix - Remove impossible vassals
+	id = 23253
+	picture = "event_chancellor"
+	trigger = {
+		condition = { type = ai }
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = liege condition = { type = atwar } } }
+		condition = { type = or
+			condition = { type = kingdom }
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = or
+					condition = { type = liege condition = { type = duchy } }
+					condition = { type = liege condition = { type = county } }
+				}
+			}
+			condition = { type = and
+				condition = { type = county }
+				condition = { type = liege condition = { type = county } }
+			}
+		}
+	}
+	mean_time_to_happen = { months = 1 }
+	action_a = { #
+		effect = { type = independence }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = remove_trait for = this value = loyalist }
+		effect = { type = remove_trait for = this value = rebellious }
+	}
+}
+character_event = { # Bugfix - Peace for AI vassals if liege is at peace
+	id = 23254
+	picture = "event_chancellor"
+	trigger = {
+		condition = { type = ai }
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = atwar }
+		condition = { type = not value = { type = liege condition = { type = atwar } } }
+	}
+	mean_time_to_happen = { months = 1 }
+	action_a = { #
+		effect = { type = peace }
+	}
+}
+character_event = { # Bugfix - Release AI vassals at war with liege
+	id = 23255
+	picture = "event_chancellor"
+	trigger = {
+		condition = { type = ai }
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = atwar }
+		condition = { type = liege
+			condition = { type = atwar }
+			condition = { type = any_enemy
+				condition = { type = is_receiver }
+			}
+		}
+	}
+	mean_time_to_happen = { months = 1 }
+	action_a = {
+		effect = { type = independence }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = remove_trait for = this value = loyalist }
+		effect = { type = remove_trait for = this value = rebellious }
+	}
+}

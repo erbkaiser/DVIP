@@ -1,0 +1,2493 @@
+############################
+# USURY EVENT SERIES	   #
+# last updated by Byakhiam 26/04 #
+############################
+
+###########################
+# Moneylenders attracted  #
+###########################
+province_event = {
+	id = 1958
+	
+	picture = "event_steward"
+
+	trigger = {
+		condition = { 
+			type = has_law 
+			value = { regal_supremacy = yes }
+		}
+		condition = {
+			type = not
+			value ={
+				type = has_improvement
+				value = { moneylenders = yes }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 2.0
+		}
+	}
+
+	action_a = {
+		effect = { type = add_improvement value = moneylenders }
+		effect = { type = ruler_piety value = -25 }
+	}
+
+}
+#################################
+# Merchant Princes establishes  #
+#################################
+province_event = {
+	id = 1141
+	
+	picture = "event_steward"
+
+	trigger = {
+		condition = {
+			type = has_law
+			value = { regal_supremacy = yes }
+		}
+		condition = {
+			type = has_improvement
+			value = { moneylenders = yes }
+		}
+		condition = { 
+			type = has_advance
+			value = { minor_merchant_houses = yes }
+		}
+		condition = { 
+			type = has_advance
+			value = { local_merchant_houses = yes }
+		}
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { reknown_merchant_houses = yes}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 2.0
+		}
+	}
+
+	action_a = {
+		effect = { type = add_advance value = reknown_merchant_houses }
+		effect = { type = ruler_piety value = -25 }
+	}
+
+}
+####################################
+# Local Family dominates business  #
+####################################
+province_event = {
+	id = 1142
+	
+	picture = "event_steward"
+
+	trigger = {
+		condition = {
+			type = has_law
+			value = { regal_supremacy = yes }
+		}
+		condition = { 
+			type = has_improvement
+			value = { moneylenders = yes }
+		}
+		condition = {
+			type = has_advance
+			value = { minor_merchant_houses = yes }
+		}
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { local_merchant_houses = yes}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 2.0
+		}
+	}
+
+	action_a = {
+		effect = { type = add_advance value = local_merchant_houses }
+		effect = { type = ruler_piety value = -25 }
+	}
+
+}
+#################################
+# Moneylenders forced to leave  #
+#################################
+province_event = {
+	id = 1143
+	
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = {
+			type = not
+			value = {
+				type = ruler_religion
+				value = jewish
+			}
+		}
+		condition = { type = has_law value = { church_supremacy = yes } }
+		condition = { type = has_improvement value = { moneylenders = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+	}
+
+	action_a = {
+		effect = { type = remove_improvement value = moneylenders }
+		effect = { type = ruler_piety value = 25 }
+	}
+
+}
+#############################
+# Merchant Princes expulsed #
+#############################
+province_event = {
+	id = 1144
+	
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = {
+			type = not
+			value = {
+				type = ruler_religion
+				value = jewish
+			}
+		}
+		condition = { type = has_law value = { church_supremacy = yes } }
+		condition = { type = has_advance value = { minor_merchant_houses = yes local_merchant_houses = yes reknown_merchant_houses = yes} }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+	}
+
+	action_a = {
+		effect = { type = remove_advance value = reknown_merchant_houses }
+		effect = { type = ruler_piety value = 25 }
+	}
+
+}
+####################################
+# Local Merchant Families expulsed #
+####################################
+province_event = {
+	id = 1145
+	
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = {
+			type = not
+			value = {
+				type = ruler_religion
+				value = jewish
+			}
+		}
+		condition = { type = has_law value = { church_supremacy = yes } }
+		condition = { type = has_advance value = { minor_merchant_houses = yes local_merchant_houses = yes } }
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { reknown_merchant_houses = no }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+	}
+
+	action_a = {
+		effect = { type = remove_advance value = local_merchant_houses  }
+		effect = { type = ruler_piety value = 25 }
+	}
+
+}
+####################################
+# Local Merchant Families expulsed #
+####################################
+province_event = {
+	id = 1146
+	
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = {
+			type = not
+			value = {
+				type = ruler_religion
+				value = jewish
+			}
+		}
+		condition = { type = has_law value = { church_supremacy = yes } }
+		condition = {
+			type = has_advance
+			value = { minor_merchant_houses = yes }
+		}
+		condition = {
+			type = not
+			value = { 
+				type = has_advance
+				value = { local_merchant_houses = yes reknown_merchant_houses = yes }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+	}
+
+	action_a = {
+		effect = { type = remove_advance value = minor_merchant_houses  }
+		effect = { type = ruler_piety value = 25 }
+	}
+}
+
+###########################
+# RELIGIOUS EVENT SERIES  #
+###########################
+
+# These sets are influencing Religious Tech depending on the religious law
+
+#####################################
+# Religious Authority Strengthened  #
+#####################################
+
+character_event = {
+	id = 1147
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = religion value = catholic }
+		condition = { type = has_law value = { church_supremacy = yes } }
+		condition = { type = year value = 1070 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1300
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	action_a = {#We will accept this development!
+		effect = { type = add_next_advance value = clerical_celibacy }
+		effect = { type = remove_next_advance value = ascetism }
+	}
+
+}
+
+#####################################
+# Religious Authority Strengthened  #
+#####################################
+
+character_event = {
+	id = 1148
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = religion value = catholic }
+		condition = { type = has_law value = { ecclesical_balance = yes } }
+		condition = { type = year value = 1070 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1300
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	action_a = {#We will support this development!
+		effect = { type = add_next_advance value = clerical_celibacy }
+	}
+
+}
+#####################################
+# Religious Authority Strengthened  #
+#####################################
+
+character_event = {
+	id = 1149
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = religion value = catholic }
+		condition = {
+			type = or
+			condition = {
+				type = has_law
+				value = { regal_supremacy = yes }
+			}
+			condition = {
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+		}
+		condition = { type = year value = 1070 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1300
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	action_a = {#We will combat this development!
+		effect = { type = remove_next_advance value = ascetism }
+	}
+
+}
+
+###############################
+# Religious Authority Decline #
+###############################
+
+character_event = {
+	id = 1150
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = religion value = catholic }
+		condition = { type = has_law value = { church_supremacy = yes } }
+		condition = { type = year value = 1300 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1420
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+
+	action_a = {#We will combat this development!
+		effect = { type = remove_next_advance value = clerical_celibacy }
+		effect = { type = add_next_advance value = relics }
+	}
+}
+
+###############################
+# Religious Authority Decline #
+###############################
+
+character_event = {
+	id = 1151
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = religion value = catholic }
+		condition = {
+			type = or
+			condition = {
+				type = has_law
+				value = { regal_supremacy = yes }
+			}
+			condition = {
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+		}
+		condition = { type = year value = 1300 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1420
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+
+	action_a = { # We cherish this development!
+		effect = { type = remove_next_advance value = clerical_celibacy }
+		effect = { type = add_next_advance value = ascetism }
+	}
+}
+###############################
+# Religious Authority Decline #
+###############################
+
+character_event = {
+	id = 1152
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = religion value = catholic }
+		condition = { type = has_law value = { regal_supremacy = yes } }
+		condition = { type = year value = 1300 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1420
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+
+	action_a = {# We will accept this development!
+		effect = { type = remove_next_advance value = clerical_celibacy }
+	}
+}
+#################################
+# Religious Post-Crises Reform 	#
+#################################
+
+character_event = {
+	id = 1153
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = religion value = catholic }
+		condition = { type = has_law value = { church_supremacy = yes } }
+		condition = { type = year value = 1420 }
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	action_a = { # We will make more far-going reforms!
+		effect = { type = add_next_advance value = clerical_celibacy }
+		effect = { type = remove_next_advance value = ascetism }
+		effect = { type = add_next_advance value = relics }
+		effect = { type = remove_next_advance value = sculptures }
+	}
+}
+#################################
+# Religious Post-Crises Reform 	#
+#################################
+
+character_event = {
+	id = 1154
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = religion value = catholic }
+		condition = { type = has_law value = { ecclesical_balance = yes } }
+		condition = { type = year value = 1420 }
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	action_a = { #We will combat this reform!
+		effect = { type = add_next_advance value = clerical_celibacy }
+		effect = { type = add_next_advance value = ascetism }
+	}
+}
+################################
+# Religious Post-Crises Reform #
+################################
+
+character_event = {
+	id = 1155
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = religion value = catholic }
+		condition = {
+			type = or
+			condition = {
+				type = has_law
+				value = { regal_supremacy = yes }
+			}
+			condition = {
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+		}
+		condition = { type = year value = 1420 }
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	action_a = {#We will accept this reform!
+		effect = { type = add_next_advance value = clerical_celibacy }
+		effect = { type = add_next_advance value = ascetism }
+		effect = { type = add_next_advance value = relics }
+		effect = { type = add_next_advance value = sculptures }
+	}
+}
+
+########################
+# Saint, revised by Byakhiam #
+#######################
+
+character_event = {
+	id = 1156
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = piety value = 50 }
+		condition = { type = gold value = 150 }
+		condition = { type = age value = 20 }
+		condition = { type = father
+			condition = { type = trait value = canonized }
+			condition = { type = not value = { type = trait value = excommunicated } }
+			condition = { type = not value = { type = trait value = heretic } }
+			condition = { type = not value = { type = trait value = sceptical } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = kingdom }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = duchy }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 250 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = diplomacy value = 6 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = diplomacy value = 10 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = intrigue value = 6 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = zealous } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = sceptical } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = not value = { type = diplomacy value = 6 } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = diplomacy value = 10 } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = not value = { type = intrigue value = 6 } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = intrigue value = 10 } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = detached_priest } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = scholarly_theologian } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = mastermind_theologian } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = father condition = { type = piety value = 100 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = father condition = { type = piety value = 500 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = father condition = { type = piety value = 1000 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = father condition = { type = trait value = zealous } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = father condition = { type = trait value = martial_cleric } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = father condition = { type = trait value = scholarly_theologian } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = father condition = { type = trait value = mastermind_theologian } }
+			factor = 0.66
+		}
+	}
+
+	action_a = {
+		ai_chance = 75
+			modifier = { condition = { type = not value = { type = gold value = 200 } } factor = 0.25 }
+		effect = { type = gold value = -150 }
+		effect = { type = piety value = 10 }
+		effect = { type = random_list
+			50 = { type = add_trait value = zealous }
+			50 = { type = add_trait value = proud }
+		}
+		effect = { type = random chance = 25
+			effect = { type = piety value = 100 }
+			effect = { type = remove_trait for = father value = canonized }
+			effect = { type = add_trait for = father value = saint }
+		}
+	}
+	action_b = {
+		ai_chance = 25
+		effect = { type = piety value = -5 }
+		effect = { type = add_trait value = sceptical }
+	}
+}
+
+###############################
+# Vassal considers Conversion #
+###############################
+
+character_event = {
+	id = 1085
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = is_vassal }
+		condition = { type = not value = { type = trait value = zealous } }
+		condition = { type = not value = { type = same_religion } }
+		condition = {
+			type = liege
+			condition = { type = not value = { type = trait value = heretic } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+
+		modifier = {
+			condition = { type = ruler_religion value = pagan }
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = ruler_religion value = moslem }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 8
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 0.3
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.4
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ai }
+			factor = 0.05
+		}
+	}
+
+	action_a = {	#Yes!
+		ai_chance = 60
+		effect = { type = set_to_realm_religion }
+	}
+
+	action_b = {	#No never!
+		ai_chance = 20
+		effect = { type = add_trait value = zealous }
+		effect = { type = random chance = 33
+			effect = { type = add_trait value = rebellious }
+		}
+	}
+
+	action_c = {	#Acknowledge the wisdom of both religions
+		ai_chance = 20
+		effect = { type = add_trait value = sceptical }
+		effect = { type = prestige value = -2 }
+	}
+}
+
+##################################
+# Religious advances discoveries #
+##################################
+
+# This is for religious tech to appear even if they are not researched for
+# The papacy has its own special set of events to discover these tech which will help propagate them (9105-9109)
+
+# Religious Stringency
+
+# Gregorian Reform:
+
+###############################
+# clerical_celibacy discovery #	   
+###############################
+						   
+province_event = {
+	id = 9100
+
+	picture = event_religion
+	trigger	= {
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { clerical_celibacy = yes }
+			}
+		}
+		condition = { type = has_improvement value = { monastery = yes } }
+		condition = { type = religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { church = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_church = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { domed_church = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { cathedral = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { templar_house = yes }
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.5
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.66
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.25
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.11
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = chaste }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = lustful }
+				}
+			}
+			factor = 1.33
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = and
+						condition = { type = trait value = zealous }
+						condition = { type = not value = { type = trait value = heretic } }
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = or
+						condition = { type = trait value = sceptical }
+						condition = { type = trait value = heretic }
+						condition = { type = trait value = excommunicated }
+					}
+				}
+			}
+			factor = 1.25
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_advance value = clerical_celibacy }
+	} 	
+}
+###################################
+# letters_of_indulgence discovery #	   
+###################################
+						   
+province_event = {
+	id = 9101
+
+	picture = event_religion
+	trigger	= {
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { letters_of_indulgence = yes }
+			}
+		}
+		condition = {
+			type = has_advance
+			value = { clerical_celibacy = yes }
+		}
+		condition = { type = has_improvement value = { church = yes } }
+		condition = { type = religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { monastery = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_church = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { domed_church = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { cathedral = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { templar_house = yes }
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.5
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.66
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.25
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.11
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = selfish }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = generous }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = and
+						condition = { type = trait value = zealous }
+						condition = { type = not value = { type = trait value = heretic } }
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = or
+						condition = { type = trait value = sceptical }
+						condition = { type = trait value = heretic }
+						condition = { type = trait value = excommunicated }
+					}
+				}
+			}
+			factor = 2
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_advance value = letters_of_indulgence }
+	} 	
+}
+
+# inquisition will appear because of heresy events, allowing a choice to the player
+# See Heresy events series
+# id = 9102
+
+# Post-inquisition reforms:
+
+#################################
+# formalized_lithurgy discovery #	   
+#################################
+						   
+province_event = {
+	id = 9103
+
+	name	= "TECH_DISCOVERY"
+	tag	= formalized_lithurgy
+	picture = event_religion
+	trigger	= {
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { formalized_lithurgy = yes }
+			}
+		}
+		condition = {
+			type = has_advance
+			value = { inquisition = yes }
+		}
+		condition = { type = religion value = catholic }
+		condition = { type = has_improvement value = { school = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { university = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.5
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.66
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.25
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.11
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = energetic }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = lazy }
+				}
+			}
+			factor = 1.33
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = and
+						condition = { type = trait value = zealous }
+						condition = { type = not value = { type = trait value = heretic } }
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = or
+						condition = { type = trait value = sceptical }
+						condition = { type = trait value = heretic }
+						condition = { type = trait value = excommunicated }
+					}
+				}
+			}
+			factor = 3
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_advance value = formalized_lithurgy }
+	} 	
+}
+#####################
+# jubilee discovery #	   
+#####################
+						   
+province_event = {
+	id = 9104
+
+	name	= "TECH_DISCOVERY"
+	tag	= jubilee
+	picture = event_religion
+	trigger	= {
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { jubilee = yes }
+			}
+		}
+		condition = {
+			type = has_advance
+			value = { formalized_lithurgy = yes }
+		}
+		condition = { type = religion value = catholic }
+		condition = { type = has_improvement value = { domed_church = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { cathedral = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.5
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.66
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.25
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.11
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = indulgent }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = temperate }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = and
+						condition = { type = trait value = zealous }
+						condition = { type = not value = { type = trait value = heretic } }
+					}
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = or
+						condition = { type = trait value = sceptical }
+						condition = { type = trait value = heretic }
+						condition = { type = trait value = excommunicated }
+					}
+				}
+			}
+			factor = 1.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_advance value = jubilee }
+	} 	
+}
+
+# 9105-9109: Cf. Papal Events
+
+# Religious Flexibility:
+
+# Apparition of Religious Flexibility tech is linked with Thoughts discovery
+# Thoughts discovery may be researched but mostly spread from the scenario settings
+# Historically the Gregorian Reform encouraged early Religious Flexibility apparition 
+
+######################
+# ascetism discovery #	   
+######################
+						   
+province_event = {
+	id = 9110
+
+	name	= "TECH_DISCOVERY"
+	tag	= ascetism
+	picture = event_religion
+	trigger	= {
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { ascetism = yes }
+			}
+		}
+		condition = {
+			type = has_advance
+			value = { aristotelian_logics = yes }
+		}
+		condition = {
+			type = or
+			condition = { type = religion value = catholic }
+			condition = { type = religion value = orthodox }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { clerical_celibacy = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { letters_of_indulgence = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { apostolic_poverty = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { critical_bible_interpretations = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { bible_translations = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { critical_thinking = yes }
+			}
+			factor = 0.4
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { monastery = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_church = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { domed_church = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { cathedral = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.5
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = .66
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.11
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = temperate }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = indulgent }
+				}
+			}
+			factor = 1.33
+		}
+	}
+
+	immidiate = {
+		effect = { 
+				type = add_advance 
+				value = ascetism 
+			}
+	} 	
+}
+###############################
+# apostolic_poverty discovery #	   
+###############################
+						   
+province_event = {
+	id = 9111
+
+	name	= "TECH_DISCOVERY"
+	tag	= apostolic_poverty
+	picture = event_religion
+	trigger	= {
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { apostolic_poverty = yes }
+			}
+		}
+		condition = {
+			type = has_advance
+			value = { ascetism = yes }
+		}
+		condition = {
+			type = has_advance
+			value = { scholastics = yes }
+		}
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { clerical_celibacy = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { letters_of_indulgence = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { critical_bible_interpretations = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { bible_translations = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { critical_thinking = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { monastery = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_church = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { domed_church = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { cathedral = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.5
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = .66
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.11
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = temperate }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = indulgent }
+				}
+			}
+			factor = 1.33
+		}
+	}
+
+	immidiate = {
+		effect = { 
+				type = add_advance 
+				value = apostolic_poverty 
+			}
+	} 	
+}
+
+############################################
+# critical_bible_interpretations discovery #	   
+############################################
+						   
+province_event = {
+	id = 9112
+
+	name	= "TECH_DISCOVERY"
+	tag	= critical_bible_interpretations
+	picture = event_religion
+	trigger	= {
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { critical_bible_interpretations = yes }
+			}
+		}
+		condition = {
+			type = has_advance
+			value = { apostolic_poverty = yes }
+		}
+		condition = {
+			type = has_advance
+			value = { astrology = yes }
+		}
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { inquisition = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { bible_translations = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { critical_thinking = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { library = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { school = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { university = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.5
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = .66
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.11
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = and
+						condition = { type = trait value = zealous }
+						condition = { type = not value = { type = trait value = heretic } }
+					}
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = or
+						condition = { type = trait value = sceptical }
+						condition = { type = trait value = heretic }
+						condition = { type = trait value = excommunicated }
+					}
+				}
+			}
+			factor = 0.75
+		}
+	}
+
+	immidiate = {
+		effect = { 
+				type = add_advance 
+				value = critical_bible_interpretations 
+			}
+	} 	
+}
+
+# Post-inquisition reforms:
+
+################################
+# bible_translations discovery #	   
+################################
+						   
+province_event = {
+	id = 9113
+
+	name	= "TECH_DISCOVERY"
+	tag	= bible_translations
+	picture = event_religion
+	trigger	= {
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { bible_translations = yes }
+			}
+		}
+		condition = {
+			type = has_advance
+			value = { critical_bible_interpretations = yes }
+		}
+		condition = {
+			type = has_advance
+			value = { natural_philosophy = yes }
+		}
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = {
+				type = has_advance
+				value = { critical_thinking = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { library = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { school = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { university = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.5
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = .66
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.11
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = and
+						condition = { type = trait value = zealous }
+						condition = { type = not value = { type = trait value = heretic } }
+					}
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = or
+						condition = { type = trait value = sceptical }
+						condition = { type = trait value = heretic }
+						condition = { type = trait value = excommunicated }
+					}
+				}
+			}
+			factor = 0.75
+		}
+	}
+
+	immidiate = {
+		effect = { 
+				type = add_advance 
+				value = bible_translations 
+			}
+	} 	
+}
+###############################
+# critical_thinking discovery #	   
+###############################
+						   
+province_event = {
+	id = 9114
+
+	name	= "TECH_DISCOVERY"
+	tag	= critical_thinking
+	picture = event_religion
+	trigger	= {
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = { critical_thinking = yes }
+			}
+		}
+		condition = {
+			type = has_advance
+			value = { bible_translations = yes }
+		}
+		condition = {
+			type = has_advance
+			value = { science = yes }
+		}
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { library = yes }
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { school = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { university = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = 0.5
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = clergy_power
+				value = .66
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.25
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_power
+					value = 0.11
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = and
+						condition = { type = trait value = zealous }
+						condition = { type = not value = { type = trait value = heretic } }
+					}
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = {
+						type = or
+						condition = { type = trait value = sceptical }
+						condition = { type = trait value = heretic }
+						condition = { type = trait value = excommunicated }
+					}
+				}
+			}
+			factor = 0.75
+		}
+	}
+
+	immidiate = {
+		effect = { 
+				type = add_advance 
+				value = critical_thinking 
+			}
+	} 	
+}
+# IDs 9115-9149 are in the papal_events.txt file
+
+######################
+# Sunnis and Shiites #
+######################
+
+character_event = { # This character is a Sunni muslim
+	id = 9150
+
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = religion value = muslim }
+		condition = { type = not value = { type = trait value = sunni } }
+		condition = { type = not value = { type = trait value = shiite } }
+		condition = { type = or
+			condition = { type = father
+				condition = { type = trait value = sunni }
+				condition = { type = is_alive }
+			}
+			condition = { type = and
+				condition = { type = not value = { type = ruler } }
+				condition = { type = ruler_csc condition = { type = trait value = sunni } }
+			}
+			condition = { type = and
+				condition = { type = ruler }
+				condition = { type = liege condition = { type = trait value = sunni } }
+			}
+		} # Either father (if alive) or immediate liege needs to be sunni
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+	}
+
+	immidiate = { # OK
+		effect = { type = add_trait value = sunni }
+	}
+}
+
+character_event = { # This character is a Shi'a muslim
+	id = 9151
+
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = religion value = muslim }
+		condition = { type = not value = { type = trait value = sunni } }
+		condition = { type = not value = { type = trait value = shiite } }
+		condition = { type = or
+			condition = { type = father
+				condition = { type = trait value = shiite }
+				condition = { type = is_alive }
+			}
+			condition = { type = and
+				condition = { type = not value = { type = ruler } }
+				condition = { type = ruler_csc condition = { type = trait value = shiite } }
+			}
+			condition = { type = and
+				condition = { type = ruler }
+				condition = { type = liege condition = { type = trait value = shiite } }
+			}
+		} # Either father (if alive) or immediate liege needs to be shiite
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+	}
+
+	immidiate = { # OK
+		effect = { type = add_trait value = shiite }
+	}
+}
+
+# Note that if living father and immediate liege have conflicting denominations, then either version may happen.
+
+character_event = { # This character gets to choose between Sunni and Shi'a. Players should never see this event without modding.
+	id = 9152
+
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = religion value = muslim }
+		condition = { type = not value = { type = trait value = sunni } }
+		condition = { type = not value = { type = trait value = shiite } }
+		condition = { type = is_independent }
+		condition = { type = not value = { type = father condition = { type = is_alive } } }
+	} # Independent, so no liege and father dead
+
+	mean_time_to_happen = {
+		months = 60
+
+	}
+
+	action_a = { # I will be Sunni
+		ai_chance = 80
+		effect = { type = add_trait value = sunni }
+	}
+	action_b = { # I will be Shi'a
+		ai_chance = 20
+		modifier = {
+			condition = { type = culture value = persian }
+			factor = 16.0
+		}
+		effect = { type = add_trait value = shiite }
+	}
+}
+
+# When a character is muslim no more
+
+character_event = { # Having given up Muslim faith, your denomination within the faith is now meaningless
+	id = 9153
+
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = or
+			condition = { type = trait value = sunni }
+			condition = { type = trait value = shiite }
+		}
+		condition = { type = not value = { type = religion value = muslim } }
+	}
+	mean_time_to_happen = {
+		months = 60
+
+	}
+
+	action_a = { # Away with such trappings of a former faith!
+		effect = { type = remove_trait value = sunni }
+		effect = { type = remove_trait value = shiite }
+	}
+}
+
+# Courtiers adapt the denomination of the ruler
+
+character_event = { # The ruler of this court is Sunni, maybe you should switch denomination?
+	id = 9154
+
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = shiite }
+		condition = { type = ruler_csc condition = { type = trait value = sunni } }
+		condition = { type = not value = { type = trait value = fosterling } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+	}
+
+	action_a = { # Yes
+		ai_chance = 50
+		modifier = { condition = { type = ruler_child } factor = 10.0 }
+		modifier = { condition = { type = not value = { type = age value = 16 } } factor = 10.0 }
+		modifier = { condition = { type = gender value = female } factor = 5.0 }
+		effect = { type = add_trait value = sunni }
+	}
+	action_b = { # Run away!
+		ai_chance = 50
+		effect = { type = leave_court }
+	}
+}
+
+character_event = { # The ruler of this court is Sh'iite, maybe you should switch denomination?
+	id = 9155
+
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = sunni }
+		condition = { type = ruler_csc condition = { type = trait value = shiite } }
+		condition = { type = not value = { type = trait value = fosterling } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+	}
+
+	action_a = { # Yes
+		ai_chance = 50
+		modifier = { condition = { type = ruler_child } factor = 10.0 }
+		modifier = { condition = { type = not value = { type = age value = 16 } } factor = 10.0 }
+		modifier = { condition = { type = gender value = female } factor = 5.0 }
+		effect = { type = add_trait value = shiite }
+	}
+	action_b = { # Run away!
+		ai_chance = 50
+		effect = { type = leave_court }
+	}
+}
+
+# Rulers switching denomination
+
+character_event = { # Your liege is Shi'ite and therefore of a different denomination than you, maybe it would be practical to switch?
+	id = 9156
+
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = trait value = sunni }
+		condition = { type = not value = { type = trait value = rebellious } }
+		condition = { type = liege condition = { type = trait value = shiite } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+	}
+
+	action_a = { # Yes
+		ai_chance = 30
+		modifier = { condition = { type = trait value = loyalist } factor = 10.0 }
+		effect = { type = add_trait value = shiite }
+	}
+	action_b = { # Never!
+		ai_chance = 70
+		effect = { type = add_trait value = rebellious }
+	}
+}
+
+character_event = { # Your liege is Sunni and therefore of a different denomination than you, maybe it would be practical to switch?
+	id = 9157
+
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = trait value = shiite }
+		condition = { type = not value = { type = trait value = rebellious } }
+		condition = { type = liege condition = { type = trait value = sunni } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+	}
+
+	action_a = { # Yes
+		ai_chance = 30
+		modifier = { condition = { type = trait value = loyalist } factor = 10.0 }
+		effect = { type = add_trait value = shiite }
+	}
+	action_b = { # Never!
+		ai_chance = 70
+		effect = { type = add_trait value = rebellious }
+	}
+}
+
+
+# Todo, more events dealing with Sunni vs Shi'a struggles
+
+character_event = { #As you are not a catholic, excommunication is meaningless to you.
+	id = 9158
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = not value = { type = religion value = catholic } }
+		condition = { type = not value = { type = religion value = orthodox } }
+		condition = { type = trait value = excommunicated }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+	}
+
+	immidiate = {
+		effect = { type = remove_trait value = excommunicated }
+	}
+}
+
+# FREE ID in this range: 9159-9199

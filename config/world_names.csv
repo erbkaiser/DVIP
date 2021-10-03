@@ -1,0 +1,615 @@
+##;;;;;;;;;;;X
+CULTURE_NONE;Nubian;@;@;@;@;;;;;;x
+CULTURE_LAPPISH;Sami;@;@;@;@;;;;;;x
+CULTURE_NORWEGIAN;Norwegian;Norvégien;norwegisch;Noruega;Norvegese;;;;;;x
+CULTURE_SWEDISH;Swedish;Suédois;schwedisch;Sueca;Svedese;;;;;;x
+CULTURE_DANISH;Danish;Danois;dänisch;Danesa;Danese;;;;;;x
+CULTURE_SCOTTISH;Scottish;Ecossais;schottisch;Escocesa;Scozzese;;;;;;x
+CULTURE_SAXON;Anglo-Saxon;Saxon;sächsisch;Sajona;Sassone;;;;;;x
+CULTURE_IRISH;Gaelic;@;@;@;@;;;;;;x
+CULTURE_WELSH;Welsh;Gallois;walisisch;Galesa;Gallese;;;;;;x
+CULTURE_ENGLISH;English;Anglais ;englisch;Inglesa;Inglese;;;;;;x
+CULTURE_FINNISH;Finnish;Finnois;finnisch;Finlandesa;Finlandese;;;;;;x
+CULTURE_PRUSSIAN;Prussian;Prussien;preußisch;Prusiana;Prussiana;;;;;;x
+CULTURE_LETTIGALLISH;Latgalian;Letton Gallois;lettigallisch;Letigala;Gallica-lettone;;;;;;x
+CULTURE_LITHUANIAN;Lithuanian;Lituanien;lithauisch;Lituana;Lituana;;;;;;x
+CULTURE_GERMAN;German;Allemand;deutsch;Alemana;Tedesca;;;;;;x
+CULTURE_DUTCH;Dutch;Hollandais;holländisch;Holandesa;Olandese;;;;;;x
+CULTURE_FRANKISH;French;Franc;französisch;Franca;Franca;;;;;;x
+CULTURE_NORMAN;Norman;Normand;normannisch;Normanda;Normanna;;;;;;x
+CULTURE_BASQUE;Basque;Basque;baskisch;Vasca;Basca;;;;;;x
+CULTURE_CASTILLAN;Castilian;Castillan;kastilianisch;Castellana;Castigliana;;;;;;x
+CULTURE_CATALAN;Catalan;Catalan;katalanisch;Catalana;Catalana;;;;;;x
+CULTURE_ITALIAN;Italian;Italien;italienisch;Italiana;Italiana;;;;;;x
+CULTURE_LATIN;Occitan;Occitan;occitanisch;Occitana;Occitan;;;;;;x
+CULTURE_HUNGARIAN;Hungarian;Hongrois;ungarisch;Húngara;Ungherese;;;;;;x
+CULTURE_WESTERN_SLAVIC;Wend;@;@;@;@;;;;;;x
+CULTURE_SOUTH_SLAVIC;Croatian;@;@;@;@;;;;;;x
+CULTURE_RUSSIAN;Russian;Russe;russisch;Rusa;Russa;;;;;;x
+CULTURE_GREEK;Greek;Grec;griechisch;Griega;Greca;;;;;;x
+CULTURE_GEORGIAN;Georgian;Géorgien;georgisch;Georgiana;Georgiana;;;;;;x
+CULTURE_ARMENIAN;Armenian;Arménien;armenisch;Armenia;Armena;;;;;;x
+CULTURE_ABGHAZIAN;Berber;@;@;@;@;;;;;;x
+CULTURE_ALAN;Alan;Alain;alanisch;Alana;Alana;;;;;;x
+CULTURE_CUMAN;Cuman;Couman;kumanisch;Cumana;Cumana;;;;;;x
+CULTURE_PECHENEG;Pecheneg;Pecheneg;petschengetisch;Pechenega;di Pecheneg;;;;;;x
+CULTURE_TURKISH;Turkish;Turc;türkisch;Turca;Turca;;;;;;x
+CULTURE_MUSLIM;Arab;Musulman;arabisch;Árabe;Araba;;;;;;x
+CULTURE_PERSIAN;Persian;Perse;persisch;Persa;Persiana;;;;;;x
+CULTURE_MONGOL;Mongol;Mongol;mongolisch;Mongola;Mongola;;;;;;x
+CULTURE_BYZANTINE;Bulgarian;@;@;@;@;;;;;;x
+CULTURE_EASTERN_SLAVIC;Serbian;@;@;@;@;;;;;;x
+CULTURE_IBERIAN;Vlach;@;@;@;@;;;;;;x
+CULTURE_CELTIC;Breton;@;@;@;@;;;;;;x
+CULTURE_UGRIC_BALTIC;Mordvin;@;@;@;@;;;;;;x
+CULTURE_NORSE;Norse;Norse;altnordisch;Nórdica;Norrena;;;;;;x
+CULTURE_POLISH;Polish;Polonais;polnisch;Polaca;Polacca;;;;;;x
+CULTURE_BOHEMIAN;Bohemian;Bohémien;böhmisch;Bohemia;Boema;;;;;;x
+CULTURE_PORTUGUESE;Portuguese;Portugais;portugiesisch;Portuguesa;Portoghese;;;;;;x
+CULTURE_TEMPLAR;Templar;Templier;Templer;Templaria;Templare;;;;;;x
+CULTURE_TEUTONIC;Teutonic;Teutonique;Teutonisch;Teutónica;Teutonica;;;;;;x
+CULTURE_HOSPITALER;Hospitaler;Hospitalier;Hospitaliter;Hospitalaria;Ospedaliera;;;;;;x
+##;;;;;;;;;;;x
+###########################################;;;;;;;;;;;x
+###### NAMES OF COUNTRIES & AREAS #####;;;;;;;;;;;x
+###########################################;;;;;;;;;;;X
+#  IMPORTANT! COUNTRY NAMES MAY NOT BE TOO LONG;;;;;;;;;;;X
+##;;;;;;;;;;;X
+MINI;(Undefined Nation);(Nation non définie);(nation non définie);(Nación sin definir);(Undefined Nation);;;;;;X
+U000;Order of Santiago;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;x
+U001;Livonian Order;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;x
+U002;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;x
+U003;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U004;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U005;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U006;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U007;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U008;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U009;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U010;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U011;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U012;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U013;User Defined;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U014;Thessalonica;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U015;Nicaea;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U016;Latin Empire;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U017;Andalusia;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U018;Aquitania;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+U019;Lotharingia;Défini par l'utilisateur;Paramétrable;Def. por usuario;User Defined;;;;;;X
+##;;;;;;;;;;;X
+##;;;;;;;;;;;X
+#  Regional definitions;;;;;;;;;;;X
+##;;;;;;;;;;;X
+AREA_-;-;-;-;-;-;;;;;;X
+REG;-;-;-;-;-;;;;;;X
+REGION_ASIA_MINOR;Asia Minor;Asie Mineure;Kleinasien;Asia menor;Asia Minore;;;;;;X
+REGION_BALKAN;Balkan;Balkans;Balkan;Balcanes;Balcani;;;;;;X
+REGION_BRITAIN;Britain;Bretagne;Britannien;Bretaña;Bretagna;;;;;;X
+REGION_EASTERN_EUROPE;Eastern Europe;Europe de l'Est;Osteuropa;Europa del Este;Europa orientale;;;;;;X
+REGION_FRANCE;France;France;Frankreich;Francia;Francia;;;;;;X
+REGION_GERMANY;Germany;Allemagne;Deutschland;Alemania;Germania;;;;;;X
+REGION_ITALY;Italy;Italie;Italien;Italia;Italia;;;;;;X
+REGION_MIDDLE_EAST;Middle East;Moyen-Orient;Mittlerer Osten;Oriente Medio;Medio oriente;;;;;;X
+REGION_NETHERLANDS;Netherlands;Pays-Bas;Niederlande;Países Bajos;Olanda;;;;;;X
+REGION_NORTH_AFRICA;North Africa;Afrique du Nord;Nordafrika;África del Norte;Nord Africa;;;;;;X
+REGION_REGION_LAKE;Lake;Lac;See;Lago;Lago;;;;;;X
+REGION_REGION_RIVER;River;Rivière;Fluss;Río;Fiume;;;;;;X
+REGION_REGION_SEA;Sea;Mer;Meer;Mar;Mare;;;;;;X
+REGION_RUSSIA;Russia;Russie;Russland;Rusia;Russia;;;;;;X
+REGION_SCANDINAVIA;Scandinavia;Scandinavie;Skandinavien;Escandinavia;Scandinavia;;;;;;X
+REGION_SPAIN;Spain;Espagne;Spanien;España;Spagna;;;;;;X
+AREA_AD_DAHNA;ad_dahna;ad_dahna;Ad-Dhana;ad_dahna;Ad Dahna;;;;;;X
+AREA_AL_HIJAZ;al_hijaz;al_hijaz;Al-Hijaz;al_hijaz;Al Hijaz;;;;;;X
+AREA_ALGIERS;algiers;Alger;Algier;argel;Algeri;;;;;;X
+AREA_ALPES_MARTIMES;alpes_martimes;alpes_martimes;Seealpen;alpes_marítimos;Alpi marittime;;;;;;X
+AREA_ALPI_CARNICHE;alpi_carniche;alpi_carniche;Karnische Alpen;alpes_carniche;Alpi carniche;;;;;;X
+AREA_ALPS;alps;alpes;Alpen;alpes;Alpi;;;;;;X
+AREA_ANATOLIA;anatolia;anatolie;Anatolien;anatolia;Anatolia;;;;;;X
+AREA_APPENNINO;appennino;apennins;Appenin;apeninos;Appennino;;;;;;X
+AREA_ARMENIA;armenia;arménie;Armenien;armenia;Armenia;;;;;;X
+AREA_ATLANTIC;atlantic;atlantique;Atlantik;atlántico;Atlantico;;;;;;X
+AREA_ATLAS;atlas;atlas;Atlas;atlas;Atlante;;;;;;X
+AREA_AULNE;aulne;aulne;Aulne;aulne;Aulne;;;;;;X
+AREA_AXIOS;axios;axios;Axios;axios;Axios;;;;;;X
+AREA_BADEN;baden;baden;Baden;baden;Baden;;;;;;X
+AREA_BALEARES;baleares;baléares;Balearen;baleares;Baleari;;;;;;X
+AREA_BALTIC;baltic;baltique;Baltikum;báltico;Baltico;;;;;;X
+AREA_BAY_OF_BISCAYE;bay_of_biscaye;baie_de_biscay;Golf von Biskaya;golfo_de_vizcaya;Golfo di Biscaglia;;;;;;X
+AREA_BERBERS;berbers;berbères;Berber;beréberes;Berber;;;;;;X
+AREA_BOTHNIA;bothnia;bothnia;Boöthien;botnia;Botnia;;;;;;X
+AREA_BULGAR;bulgar;bulgare;Bulgarien;bulgaria;Bulgaria;;;;;;X
+AREA_CANARIAS;canarias;canaries;Kanaren;canarias;Canarie;;;;;;X
+AREA_CARPATHIANS;carpathians;carpathes;Karpathen;cárpatos;Carpazi;;;;;;X
+AREA_CARTHAGO;carthago;Carthage;Karthago;cartago;Cartagine;;;;;;X
+AREA_CAUCASUS;caucasus;caucase;Kaukasus;cáucaso;Caucaso;;;;;;X
+AREA_COAST_OF_ITALY;coast_of_italy;côte_d'italie;Italienische Küste;costa_de_italia;costa italiana;;;;;;X
+AREA_CRIMEA;crimea;crimée;Krim;crimea;Crimea;;;;;;X
+AREA_CRNA_GORA;crna_gora;crna_gora;Montenegro;montenegro;Crna Gora;;;;;;X
+AREA_CYCLADES;cyclades;cyclades;Kykladen;cícladas;Cicladi;;;;;;X
+AREA_CYPRUS;cyprus;chypre;Zypern;chipre;Cipro;;;;;;X
+AREA_CYRENAICA;cyrenaica;cyrénaïque;Cyrenaica;cirenaica;Cirenaica;;;;;;X
+AREA_DANUBE;danube;danube;Donau;danubio;Danubio;;;;;;X
+AREA_DAUGAVA;daugava;daugava;Daugava;daugava;Daugava;;;;;;X
+AREA_DELTA;delta;delta;Delta;delta;delta;;;;;;X
+AREA_DEPRESSION;depression;dépression;Depression;depresión;avvallamento;;;;;;X
+AREA_DINARA_PLANINA;dinara_planina;dinara_planina;Dinargebirge;dinara_planina;Dinara Planina;;;;;;X
+AREA_DNEPR;dnepr;dnepr;Dnjepr;dniéper;Dnepr;;;;;;X
+AREA_DNIESTER;dniester;dniester;Dniester;dniéster;Dniester;;;;;;X
+AREA_DON;don;don;Don;don;Don;;;;;;X
+AREA_DONAU;donau;donau;Donau;donau;Donau;;;;;;X
+AREA_DUNA;duna;duna;Duna;duna;duna;;;;;;X
+AREA_DUNAREA;dunarea;dunarea;Dunarea;dunarea;Dunarea;;;;;;X
+AREA_DUNAV;dunav;dunav;Dunav;dunav;Dunav;;;;;;X
+AREA_EBRO;ebro;ebro;Ebro;ebro;Ebro;;;;;;X
+AREA_EIRE;eire;eire;Éire;irlanda;Eire;;;;;;X
+AREA_ELBE;elbe;elbe;Elbe;elba;Elbe;;;;;;X
+AREA_ELBURZ;elburz;elburz;Elburz;elburz;Elburz;;;;;;X
+AREA_EXTREMADURA;extremadura;extremadura;Extremadura;extremadura;Estremadura;;;;;;X
+AREA_FJORDS;fjords;fjords;Fjorde;fiordos;fiordi;;;;;;X
+AREA_GARONNE;garonne;garonne;Garonne;garona;Garonne;;;;;;X
+AREA_HAUT_ATLAS;haut_atlas;haut_atlas;Hochatlas;gran_atlas;Alto Atlante;;;;;;X
+AREA_HELLESPONT;hellespont;hellespont;Hellespont;helesponto;Ellesponto;;;;;;X
+AREA_ICELAND;iceland;Islande;Island;islandia;Islanda;;;;;;X
+AREA_IONIA;ionia;ionia;Ionien;jonia;Ionia;;;;;;X
+AREA_JORDAN;jordan;jordan;Jordan;jordán;Giordania;;;;;;X
+AREA_KAMA;kama;kama;Kama;kama;Kama;;;;;;X
+AREA_KARAKUMY;karakumy;karakumy;Karakumy;karakumy;Karakumy;;;;;;X
+AREA_KAZAKHS;kazakhs;kazakhs;Kasachstan;kazakos;Kazakhs;;;;;;X
+AREA_KHOPER;khoper;khoper;Khoper;khoper;Khoper;;;;;;X
+AREA_KUBAN;kuban;kuban;Kuban;kuban;Kuban;;;;;;X
+AREA_KURA;kura;kura;Kura;kura;Kura;;;;;;X
+AREA_KURDISTAN;kurdistan;kurdistan;Kurdistan;kurdistán;Kurdistan;;;;;;X
+AREA_KUZEY_ANADOLU;kuzey_anadolu;kuzey_anadolu;Kuzey Anadolu;kuzey_anadolu;Kuzey Anadolu;;;;;;X
+AREA_LA_MANCHA;la_mancha;la_mancha;La Mancha;la_mancha;La Mancha;;;;;;X
+AREA_LAKE_AREA;lake_area;lake_area;Seengegend;zona_del_lago;zona dei laghi;;;;;;X
+AREA_LEYN;leyn;leyn;Leyn;leyn;Leyn;;;;;;X
+AREA_LIVONIA;livonia;livonie;Livland;livonia;Livonia;;;;;;X
+AREA_LOIRE;loire;loire;Loîre;loira;Loira;;;;;;X
+AREA_MAIN;main;main;Main;meno;principale;;;;;;X
+AREA_MARITSA;maritsa;maritsa;Maritsa;maritsa;Maritsa;;;;;;X
+AREA_MAROCCO;marocco;maroc;Marokko;marruecos;Marocco;;;;;;X
+AREA_MASSIF_CENTRAL;massif_central;massif_central;Zentralmassiv;macizo_central;Massiccio centrale;;;;;;X
+AREA_MEDITERRANEAN;mediterranean;méditerranéen ;Mediterranien;mediterráneo;Mediterraneo;;;;;;X
+AREA_MESOPOTAMIA;mesopotamia;mésopotamie;Mesopotamien;mesopotamia;Mesopotamia;;;;;;X
+AREA_NIEDER_RHEIN;nieder_rhein;nieder_rhein;Niederrhein;bajo_rin;Nieder Rhein;;;;;;X
+AREA_NILE;nile;nile;Nil;nilo;Nilo;;;;;;X
+AREA_NORTH_ENGLAND;north_england;nord_angleterre;Nordengland;inglaterra_septentrional;Inghilterra settentrionale;;;;;;X
+AREA_NORVEGIAN_SEA;norvegian_sea;mer_norvégienne;Norwegische See;mar_de_noruega;Mar di Norvegia;;;;;;X
+AREA_NUBIA;nubia;nubie;Nubien;nubia;Nubia;;;;;;X
+AREA_ODER;oder;oder;Oder;oder;Oder;;;;;;X
+AREA_OKA;oka;oka;Oka;oká;Oka;;;;;;X
+AREA_PAPAL_STATES;papal_states;Etats_papaux;Kirchenstaat;estados_pontificios;stati pontifici;;;;;;X
+AREA_PELOPONNES;peloponnesos;péloponnèse;Peloponnes;peloponeso;Peloponneso;;;;;;X
+AREA_PHOENICIA;phoenicia;phénicie;Phönizien;fenicia;Fenicia;;;;;;X
+AREA_PINDHOS_OROS;pindhos_oros;pindhos_oros;Pindhos Oros;montes_pindo;Pindhos Oros;;;;;;X
+AREA_PO;po;po;Po;po;Po;;;;;;X
+AREA_POLESYE;polesye;polésye;Polesye;polesia;Polesye;;;;;;X
+AREA_PORTUGAL_COAST;portugal_coast;Côte_portugaise;Portugiesische Küste;costa_portuguesa;costa del Portogallo;;;;;;X
+AREA_PYRENEES;pyrenees;pyrénées;Pyrenäen;pirineos;Pirenei;;;;;;X
+AREA_QATTARA;qattara;qattara;Qattara;qattara;Qattara;;;;;;X
+AREA_RHEIN;rhein;rhein;Rhein;rin;Reno;;;;;;X
+AREA_RHONE;rhone;rhône;Rhône;ródano;Rodano;;;;;;X
+AREA_RIBBAROJA;ribbaroja;ribbaroja;Ribbaroja;riba-roja;Ribbaroja;;;;;;X
+AREA_SAHARA;sahara;sahara;Sahara;sahara;Sahara;;;;;;X
+AREA_SALT_DESERT;salt_desert;désert_salé;Salzwüste;desierto_de_sal;deserto di sale;;;;;;X
+AREA_SAMARA;samara;samara;Samara;samara;Samara;;;;;;X
+AREA_SARDEGNA;sardegna;sardaigne;Sardinien;cerdeña;Sardegna;;;;;;X
+AREA_SCHELDE;schelde;schelde;Schelde;escalda;Schelde;;;;;;X
+AREA_SCOTLAND;scotland;écosse;Schottland;escocia;Scozia;;;;;;X
+AREA_SEA_OF_ADRIATIC;sea_of_adriatic;mer_adriatique;Adria;mar_adriático;mare Adriatico;;;;;;X
+AREA_SEINE;seine;seine;Seine;sena;Senna;;;;;;X
+AREA_SICILIA;sicilia;sicile;Sizilien;sicilia;Sicilia;;;;;;X
+AREA_SIERRA_NEVADA;sierra_nevada;sierra_nevada;Sierra Nevada;sierra_nevada;Sierra Nevada;;;;;;X
+AREA_SINAI;sinai;sinai;Sinai;sinaí;Sinai;;;;;;X
+AREA_SOUTH_ENGLAND;south_england;sud_angleterre;Südengland;inglaterra_meridional;Inghilterra meridionale;;;;;;X
+AREA_SREDNE_RUSSKA;sredne_russka;sredne_russka;Sredne Russka;sredne_russka;Sredne Russka;;;;;;X
+AREA_SURA;sura;sura;Sura;sura;Sura;;;;;;X
+AREA_SYRIAN_DESERT;syrian desert;désert syrien;Syrische Wüste;desierto_sirio;deserto della Siria;;;;;;X
+AREA_TAURUS;taurus;taurus;Taurus;tauro;Taurus;;;;;;X
+AREA_TEJO;tejo;tejo;Tejo;tajo;Tejo;;;;;;X
+AREA_TRIPOLITANIA;tripolitania;tripolitanie;Tripolis;tripolitania;Tripolitania;;;;;;X
+AREA_URALS;urals;Oural;Ural;urales;Urali;;;;;;X
+AREA_USTYURT;ustyurt;ustyurt;Ustyurt;ustiurt;Ustyurt;;;;;;X
+AREA_WALES;wales;pays de galles;Wales;gales;Galles;;;;;;X
+AREA_WESSER;wesser;wesser;Weser;weser;Wesser;;;;;;X
+AREA_VETLUGA;vetluga;vetluga;Wetluga;vetluga;Vetluga;;;;;;X
+AREA_WHITE_SEA;white_sea;white_sea;Weißes Meer;mar_blanco;mar Bianco;;;;;;X
+AREA_WISLA;wisla;wisla;Weichsel;vístula;Wisla;;;;;;X
+AREA_VLTAVA;vltava;vltava;Moldau;moldava;Vltava;;;;;;X
+AREA_VOLGA;volga;volga;Wolga;volga;Volga;;;;;;X
+AREA_VOLKHOV;volkhov;volkhov;Wolchow;voljov;Volkhov;;;;;;X
+AREA_ZAGROS;zagros;zagros;Zagros;zagros;Zagros;;;;;;X
+##;;;;;;;;;;;X
+#  IMPORTANT! COUNTRY NAMES MAY NOT BE TOO LONG;;;;;;;;;;;X
+##;;;;;;;;;;;X
+ABYD;Merv;@;@;@;@;;;;;;X
+ADRI;Macedonia;@;@;@;@;;;;;;X
+AEGE;Aegean Islands;Iles Egées;Ägäische Inseln;Islas del Egeo;isole Egee;;;;;;X
+AKAB;Arabia Petrae;Arabia Petrae;Arabia Petrae;Arabia Petrae;Arabia Petrae;;;;;;X
+AKER;Østlandet;Østlandet;Østlandet;Østlandet;Østlandet;;;;;;X
+ALHA;Damman;@;@;@;@;;;;;;X
+ALJA;Mosul;@;@;@;@;;;;;;X
+ALAN;Alania;Alania;Alanien;Alania;Alania;;;;;;X
+ALEX;Alexandria;Alexandrie;Alexandria;Alejandría;Alessandria;;;;;;X
+ALGE;Alger;Alger;Alger;Argel;Algeri;;;;;;X
+GRAN;Granada;Grenade;Granada;Granada;Granada;;;;;;X
+ANJO;Anjou;Anjou;Anjou;Anjou;Anjou;;;;;;X
+ANTI;Antioch;Antioche;Antiochia;Antioquía;Antiochia;;;;;;X
+APUL;Apulia;Apulie;Apulien;Apulia;Apulia;;;;;;X
+ARGY;Argyll;Argyll;Argyll;Argyll;Argyll;;;;;;X
+ARMA;Gascony;@;@;@;@;;;;;;X
+ARME;Armenia;Arménie;Armenien;Armenia;Armenia;;;;;;X
+ARMI;Armenia Minor;Arménie Mineure;Kleinarmenien;Armenia Menor;Armenia Minore;;;;;;X
+ARTO;Artois;Artois;Artois;Artois;Artois;;;;;;X
+ASCA;Jaffa-Ascalon;Jaffa-Ascalon;Jaffa-Ascalon;Jaffa-Ascalón;Jaffa-Ascalon;;;;;;X
+ASTU;Asturias;Asturies;Asturias;Asturias;Asturie;;;;;;X
+ASWA;Aswan;Assouan;Aswan;Asuán;Aswan;;;;;;X
+ATHO;Albany;@;@;@;@;;;;;;X
+AUVE;Auvergne;Auvergne;Auvergne;Auvernia;Auvergne;;;;;;X
+AZER;Azerbaijan;Azerbaïdjan;Aserbaidschan;Azerbaiyán;Azerbaijan;;;;;;X
+AZOV;Azov;Azov;Azov;Azov;Azov;;;;;;X
+BADA;Badajoz;Badajoz;Badajoz;Badajoz;Badajoz;;;;;;X
+BAGH;Baghdad;Bagdad;Bagdad;Bagdad;Baghdad;;;;;;X
+DBAS;Basra;Basra;Basra;Basra;Basra;;;;;;X
+BAVA;Bavaria;Bavière;Bayern;Baviera;Bavaria;;;;;;X
+BELG;Rashka;@;@;@;@;;;;;;X
+BELO;Beloozero;Beloozero;Beloozero;Beloozero;Beloozero;;;;;;X
+BENE;Benevento;Benevento;Benevento;Benevento;Benevento;;;;;;X
+BERG;Vestlandet;Vestlandet;Vestlandet;Vestlandet;Vestlandet;;;;;;X
+BERS;Bergslagen;Bergslagen;Bergslagen;Bergslagen;Bergslagen;;;;;;X
+BERW;Brunswick;@;@;@;@;;;;;;X
+BJAR;Bjarmia;Bjarmia;Bjarmia;Bjarmia;Bjarmia;;;;;;X
+DBOH;Bohemia;Bohême;Böhmen;Bohemia;Boemia;;;;;;X
+BORD;Aquitaine;@;@;@;@;;;;;;X
+BOSN;Bosnia;Bosnie;Bosnien;Bosnia;Bosnia;;;;;;X
+BOUR;Bourbon;Bourbon;Bourbon;Bourbon;Bourbon;;;;;;X
+BRAB;Brabant;Brabant;Brabant;Brabante;Brabant;;;;;;X
+BRAG;Porto;@;@;@;@;;;;;;X
+BRAN;Brandenburg;Brandebourg;Brandenburg;Brandeburgo;Brandenburg;;;;;;X
+BRIT;Brittany;Bretagne;Bretagne;Bretaña;Bretagna;;;;;;X
+BUTR;Epirus;@;@;@;@;;;;;;X
+CAIR;Cairo;Caire;Kairo;El Cairo;Il Cairo;;;;;;X
+CALA;Calabria;Calabre;Kalabrien;Calabria;Calabria;;;;;;X
+CAMP;Salerno;@;@;@;@;;;;;;X
+CATA;Barcelona;@;@;@;@;;;;;;X
+CHAL;Coloneia;@;@;@;@;;;;;;X
+CHAM;Champagne;Champagne;Champagne;Champaña;Champagne;;;;;;X
+CHEE;Cheremisa;Cheremisa;Cheremisa;Cheremisa;Cheremisa;;;;;;X
+CHER;Cherson;Cherson;Cherson;Cherson;Cherson;;;;;;X
+COIM;Alsace;@;@;@;@;;;;;;X
+CONN;Connacht;Connacht;Connacht;Connaught;Connacht;;;;;;X
+CONS;Constantine;Constantine;Konstantinopel;Constantina;Constantine;;;;;;X
+CORD;Cordoba;Cordoba;Cordoba;Córdoba;Cordova;;;;;;X
+CORN;Cornwall;Cornwall;Cornwall;Cornualles;Cornovaglia;;;;;;X
+COUR;Courland;Courlande;Kurland;Curlandia;Courland;;;;;;X
+CRIM;Crimea;Crimée;Krim;Crimea;Crimea;;;;;;X
+DCRO;Croatia;Croatie;Kroatien;Croacia;Croazia;;;;;;X
+CUMB;Northumberland;@;@;@;@;;;;;;X
+CYPR;Cyprus;Chypre;Zypern;Chipre;Cipro;;;;;;X
+CYRE;Cyrenaica;Cyrenaica;Cyrenaica;Cirenaica;Cirenaica;;;;;;X
+DAMA;Damascus;Damas;Damaskus;Damasco;Damasco;;;;;;X
+DAMI;Damietta;Damiette;Damietta;Damietta;Damietta;;;;;;X
+DAUP;Dauphine;Dauphine;Dauphine;Delfinado;Dauphine;;;;;;X
+DEHE;Deheubarth;Deheubarth;Deheubarth;Deheubarth;Deheubarth;;;;;;X
+DONA;Sarkel;@;@;@;@;;;;;;X
+DORO;Turnovo;@;@;@;@;;;;;;X
+DYRR;Dyrrachion;Dyrrachion;Dyrrachion;Durazzo;Dyrrachion;;;;;;X
+EDES;Edessa;Edessa;Odessa;Edessa;Edessa;;;;;;X
+ELRI;Breton March;@;@;@;@;;;;;;X
+ESFA;Esfahan;Esfahan;Isfahan;Isfahan;Esfahan;;;;;;X
+ESTH;Estonia;Estonie;Estland;Estonia;Estonia;;;;;;X
+EUPH;Euphrates;Euphrate;Euphrat;Éufrates;Eufrate;;;;;;X
+FESA;Fes;Fes;Fes;Fez;Fes;;;;;;X
+FINL;Finland;Finlande;Finnland;Finlandia;Finlandia;;;;;;X
+FLAN;Flanders;Flandres;Flandern;Flandes;Fiandre;;;;;;X
+FRAC;Franconia;Franconie;Franken;Franconia;Franconia;;;;;;X
+FRIE;Gelre;@;@;@;@;;;;;;X
+GALA;Charsianon;@;@;@;@;;;;;;X
+GALI;Galich;Galich;Galich;Galich;Galich;;;;;;X
+GALC;Galicia;Galicie;Galizien;Galicia;Galizia;;;;;;X
+GALE;Galilee;Galilée;Galiläa;Galilea;Galilea;;;;;;X
+GALL;Galloway;Galloway;Galloway;Galloway;Galloway;;;;;;X
+GENO;Genoa;Gênes;Genua;Génova;Genova;;;;;;X
+DGEO;Kartli;@;@;@;@;;;;;;X
+GLOU;Salisbury;@;@;@;@;;;;;;X
+GOTL;Gotland;Gotland;Gotland;Gotland;Gotland;;;;;;X
+GWYN;Gwynedd;Gwynedd;Gwynedd;Gwynedd;Gwynedd;;;;;;X
+HAIN;Holland;@;@;@;@;;;;;;X
+HAMP;Somerset;@;@;@;@;;;;;;X
+HELL;Athens;@;@;@;@;;;;;;X
+HLYN;Hlynov;Hlynov;Hlynov;Hlínov;Hlynov;;;;;;X
+HOLS;Holstein;Holstein;Holstein;Holstein;Holstein;;;;;;X
+HOMS;Aleppo;@;@;@;@;;;;;;X
+HORM;Hormuz;Hormuz;Hormuz;Hormuz;Hormuz;;;;;;X
+ICEL;Iceland;Islande;Island;Islandia;Islanda;;;;;;X
+IKON;Anatolia;@;@;@;@;;;;;;X
+IMER;Abghazia;@;@;@;@;;;;;;X
+ISTR;Istria;Istrie;Istrien;Istria;Istria;;;;;;X
+JAMT;Jämtland;Jämtland;Jämtland;Jämtland;Jämtland;;;;;;X
+KAIR;Kabylia;@;@;@;@;;;;;;X
+KAPP;Kappadokia;Kappadokia;Kappadokien;Capadocia;Cappadocia;;;;;;X
+KARA;Bukhara;@;@;@;@;;;;;;X
+KARB;Arabia Deserta;Arabia Deserta;Arabia Deserta;Arabia Deserta;Arabia Deserta;;;;;;X
+KARE;Karelia;Karelia;Karelien;Carelia;Karelia;;;;;;X
+KHWA;Khwarizmia;Khawarizmi;Khwarizm;Khwarizm;Khwarizm;;;;;;X
+KIEV;Kiev;Kiev;Kiew;Kíev;Kiev;;;;;;X
+KRAI;Krain;Krain;Krain;Carniola;Krain;;;;;;X
+KRAK;Lesser Poland;@;@;@;@;;;;;;X
+KRET;Crete;Crète;Kreta;Creta;Creta;;;;;;X
+KARN;Carinthia;@;Kärnten;Carintia;@;;;;;;X
+LANC;Lancaster;Lancaster;Lancaster;Lancaster;Lancaster;;;;;;X
+LANG;Pisa;@;@;@;@;;;;;;X
+LAOD;Thracesia;@;@;@;@;;;;;;X
+LEIN;Leinster;Leinster;Leinster;Leinster;Leinster;;;;;;X
+LEMA;Tripolitania;@;@;@;@;;;;;;X
+LIVO;Livonia;Livonie;Livland;Livonia;Livonia;;;;;;X
+LOTH;Lothian;Lothian;Lothian;Lothian;Lothian;;;;;;X
+LOLO;Lower Lorraine;Basse Lorraine;Niederlothringen;Baja Lorena;Bassa Lorena;;;;;;X
+LURI;Kermanshah;@;@;@;@;;;;;;X
+LUTA;Khorasan;@;@;@;@;;;;;;X
+LUXE;Luxembourg;Luxembourg;Luxemburg;Luxemburgo;Lussemburgo;;;;;;X
+LYKI;Cibyrrhaeot;@;@;@;@;;;;;;X
+MADA;March;@;@;@;@;;;;;;X
+MALL;Mallorca;Mallorca;Mallorka;Mallorca;Maiorca;;;;;;X
+MARA;Moray;@;@;@;@;;;;;;X
+MARC;Ancona;@;@;@;@;;;;;;X
+MARR;Marrakech;Marrakech;Marrakesch;Marrakech;Marrakech;;;;;;X
+MAZA;Mazandaran;Mazandéran;Mazandaran;Mazandaran;Mazandaran;;;;;;X
+MAZO;Mazovia;Mazovie;Masovien;Mazovia;Mazovia;;;;;;X
+MEAT;Meath;Meath;Meath;Meath;Meath;;;;;;X
+MECK;Mecklenburg;Mecklembourg;Mecklenburg;Mecklemburgo;Mecklemburg;;;;;;X
+MEDI;Arabia Felix;Arabia Felix;Arabia Felix;Arabia Felix;Arabia Felix;;;;;;X
+MEIS;Meissen;Meissen;Meissen;Meissen;Meissen;;;;;;X
+DMES;Mesopotamia;Mésopotamie;Mesopotamien;Mesopotamia;Mesopotamia;;;;;;X
+MILA;Lombardia;@;@;@;@;;;;;;X
+MOLD;Moldau;Moldau;Moldau;Moldava;Moldavia;;;;;;X
+MORA;Moravia;Moravie;Morawien;Moravia;Moravia;;;;;;X
+MOSK;Muscovy;Moscou;Moskowien;Moscú;Moscovia;;;;;;X
+MUNS;Munster;Munster;Münster;Münster;Munster;;;;;;X
+DNAV;Navarra;Navarre;Navarra;Navarra;Navarra;;;;;;X
+NIKA;Nicaea;Nicée;Nikaea;Nicea;Nicea;;;;;;X
+NIKO;Paphlagonia;@;@;@;@;;;;;;X
+NORF;Norfolk;Norfolk;Norfolk;Norfolk;Norfolk;;;;;;X
+NORM;Normandy;Normandie;Normandie;Normandía;Normandia;;;;;;X
+NORR;Norrland;Norrland;Norrland;Norrland;Norrland;;;;;;X
+NOVG;Novgorod;Novgorod;Nowgorod;Nóvgorod;Novgorod;;;;;;X
+ORKN;Orkney;Orkney;Orkney;Islas Orcadas;Orkney;;;;;;X
+ORLE;Orleans;Orléans;Orleans;Orleans;Orleans;;;;;;X
+OULT;Oultrejourdain;Oultrejourdain;Oultrejourdain;Transjordania;Oltregiordano;;;;;;X
+OXFO;Oxford;Oxford;Oxford;Oxford;Oxford;;;;;;X
+PALM;Powys;@;@;@;@;;;;;;X
+PECS;Pecs;Pecs;Pec;Pécs;Pecs;;;;;;X
+PELO;Peloponnesos;Péloponnèse;Peloponnes;Peloponeso;Peloponneso;;;;;;X
+PERE;Pereyaslavl;Pereyaslavl;Pereyaslavl;Pereyaslavl;Pereyaslavl;;;;;;X
+PEST;Pest;Pest;Pest;Pest;Pest;;;;;;X
+PETR;Petra;Petra;Petra;Petra;Petra;;;;;;X
+PICA;Berry;@;@;@;@;;;;;;X
+PODL;Lithuania;Lituanie;Lithauen;Lituania;Lituania;;;;;;X
+POIT;Poitou;Poitou;Poitou;Poitou;Poitou;;;;;;X
+POLO;Polotsk;Polotsk;Polotsk;Polotsk;Polotsk;;;;;;X
+POMM;Pomerania;Poméranie;Pommern;Pomerania;Pomerania;;;;;;X
+PRES;Esztergom;@;@;@;@;;;;;;X
+PRON;Novgorod-Seversk;@;@;@;@;;;;;;X
+PROV;Provence;Provence;Provence;Provenza;Provenza;;;;;;X
+PRUS;Prussia;Prusse;Preußen;Prusia;Prussia;;;;;;X
+PSKO;Volhynia;@;@;@;@;;;;;;X
+QOMA;Hamadan;@;@;@;@;;;;;;X
+ROMA;Ferrara;@;@;@;@;;;;;;X
+ROST;Rostov;Rostov;Rostow;Rostov;Rostov;;;;;;X
+RYAZ;Ryazan;Ryazan;Ryasan;Riazán;Ryazan;;;;;;X
+SALA;León;@;@;@;@;;;;;;X
+SALI;Modena;@;@;@;@;;;;;;X
+SAMO;Samogitia;Samogitia;Samogitia;Samogitia;Samogitia;;;;;;X
+SAND;Kuyavia;@;@;@;@;;;;;;X
+SARD;Sardinia;Sardaigne;Sardinien;Cerdeña;Sardegna;;;;;;X
+SAVO;Savoie;Savoie;Savoyen;Saboya;Savoia;;;;;;X
+SAXO;Saxony;Saxe;Sachsen;Sajonia;Sassonia;;;;;;X
+SCHW;Upper Burgundy;@;@;@;@;;;;;;X
+DSER;Dioclea;@;@;@;@;;;;;;X
+SEVI;Sevilla;Séville;Sevilla;Sevilla;Siviglia;;;;;;X
+SHIR;Fars;@;@;@;@;;;;;;X
+SICI;Sicily;Sicile;Sizilien;Sicilia;Sicilia;;;;;;X
+SILE;Silesia;Silésie;Schlesien;Silesia;Silesia;;;;;;X
+SINA;Sinai;Sinaï;Sinai;Sinaí;Sinai;;;;;;X
+SINO;Armeniacon;@;@;@;@;;;;;;X
+SKAN;Skåne;Skåne;Skåne;Escania;Skåne;;;;;;X
+SLOV;Nyitra;@;@;@;@;;;;;;X
+SMOL;Smolensk;Smolensk;Smolensk;Smolensk;Smolensk;;;;;;X
+SMAL;Småland;Småland;Småland;Småland;Småland;;;;;;X
+SPMA;Pomeralia;@;@;@;@;;;;;;X
+SPOL;Spoleto;Spoleto;Spoleto;Spoleto;Spoleto;;;;;;X
+STEI;Steiermark;Steiermark;Steiermark;Estiria;Steiermark;;;;;;X
+STRA;Baden;@;@;@;@;;;;;;X
+STRY;Strymon;Strymon;Strymon;Strimon;Strymon;;;;;;X
+SUSS;Canterbury;@;@;@;@;;;;;;X
+SUZD;Chernigov;@;@;@;@;;;;;;X
+SWAB;Swabia;Swabia;Schwaben;Suabia;Swabia;;;;;;X
+DSYR;Syria;Syrie;Syrien;Siria;Siria;;;;;;X
+SZEK;Transylvania;@;@;@;@;;;;;;X
+TABR;Tabriz;Tabriz;Tabriz;Tabriz;Tabriz;;;;;;X
+TANG;Tangiers;Tanger;Tangier;Tánger;Tangeri;;;;;;X
+TEME;Temes;Temes;Temes;Temes;Temes;;;;;;X
+THES;Thessaly;Thessalonique;Thessaloniki;Tesalónica;Tessalonica;;;;;;X
+THUR;Thuringia;Thuringe;Thüringen;Turingia;Turingia;;;;;;X
+TIGR;Tigris;Tigris;Tigris;Tigris;Tigre;;;;;;X
+TIRO;Tyrol;Tyrol;Tirol;Tirol;Tirolo;;;;;;X
+TORK;Ungvár;@;@;@;@;;;;;;X
+TOSC;Toscana;Toscane;Toskana;Toscana;Toscana;;;;;;X
+TOUL;Toulouse;Toulouse;Toulouse;Tolosa;Toulouse;;;;;;X
+TRAP;Trebizond;Trébizonde;Trapezunt;Trebizond;Trebisonda;;;;;;X
+TRIP;Tripoli;Tripoli;Tripolis;Trípoli;Tripoli;;;;;;X
+TRON;Trøndelag;Trøndelag;Trøndelag;Trøndelag;Trøndelag;;;;;;X
+DTUN;Tunis;Tunis;Tunis;Túnez;Tunisi;;;;;;X
+TURO;Turov-Pinsk;Turov-Pinsk;Turow-Pinsk;Turov-Pinsk;Turov-Pinsk;;;;;;X
+TVER;Tver;Tver;Twer;Tver;Tver;;;;;;X
+ULST;Ulster;Ulster;Ulster;Úlster;Ulster;;;;;;X
+UPLO;Upper Lorraine;Haute Lorraine;Oberlothringen;Alta Lorena;Alta Lorena;;;;;;X
+UPPL;Uppland;Uppland;Uppland;Uppland;Uppland;;;;;;X
+URAL;Volga Bulgaria;@;@;@;@;;;;;;X
+VALE;Valencia;Valence;Valencia;Valencia;Valenza;;;;;;X
+WALL;Wallachia;Wallachie;Wallachei;Valaquia;Wallachia;;;;;;X
+VARN;Karvuna;@;@;@;@;;;;;;X
+WARW;Warwick;@;@;@;@;;;;;;X
+VENE;Venice;Venise;Venedig;Venecia;Venezia;;;;;;X
+VERO;Verona;Vérone;Verona;Verona;Verona;;;;;;X
+WEIS;Western Isles;@;@;@;@;;;;;;X
+VIDI;Vidin;Vidin;Vidin;Vidin;Vidin;;;;;;X
+WIEL;Greater Poland;@;@;@;@;;;;;;X
+VISE;Vitebsk;@;@;@;@;;;;;;X
+VLAD;Vladimir-Suzdal;Vladimir-Suzdal;Wladimir-Suzdal;Vladímir-Suzdal;Vladimir-Suzdal;;;;;;X
+VOLG;Itil;@;@;@;@;;;;;;X
+VAST;Västergötland;Västergötland;Västergötland;Västergötland;Västergötland;;;;;;X
+YARO;Yaroslavl;Iaroslavl;Jaroslawl;Yaroslavl;Yaroslavl;;;;;;X
+YORK;York;York;York;York;York;;;;;;X
+ZARB;Dalmatia;@;@;@;@;;;;;;X
+ZARA;Aragon;Aragon;Aragon;Aragón;Aragona;;;;;;X
+OSTE;Austria;Autriche;Österreich;Austria;Austria;;;;;;X
+OSTR;Östergötland;Östergötland;Ostgotland;Östergötland;Östergötland;;;;;;X
+ALEP;Aleppo;Aleppo;Aleppo;Alepo;Aleppo;;;;;;X
+ARAB;Arabia;Arabie;Arabien;Arabia;Arabia;;;;;;X
+ARAG;Aragon;Aragon;Aragon;Aragón;Aragona;;;;;;X
+BASR;Cyprus;Chypre;Zypern;Chipre;Cipro;;;;;;X
+BOHE;Bohemia;Bohême;Böhmen;Bohemia;Boemia;;;;;;X
+BOLG;Khazaria;@;@;@;@;;;;;;X
+BULG;Bulgaria;Bulgarie;Bulgarien;Bulgaria;Bulgaria;;;;;;X
+BURG;Burgundy;Bourgogne;Burgund;Borgoña;Borgogna;;;;;;X
+BYZA;Byzantium;Byzance;Byzanz;Bizancio;Bisanzio;;;;;;X
+CAST;Castille;Castille;Kastilien;Castilla;Castiglia;;;;;;X
+CROA;Croatia;Croatie;Kroatien;Croacia;Croazia;;;;;;X
+CUMA;Cuman;Couman;Cuman;Cuman;Cuman;;;;;;X
+DENM;Denmark;Danemark;Dänemark;Dinamarca;Danimarca;;;;;;X
+EGYP;Egypt;Egypte;Ägypten;Egipto;Egitto;;;;;;X
+ENGL;England;Angleterre;England;Inglaterra;Inghilterra;;;;;;X
+FRAN;France;France;Frankreich;Francia;Francia;;;;;;X
+GEOR;Georgia;Géorgie;Georgien;Georgia;Georgia;;;;;;X
+GERM;Germany;Allemagne;Deutschland;Alemania;Germania;;;;;;X
+HUNG;Hungary;Hongrie;Ungarn;Hungría;Ungheria;;;;;;X
+IREL;Ireland;Irlande;Irland;Irlanda;Irlanda;;;;;;X
+ITAL;Italy;Italie;Italien;Italia;Italia;;;;;;X
+JERU;Jerusalem;Jérusalem;Jerusalem;Jerusalén;Gerusalemme;;;;;;X
+LEON;León;León;León;León;León;;;;;;X
+LITH;Lithuania;Lituanie;Lithauen;Lituania;Lituania;;;;;;X
+MESO;Mesopotamia;Mésopotamie;Mesopotamien;Mesopotamia;Mesopotamia;;;;;;X
+NAPL;Sicily;Sicile;Sizilien;Sicilia;Sicilia;;;;;;X
+NAVA;Navarra;Navarre;Navarra;Navarra;Navarra;;;;;;X
+NAFR;North Africa;Afrique du Nord;Nordafrika;África del Norte;Africa settentrionale;;;;;;X
+NORW;Norway;Norvège;Norwegen;Noruega;Norvegia;;;;;;X
+PERS;Persia;Perse;Persien;Persia;Persia;;;;;;X
+POLA;Poland;Pologne;Polen;Polonia;Polonia;;;;;;X
+PORT;Portugal;Portugal;Portugal;Portugal;Portogallo;;;;;;X
+RUSS;Rus;Rus;Rus;Rus;Russia;;;;;;X
+SCOT;Scotland;Écosse;Schottland;Escocia;Scozia;;;;;;X
+SERB;Serbia;Serbie;Serbien;Serbia;Serbia;;;;;;X
+SWED;Sweden;Suède;Schweden;Suecia;Svezia;;;;;;X
+SYRI;Syria;Syrie;Syrien;Siria;Siria;;;;;;X
+TRAN;Trinacria;@;@;@;@;;;;;;X
+TUNI;Africa;@;@;@;@;;;;;;X
+WALE;Wales;Pays de Galles;Wales;Gales;Galles;;;;;;X
+#;;;;;;;;;;;X
+#;TAGs available only at scenario start;TAGs disponibles seulement en début de scénario;;opciones sólo disponibles al principio del escenario;TAGs available only at scenario start;;;;;;X
+GPOL;Great Poland;Grande Pologne;Großpolen;Gran Polonia;Grande Polonia;;;;;;X
+LPOL;Little Poland;Petite Pologne;Kleinpolen;Pequeña Polonia;Piccola Polonia;;;;;;X
+LOMB;Lombardy;Lombardie;Lombardei;Lombardía;Lombardia;;;;;;X
+PISA;Brittany;@;@;@;@;;;;;;X
+PAPA;Papal State;Etat Papal;Kirchenstaat;Estado Pontificio;Stato pontificio;;;;;;X
+VENI;Venice;Venise;Venedig;Venecia;Venezia;;;;;;X
+CILI;Armenia;@;@;@;@;;;;;;X
+ABBA;Abbasid;Abbassid;Abbasiden;Abbasida;Abbasid;;;;;;X
+QARA;Qarakhnid;Qarakhnid;Qarakhnid;Qarakhnida;Qarakhnid;;;;;;X
+AYYU;Ayyubid;Ayyubid;Ayyubiden;Ayyubida;Ayyubid;;;;;;X
+ALMO;Almohad;Almohade;Almohaden;Almohade;Almohad;;;;;;X
+HAMM;Hammadid;Hammadid;Hammadiden;Hammadida;Hammadid;;;;;;X
+ZIRI;Zirid;Zirid;Ziriden;Zirida;Zirid;;;;;;X
+ASSA;Assassin;Assassin;Assassinen;Asesino;Assassino;;;;;;X
+BALE;Mallorca;Mallorca;Mallorka;Mallorca;Maiorca;;;;;;X
+RUMS;Rum;Rum;Rum;Rum;Rum;;;;;;X
+ZENA;Tlemcen;Tlemcen;Tlemcen;Tlemecén;Tlemcen;;;;;;X
+BENI;Beni Helal;Beni Helal;Beni Helal;Beni Helal;Beni Helal;;;;;;X
+NOSE;Bosnia;Bosnie;Bosnien;Bosnia;Bosnia;;;;;;X
+MURO;Murom-Ryazan;Murom-Ryazan;Murom-Ryasan;Murom-Ryazan;Murom-Ryazan;;;;;;X
+ACHA;Achaea;Achaia;Achaia;Acaya;Achaia;;;;;;X
+AYDI;Aydin;Aydin;Aydin;Aydin;Aydin;;;;;;X
+CAND;Candar;Candar;Candar;Candar;Candar;;;;;;X
+CURO;Curonian;Curonian;Curonian;Curonio;Curonian;;;;;;X
+ERET;Eretnid;Eretnid;Eretnid;Eretnida;Eretnid;;;;;;X
+ESTS;Ests;Estonie;Estland;Estonia;Estonia;;;;;;X
+GERI;Germiyan;Germiyan;Germiyan;Germiyan;Germiyan;;;;;;X
+GILA;Gilan;Gilan;Gilan;Gilan;Gilan;;;;;;X
+GOLD;Golden Horde;Horde Dorée;Goldene Horde;Horda Dorada;Orda d'oro;;;;;;X
+ALME;Almeria;Almeria;Almeria;Almería;Almeria;;;;;;X
+HOSP;Hospitaliers Order;Ordre des Hospitaliers;Johanniterorden;Orden Hospitalaria;Ordine Ospedaliero;;;;;;X
+HREE;Holy Roman Empire;Saint Empire Romain Germanique;Heiliges Römisches Reich;Sacro Imperio Romano;Sacro Romano Impero;;;;;;X
+ILKH;Il-Khanat;Il Khanat;Il-Khanat;Il-Khanat;Il-Khanat;;;;;;X
+KAFS;Kafsid;Hafsid;Kafsid;Kafsida;Kafsid;;;;;;X
+LETT;Lettigalians;Lettons gallois;Lettigalia;Letigalos;Galli lettoni;;;;;;X
+MAML;Mamluk;Mamelouk;Mamluken;Mameluco;Mamluk;;;;;;X
+MANN;Mann and the Isles;@;@;@;@;;;;;;X
+MARI;Marinid;Marinid;Meriniden;Marinida;Marinid;;;;;;X
+MENT;Mentese;Mentese;Mentese;Mentese;Mentese;;;;;;X
+MOSC;Moscow;Moscou;Moskau;Moscú;Mosca;;;;;;X
+OTTO;Ottoman Turks;Ottoman;Ottomanen;Otomano;Ottomani;;;;;;X
+PRUT;Prussians;Pruthéniens;Preußen;Pruthenianos;Prutheniani;;;;;;X
+SAME;Sames;Sames;Samos;Sames;Lapponi;;;;;;X
+SARU;Saruhan;Saruhan;Saruhan;Saruhan;Saruhan;;;;;;X
+SWIS;Swiss;Suisse;Schweiz;Suiza;Svizzeri;;;;;;X
+TEKK;Tekke;Tekke;Tekke;Tekke;Tekke;;;;;;X
+TEUT;Teutonic Order;Ordre Teutonique;Deutscher Orden;Orden Teutónica;Ordine teutonico;;;;;;X
+TREB;Trebizond;Trébizonde;Trapezunt;Trebizond;Trebisonda;;;;;;X
+YATV;Yatvingians;Yatviags;Jatwigen;Yatviagos;di Yatviag;;;;;;X
+ZEMI;Zemigalians;Zemigaliens;Zemigalians;Zemigalos;di Zemigalian;;;;;;X
+ZIYA;Ziyanids;Ziyanids;Ziyanids;Ziyanidas;di Ziyanid;;;;;;X
+ERZE;Erzerum;Erzeroum;Erzerum;Erzerum;Erzerum;;;;;;X
+ESAM;Eastern Sames;Sames orientale;Ostsamos;Sames Oriental;Lapponi orientali;;;;;;X
+FARO;Färoya;Färoya;Färöer Inseln;Färoya;Färoya;;;;;;X
+INGE;Ingers;Ingers;Ingers;Ingers;di Inger;;;;;;X
+KAJA;Kajanborg;Kajanborg;Kajanborg;Kajanborg;Kajanborg;;;;;;X
+KASS;Kassogs;Kassogs;Kassogs;Kassogs;di Kassog;;;;;;X
+KEXH;Kexholm;Kexholm;Kexholm;Kexholm;Kexholm;;;;;;X
+KHAZ;Khazars;Khazars;Chasaren;Khazaros;di Khazar;;;;;;X
+KIRK;Kirkuk;Kirkuk;Kirkuk;Kirkuk;Kirkuk;;;;;;X
+KOLA;Kola;Kola;Kola;Kola;Kola;;;;;;X
+LITT;Lithuanians;Lithuaniens;Lithauen;Lituanos;Lituani;;;;;;X
+MORD;Mordvins;Mordvins;Mordvinen;Mordvinos;di Mordvin;;;;;;X
+SATA;Satakunta;Satakunta;Satakunta;Satakunta;Satakunta;;;;;;X
+SOUM;Finland;Finlande;Finnland;Finlandia;Finlandia;;;;;;X
+TAVA;Tavasts;Tavasts;Tavasts;Tavastes;di Tavast;;;;;;X
+USEZ;Usez;Usez;Usez;Usez;Usez;;;;;;X
+VOTE;Votes;Votes;Votes;Votes;Voti;;;;;;X
+WSAM;Western Sames;Western Sames;Westsamos;Sames Occidentales;Lapponi occidentali;;;;;;X
+VLAC;Vlachs;Vlachs;Vlachen;Valacos;Vlachs;;;;;;X
+VOLH;Volhynia;Volhynie;Wolhynien;Volhynia;Volhynia;;;;;;X
+SGAL;Frisia;@;@;@;@;;;;;;X
+MINS;Vyatichs;@;@;@;@;;;;;;X
+NUBI;Nubia;Nubie;Nubien;Nubia;Nubia;;;;;;X
+MURA;Almoravids;al-Murabitids;al-Murabitids;al-Murabitides;di al-Murabitid;;;;;;X
+FATI;Egypt;Egypte;Ägypten;Egipto;Egitto;;;;;;X
+SELJ;Seljuk Turks;Seljuk Turques;Seldschuken;Turcos de Seljuk;Turchi Seljuk;;;;;;X
+ABKH;Abkhazia;Abkhazie;Abchasien;Abjasia;Abkhazia;;;;;;X
+BOUG;Burgundy;@;@;@;@;;;;;;X
+UGRI;Zaragoza;Zaragoza;Saragossa;Zaragoza;Saragozza;;;;;;X
+DERB;Derbent;Derbent;Derbent;Derbent;Derbent;;;;;;X
+TURK;Turkmens;Turkmènes;Turkmenistan;Turkmenos;Turcomanni;;;;;;X
+PECH;Pechenegs;Pechenegs;Petchengeten;Pechenegos;di Pecheneg;;;;;;X
+ATRI;Triers;Trèves;Trier;Triers;di Trier;;;;;;X
+KARM;Karaman;Karaman;Karaman;Karaman;Karaman;;;;;;x
+POLV;Polovtsians;Polovtsians;Polovtsians;Polovtsianos;Polovesiani;;;;;;x
+BUKH;Bukhara;Boukhara;Buchara;Bukhara;Bukhara;;;;;;x
+TEMP;Templar Order;Ordre des Templiers;Templerorden;Orden Templaria;Ordine dei Templari;;;;;;x
+REBE;Rebels;Rebelles;Rebellen;Rebeldes;Ribelli;;;;;;x
+MJER;Jerusalem ;Jérusalem;Jerusalem;Jerusalén;Gerusalemme;;;;;;X
+MAMM;Amman;Amman;Aman;Ammán;Amman;;;;;;X
+MBAG;Baghdad;Bagdad;Bagdad;Bagdad;Baghdad;;;;;;X
+MTRI;Tripoli;Tripoli;Tripolis;Trípoli;Tripoli;;;;;;X
+MDAM;Damascus;Damas;Damaskus;Damasco;Damasco;;;;;;X
+MELA;El-Arish;El-Arish;El-Arish;Al Arish;El-Arish;;;;;;X
+MMOS;Mosul;Mosul;Mossul;Mosul;Mosul;;;;;;X
+MEDE;Edessa;Edessa;Odessa;Edessa;Edessa;;;;;;X
+MMED;Medina;Médina;Medina;Medina;Medina;;;;;;x
+MKHW;Khwarizm;Khawarizmi;Choresmien;Khwarizmio;Khwarizmi;;;;;;X
+MALE;Aleppo;Aleppo;Aleppo;Alepo;Aleppo;;;;;;X
+MDAA;Damascus;Damas;Damaskus;Damasco;Damasco;;;;;;X
+MSIS;Sistan;Sistan;Sistan;Sistan;Sistan;;;;;;X
+MARB;Arabs;Arabes;Araber;Árabes;Arabi;;;;;;X
+MMAZ;Mazandaran;Mazandéran;Mazandaran;Mazandaran;Mazandaran;;;;;;X
+#EOF;;;;;;;;;;;X
+#EOF;;;;;;;;;;;X

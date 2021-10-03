@@ -1,0 +1,3169 @@
+################################
+# Bankruptcy events: 7200-7299 #
+################################
+
+# Desertion
+
+# Sell of taxation right
+
+# Suppression of funds to costly buildings
+
+# Seizure of Church properties
+
+# Exceptional contribution asked from vassals
+
+# Money lender
+
+###
+
+#Related Events already coded by Paradox  
+
+#Lordship_Events.txt:
+#id = 1959 Calling the Etates General
+#Religious_Events.txt:
+#id = 1958 Moneylenders attracted
+
+
+#############
+# Desertion #
+#############
+
+character_event = {
+	id = 7200
+	
+	picture = "event_battle"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = gold value = 0 } }
+		condition = { type = atwar }
+	}
+
+	mean_time_to_happen = {
+		months = 180
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We cannot sustain our army anymore !
+		effect = { type = prestige value = -25 }
+		effect = { type = remove_regiment }
+		}
+
+}
+
+###########################
+# Sell of taxation rights #
+###########################
+
+# Suppression of building in exchange of an amount of gold
+
+province_event = {
+	id = 7201
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { fishing_wharf = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our fishery
+		effect = { type = burgher_loyalty value = -0.1 }
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = fishing_wharf }
+		}
+
+}
+
+province_event = {
+	id = 7202
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { forestry = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our forestry 
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = forestry }
+		}
+
+}
+
+province_event = {
+	id = 7203
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = -100 } }
+		condition = { type = has_improvement value = { sawmill = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -200 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -300 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our sawmill
+		effect = { type = peasant_loyalty value = -0.3 }
+		effect = { type = ruler_prestige value = -25 }
+		effect = { type = ruler_gold value = 150 }
+		effect = { type = remove_improvement value = sawmill }
+		}
+
+}
+
+province_event = {
+	id = 7204
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { smithy = yes } }
+		condition = { type = not value = { type = has_improvement value = { armory = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our smithy 
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = noble_loyalty value = -0.1 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = smithy }
+		}
+
+}
+
+province_event = {
+	id = 7205
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = -200 } }
+		condition = { type = has_improvement value = { armory = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -300 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -500 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our armory
+		effect = { type = burgher_loyalty value = -0.05 }
+		effect = { type = noble_loyalty value = -0.25 }
+		effect = { type = ruler_prestige value = -50 }
+		effect = { type = ruler_gold value = 300 }
+		effect = { type = remove_improvement value = armory }
+		}
+
+}
+
+province_event = {
+	id = 7206
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { mine = yes } }
+		condition = { type = not value = { type = has_improvement value = { improved_mine = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our mine 
+		effect = { type = peasant_loyalty value = -0.1 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = mine }
+		}
+
+}
+
+province_event = {
+	id = 7207
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = -100 } }
+		condition = { type = has_improvement value = { improved_mine = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -200 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -300 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {#We have to sell our taxation right on our best mine
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = ruler_prestige value = -25 }
+		effect = { type = ruler_gold value = 150 }
+		effect = { type = remove_improvement value = improved_mine }
+		}
+}
+
+province_event = {
+	id = 7208
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { watermills = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our watermills
+		effect = { type = peasant_loyalty value = -0.1 }
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = clergy_loyalty value = -0.05 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = watermills}
+		}
+
+}
+
+province_event = {
+	id = 7209
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { windmills = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our windmills
+		effect = { type = peasant_loyalty value = -0.15 }
+		effect = { type = burgher_loyalty value = -0.15 }
+		effect = { type = clergy_loyalty value = -0.05 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = windmills }
+		}
+
+}
+
+province_event = {
+	id = 7210
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { cheese_dairy = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our cheese_dairy
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = clergy_loyalty value = -0.1 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = cheese_dairy }
+		}
+
+}
+
+province_event = {
+	id = 7211
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { brewery = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our brewery
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = burgher_loyalty value = -0.3 }
+		effect = { type = clergy_loyalty value = 0.05 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = brewery }
+		}
+}
+
+
+province_event = {
+	id = 7212
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { dyeworks = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our dyeworks
+		effect = { type = burgher_loyalty value = -0.25 }
+		effect = { type = clergy_loyalty value = -0.05 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = dyeworks }
+		}
+
+}
+
+province_event = {
+	id = 7213
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { glassworks = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our glassworks
+		effect = { type = burgher_loyalty value = -0.1 }
+		effect = { type = clergy_loyalty value = -0.15 }
+		effect = { type = noble_loyalty value = -0.05 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = glassworks }
+		}
+
+}
+
+province_event = {
+	id = 7214
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { spinningmill = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our spinningmill
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = clergy_loyalty value = -0.05 }
+		effect = { type = peasant_loyalty value = -0.1 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = spinningmill }
+		}
+
+}
+
+province_event = {
+	id = 7215
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { tilefactory = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell our taxation right on our tilefactory
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = clergy_loyalty value = -0.1 }
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = tilefactory }
+		}
+
+}
+
+province_event = {
+	id = 7216
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { library = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We have to sell valuable books from our library
+		effect = { type = burgher_loyalty value = -0.05 }
+		effect = { type = clergy_loyalty value = -0.2 }
+		effect = { type = noble_loyalty value = -0.1 }
+		effect = { type = ruler_prestige value = -35 }
+		effect = { type = ruler_gold value = 75 }
+		effect = { type = remove_improvement value = library }
+		}
+
+}
+
+###########################################
+# Suppression of funds to costly building #
+###########################################
+
+# Suppression of buildings which are costing gold every month
+# (not all of them are considered)
+
+province_event = {
+	id = 7217
+	
+	picture = "event_default"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { school = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -100 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -200 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {#We cannot afford to sustain the schools anymore
+		effect = { type = ruler_gold value = 50 } #sale of assets
+		effect = { type = burgher_loyalty value = -0.05 }
+		effect = { type = clergy_loyalty value = -0.2 }
+		effect = { type = noble_loyalty value = -0.1 }
+		effect = { type = ruler_prestige value = -35 }
+		effect = { type = remove_improvement value = school }
+		}
+
+}
+
+province_event = {
+	id = 7218
+	
+	picture = "event_default"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = -100 } }
+		condition = { type = has_improvement value = { university = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -200 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -400 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We cannot afford to sustain the universities anymore
+		effect = { type = ruler_gold value = 300 } #sale of assets
+		effect = { type = clergy_loyalty value = -0.2 }
+		effect = { type = noble_loyalty value = -0.05 }
+		effect = { type = ruler_prestige value = -75 }
+		effect = { type = remove_improvement value = university }
+		}
+}
+
+province_event = {
+	id = 7219
+	
+	picture = "event_default"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = -200 } }
+		condition = { type = has_improvement value = { hill_fort = yes } }
+		condition = { type = not value = { type = has_improvement value = { small_castle = yes } } }
+		condition = { type = not value = { type = has_improvement value = { medium_castle = yes } } }
+		condition = { type = not value = { type = has_improvement value = { large_castle = yes } } }
+		condition = { type = not value = { type = has_improvement value = { huge_castle = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -400 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -600 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We cannot maintain our fortifications anymore
+		effect = { type = ruler_gold value = 75 } #sale of assets
+		effect = { type = noble_loyalty value = -0.05 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = remove_improvement value = hill_fort }
+		}
+
+}
+
+province_event = {
+	id = 7220
+	
+	picture = "event_default"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = -400 } }
+		condition = { type = has_improvement value = { small_castle = yes } }
+		condition = { type = not value = { type = has_improvement value = { medium_castle = yes } } }
+		condition = { type = not value = { type = has_improvement value = { large_castle = yes } } }
+		condition = { type = not value = { type = has_improvement value = { huge_castle = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -500 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -750 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We cannot maintain our fortifications anymore
+		effect = { type = ruler_gold value = 100 } #sale of assets
+		effect = { type = noble_loyalty value = -0.1 }
+		effect = { type = ruler_prestige value = -50 }
+		effect = { type = remove_improvement value = small_castle }
+		effect = { type = add_improvement value = hill_fort }
+		}
+
+}
+
+province_event = {
+	id = 7221
+	
+	picture = "event_default"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = -600 } }
+		condition = { type = has_improvement value = { medium_castle = yes } }
+		condition = { type = not value = { type = has_improvement value = { large_castle = yes } } }
+		condition = { type = not value = { type = has_improvement value = { huge_castle = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -750 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -1000 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We cannot maintain our fortifications anymore
+		effect = { type = ruler_gold value = 300 } #sale of assets
+		effect = { type = noble_loyalty value = -0.15 }
+		effect = { type = ruler_prestige value = -100 }
+		effect = { type = remove_improvement value = medium_castle }
+		effect = { type = add_improvement value = small_castle }
+		}
+
+}
+
+province_event = {
+	id = 7222
+	
+	picture = "event_default"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = -800 } }
+		condition = { type = has_improvement value = { large_castle = yes } }
+		condition = { type = not value = { type = has_improvement value = { huge_castle = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -1000 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -1500 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We cannot maintain our fortifications anymore
+		effect = { type = ruler_gold value = 500 } #sale of assets
+		effect = { type = noble_loyalty value = -0.2 }
+		effect = { type = ruler_prestige value = -150 }
+		effect = { type = remove_improvement value = large_castle }
+		effect = { type = add_improvement value = medium_castle }
+		}
+
+}
+
+province_event = {
+	id = 7223
+	
+	picture = "event_default"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = -1000 } }
+		condition = { type = has_improvement value = { huge_castle = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -1500 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -2000 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We cannot maintain our fortifications anymore
+		effect = { type = ruler_gold value = 750 } #sale of assets
+		effect = { type = noble_loyalty value = -0.25 }
+		effect = { type = ruler_prestige value = -250 }
+		effect = { type = remove_improvement value = huge_castle }
+		effect = { type = add_improvement value = large_castle }
+		}
+
+}
+
+province_event = {
+	id = 7231
+	
+	picture = "event_default"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler_gold value = 0 } }
+		condition = { type = has_improvement value = { theater = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_gold value = -200 }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = not value = { type = ruler_gold value = -400 } }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {#We cannot afford to sustain the theatre anymore
+		effect = { type = ruler_gold value = 150 } #sale of assets
+		effect = { type = burgher_loyalty value = -0.25 }
+		effect = { type = clergy_loyalty value = 0.1 }
+		effect = { type = noble_loyalty value = -0.15 }
+		effect = { type = ruler_prestige value = -75 }
+		effect = { type = ruler_piety value = 10 }
+		effect = { type = remove_improvement value = theater }
+		}
+
+}
+
+
+###############
+# Moneylender #
+###############
+
+character_event = {
+	id = 7230
+	
+	picture = "event_steward"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = gold value = 0 } }
+		condition = { type = any_demesne_province
+			condition = { type = has_improvement value = { moneylenders = yes } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = ruler }
+			condition = { type = not value = { type = gold value = -50 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler }
+			condition = { type = not value = { type = gold value = -100 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler }
+			condition = { type = not value = { type = gold value = -250 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler }
+			condition = { type = not value = { type = gold value = -500 } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = ruler }
+			condition = { type = not value = { type = gold value = -750 } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = ruler }
+			condition = { type = not value = { type = gold value = -1000 } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = ruler }
+			condition = { type = not value = { type = gold value = -1500 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = ruler }
+			condition = { type = not value = { type = gold value = -2000 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = ruler }
+			condition = { type = not value = { type = gold value = -5000 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = ruler }
+			condition = { type = capital
+				condition = { type = has_improvement value = { moneylenders = yes } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = {#Borrow a large sum
+		effect = { type = gold scale = 1.5 }
+		effect = { type = piety value = -100 }
+		effect = { type = random chance = 30
+			effect = { type = add_trait value = heretic } #the church frowns on usary
+		}
+		effect = { type = random chance = 5
+			effect = { type = add_trait value = excommunicated }
+		}
+	}
+	action_b = {#Borrow a smaller sum
+		effect = { type = gold scale = 0.75 }
+		effect = { type = piety value = -50 }
+		effect = { type = random chance = 15
+			effect = { type = add_trait value = heretic } #the church frowns on usary
+		}
+		effect = { type = random chance = 2
+			effect = { type = add_trait value = excommunicated }
+		}
+	}
+	action_c = {#I'd rather starve! The church prohibits usary!
+		effect = { type = piety value = 25 }
+		effect = { type = random chance = 33
+			effect = { type = add_trait value = zealous }
+		}
+		effect = { type = random chance = 15
+			effect = { type = health value = -1 }
+		}
+	}
+}
+
+################################
+# Seizure of Church properties #
+################################
+
+character_event = {
+	id = 7224
+	
+	picture = "event_religion"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = gold value = 0 } }
+		condition = { type = ruler }
+		condition = { type = has_law value = { church_supremacy = yes } }
+		condition = { type = any_demesne_province
+			condition = { type = has_improvement value = { monastery = yes } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+	}
+	
+	action_a = {#There are fat bishop, seize them !
+		effect = { type = gold value = 500 }
+		effect = { type = piety value = -50 }
+		effect = { type = prestige value = 25 }
+		effect = { type = set_law value = regal_supremacy }
+		effect = { type = add_trait value = cruel }
+		effect = { type = remove_improvement value = monastery }
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = excommunicated
+				}
+			}
+	}
+
+	action_b = {#Time are harsh, force them to share the costs !
+		effect = { type = gold value = 250 }
+		effect = { type = piety value = -25 }
+		effect = { type = prestige value = 25 }
+		effect = { type = set_law value = ecclesical_balance }
+		effect = { type = add_trait value = proud }
+		effect = { type = random
+				chance = 10
+				effect = {
+					type = add_trait
+					value = excommunicated
+				}
+			}
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = remove_improvement 
+					value = monastery
+				}
+			}
+	}
+
+	action_c = {#Compromise with them to find money !
+		effect = { type = gold value = 100 }
+		effect = { type = piety value = 10 }
+		effect = { type = prestige value = -10 }
+		effect = { type = set_law value = ecclesical_balance }
+		effect = { type = add_trait value = modest }
+	}
+	
+	action_d = {#Never ! I will save my Christian soul !
+		effect = { type = piety value = 50 }
+		effect = { type = prestige value = -50 }
+		effect = { type = stewardship value = -2 }
+		effect = { type = add_trait value = zealous }
+	}
+	
+}
+
+# Seize the property of the Templars !
+
+character_event = {
+	id = 7225
+	
+	picture = "event_templars"
+	
+	trigger = { 
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = gold value = 0 } }
+		condition = { type = ruler }
+		condition = { type = has_law value = { regal_supremacy = yes } }
+		condition = { type = exists value = TEMP }
+		condition = { type = religion value = catholic }
+		condition = { type = any_demesne_province
+			condition = { type = has_improvement value = { templar_house = yes } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}	}
+
+	action_a = {#There are fat knights, seize them !
+		effect = { type = gold value = 500 }
+		effect = { type = piety value = -40 }
+		effect = { type = prestige value = 40 }
+		effect = { type = set_law value = regal_supremacy }
+		effect = { type = remove_improvement value = templar_house }
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = cruel 
+				}
+			}
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = heretic
+				}
+			}
+		effect = { type = random
+				chance = 10
+				effect = {
+					type = add_trait
+					value = excommunicated
+				}
+			}
+	}
+
+	action_b = {#Time are harsh, force them to share the costs !
+		effect = { type = gold value = 250 }
+		effect = { type = piety value = -25 }
+		effect = { type = prestige value = 25 }
+		effect = { type = set_law value = ecclesical_balance }
+		effect = { type = random
+				chance = 75
+				effect = {
+					type = remove_improvement 
+					value = templar_house 
+				}
+			}
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = proud 
+				}
+			}
+		effect = { type = random
+				chance = 15
+				effect = {
+					type = add_trait
+					value = heretic
+				}
+			}
+		effect = { type = random
+				chance = 5
+				effect = {
+					type = add_trait
+					value = excommunicated
+				}
+			}
+	}
+
+	action_c = {#Fighting orders are vital to the church !
+		effect = { type = piety value = 10 }
+		effect = { type = prestige value = -10 }
+		effect = { type = stewardship value = -1 }
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = zealous 
+				}
+			}
+	}
+}
+
+# Seize the property of the Hospitaliers!
+
+character_event = {
+	id = 7226
+	
+	picture = "event_templars"
+	
+	trigger = { 
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = gold value = 0 } }
+		condition = { type = ruler }
+		condition = { type = has_law value = { regal_supremacy = yes } }
+		condition = { type = exists value = HOSP }
+		condition = { type = religion value = catholic }
+		condition = { type = any_demesne_province
+			condition = { type = has_improvement value = { templar_house = yes } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+	}
+
+	action_a = {#There are fat knights, seize them !
+		effect = { type = gold value = 500 }
+		effect = { type = piety value = -40 }
+		effect = { type = prestige value = 40 }
+		effect = { type = set_law value = regal_supremacy }
+		effect = { type = remove_improvement value = templar_house }
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = cruel 
+				}
+			}
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = heretic
+				}
+			}
+		effect = { type = random
+				chance = 10
+				effect = {
+					type = add_trait
+					value = excommunicated
+				}
+			}
+	}
+
+	action_b = {#Time are harsh, force them to share the costs !
+		effect = { type = gold value = 250 }
+		effect = { type = piety value = -25 }
+		effect = { type = prestige value = 25 }
+		effect = { type = set_law value = ecclesical_balance }
+		effect = { type = random
+				chance = 75
+				effect = {
+					type = remove_improvement 
+					value = templar_house 
+				}
+			}
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = proud 
+				}
+			}
+		effect = { type = random
+				chance = 15
+				effect = {
+					type = add_trait
+					value = heretic
+				}
+			}
+		effect = { type = random
+				chance = 5
+				effect = {
+					type = add_trait
+					value = excommunicated
+				}
+			}
+	}
+
+	action_c = {#Fighting orders are vital to the church !
+		effect = { type = piety value = 10 }
+		effect = { type = prestige value = -10 }
+		effect = { type = stewardship value = -1 }
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = zealous 
+				}
+			}
+	}
+}
+
+
+# Seize the property of the Teutonic Order !
+
+character_event = {
+	id = 7227
+	
+	picture = "event_templars"
+	
+	trigger = { 
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = gold value = 0 } }
+		condition = { type = ruler }
+		condition = { type = has_law value = { regal_supremacy = yes } }
+		condition = { type = exists value = TEUT }
+		condition = { type = religion value = catholic }
+		condition = { type = any_demesne_province
+			condition = { type = has_improvement value = { templar_house = yes } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+	}
+
+	action_a = {#There are fat knights, seize them !
+		effect = { type = gold value = 500 }
+		effect = { type = piety value = -40 }
+		effect = { type = prestige value = 40 }
+		effect = { type = set_law value = regal_supremacy }
+		effect = { type = remove_improvement value = templar_house }
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = cruel 
+				}
+			}
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = heretic
+				}
+			}
+		effect = { type = random
+				chance = 10
+				effect = {
+					type = add_trait
+					value = excommunicated
+				}
+			}
+	}
+
+	action_b = {#Time are harsh, force them to share the costs !
+		effect = { type = gold value = 250 }
+		effect = { type = piety value = -25 }
+		effect = { type = prestige value = 25 }
+		effect = { type = set_law value = ecclesical_balance }
+		effect = { type = random
+				chance = 75
+				effect = {
+					type = remove_improvement 
+					value = templar_house 
+				}
+			}
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = proud 
+				}
+			}
+		effect = { type = random
+				chance = 15
+				effect = {
+					type = add_trait
+					value = heretic
+				}
+			}
+		effect = { type = random
+				chance = 5
+				effect = {
+					type = add_trait
+					value = excommunicated
+				}
+			}
+	}
+
+	action_c = {#Fighting orders are vital to the church !
+		effect = { type = piety value = 10 }
+		effect = { type = prestige value = -10 }
+		effect = { type = stewardship value = -1 }
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = zealous 
+				}
+			}
+	}
+}
+
+###############################################
+# Exceptional contribution asked from vassals #
+###############################################
+
+character_event = {
+	id = 7228
+	
+	picture = "event_moneycollection"
+	
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = gold value = 0 } }
+		condition = { type = has_vassal }
+		condition = { type = any_vassal
+			condition = { type = gold value = 100 } # Can't take contributions from piss-poor vassals
+			condition = { type = not value = { type = trait value = rebellious } } # Rebellious won't give any anyway
+			condition = { type = loyalty value = 0.5 } # Too disloyal won't give any anyway
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 720
+
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { moneylenders = yes } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 0.33
+		}
+		modifier = {
+			condition = { type = has_law value = { feudal_contract_law = yes } }
+			factor = 0.66
+		}
+		# traditional law treated as base
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 2
+		}
+	}
+	
+	action_a = {#There are fat vassals, seize them !
+		effect = { type = gold scale = 0.75 }
+		effect = { type = prestige value = -25 }
+		effect = { type = set_law value = royal_preorgatory_law }
+		effect = { type = add_trait value = arbitrary }
+		effect = { type = trigger for = load_target value = 7232 }
+	}
+
+	action_b = {#Time are harsh, force them to share the costs !
+		effect = { type = gold scale = 0.25 }
+		effect = { type = prestige value = -10 }
+		effect = { type = trigger for = load_target value = 7229 }
+	}
+
+	action_c = {#I must spare my vassals !
+		effect = { type = stewardship value = -2 }
+		effect = { type = add_trait value = modest }
+	}
+}
+
+# Our Liege forces an exceptional contribution on us!
+
+character_event = {
+	id = 7229
+	
+	picture = "event_moneycollection"
+	
+	action_a = {#Outrageous !
+		ai_chance = 50
+			modifier = {
+				condition = { type = gold value = 100 }
+				factor = 0.8
+			}
+			modifier = {
+				condition = { type = gold value = 250 }
+				factor = 0.8
+			}
+			modifier = {
+				condition = { type = gold value = 500 }
+				factor = 0.8
+			}
+			modifier = {
+				condition = { type = gold value = 1000 }
+				factor = 0.8
+			}
+			modifier = {
+				condition = { type = not value = { type = loyalty value = 0.8 } }
+				factor = 1.2
+			}
+			modifier = {
+				condition = { type = not value = { type = loyalty value = 0.6 } }
+				factor = 1.2
+			}
+			modifier = {
+				condition = { type = not value = { type = loyalty value = 0.4 } }
+				factor = 1.2
+			}
+			modifier = {
+				condition = { type = not value = { type = loyalty value = 0.2 } }
+				factor = 1.2
+			}
+			modifier = {
+				condition = { type = trait value = vengeful }
+				factor = 1.25
+			}
+			modifier = {
+				condition = { type = trait value = selfish}
+				factor = 1.25
+			}
+		effect = { type = loyalty value = -0.5 }
+		effect = { type = gold scale = -0.5 }
+		effect = { type = random_list
+			65 = { type = no_effect }
+			25 = { type = add_trait value = vengeful }
+			10 = { type = add_trait value = selfish }
+		}
+	}
+
+	action_b = {#I am rich, I don't care
+		ai_chance = 50
+		effect = { type = loyalty value = -0.15 }
+		effect = { type = gold scale = -0.5 }
+		effect = { type = random_list
+			65 = { type = no_effect }
+			25 = { type = add_trait value = generous }
+			10 = { type = add_trait value = forgiving }
+		}
+	}
+}
+
+character_event = {
+	id = 7232
+	
+	picture = "event_moneycollection"
+	
+	action_a = {#Outrageous!
+		ai_chance = 50
+			modifier = {
+				condition = { type = gold value = 100 }
+				factor = 0.8
+			}
+			modifier = {
+				condition = { type = gold value = 250 }
+				factor = 0.8
+			}
+			modifier = {
+				condition = { type = gold value = 500 }
+				factor = 0.8
+			}
+			modifier = {
+				condition = { type = gold value = 1000 }
+				factor = 0.8
+			}
+			modifier = {
+				condition = { type = not value = { type = loyalty value = 0.8 } }
+				factor = 1.2
+			}
+			modifier = {
+				condition = { type = not value = { type = loyalty value = 0.6 } }
+				factor = 1.2
+			}
+			modifier = {
+				condition = { type = not value = { type = loyalty value = 0.4 } }
+				factor = 1.2
+			}
+			modifier = {
+				condition = { type = not value = { type = loyalty value = 0.2 } }
+				factor = 1.2
+			}
+			modifier = {
+				condition = { type = trait value = vengeful }
+				factor = 1.25
+			}
+			modifier = {
+				condition = { type = trait value = selfish}
+				factor = 1.25
+			}
+		effect = { type = gold scale = -1.0 } # Money is taken anyway
+		effect = { type = independence }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = remove_trait value = loyalist }
+		effect = { type = remove_trait value = rebellious }
+		effect = { type = trigger for = liege value = 6103 } # From realm_disruption_events.txt, notifies liege
+	}
+
+	action_b = {#I am rich, I don't care
+		ai_chance = 50
+		effect = { type = loyalty value = -0.5 }
+		effect = { type = gold scale = -1.0 }
+		effect = { type = random_list
+			65 = { type = no_effect }
+			25 = { type = add_trait value = vengeful }
+			10 = { type = add_trait value = selfish }
+		}
+	}
+}
+
+# A few events moved around in this file
+#Free ID 7233 - 7299

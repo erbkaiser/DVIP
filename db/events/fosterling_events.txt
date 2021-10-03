@@ -1,0 +1,406 @@
+#########################
+# Events for fosterlings
+# ID range 8300-8399
+# By Byakhiam
+#########################
+
+character_event = { # A fosterling child in your court is calling your court inferior to the child's father's court
+	id = 8300
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = trait value = fosterling }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = ruler_csc condition = { type = county } }
+				condition = { type = father condition = { type = or
+					condition = { type = duchy }
+					condition = { type = kingdom }
+				} }
+			}
+			condition = { type = and
+				condition = { type = ruler_csc condition = { type = duchy } }
+				condition = { type = father condition = { type = kingdom } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+	}
+
+	action_a = { # Try to improve your court to impress the child
+		ai_chance = 50
+		effect = { type = trigger for = ruler value = 8301 }
+	}
+	action_b = { # It's my court and I'm quite happy with it
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = ruler value = stubborn }
+			25 = { type = add_trait for = ruler value = selfish }
+		}
+	}
+	action_c = { # Have the child sweep the stables
+		ai_chance = 25
+		effect = { type = prestige value = -10 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = ruler value = cruel }
+			25 = { type = add_trait for = ruler value = arbitrary }
+		}
+	}
+	action_d = { # Send the ungrateful brat home
+		ai_chance = 0
+		effect = { type = remove_trait value = fosterling }
+		effect = { type = courtier_defect value = father }
+	}
+}
+
+character_event = { # Some money spent to improve the status of the court
+	id = 8301
+
+	picture = "event_moneycollection"
+
+	action_a = { # Make it a lot
+		effect = { type = gold scale = -1.0 }
+		effect = { type = prestige value = 50 }
+	}
+	action_b = { # A decent sum should do
+		effect = { type = gold scale = -0.5 }
+		effect = { type = prestige value = 25 }
+	}
+	action_c = { # Just a token amount
+		effect = { type = gold scale = -0.25 }
+		effect = { type = prestige value = 10 }
+	}
+	action_d = { # Emm, rather not
+		effect = { type = prestige value = -25 }
+	}
+}
+
+character_event = { # Being a fosterling in a court superior to your father's is improving your stature
+	id = 8302
+
+	picture = "event_youngsters"
+
+	trigger = {
+		condition = { type = trait value = fosterling }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = ruler_csc condition = { type = kingdom } }
+				condition = { type = father condition = { type = or
+					condition = { type = county }
+					condition = { type = duchy }
+				} }
+			}
+			condition = { type = and
+				condition = { type = ruler_csc condition = { type = duchy } }
+				condition = { type = father condition = { type = county } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+	}
+
+	action_a = { # That's nice
+		effect = { type = prestige value = 25 }
+	}
+}
+
+character_event = { # A fosterling child in your court has led one of your own children into unacceptable behaviour
+	id = 8303
+
+	picture = "event_children"
+
+	trigger = {
+		condition = { type = trait value = fosterling }
+		condition = { type = ruler_csc
+			condition = { type = num_of_children value = 1 }
+			condition = { type = any_child
+				condition = { type = ruler_child }
+				condition = { type = not value = { type = age value = 16 } }
+				condition = { type = age value = 6 }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+	}
+
+	action_a = { # Punish the fosterling, forgive your own child
+		ai_chance = 33
+		effect = { type = prestige value = -10 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = ruler value = arbitrary }
+			25 = { type = add_trait for = ruler value = pragmatic }
+		}
+	}
+	action_b = { # Punish them both
+		ai_chance = 33
+		effect = { type = trigger for = load_target value = 8304 }
+		effect = { type = prestige value = -10 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = ruler value = just }
+			25 = { type = add_trait for = ruler value = vengeful }
+		}
+	}
+	action_c = { # Forgive them both
+		ai_chance = 34
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = ruler value = forgiving }
+			25 = { type = add_trait for = ruler value = amiable }
+		}
+	}
+	action_d = { # Banish the troublemaker
+		ai_chance = 0
+		effect = { type = remove_trait value = fosterling }
+		effect = { type = courtier_defect value = father }
+	}
+}
+
+character_event = { # Your daddy has punished you!
+	id = 8304
+
+	picture = "event_children"
+
+	action_a = { # No daddy, no!
+		effect = { type = prestige value = -10 }
+	}
+}
+
+character_event = { # Having a fosterling child in your court has made your wife more eager to have more children of her own
+	id = 8305
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = female }
+		condition = { type = not value = { type = age value = 40 } }
+		condition = { type = not value = { type = fertility value = 6 } }
+		condition = { type = is_married }
+		condition = { type = spouse
+			condition = { type = ruler }
+			#condition = { type = same_court }
+			condition = { type = has_fosterling }
+			condition = { type = not value = { type = is_rival } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = not value = { type = num_of_children value = 1 } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = num_of_children value = 4 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = num_of_children value = 7 }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # What a great idea, darling
+		effect = { type = fertility value = 2 }
+	}
+}
+
+character_event = { # A fosterling child claims to always being bullied by other children at the court
+	id = 8306
+
+	picture = "event_children"
+
+	trigger = {
+		condition = { type = trait value = fosterling }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = any_courtier
+			condition = { type = age value = 6 }
+			condition = { type = not value = { type = age value = 16 } }
+			condition = { type = not value = { type = trait value = stress_symptom } }
+			condition = { type = not value = { type = trait value = depression } }
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+	}
+
+	action_a = { # Why should I care?
+		ai_chance = 33
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = ruler value = selfish }
+			25 = { type = add_trait for = ruler value = cruel }
+		}
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+	action_b = { # The child will grow strong from that
+		ai_chance = 33
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = ruler value = pragmatic }
+			25 = { type = add_trait for = ruler value = hostile }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+	action_c = { # Punish the main bully
+		ai_chance = 34
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = ruler value = just }
+			25 = { type = add_trait for = ruler value = trusting }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait for = load_target value = stress_symptom }
+		}
+	}
+	action_d = { # Send the whining wretch home
+		ai_chance = 0
+		effect = { type = remove_trait value = fosterling }
+		effect = { type = courtier_defect value = father }
+	}
+}
+
+character_event = { # This fosterling child has learned important lessons of life from the experience of living in a foreign court
+	id = 8307
+
+	picture = "event_education"
+
+	trigger = {
+		condition = { type = trait value = fosterling }
+		condition = { type = not value = { type = martial value = 8 } }
+		condition = { type = not value = { type = diplomacy value = 8 } }
+		condition = { type = not value = { type = intrigue value = 8 } }
+		condition = { type = not value = { type = stewardship value = 8 } }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+	}
+
+	action_a = { # That's completely awesome!
+		effect = { type = random_list
+			25 = { type = martial value = 1 }
+			25 = { type = diplomacy value = 1 }
+			25 = { type = intrigue value = 1 }
+			25 = { type = stewardship value = 1 }
+		}
+	}
+}
+
+character_event = { # A child of yours has learned foreign etiquette from a fosterling child
+	id = 8308
+
+	picture = "event_youngsters"
+
+	trigger = {
+		condition = { type = ruler_child }
+		condition = { type = has_fosterling }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+	}
+
+	action_a = { # I'm impressed
+		effect = { type = prestige value = 15 }
+	}
+}
+
+character_event = { # Your good treatment of your fosterlings has improved your stature with the church
+	id = 8309
+
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = has_fosterling }
+		condition = { type = not value = { type = trait value = cruel } }
+		condition = { type = not value = { type = trait value = arbitrary } }
+		condition = { type = not value = { type = trait value = hostile } }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+	}
+
+	action_a = { # Good work
+		effect = { type = piety value = 25 }
+	}
+}
+
+character_event = { # Your ill treatment of your fosterlings has diminished your stature with the church
+	id = 8310
+
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = has_fosterling }
+		condition = { type = or
+			condition = { type = trait value = cruel }
+			condition = { type = trait value = arbitrary }
+			condition = { type = trait value = hostile }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+	}
+
+	action_a = { # Damn!
+		effect = { type = piety value = -25 }
+	}
+}
+
+character_event = { # You cannot rule and be a fosterling at the same time
+	id = 8311
+
+	picture = "event_youngsters"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = trait value = fosterling }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+	}
+
+	action_a = { # Okay
+		effect = { type = remove_trait value = fosterling }
+	}
+}

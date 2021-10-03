@@ -1,0 +1,36 @@
+SALIC_PRIMOGENITURE_LAW;Salic Primogeniture ;;;;;;;;;;X
+SALIC_PRIMOGENITURE_LAW_DESC;All titles go to the oldest male child or if dead his oldest male child and so on. If oldest male child cannot provide an heir then next oldest male child traces inheritance.;;;;;;;;;;X
+SEMISALIC_PRIMOGENITURE_LAW;Semisalic Primogeniture ;;;;;;;;;;X
+SEMISALIC_PRIMOGENITURE_LAW_DESC;All titles go to the oldest child or if dead his oldest child and so on. If oldest child cannot provide an heir then next oldest child traces inheritance. Note that this allows a female to trace inheritance, though a female may never inherit but only pass it on to a male.;;;;;;;;;;X
+SALIC_CONSANGUINITY_LAW;Salic Consanguinity ;;;;;;;;;;X
+SALIC_CONSANGUINITY_LAW_DESC;All titles go to the strongest child or if dead his oldest brother and so on. If no child survives then the strongest grandchild inherits and so on. Strength depends on military attribute, prestige and ownership of provinces.;;;;;;;;;;X
+SEMISALIC_CONSANGUINITY_LAW;Semisalic Consanguinity ;;;;;;;;;;X
+SEMISALIC_CONSANGUINITY_LAW_DESC;All titles go to the strongest child or if dead his oldest brother and so on. If no child survives then the strongest grandchild inherits and so on. Note that this allows a female to trace inheritance, though a female may never inherit but only pass it on to a male. Strength depends on military attribute, prestige and ownership of provinces.;;;;;;;;;;X
+SALIC_GAVELKIND_LAW;Salic Gavelkind ;;;;;;;;;;X
+SALIC_GAVELKIND_LAW_DESC;All titles are divided equally between all male heirs in order of age (children and then grandchildren and so on), but ignoring males that trace their lineage through their mothers, for example the sons of your daughters.;;;;;;;;;;X
+SEMISALIC_GAVELKIND_LAW;Semisalic Gavelkind ;;;;;;;;;;X
+SEMISALIC_GAVELKIND_LAW_DESC;All titles are divided equally between all male heirs in order of age (children and then grandchildren and so on).;;;;;;;;;;X
+ELECTIVE_LAW;Elective Law;;;;;;;;;;X
+ELECTIVE_LAW_DESC;The strongest male vassal takes it all. Strength depends on military attribute, prestige and ownership of provinces.;;;;;;;;;;X
+COGNATIC_PRIMOGENITURE_LAW;Cognatic Primogeniture;;;;;;;;;;X
+COGNATIC_PRIMOGENITURE_LAW_DESC;Rule of inheritance whereby land descends through the line of oldest living son. However should there exist no male then it goes to the oldest daughter. The effect of this rule was to keep the father's land for the support of the son who rendered the required military service.;;;;;;;;;;X
+COGNATIC_CONSANGUINITY_LAW;Cognatic Consanguinity;;;;;;;;;;X
+COGNATIC_CONSANGUINITY_LAW_DESC;Custom of inheritance whereby land descends through the line of the most powerful son. However should there exist no male then it goes to the most powerful daughter. The effect of this rule was to keep the dynastic land intact in the hands of the most cunning promoter of the dynasty.;;;;;;;;;;X
+ROYAL_PREORGATORY_LAW;Royal Prerogative;;;;;;;;;;X
+ROYAL_PREORGATORY_LAW_DESC;The ruler will get tourney events, and the loyalty of his vassals will decrease over time. Your regiments will tend to be heavy but mixed. The law will limit the these economic sliders as follows: Scutage (Min.0 Max.100), Crown Duty (Min.50 Max.100), Census Tax (Min.25 Max.100), Tolls (Min.25 Max.100);;;;;;;;;;X
+FEUDAL_CONTRACT_LAW;Feudal Contract;;;;;;;;;;X
+FEUDAL_CONTRACT_LAW_DESC;The ruler will get tourney events, and the loyalty of his vassals will increase over time. Your regiments will tend to be heavy with emphasis on knights. The law will limit the these economic sliders as follows: Scutage (Min.0 Max.50), Crown Duty (Min.0 Max.50), Census Tax (Min.50 Max.100), Tolls (Min.50 Max.100);;;;;;;;;;X
+TRADITIONAL_CUSTOM_LAW;Traditional Custom;;;;;;;;;;X
+TRADITIONAL_CUSTOM_LAW_DESC;The ruler will not get tourney events, and the loyalty of his vassals will not be modified over time. Your regiments will tend to be very mixed but with few knights. The law will limit the these economic sliders as follows: Scutage (Min.0 Max.70), Crown Duty (Min.0 Max.70), Census Tax (Min.0 Max.70), Tolls (Min.0 Max.70);;;;;;;;;;X
+POPULAR_LAW;Popular Law;;;;;;;;;;X
+POPULAR_LAW_DESC;The ruler will not get tourney events, and the loyalty of his vassals will not be modified over time. Your regiments will tend to be light and have an emphasis on pikemen and archers. The law will limit the these economic sliders as follows: Scutage (Min.50 Max.100), Crown Duty (Min.50 Max.100), Census Tax (Min.0 Max.50), Tolls (Min.0 Max.50);;;;;;;;;;X
+REGAL_SUPREMACY;Regal Supremacy;;;;;;;;;;X
+REGAL_SUPREMACY_DESC;Religious authority will fluctuate over time with events and the ruler will get usury events. Each clergy power in your provinces gives you additional troops. Church Donations slider limited by (Min.0 Max.80). Catholic Bishops appointment chances as follows (Ruler 80/Pope 20).;;;;;;;;;;X
+MONASTIC_SUPREMACY;Cognatic Primogeniture;;;;;;;;;;X
+MONASTIC_SUPREMACY_DESC;Rule of inheritance whereby land descends through the line of oldest living son. However should there exist no male then it goes to the oldest daughter. The effect of this rule was to keep the father's land for the support of the son who rendered the required military service. Church opposes:  clergy power  will give you gold instead of troops. Church Donations slider limited by (Min.50 Max.100). Bishops appointment chances as follows (Ruler 30/Pope 70).;;;;;;;;;;X
+ECCLESICAL_BALANCE;Ecclesical Balance;;;;;;;;;;X
+ECCLESICAL_BALANCE_DESC;Religious authority will be undermined over time with events and the ruler will get no usury events.. Each clergy power in your provinces gives you some gold and some troops. Church Donations slider limited by (Min.30 Max.70). Catholic Bishops appointment chances as follows (Ruler 50/Pope 50).;;;;;;;;;;X
+CHURCH_SUPREMACY;Church Supremacy;;;;;;;;;;X
+CHURCH_SUPREMACY_DESC;Religious authority will be strengthened over time with events and the ruler will ban usury events. Clergy power in your provinces gives you neither gold nor troops. Churches and Cathedrals will be cheaper. Church Donations slider limited by (Min.70 Max.100). Catholic Bishops appointment chances as follows (Ruler 0/Pope 100).;;;;;;;;;;X
+#EOF;;;;;;;;;;;X
+#EOF;;;;;;;;;;;X

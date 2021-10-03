@@ -1,0 +1,62 @@
+character_event = { # Female inheritance law 
+    id = 23230 
+    picture = "event_law" 
+    trigger = {
+        condition = { type = ruler } 
+        condition = { type = not value = { type = trait value = stubborn } } 
+        condition = { type = form_of_goverment value = feudal } 
+        condition = { type = not value = { type = religion value = moslem } } 
+        condition = { type = not value = { type = religion value = jewish } } 
+		condition = { type = or
+			condition = { type = gender value = female } #Ruler is a woman
+			condition = { type = and
+				condition = { type = gender value = male } #Ruler is a man with no male heirs
+				condition = { type = and 
+					condition = { type = any_child
+						condition = { type = gender value = male }
+						condition = { type = not value = { type = trait value = bastard } }
+						condition = { type = not value = { type = ruler_child } } 
+						condition = { type = save_target }
+					}
+					condition = { type = not value = { type = has_target } }
+				}
+			}
+		}
+		condition = { type = any_child #Has a legitimate daughter
+			condition = { type = gender value = female }
+			condition = { type = not value = { type = trait value = bastard } }
+		}
+		condition = { type = not value = { type = has_law value = { elective_law = yes } } } 
+		condition = { type = not value = { type = has_law value = { salic_primogeniture_law = yes } } } 
+		condition = { type = not value = { type = has_law value = { salic_consanguinity_law = yes } } } 
+		condition = { type = not value = { type = has_law value = { salic_gavelkind_law = yes } } }
+		condition = { type = not value = { type = has_law value = { monastic_supremacy = yes } } }
+    }
+    mean_time_to_happen = { 
+        months = 24 
+    } 
+    action_a = { #Don't change 
+        ai_chance = 60 
+        effect = { type = add_trait value = stubborn } 
+    } 
+    action_b = { #Change to female inheritance 
+        ai_chance = 40 
+            modifier = { 
+                condition = { type = or 
+                    condition = { type = culture value = saxon }	#England 
+                    condition = { type = culture value = english }	#England 
+                    condition = { type = culture value = norman }	#England, Crusader realms 
+                    condition = { type = culture value = castillan } #Iberia 
+                    condition = { type = culture value = catalan}	#Iberia 
+                    condition = { type = culture value = scottish}	#Scotland 
+                    condition = { type = culture value = latin }	#Occitania and Crusader realms 
+                    condition = { type = culture value = danish }	#Denmark 
+                    condition = { type = culture value = celtic }	#Brittany 
+                    condition = { type = culture value = italian }	#Tuscany 
+                    condition = { type = culture value = georgian }	#Georgia 
+                } 
+				factor = 1.6
+			} 
+        effect = { type = set_law value = monastic_supremacy }
+    } 
+}

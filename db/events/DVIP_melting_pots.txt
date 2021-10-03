@@ -1,0 +1,462 @@
+#########################
+# The Vlach melting pot #
+#########################
+province_event = {
+	id = 23260
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = {
+			type = or
+			condition = { type = religion value = catholic }
+			condition = { type = religion value = orthodox }
+		}
+		condition = {
+			type = or
+			condition = { type = area value = 462 }#Dunav - Wallachia, Moldavia
+			condition = { type = area value = 509 }#Dunarea - Wallachia
+			condition = { type = area value = 462 }#Dniester - Moldavia
+		}
+		condition = {
+			type = or
+			condition = { type = culture value = pecheneg }
+			condition = { type = culture value = cuman }
+		}
+		condition = { type = owner
+			condition = { type = or 
+				condition = { type = religion value = catholic }
+				condition = { type = religion value = orthodox }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 160
+
+		modifier = {
+			condition = { type = year value = 1150 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = ruler_culture value = iberian } #Vlach
+			factor = 0.4
+		}
+		modifier = {
+			condition = { type = ruler_culture value = pecheneg }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = ruler_culture value = cuman }
+			factor = 0.8
+		}
+	}
+
+	action_a = {
+		effect = { type = culture value = iberian }
+	}
+}
+
+#################################
+# The Castillan melting pot		#
+#################################
+
+province_event = {
+	id = 23261
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = region value = 154 } #Leyn
+		condition = { type = region value = 162 } #Extremadura
+		condition = { type = region value = 166 } #Sierra Nevada
+		condition = { type = region value = 172 } #Ebro
+		condition = { type = region value = 177 } #La Mancha
+		condition = { type = region value = 202 } #Ribbaroja
+		condition = { type = ruler_culture value = castillan }
+		condition = { type = religion value = catholic }
+		condition = { type = owner
+			condition = { type = religion value = catholic }
+		}
+		condition = {
+			type = or
+			condition = { type = culture value = muslim }
+			condition = { type = culture value = abghazian }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 160
+
+		modifier = {
+			condition = { type = year value = 1150 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = year value = 1250 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = has_advance value = inquisition }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = {
+		effect = { type = culture value = castillan }
+	}
+}
+
+#################################
+# The Catalan melting pot		#
+#################################
+
+province_event = {
+	id = 23262
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = region value = 162 } #Extremadura
+		condition = { type = region value = 166 } #Sierra Nevada
+		condition = { type = region value = 172 } #Ebro
+		condition = { type = region value = 202 } #Ribbaroja
+		condition = { type = ruler_culture value = catalan }
+		condition = { type = religion value = catholic }
+		condition = { type = owner
+			condition = { type = religion value = catholic }
+		}
+		condition = {
+			type = or
+			condition = { type = culture value = muslim }
+			condition = { type = culture value = abghazian }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 160
+
+		modifier = {
+			condition = { type = year value = 1150 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = year value = 1250 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = has_advance value = inquisition }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = {
+		effect = { type = culture value = catalan }
+	}
+}
+
+#####################################
+# The Portuguese melting pot		#
+#####################################
+
+province_event = {
+	id = 23263
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = region value = 160 } #Tejo
+		condition = { type = region value = 162 } #Extremadura
+		condition = { type = region value = 166 } #Sierra Nevada
+		condition = { type = ruler_culture value = portuguese }
+		condition = { type = religion value = catholic }
+		condition = { type = owner
+			condition = { type = religion value = catholic }
+		}
+		condition = {
+			type = or
+			condition = { type = culture value = muslim }
+			condition = { type = culture value = abghazian }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 160
+
+		modifier = {
+			condition = { type = year value = 1150 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = year value = 1250 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = has_advance value = inquisition }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = {
+		effect = { type = culture value = portuguese }
+	}
+}
+
+############################
+# The Sicilian melting pot #
+############################
+province_event = {
+	id = 23264
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = year value = 1130 }
+		condition = {
+			type = or
+			condition = { type = area value = 334 }#Appennino
+			condition = { type = area value = 339 }#Sicilia
+		}
+		condition = {
+			type = or
+			condition = { type = culture value = greek }
+			condition = { type = culture value = italian }
+			condition = { type = culture value = abghazian }
+		}
+		condition = { type = owner
+			condition = { type = or 
+				condition = { type = culture value = norman }
+				condition = { type = culture value = italian }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_culture value = italian }
+			factor = 0.5
+		}
+	}
+
+	action_a = {
+		effect = { type = culture value = italian }
+	}
+}
+
+########################################
+# German culture spreads in the Baltic #
+########################################
+
+province_event = {
+	id = 23265
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = {
+			type = or
+			condition = { type = area value = 304 } # Oder
+			condition = { type = area value = 306 } # Elbe
+			condition = { type = area value = 368 } # Wisla
+			condition = { type = area value = 371 } # Livonia
+		}
+		condition = { type = ruler_culture value = german }
+		condition = { type = religion value = catholic }
+		condition = { type = owner
+			condition = { type = religion value = catholic }
+		}
+		condition = {
+			type = or
+			condition = { type = culture value = westernslavic }
+			condition = { type = culture value = prussian }
+			condition = { type = culture value = lettigallish }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = year value = 1200 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = has_advance value = inquisition }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = {
+		effect = { type = culture value = german }
+	}
+}
+
+############################
+# The English melting pot  #
+# Moved here from original #
+# location and edited      #
+############################
+province_event = {
+	id = 1091
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = year value = 1090 }
+		condition = {
+			type = or
+			condition = { type = area value = 72 }#Sth England
+			condition = { type = area value = 52 }#Nth England
+		}
+		condition = {
+			type = or
+			condition = { type = culture value = saxon }
+			condition = { type = culture value = norman }
+			condition = { type = culture value = norwegian }
+			condition = { type = culture value = danish }
+			condition = { type = culture value = welsh }
+		}
+		condition = { type = owner
+			condition = { type = or 
+				condition = { type = culture value = norman }
+				condition = { type = culture value = english }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = ruler_culture value = english }
+			factor = 0.5
+		}
+	}
+
+	action_a = {
+		effect = { type = culture value = english }
+	}
+
+}
+
+#########################################################
+# The Scottish melting pot - Norse or Saxon to Scottish	#
+# Moved here from original location and edited          #
+#########################################################
+province_event = {
+	id = 1090
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = area value = 50 }#Scotland
+		condition = { type = culture value = saxon }
+		condition = { type = culture value = norwegian }
+		condition = { type = owner
+			condition = { type = culture value = saxon }
+			condition = { type = culture value = scottish }
+			condition = { type = culture value = norman }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+		
+		modifier = {
+			condition = { type = ruler_culture value = scottish }
+			factor = 0.5
+		}
+	}
+
+	action_a = {
+		effect = { type = culture value = scottish }
+	}
+}
+
+##############################################
+# The Scottish melting pot - Norse to Gaelic #
+##############################################
+province_event = {
+	id = 23266
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = area value = 50 }#Scotland
+		condition = { type = culture value = norwegian }
+		condition = { type = owner
+			condition = { type = culture value = irish }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	action_a = {
+		effect = { type = culture value = irish }
+	}
+}
+#######################################
+# Turkish culture spreads in Anatolia #
+#######################################
+province_event = {
+	id = 23267
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = year value = 1130 }
+		condition = { type = area value = 737 }#Anatolia
+		condition = { type = culture value = greek }
+		condition = { type = owner
+			condition = { type = culture value = turkish }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	action_a = {
+		effect = { type = culture value = turkish }
+	}
+}
+#######################################
+# Greek culture returns in Anatolia #
+#######################################
+province_event = {
+	id = 23268
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = year value = 1130 }
+		condition = { type = area value = 737 }#Anatolia
+		condition = { type = culture value = turkish }
+		condition = { type = owner
+			condition = { type = culture value = greek }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	action_a = {
+		effect = { type = culture value = greek }
+	}
+}

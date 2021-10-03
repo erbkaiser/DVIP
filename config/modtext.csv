@@ -1,0 +1,1233 @@
+#-------------------------------;;;;;;;;;;;X
+# BOPACK DV version 1.0         ;;;;;;;;;;;X
+# by Ambrox                     ;;;;;;;;;;;X
+#-------------------------------;;;;;;;;;;;X
+#-------------------------------;;;;;;;;;;;X
+#-------------------------------;;;;;;;;;;;X
+#----> BOP_prov_events.txt <----;;;;;;;;;;;X
+#-------------------------------;;;;;;;;;;;X
+EVT_19000_NAME;The ongoing revolt takes people away from their fields and stores, and the economy suffers as a result;;;;;;;;;;X
+ACTIONNAME19000A;Punish these outlaws!;;;;;;;;;;X
+ACTIONNAME19000B;A bribe may calm them;;;;;;;;;;X
+EVT_19001_NAME;Young and strong men have been called to arms in the war, and the economy suffers as a result;;;;;;;;;;X
+ACTIONNAME19001A;Every war has its price...;;;;;;;;;;X
+ACTIONNAME19001B;We'll give alms to those who need it;;;;;;;;;;X
+EVT_19002_NAME;The ongoing epidemic takes healthy people from their fields and storesto care for their sick ones, and the economy suffers as a result;;;;;;;;;;X
+ACTIONNAME19002A;It is God's punishment for their sins!;;;;;;;;;;X
+ACTIONNAME19002B;We'll build a quarantine hospital out of town;;;;;;;;;;X
+EVT_19003_NAME;The province has been plundered of all goods. The desperate people don't have food or resources anymore, and the economy suffers as a result;;;;;;;;;;X
+ACTIONNAME19003A;Let the fools suffer! It was an expected result…;;;;;;;;;;X
+ACTIONNAME19003B;Empty the wine cellars to relieve the people;;;;;;;;;;X
+EVT_19010_NAME;A period of relative calm and serenity reigns in a province, and this increases the economy;;;;;;;;;;X
+ACTIONNAME19010A;Peace, jobs and good health for everybody!;;;;;;;;;;X
+EVT_19011_NAME;A province is wealthy, and among the townsfolk money circulates in abundance;;;;;;;;;;X
+ACTIONNAME19011A;Then they can pay more taxes without harm…;;;;;;;;;;X
+EVT_19020_NAME;An ugly form of intestinal illness begins among the desperate people of a looted province;;;;;;;;;;X
+ACTIONNAME19020A;Pray for divine pity, but stay your hand!;;;;;;;;;;X
+ACTIONNAME19020B;We'll give them drinkable water to avoid worse;;;;;;;;;;X
+EVT_19021_NAME;In a besieged province, dangerous symptoms of feverish illness begin among the soldiers and slowly spread to the common people;;;;;;;;;;X
+ACTIONNAME19021A;Pray for celestial mercy, but stay your hand!;;;;;;;;;;X
+ACTIONNAME19021B;Encourage the clergy to take care of the sick;;;;;;;;;;X
+EVT_19030_NAME;A province is suffering under struggling economic conditions, and the subjects are outraged by the squanderings of the court and by the carelessness that their leader shows toward them;;;;;;;;;;X
+ACTIONNAME19030A;They are ragamuffins and such they will remain!;;;;;;;;;;X
+ACTIONNAME19030B;We'll provide some alms and hope for the best;;;;;;;;;;X
+ACTIONNAME19030C;We'll give bread, jobs and dignity to the people;;;;;;;;;;X
+EVT_19031_NAME;In a province oppressed by poverty the subjects are furious because their ruler is employing their people in war instead of recruiting mercenary armies;;;;;;;;;;X
+ACTIONNAME19031A;Filthy boors! How dare you rebel?;;;;;;;;;;X
+ACTIONNAME19031B;We'll provide some support and hope for the best;;;;;;;;;;X
+ACTIONNAME19031C;Bread, jobs and dignity for the ones left behind;;;;;;;;;;X
+EVT_19040_NAME;In a poor province the people's revolt is out of control, and the most violent ones have targetted some of the buildings of your government;;;;;;;;;;X
+ACTIONNAME19040A;They are beasts, let's disperse them!;;;;;;;;;;X
+ACTIONNAME19040B;We'll calm only the more agitated ones;;;;;;;;;;X
+ACTIONNAME19040C;We'll put an end to this revolt;;;;;;;;;;X
+EVT_19041_NAME;In a poor province the people's revolt is out of control, and the most violent ones have begun a siege on the grand palace;;;;;;;;;;X
+ACTIONNAME19041A;They are beasts, let's disperse them!;;;;;;;;;;X
+ACTIONNAME19041B;We'll calm only the more agitated ones;;;;;;;;;;X
+ACTIONNAME19041C;We'll put an end to this revolt;;;;;;;;;;X
+EVT_19042_NAME;In a poor province the people are fed up with war, and in a people's revolt which is out of control the most violent ones march on the training grounds;;;;;;;;;;X
+ACTIONNAME19042A;They are beasts, let's disperse them!;;;;;;;;;;X
+ACTIONNAME19042B;We'll calm only the more agitated ones;;;;;;;;;;X
+ACTIONNAME19042C;We'll put an end to this revolt;;;;;;;;;;X
+EVT_19043_NAME;In a poor province the people are fed up with war, and in a people's revolt which is out of control the most violent ones besiege the war academy;;;;;;;;;;X
+ACTIONNAME19043A;They are beasts, let's disperse them!;;;;;;;;;;X
+ACTIONNAME19043B;We'll calm only the more agitated ones;;;;;;;;;;X
+ACTIONNAME19043C;We'll put an end to this revolt;;;;;;;;;;X
+EVT_19050_NAME;The law of Royal Preorgatory rules our demesne, but in a province the nobles practice excessive power;;;;;;;;;;X
+ACTIONNAME19050A;All shall have to conform to my laws!;;;;;;;;;;X
+ACTIONNAME19050B;Nothing wrong with slight deviation from the norm;;;;;;;;;;X
+EVT_19051_NAME;The law of Royal Preorgatory rules our demesne, but in a province the clergy practices excessive power;;;;;;;;;;X
+ACTIONNAME19051A;All shall have to conform to my laws!;;;;;;;;;;X
+ACTIONNAME19051B;Nothing wrong with slight deviation from the norm;;;;;;;;;;X
+EVT_19052_NAME;The law of Royal Preorgatory rules our demesne, but in a province the burghers practice excessive power;;;;;;;;;;X
+ACTIONNAME19052A;All shall have to conform to my laws!;;;;;;;;;;X
+ACTIONNAME19052B;Nothing wrong with slight deviation from the norm;;;;;;;;;;X
+EVT_19053_NAME;The law of Royal Preorgatory rules our demesne, but in a province the peasants practice excessive power;;;;;;;;;;X
+ACTIONNAME19053A;All shall have to conform to my laws!;;;;;;;;;;X
+ACTIONNAME19053B;Nothing wrong with slight deviation from the norm;;;;;;;;;;X
+EVT_19054_NAME;The law of Feudal Contract rules our demesne, and the nobles of a province claim the power that is theirs by law;;;;;;;;;;X
+ACTIONNAME19054A;Correct! My laws must be applied!;;;;;;;;;;X
+ACTIONNAME19054B;Exceptions to the laws must also exist…;;;;;;;;;;X
+EVT_19055_NAME;The law of Traditional Custom rules our demesne, and the nobles of a province claim the power that is theirs by law;;;;;;;;;;X
+ACTIONNAME19055A;Correct! My laws must be applied!;;;;;;;;;;X
+ACTIONNAME19055B;Exceptions to the laws must also exist…;;;;;;;;;;X
+EVT_19056_NAME;The law of Traditional Custom rules our demesne, and the clergy of a province claims the power that is theirs by law;;;;;;;;;;X
+ACTIONNAME19056A;Correct! My laws must be applied!;;;;;;;;;;X
+ACTIONNAME19056B;Exceptions to the laws must also exist…;;;;;;;;;;X
+EVT_19057_NAME;The law of Traditional Custom rules our demesne, and the burghers of a province claim the power that is theirs by law;;;;;;;;;;X
+ACTIONNAME19057A;Correct! My laws must be applied!;;;;;;;;;;X
+ACTIONNAME19057B;Exceptions to the laws must also exist…;;;;;;;;;;X
+EVT_19058_NAME;The law of Traditional Custom rules our demesne, and the peasants of a province claim the power that is theirs by law;;;;;;;;;;X
+ACTIONNAME19058A;Correct! My laws must be applied!;;;;;;;;;;X
+ACTIONNAME19058B;Exceptions to the laws must also exist…;;;;;;;;;;X
+EVT_19059_NAME;Popular Law rules our demesne, and the burghers of a province claim the power that is theirs by law ;;;;;;;;;;X
+ACTIONNAME19059A;Correct! My laws must be applied!;;;;;;;;;;X
+ACTIONNAME19059B;Exceptions to the laws must also exist…;;;;;;;;;;X
+EVT_19060_NAME;Popular Law rules our demesne, and the peasants of a province claim the power that theirs by law ;;;;;;;;;;X
+ACTIONNAME19060A;Correct! My laws must be applied!;;;;;;;;;;X
+ACTIONNAME19060B;Exceptions to the laws must also exist…;;;;;;;;;;X
+EVT_19100_NAME;Taking a stroll through the town around the castle, you feel a strange uneasiness when you come in contact with people who don't share your cultural identity;;;;;;;;;;X
+ACTIONNAME19100A;It's time to enforce the true culture!;;;;;;;;;;X
+ACTIONNAME19100B;Bribe the undesirables to leave;;;;;;;;;;X
+ACTIONNAME19100C;No, tolerance is a value to protect;;;;;;;;;;X
+#-------------------------------;;;;;;;;;;;X
+#----> BOP_hist_events.txt <----;;;;;;;;;;;X
+#-------------------------------;;;;;;;;;;;X
+EVT_19400_NAME;With the 'Dictatus Papae' the pontiff affirms that the Roman pontiff alone may instate bishops. This is in opposition to the wish of the Holy Roman Empiror, who claims the right of autonomy over nominations.\nAs King of Germany you are excommunicated!;;;;;;;;;;X
+ACTIONNAME19400A;I'll assemble a conclave to elect an antipope!;;;;;;;;;;X
+ACTIONNAME19400B;I immediately will go to Canossa to get pardon;;;;;;;;;;X
+EVT_19401_NAME;If you will go yourself in peace to Modena, the countess Matildha can intercede with the Pope on your behalf, to ask for revocation of the excommunication;;;;;;;;;;X
+ACTIONNAME19401A;I'll go there humble and penitent and wait;;;;;;;;;;X
+EVT_19402_NAME;The humiliating pilgrimage of the ruler of the Holy Roman Empire in italic earth has convinced Matildha of Canossa of his repentance.\nThanks to her intercession the Pope has revoked the excommunication!;;;;;;;;;;X
+ACTIONNAME19402A;Yes, but the matter doesn't end here…;;;;;;;;;;X
+EVT_19403_NAME;The 'Concordat of Worms' has finally enacted the division of the assignments between Church and Holy Roman Empire concerning the nominations of the bishops.\nThe Pope will confer ring and pastoral, the King of Germany province and scepter;;;;;;;;;;X
+ACTIONNAME19403A;My right has finally been recognized!;;;;;;;;;;X
+ACTIONNAME19403B;I will give up up the right to assign bishops;;;;;;;;;;X
+EVT_19404_NAME;The Church disapproves of your work regarding the bishops' investiture.\nAs king you would like complete autonomy over nominations but you have to defer to the authority of the Pope;;;;;;;;;;X 
+ACTIONNAME19404A;I am the only ruler of my demesne!;;;;;;;;;;X
+ACTIONNAME19404B;It is all right, I will follow his decisions;;;;;;;;;;X
+EVT_19405_NAME;The Pope would like to find a solution regarding the bishops' investiture.\nAs king, if you recognize his authority, he offers to revoke your excommunication;;;;;;;;;;X
+ACTIONNAME19405A;I am the only ruler of my demesne!;;;;;;;;;;X
+ACTIONNAME19405B;All right, I will defer myself to his clemency;;;;;;;;;;X
+EVT_19406_NAME;Many knights have departed to the search of the Holy Grail, but nobody has returned with the legendary goblet that caught the blood of Christ.\nBut recurrent braggarts tell that it is guarded somewhere in Palestine;;;;;;;;;;X
+ACTIONNAME19406A;They are only foolish popular superstitions;;;;;;;;;;X
+ACTIONNAME19406B;It has been searched for enough in the past!;;;;;;;;;;X
+ACTIONNAME19406C;And if were really my destiny to find it?;;;;;;;;;;X
+EVT_19407_NAME;Many knights have departed to the search of the Holy Grail, but nobody has returned with the legendary goblet that caught the blood of Christ.\nBut recurrent braggarts tell that it is guarded somewhere in Thrace;;;;;;;;;;X
+ACTIONNAME19407A;They are only foolish popular superstitions;;;;;;;;;;X
+ACTIONNAME19407B;It has been searched for enough in the past!;;;;;;;;;;X
+ACTIONNAME19407C;And if were really my destiny to find it?;;;;;;;;;;X
+EVT_19408_NAME;Many knights have departed to the search of the Holy Grail, but nobody has returned with the legendary goblet that caught the blood of Christ.\nBut recurrent braggarts tell that it is guarded somewhere in the Champagne;;;;;;;;;;X
+ACTIONNAME19408A;They are only foolish popular superstitions;;;;;;;;;;X
+ACTIONNAME19408B;It has been searched for enough in the past!;;;;;;;;;;X
+ACTIONNAME19408C;And if were really my destiny to find it?;;;;;;;;;;X
+EVT_19409_NAME;Many knights have departed to the search of the Holy Grail, but nobody has returned with the legendary goblet that caught the blood of Christ.\nBut recurrent braggarts tell that it is guarded somewhere along the shores of the Po;;;;;;;;;;X
+ACTIONNAME19409A;They are only foolish popular superstitions;;;;;;;;;;X
+ACTIONNAME19409B;It has been searched for enough in the past!;;;;;;;;;;X
+ACTIONNAME19409C;And if were really my destiny to find it?;;;;;;;;;;X
+EVT_19410_NAME;Many knights have departed to the search of the Holy Grail, but nobody has returned with the legendary goblet that caught the blood of Christ.\nBut recurrent braggarts tell that it is guarded somewhere in the eastern Spanish Sierra;;;;;;;;;;X
+ACTIONNAME19410A;They are only foolish popular superstitions;;;;;;;;;;X
+ACTIONNAME19410B;It has been searched for enough in the past!;;;;;;;;;;X
+ACTIONNAME19410C;And if were really my destiny to find it?;;;;;;;;;;X
+EVT_19411_NAME;To recover the precious relic, it is necessary to finance a journey to where it is said to be hidden, and to search for it with faith!;;;;;;;;;;X
+ACTIONNAME19411A;I will go myself, none shall hold me back!;;;;;;;;;;X
+ACTIONNAME19411B;I will send the marshal, it is more suited;;;;;;;;;;X
+ACTIONNAME19411C;We shall both depart, together we've more chances;;;;;;;;;;X
+ACTIONNAME19411D;It doesn't exist, therefore I won't waste time;;;;;;;;;;X
+EVT_19412_NAME;Tonight you have dreamt of a suspended knight in the void that grabbed a mystical gilded cup.\nWhat can be the meaning of all of this?;;;;;;;;;;X
+ACTIONNAME19412A;Nothing, it was just the effect of drunkenness!;;;;;;;;;;X
+ACTIONNAME19412B;Look for information in the surrounding area;;;;;;;;;;X
+ACTIONNAME19412C;It was the Grail! It is here! I need to find it!;;;;;;;;;;X
+EVT_19413_NAME;The people of the area seem to know a precious secret, but are hesitant to reveal it!;;;;;;;;;;X
+ACTIONNAME19413A;Generously spending money may help…;;;;;;;;;;X
+ACTIONNAME19413B;We'll try with a little money and a lot of luck…;;;;;;;;;;X
+ACTIONNAME19413C;Let's leave it be, it is not worth it!;;;;;;;;;;X 
+EVT_19414_NAME;I am sure that the goblet is guarded around here, and I will slay all if it isn't revealed to me!;;;;;;;;;;X
+ACTIONNAME19414A;I will kill all until I have found it!;;;;;;;;;;X
+ACTIONNAME19414B;Let's make a few victims and pray for much luck…;;;;;;;;;;X
+ACTIONNAME19414C;Let's leave it be, it is not worth it!;;;;;;;;;;X
+EVT_19415_NAME;Sadly the attempt is failed and the search is ended;;;;;;;;;;X
+ACTIONNAME19415A;It is time to think about more wordly matters…;;;;;;;;;;X
+EVT_19416_NAME;Here it is finally! I have found the Holy Grail!;;;;;;;;;;X
+ACTIONNAME19416A;Or at least such it appears to be…;;;;;;;;;;X
+EVT_19417_NAME;The Church, although not recognizing the authenticity of it, allows you to display the relic for the veneration of pilgrims in a place of suitable worship;;;;;;;;;;X
+ACTIONNAME19417A;What a great shrine for my lineage!;;;;;;;;;;X
+EVT_19418_NAME;An outlaw calling himself Robin Hood is molesting the rich to help the poor, and his popularity grows more every day, as does his gang of followers;;;;;;;;;;X
+ACTIONNAME19418A;The clergy is really upset!;;;;;;;;;;X
+ACTIONNAME19418B;Stealing to the nobles is a shame for me!;;;;;;;;;;X
+EVT_19419_NAME;Because of the continuous robberies of the gang of the outlaw Robin Hood, we raised the income taxes of the province, but many of the simple people don't have any more to pay and they can't fulfill their duties;;;;;;;;;;X 
+ACTIONNAME19419A;We'll tax the farmers and countrymen more;;;;;;;;;;X
+ACTIONNAME19419B;The burghers still have some money in their pockets;;;;;;;;;;X
+EVT_19420_NAME;In a province infested by the robberies of the outlaw Robin Hood, there is need to restore the law by putting large ransoms on the head of the notorious chief-gang and his companions;;;;;;;;;;X
+ACTIONNAME19420A;Let's focus first to defeat the thieves;;;;;;;;;;X
+ACTIONNAME19420B;The smugglers are a scourge;;;;;;;;;;X
+ACTIONNAME19420C;It would be a relief if highway robberies ended;;;;;;;;;;X
+ACTIONNAME19420D;I don't have money to spare for law enforcement!;;;;;;;;;;X
+EVT_19421_NAME;As a trap to capture the outlaw Robin Hood, a tournament could be organized near Sherwood with a tempting prize for the best archer that will succeed in beating our infallible sheriff;;;;;;;;;;X
+ACTIONNAME19421A;The winner will put to the shame the sheriff;;;;;;;;;;X
+ACTIONNAME19421B;The winner will gain as much gold as he weighs;;;;;;;;;;X
+ACTIONNAME19421C;The winner will gain the hand of the lady Marian;;;;;;;;;;X
+ACTIONNAME19421D;There won't be any stupid and expensive tournament;;;;;;;;;;X
+EVT_19422_NAME;The conceited sheriff is not such a great archer as all thought!;;;;;;;;;;X
+ACTIONNAME19422A;Even a child would be able to beat him;;;;;;;;;;X 
+EVT_19423_NAME;Next time it will be forbidden for people to fatten themselves up consuming with roast and beers before the competition!;;;;;;;;;;X
+ACTIONNAME19423A;Competitors should be feather-light to play;;;;;;;;;;X
+EVT_19424_NAME;I must learn to shoot with the bow if I want to have a chance of winning the Lady!;;;;;;;;;;X
+ACTIONNAME19424A;For Lady Marian I would do anything at all…;;;;;;;;;;X
+EVT_19425_NAME;The trap has worked! I have finally captured the elusive Robin Hood!;;;;;;;;;;X
+ACTIONNAME19425A;History ends, but legend begins…;;;;;;;;;;X
+EVT_19426_NAME;Peter the Hermit, preaching for the farmers and the simple people of half Europe, has convinced many to participate in the Paupers' Crusade, assuring that God would make them win against the infidels. But almost none of the people that have departed have returned back home;;;;;;;;;;X
+ACTIONNAME19426A;And lands have been left abandoned as a result;;;;;;;;;;X
+EVT_19427_NAME;The Paupers' Crusade, started by Peter the Hermit, is bringing here to Byzantium thousands of farmers from all over Europe, who desire to march toward Jerusalem. We either have to ferry them over the Bosporus quick, or we will soon have huge problems managing them!;;;;;;;;;;X
+ACTIONNAME19427A;Let's ferry them across now, no matter the cost!;;;;;;;;;;X
+ACTIONNAME19427B;I can't pay now, therefore we hope for the best;;;;;;;;;;X
+EVT_19428_NAME;The Paupers' Crusade, started by Peter the Hermit, has crossed one of our provinces, but the thousands of people marching toward Jerusalem have come in conflict with our people for futile reasons. The clashes have sown death and devastation in the surrounding countries;;;;;;;;;;X
+ACTIONNAME19428A;Luckily I have quickly prepared an armed garrison!;;;;;;;;;;X
+ACTIONNAME19428B;Foolish fanatics! Have you confused us with Arabs?;;;;;;;;;;X
+EVT_19429_NAME;The great fairs of the Champagne are a good opportunity for commerce and profit. The merchants can purchase raw cloth, then dye them and resell them elsewhere, while the bookkeepers can deal with all transactions of credit and payment. Do we want to invest in the above?;;;;;;;;;;X
+ACTIONNAME19429A;No, it doesn't interest me at all!;;;;;;;;;;X
+ACTIONNAME19429B;I will encourage the people to participate;;;;;;;;;;X
+ACTIONNAME19429C;I will send some of my own servants there;;;;;;;;;;X
+ACTIONNAME19429D;A large invertment may lead to a huge profit!;;;;;;;;;;X
+EVT_19430_NAME;The great fairs of the Champagne are a good opportunity for commerce and profit. The spinners can sell the wool and linen suits they produced and buy exotic foods and spices. Do we want to invest in the above?;;;;;;;;;;X
+ACTIONNAME19430A;No, it doesn't interest me at all!;;;;;;;;;;X
+ACTIONNAME19430B;I will encourage the people to participate;;;;;;;;;;X
+ACTIONNAME19430C;I will send some of my own servants there;;;;;;;;;;X
+ACTIONNAME19430D;A large invertment may lead to a huge profit!;;;;;;;;;;X
+EVT_19431_NAME;The great fairs of the Champagne are a good opportunity for commerce and profit. The farmers can sell wine, liquors and cheeses produced in their farms and buy new suitable garments. Do we want to invest in the above?;;;;;;;;;;X
+ACTIONNAME19431A;No, it doesn't interest me at all!;;;;;;;;;;X
+ACTIONNAME19431B;I will encourage the people to participate;;;;;;;;;;X
+ACTIONNAME19431C;I will send some of my own servants there;;;;;;;;;;X
+ACTIONNAME19431D;A large invertment may lead to a huge profit!;;;;;;;;;;X
+EVT_19432_NAME;The great fairs of the Champagne are a good opportunity of commerce and profit. Through the 'Road of Santiago' people can go there to sell exotic spices and wheat and buy new linen suits. Do we want to invest in the above?;;;;;;;;;;X
+ACTIONNAME19432A;No, it doesn't interest me at all!;;;;;;;;;;X
+ACTIONNAME19432B;I will encourage the people to participate;;;;;;;;;;X
+ACTIONNAME19432C;I will send some of my own servants there;;;;;;;;;;X
+ACTIONNAME19432D;A large invertment may lead to a huge profit!;;;;;;;;;;X
+EVT_19433_NAME;The great fairs of the Champagne are a good opportunity of commerce and profit. People and merchants come here from every part of Europe through roads and rivers. There is a need for big warehouses to store and sell the commodities. Do we want to invest in the above?;;;;;;;;;;X
+ACTIONNAME19433A;No, it doesn't interest me at all!;;;;;;;;;;X
+ACTIONNAME19433B;I will encourage the people to participate;;;;;;;;;;X
+ACTIONNAME19433C;I will send some of my own servants there;;;;;;;;;;X
+ACTIONNAME19433D;A large invertment may lead to a huge profit!;;;;;;;;;;X
+EVT_19434_NAME;The champion Rodrigo Díaz de Vivar, known as 'El Cid Campeador', has learned of the siege in progress and has rushed there offering his help. He is an experienced knight and he is prepared to open a decisive breach in the Moor's defenses to conquer the castle;;;;;;;;;;X
+ACTIONNAME19434A;El Cid is indeed a 'Campeador!';;;;;;;;;;X
+ACTIONNAME19434B;No, thanks! I am worthy knight myself!;;;;;;;;;;X
+EVT_19435_NAME;The champion Rodrigo Díaz de Vivar, known as 'El Cid Campeador', has recruited a regiment of faithful men and has offered them for your service. He is feared, respected, and admired by Arabs and Christians alike, and these men will be very useful in the current war against the Moor;;;;;;;;;;X
+ACTIONNAME19435A;Hurray for El Cid, the only true 'Campeador!';;;;;;;;;;X
+ACTIONNAME19435B;No, I don't want to own him any favours!;;;;;;;;;;X
+EVT_19436_NAME;The 'Constitutions of Clarendon' have formulated 16 articles that define the legal matters between Church and Crown, limiting the powers of the clergy and restoring impoverished regal rights. The archbishop Thomas Becket refuses the new laws and runs away in exile, but other bishops fold to the will of the sovereign;;;;;;;;;;X
+ACTIONNAME19436A;Let's stop the impunity of the 'criminous clerks'!;;;;;;;;;;X
+EVT_19437_NAME;The pontifical legacies inform that Pope is ready to excommunicate you if you don't grant permission to Thomas Becket, Archbishop of Canterbury, to return from French exile and take back his function of spiritual guide;;;;;;;;;;X
+ACTIONNAME19437A;Well! Let's fake a reconciliation!;;;;;;;;;;X
+ACTIONNAME19437B;Never! He had my trust but has betrayed it!;;;;;;;;;;X
+EVT_19438_NAME;Thomas Becket, returned to Canterbury, wants back the possessions forfeited to the Church and has disavowed all the bishops who have made pacts with the sovereign!;;;;;;;;;;X
+ACTIONNAME19438A;Will no one rid me of this troublesome priest?;;;;;;;;;;X
+ACTIONNAME19438B;He can have anything, as long as he leaves me be!;;;;;;;;;;X
+EVT_19439_NAME;Four armed assassins depart for Canterbury. The archbishop, dressed with the sacred hangings, allows the assassins to stab him in the cathedral without giving any resistance. Three years later Thomas Becket will be proclaimed saint and martyr;;;;;;;;;;X
+ACTIONNAME19439A;I have been wrong! I will kneel on his grave!;;;;;;;;;;X
+ACTIONNAME19439B;One more martyr doesn't make any difference…;;;;;;;;;;X
+EVT_19440_NAME;The Pope, speaking on the Council of Clermont, has pronounced a vigorous sermon to incite the believers to defend Christianity against the barbarities of the Moslem people. Now he is calling on all Catholic sovereigns still reticent to join the Crusade!;;;;;;;;;;X
+ACTIONNAME19440A;Deus Vult!;Deus Vult !;Deus vult!;¡Deus vult!;Deus vult!;;;;;;X
+ACTIONNAME19440B;If I must, I'll do it to save appearances!;;;;;;;;;;X
+ACTIONNAME19440C;Embrace the cross? I don't see any reason to!;;;;;;;;;;X
+EVT_19441_NAME;The sovereign has ordered the survey of all England: of all the lands, of all possessions, their habitations, their men's status and living conditions, the possessions of the farms, and of the tax due. The 'Domesday Book' is the account written of these expensive inquiries, and from now on it is law!;;;;;;;;;;X
+ACTIONNAME19441A;Knowing all matters helps to administer better!;;;;;;;;;;X
+EVT_19442_NAME;Barons and citizens of England clamour at great voice for the 'Magna Carta', the end of the absolute power of the king and the recognition of many of their rights, such as that not to suffer arbitrary taxes and to get fair trials before being imprisoned;;;;;;;;;;X
+ACTIONNAME19442A;Well! They shall have what they desire!;;;;;;;;;;X
+ACTIONNAME19442B;Never! I will not surrender to any request!;;;;;;;;;;X
+EVT_19443_NAME;The intolerance of the sovereign will bring England to civil war!;;;;;;;;;;X
+ACTIONNAME19443A;I will depart and join with the Barons in revolt!;;;;;;;;;;X
+EVT_19444_NAME;Bernard of Clairvaux, Cistercian monk and founder of the Rule of the Knights Templars, asks us a contribution to build a monastery in one of our provinces. His oratorical ability, clarity of thought and emphasis on the Virgin Mary attract many converts to his cause;;;;;;;;;;X
+ACTIONNAME19444A;Sorry, but I don't have any money to spend;;;;;;;;;;X
+ACTIONNAME19444B;His abbots can pay the expenses!;;;;;;;;;;X
+ACTIONNAME19444C;Such a pious man deserves every sacrifice;;;;;;;;;;X
+ACTIONNAME19444D;In addition, I want a Templar House;;;;;;;;;;X
+EVT_19445_NAME;Francis of Assisi, founder of the Franciscan Order, has received papal approval to continue his preachings on poverty, a sober lifestyle, and simple sermons for simple people. His teaching calls many people and rapproaches them to the Church, professing the renouncement of all material possessions;;;;;;;;;;X
+ACTIONNAME19445A;Poverty? Have they all gone crazy?;;;;;;;;;;X
+ACTIONNAME19445B;Money estranges man from God!;;;;;;;;;;X
+EVT_19446_NAME;The Spaniard Domenico Guzmán, founder of the Order of Preachers, is engulfed in the struggle against the  Albigensian heresy, using as his weapon a rigorous style of life to testify the example fir the Catholic faith. Now he has come here to fulfill his tasks;;;;;;;;;;X
+ACTIONNAME19446A;We don't need him, the heretics shall remain!;;;;;;;;;;X
+ACTIONNAME19446B;Deo gratias! True faith is restored!;;;;;;;;;;X
+EVT_19447_NAME;Hildegard von Bingen, nun, composer, visionary and healer, is travelling through Germany as a 'Feather on the Breathe of God' to move the minds and consciences of bishops, abbots, and noblemen, and to challenge the authority of the ruler without fear;;;;;;;;;;X
+ACTIONNAME19447A;The 'Viriditas' she professes helps the people;;;;;;;;;;X
+ACTIONNAME19447B;Her visions have the support of the Church;;;;;;;;;;X
+ACTIONNAME19447C;This 'Prophetess' decreases the noble's influence;;;;;;;;;;X
+ACTIONNAME19447D;She has dared to criticize me? I don't care!;;;;;;;;;;X
+EVT_19448_NAME;The Arabic-Andalusian 'Averroes'(Ibn Achmed), philosopher, astronomer, and writer on Islamic jurisprudence, has translated and commented the works of Aristotle that were mostly forgotten in western Europe. He sustains that Truth can be reached both through religion and through philosophy;;;;;;;;;;X
+ACTIONNAME19448A;The depth of the studies on Aristotle is unique;;;;;;;;;;X
+ACTIONNAME19448B;His medical Encyclopædia is a great resource;;;;;;;;;;X
+ACTIONNAME19448C;His thoughts, nevertheless, undermine the clergy;;;;;;;;;;X
+EVT_19449_NAME;With his verses on Chivalry Romance, the writer Chrétien de Troyes introduces the histories of Lancelot and Perceval where woman are shown as majestous Ladies, love is a form of homage, and the lover is a subject who, if needed, has to overcome every obstacle with sacrifice of his own life;;;;;;;;;;X
+ACTIONNAME19449A;Welcome the enjoyments and the pleasures of Love!;;;;;;;;;;X
+ACTIONNAME19449B;I disapprove! It distracts men from the church!;;;;;;;;;;X
+EVT_19450_NAME;Pilgrims and merchants arriving from Byzantium tell with amazement of the 'Mandylion', the shroud that is supposed to have wrapped the body of Christ, taken from the cross. They say that on it there has mysteriously remained engraved a mystical image;;;;;;;;;;X
+ACTIONNAME19450A;Stress of the journey causes strong hallucinations!;;;;;;;;;;X
+ACTIONNAME19450B;I know it well, but I am occupied with other matters;;;;;;;;;;X
+ACTIONNAME19450C;I will depart immediately to see it with my eyes!;;;;;;;;;;X
+EVT_19451_NAME;Pilgrims and merchants arriving from Lirey tell with amazement of the 'Shroud', the shroud that is supposed to have wrapped the body of Christ, taken from the cross. They say that on it there has mysteriously remained engraved a mystical image;;;;;;;;;;X
+ACTIONNAME19451A;Stress of the journey causes strong hallucinations!;;;;;;;;;;X
+ACTIONNAME19451B;I know it well, but I am occupied with other matters;;;;;;;;;;X
+ACTIONNAME19451C;I will depart immediately to see it with my own eyes!;;;;;;;;;;X
+EVT_19452_NAME;Seeing the Man on the shroud is an intensely emotional encounter, that cures the body of all ailments and hardships suffered in the trip;;;;;;;;;;X
+ACTIONNAME19452A;And it is indeed a divine revelation!;;;;;;;;;;X
+ACTIONNAME19452B;Interesting! Who is the artist that has painted him?;;;;;;;;;;X
+EVT_19453_NAME;The Templars have been searching a long time for the 'Mandylion', the shroud that is supposed to have wrapped the body of Christ, taken from the cross. All of traces of it were lost after it was stolen from Byzantium. Its rediscovery would be prestigious in the eyes of the rest of the world!;;;;;;;;;;X
+ACTIONNAME19453A;Good for them, if they will ever succeed us…;;;;;;;;;;X
+ACTIONNAME19453B;Interesting! I will accomodate them in my lands!;;;;;;;;;;X
+EVT_19454_NAME;The Templars have been searching a long time for the 'Mandylion', the shroud that is supposed to have wrapped the body of Christ, taken from the cross. All of traces of it were lost after it was stolen from Byzantium. Today, during a meeting, they have revealed their assumptions and the plans for its recovery. After having listened to them, what are your thoughts?;;;;;;;;;;X
+ACTIONNAME19454A;They are fanatics, I will not join their cause!;;;;;;;;;;X
+ACTIONNAME19454B;It is probably still guarded in Byzantium…;;;;;;;;;;X
+ACTIONNAME19454C;I am inspired to look for it in Athens…;;;;;;;;;;X
+ACTIONNAME19454D;It is perhaps in Lirey, owned by some French noble…;;;;;;;;;;X
+EVT_19455_NAME;The Templars have been searching a long time for the 'Mandylion', the shroud that is supposed to have wrapped the body of Christ, taken from the cross. All of traces of it were lost after it was stolen from Byzantium. Today, during a meeting, they have revealed their assumptions and the plans for its recovery. After having listened to them, what are your thoughts?;;;;;;;;;;X
+ACTIONNAME19455A;They are fanatics, I will not join their cause!;;;;;;;;;;X
+ACTIONNAME19455B;It is probably still guarded in Byzantium…;;;;;;;;;;X
+ACTIONNAME19455C;I am inspired to look for it in Athens…;;;;;;;;;;X
+ACTIONNAME19455D;It is perhaps in Lirey, owned by some French noble…;;;;;;;;;;X
+EVT_19456_NAME;The Templars have been searching a long time for the 'Mandylion', the shroud that is supposed to have wrapped the body of Christ, taken from the cross. All of traces of it were lost after it was stolen from Byzantium. Today, during a meeting, they have revealed their assumptions and the plans for its recovery. After having listened to them, what are your thoughts?;;;;;;;;;;X
+ACTIONNAME19456A;They are fanatics, I will not join their cause!;;;;;;;;;;X
+ACTIONNAME19456B;It is probably still guarded in Byzantium…;;;;;;;;;;X
+ACTIONNAME19456C;I am inspired to look for it in Athens…;;;;;;;;;;X
+ACTIONNAME19456D;It is perhaps in Lirey, owned by some French noble…;;;;;;;;;;X
+EVT_19457_NAME;Together with the Knights Templars you have gone to the secret place where you believe the 'Mandylion' to be hidden. The trip is long and full of traps, and in the end...;;;;;;;;;;X
+ACTIONNAME19457A;Nothing, it was all for naught!;;;;;;;;;;X
+EVT_19458_NAME;Together with the Knights Templars you have gone to the secret place where you believe the 'Mandylion' to be hidden. The trip is long and full of traps, and in the end...;;;;;;;;;;X
+ACTIONNAME19458A;A triviality ends up costing you very dear!;;;;;;;;;;X
+EVT_19459_NAME;Together with the Knights Templars you have gone to the secret place where you believe the 'Mandylion' to be hidden. The trip is long and full of traps, and in the end...;;;;;;;;;;X
+ACTIONNAME19459A;Right place! Now we just have to look for it!;;;;;;;;;;X
+EVT_19460_NAME;Information gathering reveals to you that a rich and influential Jewish family guards the precious relic in their castle;;;;;;;;;;X
+ACTIONNAME19460A;I have Templars with me! I will demolish the castle!;;;;;;;;;;X
+ACTIONNAME19460B;We will try to steal it, catching them by surprise;;;;;;;;;;X
+ACTIONNAME19460C;I will personally go to bargain over its purchase;;;;;;;;;;X
+ACTIONNAME19460D;I ask permission to see it, and I will return home;;;;;;;;;;X
+EVT_19461_NAME;Attacking a castle is not as easy as picking flowers, but it is a grave enterprise, dangerous and with an uncertain result!;;;;;;;;;;X
+ACTIONNAME19461A;I have come and am ready to spill my blood!;;;;;;;;;;X
+ACTIONNAME19461B;A different technique could perhaps be found;;;;;;;;;;X
+EVT_19462_NAME;The assault in the castle is violent and bloody. Tall flames arise from the Great Hall that holds the relic!;;;;;;;;;;X
+ACTIONNAME19462A;Only with great fortune will it be found intact!;;;;;;;;;;X
+EVT_19463_NAME;To succesfully infiltrate the castle we'll need dexterity and agility, and we should do it unarmed. Nobody is suspicious yet, but the watch is vigilant!;;;;;;;;;;X
+ACTIONNAME19463A;One: climb the walls. If it goes wrong, return home!;;;;;;;;;;X
+ACTIONNAME19463B;Perhaps it is best to reconsider this;;;;;;;;;;X
+EVT_19464_NAME;The watch has not noticed anything! Now we must infiltrate the tower from the courtyard;;;;;;;;;;X
+ACTIONNAME19464A;Two: raise the gate. If it goes wrong, return home!;;;;;;;;;;X
+ACTIONNAME19464B;The hinges are rusted, we'd better cancel the theft!;;;;;;;;;;X
+EVT_19465_NAME;They must be deep sleepers not to have noticed all that creaking! Soon, we'll be at the Great Hall!;;;;;;;;;;X
+ACTIONNAME19465A;Three: steal shroud. If it goes wrong, return home!;;;;;;;;;;X
+ACTIONNAME19465B;Detach it from wall and refold it? There's no time!;;;;;;;;;;X
+EVT_19466_NAME;Damn! People are arriving from the corridors! Hand me the bag with 'Mandylion', I know what I must do!;;;;;;;;;;X
+ACTIONNAME19466A;Out we go, down the window: if wrong, we return home!;;;;;;;;;;X
+EVT_19467_NAME;You are received with respect, but you find yourself in the presence of wealthy and experienced merchants. It will be difficult to make an agreement on a reasonable price, since you will have to deal with their crafty treasurer!;;;;;;;;;;X
+ACTIONNAME19467A;I offer 1000 pieces of gold. Are they enough?;;;;;;;;;;X
+ACTIONNAME19467B;Why spend money? Let's return and think it over!;;;;;;;;;;X
+EVT_19468_NAME;The gold has been cashed by the treasurer quickly, but it will be sufficient to complete the purchase?;;;;;;;;;;X
+ACTIONNAME19468A;More gold? Knights, don't let me pay it alone!;;;;;;;;;;X
+ACTIONNAME19468B;No, we risk bankruptcy! Let's change tactics!;;;;;;;;;;X
+EVT_19469_NAME;The avarice of this family doesn't have an equal even among the leeches!;;;;;;;;;;X
+ACTIONNAME19469A;They dream money while are sleeping!;;;;;;;;;;X
+EVT_19470_NAME;Faced such expenses, the Knights don't stay indifferent!;;;;;;;;;;X
+ACTIONNAME19470A;One hand on the cross, the other in the purse!;;;;;;;;;;X
+EVT_19471_NAME;I am worn-out!  I have given all the money that I had with me, the horse, and even the armor!;;;;;;;;;;X
+ACTIONNAME19471A;If all this is not enough, I will return home afoot!;;;;;;;;;;X
+EVT_19499_NAME;The 'Mandylion' research has failed! Let's go home!;;;;;;;;;;X
+ACTIONNAME19499A;We have had bad luck…;;;;;;;;;;X
+EVT_19472_NAME;The 'Mandylion' has finally been brought back to the light! As reward for the abnegation that you have shown, the Grand Master of the Templars entrusts it in custody of you and your descendants until 1356, when it will be transferred to Lirey;;;;;;;;;;X
+ACTIONNAME19472A;As history demands!;;;;;;;;;;X
+EVT_19473_NAME;While wandering the countries of your lands, you notice an 11-year-old shepherd who is drawing the figure of a sheep above a rock with chalk;;;;;;;;;;X
+ACTIONNAME19473A;He keeps himself busy while watching over the flock;;;;;;;;;;X
+ACTIONNAME19473B;I will wait until he finishes, looking to the sketch…;;;;;;;;;;X
+ACTIONNAME19473C;I could enroll him in the workshop of Cimabue…;;;;;;;;;;X
+EVT_19474_NAME;What skill! That shepherd is Giotto di Bondone, who will become a famous painter and architect, and be considered the precursor of the Italian Renaissance!;;;;;;;;;;X
+ACTIONNAME19474A;It is prestigious to discover an admirable artist!;;;;;;;;;;X
+EVT_19475_NAME;The master Giotto di Bondone, first painter to use perspective instead of the usual flat figures, famous for his paintings in Assisi, Padua and Florence, is travelling through our parts during his ongoing journey;;;;;;;;;;X
+ACTIONNAME19475A;I'll pay you to decorate the Palace of Justice!;;;;;;;;;;X
+ACTIONNAME19475B;I'll pay you to add frescoes to the church!;;;;;;;;;;X
+ACTIONNAME19475C;I hope you'll appreciate the area and good kitchens…;;;;;;;;;;X
+EVT_19476_NAME;The German Gottfried von Strassburg's rewrites of the famous history of Tristan and Isolde have become very popular. The story of the unlucky lovers is superb and captures whoever listen to it, but it certainly does not have the favour of the zealous clergy!;;;;;;;;;;X
+ACTIONNAME19476A;Literature must be encouraged, not repressed!;;;;;;;;;;X
+ACTIONNAME19476B;It must be censored from the public immediately;;;;;;;;;;X
+EVT_19477_NAME;The spread of the Nibelungenlied, the epic poem by an anonymous poet, is establishing German culture under the nobles. The epic of Siegfried and the endless struggle between good and evil provokes passionate feelings and an identification with the German cause;;;;;;;;;;X
+ACTIONNAME19477A;Cultural unity strengthens loyalty!;;;;;;;;;;X
+EVT_19478_NAME;The Alexiad is the first history treatise written by a woman, Anna Comnena, completed during exile in convent. The spread of the work, that tells the political and military epic of her father, Byzantine Emperor, also puts the current government in good light;;;;;;;;;;X
+ACTIONNAME19478A;Welcome Anna! What an honour for my empire!;;;;;;;;;;X
+EVT_19479_NAME;Nicetas Choniates, politician and writer, has written the history of the Byzantine empire of the last century. Although his work does not always praise the previous emperors nor the acts of the Orthodox Church, it puts the current occupant of the throne in good light;;;;;;;;;;X
+ACTIONNAME19479A;This is too much honour!;;;;;;;;;;X
+ACTIONNAME19479B;How dare he criticize my predecessors?;;;;;;;;;;X
+ACTIONNAME19479C;How dare he criticize the patriarchs?;;;;;;;;;;X
+EVT_19480_NAME;Geoffrey of Monmouth has completed his work 'Historia Regum Britanniae', an epic and fanciful account of the life of the British kings of the past 2000 years, starting with Brutus, descendant of Aeneas of Troy, and continuing to and beyond Arthur and the Knights of the Round Table;;;;;;;;;;X
+ACTIONNAME19480A;This is a great boon for the English Crown!;;;;;;;;;;X
+EVT_19481_NAME;Stephen of Cloyes, a twelve year-old shepherd and leader of the 'The Children's Crusade', has promised to his followers that the seas will part for of as the Red Sea did for Moses, and that they would be able to walk to Palestine. Thousands of boys are on the sea shores, waiting for the miracle now. What can we do?;;;;;;;;;;X
+ACTIONNAME19481A;Embark them on ships and sell them as slaves!;;;;;;;;;;X
+ACTIONNAME19481B;Send them to their homes on my expenses!;;;;;;;;;;X
+#-------------------------------;;;;;;;;;;;X
+#----> BOP_char_events.txt <----;;;;;;;;;;;X
+#-------------------------------;;;;;;;;;;;X
+EVT_19500_NAME;The ruler has been poisoned! Without doubt it is a conspiracy!;;;;;;;;;;X
+ACTIONNAME19500A;A bad reputation creates many enemies…;;;;;;;;;;X
+EVT_19501_NAME;BOPACK AI EVENT;;;;;;;;;;X
+EVT_19502_NAME;To avoiding ugly surprises, you should check the loyalty of your vassals, as voices are raised that one of them doesn't support your personal war at all, and he would like to have his army back home!;;;;;;;;;;X
+ACTIONNAME19502A;Perhaps I should return his the soldiers…;;;;;;;;;;X
+EVT_19503_NAME;BOPACK AI EVENT;;;;;;;;;;X
+EVT_19504_NAME;A disloyal vassal has taken back his army and has declared independence from you sending a message\n'Felon, fight YOUR wars alone!';;;;;;;;;;X
+ACTIONNAME19504A;This shame must be washed away with blood!;;;;;;;;;;X
+EVT_19505_NAME;With a Papal bull, the Pontiff demands all Catholic rulers waging war on their fellows to lay down the weapons. He guarantees the indulgence for sins committed during the fratricidal conflicts, and confirms that the only true enemies are people who don't profess the One True Faith;;;;;;;;;;X
+ACTIONNAME19505A;If the Pope wants it, God wants it!;;;;;;;;;;X
+ACTIONNAME19505B;A bull? Yes, it sure is…;;;;;;;;;;X
+EVT_19506_NAME;The matter of indulgences is not quite resolved!;;;;;;;;;;X
+ACTIONNAME19506A;I have understood, it's matter of offering…;;;;;;;;;;X
+ACTIONNAME19506B;This time I won't even pay a gramme of gold!;;;;;;;;;;X
+EVT_19507_NAME;The Pope disapproves of those who don't follow his directives!;;;;;;;;;;X
+ACTIONNAME19507A;I have understood, it's matter of offering…;;;;;;;;;;X
+ACTIONNAME19507B;This time I won't even pay a gramme of gold!;;;;;;;;;;X
+EVT_19508_NAME;The Pope has prepared another bull, a great and serious matter, that concerns yourself a lot!;;;;;;;;;;X
+ACTIONNAME19508A;No! Stop the bull! Here is the due offering…;;;;;;;;;;X
+ACTIONNAME19508B;Amen! I will follow first bull to avoid worse…;;;;;;;;;;X
+ACTIONNAME19508C;If the bull arrives, I will burn it!;;;;;;;;;;X
+EVT_19510_NAME;Currently the ruler enjoys a good reputation, and in the eyes of the common people he is a true knight;;;;;;;;;;X
+ACTIONNAME19510A;Yes, but this does not mean it will last forever!;;;;;;;;;;X
+EVT_19511_NAME;Currently the ruler doesn't enjoy a good reputation, and in the eyes of the common people he doesn't really appear to be a proper knight;;;;;;;;;;X
+ACTIONNAME19511A;The humours change with the tide…;;;;;;;;;;X
+EVT_19512_NAME;Currently the ruler enjoys a good reputation, and in the eyes of the common people he is a true knight;;;;;;;;;;X
+ACTIONNAME19512A;Yes, but this does not mean it will last forever!;;;;;;;;;;X
+EVT_19513_NAME;Currently the ruler doesn't enjoy a good reputation, and in the eyes of the common people he doesn't really appear to be a proper knight;;;;;;;;;;X
+ACTIONNAME19513A;The humours change with the tide…;;;;;;;;;;X
+EVT_19514_NAME;Currently the ruler has a bad reputation, and in the eyes of the common people he is a bad example of a knight;;;;;;;;;;X
+ACTIONNAME19514A;Everyone has to learn to fear me!;;;;;;;;;;X
+EVT_19515_NAME;Currently the ruler has a good reputation, and in the eyes of the common people he is a redeemed knight;;;;;;;;;;X
+ACTIONNAME19515A;The character tempers itself as does the sword!;;;;;;;;;;X
+EVT_19516_NAME;Currently the ruler has a bad reputation, and in the eyes of the common people he is a bad example of a knight;;;;;;;;;;X
+ACTIONNAME19516A;Everyone has to learn to fear me!;;;;;;;;;;X
+EVT_19517_NAME;Currently the ruler has a good reputation, and in the eyes of the common people he is a redeemed knight;;;;;;;;;;X
+ACTIONNAME19517A;The character tempers itself as does the sword!;;;;;;;;;;X
+EVT_19518_NAME;Currently the ruler has a very bad reputation, and in the eyes of the common people he is a merciless knight;;;;;;;;;;X
+ACTIONNAME19518A;Trouble happens to whom hinders my footsteps!;;;;;;;;;;X
+EVT_19519_NAME;Currently the ruler has a good reputation, and in the eyes of the common people he appears is redeemed knight;;;;;;;;;;X
+ACTIONNAME19519A;The character tempers itself as does the sword!;;;;;;;;;;X
+EVT_19520_NAME;Currently the ruler has a horrible reputation, and in the eyes of the common people he is a knight of evil;;;;;;;;;;X
+ACTIONNAME19520A;Torment is the whip of existence!;;;;;;;;;;X
+EVT_19521_NAME;Currently the ruler has a good reputation, and in the eyes of the common people he is a redeemed knight;;;;;;;;;;X
+ACTIONNAME19521A;The character tempers itself as does the sword!;;;;;;;;;;X
+EVT_19522_NAME;A courtier you trust, tired of the humiliation to serve a lord who doesn't enjoy a good reputation among his peers at all, is preparing to move elsewhere and to do his duties for someone with better reputation than you;;;;;;;;;;X
+ACTIONNAME19522A;I send him into a prison, eating bread and water!;;;;;;;;;;X
+ACTIONNAME19522B;Money can take away a lot of bitterness…;;;;;;;;;;X
+ACTIONNAME19522C;If he wants to leave, the door is open…;;;;;;;;;;X
+EVT_19523_NAME;None can be better than I!;;;;;;;;;;X
+ACTIONNAME19523A;Because nobody could be worse…;;;;;;;;;;X
+EVT_19524_NAME;Every person has his price!;;;;;;;;;;X
+ACTIONNAME19524A;And money can also buy loyalty…;;;;;;;;;;X
+EVT_19525_NAME;Nobody can afford to spit in the dish where he eats!;;;;;;;;;;X
+ACTIONNAME19525A;I will give his soup to whom has more hunger…;;;;;;;;;;X
+EVT_19526_NAME;Strange people are wandering threateningly outside the castle, and there is a chance that someone may break in at night supported by the bands of criminals that are present in the capital;;;;;;;;;;X
+ACTIONNAME19526A;Nobody goes to steal in the thieves home!;;;;;;;;;;X
+ACTIONNAME19526B;I will enforce the guard to avoid bad surprises;;;;;;;;;;X
+ACTIONNAME19526C;I'm sure it's a conspiracy by a rival of mine!;;;;;;;;;;X
+ACTIONNAME19526D;It's time to definitively fight against my rival!;;;;;;;;;;X
+EVT_19527_NAME;The religious divisions in Christianity instigate hate and mutual intolerance among the various confessions. For some reasons, someone could foment the persecution against those who are not Catholic, as we are. Recently strange and threathening people have been spotted outside the castle;;;;;;;;;;X
+ACTIONNAME19527A;Who could be against our Belief?;;;;;;;;;;X
+ACTIONNAME19527B;I will enforce the guard to avoid bad surprises;;;;;;;;;;X
+ACTIONNAME19527C;I'm sure it's a conspiracy by a rival of mine!;;;;;;;;;;X
+ACTIONNAME19527D;It's time to definitively fight against my rival!;;;;;;;;;;X
+EVT_19528_NAME;The Pope continually pronounces vigorous anathemas against all nobles who have denied the true faith and have embraced heresy. For some reasons, someone could be interested to act on the Papal threats, and, recently, strange and threathening people have been spotted outside the castle;;;;;;;;;;X
+ACTIONNAME19528A;They will learn the Truth of the new doctrine!;;;;;;;;;;X
+ACTIONNAME19528B;I will enforce the guard to avoid bad surprises;;;;;;;;;;X
+ACTIONNAME19528C;I'm sure it's a conspiracy by a rival of mine!;;;;;;;;;;X
+ACTIONNAME19528D;It's time to definitively fight against my rival!;;;;;;;;;;X
+EVT_19529_NAME;Your excommunication brands you as a criminal and banishes you from the assembly of the Catholic world. For some reasons, someone could stage a claim on your properties and, recently, strange and threathening people have been spotted outside the castle;;;;;;;;;;X
+ACTIONNAME19529A;Who would molest an outcast like me?;;;;;;;;;;X
+ACTIONNAME19529B;I will enforce the guard to avoid bad surprises;;;;;;;;;;X
+ACTIONNAME19529C;I'm sure it's a conspiracy by a rival of mine!;;;;;;;;;;X
+ACTIONNAME19529D;It's time to definitively fight against my rival!;;;;;;;;;;X
+EVT_19530_NAME;Someone saw dangerous shadows trought the corridors tonight!;;;;;;;;;;X
+ACTIONNAME19530A;Damn! They were hired assassins!;;;;;;;;;;X
+EVT_19531_NAME;A courtier has been attacked at midnight! ;;;;;;;;;;X
+ACTIONNAME19531A;We should increase the guard…;;;;;;;;;;X
+EVT_19532_NAME;Someone saw dangerous shadows trought the corridors tonight!;;;;;;;;;;X
+ACTIONNAME19532A;Damn! They were hired assassins!;;;;;;;;;;X
+EVT_19533_NAME;The ruler has been attacked at midnight! ;;;;;;;;;;X
+ACTIONNAME19533A;We should increase the guard…;;;;;;;;;;X
+EVT_19534_NAME;Damned thieves! Gold sacks, silver wares and jewels have disappeared from the castle!;;;;;;;;;;X
+ACTIONNAME19534A;They will need days to count the loot!;;;;;;;;;;X
+EVT_19535_NAME;Felon, I got fresh mercenaries. Come here if you have courage!';;;;;;;;;;X
+ACTIONNAME19535A;I'm waiting for you!;;;;;;;;;;X
+EVT_19540_NAME;The burden of the years begins to weak your physical and moral, and perhaps it's time to pass the sceptre of power to your heir;;;;;;;;;;X
+ACTIONNAME19540A;I'll buy a castle for my last days and abdicate;;;;;;;;;;X
+ACTIONNAME19540B;No, only death will separate me from command!;;;;;;;;;;X
+EVT_19541_NAME;Your father's health is seriously compromised, the demesne needs an efficient guide and you are the legitimate heir. Do you want to accelerate the succession?;;;;;;;;;;X
+ACTIONNAME19541A;Forgive me, father, but politic has its reasons!;;;;;;;;;;X
+ACTIONNAME19541B;No, only God will give me the command!;;;;;;;;;;X
+EVT_19542_NAME;The ruler has health and power in abundance, then your succession as legitimate heir doesn't seem immediately at all. Do you think you can wait your turn so long?;;;;;;;;;;X
+ACTIONNAME19542A; At night unforeseen tragic events often occur…;;;;;;;;;;X
+ACTIONNAME19542B;I need someone doing the dirty job!;;;;;;;;;;X
+ACTIONNAME19542C;Only God will give me the command!;;;;;;;;;;X
+EVT_19543_NAME;The plot must result an unfortunate accident!;;;;;;;;;;X
+ACTIONNAME19543A;A horse downfall provoked by the Marshal;;;;;;;;;;X
+ACTIONNAME19543B;A wall collapse caused by Spymaster;;;;;;;;;;X
+ACTIONNAME19543C;A poisoned cup of wine furnished by Chancellor;;;;;;;;;;X
+ACTIONNAME19543D;A stairs fall due to the Steward treasure chest;;;;;;;;;;X
+EVT_19550_NAME;The lack of male heirs is a sorrow that often bothers you, frustrating the dream of becoming a playful dad that amuses his children before the good night's kiss. You must find a remedy for the low scarce fertility that prevents you from procreating;;;;;;;;;;X
+ACTIONNAME19550A;I could resort to black magic;;;;;;;;;;X
+ACTIONNAME19550B;The alchemist deals in aphrodisiac potions;;;;;;;;;;X
+ACTIONNAME19550C;I will have my wife sleep with another;;;;;;;;;;X
+ACTIONNAME19550D;Patience! A relative will continue the dynasty;;;;;;;;;;X
+EVT_19551_NAME;The lack of male heirs is a sorrow that often bothers you, frustrating the dream of becoming a playful dad that amuses his children before the good night's kiss. You must find a remedy for the low scarce fertility that prevents your wife from procreating;;;;;;;;;;X
+ACTIONNAME19551A;I could divorce her and remarry;;;;;;;;;;X
+ACTIONNAME19551B;A bastard with a maid is better than nothing;;;;;;;;;;X
+ACTIONNAME19551C;A fiery 'stallion boy' will cure her frigidity;;;;;;;;;;X
+ACTIONNAME19551D;Patience! A relative will continue the dynasty;;;;;;;;;;X
+EVT_19600_NAME;A courtier, without duties and without marriage ties, has gotten tired sitting idle at court and he has expressed the desire to move elsewhere;;;;;;;;;;X
+ACTIONNAME19600A;Courtiers here do only what I decide for them!;;;;;;;;;;X
+ACTIONNAME19600B;You will remain behind, counting your new money…;;;;;;;;;;X
+ACTIONNAME19600C;Good trip and good fortunes!;;;;;;;;;;X
+EVT_19601_NAME;How much must I spend on my courtiers!;;;;;;;;;;X
+ACTIONNAME19601A;Sooner or later I'll provide work for everyone…;;;;;;;;;;X
+EVT_19602_NAME;A young damsel, still a single woman, would like to find an husband before it is too late;;;;;;;;;;X
+ACTIONNAME19602A;You're shameless! Withdraw in your lodgings!;;;;;;;;;;X
+ACTIONNAME19602B;I think I can remedy part of the problem…;;;;;;;;;;X
+ACTIONNAME19602C;Look for a husband elsewhere with my blessings!;;;;;;;;;;X
+EVT_19603_NAME;The ruler intends to practice his 'ius primae noctis' on you!';;;;;;;;;;X
+ACTIONNAME19603A;My virility doesn't have peer! Submit yourself!;;;;;;;;;;X
+ACTIONNAME19603B;I can instruct you in the art and secrets of love…;;;;;;;;;;X
+ACTIONNAME19603C;Considering matters, is better you go elsewhere;;;;;;;;;;X
+EVT_19604_NAME;After a night of the violence comes a day of shame!;;;;;;;;;;X
+ACTIONNAME19604A;Despicable man, how could you have done this?;;;;;;;;;;X
+EVT_19605_NAME;I prefer departing rather than seeing you again!;;;;;;;;;;X
+ACTIONNAME19605A;Goodbye animal! May God punish you!;;;;;;;;;;X
+EVT_19606_NAME;Your crime has not passed unnoticed!;;;;;;;;;;X
+ACTIONNAME19606A;Despite all, I would do it again…;;;;;;;;;;X
+EVT_19607_NAME;God's punishment arrives!;;;;;;;;;;X
+ACTIONNAME19607A;Accursed witch! I have contracted syphilis…;;;;;;;;;;X
+EVT_19608_NAME;The fruit of your sin will follow you forever!;;;;;;;;;;X
+ACTIONNAME19608A;I'll tell everyboby you have left him behind…;;;;;;;;;;X
+EVT_19609_NAME;What marvelous nights, a season of guilt!;;;;;;;;;;X
+ACTIONNAME19609A;But it was foolish not to consider consequences…;;;;;;;;;;X
+EVT_19610_NAME;The fruit of pleasure becomes an unforeseen event!;;;;;;;;;;X
+ACTIONNAME19610A;It doesn't matter, I will care for him…;;;;;;;;;;X
+EVT_19611_NAME;Alas, in my position I cannot compromise myself!;;;;;;;;;;X
+ACTIONNAME19611A;With regrets, our affair must end here…;;;;;;;;;;X
+EVT_19612_NAME;Rather than 'passion' I would call it 'extortion!';;;;;;;;;;X
+ACTIONNAME19612A;The lovers are sweet and expensive leeches…;;;;;;;;;;X
+EVT_19619_NAME;My place is no longer between these walls;;;;;;;;;;X
+ACTIONNAME19619A;Only God knows if I can return one day…;;;;;;;;;;X
+EVT_19620_NAME;Although a promising appointment untill now, a young cadet has proven to be entirely inadequate to continue military training because of his lack of virility;;;;;;;;;;X
+ACTIONNAME19620A;By now it is too late, settle for least results;;;;;;;;;;X
+ACTIONNAME19620B;There is still time to instruct him at court;;;;;;;;;;X
+ACTIONNAME19620C;In a monastery he will certainly find his vocation;;;;;;;;;;X
+EVT_19621_NAME;Although a promising appointment untill now, a young courtier has revealed himself entirely inadequate to continue training at court because of his clear personal gaps;;;;;;;;;;X
+ACTIONNAME19621A;Let's be satisfied with a future charlatan;;;;;;;;;;X
+ACTIONNAME19621B;He will become a 'hole in my pocket…';;;;;;;;;;X
+ACTIONNAME19621C;In a training camp there is a way of tempering him;;;;;;;;;;X
+ACTIONNAME19621D;In a monastery he will certainly find his vocation;;;;;;;;;;X
+EVT_19622_NAME;Although a promising appointment untill now, a young clergyman has revealed himself entirely inadequate to continue his religious formation because of his doubtful personal rectitude;;;;;;;;;;X
+ACTIONNAME19622A;Even as a hermit he will eventually make converts;;;;;;;;;;X
+ACTIONNAME19622B;In a training camp there is a way of tempering him;;;;;;;;;;X
+ACTIONNAME19622C;We are still in time to instruct him at court;;;;;;;;;;X
+EVT_19623_NAME;Although a promising appointment untill now, a young courtier has revealed herself entirely inadequate to continue her formation at court because of her clear personal gaps;;;;;;;;;;X
+ACTIONNAME19623A;Let's be satisfied with a future charlatan;;;;;;;;;;X
+ACTIONNAME19623B;She will become a 'hole in my pocket…';;;;;;;;;;X
+ACTIONNAME19623C;In a monastery she'll certainly find her vocation;;;;;;;;;;X
+EVT_19624_NAME;Although a promising appointment untill now, a young acolyte has revealed herself entirely inadequate to continue her religious formation because of her doubtful personal rectitude;;;;;;;;;;X
+ACTIONNAME19624A;Even as a hermit she will eventually make converts;;;;;;;;;;X
+ACTIONNAME19624B;We are still in time to instruct her at court;;;;;;;;;;X
+EVT_19700_NAME;While crossing a disputed territory with your army, a gang of outlaws ambushes you when, unwisely, you risk yourself accompanied with just a few men following you;;;;;;;;;;X
+ACTIONNAME19700A;It's better to surrender, and treat with them…;;;;;;;;;;X
+ACTIONNAME19700B;Perhaps, spurring the horses, we can fly away…;;;;;;;;;;X
+ACTIONNAME19700C;A noble is worth ten outlaws, charge!;;;;;;;;;;X
+EVT_19701_NAME;You are captured, stripped of your armor, and locked away in the hide-out of the criminals!;;;;;;;;;;X
+ACTIONNAME19701A;The treasury will pay 500 gold for my release!;;;;;;;;;;X
+ACTIONNAME19701B;I can pay only a part of what you demand;;;;;;;;;;X
+ACTIONNAME19701C;You ask for the moon! Nobody will pay for me!;;;;;;;;;;X
+EVT_19702_NAME;The treasury pays the whole required sum!;;;;;;;;;;X
+ACTIONNAME19702A;A huge effort for a just cause…;;;;;;;;;;X
+EVT_19703_NAME;The treasury pays only 150 of the required gold sum;;;;;;;;;;X
+ACTIONNAME19703A;Perhaps this money will go waste…;;;;;;;;;;X
+EVT_19704_NAME;A wide cliff stands in the way of your escape from the criminals!;;;;;;;;;;X
+ACTIONNAME19704A;The ground is unstable, there is some risk…;;;;;;;;;;X
+ACTIONNAME19704B;I'd better desist and surrender to the bandits;;;;;;;;;;X
+ACTIONNAME19704C;Never! I will fight them as a true knight!;;;;;;;;;;X
+EVT_19705_NAME;You have thrown your heart beyond the fear, but finally you are safe!;;;;;;;;;;X
+ACTIONNAME19705A;Next time I'll be more careful…;;;;;;;;;;X
+EVT_19706_NAME;These scoundrels will now taste the implacable fury of the brave knights!;;;;;;;;;;X
+ACTIONNAME19706A;I will fight valiant up to my death!;;;;;;;;;;X
+ACTIONNAME19706B;They are far too numerous, there is no hope…;;;;;;;;;;X
+EVT_19707_NAME;They know not the meaning of pity!;;;;;;;;;;X
+ACTIONNAME19707A;I would have preferred to be buried, at least…;;;;;;;;;;X
+EVT_19710_NAME;While you are leading the army, a wandering regiment of Arabic mercenaries challenges you in a provocative way;;;;;;;;;;X
+ACTIONNAME19710A;Courageous men, advance and exterminate everybody!;;;;;;;;;;X
+ACTIONNAME19710B;I will face their commander in a duel…;;;;;;;;;;X
+ACTIONNAME19710C;They are mercenaries, therefore they have a price…;;;;;;;;;;X
+EVT_19711_NAME;While you are leading the army, a wandering regiment of Iberian mercenaries challenges you in a provocative way;;;;;;;;;;X
+ACTIONNAME19711A;Courageous men, advance and exterminate everybody!;;;;;;;;;;X
+ACTIONNAME19711B;I will face their commander in a duel…;;;;;;;;;;X
+ACTIONNAME19711C;They are mercenaries, therefore they have a price…;;;;;;;;;;X
+EVT_19712_NAME;While you are leading the army, a wandering regiment of French mercenaries challenges you in a provocative way;;;;;;;;;;X
+ACTIONNAME19712A;Courageous men, advance and exterminate everybody!;;;;;;;;;;X
+ACTIONNAME19712B;I will face their commander in a duel…;;;;;;;;;;X
+ACTIONNAME19712C;They are mercenaries, therefore they have a price…;;;;;;;;;;X
+EVT_19713_NAME;While you are guiding the army, a wandering regiment of Saxon mercenaries challenges you in a provocative way;;;;;;;;;;X
+ACTIONNAME19713A;Courageous men, advance and exterminate everybody!;;;;;;;;;;X
+ACTIONNAME19713B;I will face their commander in a duel…;;;;;;;;;;X
+ACTIONNAME19713C;They are mercenaries, therefore they have a price…;;;;;;;;;;X
+EVT_19714_NAME;While you are guiding the army, a wandering regiment of Germanic mercenaries challenges you in a provocative way;;;;;;;;;;X
+ACTIONNAME19714A;Courageous men, advance and exterminate everybody!;;;;;;;;;;X
+ACTIONNAME19714B;I will face their commander in a duel…;;;;;;;;;;X
+ACTIONNAME19714C;They are mercenaries, therefore they have a price…;;;;;;;;;;X
+EVT_19715_NAME;While you are guiding the army, a wandering regiment of Slavic mercenaries challenges you in a provocative way;;;;;;;;;;X
+ACTIONNAME19715A;Courageous men, advance and exterminate everybody!;;;;;;;;;;X
+ACTIONNAME19715B;I will face their commander in a duel…;;;;;;;;;;X
+ACTIONNAME19715C;They are mercenaries, therefore they have a price…;;;;;;;;;;X
+EVT_19716_NAME;While you are guiding the army, a wandering regiment of Nordic mercenaries challenges you in a provocative way;;;;;;;;;;X
+ACTIONNAME19716A;Courageous men, advance and exterminate everybody!;;;;;;;;;;X
+ACTIONNAME19716B;I will face their commander in a duel…;;;;;;;;;;X
+ACTIONNAME19716C;They are mercenaries, therefore they have a price…;;;;;;;;;;X
+EVT_19717_NAME;While you are guiding the army, a wandering regiment of Mongol mercenaries challenges you in a provocative way;;;;;;;;;;X
+ACTIONNAME19717A;Courageous men, advance and exterminate everybody!;;;;;;;;;;X
+ACTIONNAME19717B;I will face their commander in a duel…;;;;;;;;;;X
+ACTIONNAME19717C;They are mercenaries, therefore they have a price…;;;;;;;;;;X
+EVT_19718_NAME;While you are sailing in open sea, a wandering fleet of Saracen pirates outlines on the horizon, ready to board you;;;;;;;;;;X
+ACTIONNAME19718A;Order your fleet to prepare for the attack!;;;;;;;;;;X
+ACTIONNAME19718B;I immediately will board their flagship…;;;;;;;;;;X
+ACTIONNAME19718C;They are mercenaries, therefore they have a price…;;;;;;;;;;X
+EVT_19719_NAME;Victory! God was on our side!;;;;;;;;;;X
+ACTIONNAME19719A;Collect the booty and go on…;;;;;;;;;;X
+EVT_19720_NAME;500 gold coins are a good way to resolve the dispute!;;;;;;;;;;X
+ACTIONNAME19720A;What's bad, however, is I'll have to pay for them…;;;;;;;;;;X
+EVT_19721_NAME;Naked earth will feed itself with the blood of your brave soldiers!;;;;;;;;;;X
+ACTIONNAME19721A;Their souls will shake your nighttime dreams…;;;;;;;;;;X
+EVT_19722_NAME;You have completed your duty up to the ultimate sacrifice!;;;;;;;;;;X
+ACTIONNAME19722A;Honour will be my companion in the grave…;;;;;;;;;;X
+EVT_19723_NAME;Victory! Wind and sea were propitious!;;;;;;;;;;X
+ACTIONNAME19723A;Collect the booty and go on…;;;;;;;;;;X
+EVT_19724_NAME;The blue depth will be the grave of your brave sailors!;;;;;;;;;;X
+ACTIONNAME19724A;Their sacrifice will torment your sleep…;;;;;;;;;;X
+EVT_19725_NAME;A funeral at sea is not the best one for a knight!;;;;;;;;;;X
+ACTIONNAME19725A;But your courage will be celebrated back home…;;;;;;;;;;X
+EVT_19730_NAME;While you are crossing the lands of the Saracens, local peoples spontaneously assemble numerous armies, determined to prevent you with their weapons from continuing your war against their Moslem brothers;;;;;;;;;;X
+ACTIONNAME19730A;God is with us, death to the infidels!;;;;;;;;;;X
+ACTIONNAME19730B;I must quickly secure peace…;;;;;;;;;;X
+ACTIONNAME19730C;I give myself up as a hostage, my army will go on…;;;;;;;;;;X
+EVT_19731_NAME;While you are crossing the lands of the pagans, local peoples spontaneously assemble numerous armies, determined to prevent you with their weapons from continuing your war against their pagan brothers;;;;;;;;;;X
+ACTIONNAME19731A;God is with us, death to the infidels!;;;;;;;;;;X
+ACTIONNAME19731B;I must quickly secure peace…;;;;;;;;;;X
+ACTIONNAME19731C;I give myself up as a hostage, my army will go on…;;;;;;;;;;X
+EVT_19732_NAME;While you are crossing Jewish provinces, local peoples spontaneously assemble numerous armies, determined to prevent you with their weapons from continuing your war against their Jewish brothers;;;;;;;;;;X
+ACTIONNAME19732A;God is with us, death to the Christ-killers!;;;;;;;;;;X
+ACTIONNAME19732B;I must quickly secure peace…;;;;;;;;;;X
+ACTIONNAME19732C;I give myself up as a hostage, my army will go on…;;;;;;;;;;X
+EVT_19733_NAME;While you are crossing orthodox lands, local peoples spontaneously assemble numerous armies, determined to prevent you with their weapons from continuing your war against their orthodox brothers;;;;;;;;;;X
+ACTIONNAME19733A;God is with us, death to the schismatics!;;;;;;;;;;X
+ACTIONNAME19733B;I must quickly secure peace…;;;;;;;;;;X
+ACTIONNAME19733C;I give myself up as a hostage, my army will go on…;;;;;;;;;;X
+EVT_19734_NAME;While you are crossing Catholic lands, local peoples spontaneously assemble numerous armies, determined to prevent you with their weapons from continuing your war against their brothers in baptism;;;;;;;;;;X
+ACTIONNAME19734A;God is with us, death to the schismatics!;;;;;;;;;;X
+ACTIONNAME19734B;I must quickly secure peace…;;;;;;;;;;X
+ACTIONNAME19734C;I give myself up as a hostage, my army will go on…;;;;;;;;;;X
+EVT_19735_NAME;Give orders to the army to prepare themselves to fight!;;;;;;;;;;X
+ACTIONNAME19735A;I'll go ahead, so I will encourage the soldiers…;;;;;;;;;;X
+ACTIONNAME19735B;I'll stay back, so I will command them better…;;;;;;;;;;X
+ACTIONNAME19735C;I must quickly secure peace…;;;;;;;;;;X
+ACTIONNAME19735D;I give myself up as a hostage, my army will go on…;;;;;;;;;;X
+EVT_19736_NAME;Peace requiring 200 gold is never painless!;;;;;;;;;;X
+ACTIONNAME19736A;However we have spared a lot of human lives…;;;;;;;;;;X
+EVT_19737_NAME;The destiny of a prisoner is always unknown!;;;;;;;;;;X
+ACTIONNAME19737A;Paying a 500 gold ransom, I will save my life!;;;;;;;;;;X
+ACTIONNAME19737B;If I survive the tortures I'll be free, at least…;;;;;;;;;;X
+ACTIONNAME19737C;The only hope is to try an unlikely escape…;;;;;;;;;;X
+#-------------------------------;;;;;;;;;;;X
+#----> BOP_flav_events.txt <----;;;;;;;;;;;X
+#-------------------------------;;;;;;;;;;;X
+EVT_19900_NAME;The frightened people of the village spread rumours about a mysterious and fierce animal wandering the lands around the castle, sowing death and destruction with fiery breath;;;;;;;;;;X
+ACTIONNAME19900A;I do not believe such beasts can exist…;;;;;;;;;;X
+ACTIONNAME19900B;I will pay the best hunters to get rid of it!;;;;;;;;;;X
+ACTIONNAME19900C;I will let the marshal handle the problem…;;;;;;;;;;X
+ACTIONNAME19900D;I will face this unlikely monster myself!;;;;;;;;;;X
+EVT_19901_NAME;A mysterious wreckage is found in the waters at the edge of the realm, and it is rumoured to have a fabulous treasure in its hold.;;;;;;;;;;X
+ACTIONNAME19901A;I don't know how to swim, so I'll pass this by;;;;;;;;;;X
+ACTIONNAME19901B;I'll jump right in and bring it back up!;;;;;;;;;;X
+EVT_19902_NAME;A gang of criminals scorches the lands unmolested because no noble knight dares face the brigands;;;;;;;;;;X
+ACTIONNAME19902A;There are no heroes in this castle!;;;;;;;;;;X
+ACTIONNAME19902B;Leave the heroics to the valiant ones: here I come!;;;;;;;;;;X
+EVT_19903_NAME;A criminal band has set up on the main roads, demanding tolls from any passerbys;;;;;;;;;;X
+ACTIONNAME19903A;It is time to enforce the law!;;;;;;;;;;X
+ACTIONNAME19903B;All in all, nobody is really hurt…;;;;;;;;;;X
+EVT_19904_NAME;A highway robber band has attacked a caravan carrying goods and a courtier, and now a ransom is demanded for her freedom and return of the items;;;;;;;;;;X
+ACTIONNAME19904A;Sorry, you'll have to take care of yourself…;;;;;;;;;;X
+ACTIONNAME19904B;She's a faithful servant, and deserves my help;;;;;;;;;;X
+EVT_19905_NAME;Contagious deaths, symptom of an epidemic that spreads through the land, have harshly struck the population. Herbs for the sick are immediately needed, before is too late!;;;;;;;;;;X
+ACTIONNAME19905A;Anything to help my people;;;;;;;;;;X
+ACTIONNAME19905B;Only the strong deserve to survive;;;;;;;;;;X
+EVT_19906_NAME;The moneylender that supported the cultivation of your lands has come for his agreed share of the money made by the farmers in your service;;;;;;;;;;X
+ACTIONNAME19906A;The harvest was bad, I can't pay you know!;;;;;;;;;;X
+ACTIONNAME19906B;He has earned his reward;;;;;;;;;;X
+EVT_19907_NAME;A group of noble and brave knights en route for the Holy Land asks for your hospitality;;;;;;;;;;X
+ACTIONNAME19907A;Certainly, make yourselves at home!;;;;;;;;;;X
+ACTIONNAME19907B;You are with too many! Go to another lord;;;;;;;;;;X
+EVT_19908_NAME;Our land is become overrun by wild growth of trees, and the buildings are threathened unless the forest is cut down;;;;;;;;;;X
+ACTIONNAME19908A;Sacrifices are necessary to preserve the landmarks;;;;;;;;;;X
+ACTIONNAME19908B;Who cares about buildings, all glory to nature!;;;;;;;;;;X
+EVT_19909_NAME;Tournaments are festive and glorious, but also tiring and expensive;;;;;;;;;;X
+ACTIONNAME19909A;Fortunately I am in perfect health!;;;;;;;;;;X
+ACTIONNAME19909B;The money is better spent in the court;;;;;;;;;;X
+EVT_19910_NAME;Your wive loves to ride outside the castle, and wants you to pursue and catch her;;;;;;;;;;X
+ACTIONNAME19910A;She's beautiful, but I can't play every day...;;;;;;;;;;X
+ACTIONNAME19910B;Let the 'hunt' begin!;;;;;;;;;;X
+EVT_19911_NAME;Your child is cuddled and gets a lot of attention from everyone, but if this continues the child will be spoiled;;;;;;;;;;X
+ACTIONNAME19911A;It does not matter, he'll outgrow it as an adult;;;;;;;;;;X
+ACTIONNAME19911B;Enough! Do they want him to grow soft?;;;;;;;;;;X
+EVT_19912_NAME;Last night you dreamt of a rain of money which fills your realm's coffers. What can it mean?;;;;;;;;;;X
+ACTIONNAME19912A;That soon I'll become rich without lifting a finger!;;;;;;;;;;X
+ACTIONNAME19912B;It's just a dream! I must work for my money!;;;;;;;;;;X
+EVT_19913_NAME;In the court stables a magnificent white stallion awaits a great rider which can tame his wild temperament;;;;;;;;;;X
+ACTIONNAME19913A;It takes a steady wrist to tame a future champion;;;;;;;;;;X
+ACTIONNAME19913B;I am not a stable-hand!;;;;;;;;;;X
+EVT_19914_NAME;Sometimes it would be a good idea to take census of all you own, to check what is missing and which expenses can be cut;;;;;;;;;;X
+ACTIONNAME19914A;I don't think so! Taking census is extremely boring!;;;;;;;;;;X
+ACTIONNAME19914B;That is true, and it is time to count...;;;;;;;;;;X
+EVT_19915_NAME;A group of Arab traders wish to sell you rare spices, but someone who speaks their language is needed if we want a fair price;;;;;;;;;;X
+ACTIONNAME19915A;Good, I'll negotiate a bargain price myself!;;;;;;;;;;X
+ACTIONNAME19915B;Sorry, no time to deal with merchants...;;;;;;;;;;X
+EVT_19916_NAME;Ever since youth, you liked to prove your courage by climbing the highest tower;;;;;;;;;;X
+ACTIONNAME19916A;I am still the best and will prove it!;;;;;;;;;;X
+ACTIONNAME19916B;Good memories, but I can no longer take those risks;;;;;;;;;;X
+EVT_19917_NAME;Wine stored in the open might spoil if left by itself, due to seasonal influences;;;;;;;;;;X
+ACTIONNAME19917A;It does not matter, it is great wine no matter what;;;;;;;;;;X
+ACTIONNAME19917B;Wine is stored best in well-cared for wine cellars;;;;;;;;;;X
+EVT_19918_NAME;During a hunt you have suddenly fainted, and collapsed to the ground. The courtiers worry what to do.;;;;;;;;;;X
+ACTIONNAME19918A;I will immediately take a period of rest;;;;;;;;;;X
+ACTIONNAME19918B;It is just a heat spell, continue the hunt!;;;;;;;;;;X
+EVT_19919_NAME;A group of enemies has laid siege to a castle of a noble in your family's lands, and the soldiers defending the castle need reinforcements;;;;;;;;;;X
+ACTIONNAME19919A;I will recruit an army to rescue women and childs;;;;;;;;;;X
+ACTIONNAME19919B;I don't care, let the enemy take the place;;;;;;;;;;X
+EVT_19920_NAME;After nightfall, the cold temperature on the castle walls are quite uncomfortable for the soldiers in your watch;;;;;;;;;;X
+ACTIONNAME19920A;With all that they cost me they dare complain?;;;;;;;;;;X
+ACTIONNAME19920B;I'll buy them warm clothes to keep out the cold;;;;;;;;;;X
+EVT_19921_NAME;Your steward informs you many subjects refuse to pay taxes, claiming they are too poor to contribute to your funds;;;;;;;;;;X
+ACTIONNAME19921A;Times are hard, I understand;;;;;;;;;;X
+ACTIONNAME19921B;Who does not pay will be hanged!;;;;;;;;;;X
+EVT_19922_NAME;All the people are interested in a witches trial, where the accused are charged with sacriledge;;;;;;;;;;X
+ACTIONNAME19922A;Burn the witch on the fire as a warning to all!;;;;;;;;;;X
+ACTIONNAME19922B;Let her free and stop this farce!;;;;;;;;;;X
+EVT_19923_NAME;Our bishop tells of a vision of the Madonna, Her Child, and the Angels, requesting places of worship to be built in our lands;;;;;;;;;;X
+ACTIONNAME19923A;Chase away this drunkard and his visions!;;;;;;;;;;X
+ACTIONNAME19923B;So be it, but only because I fear the wrath of God!;;;;;;;;;;X
+ACTIONNAME19923C;It's a sign, do as the Lord wants!;;;;;;;;;;X
+EVT_19924_NAME;The pope is restoring his great basilica, and requests you contribute to the work;;;;;;;;;;X
+ACTIONNAME19924A;God demands I support the Pope!;;;;;;;;;;X
+ACTIONNAME19924B;Allright, but I expect an indulgence in return!;;;;;;;;;;X
+ACTIONNAME19924C;I have no money, let providence provide the alms!;;;;;;;;;;X
+EVT_19925_NAME;Our bishop's sermons are succesful under the people, and many assemble to listen to his illustrous words;;;;;;;;;;X
+ACTIONNAME19925A;Go and preach of my piety for the Lord!;;;;;;;;;;X
+ACTIONNAME19925B;I will finance him, so he can do more good work;;;;;;;;;;X
+EVT_19926_NAME;A true holy man preaches of absolute poverty and the giving away of all possessions;;;;;;;;;;X
+ACTIONNAME19926A;I will entertain him here, so we can speak of God...;;;;;;;;;;X
+ACTIONNAME19926B;Poor man, he must have been hit in the head!;;;;;;;;;;X
+EVT_19927_NAME;The merchant caravans have not come for a long time now, and the stores are becoming empty;;;;;;;;;;X
+ACTIONNAME19927A;Time has come to sell our supplies for a lot of gold!;;;;;;;;;;X
+ACTIONNAME19927B;Lets sell our supplies for normal prices;;;;;;;;;;X
+EVT_19928_NAME;A nun who cares for the sick and needly knocks on our door, asking support for her mission;;;;;;;;;;X
+ACTIONNAME19928A;Noble sister, I will share my wealth;;;;;;;;;;X
+ACTIONNAME19928B;Sorry, I've already given all I have to the Pope;;;;;;;;;;X
+EVT_19929_NAME;Rummaging through and old trunk which belonged to your ancestors, you have found a manuscript of unknown importance;;;;;;;;;;X
+ACTIONNAME19929A;Let's sell it off as an antiquity and get some money;;;;;;;;;;X
+ACTIONNAME19929B;Let's keep it, it might be worth a fortune;;;;;;;;;;X
+EVT_19930_NAME;A specialist in manuscripts identifies the manuscript as having belogned to Charlemagne!;;;;;;;;;;X
+ACTIONNAME19930A;It's a family treasure and I'll keep it!;;;;;;;;;;X
+ACTIONNAME19930B;It's worth a fortune, and I can use the money;;;;;;;;;;X
+EVT_19931_NAME;Your wife's ambitions are great, and not a day goes by without her berating you for not increasing your lands;;;;;;;;;;X
+ACTIONNAME19931A;She's right, but I can't do as she wants;;;;;;;;;;X
+ACTIONNAME19931B;For you, my dear, I will do great deeds;;;;;;;;;;X
+EVT_19932_NAME;An artist could paint a tapistry for your halls in which you are depicted as a fearless commander, in the midst of battle;;;;;;;;;;X
+ACTIONNAME19932A;Make sure it looks exactly like me, I beg you!;;;;;;;;;;X
+ACTIONNAME19932B;I am not at all the type for such bragging;;;;;;;;;;X
+EVT_19933_NAME;On the day of your patron saint, all the people take part in the pilgrimage to the chapel, and you arrive there as well;;;;;;;;;;X
+ACTIONNAME19933A;I will go among the people and invoke his grace;;;;;;;;;;X
+ACTIONNAME19933B;I will go at the head, before the statue even;;;;;;;;;;X
+EVT_19934_NAME;You've known for some time that your child likes to sketch, spending whole days drawing his pets on the walls;;;;;;;;;;X
+ACTIONNAME19934A;My child, painting just isn't your field!;;;;;;;;;;X
+ACTIONNAME19934B;One day you'll be a famous artist;;;;;;;;;;X
+EVT_19935_NAME;The frantic commercial activities in your lands call for the installment of money lenders on our grounds;;;;;;;;;;X
+ACTIONNAME19935A;They're welcome, they'll benefit the economy;;;;;;;;;;X
+ACTIONNAME19935B;Usury is an evil which must be eradicated!;;;;;;;;;;X
+EVT_19936_NAME;An ancient document belonging to your family asserts that your dynasty is the rightful ruler of some bordering lands;;;;;;;;;;X
+ACTIONNAME19936A;Ignore it, it was extorted with force;;;;;;;;;;X
+ACTIONNAME19936B;Occasion has come to claim what is rightfully ours!;;;;;;;;;;X
+EVT_19937_NAME;You have caught a servant who was stealing fresh bread from the kitchens, and have locked him away in the dungeons;;;;;;;;;;X
+ACTIONNAME19937A;A day with my jailers will teach him a lesson;;;;;;;;;;X
+ACTIONNAME19937B;Let him free, the arrest will be frighting enough;;;;;;;;;;X
+EVT_19938_NAME;Your child is terrified of the fable of the black rider who abducts unruly children from their homes;;;;;;;;;;X
+ACTIONNAME19938A;He doesn't exist, it was a lie to make you behave;;;;;;;;;;X
+ACTIONNAME19938B;You are so disobedient the knight will certainly come!;;;;;;;;;;X
+EVT_19939_NAME;A noble in your court claims your title was bought by a remote ancestor for 4 goats, 1 cow, and 2 types of cheese....;;;;;;;;;;X
+ACTIONNAME19939A;Revoke this noble's title and burn him on the stake!;;;;;;;;;;X
+ACTIONNAME19939B;Drunkards tell very foolish tales;;;;;;;;;;X
+EVT_19940_NAME;Because of disobedience you have confined your wife away from the castle. Is it now time to end this punishment?;;;;;;;;;;X
+ACTIONNAME19940A;Yes, my life is worthless without her;;;;;;;;;;X
+ACTIONNAME19940B;I have some convenience to let her segregated…;;;;;;;;;;X
+EVT_19941_NAME;Our bishop has been attacked and wounded while performing his religious duty by two of your men. What shall we do?;;;;;;;;;;X
+ACTIONNAME19941A;I want these criminals to be severely punished!;;;;;;;;;;X
+ACTIONNAME19941B;Forgive them, as the bishop preaches....;;;;;;;;;;X
+EVT_19942_NAME;Apparently your marshall was attacked and robbed last night in the castle corridors. If this is true, it is a cause of worry!;;;;;;;;;;X
+ACTIONNAME19942A;Unfortunately it's true, but I'll find the guilty ones;;;;;;;;;;X
+ACTIONNAME19942B;No, he fell off the stairs because he was drunk...;;;;;;;;;;X
+ACTIONNAME19942C;It's a ploy by that liar! Away with him!;;;;;;;;;;X
+EVT_19943_NAME;We have to decide wether or not to lower the gate of the drawbridge at night, as the people of the town could enter castle's courtyard producing noise;;;;;;;;;;X
+ACTIONNAME19943A;A bit of confusion will make the night more cheerful…;;;;;;;;;;X
+ACTIONNAME19943B;Always lower the gate! No noise, please!;;;;;;;;;;X
+EVT_19944_NAME;The castle gates are crossed every day by groups of soldiers, so they can ride in the surrounding lands;;;;;;;;;;X
+ACTIONNAME19944A;I am certain everything is in order;;;;;;;;;;X
+ACTIONNAME19944B;I have given them order to remain in form;;;;;;;;;;X
+EVT_19945_NAME;In the castle halls you notice that your courtiers tend to assemble in small groups, and fall silent whenever they notice you;;;;;;;;;;X
+ACTIONNAME19945A;They are just talking, and are quiet out of respect;;;;;;;;;;X
+ACTIONNAME19945B;The ingrates are plotting against me!;;;;;;;;;;X
+EVT_19946_NAME;During your usual walk through your lands a young shepherdess notices your chivalrous splendor;;;;;;;;;;X
+ACTIONNAME19946A;I am a true knight, and respect the gentler sex;;;;;;;;;;X
+ACTIONNAME19946B;As the saying goes, nothing wagered nothing gained!;;;;;;;;;;X
+EVT_19947_NAME;Your passionate wife drains a lot of you during the nightly extasy, as you'd expect of a happily married couple;;;;;;;;;;X
+ACTIONNAME19947A;None too disturbing, but in the morning I am beat...;;;;;;;;;;X
+ACTIONNAME19947B;Be still my dear! I have a realm to take care off;;;;;;;;;;X
+EVT_19948_NAME;The marshall's wife throws herself at your feet all the time, wishing loving attention from you that her husband denies her;;;;;;;;;;X
+ACTIONNAME19948A;What can I say... I am a man of healthy principles!;;;;;;;;;;X
+ACTIONNAME19948B;He is faithful to me... I should be the same;;;;;;;;;;X
+EVT_19949_NAME;The Red Lady is a fascinating and mysterious lady, who often allows you to exchange the realm's funds for some of the more secluded male pleasures;;;;;;;;;;X
+ACTIONNAME19949A;Thanks to my gold this prey will be mine tonight!;;;;;;;;;;X
+ACTIONNAME19949B;She's a devilish creature! Resist the temptation...;;;;;;;;;;X
+EVT_19950_NAME;Our feud is crossed by a trail where pilgrims walk through on daily basis, but many of them fall exhausted by fatigue;;;;;;;;;;X
+ACTIONNAME19950A;Block the passage to these unnecessary wayfarers;;;;;;;;;;X
+ACTIONNAME19950B;Such pain deserves a little sweat refreshments;;;;;;;;;;X
+EVT_19951_NAME;You have just found a jewelry suitcase that your grandmother had hidden and which everyone had lost track after her death;;;;;;;;;;X
+ACTIONNAME19951A;Exactly what the Treasure desperately needs!;;;;;;;;;;X
+ACTIONNAME19951B;I'll buy a nice surprise to my wife;;;;;;;;;;X
+ACTIONNAME19951C;The most glaring jewel will be for my spouse;;;;;;;;;;X
+ACTIONNAME19951D;Giving all to my wife I'll gain nights of madness!;;;;;;;;;;X
+EVT_19952_NAME;The marshal is furious against a young servant, because he had broken his precious sword, companion of many battles;;;;;;;;;;X
+ACTIONNAME19952A;Nobody can punish a boy!;;;;;;;;;;X
+ACTIONNAME19952B;I dislike to dispute with my soldiers…;;;;;;;;;;X
+EVT_19953_NAME;Chaplain has strongly criticised you because you went in the knights arena instead of to participate at the holy rite ;;;;;;;;;;X
+ACTIONNAME19953A;I'll go to him as a penitent sheep;;;;;;;;;;X
+ACTIONNAME19953B;I want to win next tournament at any cost!;;;;;;;;;;X
+EVT_19954_NAME;Courtiers were surprised by an evocative painting suddenly appeared in a stunning exhibition on a wall of the party hall;;;;;;;;;;X
+ACTIONNAME19954A;I spent years of hard work to finish it secretly!;;;;;;;;;;X
+ACTIONNAME19954B;Now I say stop to the worldliness at court!;;;;;;;;;;X
+EVT_19955_NAME;At court there are ladies employed in the weaving work that gladly will make friendship with a brilliant knight;;;;;;;;;;X
+ACTIONNAME19955A;A pleasant conversation enforces the spirit;;;;;;;;;;X
+ACTIONNAME19955B;It's unnecessarily wasted breath at all!;;;;;;;;;;X
+#------------------------------------------------;;;;;;;;;;;X
+#------------> BOP_smack_events.txt <------------;;;;;;;;;;;X
+# Solmyr's events collected from SMACK by Ambrox ;;;;;;;;;;;X
+#------------------------------------------------;;;;;;;;;;;X
+EVT_20000_NAME;Ruler kills his own wife in a fit of madness;;;;;;;;;;X
+ACTIONNAME20000A;Die!;;;;;;;;;;X
+EVT_20001_NAME;Mad ruler lusts insatiably after his subjects' wives;;;;;;;;;;X
+ACTIONNAME20001A;Mine, all mine!;;;;;;;;;;X
+EVT_20002_NAME;Mad ruler executes subjects en masse;;;;;;;;;;X
+ACTIONNAME20002A;Let all these traitors die!;;;;;;;;;;X
+EVT_20003_NAME;Ruler kills his own son in a fit of madness;;;;;;;;;;X
+ACTIONNAME20003A;Die!;;;;;;;;;;X
+EVT_20004_NAME;Maniac - Misogynistic behavior;;;;;;;;;;X
+ACTIONNAME20004A;I hate women!;;;;;;;;;;X
+EVT_20005_NAME;Maniac - Character refuses to leave his bedroom;;;;;;;;;;X
+ACTIONNAME20005A;I'm scared!;;;;;;;;;;X
+EVT_20006_NAME;Maniac - Religious obsession;;;;;;;;;;X
+ACTIONNAME20006A;God is the greatest!;;;;;;;;;;X
+EVT_20007_NAME;Maniac - Period of mental clarity;;;;;;;;;;X
+ACTIONNAME20007A;My mind feels clear...;;;;;;;;;;X
+EVT_20008_NAME;Maniac - Period of mental recession;;;;;;;;;;X
+ACTIONNAME20008A;I don't feel so good...;;;;;;;;;;X
+EVT_20009_NAME;Young ruler is presured by courtiers;;;;;;;;;;X
+ACTIONNAME20009A;They all have their agenda;;;;;;;;;;X
+EVT_20010_NAME;Your son is interested in other boys;;;;;;;;;;X
+ACTIONNAME20010A;Nothing can be done;;;;;;;;;;X
+ACTIONNAME20010B;Disown him;;;;;;;;;;X
+EVT_20011_NAME;Ruler is forced to abdicate;;;;;;;;;;X
+ACTIONNAME20011A;Resist the usurpers!;;;;;;;;;;X
+ACTIONNAME20011B;Abdicate peacefully;;;;;;;;;;X
+EVT_20012_NAME;Character gains experience;;;;;;;;;;X
+ACTIONNAME20012A;I am older, but wiser;;;;;;;;;;X
+EVT_20013_NAME;Character gains experience;;;;;;;;;;X
+ACTIONNAME20013A;I am older, but wiser;;;;;;;;;;X
+EVT_20014_NAME;Character gains experience;;;;;;;;;;X
+ACTIONNAME20014A;I am older, but wiser;;;;;;;;;;X
+EVT_20015_NAME;Character suffers effects of age;;;;;;;;;;X
+ACTIONNAME20015A;Old age is catching up with me;;;;;;;;;;X
+EVT_20016_NAME;Character suffers effects of age;;;;;;;;;;X
+ACTIONNAME20016A;Old age is catching up with me;;;;;;;;;;X
+EVT_20017_NAME;Character thinks about faith;;;;;;;;;;X
+ACTIONNAME20017A;Reflect upon your life;;;;;;;;;;X
+ACTIONNAME20017B;Faith is overrated;;;;;;;;;;X
+EVT_20018_NAME;Dynasty establishes itself;;;;;;;;;;X
+ACTIONNAME20018A;Claim the throne for my dynasty;;;;;;;;;;X
+ACTIONNAME20018B;Keep the old succession laws;;;;;;;;;;X
+EVT_20019_NAME;Feudalism takes root;;;;;;;;;;X
+ACTIONNAME20019A;Institute feudalism;;;;;;;;;;X
+ACTIONNAME20019B;Increase royal power instead;;;;;;;;;;X
+ACTIONNAME20019C;Leave things as they are;;;;;;;;;;X
+EVT_20020_NAME;Royal power increases;;;;;;;;;;X
+ACTIONNAME20020A;Increase royal power;;;;;;;;;;X
+ACTIONNAME20020B;Leave things as they are;;;;;;;;;;X
+EVT_20021_NAME;Salic Law;;;;;;;;;;X
+ACTIONNAME20021A;Institute Salic Law;;;;;;;;;;X
+ACTIONNAME20021B;Keep the old succession laws;;;;;;;;;;X
+EVT_20024_NAME;Rise of the Ottomans;;;;;;;;;;X
+EVT_20025_NAME;Your chaplain guides by example;;;;;;;;;;X
+ACTIONNAME20025A;He is a holy man;;;;;;;;;;X
+EVT_20026_NAME;Your chaplain's piety influences your standing;;;;;;;;;;X
+ACTIONNAME20026A;He is a holy man;;;;;;;;;;X
+EVT_20027_NAME;Your chaplain's impiety hurts your standing;;;;;;;;;;X
+ACTIONNAME20027A;He is a faithless man;;;;;;;;;;X
+EVT_20028_NAME;Your chaplain denounces carnal pleasures;;;;;;;;;;X
+ACTIONNAME20028A;Yes, carnal pleasures are a sin;;;;;;;;;;X
+ACTIONNAME20028B;Bah, what harm could come from it?;;;;;;;;;;X
+EVT_20029_NAME;Your chaplain's indulgent behavior is drawing condemnation;;;;;;;;;;X
+ACTIONNAME20029A;He likes wild orgies too much...;;;;;;;;;;X
+EVT_20030_NAME;Your chaplain's religious views are coming into conflict with official dogma;;;;;;;;;;X
+ACTIONNAME20030A;He is arguing against the religious establishment;;;;;;;;;;X
+EVT_20031_NAME;Your chaplain's heresy is drawing ire towards you!;;;;;;;;;;X
+ACTIONNAME20031A;Exile him;;;;;;;;;;X
+ACTIONNAME20031B;His teachings are true!;;;;;;;;;;X
+EVT_20032_NAME;Your chaplain urges you to take the Cross!;;;;;;;;;;X
+ACTIONNAME20032A;Deus Vult!;Deus Vult !;Deus vult!;¡Deus vult!;Deus vult!;;;;;;X
+ACTIONNAME20032B;Pff!;;;;;;;;;;X
+EVT_20033_NAME;Your chaplain is a little too zealous in burning heretics and infidels;;;;;;;;;;X
+ACTIONNAME20033A;Let him do his work;;;;;;;;;;X
+ACTIONNAME20033B;Stop these atrocities;;;;;;;;;;X
+EVT_20034_NAME;Your chaplain generously distributes the realm's treasury for alms;;;;;;;;;;X
+ACTIONNAME20034A;Let him do this good work;;;;;;;;;;X
+ACTIONNAME20034B;Forbid him to do it;;;;;;;;;;X
+EVT_20035_NAME;Your chaplain is a little too greedy in collecting indulgences and tithes;;;;;;;;;;X
+ACTIONNAME20035A;I am sure it is all going to the Church...;;;;;;;;;;X
+EVT_20036_NAME;Your judgment is required in a legal case;;;;;;;;;;X
+ACTIONNAME20036A;Rule justly;;;;;;;;;;X
+ACTIONNAME20036B;Favor your friends;;;;;;;;;;X
+ACTIONNAME20036C;Maintain a middle ground;;;;;;;;;;X
+EVT_20037_NAME;Pass judgment on a criminal;;;;;;;;;;X
+ACTIONNAME20037A;Punish them harshly;;;;;;;;;;X
+ACTIONNAME20037B;Let them get off scot-free;;;;;;;;;;X
+ACTIONNAME20037C;Punish them fairly;;;;;;;;;;X
+EVT_20038_NAME;Heralds ask about your ancestry;;;;;;;;;;X
+ACTIONNAME20038A;Make things up in your favor;;;;;;;;;;X
+ACTIONNAME20038B;Answer honestly;;;;;;;;;;X
+ACTIONNAME20038C;Give a neutral answer;;;;;;;;;;X
+EVT_20039_NAME;Manage the realm;;;;;;;;;;X
+ACTIONNAME20039A;Take an active hand in governing;;;;;;;;;;X
+ACTIONNAME20039B;Let others handle things;;;;;;;;;;X
+ACTIONNAME20039C;Do as much as is needed;;;;;;;;;;X
+EVT_20040_NAME;Punish the kinsmen of disloyal lords;;;;;;;;;;X
+ACTIONNAME20040A;Execute them!;;;;;;;;;;X
+ACTIONNAME20040B;Grant them pardon;;;;;;;;;;X
+ACTIONNAME20040C;Exile them;;;;;;;;;;X
+EVT_20041_NAME;Aid the poor;;;;;;;;;;X
+ACTIONNAME20041A;Help them as much as you can;;;;;;;;;;X
+ACTIONNAME20041B;Send out the tax collectors instead;;;;;;;;;;X
+ACTIONNAME20041C;Let them help themselves;;;;;;;;;;X
+EVT_20042_NAME;The finer things in life;;;;;;;;;;X
+ACTIONNAME20042A;Enjoy the finer things in life;;;;;;;;;;X
+ACTIONNAME20042B;Maintain a temperate lifestyle;;;;;;;;;;X
+ACTIONNAME20042C;Maintain a regular court;;;;;;;;;;X
+EVT_20043_NAME;In the company of your peers;;;;;;;;;;X
+ACTIONNAME20043A;Carry yourself modestly;;;;;;;;;;X
+ACTIONNAME20043B;Carry yourself haughtily;;;;;;;;;;X
+ACTIONNAME20043C;Carry yourself with dignity;;;;;;;;;;X
+EVT_20044_NAME;Dealing with matters of state;;;;;;;;;;X
+ACTIONNAME20044A;Let your feelings guide you;;;;;;;;;;X
+ACTIONNAME20044B;Let your reason guide you;;;;;;;;;;X
+ACTIONNAME20044C;Maintain a balanced approach;;;;;;;;;;X
+EVT_20045_NAME;Dealing with your court;;;;;;;;;;X
+ACTIONNAME20045A;Trust no-one but yourself;;;;;;;;;;X
+ACTIONNAME20045B;Trust your advisors implicitly;;;;;;;;;;X
+ACTIONNAME20045C;Maintain a balanced level of trust;;;;;;;;;;X
+EVT_20046_NAME;Creation of the Assassins;;;;;;;;;;X
+EVT_20047_NAME;Management of the Assassin stronghold;;;;;;;;;;X
+EVT_20048_NAME;Assassination of enemies;;;;;;;;;;X
+EVT_20049_NAME;The Assassins have struck at us!;;;;;;;;;;X
+ACTIONNAME20049A;Oh no!;;;;;;;;;;X
+EVT_20050_NAME;Assassination of enemy ruler;;;;;;;;;;X
+EVT_20051_NAME;Our ruler has been murdered by the Assassins!;;;;;;;;;;X
+ACTIONNAME20051A;Oh no!;;;;;;;;;;X
+EVT_20052_NAME;Turkoman reinforcements;;;;;;;;;;X
+EVT_20053_NAME;Creation of the Rum Sultanate;;;;;;;;;;X
+EVT_20054_NAME;Mameluke rebellion;;;;;;;;;;X
+EVT_20055_NAME;Rise of the Almohads;;;;;;;;;;X
+EVT_20056_NAME;Expel the Jews from this province;;;;;;;;;;X
+ACTIONNAME20056A;Expel the Jews and seize their property;;;;;;;;;;X
+ACTIONNAME20056B;Let them stay;;;;;;;;;;X
+EVT_20057_NAME;Local townsmen are organizing pogroms against the Jews;;;;;;;;;;X
+ACTIONNAME20057A;Ignore it;;;;;;;;;;X
+ACTIONNAME20057B;Stop them;;;;;;;;;;X
+ACTIONNAME20057C;Help them;;;;;;;;;;X
+EVT_20058_NAME;Crusaders passing through your province are attacking the Jews;;;;;;;;;;X
+ACTIONNAME20058A;Let them do it;;;;;;;;;;X
+ACTIONNAME20058B;Stop them;;;;;;;;;;X
+EVT_20059_NAME;Extort money from the Jews;;;;;;;;;;X
+ACTIONNAME20059A;Let them share their wealth;;;;;;;;;;X
+ACTIONNAME20059B;Allow them to keep their possessions;;;;;;;;;;X
+EVT_20060_NAME;It is time to pay an old debt to a Jewish banker;;;;;;;;;;X
+ACTIONNAME20060A;He can wait a while longer;;;;;;;;;;X
+ACTIONNAME20060B;Very well, I will pay this off;;;;;;;;;;X
+EVT_20061_NAME;Our dynasty strengthens its position;;;;;;;;;;X
+ACTIONNAME20061A;Claim the throne for my dynasty;;;;;;;;;;X
+ACTIONNAME20061B;It is too risky;;;;;;;;;;X
+EVT_20062_NAME;The Princes are jockeying for power;;;;;;;;;;X
+ACTIONNAME20062A;Rein them in;;;;;;;;;;X
+ACTIONNAME20062B;We are powerless;;;;;;;;;;X
+EVT_20063_NAME;Let us claim the Imperial throne;;;;;;;;;;X
+ACTIONNAME20063A;It is mine!;;;;;;;;;;X
+EVT_20064_NAME;Your son is deformed and unfit to rule the Empire;;;;;;;;;;X
+ACTIONNAME20064A;A future Emperor must be perfect;;;;;;;;;;X
+ACTIONNAME20064B;Ignore the tradition, he is my son;;;;;;;;;;X
+EVT_20065_NAME;Our disregard for tradition is costing us!;;;;;;;;;;X
+ACTIONNAME20065A;That tradition is silly anyway;;;;;;;;;;X
+EVT_20066_NAME;Rise of the landed aristocracy;;;;;;;;;;X
+ACTIONNAME20066A;Oh well;;;;;;;;;;X
+ACTIONNAME20066B;Try to keep them down;;;;;;;;;;X
+EVT_20067_NAME;Sale of offices to local aristocrats;;;;;;;;;;X
+ACTIONNAME20067A;Sell the offices;;;;;;;;;;X
+ACTIONNAME20067B;Find other ways to raise money;;;;;;;;;;X
+EVT_20068_NAME;Ecumenical Council convenes;;;;;;;;;;X
+ACTIONNAME20068A;Look for able clergymen to serve you;;;;;;;;;;X
+ACTIONNAME20068B;Advance your favored theological positions;;;;;;;;;;X
+ACTIONNAME20068C;Secure election of your allies as bishops;;;;;;;;;;X
+ACTIONNAME20068D;Defer to the Patriarch on theological points;;;;;;;;;;X
+EVT_20069_NAME;Confiscation of Church property;;;;;;;;;;X
+ACTIONNAME20069A;Confiscate Church property to aid the Empire;;;;;;;;;;X
+ACTIONNAME20069B;It is not ours to take;;;;;;;;;;X
+EVT_20070_NAME;A prominent philosopher is in conflict with Church dogma;;;;;;;;;;X
+ACTIONNAME20070A;Give your patronage to the philosopher;;;;;;;;;;X
+ACTIONNAME20070B;Support the Church doctrine;;;;;;;;;;X
+EVT_20071_NAME;A burning theological question requires your arbitration;;;;;;;;;;X
+ACTIONNAME20071A;Support traditional dogma;;;;;;;;;;X
+ACTIONNAME20071B;Support an innovative view;;;;;;;;;;X
+ACTIONNAME20071C;Try to find a middle ground;;;;;;;;;;X
+EVT_20072_NAME;Finance architectural works;;;;;;;;;;X
+ACTIONNAME20072A;Build new palaces;;;;;;;;;;X
+ACTIONNAME20072B;Build new churches and monasteries;;;;;;;;;;X
+ACTIONNAME20072C;Look into new architectural styles;;;;;;;;;;X
+EVT_20073_NAME;Coinage debasement;;;;;;;;;;X
+ACTIONNAME20073A;Debase the coinage;;;;;;;;;;X
+ACTIONNAME20073B;Maintain the value of our currency;;;;;;;;;;X
+EVT_20074_NAME;Trade concessions to Italian merchants;;;;;;;;;;X
+ACTIONNAME20074A;Grant them trade concessions;;;;;;;;;;X
+ACTIONNAME20074B;Don't let the leeches profit from our people;;;;;;;;;;X
+EVT_20075_NAME;Foreign merchants are becoming too impetuous;;;;;;;;;;X
+ACTIONNAME20075A;Arrest and expel them;;;;;;;;;;X
+ACTIONNAME20075B;Do nothing;;;;;;;;;;X
+EVT_20076_NAME;Italian trade;;;;;;;;;;X
+EVT_20077_NAME;Your marshal is becoming too powerful;;;;;;;;;;X
+ACTIONNAME20077A;Do nothing;;;;;;;;;;X
+ACTIONNAME20077B;Try to reduce his influence;;;;;;;;;;X
+ACTIONNAME20077C;Depose and exile him;;;;;;;;;;X
+EVT_20078_NAME;This is costing us prestige!;;;;;;;;;;X
+ACTIONNAME20078A;What can I do?;;;;;;;;;;X
+EVT_20079_NAME;Your marshal claims your throne!;;;;;;;;;;X
+ACTIONNAME20079A;Try to arrest and execute him;;;;;;;;;;X
+ACTIONNAME20079B;Exile him;;;;;;;;;;X
+ACTIONNAME20079C;Bribe him;;;;;;;;;;X
+ACTIONNAME20079D;Fight him off;;;;;;;;;;X
+EVT_20080_NAME;We have to bribe our marshal;;;;;;;;;;X
+ACTIONNAME20080A;I hope he doesn't turn against me;;;;;;;;;;X
+EVT_20081_NAME;Norman sellswords;;;;;;;;;;X
+ACTIONNAME20081A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20081B;No we don't need them!;;;;;;;;;;X
+EVT_20082_NAME;Norman sellswords;;;;;;;;;;X
+ACTIONNAME20082A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20082B;No we don't need them!;;;;;;;;;;X
+EVT_20083_NAME;Norman sellswords;;;;;;;;;;X
+ACTIONNAME20083A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20083B;No we don't need them!;;;;;;;;;;X
+EVT_20084_NAME;Norman sellswords;;;;;;;;;;X
+ACTIONNAME20084A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20084B;No we don't need them!;;;;;;;;;;X
+EVT_20085_NAME;Rus mercenaries;;;;;;;;;;X
+ACTIONNAME20085A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20085B;No we don't need them!;;;;;;;;;;X
+EVT_20086_NAME;Rus mercenaries;;;;;;;;;;X
+ACTIONNAME20086A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20086B;No we don't need them!;;;;;;;;;;X
+EVT_20087_NAME;Rus mercenaries;;;;;;;;;;X
+ACTIONNAME20087A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20087B;No we don't need them!;;;;;;;;;;X
+EVT_20088_NAME;Rus mercenaries;;;;;;;;;;X
+ACTIONNAME20088A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20088B;No we don't need them!;;;;;;;;;;X
+EVT_20089_NAME;Pecheneg raiders;;;;;;;;;;X
+ACTIONNAME20089A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20089B;No we don't need them!;;;;;;;;;;X
+EVT_20090_NAME;Pecheneg raiders;;;;;;;;;;X
+ACTIONNAME20090A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20090B;No we don't need them!;;;;;;;;;;X
+EVT_20091_NAME;Pecheneg raiders;;;;;;;;;;X
+ACTIONNAME20091A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20091B;No we don't need them!;;;;;;;;;;X
+EVT_20092_NAME;Pecheneg raiders;;;;;;;;;;X
+ACTIONNAME20092A;Let us hire them!;;;;;;;;;;X
+ACTIONNAME20092B;No we don't need them!;;;;;;;;;;X
+EVT_20095_NAME;Character receives a knock on the head in battle;;;;;;;;;;X
+ACTIONNAME20095A;I am feeling dizzy...;;;;;;;;;;X
+EVT_20096_NAME;Character has his groin injured in battle;;;;;;;;;;X
+ACTIONNAME20096A;I should have worn my codpiece;;;;;;;;;;X
+EVT_20097_NAME;Character has his arm injured in battle;;;;;;;;;;X
+ACTIONNAME20097A;This will leave a mark;;;;;;;;;;X
+EVT_20098_NAME;Character has his leg injured in battle;;;;;;;;;;X
+ACTIONNAME20098A;This will leave a mark;;;;;;;;;;X
+EVT_20099_NAME;Character has his teeth knocked out in battle;;;;;;;;;;X
+ACTIONNAME20099A;I still have a few teeth left...;;;;;;;;;;X
+#--------------------------------;;;;;;;;;;;X
+# end of SMACK events collection ;;;;;;;;;;;X
+#--------------------------------;;;;;;;;;;;X
+#Grell;;;;;;;;;;;X
+EVT_40024_NAME;The Order of Santiago Seizes Our Land!;;;;;;;;;;X
+ACTIONNAME40024A;It is God's will!;;;;;;;;;;X
+ACTIONNAME40024B;They have no need of castles!;;;;;;;;;;X
+EVT_40025_NAME;The Order of the Sword Seizes Our Land!;;;;;;;;;;X
+ACTIONNAME40025A;It is God's will!;;;;;;;;;;X
+ACTIONNAME40025B;They have no need of castles!;;;;;;;;;;X
+EVT_40027_NAME;The local Order Chapter House offers assistance;;;;;;;;;;X
+ACTIONNAME40027A;Deus vult!;;;;;;;;;;X
+ACTIONNAME40027B;Money would be more helpful!;;;;;;;;;;X
+ACTIONNAME40027C;We dont need their help;;;;;;;;;;X
+EVT_40028_NAME;The local Order Chapter House offers assistance;;;;;;;;;;X
+ACTIONNAME40028A;Deus vult!;;;;;;;;;;X
+ACTIONNAME40028B;Money would be more helpful!;;;;;;;;;;X
+ACTIONNAME40028C;We dont need their help;;;;;;;;;;X
+EVT_40029_NAME;The local Order Chapter House requests assistance;;;;;;;;;;X
+ACTIONNAME40029A;Deus vult!;;;;;;;;;;X
+ACTIONNAME40029B;I cannot help;;;;;;;;;;X
+ACTIONNAME40029C;I can provide money;;;;;;;;;;X
+EVT_40030_NAME;Your leige is weak, shall we declare our independence?;;;;;;;;;;X
+ACTIONNAME40030A;Yes!;;;;;;;;;;X
+ACTIONNAME40030B;No its too risky;;;;;;;;;;X
+EVT_40031_NAME;Damn!;;;;;;;;;;X
+EVT_40035_NAME;AI Event;;;;;;;;;;X
+EVT_40036_NAME;AI Event;;;;;;;;;;X
+EVT_40037_NAME;Your son wishes to join the Order of Santiago;;;;;;;;;;X
+ACTIONNAME40037A;Let him go;;;;;;;;;;X
+ACTIONNAME40037B;I need his services here;;;;;;;;;;X
+EVT_40038_NAME;Your son wishes to join the Order of the Sword;;;;;;;;;;X
+ACTIONNAME40038A;Let him go;;;;;;;;;;X
+ACTIONNAME40038B;I need his services here;;;;;;;;;;X
+#Wiz;;;;;;;;;;;X
+EVT_9500_NAME;Time to demobilize;;;;;;;;;;X
+EVT_9510_NAME;Call the Knights to war;;;;;;;;;;X
+ACTIONNAME9510A;Fly the banners!;;;;;;;;;;X
+EVT_9511_NAME;Call the Knights to war;;;;;;;;;;X
+ACTIONNAME9511A;Fly the banners!;;;;;;;;;;X
+EVT_9512_NAME;Call the Knights to war;;;;;;;;;;X
+ACTIONNAME9512A;Fly the banners!;;;;;;;;;;X
+EVT_9513_NAME;The Knights return home;;;;;;;;;;X
+ACTIONNAME9513A;OK;Ok;Okay;Aceptar;Ok;;;;;;X
+EVT_9514_NAME;The Knights wish war with the heathens;;;;;;;;;;X
+ACTIONNAME9514A;Deus Vult!;Deus Vult !;Deus vult!;¡Deus vult!;Deus vult!;;;;;;X
+ACTIONNAME9514B;The time is not right;;;;;;;;;;X
+EVT_9515_NAME;The Knights wish war with the heathens;;;;;;;;;;X
+ACTIONNAME9515A;Deus Vult!;Deus Vult !;Deus vult!;¡Deus vult!;Deus vult!;;;;;;X
+ACTIONNAME9515B;The time is not right;;;;;;;;;;X
+EVT_9516_NAME;The Knights wish war with the heathens;;;;;;;;;;X
+ACTIONNAME9516A;Deus Vult!;Deus Vult !;Deus vult!;¡Deus vult!;Deus vult!;;;;;;X
+ACTIONNAME9516B;The time is not right;;;;;;;;;;X
+EVT_9530_NAME;A child's martial abilities have declined significantly;;;;;;;;;;X 
+EVT_9531_NAME;A child's diplomatic abilities have declined significantly;;;;;;;;;;X 
+EVT_9532_NAME;A child's intrigue abilities have declined significantly;;;;;;;;;;X 
+EVT_9533_NAME;A child's stewardship abilities have declined significantly;;;;;;;;;;X 
+#Break_free mod;;;;;;;;;;;X
+EVT_23200_NAME;Our liege has no natural right to rule over our lands. Perhaps we should declare our independence?;;;;;;;;;;X
+ACTIONNAME23200A;Yes, break free;;;;;;;;;;X
+ACTIONNAME23200B;No, loyalty is a virtue;;;;;;;;;;X
+EVT_23201_NAME;Our vassal broke free!;;;;;;;;;;X
+#Set laws;;;;;;;;;;;X
+EVT_23210_NAME;Laws for Knight Orders;;;;;;;;;;X
+ACTIONNAME23210A;Let's implement them;;;;;;;;;;X
+ACTIONNAME23210B;Keep the old laws;;;;;;;;;;X
+EVT_23211_NAME;Laws for Republics;;;;;;;;;;X
+ACTIONNAME23211A;Let's implement them;;;;;;;;;;X
+ACTIONNAME23211B;Keep the old laws;;;;;;;;;;X
+EVT_23212_NAME;Laws for Bishoprics;;;;;;;;;;X
+ACTIONNAME23212A;Let's implement them;;;;;;;;;;X
+ACTIONNAME23212B;Keep the old laws;;;;;;;;;;X
+EVT_23213_NAME;Your liege’s ruling law is radically different from yours. He is gently encouraging you to conform to his way of doing things. What should we do, my lord?;La loi de votre seigneur est radicalement différente de la vôtre. Il vous encourage doucement à adopter sa façon. Que devons-nous faire?;Das Gesetz Eures Lehnsherren unterscheidet sich grundsätzlich von dem Euren. Er bestärkt Euch darin, die Gesetze zu harmonisieren.;Las leyes de tu señor son radicalmente diferentes a las tuyas. Él te está sugiriendo amablemente que te adaptes a su manera de hacer las cosas. ¿Qué debemos hacer mi señor?;La legge di governo del tuo signore è radicalmente differente dalla tua. Egli ci invita ad uniformarci al suo indirizzo. Cosa facciamo?;;;;;;;;;X
+ACTIONNAME23213A;Good idea, lord!;Bonne idée mon seigneur!;Eine gute Idee, mein Lehnsherr!;¡Buena idea, señor!;Il signore ha avuto una buona idea!;;;;;;;;;X
+ACTIONNAME23213B;No, I shall rule this land as I always have;Non, je règnerai comme je l'ai toujours fait!;Nein, ich werde mein Land so regieren wie immer;No, gobernaré estas tierras como siempre lo hice;No, continuerò a governare come ho fatto finora;;;;;;;;;X
+EVT_23214_NAME;Your liege’s ruling law is radically different from yours. He is gently encouraging you to conform to his way of doing things. What should we do, my lord?;La loi de votre seigneur est radicalement différente de la vôtre. Il vous encourage doucement à adopter sa façon. Que devons-nous faire?;Das Gesetz Eures Lehnsherren unterscheidet sich grundsätzlich von dem Euren. Er bestärkt Euch darin, die Gesetze zu harmonisieren.;Las leyes de tu señor son radicalmente diferentes a las tuyas. Él te está sugiriendo amablemente que te adaptes a su manera de hacer las cosas. ¿Qué debemos hacer mi señor?;La legge di governo del tuo signore è radicalmente differente dalla tua. Egli ci invita ad uniformarci al suo indirizzo. Cosa facciamo?;;;;;;;;;X
+ACTIONNAME23214A;Good idea, lord!;Bonne idée mon seigneur!;Eine gute Idee, mein Lehnsherr!;¡Buena idea, señor!;Il signore ha avuto una buona idea!;;;;;;;;;X
+ACTIONNAME23214B;No, I shall rule this land as I always have;Non, je règnerai comme je l'ai toujours fait!;Nein, ich werde mein Land so regieren wie immer;No, gobernaré estas tierras como siempre lo hice;No, continuerò a governare come ho fatto finora;;;;;;;;;X
+EVT_23215_NAME;Your liege’s ruling law is radically different from yours. He is gently encouraging you to conform to his way of doing things. What should we do, my lord?;La loi de votre seigneur est radicalement différente de la vôtre. Il vous encourage doucement à adopter sa façon. Que devons-nous faire?;Das Gesetz Eures Lehnsherren unterscheidet sich grundsätzlich von dem Euren. Er bestärkt Euch darin, die Gesetze zu harmonisieren.;Las leyes de tu señor son radicalmente diferentes a las tuyas. Él te está sugiriendo amablemente que te adaptes a su manera de hacer las cosas. ¿Qué debemos hacer mi señor?;La legge di governo del tuo signore è radicalmente differente dalla tua. Egli ci invita ad uniformarci al suo indirizzo. Cosa facciamo?;;;;;;;;;X
+ACTIONNAME23215A;Good idea, lord!;Bonne idée mon seigneur!;Eine gute Idee, mein Lehnsherr!;¡Buena idea, señor!;Il signore ha avuto una buona idea!;;;;;;;;;X
+ACTIONNAME23215B;No, I shall rule this land as I always have;Non, je règnerai comme je l'ai toujours fait!;Nein, ich werde mein Land so regieren wie immer;No, gobernaré estas tierras como siempre lo hice;No, continuerò a governare come ho fatto finora;;;;;;;;;X
+EVT_23216_NAME;Your liege’s ruling law is radically different from yours. He is gently encouraging you to conform to his way of doing things. What should we do, my lord?;La loi de votre seigneur est radicalement différente de la vôtre. Il vous encourage doucement à adopter sa façon. Que devons-nous faire?;Das Gesetz Eures Lehnsherren unterscheidet sich grundsätzlich von dem Euren. Er bestärkt Euch darin, die Gesetze zu harmonisieren.;Las leyes de tu señor son radicalmente diferentes a las tuyas. Él te está sugiriendo amablemente que te adaptes a su manera de hacer las cosas. ¿Qué debemos hacer mi señor?;La legge di governo del tuo signore è radicalmente differente dalla tua. Egli ci invita ad uniformarci al suo indirizzo. Cosa facciamo?;;;;;;;;;X
+ACTIONNAME23216A;Good idea, lord!;Bonne idée mon seigneur!;Eine gute Idee, mein Lehnsherr!;¡Buena idea, señor!;Il signore ha avuto una buona idea!;;;;;;;;;X
+ACTIONNAME23216B;No, I shall rule this land as I always have;Non, je règnerai comme je l'ai toujours fait!;Nein, ich werde mein Land so regieren wie immer;No, gobernaré estas tierras como siempre lo hice;No, continuerò a governare come ho fatto finora;;;;;;;;;X
+#Varia;;;;;;;;;;;X
+EVT_23220_NAME;Break up the realm;;;;;;;;;;X
+ACTIONNAME23220A;And implement salic law;;;;;;;;;;X
+ACTIONNAME23220B;And implement semisalic law;;;;;;;;;;X
+EVT_23221_NAME;Realm duress;;;;;;;;;;X
+ACTIONNAME23221A;That sucks;;;;;;;;;;X
+EVT_23222_NAME;You have become more fertile;;;;;;;;;;X
+ACTIONNAME23222A;Good news!;;;;;;;;;;X
+EVT_23223_NAME;You have become less fertile;;;;;;;;;;X
+ACTIONNAME23223A;Bad news!;;;;;;;;;;X
+EVT_23224_NAME;Courtiers for order;;;;;;;;;;X
+ACTIONNAME23224A;OK;Ok;Okay;Aceptar;Ok;;;;;;X
+EVT_23225_NAME;Females are unfit to rule;;;;;;;;;;X
+ACTIONNAME23225A;God wills it;;;;;;;;;;X
+EVT_23226_NAME;Your friend has been excommunicated, perhaps you should convince the Pope to revoke this?;;;;;;;;;;X
+ACTIONNAME23226A;Of course I will help my friend!;;;;;;;;;;X
+ACTIONNAME23226B;No, I don't really like him anyway.;;;;;;;;;;X
+EVT_23227_NAME;Your friend convinced the Pope to revoke your excommunication.;;;;;;;;;;X
+ACTIONNAME23227A;Wonderful!;;;;;;;;;;X
+EVT_23228_NAME;Break up the realm;;;;;;;;;;X
+ACTIONNAME23228A;And implement gavelkind law;;;;;;;;;;X
+ACTIONNAME23228B;And make them all rebel;;;;;;;;;;X
+EVT_23229_NAME;Now that your son has come of age, it might be time to retire to a convent and let him take up his just place as ruler of the realm.;;;;;;;;;;X
+ACTIONNAME23229A;The regency is over.;;;;;;;;;;X
+ACTIONNAME23229B;Not just yet, the realm is mine!;;;;;;;;;;X
+EVT_23230_NAME;You are without an heir, maybe you should open the succession to women?;;;;;;;;;;X
+ACTIONNAME23230A;Never!;;;;;;;;;;X
+ACTIONNAME23230B;Good idea!;;;;;;;;;;X
+EVT_23231_NAME;Although you've come of age, your mother has refused to end her regency!;;;;;;;;;;X
+ACTIONNAME23231A;Mommy dearest knows best...;;;;;;;;;;X
+ACTIONNAME23231B;What! I'll seek my fortune elsewhere then!;;;;;;;;;;X
+ACTIONNAME23231C;Show mother the view from a high window...;;;;;;;;;;X
+EVT_23232_NAME;With old age comes a change in abilities;;;;;;;;;;X
+EVT_23233_NAME;With old age comes experience;;;;;;;;;;X
+EVT_23234_NAME;With old age comes problems;;;;;;;;;;X
+#DVIP Bugfixes;;;;;;;;;;;X
+EVT_23250_NAME;A fosterling returns home.;;;;;;;;;;X
+EVT_23251_NAME;End of fosterling status.;;;;;;;;;;X
+EVT_23252_NAME;Kill landless AI ruler.;;;;;;;;;;X
+EVT_23253_NAME;Remove impossible vassalage.;;;;;;;;;;X
+EVT_9158_NAME;As you are not a catholic, excommunication is meaningless to you.;;;;;;;;;;X
+#DVIP melting pots;;;;;;;;;;;X
+EVT_23260_NAME;A distinct Vlach culture arises;;;;;;;;;;X
+ACTIONNAME23260A;OK;Ok;Okay;Aceptar;Ok;;;;;;X
+EVT_23261_NAME;Castilian culture propagation;Propagation de la culture castillan.;Förderung der kastilianischen Kultur;Propagación de la cultura castellana;Diffusione della cultura castigliana;;;;;;X
+ACTIONNAME23261A;OK;Ok;Okay;Aceptar;Ok;;;;;;X
+EVT_23262_NAME;Catalan culture propagation;Propagation de la culture castalan.;Förderung der katalanischen Kultur;Propagación de la cultura catalana;Diffusione della cultura catalana;;;;;;X
+ACTIONNAME23262A;OK;Ok;Okay;Aceptar;Ok;;;;;;X
+EVT_23263_NAME;Portuguese culture propagation;Propagation de la culture portugais.;Förderung der portugiesischen Kultur;Propagación de la cultura portuguesa;Diffusione della cultura portoghesa;;;;;;X
+ACTIONNAME23263A;OK;Ok;Okay;Aceptar;Ok;;;;;;X
+EVT_23264_NAME;Italian culture propagation;Propagation de la culture italien.;Förderung der italienischen Kultur;Propagación de la cultura italiana;Diffusione della cultura italiana;;;;;;X
+ACTIONNAME23264A;OK;Ok;Okay;Aceptar;Ok;;;;;;X
+EVT_23265_NAME;German culture propagation;Propagation de la culture allemand.;Förderung der deutschen Kultur;Propagación de la cultura alemana;Diffusione della cultura tedesca;;;;;;X
+ACTIONNAME23265A;OK;Ok;Okay;Aceptar;Ok;;;;;;X
+EVT_23266_NAME;Scottish culture propagation;Propagation de la culture écossaise.;Förderung der schottischen Kultur;Propagación de la cultura escocesa;Diffusione della cultura scozzese;;;;;;X
+ACTIONNAME23266A;OK;Soit.;Okay;De acuerdo;Ok;;;;;;X
+EVT_23267_NAME;Turkish culture propagation;Propagation de la culture turc.;Förderung der türkischen Kultur;Propagación de la cultura turca;Diffusione della cultura turca;;;;;;X
+ACTIONNAME23267A;OK;Ok;Okay;Aceptar;Ok;;;;;;X
+EVT_23268_NAME;Greek culture propagation;Propagation de la culture grec.;Förderung der griechischen Kultur;Propagación de la cultura griega;Diffusione della cultura grega;;;;;;X
+ACTIONNAME23268A;OK;Ok;Okay;Aceptar;Ok;;;;;;X
+#DVIP Friends;;;;;;;;;;;X
+EVT_23270_NAME;You have become friends with one of your allies;;;;;;;;;;X
+ACTIONNAME23270A;With a trustworthy friend by my side, all enemies will fall;;;;;;;;;;X
+ACTIONNAME23270B;I pursue my glory alone;;;;;;;;;;X
+EVT_23271_NAME;One of your friendships is being ruined by your relationship;;;;;;;;;;X
+ACTIONNAME23271A;These things happen;;;;;;;;;;X
+ACTIONNAME23271B;I'll strive to hold on to this despite our differences;;;;;;;;;;X
+EVT_23272_NAME;You have become friends with the Pope;;;;;;;;;;X
+ACTIONNAME23272A;The Holy Father and I see eye-to-eye;;;;;;;;;;X
+ACTIONNAME23272B;I don't need him as a friend!;;;;;;;;;;X
+EVT_23273_NAME;A courtier severed from their spouse wants to rejoin them;;;;;;;;;;X
+ACTIONNAME23273A;Force them to stay at your court;;;;;;;;;;X
+ACTIONNAME23273B;Pay a bribe to change their mind;;;;;;;;;;X
+ACTIONNAME23273C;Allow them to leave;;;;;;;;;;X
+EVT_23274_NAME;An unmarried courtier severed from their loved one wants to join them;;;;;;;;;;X
+ACTIONNAME23274A;Force them to stay at your court;;;;;;;;;;X
+ACTIONNAME23274B;Pay a bribe to change their mind;;;;;;;;;;X
+ACTIONNAME23274C;Allow them to leave;;;;;;;;;;X
+#EOF;;;;;;;;;;;X
+#EOF;;;;;;;;;;;X

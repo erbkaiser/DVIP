@@ -1,0 +1,2786 @@
+# -------------------------
+# BOP_HIST_EVENTS by Ambrox
+# -------------------------
+# DV version 1.0
+# -------------------------
+#
+# THEME -> Compatible historical and legendary events 
+#       -> References come from www.wikipedia.org
+# --------------------------------------------------------
+character_event = {	# 19400 - Investiture Controversy - Dictatus Papae (1075)
+	id = 19400
+	picture = "event_pope"
+	trigger = {		# not ai - GERM ruler - 1075/77 - not excomm - exist PAPA
+		condition = { type = not value = { type = ai } }
+		condition = { type = title value = GERM }
+		condition = { type = not value = { type = year value = 1078 } }	
+		condition = { type = year value = 1075 }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = exists value = PAPA }		
+		condition = { type = not value = { type = papacy } }		
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {	
+ 		effect = { type = add_trait value = excommunicated }
+ 		effect = { type = add_trait value = proud }
+ 		effect = { type = add_trait value = sceptical }
+		effect = { type = set_law value = regal_supremacy }		
+ 		effect = { type = create_courtier value = chaplain }		
+ 		effect = { type = create_courtier value = chaplain }
+ 		effect = { type = create_courtier value = chaplain }
+ 		effect = { type = create_courtier value = chaplain }
+ 		effect = { type = create_courtier value = chaplain }
+ 		effect = { type = prestige value = 100 }
+ 		effect = { type = piety value = -150 }  		
+	}
+	action_b = {
+ 		effect = { type = add_trait value = excommunicated }
+		effect = { type = trigger for = this value = 19401 }
+	}
+}
+character_event = {	# 19401 - Investiture Controversy - triggered by 19400
+	id = 19401
+	picture = "event_leave"
+	action_a = {
+ 		effect = { type = add_trait value = modest }
+ 		effect = { type = prestige value = -25 }
+ 		effect = { type = piety value = 25 }	
+	}
+}
+character_event = {	# 19402 - Investiture Controversy - Mathilda of Canossa (1077)
+	id = 19402
+	picture = "event_pope2"
+	trigger = {		# not ai-GERM ruler-1077/79-excomm-exist PAPA-in command at Modena-not rel enemy-controller TOSC
+		condition = { type = not value = { type = ai } }
+		condition = { type = title value = GERM }
+		condition = { type = not value = { type = year value = 1080 } }	
+		condition = { type = year value = 1077 }
+		condition = { type = trait value = excommunicated }
+		condition = { type = exists value = PAPA }		
+		condition = { type = not value = { type = papacy } }
+		condition = { type = command }		
+		condition = { type = location
+			condition = { type = province value = 322 } }
+		condition = { type = controller_csc
+			condition = { type = title value = TOSC } }	
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {
+ 		effect = { type = remove_trait value = excommunicated }	
+ 		effect = { type = remove_trait value = modest }
+ 		effect = { type = prestige value = -25 }
+ 		effect = { type = piety value = 25 }		
+	}
+}
+character_event = {	# 19403 - Investiture Controversy - Pactum Calixtinum (Worms 1122)
+	id = 19403
+	picture = "event_pope"
+	trigger = {		# not ai - GERM ruler - 1122/24 - exist PAPA
+		condition = { type = not value = { type = ai } }
+		condition = { type = title value = GERM }
+		condition = { type = not value = { type = year value = 1125 } }	
+		condition = { type = year value = 1122}
+		condition = { type = exists value = PAPA }		
+		condition = { type = not value = { type = papacy } }
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {
+ 		effect = { type = remove_trait value = excommunicated }		
+ 		effect = { type = add_trait value = proud }
+ 		effect = { type = add_trait value = sceptical }
+		effect = { type = set_law value = regal_supremacy }			
+ 		effect = { type = prestige value = 100 }
+	}
+	action_b = {
+ 		effect = { type = remove_trait value = excommunicated }	
+ 		effect = { type = remove_trait value = proud }
+ 		effect = { type = remove_trait value = sceptical }
+		effect = { type = set_law value = ecclesical_balance }			
+ 		effect = { type = piety value = 100 } 	
+	}
+}
+character_event = {	# 19404 - Investiture Controversy - 1080/1121 GERM, FRAN, ENGL ruler not excommunicated
+	id = 19404
+	picture = "event_pope2"
+	trigger = {		# not ai - GERM, FRAN, ENGL ruler - 1080/1121 - not excomm - exist PAPA
+		condition = { type = not value = { type = ai } }
+		condition = { type = or		
+			condition = { type = title value = GERM }
+			condition = { type = title value = FRAN }
+			condition = { type = title value = ENGL }
+		}
+		condition = { type = not value = { type = year value = 1122 } }	
+		condition = { type = year value = 1080 }
+		condition = { type = not value = { type = trait value = excommunicated } }		
+		condition = { type = exists value = PAPA }		
+		condition = { type = not value = { type = papacy } }
+	}
+	mean_time_to_happen = {	
+		months = 90
+	}
+	action_a = {
+ 		effect = { type = add_trait value = proud }
+ 		effect = { type = add_trait value = sceptical }
+ 		effect = { type = prestige value = 50 }
+		effect = { type = random chance = 75
+		 	effect = { type = piety value = -100 }
+			effect = { type = add_trait value = excommunicated }
+			effect = { type = set_law value = regal_supremacy }	
+		}		
+	}
+	action_b = {
+ 		effect = { type = add_trait value = modest }
+ 		effect = { type = remove_trait value = sceptical }
+ 		effect = { type = prestige value = -25 } 	
+	}
+}
+character_event = {	# 19405 - Investiture Controversy - 1080/1121 GERM, FRAN, ENGL ruler excommunicated
+	id = 19405
+	picture = "event_pope2"
+	trigger = {		# not ai - GERM, FRAN, ENGL ruler - 1080/1121 - excomm - exist PAPA
+		condition = { type = not value = { type = ai } }
+		condition = { type = or		
+			condition = { type = title value = GERM }
+			condition = { type = title value = FRAN }
+			condition = { type = title value = ENGL }
+		}
+		condition = { type = not value = { type = year value = 1122 } }	
+		condition = { type = year value = 1080 }
+		condition = { type = trait value = excommunicated }	
+		condition = { type = exists value = PAPA }		
+		condition = { type = not value = { type = papacy } }
+	}
+	mean_time_to_happen = {	
+		months = 90
+	}
+	action_a = {
+ 		effect = { type = prestige value = 25 } 	
+	 	effect = { type = piety value = -100 }
+	}
+	action_b = {
+		effect = { type = remove_trait value = excommunicated }	
+ 		effect = { type = remove_trait value = proud }
+ 		effect = { type = remove_trait value = sceptical }
+		effect = { type = set_law value = ecclesical_balance }		
+ 		effect = { type = prestige value = -25 } 	
+	}
+}
+character_event = {	# 19406 - Holy Grail Research - Rumors about Palestine (1066/1186)
+	id = 19406
+	picture = "event_grail1"
+	trigger = {		# not ai ruler not excomm not heretic not plagued not invalid - year range - ruler and marshal not in area 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 }		
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+#		condition = { type = year value = 1066 }		
+		condition = { type = not value = { type = year value = 1187 } }
+		condition = { type = location
+			condition = { type = not value = { type = area value = 774 } } }
+		condition = { type = marshal_csc
+			condition = { type = marshal }		
+			condition = { type = location
+				condition = { type = not value = { type = area value = 774 } } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 60/120 years
+		years = 60
+		# trait
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}		
+	}
+	action_a = {	
+ 		effect = { type = add_trait value = sceptical }
+	}
+	action_b = {	
+ 		effect = { type = remove_trait value = zealous }
+	}
+	action_c = {
+		effect = { type = trigger for = this value = 19411 }
+	}
+}
+character_event = {	# 19407 - Holy Grail Research - Rumors about Thrace (1187/1204)
+	id = 19407
+	picture = "event_grail1"
+	trigger = {		# not ai ruler not excomm not heretic not plagued not invalid - year range - ruler and marshal not in area 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 }		
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+ 		condition = { type = year value = 1187 }		
+		condition = { type = not value = { type = year value = 1205 } }
+		condition = { type = location
+			condition = { type = not value = { type = area value = 496 } } }
+		condition = { type = marshal_csc
+			condition = { type = marshal }		
+			condition = { type = location
+				condition = { type = not value = { type = area value = 496 } } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 9/18 years
+		years = 9
+		# trait
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}		
+	}
+	action_a = {	
+ 		effect = { type = add_trait value = sceptical }
+	}
+	action_b = {	
+ 		effect = { type = remove_trait value = zealous }
+	}
+	action_c = {
+		effect = { type = trigger for = this value = 19411 }
+	}
+}
+character_event = {	# 19408 - Holy Grail Research - Rumors about Champagne (1205/1270)
+	id = 19408
+	picture = "event_grail1"
+	trigger = {		# not ai ruler not excomm not heretic not plagued not invalid - year range - ruler and marshal not in area 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 }		
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+ 		condition = { type = year value = 1205 }		
+		condition = { type = not value = { type = year value = 1271 } }
+		condition = { type = location
+			condition = { type = not value = { type = area value = 130 } } }
+		condition = { type = marshal_csc
+			condition = { type = marshal }		
+			condition = { type = location
+				condition = { type = not value = { type = area value = 130 } } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 33/66 years
+		years = 33
+		# trait
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}		
+	}
+	action_a = {	
+ 		effect = { type = add_trait value = sceptical }
+	}
+	action_b = {	
+ 		effect = { type = remove_trait value = zealous }
+	}
+	action_c = {
+		effect = { type = trigger for = this value = 19411 }
+	}
+}
+character_event = {	# 19409 - Holy Grail Research - Rumors about Po river (1271/1336)
+	id = 19409
+	picture = "event_grail1"
+	trigger = {		# not ai ruler not excomm not heretic not plagued not invalid - year range - ruler and marshal not in area 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 }		
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+ 		condition = { type = year value = 1271 }		
+		condition = { type = not value = { type = year value = 1337 } }
+		condition = { type = location
+			condition = { type = not value = { type = area value = 233 } } }
+		condition = { type = marshal_csc
+			condition = { type = marshal }		
+			condition = { type = location
+				condition = { type = not value = { type = area value = 233 } } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 33/66 years
+		years = 33
+		# trait
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}		
+	}
+	action_a = {	
+ 		effect = { type = add_trait value = sceptical }
+	}
+	action_b = {	
+ 		effect = { type = remove_trait value = zealous }
+	}
+	action_c = {
+		effect = { type = trigger for = this value = 19411 }
+	}
+}
+character_event = {	# 19410 - Holy Grail Research - Rumors about Sierra Nevada (1337/1453)
+	id = 19410
+	picture = "event_grail1"
+	trigger = {		# not ai ruler not excomm not heretic not plagued not invalid - year range - ruler and marshal not in area 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 }		
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+		condition = { type = year value = 1337 }		
+#		condition = { type = not value = { type = year value = 1453 } }
+		condition = { type = location
+			condition = { type = not value = { type = area value = 171 } } }
+		condition = { type = marshal_csc
+			condition = { type = marshal }		
+			condition = { type = location
+				condition = { type = not value = { type = area value = 171 } } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 60/120 years
+		years = 60
+		# trait
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}		
+	}
+	action_a = {	
+ 		effect = { type = add_trait value = sceptical }
+	}
+	action_b = {	
+ 		effect = { type = remove_trait value = zealous }
+	}
+	action_c = {
+		effect = { type = trigger for = this value = 19411 }
+	}
+}
+character_event = {	# 19411 - Holy Grail Research - triggered by 19406/10 - start voyage
+	id = 19411
+	picture = "event_grail1"
+	action_a = {
+ 		effect = { type = add_trait value = zealous }
+ 		effect = { type = gold scale = -0.25 }
+ 		effect = { type = piety value = 25 }	
+	}
+	action_b = {
+ 		effect = { type = add_trait for = marshal value = zealous }
+ 		effect = { type = gold scale = -0.25 }
+	}
+	action_c = {
+ 		effect = { type = add_trait value = zealous }
+ 		effect = { type = add_trait for = marshal value = zealous }		
+ 		effect = { type = gold scale = -0.5 }
+ 		effect = { type = piety value = 25 }	
+	}
+	action_d = {
+ 		effect = { type = add_trait value = sceptical }
+	}	
+}
+character_event = {	# 19412 - Holy Grail Research - Night dreams while searching
+	id = 19412
+	picture = "event_grail"
+	trigger = {		# not ai in command-ruler/marshal zealous, piety>0, not excomm, not heretic-historical year and location
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }		
+		condition = { type = trait value = zealous }
+		condition = { type = piety value = 0 }		
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }	
+		condition = { type = or
+			condition = { type = and		
+				condition = { type = ruler }
+				condition = { type = age value = 16 }		
+			}
+			condition = { type = and
+				condition = { type = marshal }
+				condition = { type = ruler_csc
+					condition = { type = piety value = 0 }				
+					condition = { type = not value = { type = trait value = excommunicated } }
+					condition = { type = not value = { type = trait value = heretic } }	
+				}
+			}	
+		}	
+		condition = { type = or
+			condition = { type = and
+#				condition = { type = year value = 1066 }		
+				condition = { type = not value = { type = year value = 1187 } }
+				condition = { type = location
+					condition = { type = area value = 774 } }			
+			}
+			condition = { type = and
+ 				condition = { type = year value = 1187 }		
+				condition = { type = not value = { type = year value = 1205 } }
+				condition = { type = location
+					condition = { type = area value = 496 } }			
+			}
+			condition = { type = and
+ 				condition = { type = year value = 1205 }
+				condition = { type = not value = { type = year value = 1271 } }
+				condition = { type = location
+					condition = { type = area value = 130 } }			
+			}
+			condition = { type = and
+ 				condition = { type = year value = 1271 }		
+				condition = { type = not value = { type = year value = 1337 } }
+				condition = { type = location
+					condition = { type = area value = 233 } }			
+			}
+			condition = { type = and
+ 				condition = { type = year value = 1337 }		
+#				condition = { type = not value = { type = year value = 1453 } }
+				condition = { type = location
+					condition = { type = area value = 171 } }			
+			}			
+		}
+	}	
+	mean_time_to_happen = {	# modifier range (min/max) -> 30/30 months
+		months = 30
+	}
+	action_a = {	
+ 		effect = { type = remove_trait value = zealous }
+	}
+	action_b = {
+		effect = { type = trigger for = ruler value = 19413 }
+	}
+	action_c = {
+		effect = { type = trigger for = ruler value = 19414 }
+	}	
+}
+character_event = {	# 19413 - Holy Grail Research - triggered by 19412 - bribe search
+	id = 19413
+	picture = "event_grail"
+	action_a = {
+ 		effect = { type = gold scale = -2 }
+		effect = { type = random_list
+			20 = { type = trigger for = this value = 19416 }
+			80 = { type = trigger for = this value = 19415 }
+		}
+	}
+	action_b = {
+ 		effect = { type = gold scale = -0.5  }
+		effect = { type = random_list
+			 5 = { type = trigger for = this value = 19416 }
+			95 = { type = trigger for = this value = 19415 }
+		}
+	}
+	action_c = {
+ 		effect = { type = remove_trait value = zealous }
+ 		effect = { type = remove_trait for = marshal value = zealous }		
+	}	
+}
+character_event = {	# 19414 - Holy Grail Research - triggered by 19412 - bloody search
+	id = 19414
+	picture = "event_grail"
+	action_a = {
+ 		effect = { type = piety scale = -2 }
+		effect = { type = random_list
+			20 = { type = trigger for = this value = 19416 }
+			80 = { type = trigger for = this value = 19415 }
+		}
+	}
+	action_b = {
+ 		effect = { type = piety scale = -0.5 }
+		effect = { type = random_list
+			 5 = { type = trigger for = this value = 19416 }
+			95 = { type = trigger for = this value = 19415 }
+		}
+	}
+	action_c = {
+ 		effect = { type = remove_trait value = zealous }
+ 		effect = { type = remove_trait for = marshal value = zealous }		
+	}	
+}
+character_event = {	# 19415 - Holy Grail Research - triggered by 19413/4 - stop search
+	id = 19415
+	picture = "event_grail"
+	action_a = {
+ 		effect = { type = remove_trait value = zealous }
+ 		effect = { type = remove_trait for = marshal value = zealous }		
+	}	
+}
+character_event = {	# 19416 - Holy Grail Research - triggered by 19413/4 - found!!!
+	id = 19416
+	picture = "event_grail2"
+	action_a = {
+ 		effect = { type = prestige value = +500 }
+ 		effect = { type = piety value = +1500 }
+ 		effect = { type = remove_trait value = zealous }
+ 		effect = { type = remove_trait for = marshal value = zealous }		
+		effect = { type = trigger for = this value = 19417 }		
+	}	
+}
+character_event = {	# 19417 - Holy Grail Research - triggered by 19416 - build sanctuary
+	id = 19417
+	picture = "event_churchwork"
+	action_a = {
+ 		effect = { type = prestige value = +1000 }
+ 		effect = { type = add_improvement for = this value = cathedral }		
+	}	
+}
+province_event = { 	# 19418 - Robin Hood Legend - North England 1187/1250 - Steal gold from rich to give poor
+	id = 19418
+	picture = "event_ambush"
+	trigger = { 	# not ai - north england 1187/1250 - not every crime buildings - RH not captured
+		condition = { type = not value = { type = ai } }
+		condition = { type = area value = 63 }		
+ 		condition = { type = year value = 1187 }		
+		condition = { type = not value = { type = year value = 1251 } }		
+ 		condition = { type = or
+			condition = { type = not value = { type = has_improvement value = { thieves_guild = yes } } }
+			condition = { type = not value = { type = has_improvement value = { smugglers_ring = yes } } }
+			condition = { type = not value = { type = has_improvement value = { highway_robber_band = yes } } }
+		}
+		# check for RH not captured
+ 		condition = { type = owner
+	 		condition = { type = or
+				condition = { type = not value = { type = has_advance value = composite_longbow } }
+				condition = { type = not value = { type = has_advance value = ballads } }
+			}
+		}		
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 1/120 months
+		months = 24
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2.5
+		}
+		# existing law
+		modifier = {
+			condition = { type = has_law value = {  royal_preorgatory_law = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_law value = {  traditional_custom_law = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = {  popular_law = yes } }
+			factor = 2
+		}		
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# province economy
+		modifier = {
+			condition = { type = has_province_effect value = { poor = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 0.5
+		}		
+	}
+	action_a = {	# decrease clergy loyalty and ruler piety - add crime building chance
+		# loyalty decrease
+		effect = { type = clergy_loyalty value = -0.3 }
+		# piety decrease
+		effect = { type = ruler_piety value = -25 }
+		# add crime building chance		
+		effect = { type = random chance = 75
+			effect = { type = add_improvement value = thieves_guild } }
+		effect = { type = random chance = 50
+			effect = { type = add_improvement value = smugglers_ring } }
+		effect = { type = random chance = 25
+			effect = { type = add_improvement value = highway_robber_band } }			
+	}
+	action_b = {	# decrease noble loyalty and ruler prestige - add crime building chance
+		# loyalty decrease
+		effect = { type = noble_loyalty value = -0.15 }
+		# prestige decrease
+		effect = { type = ruler_prestige value = -50 }
+		# add crime building chance		
+		effect = { type = random chance = 75
+			effect = { type = add_improvement value = thieves_guild } }
+		effect = { type = random chance = 50
+			effect = { type = add_improvement value = smugglers_ring } }
+		effect = { type = random chance = 25
+			effect = { type = add_improvement value = highway_robber_band } }
+	}
+}
+province_event = { 	# 19419 - Robin Hood Legend - North England 1187/1250 - Ruler sets heavy taxes for poor
+	id = 19419
+	picture = "event_shame"
+	trigger = { 	# not ai - north england 1187/1250 - not struggling - RH not captured
+		condition = { type = not value = { type = ai } }
+		condition = { type = area value = 63 }		
+ 		condition = { type = year value = 1187 }		
+		condition = { type = not value = { type = year value = 1251 } }		
+		condition = { type = not value = { type = has_province_effect value = { struggling = yes } } }
+		# check for RH not captured
+ 		condition = { type = owner
+	 		condition = { type = or
+				condition = { type = not value = { type = has_advance value = composite_longbow } }
+				condition = { type = not value = { type = has_advance value = ballads } }
+			}
+		}		
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 1/120 months
+		months = 24
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2.5
+		}
+		# existing law
+		modifier = {
+			condition = { type = has_law value = {  royal_preorgatory_law = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_law value = {  traditional_custom_law = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = {  popular_law = yes } }
+			factor = 2
+		}		
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# province economy
+		modifier = {
+			condition = { type = has_province_effect value = { prosperous = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { rich = yes } }
+			factor = 0.5
+		}		
+	}
+	action_a = {	# decrease peasant loyalty, ruler piety and economy
+		# loyalty decrease
+		effect = { type = peasant_loyalty value = -0.3 }
+		# piety decrease
+		effect = { type = ruler_piety value = -25 }
+		# economy decrease
+		effect = { type = prosperity value = -1 }			
+	}
+	action_b = {	# decrease burgher loyalty, ruler prestige and economy
+		# loyalty decrease
+		effect = { type = burgher_loyalty value = -0.15 }
+		# prestige decrease
+		effect = { type = ruler_prestige value = -50 }
+		# economy decrease
+		effect = { type = prosperity value = -1 }
+	}
+}
+province_event = { 	# 19420 - Robin Hood Legend - North England 1187/1250 - Ransom on the head of RH and his gang
+	id = 19420
+	picture = "event_wanted"
+	trigger = { 	# not ai - north england 1187/1250 - exist crime buildings - RH not captured
+		condition = { type = not value = { type = ai } }
+		condition = { type = area value = 63 }		
+ 		condition = { type = year value = 1187 }		
+		condition = { type = not value = { type = year value = 1251 } }		
+ 		condition = { type = or
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+		}
+		# check for RH not captured
+ 		condition = { type = owner
+	 		condition = { type = or
+				condition = { type = not value = { type = has_advance value = composite_longbow } }
+				condition = { type = not value = { type = has_advance value = ballads } }
+			}
+		}		
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 1/120 months
+		months = 24
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2.5
+		}
+		# existing law
+		modifier = {
+			condition = { type = has_law value = {  royal_preorgatory_law = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_law value = {  traditional_custom_law = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = {  popular_law = yes } }
+			factor = 2
+		}		
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# province economy
+		modifier = {
+			condition = { type = has_province_effect value = { poor = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 0.5
+		}		
+	}
+	action_a = {	# chance of decrease gold, remove thieves_guild, increase clergy and noble loyalty
+		effect = { type = random chance = 75
+			# gold decrease
+			effect = { type = ruler_gold value = -500 }
+			# remove crime building
+			effect = { type = remove_improvement value = thieves_guild }		
+			# loyalty increase
+			effect = { type = clergy_loyalty value = +0.1 }
+			effect = { type = noble_loyalty value = +0.1 }		
+		}
+	}
+	action_b = {	# chance of decrease gold, remove smugglers_ring, increase clergy and noble loyalty
+		effect = { type = random chance = 50
+			# gold decrease
+			effect = { type = ruler_gold value = -1000 }
+			# remove crime building
+			effect = { type = remove_improvement value = smugglers_ring }		
+			# loyalty increase
+			effect = { type = clergy_loyalty value = +0.2 }
+			effect = { type = noble_loyalty value = +0.2 }		
+		}
+	}
+	action_c = {	# chance of decrease gold, remove highway_robber_band, increase clergy and noble loyalty
+		effect = { type = random chance = 25
+			# gold decrease
+			effect = { type = ruler_gold value = -1500 }
+			# remove crime building
+			effect = { type = remove_improvement value = highway_robber_band }		
+			# loyalty increase
+			effect = { type = clergy_loyalty value = +0.3 }
+			effect = { type = noble_loyalty value = +0.3 }		
+		}
+	}
+	action_d = {	# no money -> no law!!!
+		# prestige decrease
+		effect = { type = ruler_prestige value = -25 }
+		# loyalty decrease
+		effect = { type = clergy_loyalty value = -0.1 }
+		effect = { type = noble_loyalty value = -0.1 }		
+	}
+}
+character_event = {	# 19421 - Robin Hood Legend - North England 1187/1250 - Joust as trap to capture RH
+	id = 19421
+	picture = "event_master"
+	trigger = { 	# not ai ruler-year 1187/1250-RH not captured-court marshal-any prov in north england 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }		
+ 		condition = { type = year value = 1187 }		
+		condition = { type = not value = { type = year value = 1251 } }
+		# check for RH not captured
+ 		condition = { type = or
+			condition = { type = not value = { type = has_advance value = composite_longbow } }
+			condition = { type = not value = { type = has_advance value = ballads } }
+		}
+		# marshal exists and not in command
+		condition = { type = marshal_csc 
+			condition = { type = marshal }
+			condition = { type = not value = { type = command } }
+		}	
+		# check demesne
+ 		condition = { type = any_demesne_province condition = { type = area value = 63 } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 60/500 months
+		months = 180
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.05
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.05
+		}		
+		# ruler title
+		modifier = {
+			condition = { type = title value = ENGL }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = duchy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = county }
+			factor = 2
+		}
+		# existing law
+		modifier = {
+			condition = { type = has_law value = {  royal_preorgatory_law = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_law value = {  traditional_custom_law = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = {  popular_law = yes } }
+			factor = 1.26
+		}		
+		# intrigue (Ruler+Spymaster)
+		modifier = {
+			condition = { type = capital
+				condition = { type = ruler_intrigue value = 15 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = capital
+				condition = { type = ruler_intrigue value = 20 } }
+			factor = 0.75
+		}		
+	}
+	action_a = {	# marshal
+		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = marshal value = 19422 }
+	}
+	action_b = {	# gold
+		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19423 }
+	}
+	action_c = {	# lady Marian
+		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19424 }
+	}
+	action_d = {	# no joust
+		effect = { type = prestige value = -25 }
+	}	
+}
+character_event = {	# 19422 - Robin Hood Legend - triggered by 19421 - marshal prize
+	id = 19422
+	picture = "event_shame"
+	action_a = {	# marshal
+		effect = { type = martial value = -2 }
+		effect = { type = prestige value = -50 }		
+		effect = { type = random chance = 20	
+			effect = { type = trigger for = ruler value = 19425 } }
+	}
+}
+character_event = {	# 19423 - Robin Hood Legend - triggered by 19421 - money prize
+	id = 19423
+	picture = "event_money"
+	action_a = {	# money
+		effect = { type = stewardship value = -1 }	
+		effect = { type = gold scale = -0.25 }
+		effect = { type = random chance = 20	
+			effect = { type = trigger for = this value = 19425 } }
+	}
+}
+character_event = {	# 19424 - Robin Hood Legend - triggered by 19421 - Marian prize
+	id = 19424
+	picture = "event_lady"
+	action_a = {	# Marian
+		effect = { type = add_trait value = stress_symptom }	
+		effect = { type = random chance = 20	
+			effect = { type = trigger for = this value = 19425 } }
+	}
+}
+character_event = {	# 19425 - Robin Hood Legend - triggered by 19422/4 - RH captured!!!
+	id = 19425
+	picture = "event_hood"
+	action_a = {	# taken!!!
+		effect = { type = prestige value = 500 }		
+		effect = { type = add_advance value = composite_longbow }
+		effect = { type = add_advance value = ballads }		
+	}
+}
+province_event = { 	# 19426 - Peter the Hermit and Paupers' Crusade - 1095/96 Peoples leave countries in France, Germany, Netherland
+	id = 19426
+	picture = "event_hermit"
+	trigger = { 	# not ai - 1095/96 Fran Germ Neth - catholic - not heretic - not besieged - not struggling - peasant pow > 0.15
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1095 }		
+		condition = { type = not value = { type = year value = 1097 } }	
+ 		condition = { type = or		
+			condition = { type = region value = France }
+			condition = { type = region value = Germany }		
+			condition = { type = region value = Netherlands }		
+		}
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = not value = { type = is_besieged } }
+		# checking pseudo-flags	
+		condition = { type = not value = { type = has_province_effect value = { struggling = yes } } }
+		condition = { type = peasant_power value = 0.15 }
+	}
+	mean_time_to_happen = {	
+		days = 10
+	}
+	action_a = {	# decrease economy and peasant power
+		effect = { type = prosperity value = -1 }
+		effect = { type = peasant_power value = -0.3 }
+	}
+}
+province_event = { 	# 19427 - Peter the Hermit and Paupers' Crusade - 1096/97 Peoples reach Byzantion
+	id = 19427
+	picture = "event_hermit"
+	trigger = { 	# Byzantion - not ai - 1096/97 - not besieged - several people waves allowed if not plagued
+		condition = { type = province value = 496 }
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1096 }		
+		condition = { type = not value = { type = year value = 1098 } }	
+		condition = { type = not value = { type = is_besieged } }
+		# checking epidemics
+		condition = { type = not value = { type = has_province_effect value = { dysentery = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {	# cross people through the channel
+		effect = { type = ruler_gold scale = -0.5 }
+		effect = { type = ruler_piety value = 15 }
+	}
+	action_b = {	# no money -> no cross
+		effect = { type = ruler_piety value = -25 }
+		effect = { type = prosperity value = -1 }
+		effect = { type = random_list
+			65 = { type = add_province_effect value = dysentery }
+			35 = { type = add_province_effect value = typhoid_fever }
+		}
+	}
+}
+province_event = { 	# 19428 - Peter the Hermit and Paupers' Crusade - 1096/97 Peoples fight against Dunav pops
+	id = 19428
+	picture = "event_hermit"
+	trigger = { 	# not ai - 1096/97 Dunav - not besieged - not looted with forestry or royal_post
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1096 }		
+		condition = { type = not value = { type = year value = 1098 } }	
+		condition = { type = area value = 505 }	# Belgrade
+		condition = { type = not value = { type = is_besieged } }
+		# checking pseudo-flags	
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+ 		condition = { type = or	
+			condition = { type = has_improvement value = { forestry = yes } }
+			condition = { type = has_improvement value = { royal_post = yes } }
+		}
+	}
+	mean_time_to_happen = {	
+		days = 10
+	}
+	action_a = {	# pay garrison
+		effect = { type = ruler_gold scale = -0.33 }
+		effect = { type = add_province_effect value = looted }
+		effect = { type = random_list
+			10 = { type = remove_improvement value = forestry }
+			10 = { type = remove_improvement value = royal_post }
+			80 = { type = no_effect }
+		}
+	}
+	action_b = {	# civil war
+		effect = { type = add_province_effect value = looted }
+		effect = { type = prosperity value = -1 }
+		effect = { type = random_list
+			50 = { type = remove_improvement value = forestry }
+			50 = { type = remove_improvement value = royal_post }
+		}
+	}
+}
+province_event = { 	# 19429 - The Champagne fairs - 1187/1284 Italy - traders and bankers
+	id = 19429
+	picture = "event_fair"
+	trigger = { 	# not ai - 1187/1284 - Italy - trade conditions
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1187 }		
+		condition = { type = not value = { type = year value = 1285 } }	
+ 		condition = { type = region value = Italy }
+		# specific trade conditions
+		condition = { type = has_improvement value = { dyeworks = yes } }
+		condition = { type = has_advance value = { business_contracts = yes } }
+		condition = { type = has_advance value = { promissory_note = yes } }
+		condition = { type = has_advance value = { letters_of_credit = yes } }
+		# common trade conditions	
+		condition = { type = not value = { type = has_province_effect value = { rich = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }		
+		condition = { type = not value = { type = is_besieged } }
+		condition = { type = ruler_gold value = 0 }
+	}
+	mean_time_to_happen = {	
+		months = 60
+	}
+	action_a = {	# not interested, thanks!
+		effect = { type = burgher_loyalty value = -0.1 }
+		effect = { type = burgher_power value = -0.05 }
+	}
+	action_b = {	# pay burghers voyage
+		effect = { type = ruler_gold scale = -0.15 }	
+		effect = { type = burgher_loyalty value = +0.1 }
+		effect = { type = burgher_power value = +0.05 }		
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = +1 } }
+	}	
+	action_c = {	# send few private merchants
+		effect = { type = ruler_gold scale = -0.33 }	
+		effect = { type = random chance = 75
+			effect = { type = ruler_gold scale = 0.25 } }
+		effect = { type = random chance = 50
+			effect = { type = ruler_gold scale = 0.15 } }
+		effect = { type = random chance = 25
+			effect = { type = ruler_gold scale = 0.15 } }
+		effect = { type = random chance = 10
+			effect = { type = prosperity value = +1 } }
+	}	
+	action_d = {	# send A LOT of private merchants!
+		effect = { type = ruler_gold scale = -1 }	
+		effect = { type = random chance = 75
+			effect = { type = ruler_gold scale = 0.75 } }
+		effect = { type = random chance = 50
+			effect = { type = ruler_gold scale = 0.5 } }
+		effect = { type = random chance = 25
+			effect = { type = ruler_gold scale = 0.5 } }
+		effect = { type = random chance = 10
+			effect = { type = prosperity value = +1 } }
+	}	
+}
+province_event = { 	# 19430 - The Champagne fairs - 1187/1284 Netherland and Germany - woollen and linen cloths
+	id = 19430
+	picture = "event_fair"
+	trigger = { 	# not ai - 1187/1284 - Netherland and German - trade conditions
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1187 }		
+		condition = { type = not value = { type = year value = 1285 } }	
+ 		condition = { type = or		
+			condition = { type = region value = Germany }		
+			condition = { type = region value = Netherlands }		
+		}
+		# specific trade conditions
+		condition = { type = has_improvement value = { spinningmill = yes } }
+		condition = { type = has_advance value = { sheep = yes } }
+		# common trade conditions	
+		condition = { type = not value = { type = has_province_effect value = { rich = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }		
+		condition = { type = not value = { type = is_besieged } }
+		condition = { type = ruler_gold value = 0 }
+	}
+	mean_time_to_happen = {	
+		months = 60
+	}
+	action_a = {	# not interested, thanks!
+		effect = { type = burgher_loyalty value = -0.1 }
+		effect = { type = burgher_power value = -0.05 }
+	}
+	action_b = {	# pay burghers voyage
+		effect = { type = ruler_gold scale = -0.15 }	
+		effect = { type = burgher_loyalty value = +0.1 }
+		effect = { type = burgher_power value = +0.05 }		
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = +1 } }
+	}	
+	action_c = {	# send few private merchants
+		effect = { type = ruler_gold scale = -0.33 }	
+		effect = { type = random chance = 75
+			effect = { type = ruler_gold scale = 0.25 } }
+		effect = { type = random chance = 50
+			effect = { type = ruler_gold scale = 0.15 } }
+		effect = { type = random chance = 25
+			effect = { type = ruler_gold scale = 0.15 } }
+		effect = { type = random chance = 10
+			effect = { type = prosperity value = +1 } }
+	}	
+	action_d = {	# send A LOT of private merchants!
+		effect = { type = ruler_gold scale = -1 }	
+		effect = { type = random chance = 75
+			effect = { type = ruler_gold scale = 0.75 } }
+		effect = { type = random chance = 50
+			effect = { type = ruler_gold scale = 0.5 } }
+		effect = { type = random chance = 25
+			effect = { type = ruler_gold scale = 0.5 } }
+		effect = { type = random chance = 10
+			effect = { type = prosperity value = +1 } }
+	}	
+}
+province_event = { 	# 19431 - The Champagne fairs - 1187/1284 France - wine and cheese
+	id = 19431
+	picture = "event_fair"
+	trigger = { 	# not ai - 1187/1284 - France - not Champagne - trade conditions
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1187 }		
+		condition = { type = not value = { type = year value = 1285 } }	
+ 		condition = { type = region value = France }
+		# not Champagne
+		condition = { type = not value = { type = province value = 129 } }			
+		condition = { type = not value = { type = province value = 130 } }			
+		condition = { type = not value = { type = province value = 133 } }			
+		# specific trade conditions
+		condition = { type = has_improvement value = { brewery = yes } }
+		condition = { type = has_improvement value = { cheese_dairy = yes } }		
+		# common trade conditions	
+		condition = { type = not value = { type = has_province_effect value = { rich = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }		
+		condition = { type = not value = { type = is_besieged } }
+		condition = { type = ruler_gold value = 0 }
+	}
+	mean_time_to_happen = {	
+		months = 60
+	}
+	action_a = {	# not interested, thanks!
+		effect = { type = peasant_loyalty value = -0.1 }
+		effect = { type = peasant_power value = -0.05 }
+	}
+	action_b = {	# pay peasants voyage
+		effect = { type = ruler_gold scale = -0.15 }	
+		effect = { type = peasant_loyalty value = +0.1 }
+		effect = { type = peasant_power value = +0.05 }		
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = +1 } }
+	}	
+	action_c = {	# send few private merchants
+		effect = { type = ruler_gold scale = -0.33 }	
+		effect = { type = random chance = 75
+			effect = { type = ruler_gold scale = 0.25 } }
+		effect = { type = random chance = 50
+			effect = { type = ruler_gold scale = 0.15 } }
+		effect = { type = random chance = 25
+			effect = { type = ruler_gold scale = 0.15 } }
+		effect = { type = random chance = 10
+			effect = { type = prosperity value = +1 } }
+	}	
+	action_d = {	# send A LOT of private merchants!
+		effect = { type = ruler_gold scale = -1 }	
+		effect = { type = random chance = 75
+			effect = { type = ruler_gold scale = 0.75 } }
+		effect = { type = random chance = 50
+			effect = { type = ruler_gold scale = 0.5 } }
+		effect = { type = random chance = 25
+			effect = { type = ruler_gold scale = 0.5 } }
+		effect = { type = random chance = 10
+			effect = { type = prosperity value = +1 } }
+	}	
+}
+province_event = { 	# 19432 - The Champagne fairs - 1187/1284 Spain - exotic spices and grain
+	id = 19432
+	picture = "event_fair"
+	trigger = { 	# not ai - 1187/1284 - Spain - trade conditions
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1187 }		
+		condition = { type = not value = { type = year value = 1285 } }	
+ 		condition = { type = region value = Spain }
+		# specific trade conditions
+		condition = { type = has_improvement value = { extensive_roadnet = yes } }		
+		condition = { type = has_advance value = { exotic_trading = yes } }			
+		condition = { type = has_advance value = { two_field_system = yes } }
+		condition = { type = has_advance value = { three_field_system = yes } }
+		condition = { type = has_advance value = { stripe_ploughing = yes } }
+		# common trade conditions	
+		condition = { type = not value = { type = has_province_effect value = { rich = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }		
+		condition = { type = not value = { type = is_besieged } }
+		condition = { type = ruler_gold value = 0 }
+	}
+	mean_time_to_happen = {	
+		months = 60
+	}
+	action_a = {	# not interested, thanks!
+		effect = { type = peasant_loyalty value = -0.1 }
+		effect = { type = peasant_power value = -0.05 }
+	}
+	action_b = {	# pay peasants voyage
+		effect = { type = ruler_gold scale = -0.15 }	
+		effect = { type = peasant_loyalty value = +0.1 }
+		effect = { type = peasant_power value = +0.05 }		
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = +1 } }
+	}	
+	action_c = {	# send few private merchants
+		effect = { type = ruler_gold scale = -0.33 }	
+		effect = { type = random chance = 75
+			effect = { type = ruler_gold scale = 0.25 } }
+		effect = { type = random chance = 50
+			effect = { type = ruler_gold scale = 0.15 } }
+		effect = { type = random chance = 25
+			effect = { type = ruler_gold scale = 0.15 } }
+		effect = { type = random chance = 10
+			effect = { type = prosperity value = +1 } }
+	}	
+	action_d = {	# send A LOT of private merchants!
+		effect = { type = ruler_gold scale = -1 }	
+		effect = { type = random chance = 75
+			effect = { type = ruler_gold scale = 0.75 } }
+		effect = { type = random chance = 50
+			effect = { type = ruler_gold scale = 0.5 } }
+		effect = { type = random chance = 25
+			effect = { type = ruler_gold scale = 0.5 } }
+		effect = { type = random chance = 10
+			effect = { type = prosperity value = +1 } }
+	}	
+}
+province_event = { 	# 19433 - The Champagne fairs - 1187/1284 Champagne - setup huge warehouses
+	id = 19433
+	picture = "event_fair"
+	trigger = { 	# not ai - 1187/1284 - Champagne - trade conditions
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1187 }		
+		condition = { type = not value = { type = year value = 1285 } }	
+		# Champagne
+		condition = { type = or		
+			condition = { type = province value = 129 }		
+			condition = { type = province value = 130 }			
+			condition = { type = province value = 133 }
+		}			
+		# specific trade conditions
+		condition = { type = has_advance value = { local_merchant_houses = yes } }
+		condition = { type = has_advance value = { local_fairs = yes } }
+		# common trade conditions	
+		condition = { type = not value = { type = has_province_effect value = { rich = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }		
+		condition = { type = not value = { type = is_besieged } }
+		condition = { type = ruler_gold value = 0 }
+	}
+	mean_time_to_happen = {	
+		months = 60
+	}
+	action_a = {	# not interested, thanks!
+		effect = { type = burgher_loyalty value = -0.1 }
+		effect = { type = burgher_power value = -0.05 }
+	}
+	action_b = {	# pay burghers voyage
+		effect = { type = ruler_gold scale = -0.15 }	
+		effect = { type = burgher_loyalty value = +0.1 }
+		effect = { type = burgher_power value = +0.05 }		
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = +1 } }
+	}	
+	action_c = {	# send few private merchants
+		effect = { type = ruler_gold scale = -0.33 }	
+		effect = { type = random chance = 75
+			effect = { type = ruler_gold scale = 0.25 } }
+		effect = { type = random chance = 50
+			effect = { type = ruler_gold scale = 0.15 } }
+		effect = { type = random chance = 25
+			effect = { type = ruler_gold scale = 0.15 } }
+		effect = { type = random chance = 10
+			effect = { type = prosperity value = +1 } }
+	}	
+	action_d = {	# send A LOT of private merchants!
+		effect = { type = ruler_gold scale = -1 }	
+		effect = { type = random chance = 75
+			effect = { type = ruler_gold scale = 0.75 } }
+		effect = { type = random chance = 50
+			effect = { type = ruler_gold scale = 0.5 } }
+		effect = { type = random chance = 25
+			effect = { type = ruler_gold scale = 0.5 } }
+		effect = { type = random chance = 10
+			effect = { type = prosperity value = +1 } }
+	}	
+}
+character_event = {	# 19434 - El Cid Campeador - Spain 1067/1099 - Helps winning siege against muslims
+	id = 19434
+	picture = "event_cid"
+	trigger = { 	# not ai besieging spanish muslim prov - spanish realm_ruler
+		# not ai 
+		condition = { type = not value = { type = ai } }
+		# besieging spanish muslim prov
+ 		condition = { type = siege }
+		condition = { type = location	
+			condition = { type = region value = Spain }
+			condition = { type = ruler_religion value = moslem }
+		}		
+		# realm_ruler title - 1067/80 CAST - 1081/99 ARAG LEON PORT
+ 		condition = { type = realm_ruler
+			condition = { type = religion value = catholic }		
+			condition = { type = or
+				condition = { type = and
+					condition = { type = year value = 1067 }		
+					condition = { type = not value = { type = year value = 1081 } }	
+					condition = { type = title value = CAST }
+				}	
+				condition = { type = and
+					condition = { type = year value = 1081 }		
+					condition = { type = not value = { type = year value = 1100 } }	
+					condition = { type = or
+						condition = { type = title value = ARAG }
+						condition = { type = title value = LEON }
+						condition = { type = title value = PORT }
+					}					
+				}
+			}
+		}	
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 2/20 days	
+		days = 10
+		# difficulty
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.2
+		}
+		# aggressiveness
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 1.2
+		}		
+		# ruler
+		modifier = {
+			condition = { type = ruler }
+			factor = 0.7
+		}		
+		# Reconquista in progress
+		modifier = {		
+			condition = { type = crusade }
+			condition = { type = or
+				condition = { type = target value = 181 } # cordoba
+				condition = { type = target value = 197 } # toledo
+				condition = { type = target value = 160 } # lisboa
+				condition = { type = target value = 171 } # valencia
+				condition = { type = target value = 165 } # cadiz
+				condition = { type = target value = 199 } # burgos
+			}
+			condition = { type = on_crusade }			
+			factor = 0.3
+		}
+	}
+	action_a = {	# win siege
+		effect = { type = win_siege }
+		effect = { type = prestige value = -25 }
+		effect = { type = remove_trait value = valorous }
+		effect = { type = add_trait value = lazy }		
+	}
+	action_b = {	# no help, thanks!
+		effect = { type = prestige value = +10 }
+		effect = { type = remove_trait value = coward }
+		effect = { type = add_trait value = energetic }		
+	}	
+}
+character_event = {	# 19435 - El Cid Campeador - Spain 1067/1099 - Adds regiment fighting against muslims
+	id = 19435
+	picture = "event_cid"
+	trigger = { 	# not ai spanish ruler atwar against spanish muslims
+		# not ai spanish ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = capital
+			condition = { type = region value = Spain }	}		
+		# realm_ruler title - 1067/80 CAST - 1081/99 ARAG LEON PORT
+ 		condition = { type = realm_ruler
+			condition = { type = religion value = catholic }		
+			condition = { type = or
+				condition = { type = and
+					condition = { type = year value = 1067 }		
+					condition = { type = not value = { type = year value = 1081 } }	
+					condition = { type = title value = CAST }
+				}	
+				condition = { type = and
+					condition = { type = year value = 1081 }		
+					condition = { type = not value = { type = year value = 1100 } }	
+					condition = { type = or
+						condition = { type = title value = ARAG }
+						condition = { type = title value = LEON }
+						condition = { type = title value = PORT }
+					}					
+				}
+			}
+		}	
+		# at war against spanish muslims
+		condition = { type = atwar }		
+		condition = { type = any_enemy
+			condition = { type = religion value = moslem }
+			condition = { type = region value = Spain }			
+		}
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 12/140 months
+		months = 48
+		# difficulty
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.1
+		}
+		# aggressiveness
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 1.1
+		}		
+		# ruler type
+		modifier = {
+			condition = { type = duchy }
+			factor = 1.5
+		}		
+		modifier = {
+			condition = { type = county }
+			factor = 2
+		}		
+		# Reconquista in progress
+		modifier = {		
+			condition = { type = crusade }
+			condition = { type = or
+				condition = { type = target value = 181 } # cordoba
+				condition = { type = target value = 197 } # toledo
+				condition = { type = target value = 160 } # lisboa
+				condition = { type = target value = 171 } # valencia
+				condition = { type = target value = 165 } # cadiz
+				condition = { type = target value = 199 } # burgos
+			}
+			condition = { type = on_crusade }			
+			factor = 0.25
+		}
+	}
+	action_a = {	# add regiment
+		effect = { type = add_regiment 
+				tech_prov = 171
+				culture = castillan
+				strength = {
+					light_cav = 200
+					pikemen = 300
+					militia = 500					
+				}
+		}
+		effect = { type = prestige value = -25 }
+		effect = { type = remove_trait value = energetic }
+		effect = { type = add_trait value = modest }		
+	}
+	action_b = {	# no help, thanks!
+		effect = { type = prestige value = +50 }
+		effect = { type = remove_trait value = lazy }
+		effect = { type = add_trait value = proud }		
+	}	
+}
+character_event = {	# 19436 - Constitutions of Clarendon - 1164 ENGL king claims power over church
+	id = 19436
+	picture = "event_doc1"
+	trigger = {		# not ai ENGL king - 1164/66 - Flag sceptical and regal_supremacy law - Canterbury is ENGL
+		condition = { type = not value = { type = ai } }
+		condition = { type = title value = ENGL }
+ 		condition = { type = year value = 1164 }		
+		condition = { type = not value = { type = year value = 1167 } }	
+		# FLAG
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = has_law value = { regal_supremacy = yes } } }
+		# Canterbury is ENGL
+		condition = { type = province province = 73
+			condition = { type = owner
+				condition = { type = realm_ruler
+					condition = { type = title value = ENGL } } } }
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {	# royal court for 'criminous clerks' 
+		effect = { type = prestige value = 150 }
+		effect = { type = piety value = -150 }
+		effect = { type = set_law value = regal_supremacy }
+		effect = { type = diplomacy value = -1 }
+		effect = { type = intrigue value = +1 }
+		effect = { type = add_trait value = sceptical }
+ 		effect = { type = create_courtier value = chaplain }		
+ 		effect = { type = create_courtier value = chaplain }
+ 		effect = { type = create_courtier value = chaplain }
+ 		effect = { type = create_courtier value = chaplain }
+ 		effect = { type = create_courtier value = chaplain }
+	}	
+}
+character_event = {	# 19437 - Thomas Becket - 1170 Becket returns in Canterbury after his exile	
+	id = 19437
+	picture = "event_pope2"
+	trigger = {		# not ai ENGL king, 1170/72, adult, catholic, not excomm, not heretic - FLAG - Canterbury is ENGL
+		condition = { type = not value = { type = ai } }
+		condition = { type = title value = ENGL }
+ 		condition = { type = year value = 1170 }		
+		condition = { type = not value = { type = year value = 1173 } }	
+		condition = { type = age value = 16 }
+		condition = { type = religion value = catholic }		
+		condition = { type = not value = { type = trait value = excommunicated } }		
+		condition = { type = not value = { type = trait value = heretic } }
+		# FLAG
+		condition = { type = not value = { type = has_advance value = critical_bible_interpretations } }
+		# Canterbury is ENGL
+		condition = { type = province province = 73
+			condition = { type = owner
+				condition = { type = realm_ruler
+					condition = { type = title value = ENGL } } } }
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {	# Becket returns!
+		effect = { type = add_trait value = sceptical }
+		effect = { type = add_advance value = critical_bible_interpretations }
+		effect = { type = trigger for = this value = 19438 }
+	}	
+	action_b = {	# No, thanks!
+		effect = { type = piety value = -250 }
+		effect = { type = add_trait value = excommunicated }
+		effect = { type = badboy value = 2 }		
+	}	
+}
+character_event = {	# 19438 - Thomas Becket - 1170 Becket wants back Church's properties - triggered by 19437	
+	id = 19438
+	picture = "event_sermon"
+	action_a = {	# Will no one rid me of this troublesome priest?
+		effect = { type = add_trait value = vengeful }		
+		effect = { type = trigger for = this value = 19439 }
+	}	
+	action_b = {	# Give him what asked
+		effect = { type = prestige value = -1500 }
+		effect = { type = gold scale = -3 }		
+		effect = { type = set_law value = church_supremacy }		
+	}	
+}
+character_event = {	# 19439 - Thomas Becket - 1170 Becket murdered in Cathedral - triggered by 19438	
+	id = 19439
+	picture = "event_murder"
+	action_a = {	# mea culpa!
+		effect = { type = prestige value = -500 }
+		effect = { type = add_trait value = modest }		
+	}	
+	action_b = {	# nothing about him
+		effect = { type = piety value = -500 }
+		effect = { type = add_trait value = proud }
+		effect = { type = badboy value = 2 }		
+	}	
+}
+character_event = {	# 19440 - Council of Clermont - 1095 Deus vult! - Pope wants kings join crusade  
+	id = 19440
+	picture = "event_pope"
+	trigger = { 	# not ai king - 1095/97 - not crusading, adult, catholic, not excomm, not heretic 
+		condition = { type = not value = { type = ai } }
+		condition = { type = kingdom }
+ 		condition = { type = year value = 1095 }		
+		condition = { type = not value = { type = year value = 1098 } }	
+		condition = { type = crusade }
+		condition = { type = not value = { type = on_crusade } }		
+		condition = { type = age value = 16 }
+		condition = { type = religion value = catholic }		
+		condition = { type = not value = { type = trait value = excommunicated } }		
+		condition = { type = not value = { type = trait value = heretic } }		
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 1/1000 days
+		days = 1
+		# flag sceptical
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 1000
+		}		
+	}
+	action_a = {	# Deus vult!
+		effect = { type = declare_war value = crusade_target_owner }
+		effect = { type = piety value = 100 }
+		effect = { type = add_trait value = crusader }		
+		effect = { type = add_trait value = zealous }		
+	}
+	action_b = {	# Deus vult???
+		effect = { type = declare_war value = crusade_target_owner }
+		effect = { type = prestige value = 50 }
+		effect = { type = remove_trait value = zealous }		
+	}
+	action_c = {	# no, thanks!
+		effect = { type = piety value = -200 }
+		effect = { type = remove_trait value = crusader }
+		effect = { type = add_trait value = sceptical }		
+	}	
+}
+character_event = {	# 19441 - Domesday Book - 1086 ENGL king writes census book
+	id = 19441
+	picture = "event_book1"
+	trigger = {		# not ai ENGL king - 1086/88 - not chronicle_writing - Capital in Britain
+		condition = { type = not value = { type = ai } }
+		condition = { type = title value = ENGL }
+ 		condition = { type = year value = 1086 }		
+		condition = { type = not value = { type = year value = 1089 } }	
+		# flag
+		condition = { type = not value = { type = has_advance value = chronicle_writing } }
+		# Capital in ENGL
+		condition = { type = capital
+			condition = { type = region value = Britain } }
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {	# Good work!
+		effect = { type = prestige value = 250 }
+		effect = { type = stewardship value = +1 }
+		effect = { type = gold scale = -1 }
+		effect = { type = add_advance value = chronicle_writing }
+	}	
+}
+character_event = {	# 19442 - Magna Carta - 1215 - nobles and citizens claim rights over ENGL king 
+	id = 19442
+	picture = "event_doc1"
+	trigger = {		# not ai ENGL king - 1215/17 - Flag traditional_custom_law - Capital in Britain
+		condition = { type = not value = { type = ai } }
+		condition = { type = title value = ENGL }
+ 		condition = { type = year value = 1215 }		
+		condition = { type = not value = { type = year value = 1218 } }	
+		# FLAG
+		condition = { type = not value = { type = has_law value = { traditional_custom_law = yes } } }
+		# Capital in ENGL
+		condition = { type = capital
+			condition = { type = region value = Britain } }
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {	# Give rights
+		effect = { type = set_law value = traditional_custom_law }
+		effect = { type = prestige value = -300 }
+		effect = { type = add_trait value = generous }
+		effect = { type = add_trait value = modest }
+	}	
+	action_b = {	# Refuse rights
+		effect = { type = set_law value = royal_preorgatory_law }
+		effect = { type = add_trait value = proud }
+		effect = { type = add_province_effect value = revolt }
+		effect = { type = trigger for = chancellor value = 19443 }
+		effect = { type = trigger for = best_courtier value = 19443 }
+		effect = { type = trigger for = random_courtier value = 19443 }
+		effect = { type = trigger for = worst_courtier value = 19443 }
+	}	
+}
+character_event = {	# 19443 - Magna Carta - 1215 triggered by 19442 - noble leaves court and join Barons' revolt 
+	id = 19443
+	picture = "event_leave"
+	immidiate = {	# Noble defect
+		effect = { type = courtier_defect value = random_neighbor }
+	}	
+}
+province_event = { 	# 19444 - Bernard de Clairvaux - 1130/1145 Funds abbeys in France, Germany and Italy
+	id = 19444
+	picture = "event_bernard"
+	trigger = { 	# not ai - 1130/45 Fran Germ Ital - not monastery - not besieged - prov and ruler catholic, not heretic, not excomm
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1130 }		
+		condition = { type = not value = { type = year value = 1146 } }	
+ 		condition = { type = or		
+			condition = { type = region value = France }
+			condition = { type = region value = Germany }		
+			condition = { type = region value = Italy }		
+		}
+		condition = { type = not value = { type = has_improvement value = { monastery = yes } } }
+		condition = { type = not value = { type = is_besieged } }
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+	}
+	mean_time_to_happen = {	
+		months = 60
+	}
+	action_a = {	# no money -> no monastery
+		effect = { type = ruler_piety value = -25 }
+		effect = { type = clergy_loyalty value = -0.3 }
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = burgher_loyalty value = -0.1 }		
+	}
+	action_b = {	# use clergy gold for monastery
+		effect = { type = ruler_piety value = -50 }
+		effect = { type = clergy_loyalty value = -0.5 }
+		effect = { type = peasant_loyalty value = -0.05 }
+		effect = { type = burgher_loyalty value = -0.05 }		
+		effect = { type = random chance = 33
+			effect = { type = add_improvement value = monastery } }
+	}
+	action_c = {	# build monastery
+		effect = { type = ruler_gold value = -400 }
+		effect = { type = add_improvement value = monastery }		
+		effect = { type = ruler_piety value = +25 }
+		effect = { type = clergy_power value = +0.1 }		
+		effect = { type = clergy_loyalty value = +0.1 }
+		effect = { type = peasant_loyalty value = +0.1 }
+		effect = { type = burgher_loyalty value = +0.1 }		
+	}
+	action_d = {	# build monastery and templar_house
+		effect = { type = ruler_gold value = -1000 }
+		effect = { type = add_improvement value = monastery }
+		effect = { type = add_improvement value = templar_house }		
+		effect = { type = ruler_piety value = +50 }
+		effect = { type = clergy_power value = +0.2 }		
+		effect = { type = clergy_loyalty value = +0.2 }
+		effect = { type = peasant_loyalty value = +0.1 }
+		effect = { type = burgher_loyalty value = +0.1 }		
+	}
+}
+province_event = { 	# 19445 - Francis of Assisi - 1206/1226 Papal States - spreads ascetism and apostolic_poverty
+	id = 19445
+	picture = "event_francis"
+	trigger = { 	# not ai - 1206/1226 Papal States - not heretic, not besieged, catholic, ruler gold > 0
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1206 }		
+		condition = { type = not value = { type = year value = 1227 } }	
+		condition = { type = area value = 349 }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = not value = { type = is_besieged } }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_gold value = 0 }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 48/300 months	 	
+		months = 60
+		# difficulty
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		# apostolic_poverty
+		modifier = {		
+			condition = { type = has_advance value = { apostolic_poverty = yes } }
+			factor = 1.25
+		}
+		# ruler trait
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 2
+		}
+	}
+	action_a = {	# gold is mine!
+		effect = { type = ruler_piety value = -100 }	
+		effect = { type = remove_advance value = ascetism }	
+		effect = { type = remove_advance value = apostolic_poverty }	
+	}
+	action_b = {	# give gold to paupers
+		effect = { type = ruler_gold scale = -0.75 }	
+		effect = { type = ruler_piety value = +150 }	
+		effect = { type = add_advance value = ascetism }	
+		effect = { type = add_advance value = apostolic_poverty }	
+	}	
+}
+province_event = { 	# 19446 - Dominic de Guzman - 1195/1221 Languedoc - removes albigensian heresy
+	id = 19446
+	picture = "event_inquisition"
+	trigger = { 	# not ai - 1195/1221 Languedoc - heretic, not besieged, catholic
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1195 }		
+		condition = { type = not value = { type = year value = 1222 } }	
+		condition = { type = area value = 214 }	# Toulouse 
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = not value = { type = is_besieged } }
+		condition = { type = religion value = catholic }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 60/320 months	 	
+		months = 60
+		# difficulty
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.16
+		}
+		# ruler trait
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 2
+		}
+	}
+	action_a = {
+		effect = { type = remove_advance value = inquisition }	
+		effect = { type = ruler_piety value = -25 }	
+	}
+	action_b = {
+		effect = { type = add_advance value = inquisition }	
+		effect = { type = remove_province_effect value = heretic }	
+	}	
+}	
+province_event = { 	# 19447 - Hildegard von Bingen - 1159/70 Germany - powerful woman for medieval times 
+	id = 19447
+	picture = "event_nun"
+	trigger = { 	# not ai - 1159/70 Germany - not heretic, not besieged, catholic
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1159 }		
+		condition = { type = not value = { type = year value = 1171 } }	
+		condition = { type = region value = Germany }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = not value = { type = is_besieged } }
+		condition = { type = religion value = catholic }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 30/160 months	 	
+		months = 30
+		# difficulty
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.16
+		}
+		# ruler trait
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 2
+		}
+	}
+	action_a = {	# remove epidemics
+		effect = { type = remove_province_effect value = malaria }	
+		effect = { type = remove_province_effect value = dysentery }	
+		effect = { type = remove_province_effect value = small_pox }	
+		effect = { type = remove_province_effect value = typhoid_fever }	
+	}
+	action_b = {	# add religious advances and increase clergy happines
+		effect = { type = add_advance value = ascetism }	
+		effect = { type = add_advance value = apostolic_poverty }	
+		effect = { type = add_advance value = monastic_schools }	
+		effect = { type = clergy_loyalty value = +0.25 }	
+		effect = { type = clergy_power value = +0.1 }	
+	}
+	action_c = {	# decrease noble power and increse poor loyalty
+		effect = { type = peasant_loyalty value = +0.3 }	
+		effect = { type = burgher_loyalty value = +0.2 }	
+		effect = { type = clergy_loyalty value = +0.1 }	
+		effect = { type = noble_power value = -0.2 }	
+	}
+	action_d = {	# increase ruler prestige and decrease piety
+		effect = { type = ruler_prestige value = +50 }	
+		effect = { type = ruler_piety value = -25 }	
+	}
+}	
+province_event = { 	# 19448 - Averroes - 1150/98 Spain - master of philosophy, Islamic law and medicine 
+	id = 19448
+	picture = "event_arabcouncil"
+	trigger = { 	# not ai - 1150/98 Spain - not besieged
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1150 }		
+		condition = { type = not value = { type = year value = 1199 } }	
+		condition = { type = region value = Spain }
+		condition = { type = not value = { type = is_besieged } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 120/550 months	 	
+		months = 120
+		# difficulty
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.15
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 1.05
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 2
+		}
+	}
+	action_a = {	# school (build) and university (tech)
+		effect = { type = add_improvement value = school }
+		effect = { type = random chance = 75
+			effect = { type = add_advance value = universities } }	
+	}
+	action_b = {	# remove epidemics
+		effect = { type = remove_province_effect value = malaria }	
+		effect = { type = remove_province_effect value = dysentery }	
+		effect = { type = remove_province_effect value = small_pox }	
+		effect = { type = remove_province_effect value = typhoid_fever }	
+	}
+	action_c = {	# add philosophy techs and decrease clergy power
+		effect = { type = clergy_power value = -0.1 }	
+		effect = { type = add_advance value = aristotelian_logics }
+		effect = { type = add_advance value = scholastics }
+		effect = { type = random chance = 50
+			effect = { type = add_advance value = natural_philosophy } }	
+	}
+}	
+province_event = { 	# 19449 - Chretien de Troyes - 1160/81 Seine - spreads romantic poetry
+	id = 19449
+	picture = "event_romantic"
+	trigger = { 	# not ai - 1160/81 Seine - not besieged - not romantic_poetry
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1160 }		
+		condition = { type = not value = { type = year value = 1182 } }	
+		condition = { type = area value = 130 }	# Troyes 
+		condition = { type = not value = { type = is_besieged } }
+		# flag
+		condition = { type = not value = { type = has_advance value = { romantic_poetry = yes } } }
+	}
+	mean_time_to_happen = {	
+		months = 60
+	}
+	action_a = {
+		effect = { type = add_advance value = romantic_poetry }	
+		effect = { type = noble_loyalty value = +0.2 }		
+		effect = { type = burgher_loyalty value = +0.1 }		
+		effect = { type = peasant_loyalty value = +0.05 }
+		effect = { type = clergy_loyalty value = -0.2 }
+		effect = { type = clergy_power value = -0.1 }		
+		effect = { type = ruler_piety value = -10 }	
+	}
+	action_b = {
+		effect = { type = clergy_power value = +0.1 }
+		effect = { type = ruler_piety value = +10 }	
+	}	
+}	
+character_event = {	# 19450 - Mandylion/Shroud - 1066/1204 - exposed at Byzantion 
+	id = 19450
+	picture = "event_shroud"
+	trigger = {		# not ai ruler > 16, not excomm, not heretic, not command, not plagued-year range-capital not Byzantion 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 }		
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+		condition = { type = not value = { type = trait value = blind } }
+#		condition = { type = year value = 1066 }		
+		condition = { type = not value = { type = year value = 1205 } }
+		condition = { type = capital
+			condition = { type = not value = { type = province value = 496 } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 21/140 years
+		years = 140
+		# change mtth for 1187's scenario
+		modifier = {
+			condition = { type = year value = 1187 }		
+			factor = 0.15
+		}		
+	}
+	action_a = {	
+ 		effect = { type = add_trait value = sceptical }
+	}
+	action_b = {	
+ 		effect = { type = remove_trait value = zealous }
+	}
+	action_c = {
+ 		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19452 }
+	}
+}
+character_event = {	# 19451 - Mandylion/Shroud - 1356/1453 - exposed at Lirey (Troyes)
+	id = 19451
+	picture = "event_shroud"
+	trigger = {		# not ai ruler > 16, not excomm, not heretic, not command, not plagued-year range-capital not Troyes
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 }		
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+		condition = { type = not value = { type = trait value = blind } }
+ 		condition = { type = year value = 1356 }		
+#		condition = { type = not value = { type = year value = 1453 } }
+		condition = { type = capital
+			condition = { type = not value = { type = province value = 130 } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 75/75 years
+		years = 75
+	}
+	action_a = {	
+ 		effect = { type = add_trait value = sceptical }
+	}
+	action_b = {	
+ 		effect = { type = remove_trait value = zealous }
+	}
+	action_c = {
+ 		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19452 }
+	}
+}
+character_event = {	# 19452 - Mandylion/Shroud - triggered by 19450/51/60 - voyage to see it
+	id = 19452
+	picture = "event_shroud1"
+	action_a = {
+		effect = { type = add_trait value = zealous }
+ 		effect = { type = piety value = 25 }
+		effect = { type = gold scale = -0.25 }
+ 		effect = { type = health value = +1 }
+		effect = { type = random chance = 75		
+			effect = { type = remove_trait value = depression } }
+		effect = { type = random chance = 50		
+			effect = { type = remove_trait value = illness } }
+	}
+	action_b = {
+		effect = { type = remove_trait value = zealous }
+ 		effect = { type = remove_trait value = stress_symptom }
+ 		effect = { type = remove_trait value = depression }
+ 	}
+}
+province_event = {	# 19453 - Mandylion/Shroud - 1205/1355 - build Knights Templar House in capital
+	id = 19453
+	picture = "event_templars1"
+	trigger = {		# not ai capital-not templar-year range-catholic-not heretic-not besieged-ruler catholic, not excomm, not heretic-not FLAG
+		condition = { type = not value = { type = ai } }
+		condition = { type = capital value = yes }
+		condition = { type = not value = { type = has_improvement value = { templar_house = yes } } }
+ 		condition = { type = year value = 1205 }		
+		condition = { type = not value = { type = year value = 1356 } }
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = not value = { type = is_besieged } }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		# FLAG - extravagant_decoration
+ 		condition = { type = owner
+			condition = { type = not value = { type = has_advance value = extravagant_decoration } } }		
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 2/20 months
+		months = 20
+		# change mtth for 1337's scenario
+		modifier = {
+			condition = { type = year value = 1337 }		
+			factor = 0.1
+		}		
+	}
+	action_a = {	
+		effect = { type = ruler_piety value = -10 }
+	}
+	action_b = {	
+		effect = { type = ruler_gold value = -500 }
+		effect = { type = add_improvement value = templar_house }		
+	}
+}
+character_event = {	# 19454 - Mandylion/Shroud - 1205/1355 - start search together with Knights Templar (n.1)
+	id = 19454
+	picture = "event_templars1"
+	trigger = {		# not ai ruler > 16, catholic, not excomm, not heretic, not command, not plagued-year range-capital has Templar-not FLAG 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = blind } }
+ 		condition = { type = year value = 1205 }		
+		condition = { type = not value = { type = year value = 1356 } }
+		condition = { type = capital
+			condition = { type = has_improvement value = { templar_house = yes } } }
+		# FLAG - extravagant_decoration
+		condition = { type = not value = { type = has_advance value = extravagant_decoration } }	
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 22/150 years
+		years = 150
+		# change mtth for 1337's scenario
+		modifier = {
+			condition = { type = year value = 1337 }		
+			factor = 0.15
+		}		
+	}
+	action_a = {	
+ 		effect = { type = remove_trait value = zealous }
+	}
+	action_b = {
+ 		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19457 }
+	}
+	action_c = {
+ 		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19458 }
+	}
+	action_d = {
+ 		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19459 }
+	}
+}
+character_event = {	# 19455 - Mandylion/Shroud - 1205/1355 - start search together with Knights Templar (n.2)
+	id = 19455
+	picture = "event_templars1"
+	trigger = {		# not ai ruler > 16, catholic, not excomm, not heretic, not command, not plagued-year range-capital has Templar-not FLAG 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = blind } }
+ 		condition = { type = year value = 1205 }		
+		condition = { type = not value = { type = year value = 1356 } }
+		condition = { type = capital
+			condition = { type = has_improvement value = { templar_house = yes } } }
+		# FLAG - extravagant_decoration
+		condition = { type = not value = { type = has_advance value = extravagant_decoration } }	
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 22/150 years
+		years = 150
+		# change mtth for 1337's scenario
+		modifier = {
+			condition = { type = year value = 1337 }		
+			factor = 0.15
+		}		
+	}
+	action_a = {	
+ 		effect = { type = remove_trait value = zealous }
+	}
+	action_b = {
+ 		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19459 }
+	}
+	action_c = {
+ 		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19457 }
+	}
+	action_d = {
+ 		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19458 }
+	}
+}
+character_event = {	# 19456 - Mandylion/Shroud - 1205/1355 - start search together with Knights Templar (n.3)
+	id = 19456
+	picture = "event_templars1"
+	trigger = {		# not ai ruler > 16, catholic, not excomm, not heretic, not command, not plagued-year range-capital has Templar-not FLAG 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = blind } }
+ 		condition = { type = year value = 1205 }		
+		condition = { type = not value = { type = year value = 1356 } }
+		condition = { type = capital
+			condition = { type = has_improvement value = { templar_house = yes } } }
+		# FLAG - extravagant_decoration
+		condition = { type = not value = { type = has_advance value = extravagant_decoration } }	
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 22/150 years
+		years = 150
+		# change mtth for 1337's scenario
+		modifier = {
+			condition = { type = year value = 1337 }		
+			factor = 0.15
+		}		
+	}
+	action_a = {	
+ 		effect = { type = remove_trait value = zealous }
+	}
+	action_b = {
+ 		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19458 }
+	}
+	action_c = {
+ 		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19459 }
+	}
+	action_d = {
+ 		effect = { type = gold scale = -0.25 }
+		effect = { type = trigger for = this value = 19457 }
+	}
+}
+character_event = {	# 19457 - Mandylion/Shroud - triggered by 19454/55/56 - wrong! 
+	id = 19457
+	picture = "event_templars2"
+	action_a = {
+		effect = { type = random_list
+			50 = { type = add_trait value = stress_symptom }
+			20 = { type = add_trait value = depression }
+			30 = { type = no_effect }
+		}
+	}
+}
+character_event = {	# 19458 - Mandylion/Shroud - triggered by 19454/55/56 - ambush!
+	id = 19458
+	picture = "event_templars2"
+	action_a = {
+		effect = { type = trigger for = this value = 19700 }
+	}
+}
+character_event = {	# 19459 - Mandylion/Shroud - triggered by 19454/55/56 - right! 
+	id = 19459
+	picture = "event_templars2"
+	action_a = {
+		effect = { type = trigger for = this value = 19460 }
+	}
+}
+character_event = {	# 19460 - Mandylion/Shroud - triggered by 19459 - noble family takes care of Mandylion
+	id = 19460
+	picture = "event_castle1"
+	action_a = {
+		effect = { type = trigger for = this value = 19461 }
+	}
+	action_b = {
+		effect = { type = trigger for = this value = 19463 }
+	}
+	action_c = {
+		effect = { type = trigger for = this value = 19467 }
+	}
+	action_d = {
+		effect = { type = trigger for = this value = 19452 }
+	}
+}
+character_event = {	# 19461 - Mandylion/Shroud - triggered by 19460 - assault - assault their castle?
+	id = 19461
+	picture = "event_assault"
+	action_a = {
+		effect = { type = trigger for = this value = 19462 }
+		effect = { type = health value = -2 }
+		effect = { type = random_list
+			40 = { type = fertility value = -1 }
+			30 = { type = add_trait value = stress_symptom }
+			20 = { type = add_trait value = clubfooted }
+			10 = { type = add_trait value = war_invalid }
+		}
+	}
+	action_b = {
+		effect = { type = trigger for = this value = 19460 }
+	}
+}
+character_event = {	# 19462 - Mandylion/Shroud - triggered by 19461 - assault - loot and chance finding Mandylion
+	id = 19462
+	picture = "event_flames"
+	action_a = {
+		effect = { type = gold value = 500 }
+		effect = { type = random chance = 50		
+			effect = { type = gold value = 500 } }
+		effect = { type = random_list
+			50 = { type = trigger for = this value = 19472 }
+			50 = { type = trigger for = this value = 19499 }
+		}
+	}
+}
+character_event = {	# 19463 - Mandylion/Shroud - triggered by 19460 - steal Mandylion - step 1 -> patrol
+	id = 19463
+	picture = "event_patrol"
+	action_a = {
+		effect = { type = random_list
+			75 = { type = trigger for = this value = 19464 }
+			25 = { type = trigger for = this value = 19499 }
+		}
+	}
+	action_b = {
+		effect = { type = trigger for = this value = 19460 }
+	}
+}
+character_event = {	# 19464 - Mandylion/Shroud - triggered by 19463 - steal Mandylion - step 2 -> gate
+	id = 19464
+	picture = "event_gate"
+	action_a = {
+		effect = { type = random_list
+			75 = { type = trigger for = this value = 19465 }
+			25 = { type = trigger for = this value = 19499 }
+		}
+	}
+	action_b = {
+		effect = { type = trigger for = this value = 19460 }
+	}
+}
+character_event = {	# 19465 - Mandylion/Shroud - triggered by 19464 - steal Mandylion - step 3 -> great hall
+	id = 19465
+	picture = "event_hall"
+	action_a = {
+		effect = { type = random_list
+			75 = { type = trigger for = this value = 19466 }
+			25 = { type = trigger for = this value = 19499 }
+		}
+	}
+	action_b = {
+		effect = { type = trigger for = this value = 19460 }
+	}
+}
+character_event = {	# 19466 - Mandylion/Shroud - triggered by 19465 - steal Mandylion - step 4 -> escape
+	id = 19466
+	picture = "event_fly"
+	action_a = {
+		effect = { type = health value = -1 }
+		effect = { type = random_list
+			40 = { type = add_trait value = clubfooted }
+			30 = { type = health value = -1 }
+			30 = { type = fertility value = -1 }
+		}
+		effect = { type = random_list
+			75 = { type = trigger for = this value = 19472 }
+			25 = { type = trigger for = this value = 19499 }
+		}
+	}
+}
+character_event = {	# 19467 - Mandylion/Shroud - triggered by 19460 - buy Mandylion - initial approach
+	id = 19467
+	picture = "event_nobles"
+	action_a = {
+		effect = { type = gold value = -1000 }
+		effect = { type = trigger for = this value = 19468 }
+	}
+	action_b = {
+		effect = { type = trigger for = this value = 19460 }
+	}
+}
+character_event = {	# 19468 - Mandylion/Shroud - triggered by 19467 - buy Mandylion - jude steward
+	id = 19468
+	picture = "event_payment"
+	action_a = {
+		effect = { type = gold value = -1000 }
+		effect = { type = trigger for = this value = 19471 }
+		effect = { type = trigger for = this value = 19469 }
+		effect = { type = random chance = 90		
+			effect = { type = trigger for = this value = 19469 } }
+		effect = { type = random chance = 75		
+			effect = { type = trigger for = this value = 19469 } }
+		effect = { type = random chance = 66		
+			effect = { type = trigger for = this value = 19469 } }
+		effect = { type = random chance = 50		
+			effect = { type = trigger for = this value = 19469 } }
+		effect = { type = random chance = 33		
+			effect = { type = trigger for = this value = 19469 } }
+	}
+	action_b = {
+		effect = { type = trigger for = this value = 19460 }
+	}
+}
+character_event = {	# 19469 - Mandylion/Shroud - triggered by 19468 - buy Mandylion - payment
+	id = 19469
+	picture = "event_dream"
+	immidiate = {
+		effect = { type = gold value = -1000 }
+		effect = { type = random chance = 50		
+			effect = { type = trigger for = this value = 19470 } }
+	}
+}
+character_event = {	# 19470 - Mandylion/Shroud - triggered by 19469 - buy Mandylion - repaid by Templar
+	id = 19470
+	picture = "event_templars1"
+	immidiate = {
+		effect = { type = gold value = 500 }
+	}
+}
+character_event = {	# 19471 - Mandylion/Shroud - triggered by 19468 - buy Mandylion - last chance
+	id = 19471
+	picture = "event_illness"
+	action_a = {
+		effect = { type = random chance = 50		
+			effect = { type = add_trait value = stress_symptom } }	
+		effect = { type = random_list
+			65 = { type = trigger for = this value = 19472 }
+			35 = { type = trigger for = this value = 19499 }
+		}
+	}
+}
+character_event = {	# 19499 - Mandylion/Shroud - triggered by 19462/66/71 - NOT found
+	id = 19499
+	picture = "event_setbattle"
+	action_a = {
+		effect = { type = prestige value = -25 }
+ 	}	
+}
+character_event = {	# 19472 - Mandylion/Shroud - triggered by 19462/66/71 - found!!!
+	id = 19472
+	picture = "event_shroud2"
+	action_a = {
+		effect = { type = prestige value = +1500 }
+ 		effect = { type = piety value = +1500 }
+		# set flag
+		effect = { type = add_advance value = extravagant_decoration }
+		# build cathedral
+		effect = { type = trigger for = this value = 19417 }		
+	}	
+}
+character_event = {	# 19473 - Giotto di Bondone - 1277/79 Papal States - early steps
+	id = 19473
+	picture = "event_giotto"
+	trigger = {		# not ai ruler, not command, age 16 - 1277/79 - not tapestries - Capital in Papal States, not besieged
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = command } }
+		condition = { type = age value = 16 }		
+ 		condition = { type = year value = 1277 }		
+		condition = { type = not value = { type = year value = 1280 } }	
+		# FLAG
+		condition = { type = not value = { type = has_advance value = tapestries } }
+		# Capital in Papal States, not besieged
+		condition = { type = capital
+			condition = { type = area value = 328 }	# Florence
+			condition = { type = not value = { type = is_besieged } } }
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {	# not interesting
+		effect = { type = remove_trait value = wise }
+	}	
+	action_b = {	# wait and look at picture
+		effect = { type = remove_trait value = reckless }
+		effect = { type = random chance = 20		
+			effect = { type = trigger for = this value = 19474 } }
+	}	
+	action_c = {	# pay gold to Cimabue's workshop
+		effect = { type = add_trait value = trusting }
+		effect = { type = gold scale = -0.25 }
+		effect = { type = random chance = 40		
+			effect = { type = trigger for = this value = 19474 } }
+	}	
+}
+character_event = {	# 19474 - Giotto di Bondone - triggered by 19473 - discovering a prestigious painter!
+	id = 19474
+	picture = "event_giotto1"
+	immidiate = {	# prestige bonus and set flag	
+		effect = { type = prestige value = 500 }
+		effect = { type = add_advance value = tapestries }
+	}	
+}
+province_event = { 	# 19475 - Giotto di Bondone - 1300/37 Italy - maturity period
+	id = 19475
+	picture = "event_giotto2"
+	trigger = { 	# not ai - 1300/37 Italy - not besieged - has court_of_justice and church 
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1300 }		
+		condition = { type = not value = { type = year value = 1338 } }	
+		condition = { type = region value = Italy }
+		condition = { type = not value = { type = is_besieged } }
+		# court_of_justice and church  
+		condition = { type = has_improvement value = { court_of_justice = yes } }
+		condition = { type = or
+			condition = { type = has_improvement value = { church = yes } }
+			condition = { type = has_improvement value = { large_church = yes } }
+			condition = { type = has_improvement value = { domed_church = yes } }
+			condition = { type = has_improvement value = { cathedral = yes } }
+		}
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 240/480 months	 	
+		months = 240
+		# tapestries
+		modifier = {		
+			condition = { type = has_advance value = { tapestries = yes } }
+			factor = 2
+		}
+	}
+	action_a = {	# paint court_of_justice
+		effect = { type = ruler_gold scale = -0.5 }	
+		effect = { type = ruler_prestige value = +100 }	
+		effect = { type = add_advance value = tapestries }	
+	}
+	action_b = {	# paint church
+		effect = { type = ruler_gold scale = -0.5 }	
+		effect = { type = ruler_piety value = +100 }	
+		effect = { type = add_advance value = tapestries }	
+	}	
+	action_c = {	# good trip
+		effect = { type = ruler_prestige value = -25 }	
+		effect = { type = ruler_piety value = -25 }	
+	}	
+}
+province_event = { 	# 19476 - Gottfried von Strassburg - 1200/20 Germany - Tristan and Isolde
+	id = 19476
+	picture = "event_romantic"
+	trigger = { 	# not ai - 1200/20 Germany - not besieged - not romantic_poetry
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1200 }		
+		condition = { type = not value = { type = year value = 1221 } }	
+		condition = { type = region value = Germany }	
+		condition = { type = not value = { type = is_besieged } }
+		# flag
+		condition = { type = not value = { type = has_advance value = { romantic_poetry = yes } } }
+	}
+	mean_time_to_happen = {	
+		months = 60
+	}
+	action_a = {
+		effect = { type = add_advance value = romantic_poetry }	
+		effect = { type = noble_loyalty value = +0.2 }		
+		effect = { type = burgher_loyalty value = +0.1 }		
+		effect = { type = peasant_loyalty value = +0.05 }
+		effect = { type = clergy_loyalty value = -0.2 }
+		effect = { type = clergy_power value = -0.1 }		
+		effect = { type = ruler_piety value = -10 }	
+	}
+	action_b = {
+		effect = { type = clergy_power value = +0.1 }
+		effect = { type = ruler_piety value = +10 }	
+	}	
+}	
+province_event = { 	# 19477 - Nibelungenlied - 1190/99 Germany - set and enforce german culture
+	id = 19477
+	picture = "event_book2"
+	trigger = { 	# not ai - 1190/99 Germany - not besieged - ruler has german culture
+		condition = { type = not value = { type = ai } }
+ 		condition = { type = year value = 1190 }		
+		condition = { type = not value = { type = year value = 1200 } }	
+		condition = { type = region value = Germany }	
+		condition = { type = not value = { type = is_besieged } }
+		condition = { type = ruler_culture value = german }	
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 1/100 months	
+		months = 100
+		# not german culture
+		modifier = {		
+			condition = { type = not value = { type = culture value = german } }
+			factor = 0.1
+		}
+		# revolt
+		modifier = {		
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 0.1
+		}
+	}
+	action_a = {
+		effect = { type = culture value = german }	
+		effect = { type = remove_province_effect value = revolt }	
+		effect = { type = noble_loyalty value = +1 }		
+		effect = { type = burgher_loyalty value = +1 }		
+		effect = { type = peasant_loyalty value = +1 }
+		effect = { type = clergy_loyalty value = +1 }
+	}
+}	
+character_event = {	# 19478 - Alexiad - 1148 BYZA - written by Anna Comnena
+	id = 19478
+	picture = "event_book1"
+	trigger = {		# not ai BYZA - 1148 - orto, not heretic, not excomm 
+		condition = { type = not value = { type = ai } }
+		condition = { type = title value = BYZA }
+ 		condition = { type = year value = 1148 }		
+		condition = { type = not value = { type = year value = 1149 } }	
+		condition = { type = religion value = orthodox }		
+		condition = { type = not value = { type = trait value = excommunicated } }		
+		condition = { type = not value = { type = trait value = heretic } }		
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {	# Good work!
+		effect = { type = prestige value = 150 }
+		effect = { type = diplomacy value = +1 }
+	}	
+}
+character_event = {	# 19479 - Nicetas Choniates - 1208 BYZA - write empire's history
+	id = 19479
+	picture = "event_book1"
+	trigger = {		# not ai BYZA - 1208 - orto, not heretic, not excomm 
+		condition = { type = not value = { type = ai } }
+		condition = { type = title value = BYZA }
+ 		condition = { type = year value = 1208 }		
+		condition = { type = not value = { type = year value = 1209 } }	
+		condition = { type = religion value = orthodox }		
+		condition = { type = not value = { type = trait value = excommunicated } }		
+		condition = { type = not value = { type = trait value = heretic } }		
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {	# great honor
+		effect = { type = remove_trait value = proud }
+		effect = { type = add_trait value = wise }
+	}	
+	action_b = {	# precursor
+		effect = { type = add_trait value = proud }
+		effect = { type = prestige value = 50 }
+	}	
+	action_c = {	# patriarch
+		effect = { type = add_trait value = proud }
+		effect = { type = piety value = 50 }
+	}	
+}
+character_event = {	# 19480 - Geoffrey of Monmouth - 1136 ENGL - Historia Regum Britanniae
+	id = 19480
+	picture = "event_book1"
+	trigger = {		# not ai ENGL king - 1136/8 - not heraldry - Capital in Britain
+		condition = { type = not value = { type = ai } }
+		condition = { type = title value = ENGL }
+ 		condition = { type = year value = 1136 }		
+		condition = { type = not value = { type = year value = 1139 } }	
+		# flag
+		condition = { type = not value = { type = has_advance value = heraldry } }
+		# Capital in ENGL
+		condition = { type = capital
+			condition = { type = region value = Britain } }
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {	# Good work!
+		effect = { type = prestige value = 200 }
+		effect = { type = add_advance value = heraldry }
+	}	
+}
+character_event = {	# 19481 - Children's Crusade - 1212 France - Stephen de Cloyes sold into slavery
+	id = 19481
+	picture = "event_port"
+	trigger = {		# not ai ruler - 1212 - any province with port in France
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+ 		condition = { type = year value = 1212 }		
+		condition = { type = not value = { type = year value = 1213 } }	
+		# 
+		condition = { type = any_demesne_province
+			condition = { type = region value = France }
+			condition = { type = or
+				condition = { type = has_improvement value = { civilian_harbour = yes } }
+				condition = { type = has_improvement value = { naval_harbour = yes } }
+				condition = { type = has_improvement value = { grand_shipyard = yes } }
+			}
+		}
+	}
+	mean_time_to_happen = {	
+		days = 1
+	}
+	action_a = {	# sell childrens
+		effect = { type = prestige value = -200 }
+		effect = { type = piety value = -500 }
+		effect = { type = gold scale = 1 }
+		effect = { type = add_trait value = cruel }
+		effect = { type = add_trait value = sceptical }
+	}	
+	action_b = {	# send them to home
+		effect = { type = piety value = +250 }
+		effect = { type = gold scale = -1 }
+		effect = { type = add_trait value = merciful }
+		effect = { type = remove_trait value = sceptical }
+	}	
+}

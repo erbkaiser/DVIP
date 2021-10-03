@@ -1,0 +1,2911 @@
+###########################
+# TAXES AND DUTIES SERIES #
+###########################
+
+###################
+# Crusade Aid Tax #
+###################
+
+character_event = {
+	id = 1092
+	picture = "event_crusades"
+
+	action_a = { #Take Tax
+		effect = { type = gold value = last_year }
+	}
+
+	action_b = { #No Tax
+		effect = { type = prestige value = 10 }
+	}
+}
+###########################
+# Royal Marriage aid duty #
+###########################
+
+# NOTE: Triggered by the code directly. Do NOT change the ID.
+
+character_event = {
+	id = 1093
+	picture = "event_intrigue"
+
+	action_a = {#Take Duty
+		effect = { type = gold scale = 0.5 }
+	}
+
+	action_b = {#No Duty
+		effect = { type = prestige scale = 1 }
+	}
+
+}
+####################################
+# Marriage of eldest daughter duty #
+####################################
+
+# NOTE: Triggered by the code directly. Do NOT change the ID.
+
+character_event = {
+	id = 1094
+	picture = "event_intrigue"
+
+	action_a = {#Take Duty
+		effect = { type = gold scale = 0.5 }
+	}
+
+	action_b = {#No Duty
+		effect = { type = prestige scale = 1 }
+	}
+
+}
+################################
+# Knighting of eldest son duty #
+################################
+
+# NOTE: Triggered by the code directly. Do NOT change the ID.
+
+character_event = {
+	id = 1095
+	picture = "event_intrigue"
+
+	action_a = {#Take Duty
+		effect = { type = gold scale = 0.5 }
+	}
+
+	action_b = {#No Duty
+		effect = { type = prestige scale = 1 }
+	}
+
+}
+##############################
+# Calling the Etates General #
+##############################
+
+character_event = {
+	id = 1959
+	picture = "event_law"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = num_count_vassals value = 3 }
+			}
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = num_duke_vassals value = 3 }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+		modifier = {
+			condition = { type = not value = { type = gold value = 1 } }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = num_total_vassals value = 5 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = num_total_vassals value = 10 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = num_total_vassals value = 20 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = num_total_vassals value = 40 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = num_total_vassals value = 80 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = emperor }
+			factor = 0.8
+		}
+	}
+
+	action_a = {#Don't Call them
+		effect = { type = prestige scale = 5 }
+		effect = { type = random chance = 25
+			effect = { type = stability value = 1 }
+		}
+	}
+
+	action_b = {#Crave small contribution
+		effect = { type = gold scale = 0.25 }
+		effect = { type = prestige scale = -1 }
+	}
+	action_c = {#Crave large contribution
+		effect = { type = gold scale = 1 }
+		effect = { type = prestige scale = -5  }
+		effect = { type = random chance = 25
+			effect = { type = stability value = -1 }
+		}
+	}
+}
+#############################
+# HOMAGE AND BEQUEST SERIES #
+#############################
+
+##############
+# Pay Homage #
+##############
+
+# NOTE: Triggered by the code directly. Do NOT change the ID.
+
+character_event = {
+	id = 1096
+	picture = "event_intrigue"
+
+	action_a = { # Acknowledge New Liege
+		effect = { type = prestige scale = 1 }
+	}
+	action_b = { # Refuse to acknowledge
+		#effect = { type = independence }
+		#effect = { type = loyalty value = 1.0 }
+		#effect = { type = remove_trait value = loyalist }
+		#effect = { type = remove_trait value = rebellious }
+		#effect = { type = trigger for = liege value = 9999 }
+		#effect = { type = prestige scale = 1 }
+		effect = { type = loyalty value = -1 }
+	}
+}
+
+# Liege counter-part for independence of vassal:
+
+character_event = {
+	id = 9999
+	picture = "event_intrigue"
+
+	immidiate = { # Damn
+		effect = { type = prestige scale = -0.2 }
+		effect = { type = relation for = previous_char value = -50 } # Notification of who broke free
+	}
+}
+
+###################
+# INTRIGUE SERIES #
+###################
+
+##############################################
+# Fake complot make vassals join your cause  #
+##############################################
+
+character_event = {
+	id = 1098
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = has_vassal }
+	}
+
+	mean_time_to_happen = {
+		months = 800
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+			}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+				type = not
+				value = {
+					type = intrigue
+					value = 10
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 1.1
+		}
+	}
+
+	action_a = {
+		effect = { type = loyalty for = random_vassal value = 0.25 }
+	}
+}
+##################################
+# Disloyal vassal outmanoeuvred  #
+##################################
+
+character_event = {
+	id = 1099
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = has_vassal }
+		condition = { type = any_vassal 
+			condition = { type = not value = { type = loyalty value = 0.66 } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 800
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 1.1
+		}
+	}
+
+	action_a = {
+		effect = { type = add_title_claim value = load_target }
+	}
+}
+######################
+# Plot against Liege #
+######################
+
+character_event = {
+	id = 1100
+	picture = "event_claim"
+
+	trigger = {
+		condition = { type = is_vassal }
+		condition = {
+			type = not
+			value = {
+				type = loyalty
+				value = 0.5
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1000
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+	}
+
+	action_a = { # Break with Liege
+		ai_chance = 60
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 5
+		}
+		effect = { type = loyalty value = -0.75 }
+	}
+
+	action_b = { # Stay Loyal
+		ai_chance = 40
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 1 } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 2 } }
+			factor = 2
+		}
+		effect = { type = loyalty value = 0.1 }
+	}
+}
+###################################################
+# Slander of enemy is believed - successful plot  #
+###################################################
+
+character_event = {
+	id = 1101
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = intrigue value = 9 }
+		condition = { type = spymaster }
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+	}
+
+	action_a = {
+		effect = { type = trigger for = worst_neighbor value = 1960 } # enemy gets coward trait
+	}
+}
+####################
+# Vicious Slander! #
+####################
+
+character_event = {
+	id = 1960
+	picture = "event_spymaster"
+
+	# Triggered by 1101
+
+	action_a = {
+		effect = { type = add_trait value = coward }
+	}
+}
+
+#####################################################
+# A son of the enemy is a bastard - successful plot #
+#####################################################
+
+character_event = {
+	id = 1102
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = intrigue value = 12 }
+		condition = { type = spymaster }
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+	}
+
+	action_a = {
+		effect = { type = trigger for = worst_neighbor value = 1961 } # Son of enemy revealed as a bastard
+	}
+}
+#########################################
+# Legitimate son Revelead as a Bastard!	#
+#########################################
+
+character_event = {
+	id = 1961
+	picture = "event_spymaster"
+
+	# Triggered by 1102
+
+	action_a = {
+		effect = { type = gold scale = -2 }
+		effect = { type = prestige scale = -2 }
+		effect = {
+			type = random
+			chance = 5
+			effect = {
+				type = add_trait
+				for = random_son value = bastard
+				}
+			}
+	}
+	action_b = {
+		effect = { type = piety scale = -2 }
+		effect = {
+			type = random
+			chance = 50
+			effect = {
+				type = add_trait
+				for = random_son value = bastard
+				}
+			}
+	}
+	action_c = {
+		effect = { type = add_trait for = random_son value = bastard }
+	}
+}
+
+################################################
+# A claim-holder of the enemy joins your court #
+################################################
+
+character_event = {
+	id = 1103
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = atwar }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.3
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.2
+		}
+	}
+
+	action_a = {
+		effect = { type = create_courtier value = enemy_defector }
+	}
+	action_b = {
+	}
+}
+###################################
+# Enemy mercenaries defect to you #
+###################################
+
+character_event = {
+	id = 1104
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = atwar }
+		condition = { type = enemy_has_mercenaries }
+		condition = { 
+			type = or 
+			condition = { type = religion value = orthodox }
+			condition = { type = religion value = catholic }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+	}
+
+	action_a = {
+		effect = { type = trigger for = random_enemy value = 1962 }
+	}
+}
+
+#######################
+# Mercenaries defect! #
+#######################
+
+character_event = {
+	id = 1962
+	picture = "event_intrigue"
+
+	action_a = {
+		effect = { type = mercenaries_defect }
+	}
+}
+
+###########################################################
+# The heathens are splintered - A white peace is possible #
+###########################################################
+
+character_event = {
+	id = 1105
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = or
+			condition = { type = not value = { type = ai } }
+			condition = { type = is_independent }
+		}
+		condition = {
+			type = atwar
+		}
+		condition = {
+			type = not
+			value = { type = enemy_same_religion }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 90
+
+		modifier = {
+			condition = { type = not value = { type = ai } }
+			condition = { type = is_vassal }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#				type = not
+#				value = {
+#					type = intrigue
+#					value = 6
+#				}
+#			}
+#			factor = 1.0
+#		}
+#
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+	}
+
+	action_a = {#No thanks!
+		effect = {
+			type = random
+			chance = 25
+			effect = {
+				type = add_trait
+				value = zealous
+				}
+			}
+	}
+
+	action_b = {#Yes thank you!
+		effect = { type = peace value = not_same_religion }
+	}
+}
+##############################################
+# Successful Propaganda improves your status #
+##############################################
+
+character_event = {
+	id = 1106
+	picture = "event_chancellor"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = age value = 15 }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 1.1
+		}
+	}
+
+	action_a = {
+		effect = { type = prestige scale = 1 }
+	}
+}
+###########################
+# SPY MASTER EVENT SERIES #
+###########################
+
+#############################
+# Sabotage Enemy enterprise #
+#############################
+character_event = {
+	id = 1107
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = {
+			type = or
+			condition = {
+				type = trait
+				value = naive_wirepuller
+			}
+			condition = {
+				type = trait
+				value = flamboyant_schemer
+			}
+			condition = {
+				type = trait
+				value = intricate_webweaver
+			}
+			condition = {
+				type = trait
+				value = illusive_shadow
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+	}
+
+	action_a = {#Execute operation
+		effect = { type = trigger for = random_enemy value = 1963 }
+		effect = { type = gold scale = -0.2 }
+		effect = {
+			type = random
+			chance = 25
+			effect = {
+				type = add_trait
+				value = cruel
+			}
+		}
+	}
+
+	action_b = {#Return operative
+		effect = {
+			type = random
+			chance = 10
+			effect = {
+				type = add_trait
+				value = coward
+			}
+		}
+	}
+}
+
+#############
+# Sabotage! #
+#############
+
+character_event = {
+	id = 1963
+	picture = "event_crime"
+
+	action_a = {
+		effect = { type = remove_improvement }
+	}
+}
+
+####################################
+# Fund Criminal Enterprises abroad #
+####################################
+character_event = {
+	id = 1108
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = {
+			type = or
+			condition = {
+				type = trait
+				value = naive_wirepuller
+			}
+			condition = {
+				type = trait
+				value = flamboyant_schemer
+			}
+			condition = {
+				type = trait
+				value = intricate_webweaver
+			}
+			condition = {
+				type = trait
+				value = illusive_shadow
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+	}
+
+	action_a = {#Execute operation
+		effect = { type = trigger for = random_enemy value = 1964 }
+		effect = { type = gold scale = -0.2 }
+		effect = {
+				type = random
+				chance = 25
+				effect = {
+
+						type = add_trait
+						value = deceitful
+						}
+				}
+	}
+
+	action_b = {#Return operative
+		effect = {
+				type = random
+				chance = 10
+				effect = {
+
+						type = add_trait
+						value = coward
+						}
+				}
+	}
+}
+
+######################################
+# Our enemies are funding criminals! #
+######################################
+
+character_event = {
+	id = 1964
+	picture = "event_crime"
+
+	action_a = {
+		effect = { type = add_improvement value = thieves_guild }
+	}
+}
+
+#########################################
+# Infiltrate and destroy enemy regiment	#
+#########################################
+character_event = {
+	id = 1109
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = atwar }
+		condition = {
+			type = or
+			condition = {
+				type = trait
+				value = naive_wirepuller
+			}
+			condition = {
+				type = trait
+				value = flamboyant_schemer
+			}
+			condition = {
+				type = trait
+				value = intricate_webweaver
+			}
+			condition = {
+				type = trait
+				value = illusive_shadow
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+	}
+
+	action_a = {#Execute operation
+		effect = { type = trigger for = random_enemy value = 1965 }
+		effect = { type = gold scale = -0.5 }
+		effect = {
+				type = random
+				chance = 25
+				effect = {
+
+						type = add_trait
+						value = energetic
+						}
+				}
+	}
+
+	action_b = {#Return operative
+		effect = {
+				type = random
+				chance = 10
+				effect = {
+
+						type = add_trait
+						value = lazy
+						}
+				}
+	}
+}
+
+##########################################
+# Enemy operatives destroy our regiment! #
+##########################################
+
+character_event = {
+	id = 1965
+	picture = "event_crime"
+
+	action_a = {
+		effect = { type = remove_regiment }
+	}
+}
+
+
+
+#################################
+# Fund traitors in enemy castle #
+#################################
+character_event = {
+	id = 1110
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = { type = atwar }
+		condition = { type = siege }
+		condition = {
+			type = or
+			condition = {
+				type = trait
+				value = naive_wirepuller
+			}
+			condition = {
+				type = trait
+				value = flamboyant_schemer
+			}
+			condition = {
+				type = trait
+				value = intricate_webweaver
+			}
+			condition = {
+				type = trait
+				value = illusive_shadow
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 80
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+	}
+
+	action_a = {#Execute operation
+		effect = { type = win_siege }
+		effect = { type = gold scale = -0.50 }
+		effect = {
+				type = random
+				chance = 25
+				effect = {
+
+						type = add_trait
+						value = energetic
+						}
+				}
+	}
+
+	action_b = {#Return operative
+		effect = {
+				type = random
+				chance = 10
+				effect = {
+
+						type = add_trait
+						value = lazy
+						}
+				}
+	}
+
+}
+#################################
+# Fund revolt in enemy province #
+#################################
+character_event = {
+	id = 1111
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = {
+			type = or
+			condition = {
+				type = trait
+				value = naive_wirepuller
+			}
+			condition = {
+				type = trait
+				value = flamboyant_schemer
+			}
+			condition = {
+				type = trait
+				value = intricate_webweaver
+			}
+			condition = {
+				type = trait
+				value = illusive_shadow
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+	}
+
+	action_a = {#Execute operation
+		effect = { type = add_province_effect for = random_enemy value = revolt }
+		effect = { type = gold scale = -0.50 }
+		effect = {
+				type = random
+				chance = 25
+				effect = {
+
+						type = add_trait
+						value = deceitful
+						}
+				}
+	}
+
+	action_b = {#Return operative
+		effect = {
+				type = random
+				chance = 10
+				effect = {
+
+						type = add_trait
+						value = coward
+						}
+				}
+	}
+
+}
+###########################
+# Steal enemy holy relics #
+###########################
+character_event = {
+	id = 1112
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = is_independent }
+		condition = {
+			type = or
+			condition = {
+				type = trait
+				value = naive_wirepuller
+			}
+			condition = {
+				type = trait
+				value = flamboyant_schemer
+			}
+			condition = {
+				type = trait
+				value = intricate_webweaver
+			}
+			condition = {
+				type = trait
+				value = illusive_shadow
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = intrigue value = 1 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 2
+			}
+		}
+		factor = 3
+		}
+		modifier = {
+			condition = { type = intrigue value = 2 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 3
+			}
+		}
+		factor = 2.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 3 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 4
+			}
+		}
+		factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 4 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 5
+			}
+		}
+		factor = 1.2
+		}
+# Factor 1.0 waste of CPU
+#		modifier = {
+#			condition = { type = intrigue value = 5 }
+#			condition = {
+#			type = not
+#			value = {
+#				type = intrigue
+#				value = 6
+#			}
+#		}
+#		factor = 1.0
+#		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 7
+			}
+		}
+		factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 8
+			}
+		}
+		factor = 0.6
+		}
+		modifier = {
+			condition = { type = intrigue value = 8 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 9
+			}
+		}
+		factor = 0.4
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = {
+			type = not
+			value = {
+				type = intrigue
+				value = 10
+			}
+		}
+		factor = 0.2
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.1
+		}
+	}
+
+	action_a = {#Execute operation
+		effect = { type = gold scale = 0.75 }
+		effect = {
+				type = random
+				chance = 25
+				effect = {
+
+						type = add_trait
+						value = arbitrary
+						}
+				}
+	}
+
+	action_b = {#Return operative
+		effect = {
+				type = random
+				chance = 10
+				effect = {
+
+						type = add_trait
+						value = just
+						}
+				}
+	}
+
+}
+########################
+# TOURNEY EVENT SERIES #
+########################
+
+##################################
+# Monarch holds Great Tournament #
+##################################
+
+character_event = {
+	id = 1113
+	picture = "event_joust"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = is_independent }
+		condition = { type = age value = 15 }
+		condition = { type = religion value = catholic }
+		condition = { type = gold value = 25 }
+		condition = {
+			type = or
+			condition = {
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			condition = {
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 960
+	}
+
+	action_a = { # Our Champion wins
+		effect = { type = gold scale = -0.25 }
+		effect = { type = prestige scale = 3 }
+		effect = { type = martial for = marshal value = 1 }
+		effect = { type = add_trait for = marshal value = valorous }
+	}
+}
+##################################
+# Monarch holds Great Tournament #
+##################################
+
+character_event = {
+	id = 1114
+	picture = "event_joust"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = is_independent }
+		condition = { type = age value = 15 }
+		condition = { type = religion value = catholic }
+		condition = { type = gold value = 25 }
+		condition = {
+			type = or
+			condition = {
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			condition = {
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 960
+	}
+
+	action_a = { # Friendly Champion win
+		effect = { type = gold scale = -0.25 }
+		effect = { type = prestige scale = 2 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait for = marshal value = war_invalid }
+		}
+	}
+}
+##################################
+# Monarch holds Great Tournament #
+##################################
+
+character_event = {
+	id = 1115
+	picture = "event_joust"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = is_independent }
+		condition = { type = age value = 15 }
+		condition = { type = religion value = catholic }
+		condition = { type = gold value = 25 }
+		condition = {
+			type = or
+			condition = {
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			condition = {
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 960
+	}
+
+	action_a = {#Neutral Champion win
+		effect = { type = gold scale = -0.25 }
+		effect = { type = prestige scale = 1 }
+		effect = { type = random chance = 50
+			effect = { type = add_trait for = marshal value = war_invalid }
+		}
+	}
+}
+##################################
+# Monarch holds Great Tournament #
+##################################
+
+character_event = {
+	id = 1116
+	picture = "event_joust"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = is_independent }
+		condition = { type = age value = 15 }
+		condition = { type = religion value = catholic }
+		condition = { type = gold value = 25 }
+		condition = {
+			type = or
+			condition = {
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			condition = {
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 960
+	}
+
+	action_a = {#Enemy Champion win
+		effect = { type = gold scale = -0.25 }
+		effect = { type = prestige scale = 0.5 }
+		effect = { type = add_trait for = marshal value = war_invalid }
+	}
+}
+########################
+# SOCIAL GROUPS SERIES #
+########################
+
+###############################################################
+# The Clergy demands a stop to commerce in all church squares #
+###############################################################
+
+province_event = {
+	id = 1226
+
+	picture = "event_town"
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#Forbid it!
+		effect = { type = clergy_power value = 0.1 }
+		effect = { type = burgher_power value = -0.1 }
+		effect = { type = ruler_piety value = 25 }
+		effect = { type = ruler_gold scale = -0.25 }
+	}
+
+	action_b = {#Allow it!
+		effect = { type = clergy_power value = -0.1 }
+		effect = { type = burgher_power value = 0.1 }
+		effect = { type = ruler_piety value = -25 }
+		effect = { type = ruler_gold scale = 0.25 }
+	}
+}
+####################################################################
+# Burghers demands that city laws is set higher than canonical law #
+####################################################################
+
+province_event = {
+	id = 1227
+
+	picture = "event_town"
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#Accept!
+		effect = { type = clergy_power value = -0.1 }
+		effect = { type = burgher_power value = 0.1 }
+		effect = { type = ruler_piety value = -25 }
+		effect = { type = ruler_gold scale = 0.25 }
+	}
+
+	action_b = {#Refuse!
+		effect = { type = clergy_power value = 0.1 }
+		effect = { type = burgher_power value = -0.1 }
+		effect = { type = ruler_piety value = 25 }
+		effect = { type = ruler_gold scale = -0.25 }
+	}
+}
+############################################
+# The Nobility demands Prima Noctae rights #
+############################################
+
+province_event = {
+	id = 1228
+
+	picture = "event_appearance"
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#Grant the right!
+		effect = { type = noble_power value = 0.2 }
+		effect = { type = peasant_power value = -0.2 }
+	}
+
+	action_b = {#Deny the right!
+		effect = { type = noble_power value = -0.1 }
+		effect = { type = peasant_power value = 0.1 }
+	}
+}
+#########################################################
+# The Peasants demands that no one is born into serfdom #
+#########################################################
+
+province_event = {
+	id = 1229
+
+	picture = "event_rebellion"
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#Grant the right!
+		effect = { type = noble_power value = -0.2 }
+		effect = { type = peasant_power value = 0.2 }
+	}
+
+	action_b = {#Deny the right!
+		effect = { type = noble_power value = 0.1 }
+		effect = { type = peasant_power value = -0.1 }
+	}
+}
+######################################################################################
+# The Burgers demands that peasants be forbidden to sell goods within the city walls #
+######################################################################################
+
+province_event = {
+	id = 1230
+
+	picture = "event_town"
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#Accept demands
+		effect = { type = burgher_power value = 0.1 }
+		effect = { type = peasant_power value = -0.1 }
+	}
+
+	action_b = {#Don't accept demands
+		effect = { type = burgher_power value = -0.1 }
+		effect = { type = peasant_power value = 0.1 }
+	}
+}
+########################################################################
+# The Burgers demands right to be able to be appointed to your council #
+########################################################################
+
+province_event = {
+	id = 1231
+
+	picture = "event_town"
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#Accept demands
+		effect = { type = burgher_power value = 0.1 }
+		effect = { type = noble_power value = -0.1 }
+	}
+
+	action_b = {#Don't accept demands
+		effect = { type = burgher_power value = -0.1 }
+		effect = { type = noble_power value = 0.1 }
+	}
+}
+#####################################################
+# The Nobles demands hunting rights on church lands #
+#####################################################
+
+province_event = {
+	id = 1232
+
+	picture = "event_appearance"
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#Accept demands
+		effect = { type = noble_power value = 0.1 }
+		effect = { type = clergy_power value = -0.1 }
+		effect = { type = ruler_piety value = -15 }
+	}
+
+	action_b = {#Don't accept demands
+		effect = { type = noble_power value = -0.1 }
+		effect = { type = clergy_power value = 0.1 }
+		effect = { type = ruler_piety value = 15 }
+	}
+}
+####################################################################
+# The Clergy demands right to collect extra tithe on free peasants #
+####################################################################
+
+province_event = {
+	id = 1233
+
+	picture = "event_religion"
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#Accept demands
+		effect = { type = peasant_power value = -0.2 }
+		effect = { type = clergy_power value = 0.2 }
+		effect = { type = ruler_piety value = 15 }
+	}
+
+	action_b = {#Don't accept demands
+		effect = { type = peasant_power value = 0.2 }
+		effect = { type = clergy_power value = -0.2 }
+		effect = { type = ruler_piety value = -15 }
+	}
+}
+##############
+# Starvation #
+##############
+
+province_event = {
+	id = 1234
+
+	picture = "event_agriculture"
+
+	trigger = {
+		condition = {
+			type = has_province_effect value = { struggling = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+	}
+
+	action_a = {#Show compassion with the suffering
+		effect = { type = peasant_loyalty value = 0.1 }
+		effect = { type = clergy_loyalty value = 0.1 }
+		effect = { type = ruler_gold scale = -0.35 }
+	}
+
+	action_b = {#I have nothing to spare
+		effect = { type = peasant_power value = -0.1 }
+		effect = { type = clergy_power value = -0.1 }
+	}
+}
+###############################
+# Confiscation of Noble Fiefs #
+###############################
+
+province_event = {
+	id = 1235
+
+	picture = "event_appearance"
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#Confiscate!
+		effect = { type = noble_loyalty value = -0.3 }
+		effect = { type = ruler_gold scale = 0.5 }
+		effect = { type = ruler_prestige scale = -1 }
+	}
+
+	action_b = {#Let them keep it!
+		effect = { type = noble_power value = 0.1 }
+		effect = { type = ruler_prestige scale = 1 }
+	}
+}
+#################################
+# Sell titles to rich merchants #
+#################################
+
+province_event = {
+	id = 1236
+
+	picture = "event_steward"
+
+	trigger = {
+		condition = {
+			type = has_advance value = { reknown_merchant_houses = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#Sell!
+		effect = { type = noble_loyalty value = -0.1 }
+		effect = { type = burgher_loyalty value = 0.3 }
+		effect = { type = ruler_gold scale = 0.75 }
+		effect = { type = ruler_prestige scale = -1.5 }
+	}
+
+	action_b = {#Don't sell!
+		effect = { type = noble_power value = 0.1 }
+		effect = { type = ruler_prestige scale = 1.5 }
+	}
+}
+#######################################
+# Evil omen have been seen at the sky #
+#######################################
+
+province_event = {
+	id = 1237
+
+	picture = "event_pagan"
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#This sign has a positive meaning to us
+		ai_chance = 34
+		effect = { type = ruler_gold scale = -0.75 }
+		effect = { type = ruler_prestige scale = 1 }
+	}
+
+	action_b = {#Promise to help the people if a catastrophe should happen
+		ai_chance = 33
+		effect = { type = peasant_power value = 0.1 }
+		effect = { type = ruler_gold scale = -0.5 }
+	}
+	action_c = {#Turn to the Clergy for an explanation
+		ai_chance = 33
+		effect = { type = clergy_power value = 0.1 }
+		effect = { type = ruler_piety value = 15 }
+		effect = { type = ruler_gold scale = -0.25 }
+	}
+}
+####################################
+# Rights to spoils from shipwrecks #
+####################################
+
+province_event = {
+	id = 1238
+
+	picture = "event_agriculture"
+# New trigger to insure it is a coastal province:
+
+	trigger = {
+		condition = {
+			type = has_improvement value = { fishing_wharf = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#Let the spoils go to the one that finds it
+		ai_chance = 34
+		effect = { type = peasant_loyalty value = 0.1 }
+	}
+
+	action_b = {#Let the Church get the spoils
+		ai_chance = 33
+		effect = { type = clergy_loyalty value = 0.1 }
+		effect = { type = peasant_loyalty value = -0.1 }
+		effect = { type = ruler_piety value = 10 }
+	}
+	action_c = {#The spoils belong to the Crown
+		ai_chance = 33
+		effect = { type = peasant_loyalty value = -0.25 }
+		effect = { type = clergy_loyalty value = -0.25 }
+		effect = { type = ruler_gold scale = 0.33 }
+	}
+}
+#####################
+# Great royal feast #
+#####################
+
+province_event = {
+	id = 1239
+
+	picture = "event_youngsters"
+
+	mean_time_to_happen = {
+		months = 3600
+	}
+
+	action_a = {#I will finance it myself for the glory
+		ai_chance = 34
+		effect = { type = noble_loyalty value = 0.2 }
+		effect = { type = ruler_gold scale = -0.75 }
+		effect = { type = ruler_prestige scale = 1 }
+	}
+
+	action_b = {#Let the Peasantry pay at least half
+		ai_chance = 33
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = noble_loyalty value = 0.1 }
+		effect = { type = ruler_gold scale = -0.37 }
+		effect = { type = ruler_prestige scale = 0.25 }
+	}
+	action_c = {#Nah we cannot afford it
+		ai_chance = 33
+		effect = { type = noble_loyalty value = -0.25 }
+	}
+}
+
+#######################################
+# DIPLOMATIC/PERSONAL BLUNDERS SERIES #
+#######################################
+

@@ -1,0 +1,1007 @@
+PROV0;Terra Incognita;;;Terra Incognita;;;;;;;X
+PROV1;Vestisland;;;Vestisland;;;;;;;x
+PROV2;Austisland;;;Austisland;;;;;;;X
+PROV3;Tir Connail;;;Tir Connail;;;;;;;X
+PROV4;Tir Eoghain;;;Tir Eoghain;;;;;;;X
+PROV5;Ulaid;;;Ulaid;;;;;;;X
+PROV6;Finnveden;;;Finnveden;;;;;;;X
+PROV7;Sligo;;;Sligo;;;;;;;X
+PROV8;Mayo;;;Mayo;;;;;;;X
+PROV9;Galway;;;Galway;;;;;;;X
+PROV10;Mide;;;Mide;;;;;;;X
+PROV11;Dublin;;;Dublín;;;;;;;X
+PROV12;Osraige;;;Osraige;;;;;;;X
+PROV13;Tuadmumu;;;Tuadmumu;;;;;;;X
+PROV14;Desmumu;;;Desmumu;;;;;;;X
+PROV15;Urmumu;;;Urmumu;;;;;;;X
+PROV16;Laigin;;;Laigin;;;;;;;X
+PROV17;Hereford;;;Hereford;;;;;;;X
+PROV18;Dyfed;;;Dyfed;;;;;;;X
+PROV19;Glamorgan;;;Glamorgan;;;;;;;X
+PROV20;Gwent;;;Gwent;;;;;;;X
+PROV21;Gloucester;;;Gloucester;;;;;;;X
+PROV22;Oxford;;;Oxford;;;;;;;X
+PROV23;Salisbury;;;Salisbury;;;;;;;X
+PROV24;Surrey;;;Surrey;;;;;;;X
+PROV25;Sussex;;;Sussex;;;;;;;X
+PROV26;Hampshire;;;Hampshire;;;;;;;X
+PROV27;Dorset;;;Dorset;;;;;;;X
+PROV28;Somerset;;;Somerset;;;;;;;X
+PROV29;Devon;;;Devon;;;;;;;X
+PROV30;Exeter;;;Exeter;;;;;;;X
+PROV31;Cornwall;;;Cornwall;;;;;;;X
+PROV32;Bristol;;;Bristol;;;;;;;X
+PROV33;Faereyar;;;Islas Feroe;;;;;;;X
+PROV34;Shetland;;;Shetland;;;;;;;X
+PROV35;Western Isles;;;Islas Occidentales;;;;;;;X
+PROV36;Orkney;;;Islas Orcadas;;;;;;;X
+PROV37;Caithness;;;Caithness;;;;;;;X
+PROV38;Sutherland;;;Sutherland;;;;;;;X
+PROV39;Ross;;;Ross;;;;;;;X
+PROV40;Moray;;;Moray;;;;;;;X
+PROV41;Buchan;;;Buchan;;;;;;;X
+PROV42;Mar;;;Mar;;;;;;;X
+PROV43;Angus;;;Angus;;;;;;;X
+PROV44;Atholl;;;Atholl;;;;;;;X
+PROV45;Argyll;;;Argyll;;;;;;;X
+PROV46;Fife;;;Fife;;;;;;;X
+PROV47;Strathclyde;;;Strathclyde;;;;;;;X
+PROV48;Lothian;;;Lothian;;;;;;;X
+PROV49;Carrick;;;Carrick;;;;;;;X
+PROV50;Galloway;;;Galloway;;;;;;;X
+PROV51;Berwick;;;Berwick;;;;;;;X
+PROV52;Northumberland;;;Northumberland;;;;;;;X
+PROV53;Cumberland;;;Cumberland;;;;;;;X
+PROV54;Isle of Man;;;Isla de Man;;;;;;;X
+PROV55;Westmorland;;;Westmorland;;;;;;;X
+PROV56;Durham;;;Durham;;;;;;;X
+PROV57;York;;;York;;;;;;;X
+PROV58;Lancaster;;;Lancaster;;;;;;;X
+PROV59;Chester;;;Chester;;;;;;;X
+PROV60;Perfeddwlad;;;Perfeddwlad;;;;;;;X
+PROV61;Lincoln;;;Lincoln;;;;;;;X
+PROV62;Leicester;;;Leicester;;;;;;;X
+PROV63;Derby;;;Derby;;;;;;;X
+PROV64;Gwynedd;;;Gwynedd;;;;;;;X
+PROV65;Powys;;;Powys;;;;;;;X
+PROV66;Shrewsbury;;;Shrewsbury;;;;;;;X
+PROV67;Warwick;;;Warwick;;;;;;;X
+PROV68;Northampton;;;Northampton;;;;;;;X
+PROV69;Bedford;;;Bedford;;;;;;;X
+PROV70;Norfolk;;;Norfolk;;;;;;;X
+PROV71;Suffolk;;;Suffolk;;;;;;;X
+PROV72;Essex;;;Essex;;;;;;;X
+PROV73;Kent;;;Kent;;;;;;;X
+PROV74;Guines;;;Guines;;;;;;;X
+PROV75;Boulogne;;;Boulogne;;;;;;;X
+PROV76;Yperen;;;Yperen;;;;;;;X
+PROV77;Artois;;;Artois;;;;;;;X
+PROV78;Brugge;;;Brujas;;;;;;;X
+PROV79;Zeeland;;;Zelanda;;;;;;;X
+PROV80;Holland;;;Holanda;;;;;;;X
+PROV81;Westfriesland;;;Frisia Occidental;;;;;;;X
+PROV82;Sticht;;;Sticht;;;;;;;X
+PROV83;Gelre;;;Gelre;;;;;;;X
+PROV84;Frisia;;;Frisia;;;;;;;X
+PROV85;Ostfriesland;;;Ostfriesland;;;;;;;X
+PROV86;Oldenburg;;;Oldenburg;;;;;;;X
+PROV87;Osnabrück;;;Osnabrück;;;;;;;X
+PROV88;Münster;;;Münster;;;;;;;X
+PROV89;Kleve;;;Kleve;;;;;;;X
+PROV90;Jülich;;;Jülich;;;;;;;X
+PROV91;Loon;;;Loon;;;;;;;X
+PROV92;Breda;;;Breda;;;;;;;X
+PROV93;Gent;;;Gante;;;;;;;X
+PROV94;Hainaut;;;Hainaut;;;;;;;X
+PROV95;Amiens;;;Amiens;;;;;;;X
+PROV96;Eu;;;Eu;;;;;;;X
+PROV97;Arques;;;Arques;;;;;;;X
+PROV98;Vexin;;;Vexin;;;;;;;X
+PROV99;Evreux;;;Évreux;;;;;;;X
+PROV100;Avranches;;;Avranches;;;;;;;X
+PROV101;Rennes;;;Rennes;;;;;;;X
+PROV102;Penthievre;;;Penthièvre;;;;;;;X
+PROV103;Léon;;;Léon;;;;;;;X
+PROV104;Cornouaille;;;Cornualles;;;;;;;X
+PROV105;Vannes;;;Vannes;;;;;;;X
+PROV106;Nantes;;;Nantes;;;;;;;X
+PROV107;Anjou;;;Anjou;;;;;;;X
+PROV108;Maine;;;Maine;;;;;;;X
+PROV109;Vendome;;;Vendôme;;;;;;;X
+PROV110;Blois;;;Blois;;;;;;;X
+PROV111;Chartres;;;Chartres;;;;;;;X
+PROV112;Ile de France;;;Île-de-France;;;;;;;X
+PROV113;Vermandois;;;Vermandois;;;;;;;X
+PROV114;Reims;;;Reims;;;;;;;X
+PROV115;Luxembourg;;;Luxemburgo;;;;;;;X
+PROV116;Liege;;;Lieja;;;;;;;X
+PROV117;Brabant;;;Brabante;;;;;;;X
+PROV118;Andernach;;;Andernach;;;;;;;X
+PROV119;Köln;;;Colonia;;;;;;;X
+PROV120;Göttingen;;;Gotinga;;;;;;;X
+PROV121;Nassau;;;Nassau;;;;;;;X
+PROV122;Leiningen;;;Leiningen;;;;;;;X
+PROV123;Mainz;;;Maguncia;;;;;;;X
+PROV124;Pfalz;;;Palatinado;;;;;;;X
+PROV125;Baden;;;Baden;;;;;;;X
+PROV126;Nordgau;;;Nordgau;;;;;;;X
+PROV127;Lorraine;;;Lorena;;;;;;;X
+PROV128;Metz;;;Metz;;;;;;;X
+PROV129;Verdun;;;Verdún;;;;;;;X
+PROV130;Troyes;;;Troyes;;;;;;;X
+PROV131;Sens;;;Sens;;;;;;;X
+PROV132;Auxerre;;;Auxerre;;;;;;;X
+PROV133;Saintois;;;Saintois;;;;;;;X
+PROV134;Sundgau;;;Sundgau;;;;;;;X
+PROV135;Besancon;;;Besançon;;;;;;;X
+PROV136;Dijon;;;Dijon;;;;;;;X
+PROV137;Nevers;;;Nevers;;;;;;;X
+PROV138;Orleans;;;Orleans;;;;;;;X
+PROV139;Bourges;;;Bourges;;;;;;;X
+PROV140;Tourraine;;;Touraine;;;;;;;X
+PROV141;Poitiers;;;Poitiers;;;;;;;X
+PROV142;Thouars;;;Thouars;;;;;;;X
+PROV143;Saintonge;;;Saintonge;;;;;;;X
+PROV144;Lusignan;;;Lusignan;;;;;;;X
+PROV145;La Marche;;;La Marche;;;;;;;X
+PROV146;Bourbon;;;Borbón;;;;;;;X
+PROV147;Limousin;;;Lemosín;;;;;;;X
+PROV148;Angouleme;;;Angulema;;;;;;;X
+PROV149;Bordeaux;;;Burdeos;;;;;;;X
+PROV150;Albret;;;Albret;;;;;;;X
+PROV151;Labourd;;;Labourd;;;;;;;X
+PROV152;Navarra;;;Navarra;;;;;;;X
+PROV153;Viscaya;;;Vizcaya;;;;;;;X
+PROV154;Asturias de Santillana;;;Asturias de Santillana;;;;;;;X
+PROV155;Asturias de Oviedo;;;Asturias de Oviedo;;;;;;;X
+PROV156;Compostela;;;Compostela;;;;;;;X
+PROV157;Santiago;;;Santiago;;;;;;;X
+PROV158;Porto;;;Oporto;;;;;;;X
+PROV159;Coimbra;;;Coimbra;;;;;;;X
+PROV160;Lisboa;;;Lisboa;;;;;;;X
+PROV161;Alcacer do Sal;;;Alcacer do Sal;;;;;;;X
+PROV162;Silves;;;Silves;;;;;;;X
+PROV163;Faro;;;Faro;;;;;;;X
+PROV164;Niebla;;;Niebla;;;;;;;X
+PROV165;Cadiz;;;Cádiz;;;;;;;X
+PROV166;Algeciras;;;Algeciras;;;;;;;X
+PROV167;Malaga;;;Málaga;;;;;;;X
+PROV168;Almeria;;;Almería;;;;;;;X
+PROV169;Murcia;;;Murcia;;;;;;;X
+PROV170;Denia;;;Denia;;;;;;;X
+PROV171;Valencia;;;Valencia;;;;;;;X
+PROV172;Castellon;;;Castellón;;;;;;;X
+PROV173;Tarragona;;;Tarragona;;;;;;;X
+PROV174;Albarracin;;;Albarracín;;;;;;;X
+PROV175;Calatayud;;;Calatayud;;;;;;;X
+PROV176;Molina;;;Molina;;;;;;;X
+PROV177;Cuenca;;;Cuenca;;;;;;;X
+PROV178;La Mancha;;;La Mancha;;;;;;;X
+PROV179;Almansa;;;Almansa;;;;;;;X
+PROV180;Granada;;;Granada;;;;;;;X
+PROV181;Cordoba;;;Córdoba;;;;;;;X
+PROV182;Sevilla;;;Sevilla;;;;;;;X
+PROV183;Aracena;;;Aracena;;;;;;;X
+PROV184;Badajoz;;;Badajoz;;;;;;;X
+PROV185;Mértola;;;Mértola;;;;;;;X
+PROV186;Évora;;;Évora;;;;;;;X
+PROV187;Castelo Branco;;;Castelo Branco;;;;;;;X
+PROV188;Braganza;;;Braganza;;;;;;;X
+PROV189;El Bierzo;;;El Bierzo;;;;;;;X
+PROV190;León;;;León;;;;;;;X
+PROV191;Zamora;;;Zamora;;;;;;;X
+PROV192;Salamanca;;;Salamanca;;;;;;;X
+PROV193;Alcantara;;;Alcántara;;;;;;;X
+PROV194;Plasencia;;;Plasencia;;;;;;;X
+PROV195;Caceres;;;Cáceres;;;;;;;X
+PROV196;Calatrava;;;Calatrava;;;;;;;X
+PROV197;Toledo;;;Toledo;;;;;;;X
+PROV198;Valladolid;;;Valladolid;;;;;;;X
+PROV199;Burgos;;;Burgos;;;;;;;X
+PROV200;Soria;;;Soria;;;;;;;X
+PROV201;La Rioja;;;La Rioja;;;;;;;X
+PROV202;Zaragoza;;;Zaragoza;;;;;;;X
+PROV203;Lleida;;;Lleida;;;;;;;X
+PROV204;Barcelona;;;Barcelona;;;;;;;X
+PROV205;Empuries;;;Ampurias;;;;;;;X
+PROV206;Urgell;;;Urgell;;;;;;;X
+PROV207;Jaca;;;Jaca;;;;;;;X
+PROV208;Bearn;;;Béarn;;;;;;;X
+PROV209;Armagnac;;;Armagnac;;;;;;;X
+PROV210;Foix;;;Foix;;;;;;;X
+PROV211;Rosello;;;Rosellón;;;;;;;X
+PROV212;Narbonne;;;Narbona;;;;;;;X
+PROV213;Carcassonne;;;Carcasona;;;;;;;X
+PROV214;Toulouse;;;Tolosa;;;;;;;X
+PROV215;Agen;;;Agen;;;;;;;X
+PROV216;Perigord;;;Périgord;;;;;;;X
+PROV217;Auvergne;;;Auvernia;;;;;;;X
+PROV218;Rouergue;;;Rouergue;;;;;;;X
+PROV219;Gevaudan;;;Gévaudan;;;;;;;X
+PROV220;Montpellier;;;Montpellier;;;;;;;X
+PROV221;Provence;;;Provenza;;;;;;;X
+PROV222;Venaissin;;;Venaissin;;;;;;;X
+PROV223;Viviers;;;Viviers;;;;;;;X
+PROV224;Forez;;;Forez;;;;;;;X
+PROV225;Macon;;;Mâcon;;;;;;;X
+PROV226;Charolais;;;Charolais;;;;;;;X
+PROV227;Lyon;;;Lyon;;;;;;;X
+PROV228;Dauphine Viennois;;;Dauphine Viennois;;;;;;;X
+PROV229;Forcalquier;;;Forcalquier;;;;;;;X
+PROV230;Nice;;;Niza;;;;;;;X
+PROV231;Saluces;;;Saluces;;;;;;;X
+PROV232;Monferrato;;;Monferrato;;;;;;;X
+PROV233;Genoa;;;Génova;;;;;;;X
+PROV234;Pavia;;;Pavía;;;;;;;X
+PROV235;Lombardia;;;Lombardía;;;;;;;X
+PROV236;Piemonte;;;Piamonte;;;;;;;X
+PROV237;Savoie;;;Saboya;;;;;;;X
+PROV238;Valais;;;Valais;;;;;;;X
+PROV239;Geneve;;;Ginebra;;;;;;;X
+PROV240;Chalons;;;Chalons;;;;;;;X
+PROV241;Neuchatel;;;Neuchâtel;;;;;;;X
+PROV242;Aargau;;;Aargau;;;;;;;X
+PROV243;Bodensee;;;Bodensee;;;;;;;X
+PROV244;Bern;;;Berna;;;;;;;X
+PROV245;Schwyz;;;Schwyz;;;;;;;X
+PROV246;Grisons;;;Grisones;;;;;;;X
+PROV247;Chur;;;Chur;;;;;;;X
+PROV248;St Gallen;;;Sankt Gallen;;;;;;;X
+PROV249;Schwaben;;;Suabia;;;;;;;X
+PROV250;Breisgau;;;Brisgovia;;;;;;;X
+PROV251;Fürstenberg;;;Fürstenberg;;;;;;;X
+PROV252;Ulm;;;Ulm;;;;;;;X
+PROV253;Württemberg;;;Württemberg;;;;;;;X
+PROV254;Franken;;;Franconia;;;;;;;X
+PROV255;Thüringen;;;Turingia;;;;;;;X
+PROV256;Weimar;;;Weimar;;;;;;;X
+PROV257;Braunschweig;;;Brunswick;;;;;;;X
+PROV258;Lüneburg;;;Lüneburg;;;;;;;X
+PROV259;Celle;;;Celle;;;;;;;X
+PROV260;Mecklemburg;;;Mecklemburgo;;;;;;;X
+PROV261;Hamburg;;;Hamburgo;;;;;;;X
+PROV262;Lübeck;;;Lübeck;;;;;;;X
+PROV263;Holstein;;;Holstein;;;;;;;X
+PROV264;Slesvig;;;Slesvig;;;;;;;X
+PROV265;Fyn;;;Fionia;;;;;;;X
+PROV266;Sjaelland;;;Seelandia;;;;;;;X
+PROV267;Jylland;;;Jutlandia;;;;;;;X
+PROV268;Agder;;;Agder;;;;;;;X
+PROV269;Rogaland;;;Rogaland;;;;;;;X
+PROV270;Telemark;;;Telemark;;;;;;;X
+PROV271;Vestfold;;;Vestfold;;;;;;;X
+PROV272;Akershus;;;Akershus;;;;;;;X
+PROV273;Oppland;;;Oppland;;;;;;;X
+PROV274;Bergenshus;;;Bergenshus;;;;;;;X
+PROV275;Trøndelag;;;Trøndelag;;;;;;;X
+PROV276;Hedmark;;;Hedmark;;;;;;;X
+PROV277;Naumadal;;;Naumadal;;;;;;;X
+PROV278;Hålogaland;;;Hålogaland;;;;;;;X
+PROV279;Lappland;;;Laponia;;;;;;;X
+PROV280;Västerbotten;;;Västerbotten;;;;;;;X
+PROV281;Ångermanland;;;Ångermanland;;;;;;;X
+PROV282;Jämtland;;;Jämtland;;;;;;;X
+PROV283;Medelpad;;;Medelpad;;;;;;;X
+PROV284;Herjedalen;;;Herjedalen;;;;;;;X
+PROV285;Hälsingland;;;Hälsingland;;;;;;;X
+PROV286;Gästrikland;;;Gästrikland;;;;;;;X
+PROV287;Dalarna;;;Dalecarlia;;;;;;;X
+PROV288;Värmland;;;Värmland;;;;;;;X
+PROV289;Västmanland;;;Västmanland;;;;;;;X
+PROV290;Uppland;;;Uppland;;;;;;;X
+PROV291;Åland;;;Åland;;;;;;;X
+PROV292;Södermanland;;;Södermanland;;;;;;;X
+PROV293;Östergötland;;;Östergötland;;;;;;;X
+PROV294;Närke;;;Närke;;;;;;;X
+PROV295;Dal;;;Dal;;;;;;;X
+PROV296;Viken;;;Viken;;;;;;;X
+PROV297;Västergötland;;;Västergötland;;;;;;;X
+PROV298;Småland;;;Småland;;;;;;;X
+PROV299;Kalmar Län;;;Kalmar Län;;;;;;;X
+PROV300;Öland;;;Öland;;;;;;;X
+PROV301;Gotland;;;Gotland;;;;;;;X
+PROV302;Halland;;;Halland;;;;;;;X
+PROV303;Skåne;;;Escania;;;;;;;X
+PROV304;Rügen;;;Rügen;;;;;;;X
+PROV305;Bornholm;;;Bornholm;;;;;;;X
+PROV306;Rostock;;;Rostock;;;;;;;X
+PROV307;Werle;;;Werle;;;;;;;X
+PROV308;Wolgast;;;Wolgast;;;;;;;X
+PROV309;Altmark;;;Altmark;;;;;;;X
+PROV310;Anhalt;;;Anhalt;;;;;;;X
+PROV311;Plauen;;;Plauen;;;;;;;X
+PROV312;Meissen;;;Meissen;;;;;;;X
+PROV313;Ansbach;;;Ansbach;;;;;;;X
+PROV314;Nürnberg;;;Nuremberg;;;;;;;X
+PROV315;Kempten;;;Kempten;;;;;;;X
+PROV316;Tirol;;;Tirol;;;;;;;X
+PROV317;Trent;;;Trento;;;;;;;X
+PROV318;Brescia;;;Brescia;;;;;;;X
+PROV319;Verona;;;Verona;;;;;;;X
+PROV320;Cremona;;;Cremona;;;;;;;X
+PROV321;Parma;;;Parma;;;;;;;X
+PROV322;Modena;;;Módena;;;;;;;X
+PROV323;Lucca;;;Lucca;;;;;;;X
+PROV324;Corsica;;;Córcega;;;;;;;X
+PROV325;Arborea;;;Arborea;;;;;;;X
+PROV326;Cagliari;;;Cagliari;;;;;;;X
+PROV327;Livorno;;;Livorno;;;;;;;X
+PROV328;Firenze;;;Florencia;;;;;;;X
+PROV329;Urbino;;;Urbino;;;;;;;X
+PROV330;Siena;;;Siena;;;;;;;X
+PROV331;Piombino;;;Piombino;;;;;;;X
+PROV332;Orbetello;;;Orbetello;;;;;;;X
+PROV333;Roma;;;Roma;;;;;;;X
+PROV334;Napoli;;;Nápoles;;;;;;;X
+PROV335;Benevento;;;Benevento;;;;;;;X
+PROV336;Salerno;;;Salerno;;;;;;;X
+PROV337;Consenza;;;Cosenza;;;;;;;X
+PROV338;Reggio;;;Reggio;;;;;;;X
+PROV339;Messina;;;Messina;;;;;;;X
+PROV340;Palermo;;;Palermo;;;;;;;X
+PROV341;Trapani;;;Trapani;;;;;;;X
+PROV342;Agrigento;;;Agrigento;;;;;;;X
+PROV343;Siracusa;;;Siracusa;;;;;;;X
+PROV344;Taranto;;;Tarento;;;;;;;X
+PROV345;Lecce;;;Lecce;;;;;;;X
+PROV346;Bari;;;Bari;;;;;;;X
+PROV347;Apulia;;;Apulia;;;;;;;X
+PROV348;Foggia;;;Foggia;;;;;;;X
+PROV349;Spoleto;;;Spoleto;;;;;;;X
+PROV350;Ancona;;;Ancona;;;;;;;X
+PROV351;Ravenna;;;Ravena;;;;;;;X
+PROV352;Bologna;;;Bolonia;;;;;;;X
+PROV353;Ferrara;;;Ferrara;;;;;;;X
+PROV354;Mantua;;;Mantua;;;;;;;X
+PROV355;Padua;;;Padua;;;;;;;X
+PROV356;Venezia;;;Venecia;;;;;;;X
+PROV357;Treviso;;;Treviso;;;;;;;X
+PROV358;Aquileia;;;Aquilea;;;;;;;X
+PROV359;Innsbruck;;;Innsbruck;;;;;;;X
+PROV360;Oberbayern;;;Alta Baviera;;;;;;;X
+PROV361;Niederbayern;;;Baja Baviera;;;;;;;X
+PROV362;Cheb;;;Cheb;;;;;;;X
+PROV363;Usti nad Labem;;;Ústí nad Labem;;;;;;;X
+PROV364;Lausitz;;;Lausitz;;;;;;;X
+PROV365;Brandenburg;;;Brandeburgo;;;;;;;X
+PROV366;Stettin;;;Stettin;;;;;;;X
+PROV367;Slupsk;;;Slupsk;;;;;;;X
+PROV368;Danzig;;;Danzig;;;;;;;X
+PROV369;Chelminskie;;;Chelminskie;;;;;;;X
+PROV370;Marienburg;;;Marienburg;;;;;;;X
+PROV371;Sambia;;;Sambia;;;;;;;X
+PROV372;Memel;;;Memel;;;;;;;X
+PROV373;Kurs;;;Kurs;;;;;;;X
+PROV374;Zemigalians;;;Zemigalians;;;;;;;X
+PROV375;Lettigalians;;;Lettigalians;;;;;;;X
+PROV376;Ösel;;;Ösel;;;;;;;X
+PROV377;Livs;;;Livs;;;;;;;X
+PROV378;Reval;;;Reval;;;;;;;X
+PROV379;Dorpat;;;Dorpat;;;;;;;X
+PROV380;Narva;;;Narva;;;;;;;X
+PROV381;Nyland;;;Nyland;;;;;;;X
+PROV382;Finland;;;Finlandia;;;;;;;X
+PROV383;Tavasts;;;Tavasts;;;;;;;X
+PROV384;Satakunta;;;Satakunta;;;;;;;X
+PROV385;Österbotten;;;Österbotten;;;;;;;X
+PROV386;Kemi;;;Kemi;;;;;;;X
+PROV387;Kola;;;Kola;;;;;;;X
+PROV388;Karelen;;;Carelia;;;;;;;X
+PROV389;Kajanaborg;;;Kajanaborg;;;;;;;X
+PROV390;Savolaks;;;Savolaks;;;;;;;X
+PROV391;Viborg;;;Víborg;;;;;;;X
+PROV392;Kexholm;;;Kexholm;;;;;;;X
+PROV393;Onega;;;Onega;;;;;;;X
+PROV394;Trans-portage;;;Trans-portage;;;;;;;X
+PROV395;North Dvina;;;Dvina Septentrional;;;;;;;X
+PROV396;Bjarmia;;;Bjarmia;;;;;;;X
+PROV397;Samoyeds;;;Samoyedos;;;;;;;X
+PROV398;Ugra;;;Ugra;;;;;;;X
+PROV399;Syrj;;;Syrj;;;;;;;X
+PROV400;Zyriane;;;Zyriane;;;;;;;X
+PROV401;Hlynov;;;Hlínov;;;;;;;X
+PROV402;Veliky Ustug;;;Velikii Ustiug;;;;;;;X
+PROV403;Romny;;;Romny;;;;;;;X
+PROV404;Zaozerye;;;Zaozerye;;;;;;;X
+PROV405;Chud;;;Chud;;;;;;;X
+PROV406;Vologda;;;Vologda;;;;;;;X
+PROV407;Kostroma;;;Kostromá;;;;;;;X
+PROV408;Beloozero;;;Beloozero;;;;;;;X
+PROV409;Bezhetsky Verh;;;Bezhetsky Verh;;;;;;;X
+PROV410;Novgorod;;;Nóvgorod;;;;;;;X
+PROV411;Vodi;;;Vodi;;;;;;;X
+PROV412;Torzhok;;;Torzhok;;;;;;;X
+PROV413;Pskov;;;Pskov;;;;;;;X
+PROV414;Starya Russa;;;Staraia Russa;;;;;;;X
+PROV415;Velikiye Luki;;;Velikiie Luki;;;;;;;X
+PROV416;West Dvina;;;Dvina Occidental;;;;;;;X
+PROV417;Vitebsk;;;Vítebsk;;;;;;;X
+PROV418;Orsha;;;Orsha;;;;;;;X
+PROV419;Polotsk;;;Polotsk;;;;;;;X
+PROV420;Aukshayts;;;Aukshayts;;;;;;;X
+PROV421;Zhmud;;;Zhmud;;;;;;;X
+PROV422;Scalovia;;;Scalovia;;;;;;;X
+PROV423;Sudovia;;;Sudovia;;;;;;;X
+PROV424;Jacwiez;;;Jacwiez;;;;;;;X
+PROV425;Podlasie;;;Podlasie;;;;;;;X
+PROV426;Yatvyagi;;;Yatvyagi;;;;;;;X
+PROV427;Galindia;;;Galindia;;;;;;;X
+PROV428;Kujawy;;;Cujavia;;;;;;;X
+PROV429;Gnieznienskie;;;Gnieznienskie;;;;;;;X
+PROV430;Lubusz;;;Lubusz;;;;;;;X
+PROV431;Poznanskie;;;Poznania;;;;;;;X
+PROV432;Kaliskie;;;Kaliskie;;;;;;;X
+PROV433;Opole;;;Opole;;;;;;;X
+PROV434;Lower Silesia;;;Baja Silesia;;;;;;;X
+PROV435;Upper Silesia;;;Alta Silesia;;;;;;;X
+PROV436;Liberec;;;Liberec;;;;;;;X
+PROV437;Praha;;;Praga;;;;;;;X
+PROV438;Hradec Kralove;;;Hradec Králové;;;;;;;X
+PROV439;Plzen;;;Pilsen;;;;;;;X
+PROV440;Opava;;;Opava;;;;;;;X
+PROV441;Ostrava;;;Ostrava;;;;;;;X
+PROV442;Trencín;;;Trencín;;;;;;;X
+PROV443;Nitra;;;Nitra;;;;;;;X
+PROV444;Esztergom;;;Esztergom;;;;;;;X
+PROV445;Pressburg;;;Presburgo;;;;;;;X
+PROV446;Morava;;;Moravia;;;;;;;X
+PROV447;Passau;;;Passau;;;;;;;X
+PROV448;Salzburg;;;Salzburgo;;;;;;;X
+PROV449;Österreich;;;Austria;;;;;;;X
+PROV450;Sopron;;;Sopron;;;;;;;X
+PROV451;Fejér;;;Fejér;;;;;;;X
+PROV452;Pecs;;;Pécs;;;;;;;X
+PROV453;Szekezfehervar;;;Székesfehérvár;;;;;;;X
+PROV454;Vas;;;Vas;;;;;;;X
+PROV455;Steiermark;;;Estiria;;;;;;;X
+PROV456;Kärnten;;;Carintia;;;;;;;X
+PROV457;Krain;;;Carniola;;;;;;;X
+PROV458;Istria;;;Istria;;;;;;;X
+PROV459;Veglia;;;Veglia;;;;;;;X
+PROV460;Varadzin;;;Varazdin;;;;;;;X
+PROV461;Zagreb;;;Zagreb;;;;;;;X
+PROV462;Krizevci;;;Krizevci;;;;;;;X
+PROV463;Usora;;;Usora;;;;;;;X
+PROV464;Senj;;;Senj;;;;;;;X
+PROV465;Zadar;;;Zadar;;;;;;;X
+PROV466;Zachlumia;;;Zachlumia;;;;;;;X
+PROV467;Split;;;Split;;;;;;;X
+PROV468;Ragusa;;;Ragusa;;;;;;;X
+PROV469;Zeta;;;Zeta;;;;;;;X
+PROV470;Dyrrachion;;;Durazzo;;;;;;;X
+PROV471;Ochrid;;;Ochrid;;;;;;;X
+PROV472;Épieros;;;Épiro;;;;;;;X
+PROV473;Árta;;;Árta;;;;;;;X
+PROV474;Corfu;;;Corfú;;;;;;;X
+PROV475;Hellas;;;Grecia;;;;;;;X
+PROV476;Achaia;;;Acaya;;;;;;;X
+PROV477;Methone;;;Methóni;;;;;;;X
+PROV478;Monemvasia;;;Monemvasía;;;;;;;X
+PROV479;Kaneia;;;Canea;;;;;;;X
+PROV480;Chandax;;;Chandax;;;;;;;X
+PROV481;Korinthos;;;Corinto;;;;;;;X
+PROV482;Atheniai;;;Atenas;;;;;;;X
+PROV483;Rhodos;;;Rodas;;;;;;;X
+PROV484;Naxos;;;Naxos;;;;;;;X
+PROV485;Euboia;;;Eubea;;;;;;;X
+PROV486;Samos;;;Samos;;;;;;;X
+PROV487;Lesbos;;;Lesbos;;;;;;;X
+PROV488;Demetrias;;;Demetrias;;;;;;;X
+PROV489;Thessalia;;;Tesalia;;;;;;;X
+PROV490;Thessalonike;;;Tesalónica;;;;;;;X
+PROV491;Chalkidike;;;Calcídica;;;;;;;X
+PROV492;Strymon;;;Strimon;;;;;;;X
+PROV493;Philippopolis;;;Filipópolis;;;;;;;X
+PROV494;Adrianopolis;;;Adrianópolis;;;;;;;X
+PROV495;Kaliopolis;;;Kaliopolis;;;;;;;X
+PROV496;Byzantion;;;Bizancio;;;;;;;X
+PROV497;Thrake;;;Tracia;;;;;;;X
+PROV498;Mesembria;;;Mesembría;;;;;;;X
+PROV499;Tyrnovo;;;Tyrnovo;;;;;;;X
+PROV500;Serdica;;;Serdica;;;;;;;X
+PROV501;Naissus;;;Naissus;;;;;;;X
+PROV502;Rashka;;;Rashka;;;;;;;X
+PROV503;Hum;;;Hum;;;;;;;X
+PROV504;Rama;;;Rama;;;;;;;X
+PROV505;Belgrade;;;Belgrado;;;;;;;X
+PROV506;Vidin;;;Vidin;;;;;;;X
+PROV507;Nikopolis;;;Nikópolis;;;;;;;X
+PROV508;Dorostotum;;;Dorostotum;;;;;;;X
+PROV509;Karvuna;;;Karvuna;;;;;;;X
+PROV510;Constantia;;;Constantia;;;;;;;X
+PROV511;Galaz;;;Galati;;;;;;;X
+PROV512;Belgorod;;;Belgorod;;;;;;;X
+PROV513;Birlad;;;Birlad;;;;;;;X
+PROV514;Turnu;;;Turnu;;;;;;;X
+PROV515;Tirgoviste;;;Tirgoviste;;;;;;;X
+PROV516;Severin;;;Severin;;;;;;;X
+PROV517;Temes;;;Temes;;;;;;;X
+PROV518;Bacs;;;Bacs;;;;;;;X
+PROV519;Fehér;;;Feher;;;;;;;X
+PROV520;Bihar;;;Bihar;;;;;;;X
+PROV521;Csanad;;;Csanad;;;;;;;X
+PROV522;Pest;;;Pest;;;;;;;X
+PROV523;Heves;;;Heves;;;;;;;X
+PROV524;Gemer;;;Gemer;;;;;;;X
+PROV525;Orava;;;Orava;;;;;;;X
+PROV526;Cieszyn;;;Cieszyn;;;;;;;X
+PROV527;Krakowskie;;;Cracovia;;;;;;;X
+PROV528;Sieradzko-Leczyckie;;;Sieradzko-Leczycki;;;;;;;X
+PROV529;Plock;;;Plock;;;;;;;X
+PROV530;Czersk;;;Czersk;;;;;;;X
+PROV531;Sandomierskie;;;Sandomierski;;;;;;;X
+PROV532;Sacz;;;Sacz;;;;;;;X
+PROV533;Saris;;;Saris;;;;;;;X
+PROV534;Peremyshl;;;Peremishl;;;;;;;X
+PROV535;Vladimir Volynsky;;;Vladimir Volinskii;;;;;;;X
+PROV536;Galich;;;Galich;;;;;;;X
+PROV537;Bereg;;;Bereg;;;;;;;X
+PROV538;Abauj;;;Abauj;;;;;;;X
+PROV539;Marmaros;;;Marmaros;;;;;;;X
+PROV540;Szekelyföld;;;Szekelyföld;;;;;;;X
+PROV541;Peresechen;;;Peresechen;;;;;;;X
+PROV542;Olvia;;;Olvia;;;;;;;X
+PROV543;Oleshye;;;Oleshye;;;;;;;X
+PROV544;Korsun;;;Korsun;;;;;;;X
+PROV545;Torki;;;Torki;;;;;;;X
+PROV546;Terebovl;;;Terebovl;;;;;;;X
+PROV547;Kiev;;;Kíev;;;;;;;X
+PROV548;Pinsk;;;Pinsk;;;;;;;X
+PROV549;Beresty;;;Beresty;;;;;;;X
+PROV550;Minsk;;;Minsk;;;;;;;X
+PROV551;Mstislavl;;;Mstislavl;;;;;;;X
+PROV552;Turov;;;Turov;;;;;;;X
+PROV553;Lyubech;;;Liubichi;;;;;;;X
+PROV554;Chernigov;;;Chernigovo;;;;;;;X
+PROV555;Pereyaslavl;;;Pereyaslavl;;;;;;;X
+PROV556;Chortitza;;;Chortitza;;;;;;;X
+PROV557;Lukomorie;;;Lukomorie;;;;;;;X
+PROV558;Lower Dniepr;;;Bajo Dniéper;;;;;;;X
+PROV559;Crimea;;;Crimea;;;;;;;X
+PROV560;Cherson;;;Cherson;;;;;;;X
+PROV561;Theodosia;;;Teodosia;;;;;;;X
+PROV562;Korchev;;;Korchev;;;;;;;X
+PROV563;Lower Don;;;Bajo Don;;;;;;;X
+PROV564;Desht-i-Kipchak;;;Desht-i-Kipchak;;;;;;;X
+PROV565;Sharukan;;;Sharukan;;;;;;;X
+PROV566;Sugrov;;;Sugrov;;;;;;;X
+PROV567;Novgorod Seversky;;;Novgorod Severskiy;;;;;;;X
+PROV568;Smolensk;;;Smolensk;;;;;;;X
+PROV569;Vyazma;;;Vyaz'ma;;;;;;;X
+PROV570;Tver;;;Tver;;;;;;;X
+PROV571;Uglich;;;Uglich;;;;;;;X
+PROV572;Yaroslavl;;;Yaroslavl;;;;;;;X
+PROV573;Pereyaslavl Zalessky;;;Pereyaslavl Zalessky;;;;;;;X
+PROV574;Rostov;;;Rostov;;;;;;;X
+PROV575;Moskva;;;Moscú;;;;;;;X
+PROV576;Bryansk;;;Briansk;;;;;;;X
+PROV577;Pronsk;;;Pronsk;;;;;;;X
+PROV578;Kolomna;;;Kolomna;;;;;;;X
+PROV579;Mordva;;;Mordva;;;;;;;X
+PROV580;Ryazan;;;Riazán;;;;;;;X
+PROV581;Murom;;;Murom;;;;;;;X
+PROV582;Vladimir;;;Vladímir;;;;;;;X
+PROV583;Suzdal;;;Suzdal;;;;;;;X
+PROV584;Nizhny Novgorod;;;Nizni Nóvgorod;;;;;;;X
+PROV585;Gorodez;;;Gorodez;;;;;;;X
+PROV586;Galich Mersky;;;Galich Mersky;;;;;;;X
+PROV587;Mozhaysk;;;Mozhaisk;;;;;;;X
+PROV588;Merya;;;Merya;;;;;;;X
+PROV589;Grassland Cheremisa;;;Pradera Cheremisa;;;;;;;X
+PROV590;Chuvash;;;Chuvashia;;;;;;;X
+PROV591;Mountain Cheremisa;;;Montaña Cheremisa;;;;;;;X
+PROV592;Burtasy;;;Burtasi;;;;;;;X
+PROV593;Khopyor;;;Khopyor;;;;;;;X
+PROV594;Sarkel;;;Sarkel;;;;;;;X
+PROV595;Don portage;;;Curso del Don;;;;;;;X
+PROV596;Tana;;;Tana;;;;;;;X
+PROV597;Azov;;;Azov;;;;;;;X
+PROV598;Tmutarakan;;;Tmutarakan;;;;;;;X
+PROV599;Kuban;;;Kuban;;;;;;;X
+PROV600;Abkhazia;;;Abjasia;;;;;;;X
+PROV601;Imeretia;;;Imeretia;;;;;;;X
+PROV602;Kasogs;;;Kasogs;;;;;;;X
+PROV603;Alania;;;Alania;;;;;;;X
+PROV604;Kuma;;;Kuma;;;;;;;X
+PROV605;Manych;;;Manich;;;;;;;X
+PROV606;Yegorlyk;;;Yegorlik;;;;;;;X
+PROV607;Sarpa;;;Sarpa;;;;;;;X
+PROV608;Lower Volga;;;Bajo Volga;;;;;;;X
+PROV609;Syrt;;;Sirt;;;;;;;X
+PROV610;Bulgar;;;Bulgar;;;;;;;X
+PROV611;Kama;;;Kama;;;;;;;X
+PROV612;Votyaki;;;Votyaki;;;;;;;X
+PROV613;Bilyar;;;Biliar;;;;;;;X
+PROV614;Southern Ural;;;Ural Meridional;;;;;;;X
+PROV615;Bashkirs;;;Bashkirs;;;;;;;X
+PROV616;Yaik;;;Yaik;;;;;;;X
+PROV617;Uzens;;;Uzens;;;;;;;X
+PROV618;Ryn Desert;;;Desierto de Ryn;;;;;;;X
+PROV619;Saray;;;Saray;;;;;;;X
+PROV620;Itil;;;Itil;;;;;;;X
+PROV621;Emba;;;Emba;;;;;;;X
+PROV622;Aral;;;Aral;;;;;;;X
+PROV623;Khwarizm;;;Khwarizm;;;;;;;X
+PROV624;Mangyshlak;;;Mangghyshlaq;;;;;;;X
+PROV625;Usturt;;;Usturt;;;;;;;X
+PROV626;Maverannahr;;;Maverannahr;;;;;;;X
+PROV627;Kara-Kum;;;Kara-Kum;;;;;;;X
+PROV628;Bukhara;;;Bukhara;;;;;;;X
+PROV629;Turkmen;;;Turkmen;;;;;;;X
+PROV630;Merv;;;Merv;;;;;;;X
+PROV631;Dihistan;;;Dijistán;;;;;;;X
+PROV632;Khorasan;;;Khorasan;;;;;;;X
+PROV633;Gurgan;;;Gurgan;;;;;;;X
+PROV634;Nishapur;;;Nishapur;;;;;;;X
+PROV635;Qohistan;;;Qojistán;;;;;;;X
+PROV636;Lut;;;Lut;;;;;;;X
+PROV637;Sistan;;;Sistan;;;;;;;X
+PROV638;Yazd;;;Yazd;;;;;;;X
+PROV639;Kerman;;;Kerman;;;;;;;X
+PROV640;Darab;;;Darab;;;;;;;X
+PROV641;Hormuz;;;Hormuz;;;;;;;X
+PROV642;Laristan;;;Lorestan;;;;;;;X
+PROV643;Fars;;;Fars;;;;;;;X
+PROV644;Shiraz;;;Shiraz;;;;;;;X
+PROV645;Hendjan;;;Hendjan;;;;;;;X
+PROV646;Esfahan;;;Isfahan;;;;;;;X
+PROV647;Avhaz;;;Avhaz;;;;;;;X
+PROV648;Khozistan;;;Juzestán;;;;;;;X
+PROV649;Basra;;;Basora;;;;;;;X
+PROV650;Kuwait;;;Kuwait;;;;;;;X
+PROV651;Damman;;;Damman;;;;;;;X
+PROV652;Al Hasa;;;Al Hasa;;;;;;;X
+PROV653;Bahrein;;;Bahrein;;;;;;;X
+PROV654;Rummah;;;Rummah;;;;;;;X
+PROV655;Kufa;;;Kufa;;;;;;;X
+PROV656;Tigris;;;Tigris;;;;;;;X
+PROV657;Luristan;;;Luristán;;;;;;;X
+PROV658;Hamadan;;;Hamadan;;;;;;;X
+PROV659;Qom;;;Qom;;;;;;;X
+PROV660;Qwivir;;;Qwivir;;;;;;;X
+PROV661;Tabaristan;;;Tabaristán;;;;;;;X
+PROV662;Mazandaran;;;Mazandaran;;;;;;;X
+PROV663;Rayy;;;Rayy;;;;;;;X
+PROV664;Qazwin;;;Qazwin;;;;;;;X
+PROV665;Dailam;;;Dailam;;;;;;;X
+PROV666;Gilan;;;Gilan;;;;;;;X
+PROV667;Tabriz;;;Tabriz;;;;;;;X
+PROV668;Shirvan;;;Shirvan;;;;;;;X
+PROV669;Shemakha;;;Shemaja;;;;;;;X
+PROV670;Azerbaijan;;;Azerbaiyán;;;;;;;X
+PROV671;Suenik;;;Suenik;;;;;;;X
+PROV672;Dwin;;;Dwin;;;;;;;X
+PROV673;Albania;;;Albania;;;;;;;X
+PROV674;Derbent;;;Derbent;;;;;;;X
+PROV675;Semender;;;Semender;;;;;;;X
+PROV676;Kakheti;;;Kakheti;;;;;;;X
+PROV677;Guria;;;Guria;;;;;;;X
+PROV678;Trapezous;;;Trapezous;;;;;;;X
+PROV679;Kartli;;;Kartli;;;;;;;X
+PROV680;Tao;;;Tao;;;;;;;X
+PROV681;Ani;;;Ani;;;;;;;X
+PROV682;Vaspurakan;;;Vaspurakan;;;;;;;X
+PROV683;Amida;;;Amida;;;;;;;X
+PROV684;Nisibin;;;Nisibin;;;;;;;X
+PROV685;Kurdistan;;;Kurdistán;;;;;;;X
+PROV686;Oromieh;;;Urmia;;;;;;;X
+PROV687;Kirkuk;;;Kirkuk;;;;;;;X
+PROV688;Al Miqdadiyah;;;Al Miqdadiyah;;;;;;;X
+PROV689;Ilam;;;Ilam;;;;;;;X
+PROV690;Al Amarah;;;Al Amarah;;;;;;;X
+PROV691;Al Nasiryah;;;Al Nasiryah;;;;;;;X
+PROV692;Al Nadjaf;;;Al Nadjaf;;;;;;;X
+PROV693;Baghdad;;;Bagdad;;;;;;;X
+PROV694;Karbala;;;Karbala;;;;;;;X
+PROV695;Deir;;;Deir;;;;;;;X
+PROV696;Euphrates;;;Éufrates;;;;;;;X
+PROV697;Mosul;;;Mosul;;;;;;;X
+PROV698;Al Jazira;;;Al Jazira;;;;;;;X
+PROV699;Edessa;;;Edessa;;;;;;;X
+PROV700;Bira;;;Bira;;;;;;;X
+PROV701;Taron;;;Taron;;;;;;;X
+PROV702;Mesopotamia;;;Mesopotamia;;;;;;;X
+PROV703;Karin;;;Karin;;;;;;;X
+PROV704;Theodosiopolis;;;Theodosiopolis;;;;;;;X
+PROV705;Chaldea;;;Caldea;;;;;;;X
+PROV706;Koloneia;;;Koloneia;;;;;;;X
+PROV707;Melitene;;;Melitene;;;;;;;X
+PROV708;Tell Bashir;;;Tell Bashir;;;;;;;X
+PROV709;Asas;;;Asas;;;;;;;X
+PROV710;Al Bichri;;;Al Bichri;;;;;;;X
+PROV711;Sinjar;;;Sinjar;;;;;;;X
+PROV712;Suwaida;;;Suwaida;;;;;;;X
+PROV713;Druz;;;Druz;;;;;;;X
+PROV714;Az Zarqa;;;Az Zarqa;;;;;;;X
+PROV715;Al Habbariyah;;;Al Habbariyah;;;;;;;X
+PROV716;Ar'ar;;;Ar'ar;;;;;;;X
+PROV717;Al Jawf;;;Al Jawf;;;;;;;X
+PROV718;Medina;;;Medina;;;;;;;X
+PROV719;Mecca;;;La Meca;;;;;;;X
+PROV720;Hijaz;;;Hijaz;;;;;;;X
+PROV721;Tabuk;;;Tabuk;;;;;;;X
+PROV722;Petra;;;Petra;;;;;;;X
+PROV723;Madaba;;;Madaba;;;;;;;X
+PROV724;Amman;;;Ammán;;;;;;;X
+PROV725;Irbid;;;Irbid;;;;;;;X
+PROV726;Al Mafraq;;;Al Mafraq;;;;;;;X
+PROV727;Syria;;;Siria;;;;;;;X
+PROV728;Damascus;;;Damasco;;;;;;;X
+PROV729;Tadmor;;;Tadmor;;;;;;;X
+PROV730;Palmyra;;;Palmira;;;;;;;X
+PROV731;Homs;;;Homs;;;;;;;X
+PROV732;Hama;;;Hama;;;;;;;X
+PROV733;Aleppo;;;Alepo;;;;;;;X
+PROV734;Aintab;;;Aintab;;;;;;;X
+PROV735;Teluch;;;Teluch;;;;;;;X
+PROV736;Lykandos;;;Lykandos;;;;;;;X
+PROV737;Kaisereia;;;Kaisereia;;;;;;;X
+PROV738;Amisos;;;Amisos;;;;;;;X
+PROV739;Sinope;;;Sinope;;;;;;;X
+PROV740;Herakleia;;;Heraclea;;;;;;;X
+PROV741;Nikomedeia;;;Nikomedia;;;;;;;X
+PROV742;Prusa;;;Prusa;;;;;;;X
+PROV743;Kyzikos;;;Kyzikos;;;;;;;X
+PROV744;Abydos;;;Abydos;;;;;;;X
+PROV745;Smyrna;;;Esmirna;;;;;;;X
+PROV746;Ephesos;;;Éfeso;;;;;;;X
+PROV747;Lykia;;;Licia;;;;;;;X
+PROV748;Laodikeia;;;Laodicea;;;;;;;X
+PROV749;Dorylaion;;;Dorylaion;;;;;;;X
+PROV750;Nikaea;;;Nicea;;;;;;;X
+PROV751;Paphlagonia;;;Paflagonia;;;;;;;X
+PROV752;Galatia;;;Galatia;;;;;;;X
+PROV753;Ankyra;;;Angora;;;;;;;X
+PROV754;Sozopolis;;;Sozópolis;;;;;;;X
+PROV755;Attaleia;;;Attalea;;;;;;;X
+PROV756;Limisol;;;Limisol;;;;;;;X
+PROV757;Famagusta;;;Famagusta;;;;;;;X
+PROV758;Seleukeia;;;Seleucea;;;;;;;X
+PROV759;Ikonion;;;Ikonion;;;;;;;X
+PROV760;Tyana;;;Tyana;;;;;;;X
+PROV761;Tarsos;;;Tarsos;;;;;;;X
+PROV762;Adana;;;Adana;;;;;;;X
+PROV763;Alexandretta;;;Alejandreta;;;;;;;X
+PROV764;Antiocheia;;;Antioquía;;;;;;;X
+PROV765;Archa;;;Archa;;;;;;;X
+PROV766;Tortosa;;;Tortosa;;;;;;;X
+PROV767;Tripoli;;;Trípoli;;;;;;;X
+PROV768;Baalbek;;;Baalbek;;;;;;;X
+PROV769;Safed;;;Safed;;;;;;;X
+PROV770;Beirut;;;Beirut;;;;;;;X
+PROV771;Tyrus;;;Tiro;;;;;;;X
+PROV772;Acre;;;Acre;;;;;;;X
+PROV773;Tiberias;;;Tiberíades;;;;;;;X
+PROV774;Jerusalem;;;Jerusalén;;;;;;;X
+PROV775;Jaffa;;;Jaffa;;;;;;;X
+PROV776;Hebron;;;Hebrón;;;;;;;X
+PROV777;Kerak;;;Kerak;;;;;;;X
+PROV778;Monreal;;;Monreal;;;;;;;X
+PROV779;Beersheb;;;Beersheb;;;;;;;X
+PROV780;Ascalon;;;Ascalón;;;;;;;X
+PROV781;Darum;;;Darum;;;;;;;X
+PROV782;Negev;;;Néguev;;;;;;;X
+PROV783;Maan;;;Maan;;;;;;;X
+PROV784;Al 'Aqabah;;;Al-Aqaba;;;;;;;X
+PROV785;Sinai;;;Sinaí;;;;;;;X
+PROV786;Eilat;;;Eilat;;;;;;;X
+PROV787;El-Arish;;;Al Arish;;;;;;;X
+PROV788;Farama;;;Farama;;;;;;;X
+PROV789;Pelusia;;;Pelusia;;;;;;;X
+PROV790;Sarqihya;;;Sarqihya;;;;;;;X
+PROV791;Quena;;;Quena;;;;;;;X
+PROV792;Nubia;;;Nubia;;;;;;;X
+PROV793;Sudan;;;Sudán;;;;;;;X
+PROV794;Aswan;;;Asuán;;;;;;;X
+PROV795;Asyut;;;Asiut;;;;;;;X
+PROV796;Cairo;;;El Cairo;;;;;;;X
+PROV797;Manupura;;;Manupura;;;;;;;X
+PROV798;Delta;;;Delta;;;;;;;X
+PROV799;Gabiyaha;;;Gabiyaha;;;;;;;X
+PROV800;Gizeh;;;Gizeh;;;;;;;X
+PROV801;Buhairya;;;Buhairya;;;;;;;X
+PROV802;Alexandria;;;Alejandría;;;;;;;X
+PROV803;Quattara;;;Quattara;;;;;;;X
+PROV804;Al Alamayn;;;El-Alamein;;;;;;;X
+PROV805;Tobruk;;;Tobruk;;;;;;;X
+PROV806;Cyrenaica;;;Cirenaica;;;;;;;X
+PROV807;Senoussi;;;Senoussi;;;;;;;X
+PROV808;Benghazi;;;Bengasi;;;;;;;X
+PROV809;Syrte;;;Sirte;;;;;;;X
+PROV810;Leptis Magna;;;Leptis Magna;;;;;;;X
+PROV811;Tripolitana;;;Tripolitania;;;;;;;X
+PROV812;Malta;;;Malta;;;;;;;X
+PROV813;Djerba;;;Djerba;;;;;;;X
+PROV814;Gabes;;;Gabes;;;;;;;X
+PROV815;Kairwan;;;Kairuán;;;;;;;X
+PROV816;Mahdia;;;Mahdia;;;;;;;X
+PROV817;Tunis;;;Túnez;;;;;;;X
+PROV818;Medjerda;;;Medjerda;;;;;;;X
+PROV819;Bizerte;;;Bizerta;;;;;;;X
+PROV820;Annaba;;;Annaba;;;;;;;X
+PROV821;Constantine;;;Constantina;;;;;;;X
+PROV822;Bejaija;;;Bejaija;;;;;;;X
+PROV823;Biskra;;;Biskra;;;;;;;X
+PROV824;Tell Atlas;;;Atlas Telliano;;;;;;;X
+PROV825;Beni Yanni;;;Beni Yanni;;;;;;;X
+PROV826;Menorca;;;Menorca;;;;;;;X
+PROV827;Mallorca;;;Mallorca;;;;;;;X
+PROV828;Kabilia;;;Kabilia;;;;;;;X
+PROV829;Mzab;;;Mzab;;;;;;;X
+PROV830;Lemdiyya;;;Lemdiyya;;;;;;;X
+PROV831;Al Djazair;;;Argel;;;;;;;X
+PROV832;Orania;;;Orania;;;;;;;X
+PROV833;Atlas Mnt;;;Cordillera del Atlas;;;;;;;X
+PROV834;Tlemcen;;;Tlemcen;;;;;;;X
+PROV835;Hanyan;;;Hanyan;;;;;;;X
+PROV836;Snassen;;;Snassen;;;;;;;X
+PROV837;Figuig;;;Figuig;;;;;;;X
+PROV838;El Rif;;;El Rif;;;;;;;X
+PROV839;Cebta;;;Ceuta;;;;;;;X
+PROV840;Fes;;;Fes;;;;;;;X
+PROV841;Tangiers;;;Tánger;;;;;;;X
+PROV842;Infa;;;Infa;;;;;;;X
+PROV843;Marrakech;;;Marrakech;;;;;;;X
+PROV844;Massat;;;Massat;;;;;;;X
+PROV845;Anti-Atlas;;;Antiatlas;;;;;;;X
+PROV846;Ifni;;;Ifni;;;;;;;X
+PROV847;Tharasset;;;Tharasset;;;;;;;X
+PROV848;Canarias;;;Canarias;;;;;;;X
+PROV849;Atlantic;;;Atlántico;;;;;;;X
+PROV850;Atlantic;;;Atlántico;;;;;;;X
+PROV851;Sea of Canarias;;;Mar de las Canarias;;;;;;;X
+PROV852;Atlantic;;;Atlántico;;;;;;;X
+PROV853;Sea of Azores;;;Mar de las Azores;;;;;;;X
+PROV854;Atlantic;;;Atlántico;;;;;;;X
+PROV855;Golfo de Cadiz;;;Golfo de Cádiz;;;;;;;X
+PROV856;Portugal Coast;;;Costa de Portugal;;;;;;;X
+PROV857;Atlantic;;;Atlántico;;;;;;;X
+PROV858;Atlantic;;;Atlántico;;;;;;;X
+PROV859;Cabo de Finisterre;;;Cabo de Finisterre;;;;;;;X
+PROV860;Bay of Biscay;;;Golfo de Vizcaya;;;;;;;X
+PROV861;Bay of Biscay;;;Golfo de Vizcaya;;;;;;;X
+PROV862;Belle Ile;;;Belle Ile;;;;;;;X
+PROV863;Bay of Biscay;;;Golfo de Vizcaya;;;;;;;X
+PROV864;Bretagne Coast;;;Costa de Bretaña;;;;;;;X
+PROV865;Atlantic;;;Atlántico;;;;;;;X
+PROV866;Atlantic;;;Atlántico;;;;;;;X
+PROV867;Atlantic;;;Atlántico;;;;;;;X
+PROV868;Atlantic;;;Atlántico;;;;;;;X
+PROV869;Coast of Iceland;;;Costa de Islandia;;;;;;;X
+PROV870;North Atlantic;;;Atlántico Norte;;;;;;;X
+PROV871;North Atlantic;;;Atlántico Norte;;;;;;;X
+PROV872;North Atlantic;;;Atlántico Norte;;;;;;;X
+PROV873;North Sea;;;Mar del Norte;;;;;;;X
+PROV874;North Sea;;;Mar del Norte;;;;;;;X
+PROV875;North Sea;;;Mar del Norte;;;;;;;X
+PROV876;North Sea;;;Mar del Norte;;;;;;;X
+PROV877;Sea of Shetland;;;Mar de Shetland;;;;;;;X
+PROV878;North Atlantic;;;Atlántico Norte;;;;;;;X
+PROV879;The Minch;;;Los Minches;;;;;;;X
+PROV880;Moray Firth;;;Estuario de Moray;;;;;;;X
+PROV881;Firth of Forth;;;Estuario de Forth;;;;;;;X
+PROV882;The Wash;;;The Wash;;;;;;;X
+PROV883;Dogger-bank;;;Dogger Bank;;;;;;;X
+PROV884;Waddenzee;;;Mar de Wadden;;;;;;;X
+PROV885;North Sea;;;Mar del Norte;;;;;;;X
+PROV886;Skagerrak;;;Skagerrak;;;;;;;X
+PROV887;Gulf of Helholland;;;Golfo de Helgoland;;;;;;;X
+PROV888;Kattegat;;;Kattegat;;;;;;;X
+PROV889;Gulf of Danzig;;;Golfo de Danzig;;;;;;;X
+PROV890;Hanö-bukten;;;Hanobukten;;;;;;;X
+PROV891;Baltic Sea;;;Mar Báltico;;;;;;;X
+PROV892;Ålands Hav;;;Mar de Åland;;;;;;;X
+PROV893;Gulf of Finland;;;Golfo de Finlandia;;;;;;;X
+PROV894;Gulf of Bothnia;;;Golfo de Botnia;;;;;;;X
+PROV895;Gulf of Bothnia;;;Golfo de Botnia;;;;;;;X
+PROV896;Ladoga Lake;;;Lago Ladoga;;;;;;;X
+PROV897;Mälaren;;;Lago Mälar;;;;;;;X
+PROV898;Orvieto;;;Orvieto;;;;;;;X
+PROV899;Hjälmaren;;;Hjälmaren;;;;;;;X
+PROV900;Vättern;;;Vättern;;;;;;;X
+PROV901;Vänern;;;Lago Vänern;;;;;;;X
+PROV902;White Sea;;;Mar Blanco;;;;;;;X
+PROV903;Strait of Dover;;;Estrecho de Dover;;;;;;;X
+PROV904;Channel Islands;;;Islas del Canal;;;;;;;X
+PROV905;Land's End;;;Land's End;;;;;;;X
+PROV906;St George's Channel;;;Canal de San Jorge;;;;;;;X
+PROV907;Irish Sea;;;Mar de Irlanda;;;;;;;X
+PROV908;Donegal Bay;;;Bahía de Donegal;;;;;;;X
+PROV909;Faroya;;;Faroya;;;;;;;X
+PROV910;Atlantic;;;Atlántico;;;;;;;X
+PROV911;Madeira;;;Madeira;;;;;;;X
+PROV912;Coast of Morocco;;;Costa de Marruecos;;;;;;;X
+PROV913;Strait of Gibraltar;;;Estrecho de Gibraltar;;;;;;;X
+PROV914;West of Mediterranean Sea;;;Mar Mediterráneo Occidental;;;;;;;X
+PROV915;Golfo de Valencia;;;Golfo de Valencia;;;;;;;X
+PROV916;Islas Baleares;;;Islas Baleares;;;;;;;X
+PROV917;Ponant;;;Ponant;;;;;;;X
+PROV918;Mediterranean Sea;;;Mar Mediterráneo;;;;;;;X
+PROV919;Gulfe du Lion;;;Golfo de León;;;;;;;X
+PROV920;Lake Leman;;;Lago Léman;;;;;;;X
+PROV921;Cote d Azur;;;Costa Azul;;;;;;;X
+PROV922;Ligurian Sea;;;Mar de Liguria;;;;;;;X
+PROV923;Tyrrhenian Sea;;;Mar Tirreno;;;;;;;X
+PROV924;Coast of Sardegna;;;Costa de Cerdeña;;;;;;;X
+PROV925;Golfo di Napoli;;;Golfo de Nápoles;;;;;;;X
+PROV926;Strait di Messina;;;Estrecho de Messina;;;;;;;X
+PROV927;Golfe de Hammamet;;;Golfo de Hammamet;;;;;;;X
+PROV928;Malta Channel;;;Canal de Malta;;;;;;;X
+PROV929;Gulf of Sidra;;;Golfo de Sidra;;;;;;;X
+PROV930;Golfo di Taranto;;;Golfo de Teranto;;;;;;;X
+PROV931;Ionian Sea;;;Mar Jónico;;;;;;;X
+PROV932;Strait of Otranto;;;Canal de Otranto;;;;;;;X
+PROV933;Adriatic Sea;;;Mar Adriático;;;;;;;X
+PROV934;Gulf of Venice;;;Golfo de Venecia;;;;;;;X
+PROV935;Aegean Sea;;;Mar Egeo;;;;;;;X
+PROV936;Cyclades;;;Cícladas;;;;;;;X
+PROV937;Sea of Crete;;;Mar de Creta;;;;;;;X
+PROV938;Coast of Egypt;;;Costa de Egipto;;;;;;;X
+PROV939;Nile Delta;;;Delta del Nilo;;;;;;;X
+PROV940;Levant;;;Levante;;;;;;;X
+PROV941;East of Mediterranean;;;Mediterráneo Oriental;;;;;;;X
+PROV942;Red Sea;;;Mar Rojo;;;;;;;X
+PROV943;Persian Gulf;;;Golfo Pérsico;;;;;;;X
+PROV944;Aral Sea;;;Mar de Aral;;;;;;;X
+PROV945;Iskenderun Kör;;;Golfo de Iskenderun;;;;;;;X
+PROV946;Gulf of Antalya;;;Golfo de Antalya;;;;;;;X
+PROV947;Sea of Marmara;;;Mar de Mármara;;;;;;;X
+PROV948;Gulf of Varna;;;Golfo de Varna;;;;;;;X
+PROV949;Coast of Taurida;;;Costa de Taurida;;;;;;;X
+PROV950;Black Sea;;;Mar Negro;;;;;;;X
+PROV951;Coast of Kolkhida;;;Costa de Cólquida;;;;;;;X
+PROV952;Azov Sea;;;Mar de Azov;;;;;;;X
+PROV953;North of Caspian;;;Caspio Septentrional;;;;;;;X
+PROV954;Gulf of Kizlyar;;;Golfo de Kizliar;;;;;;;X
+PROV955;Gulf of Kazakhs;;;Golfo de Kazakhs;;;;;;;X
+PROV956;Apsheron peninsula;;;Península de Asferón;;;;;;;X
+PROV957;Gulf of Krasnovodks;;;Golfo de Krasnovods;;;;;;;X
+PROV958;South of Caspian;;;Caspio Meridional;;;;;;;X
+PROV959;Kara-Bogaz Gol;;;Golfo de Garabogazköl;;;;;;;X
+PROV960;Tiveriade Lake;;;Lago Tiberíades;;;;;;;X
+PROV961;Dead Sea;;;Mar Muerto;;;;;;;X
+PROV962;Duera;;;Duero;;;;;;;X
+PROV963;Ebro;;;Ebro;;;;;;;X
+PROV964;Garonne;;;Garona;;;;;;;X
+PROV965;Rhône;;;Ródano;;;;;;;X
+PROV966;Loire;;;Loira;;;;;;;X
+PROV967;Thames;;;Támesis;;;;;;;X
+PROV968;Seine;;;Sena;;;;;;;X
+PROV969;Schelde;;;Escalda;;;;;;;X
+PROV970;Rhein;;;Rin;;;;;;;X
+PROV971;Wesser;;;Weser;;;;;;;X
+PROV972;Elbe;;;Elba;;;;;;;X
+PROV973;Oder;;;Oder;;;;;;;X
+PROV974;Po;;;Po;;;;;;;X
+PROV975;Duna;;;Duna;;;;;;;X
+PROV976;Dunav;;;Dunav;;;;;;;X
+PROV977;Dunarea;;;Dunarea;;;;;;;X
+PROV978;Dniester;;;Dniéster;;;;;;;X
+PROV979;Dnepr;;;Dniéper;;;;;;;X
+PROV980;Pripet;;;Pripet;;;;;;;X
+PROV981;Wisla;;;Vístula;;;;;;;X
+PROV982;Don;;;Don;;;;;;;X
+PROV983;Sakarya;;;Sakarya;;;;;;;X
+PROV984;Nile;;;Nilo;;;;;;;X
+PROV985;Jordan;;;Jordán;;;;;;;X
+PROV986;Galis;;;Galis;;;;;;;X
+PROV987;Ithil;;;Ithil;;;;;;;X
+PROV988;Volga;;;Volga;;;;;;;X
+PROV989;Kama;;;Kama;;;;;;;X
+PROV990;Volkhov;;;Voljov;;;;;;;X
+PROV991;Dvina;;;Dvina;;;;;;;X
+PROV992;Danube;;;Danubio;;;;;;;X
+PROV993;Main;;;Meno;;;;;;;X
+PROV994;Neva;;;Neva;;;;;;;X
+PROV995;Bremen;;;Bremen;;;;;;;X
+PROV996;Galway Bay;;;Bahía de Galway;;;;;;;X
+PROV997;Capua;;;Capua;;;;;;;X
+PROV998;Onega;;;Onega;;;;;;;X
+PROV999;Black Clobucks;;;Black Clobucks;;;;;;;x
+PROV1000;North Dvina;;;Dvina Septentrional;;;;;;;x
+PROV1001;Oka;;;Oká;;;;;;;x
+PROV1002;Upper Dnepr;;;Alto Dniéper;;;;;;;x
+PROV1003;Dniester;;;Dniéster;;;;;;;x
+PROV1004;Vyatka;;;Viatka;;;;;;;x
+#EOF;;;;;;;;;;;
+#EOF;;;;;;;;;;;

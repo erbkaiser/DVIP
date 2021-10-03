@@ -1,0 +1,6893 @@
+#####################
+# Heresy reloaded ! #
+# Events: 7100-7199 #
+#  Thomas Corriol   #
+#####################
+
+# To add flavour there would be different set of heresy series,
+# even if the province effect will be the same each time
+
+# The "flavour type" of heresy to appear depends of the Religious Advances
+# Heresy is likely to appear each time Religious Flexibility lvl > Religious Stringency lvl
+# Lvl 1 is reserved for Orthodox
+# Lvl 2, 3 and 4 are greatly reduce by inquisition
+# some revisions made Apr. 05 by CS
+
+###############
+# Bogomiles ! #
+###############
+
+# Bogomiles were the orthodox version of dualism heresy.
+# They particularly spread in Bulgaria and South Slavic area for nationalism reason
+# (fighting the greecisation of the Byzantine Church), but after a while they become rampant
+# in the Greek Orthodox Church and a real problem for the Emperor
+# They never really set off in the North, though
+
+# Bogomiles appear in a province
+
+province_event = {
+	id = 7100
+
+	picture = event_heretic
+
+	trigger = {
+		condition = { type = has_advance value = { ascetism = yes } }
+		condition = { type = religion value = orthodox }
+		condition = {
+			type = not
+			value = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+		}
+		condition = { type = not value = { type = demesne value = PAPA } }
+		condition = { type = not value = { type = demesne value = HOSP } }
+		condition = { type = not value = { type = demesne value = TEUT } }
+		condition = { type = not value = { type = demesne value = TEMP } }
+		condition = { type = not value = { type = demesne value = U000 } }
+		condition = { type = not value = { type = demesne value = U001 } }
+	}
+
+	mean_time_to_happen = {
+		months = 6000
+
+		modifier = {
+			condition = { type = has_improvement value = { monastery = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.66 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.25 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.11 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = area value = 499 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = culture value = southslavic }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = culture value = russian }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 0.9
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 1.2
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_province_effect value = heretic }
+		effect = { type = noble_power value = -0.2 }
+		effect = { type = clergy_power value = -0.5 }
+		effect = { type = burgher_power value = 0.1 }
+		effect = { type = peasant_power value = 0.6 }
+	}
+
+}
+
+# Bogomiles spread in a neighboring province
+
+province_x_province_event = {
+	id = 7101
+
+	picture = event_heretic
+	trigger	= {
+		condition = {
+			type = to
+			condition = {
+				type = and
+				condition = { type = religion value = orthodox }
+				condition = {
+					type = not
+					value = {
+						type = has_province_effect
+						value = { heretic = yes }
+					}
+				}
+				condition = { type = not value = { type = demesne value = PAPA } }
+				condition = { type = not value = { type = demesne value = HOSP } }
+				condition = { type = not value = { type = demesne value = TEUT } }
+				condition = { type = not value = { type = demesne value = TEMP } }
+				condition = { type = not value = { type = demesne value = U000 } }
+				condition = { type = not value = { type = demesne value = U001 } }
+			}
+		}
+		condition = {
+			type = from
+			condition = {
+				type = and
+				condition = { type = religion value = orthodox }
+				condition = {
+					type = has_province_effect
+					value = { heretic = yes }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4800
+
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						monastery = yes
+					}
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						large_church = yes
+					}
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						domed_church = yes
+					}
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						cathedral = yes
+					}
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						civilian_harbour = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						naval_harbour = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						grand_shipyard = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						extensive_roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = from
+				condition = { 
+					type = has_improvement
+					value = { 
+						roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = from
+				condition = { 
+					type = has_improvement
+					value = { 
+						extensive_roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = clergy_power value = 0.5 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = clergy_power value = 0.66 }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = not
+					value = {
+						type = clergy_power
+						value = 0.25
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = not
+					value = {
+						type = clergy_power
+						value = 0.11
+					}
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = area value = 499 }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = culture value = southslavic }
+			}
+		factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = culture value = russian }
+			}
+			factor = 10
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = has_law value = { regal_supremacy = yes } }
+			}
+			factor = 0.9
+		}
+#		modifier = {
+#			condition = {
+#				type = to
+#				condition = { type = has_law value = { monastic_supremacy = yes } }
+#			}
+#			factor = 1.2
+#		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = has_law value = { church_supremacy = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 1 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 2 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 3 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = 0 } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -1 } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -2 } }
+				}
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {
+		effect = { 
+			type = to 
+			effect = { type = add_advance value = ascetism }
+			effect = { type = add_province_effect value = heretic }
+			effect = { type = noble_power value = -0.2 }
+			effect = { type = clergy_power value = -0.5 }
+			effect = { type = burgher_power value = 0.1 }
+			effect = { type = peasant_power value = 0.6 }
+		}
+	} 	
+}
+
+#########################
+# Wandering preachers ! #
+#########################
+
+# Wandering preachers is an early catholic heresy which mostly plagued West of France
+# They were not very organised, but neither was the Church to combat them
+
+# Wandering preachers appear in a province
+
+province_event = {
+	id = 7102
+
+	picture = event_heretic
+
+	trigger = {
+		condition = { type = has_advance value = { apostolic_poverty = yes } }
+		condition = {
+			type = not
+			value = { type = has_advance value = { critical_bible_interpretations = yes } }
+		}
+		condition = {
+			type = not
+			value = { type = has_advance value = { letters_of_indulgence = yes } }
+		}
+		condition = { type = religion value = catholic }
+		condition = {
+			type = not
+			value = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+		}
+		condition = { type = not value = { type = demesne value = PAPA } }
+		condition = { type = not value = { type = demesne value = HOSP } }
+		condition = { type = not value = { type = demesne value = TEUT } }
+		condition = { type = not value = { type = demesne value = TEMP } }
+		condition = { type = not value = { type = demesne value = U000 } }
+		condition = { type = not value = { type = demesne value = U001 } }
+	}
+
+	mean_time_to_happen = {
+		months = 5000
+
+		modifier = {
+			condition = {
+				type = not
+				value = { type = has_advance value = { clerical_celibacy = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { monastery = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.66 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.25 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.11 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = area value = 106 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = culture value = frankish }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 0.9
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 1.3
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_province_effect value = heretic }
+		effect = { type = noble_power value = -0.1 }
+		effect = { type = clergy_power value = -0.3 }
+		effect = { type = peasant_power value = 0.4 }
+	}
+}
+
+# Wandering preachers spread in a neighboring province	   
+						   
+province_x_province_event = {
+	id = 7103
+
+	picture = event_heretic
+	trigger	= {
+		condition = {
+			type = to
+			condition = {
+				type = and
+				condition = {
+					type = not
+					value = { type = has_advance value = { critical_bible_interpretations = yes } }
+				}
+				condition = {
+					type = not
+					value = { type = has_advance value = { letters_of_indulgence = yes } }
+					}
+				condition = { type = religion value = catholic }
+				condition = {
+					type = not
+					value = {
+						type = has_province_effect
+						value = { heretic = yes }
+					}
+				}
+				condition = { type = not value = { type = demesne value = PAPA } }
+				condition = { type = not value = { type = demesne value = HOSP } }
+				condition = { type = not value = { type = demesne value = TEUT } }
+				condition = { type = not value = { type = demesne value = TEMP } }
+				condition = { type = not value = { type = demesne value = U000 } }
+				condition = { type = not value = { type = demesne value = U001 } }
+			}
+		}
+		condition = {
+			type = from
+			condition = {
+				type = and
+				condition = { type = has_advance value = { apostolic_poverty = yes } }
+				condition = {
+					type = not
+					value = { type = has_advance value = { critical_bible_interpretations = yes } }
+				}
+				condition = {
+					type = not
+					value = { type = has_advance value = { letters_of_indulgence = yes } }
+					}
+				condition = { type = religion value = catholic }
+				condition = { type = has_province_effect value = { heretic = yes } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4800
+
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						monastery = yes
+					}
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						large_church = yes
+					}
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						domed_church = yes
+					}
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						cathedral = yes
+					}
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						civilian_harbour = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						naval_harbour = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						grand_shipyard = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						extensive_roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = from
+				condition = { 
+					type = has_improvement
+					value = { 
+						roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = from
+				condition = { 
+					type = has_improvement
+					value = { 
+						extensive_roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = clergy_power value = 0.5 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = clergy_power value = 0.66 }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = not
+					value = {
+						type = clergy_power
+						value = 0.25
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = not
+					value = {
+						type = clergy_power
+						value = 0.11
+					}
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = area value = 106 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = culture value = frankish }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = has_law value = { regal_supremacy = yes } }
+			}
+			factor = 0.9
+		}
+#		modifier = {
+#			condition = {
+#				type = to
+#				condition = { type = has_law value = { monastic_supremacy = yes } }
+#			}
+#			factor = 1.3
+#		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = has_law value = { church_supremacy = yes } }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 1 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 2 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 3 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = 0 } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -1 } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -2 } }
+				}
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {
+		effect = { 
+			type = to 
+			effect = { type = add_advance value = ascetism }
+			effect = { type = add_advance value = apostolic_poverty }
+			effect = { type = add_province_effect value = heretic }
+			effect = { type = noble_power value = -0.1 }
+			effect = { type = clergy_power value = -0.3 }
+			effect = { type = peasant_power value = 0.4 }
+		}
+	} 	
+}
+
+###############
+# Catharism ! #
+###############
+
+# Catharism were the catholic version of dualism heresy.
+# They particularly spread in South West of France and in Italia
+# But they were all over Western europe
+# In the Comté of Toulouse they become so important that the Church had to call a crusade against them
+# The Crusades became a war between Occitan (Southern French) and Frankish Barons supported by the French King
+
+# Cathars appear in a province
+
+province_event = {
+	id = 7104
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = has_advance value = { critical_bible_interpretations = yes } }
+		condition = {
+			type = not
+			value = { type = has_advance value = { bible_translations = yes } }
+		}
+		condition = {
+			type = not
+			value = { type = has_advance value = { inquisition = yes } }
+		}
+		condition = { type = religion value = catholic }
+		condition = {
+			type = not
+			value = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+		}
+		condition = { type = not value = { type = demesne value = PAPA } }
+		condition = { type = not value = { type = demesne value = HOSP } }
+		condition = { type = not value = { type = demesne value = TEUT } }
+		condition = { type = not value = { type = demesne value = TEMP } }
+		condition = { type = not value = { type = demesne value = U000 } }
+		condition = { type = not value = { type = demesne value = U001 } }
+	}
+
+	mean_time_to_happen = {
+		months = 4800
+
+		modifier = {
+			condition = {
+				type = not
+				value = { type = has_advance value = { clerical_celibacy = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = has_advance value = { letters_of_indulgence = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { monastery = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.66 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.25 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.11 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = area value = 232 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = area value = 233 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = culture value = occitan }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 0.8
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 1.2
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_province_effect value = heretic }
+		effect = { type = noble_power value = 0.1 }
+		effect = { type = clergy_power value = -0.7 }
+		effect = { type = burgher_power value = 0.3 }
+		effect = { type = peasant_power value = 0.3 }
+	}
+}
+
+# Cathars spread in a neighboring province	  
+
+province_x_province_event = {
+	id = 7105
+
+	picture = event_heretic
+	trigger	= {
+		condition = {
+			type = to
+			condition = {
+				type = and
+				condition = {
+					type = not
+					value = { type = has_advance value = { bible_translations = yes } }
+				}
+				condition = {
+					type = not
+					value = { type = has_advance value = { inquisition = yes } }
+					}
+				condition = { type = religion value = catholic }
+				condition = {
+					type = not
+					value = {
+						type = has_province_effect
+						value = { heretic = yes }
+					}
+				}
+				condition = { type = not value = { type = demesne value = PAPA } }
+				condition = { type = not value = { type = demesne value = HOSP } }
+				condition = { type = not value = { type = demesne value = TEUT } }
+				condition = { type = not value = { type = demesne value = TEMP } }
+				condition = { type = not value = { type = demesne value = U000 } }
+				condition = { type = not value = { type = demesne value = U001 } }
+			}
+		}
+		condition = {
+			type = from
+			condition = {
+				type = and
+				condition = { type = has_advance value = { critical_bible_interpretations = yes } }
+				condition = {
+					type = not
+					value = { type = has_advance value = { bible_translations = yes } }
+				}
+				condition = {
+					type = not
+					value = { type = has_advance value = { inquisition = yes } }
+					}
+				condition = { type = religion value = catholic }
+				condition = { type = has_province_effect value = { heretic = yes } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3600
+
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						monastery = yes
+					}
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						large_church = yes
+					}
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						domed_church = yes
+					}
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						cathedral = yes
+					}
+				}
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						civilian_harbour = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						naval_harbour = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						grand_shipyard = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						extensive_roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = from
+				condition = { 
+					type = has_improvement
+					value = { 
+						roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = from
+				condition = { 
+					type = has_improvement
+					value = { 
+						extensive_roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = clergy_power value = 0.5 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = clergy_power value = 0.66 }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = not
+					value = {
+						type = clergy_power
+						value = 0.25
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = not
+					value = {
+						type = clergy_power
+						value = 0.11
+					}
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = area value = 232 }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = area value = 233 }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = culture value = occitan }
+			}
+		factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = has_law value = { regal_supremacy = yes } }
+			}
+			factor = 0.8
+		}
+#		modifier = {
+#			condition = {
+#				type = to
+#				condition = { type = has_law value = { monastic_supremacy = yes } }
+#			}
+#			factor = 1.2
+#		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = has_law value = { church_supremacy = yes } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 1 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 2 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 3 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = 0 } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -1 } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -2 } }
+				}
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {
+		effect = { 
+			type = to 
+			effect = { type = add_advance value = ascetism }
+			effect = { type = add_advance value = apostolic_poverty }
+			effect = { type = add_advance value = critical_bible_interpretations }
+			effect = { type = add_province_effect value = heretic }
+			effect = { type = noble_power value = 0.1 }
+			effect = { type = clergy_power value = -0.7 }
+			effect = { type = burgher_power value = 0.3 }
+			effect = { type = peasant_power value = 0.3 }
+		}
+	} 	
+}
+
+################
+# Waldesians ! #
+################
+
+# Waldesians are the second most important heresy in medieval catholicism.
+# They were mainly challenging the right for lay people to preach
+# And denying the legitimity of sinful priests
+# This was unacceptable at a time the Papacy was trying to centralise as much powers as possible
+# But they were all over Western europe, especially in Provence, the Alps, the Flanders, South of Germany
+# Some communities survived until they would be absorbed by the Protestant Reform
+
+# Waldesians appear in a province
+
+province_event = {
+	id = 7106
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = has_advance value = { bible_translations = yes } }
+		condition = {
+			type = not
+			value = { type = has_advance value = { critical_thinking = yes } }
+		}
+		condition = {
+			type = not
+			value = { type = has_advance value = { formalized_lithurgy = yes } }
+		}
+		condition = { type = religion value = catholic }
+		condition = {
+			type = not
+			value = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+		}
+		condition = { type = not value = { type = demesne value = PAPA } }
+		condition = { type = not value = { type = demesne value = HOSP } }
+		condition = { type = not value = { type = demesne value = TEUT } }
+		condition = { type = not value = { type = demesne value = TEMP } }
+		condition = { type = not value = { type = demesne value = U000 } }
+		condition = { type = not value = { type = demesne value = U001 } }
+	}
+
+	mean_time_to_happen = {
+		months = 9000
+
+		modifier = {
+			condition = {
+				type = not
+				value = { type = has_advance value = { clerical_celibacy = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = has_advance value = { letters_of_indulgence = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = has_advance value = { inquisition = yes } }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { monastery = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.66 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.25 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.11 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = area value = 227 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = area value = 233 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = area value = 241 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = culture value = italian }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = culture value = german }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 0.9
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 1.1
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_province_effect value = heretic }
+		effect = { type = clergy_power value = -0.6 }
+		effect = { type = burgher_power value = 0.4 }
+		effect = { type = peasant_power value = 0.2 }
+	}
+}
+
+# Waldesians spread in a neighboring province	  
+
+province_x_province_event = {
+	id = 7107
+
+	picture = event_heretic
+	trigger	= {
+		condition = {
+			type = to
+			condition = {
+				type = and
+				condition = {
+					type = not
+					value = { type = has_advance value = { critical_thinking = yes } }
+				}
+				condition = {
+					type = not
+					value = { type = has_advance value = { formalized_lithurgy = yes } }
+					}
+				condition = { type = religion value = catholic }
+				condition = {
+					type = not
+					value = {
+						type = has_province_effect
+						value = { heretic = yes }
+					}
+				}
+				condition = { type = not value = { type = demesne value = PAPA } }
+				condition = { type = not value = { type = demesne value = HOSP } }
+				condition = { type = not value = { type = demesne value = TEUT } }
+				condition = { type = not value = { type = demesne value = TEMP } }
+				condition = { type = not value = { type = demesne value = U000 } }
+				condition = { type = not value = { type = demesne value = U001 } }
+			}
+		}
+		condition = {
+			type = from
+			condition = {
+				type = and
+				condition = { type = has_advance value = { bible_translations = yes } }
+				condition = {
+					type = not
+					value = { type = has_advance value = { critical_thinking = yes } }
+				}
+				condition = {
+					type = not
+					value = { type = has_advance value = { formalized_lithurgy = yes } }
+					}
+				condition = { type = religion value = catholic }
+				condition = { type = has_province_effect value = { heretic = yes } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3600
+
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						monastery = yes
+					}
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						domed_church = yes
+					}
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						cathedral = yes
+					}
+				}
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						civilian_harbour = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						naval_harbour = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						grand_shipyard = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						extensive_roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = from
+				condition = { 
+					type = has_improvement
+					value = { 
+						roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = from
+				condition = { 
+					type = has_improvement
+					value = { 
+						extensive_roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = clergy_power value = 0.5 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = clergy_power value = 0.66 }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = not
+					value = {
+						type = clergy_power
+						value = 0.25
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = not
+					value = {
+						type = clergy_power
+						value = 0.11
+					}
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = {
+					type = has_advance value = { inquisition = yes }
+				}
+			}
+			factor = 2.5
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = area value = 227 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = area value = 233 }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = area value = 241 }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = culture value = italian }
+			}
+		factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = culture value = german }
+			}
+		factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = has_law value = { regal_supremacy = yes } }
+			}
+			factor = 0.9
+		}
+#		modifier = {
+#			condition = {
+#				type = to
+#				condition = { type = has_law value = { monastic_supremacy = yes } }
+#			}
+#			factor = 1.1
+#		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = has_law value = { church_supremacy = yes } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 1 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 2 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 3 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = 0 } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -1 } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -2 } }
+				}
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {
+		effect = { 
+			type = to 
+			effect = { type = add_advance value = ascetism }
+			effect = { type = add_advance value = apostolic_poverty }
+			effect = { type = add_advance value = critical_bible_interpretations }
+			effect = { type = add_advance value = bible_translations }
+			effect = { type = add_province_effect value = heretic }
+			effect = { type = clergy_power value = -0.6 }
+			effect = { type = burgher_power value = 0.4 }
+			effect = { type = peasant_power value = 0.2 }
+		}
+	} 	
+}
+
+################
+# Wyclifism !  #
+################
+
+# John Wyclif was a reknown Oxford scholar and catholic theologian.
+# His academic writings, known as "ultrarealism", led him to heresy, although he was never condemned himself
+# They started 2 very famous late heretical movements:
+# Lollards in England, and Hussites in Bohemia.
+# Hussitism was successul, again because it embraces the nationalist cause of the Czecks against the Germans.
+
+# Followers of Wyclif appear in a province
+
+province_event = {
+	id = 7108
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = has_advance value = { critical_thinking = yes } }
+		condition = { type = religion value = catholic }
+		condition = {
+			type = not
+			value = {
+				type = has_province_effect
+				value = { heretic = yes }
+			}
+		}
+		condition = { type = not value = { type = demesne value = PAPA } }
+		condition = { type = not value = { type = demesne value = HOSP } }
+		condition = { type = not value = { type = demesne value = TEUT } }
+		condition = { type = not value = { type = demesne value = TEMP } }
+		condition = { type = not value = { type = demesne value = U000 } }
+		condition = { type = not value = { type = demesne value = U001 } }
+	}
+
+	mean_time_to_happen = {
+		months = 10500
+
+		modifier = {
+			condition = {
+				type = not
+				value = { type = has_advance value = { clerical_celibacy = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = has_advance value = { letters_of_indulgence = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = has_advance value = { inquisition = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = has_advance value = { formalized_lithurgy = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = has_advance value = { jubilee = yes } }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { university = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.66 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.25 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.11 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = area value = 22 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = area value = 437 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = culture value = english }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = culture value = bohemian }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_province_effect value = heretic }
+		effect = { type = noble_power value = 0.2 }
+		effect = { type = clergy_power value = -1.0 }
+		effect = { type = burgher_power value = 0.4 }
+		effect = { type = peasant_power value = 0.4 }
+	}
+}
+
+# Followers of Wyclif spread in a neighboring province	  
+
+province_x_province_event = {
+	id = 7109
+
+	picture = event_heretic
+	trigger	= {
+		condition = {
+			type = to
+			condition = {
+				type = and
+				condition = { type = religion value = catholic }
+				condition = {
+					type = not
+					value = {
+						type = has_province_effect
+						value = { heretic = yes }
+					}
+				}
+				condition = { type = not value = { type = demesne value = PAPA } }
+				condition = { type = not value = { type = demesne value = HOSP } }
+				condition = { type = not value = { type = demesne value = TEUT } }
+				condition = { type = not value = { type = demesne value = TEMP } }
+				condition = { type = not value = { type = demesne value = U000 } }
+				condition = { type = not value = { type = demesne value = U001 } }
+			}
+		}
+		condition = {
+			type = from
+			condition = {
+				type = and
+				condition = { type = has_advance value = { critical_thinking = yes } }
+				condition = { type = religion value = catholic }
+				condition = { type = has_province_effect value = { heretic = yes } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3600
+
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_advance
+					value = { 
+						jubilee = yes
+					}
+				}
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						cathedral = yes
+					}
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						university = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						civilian_harbour = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						naval_harbour = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						grand_shipyard = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = has_improvement
+					value = { 
+						extensive_roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = from
+				condition = { 
+					type = has_improvement
+					value = { 
+						roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = from
+				condition = { 
+					type = has_improvement
+					value = { 
+						extensive_roadnet = yes
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = clergy_power value = 0.5 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = clergy_power value = 0.66 }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = not
+					value = {
+						type = clergy_power
+						value = 0.25
+					}
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { 
+					type = not
+					value = {
+						type = clergy_power
+						value = 0.11
+					}
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = area value = 22 }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = area value = 437 }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = culture value = english }
+			}
+		factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = culture value = bohemian }
+			}
+		factor = 0.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 1 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 2 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 3 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = 0 } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -1 } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -2 } }
+				}
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {
+		effect = { 
+			type = to 
+			effect = { type = add_advance value = ascetism }
+			effect = { type = add_advance value = apostolic_poverty }
+			effect = { type = add_advance value = critical_bible_interpretations }
+			effect = { type = add_advance value = bible_translations }
+			effect = { type = add_advance value = critical_thinking }
+			effect = { type = add_province_effect value = heretic }
+			effect = { type = noble_power value = 0.2 }
+			effect = { type = clergy_power value = -1.0 }
+			effect = { type = burgher_power value = 0.4 }
+			effect = { type = peasant_power value = 0.4 }
+		}
+	} 	
+}
+
+################################################
+# Cracking down on Heresy : The Ruler's choice #
+################################################
+
+# Ruler's choice: Early heresy (no inquisition) or Orthodox Ruler
+
+province_event = {
+	id = 7110
+
+	picture = event_heretic
+	trigger = {
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = same_religion } # Ruler can only fight heresy of his own religion
+		condition = { type = not value = { type = regiment_mobilized } } # Same as for criminal activities
+		condition = {
+			type = owner
+			condition = {
+				type = or 
+				condition = { type = religion value = orthodox }
+				condition = {
+					type = and
+					condition = { type = religion value = catholic }
+					condition = {
+						type = not
+						value = { type = has_advance value = inquisition }
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+
+		modifier = {
+			condition = { type = or
+				condition = { type = demesne value = PAPA }
+				condition = { type = demesne value = HOSP }
+				condition = { type = demesne value = TEUT }
+				condition = { type = demesne value = TEMP }
+				condition = { type = demesne value = U000 }
+				condition = { type = demesne value = U001 }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = atwar }
+			}
+			factor = 1.5
+		}
+		# Orthodox don't have inquisition so they should have the event more often:
+		modifier = {
+			condition = { type = religion value = orthodox }
+			factor = 0.75
+		}
+		# Even more so for the Emperor
+		modifier = {
+			condition = { type = demesne value = BYZA }
+			factor = 0.5
+		}
+		#help for ai
+		modifier = {
+			condition = { type = ai }
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 1.1
+		}
+	}
+
+	action_a = {#Fight heresy harshly
+		ai_chance = 80 #more ai help
+		effect = {
+			type = random
+			chance = 75
+			effect = { type = remove_province_effect value = heretic }
+		}
+		effect = { type = prosperity value = -2 }
+		effect = { type = clergy_loyalty value = 0.2 }
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = peasant_loyalty value = -0.4 }
+	}
+	action_b = {#Tolerate heresy 
+		ai_chance = 10
+		effect = { type = clergy_loyalty value = -0.2 }
+		effect = { type = ruler_piety value = -15 }
+	}
+	action_c = {#Encourage heresy 
+		ai_chance = 10
+		effect = { type = clergy_loyalty value = -0.4 }
+		effect = { type = burgher_loyalty value = 0.2 }
+		effect = { type = peasant_loyalty value = 0.4 }
+		effect = { type = ruler_piety value = -25 }
+	}
+}
+
+# Ruler's choice: Late heresy
+
+province_event = {
+	id = 7111
+
+	picture = event_heretic
+	trigger = {
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = same_religion } # Ruler can only fight heresy of his own religion
+		condition = { type = not value = { type = has_advance value = { inquisition = yes } } }
+		condition = {
+			type = owner
+			condition = {
+				type = and
+				condition = { type = religion value = catholic }
+				condition = { type = has_advance value = inquisition } # Inquisition is known in the realm
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+
+		modifier = {
+			condition = { type = or
+				condition = { type = demesne value = PAPA }
+				condition = { type = demesne value = HOSP }
+				condition = { type = demesne value = TEUT }
+				condition = { type = demesne value = TEMP }
+				condition = { type = demesne value = U000 }
+				condition = { type = demesne value = U001 }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = atwar }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = ai }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 1.1
+		}
+	}
+
+	action_a = {#Fight heresy and create inquisition tribunal
+		ai_chance = 80
+		effect = { type = add_advance value = inquisition }
+		effect = { type = clergy_loyalty value = 0.2 }
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = peasant_loyalty value = -0.4 }
+	}
+	action_b = {#Tolerate heresy 
+		ai_chance = 10
+		effect = { type = clergy_loyalty value = -0.2 }
+		effect = { type = ruler_piety value = -15 }
+	}
+	action_c = {#Encourage heresy 
+		ai_chance = 10
+		effect = { type = clergy_loyalty value = -0.4 }
+		effect = { type = burgher_loyalty value = 0.2 }
+		effect = { type = peasant_loyalty value = 0.4 }
+		effect = { type = ruler_piety value = -25 }
+	}
+}
+
+######################
+# Inquisition result #
+######################
+
+# Inquisition Succesful: Inquisitors have rooted the heretics
+
+province_event = {
+	id = 7112
+
+	picture = event_heretic
+	trigger = {
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = has_advance value = { inquisition = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 180
+
+		modifier = {
+			condition = { type = has_improvement value = { court_of_justice = yes } }
+			factor = 0.33
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_advance value = { bible_translations = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_advance value = { critical_thinking = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 1.2
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.9
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = and
+				condition = { type = capital value = yes }
+				condition = { type = not value = { type = trait value = heretic } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.33 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.15 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.10 }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.5 } }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.25 } }
+			}
+			factor = 1.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+					condition = { type = papacy }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = demesne value = PAPA }
+				condition = { type = demesne value = HOSP }
+				condition = { type = demesne value = TEUT }
+				condition = { type = demesne value = TEMP }
+				condition = { type = demesne value = U000 }
+				condition = { type = demesne value = U001 }
+			}
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 1 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 2 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = ai }
+			factor = 0.33
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 1.1
+		}
+	}
+
+	immidiate = {#Deus Vult
+		effect = { type = remove_province_effect value = heretic }
+		effect = { type = clergy_loyalty value = 0.2 }
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = peasant_loyalty value = -0.4 }
+	}
+}
+
+# Inquisition Unsuccesful: Ask Ruler for help to fight Heresy
+
+province_event = {
+	id = 7113
+
+	picture = event_heretic
+	trigger = {
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = has_advance value = { inquisition = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = has_improvement value = { court_of_justice = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_advance value = { bible_translations = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { critical_thinking = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 0.8
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 1.1
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = and
+				condition = { type = capital value = yes }
+				condition = { type = not value = { type = trait value = heretic } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.33 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.15 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.10 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.5 } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.25 } }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = papacy }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = demesne value = PAPA }
+				condition = { type = demesne value = HOSP }
+				condition = { type = demesne value = TEUT }
+				condition = { type = demesne value = TEMP }
+				condition = { type = demesne value = U000 }
+				condition = { type = demesne value = U001 }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 1.05
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 1.05
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.1
+		}
+	}
+
+	action_a = {#Commit money to help the Inquisition
+		ai_chance = 80
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = remove_province_effect value = heretic }
+		}
+		effect = { type = add_improvement value = court_of_justice }
+		effect = { type = ruler_gold scale = -0.5 }
+		effect = { type = clergy_loyalty value = 0.2 }
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = peasant_loyalty value = -0.4 }
+	}
+	action_b = {#Nope
+		ai_chance = 10
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = remove_advance value = inquisition }
+		}
+		effect = { type = clergy_loyalty value = -0.1 }
+	}
+	action_c = {#Throw the inquistion out of my province ! 
+		ai_chance = 10
+		effect = { type = remove_advance value = inquisition }
+		effect = { type = clergy_loyalty value = -0.4 }
+		effect = { type = burgher_loyalty value = 0.2 }
+		effect = { type = peasant_loyalty value = 0.4 }
+		effect = { type = ruler_piety value = -25 }
+	}
+}
+
+# Inquisition Unsuccesful: Heretic province revolt
+
+province_event = {
+	id = 7114
+
+	picture = "event_rebellion"
+	trigger = {
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = has_advance value = { inquisition = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_advance value = { bible_translations = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { critical_thinking = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 0.8
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 1.1
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = and
+				condition = { type = capital value = yes }
+				condition = { type = not value = { type = trait value = heretic } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.33 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.15 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.10 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.5 } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.25 } }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = papacy }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = demesne value = PAPA }
+				condition = { type = demesne value = HOSP }
+				condition = { type = demesne value = TEUT }
+				condition = { type = demesne value = TEMP }
+				condition = { type = demesne value = U000 }
+				condition = { type = demesne value = U001 }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 2 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {#Curses
+		effect = { type = add_province_effect value = revolt }
+		effect = { type = burgher_loyalty value = -0.1 }
+		effect = { type = peasant_loyalty value = -0.2 }
+	}
+}
+
+# Inquisition Unsuccesful: Heretic province revolt and burned buildings
+
+province_event = {
+	id = 7115
+
+	picture = "event_rebellion"
+	trigger = {
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = has_advance value = { inquisition = yes } }
+		condition = { type = has_improvement value = { court_of_justice = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 720
+
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_advance value = { bible_translations = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { critical_thinking = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 0.8
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 1.1
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = and
+				condition = { type = capital value = yes }
+				condition = { type = not value = { type = trait value = heretic } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.33 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.15 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.10 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.5 } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.25 } }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = papacy }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = demesne value = PAPA }
+				condition = { type = demesne value = HOSP }
+				condition = { type = demesne value = TEUT }
+				condition = { type = demesne value = TEMP }
+				condition = { type = demesne value = U000 }
+				condition = { type = demesne value = U001 }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 2 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {#Curses
+		effect = { type = add_province_effect value = revolt }
+		effect = { type = remove_improvement value = court_of_justice }
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = peasant_loyalty value = -0.4 }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = remove_advance value = inquisition }
+		}
+	}
+}
+
+# Inquisition Unsuccesful: Heretic province revolt, burned a lot of buildings and killed the inquisitor
+
+province_event = {
+	id = 7116
+
+	picture = "event_rebellion"
+	trigger = {
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = has_advance value = { inquisition = yes } }
+		condition = { type = has_improvement value = { court_of_justice = yes } }
+		condition = { type = has_improvement value = { monastery = yes } }
+		condition = { type = has_improvement value = { royal_post = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_advance value = { bible_translations = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { critical_thinking = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 0.8
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 1.1
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = and
+				condition = { type = capital value = yes }
+				condition = { type = not value = { type = trait value = heretic } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.33 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.15 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.10 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.5 } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.25 } }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+					condition = { type = papacy }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = demesne value = PAPA }
+				condition = { type = demesne value = HOSP }
+				condition = { type = demesne value = TEUT }
+				condition = { type = demesne value = TEMP }
+				condition = { type = demesne value = U000 }
+				condition = { type = demesne value = U001 }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 2 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ai }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {#Curses
+		effect = { type = add_province_effect value = revolt }
+		effect = { type = remove_improvement value = court_of_justice }
+		effect = { type = remove_improvement value = monastery }
+		effect = { type = remove_improvement value = royal_post }
+		effect = { type = burgher_loyalty value = -0.3 }
+		effect = { type = peasant_loyalty value = -0.6 }
+		effect = { type = remove_advance value = inquisition }
+	}
+}
+
+#####################
+# Heretic Provinces #
+#####################
+
+# Chance for non Heretic Province to revolt if heresy is present in the desmene
+
+province_event = {
+	id = 7117
+
+	picture = "event_rebellion"
+	trigger = {
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = same_religion }
+		condition = { type = not value = { type = demesne value = PAPA } }
+		condition = { type = not value = { type = demesne value = HOSP } }
+		condition = { type = not value = { type = demesne value = TEUT } }
+		condition = { type = not value = { type = demesne value = TEMP } }
+		condition = { type = not value = { type = demesne value = U000 } }
+		condition = { type = not value = { type = demesne value = U001 } }
+		condition = { type = neighbor_province_effect value = { heretic = yes } }
+		condition = {
+			type = owner
+			condition = {
+				type = any_demesne_province
+				condition = {
+					type = and
+					condition = { type = has_province_effect value = { heretic = yes } }
+					condition = { type = same_religion }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720
+
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = atwar }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { poor = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { traditional_custom_law = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 0.8
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.8
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = and
+				condition = { type = capital value = yes }
+				condition = { type = not value = { type = trait value = heretic } }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.33 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.15 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.10 }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.5 } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.25 } }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = papacy }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ai }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {#Curses
+		effect = { type = add_province_effect value = revolt }
+		effect = { type = noble_loyalty value = -0.1 }
+		effect = { type = clergy_loyalty value = -0.5 }
+		effect = { type = burgher_loyalty value = -0.33 }
+		effect = { type = peasant_loyalty value = -0.33 }
+	}
+}
+
+# Chance for Heretic province to revolt if Church power too big in this province
+
+# Small rebellion
+
+province_event = {
+	id = 7118
+
+	picture = "event_rebellion"
+	trigger = {
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = same_religion }
+		condition = { type = clergy_power value = 0.4 }
+		condition = { type = not value = { type = demesne value = PAPA } }
+		condition = { type = not value = { type = demesne value = HOSP } }
+		condition = { type = not value = { type = demesne value = TEUT } }
+		condition = { type = not value = { type = demesne value = TEMP } }
+		condition = { type = not value = { type = demesne value = U000 } }
+		condition = { type = not value = { type = demesne value = U001 } }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = has_improvement value = { monastery = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = atwar }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 1.1
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.8
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.5 } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.25 } }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = papacy }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ai }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {#Curses
+		effect = { type = add_province_effect value = revolt }
+		effect = { type = clergy_power value = -0.1 }
+		effect = { type = burgher_loyalty value = -0.1 }
+		effect = { type = peasant_loyalty value = -0.2 }
+	}
+}
+
+# Medium rebellion
+
+province_event = {
+	id = 7119
+
+	picture = "event_rebellion"
+	trigger = {
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = same_religion }
+		condition = { type = has_improvement value = { monastery = yes } }
+		condition = { type = clergy_power value = 0.4 }
+		condition = { type = not value = { type = demesne value = PAPA } }
+		condition = { type = not value = { type = demesne value = HOSP } }
+		condition = { type = not value = { type = demesne value = TEUT } }
+		condition = { type = not value = { type = demesne value = TEMP } }
+		condition = { type = not value = { type = demesne value = U000 } }
+		condition = { type = not value = { type = demesne value = U001 } }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = atwar }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 1.1
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.8
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.5 } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.25 } }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = papacy }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ai }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {#Curses
+		effect = { type = add_province_effect value = revolt }
+		effect = { type = clergy_power value = -0.2 }
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = peasant_loyalty value = -0.4 }
+		effect = { type = remove_improvement value = monastery }
+	}
+}
+
+# Major rebellion
+
+province_event = {
+	id = 7120
+
+	picture = "event_rebellion"
+	trigger = {
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = same_religion }
+		condition = { type = clergy_power value = 0.4 }
+		condition = { type = has_improvement value = { monastery = yes } }
+		condition = { type = has_improvement value = { court_of_justice = yes } }
+		condition = { type = has_improvement value = { royal_post = yes } }
+		condition = { type = not value = { type = ai } }
+	}
+
+	mean_time_to_happen = {
+		months = 560
+
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = atwar }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 1.1
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.8
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.5 } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.25 } }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = papacy }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {#Curses
+		effect = { type = add_province_effect value = revolt }
+		effect = { type = clergy_power value = -0.3 }
+		effect = { type = burgher_loyalty value = -0.3 }
+		effect = { type = peasant_loyalty value = -0.6 }
+		effect = { type = remove_improvement value = court_of_justice }
+		effect = { type = remove_improvement value = monastery }
+		effect = { type = remove_improvement value = royal_post }
+	}
+}
+
+# Chance for Heretic province to revolt if Ruler not heretic/tolerant
+
+province_event = {
+	id = 7121
+
+	picture = "event_rebellion"
+	trigger = {
+		condition = { type = has_province_effect value = { heretic = yes } }
+		condition = { type = same_religion }
+		condition = {
+			type = not
+			value = {
+				type = or
+				condition = { type = trait value = heretic }
+				condition = { type = trait value = sceptical }
+			}
+		}
+		condition = { type = not value = { type = demesne value = PAPA } }
+		condition = { type = not value = { type = demesne value = HOSP } }
+		condition = { type = not value = { type = demesne value = TEUT } }
+		condition = { type = not value = { type = demesne value = TEMP } }
+		condition = { type = not value = { type = demesne value = U000 } }
+		condition = { type = not value = { type = demesne value = U001 } }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = has_improvement value = { royal_post = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = atwar }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 1.2
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.8
+#		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = capital value = yes }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.33 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.15 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = { type = clergy_power value = 0.10 }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.5 } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = { type = not value = { type = efficiency value = 0.25 } }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = or
+					condition = { type = papacy }
+					condition = { type = title value = PAPA }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ai }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+	}
+
+	immidiate = {#Curses
+		effect = { type = add_province_effect value = revolt }
+		effect = { type = noble_loyalty value = -0.1 }
+		effect = { type = burgher_loyalty value = -0.33 }
+		effect = { type = peasant_loyalty value = -0.5 }
+		effect = { type = remove_improvement value = royal_post }
+	}
+}
+
+###############################
+# Embracing Heresy, or not... #
+###############################
+
+# Chance for character to convert to the heresy if heresy exist in the desmene: Only Rulers have a choice.
+
+# Ruler's choice
+
+character_event = {
+	id = 7122
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = { type = or # Modified to only fire for Christians
+			condition = { type = religion value = orthodox }
+			condition = { type = religion value = catholic }
+		}
+		condition = {
+			type = not
+			value = {
+				type = or
+				condition = { type = trait value = heretic }
+				condition = { type = trait value = zealous }
+				condition = { type = trait value = sceptical }
+			}
+		}
+		condition = { type = or
+			condition = { type = and
+				condition = { type = ai }
+				condition = { type = capital
+					condition = { type = and
+						condition = { type = has_province_effect value = { heretic = yes } }
+						condition = { type = same_religion }
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = not value = { type = ai } }
+				condition = { type = any_demesne_province
+					condition = { type = and
+						condition = { type = has_province_effect value = { heretic = yes } }
+						condition = { type = same_religion }
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = not value = { type = ai } }
+			factor = 0.33
+		}
+	}
+
+	action_a = {	#No
+		ai_chance = 15
+		effect = {
+			type = random
+			chance = 33
+			effect = {
+				type = add_trait
+				value = stress_symptom
+			}
+		}
+	}
+	action_b = {	#No never!
+		ai_chance = 35
+		modifier = {
+			condition = { type = or
+				condition = { type = title value = PAPA }
+				condition = { type = title value = HOSP }
+				condition = { type = title value = TEUT }
+				condition = { type = title value = TEMP }
+			}
+			factor = 100
+		}
+		effect = { type = add_trait value = zealous }
+		effect = { type = piety value = 25 }
+	}
+	action_c = {	#I am not sure
+		ai_chance = 35
+		effect = { type = add_trait value = sceptical }
+		effect = { type = piety value = -10 }
+		effect = {
+			type = random
+			chance = 50
+			effect = {
+				type = remove_trait
+				value = crusader
+			}
+		}
+	}
+	action_d = {	#God's new word are speaking to me
+		ai_chance = 15
+		effect = { type = add_trait value = heretic }
+		effect = { type = piety value = -25 }
+		effect = { type = remove_trait value = crusader }
+	}
+}
+
+# Character strongly disagrees with the new ideas
+
+character_event = {
+	id = 7123
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = zealous } }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = {
+			type = capital
+			condition = { type = and
+				condition = { type = has_province_effect value = { heretic = yes } }
+				condition = { type = same_religion }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = or
+					condition = { type = title value = PAPA }
+					condition = { type = title value = HOSP }
+					condition = { type = title value = TEUT }
+					condition = { type = title value = TEMP }
+				}
+			}
+			factor = 0.05
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = heretic }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = sceptical }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = heretic }
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = sceptical }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = heretic }
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = sceptical }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = trait value = heretic }
+			}
+			factor = 4
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = trait value = sceptical }
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 0.5
+		}
+	}
+
+	immidiate = {	#I will fight for the true faith
+		effect = { type = add_trait value = zealous }
+		effect = { type = piety value = 25 }
+	}
+}
+
+# Character finds an interest for the new ideas
+
+character_event = {
+	id = 7124
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = age value = 16 }
+		condition = {
+			type = not
+			value = {
+				type = or
+				condition = { type = trait value = heretic }
+				condition = { type = trait value = zealous }
+				condition = { type = trait value = sceptical }
+			}
+		}
+		condition = {
+			type = capital
+			condition = { type = and
+				condition = { type = has_province_effect value = { heretic = yes } }
+				condition = { type = same_religion }
+			}
+		}
+		condition = { type = ruler_csc
+			condition = { type = and
+				condition = { type = not value = { type = title value = PAPA } }
+				condition = { type = not value = { type = title value = HOSP } }
+				condition = { type = not value = { type = title value = TEUT } }
+				condition = { type = not value = { type = title value = TEMP } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 3
+		}
+	}
+
+	immidiate = {	#There may be Truth in the new teachings
+		effect = { type = add_trait value = sceptical }
+		effect = {
+			type = random
+			chance = 50
+			effect = {
+				type = remove_trait
+				value = crusader
+			}
+		}
+		effect = { type = piety value = -10 }
+	}
+}
+
+# Character converts to heresy
+
+character_event = {
+	id = 7125
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = piety value = 25 } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = zealous } }
+		condition = { type = or # Modified to only fire for Christians
+			condition = { type = religion value = orthodox }
+			condition = { type = religion value = catholic }
+		}
+		condition = {
+			type = capital
+			condition = { type = and
+				condition = { type = has_province_effect value = { heretic = yes } }
+				condition = { type = same_religion }
+			}
+		}
+		condition = { type = ruler_csc
+			condition = { type = and
+				condition = { type = not value = { type = title value = PAPA } }
+				condition = { type = not value = { type = title value = HOSP } }
+				condition = { type = not value = { type = title value = TEUT } }
+				condition = { type = not value = { type = title value = TEMP } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.4
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 4
+		}
+	}
+
+	immidiate = {	#The new teachings are closer to the true faith
+		effect = { type = add_trait value = heretic }
+		effect = { type = remove_trait value = crusader }
+		effect = {
+			type = random
+			chance = 50
+			effect = {
+				type = remove_trait
+				value = sceptical
+			}
+		}
+		effect = { type = piety value = -25 }
+	}
+}
+
+# Character becomes an heretical leader
+
+character_event = {
+	id = 7126
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = age value = 16 }
+		condition = { type = prestige value = 20 }
+		condition = { type = not value = { type = trait value = zealous } }
+		condition = { type = or # Modified to only fire for Christians
+			condition = { type = religion value = orthodox }
+			condition = { type = religion value = catholic }
+		}
+		condition = {
+			type = capital
+			condition = { type = and
+				condition = { type = has_province_effect value = { heretic = yes } }
+				condition = { type = same_religion }
+			}
+		}
+		condition = { type = ruler_csc
+			condition = { type = and
+				condition = { type = not value = { type = title value = PAPA } }
+				condition = { type = not value = { type = title value = HOSP } }
+				condition = { type = not value = { type = title value = TEUT } }
+				condition = { type = not value = { type = title value = TEMP } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = prestige value = 100 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = prestige value = 250 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 4
+		}
+	}
+
+	immidiate = {	#The new teaching is the only true faith
+		effect = { type = add_trait value = heretic }
+		effect = { type = add_trait value = zealous }
+		effect = { type = remove_trait value = crusader }
+		effect = { type = piety value = -25 }
+	}
+}
+
+# Character becomes an heretical preacher (this event has been split because otherwise, the effects are too long)
+
+character_event = {
+	id = 7127
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = heretic }
+		condition = { type = not value = { type = is_married } }
+		condition = {
+			type = or
+			condition = { type = trait value = misguided_warrior }
+			condition = { type = trait value = tough_soldier }
+			condition = { type = trait value = knowledged_tactician }
+			condition = { type = trait value = brilliant_strategist }
+		}
+		condition = { type = ruler_csc
+			condition = { type = and
+				condition = { type = not value = { type = title value = PAPA } }
+				condition = { type = not value = { type = title value = HOSP } }
+				condition = { type = not value = { type = title value = TEUT } }
+				condition = { type = not value = { type = title value = TEMP } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1800
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_province_effect value = { heretic = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+	}
+
+	immidiate = {	#I will teach the new faith
+		effect = { type = add_trait value = zealous }
+		effect = { type = add_trait value = detached_priest }
+		effect = { type = remove_trait value = misguided_warrior }
+		effect = { type = remove_trait value = tough_soldier }
+		effect = { type = remove_trait value = knowledged_tactician }
+		effect = { type = remove_trait value = brilliant_strategist }
+	}
+}
+
+character_event = {
+	id = 7128
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = heretic }
+		condition = { type = not value = { type = is_married } }
+		condition = {
+			type = or
+			condition = { type = trait value = hole_in_the_pocket }
+			condition = { type = trait value = proven_accountant }
+			condition = { type = trait value = fortune_builder }
+			condition = { type = trait value = midas_touched }
+		}
+		condition = { type = ruler_csc
+			condition = { type = and
+				condition = { type = not value = { type = title value = PAPA } }
+				condition = { type = not value = { type = title value = HOSP } }
+				condition = { type = not value = { type = title value = TEUT } }
+				condition = { type = not value = { type = title value = TEMP } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1800
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_province_effect value = { heretic = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+	}
+
+	immidiate = {	#I will teach the new faith
+		effect = { type = add_trait value = zealous }
+		effect = { type = add_trait value = detached_priest }
+		effect = { type = remove_trait value = hole_in_the_pocket }
+		effect = { type = remove_trait value = proven_accountant }
+		effect = { type = remove_trait value = fortune_builder }
+		effect = { type = remove_trait value = midas_touched }
+	}
+}
+
+character_event = {
+	id = 7129
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = heretic }
+		condition = { type = not value = { type = is_married } }
+		condition = {
+			type = or
+			condition = { type = trait value = amateurish_pettifogger }
+			condition = { type = trait value = proven_dealbreaker }
+			condition = { type = trait value = charismatic_negotiator }
+			condition = { type = trait value = grey_eminence }
+		}
+		condition = { type = ruler_csc
+			condition = { type = and
+				condition = { type = not value = { type = title value = PAPA } }
+				condition = { type = not value = { type = title value = HOSP } }
+				condition = { type = not value = { type = title value = TEUT } }
+				condition = { type = not value = { type = title value = TEMP } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1800
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_province_effect value = { heretic = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+	}
+
+	immidiate = {	#I will teach the new faith
+		effect = { type = add_trait value = zealous }
+		effect = { type = add_trait value = detached_priest }
+		effect = { type = remove_trait value = amateurish_pettifogger }
+		effect = { type = remove_trait value = proven_dealbreaker }
+		effect = { type = remove_trait value = charismatic_negotiator }
+		effect = { type = remove_trait value = grey_eminence }
+	}
+}
+
+character_event = {
+	id = 7130
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = heretic }
+		condition = { type = not value = { type = is_married } }
+		condition = {
+			type = or
+			condition = { type = trait value = naive_wirepuller }
+			condition = { type = trait value = flamboyant_schemer }
+			condition = { type = trait value = intricate_webweaver }
+			condition = { type = trait value = illusive_shadow }
+		}
+		condition = { type = ruler_csc
+			condition = { type = and
+				condition = { type = not value = { type = title value = PAPA } }
+				condition = { type = not value = { type = title value = HOSP } }
+				condition = { type = not value = { type = title value = TEUT } }
+				condition = { type = not value = { type = title value = TEMP } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1800
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_province_effect value = { heretic = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = heretic }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = sceptical }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 2
+		}
+	}
+
+	immidiate = {	#I will teach the new faith
+		effect = { type = add_trait value = zealous }
+		effect = { type = add_trait value = detached_priest }
+		effect = { type = remove_trait value = naive_wirepuller }
+		effect = { type = remove_trait value = flamboyant_schemer }
+		effect = { type = remove_trait value = intricate_webweaver }
+		effect = { type = remove_trait value = illusive_shadow }
+	}
+}
+
+#############################
+# Church reaction to Heresy #
+#############################
+
+# Chance for pope to excommunicate catholic heretic character
+
+character_event = {
+	id = 7131
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = trait value = heretic }
+		condition = { type = age value = 16 }
+		condition = { type = religion value = catholic }
+		condition = { type = exists value = PAPA }
+		condition = { type = not value = { type = papacy } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = ruler }
+				condition = { type = not value = { type = title value = PAPA } }
+				condition = { type = not value = { type = title value = HOSP } }
+				condition = { type = not value = { type = title value = TEMP } }
+				condition = { type = not value = { type = title value = TEUT } }
+			}
+			condition = { type = and
+				condition = { type = not value = { type = ruler } }
+				condition = { type = ruler_csc
+					condition = { type = and
+						condition = { type = not value = { type = title value = PAPA } }
+						condition = { type = not value = { type = title value = HOSP } }
+						condition = { type = not value = { type = title value = TEMP } }
+						condition = { type = not value = { type = title value = TEUT } }
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		# Social importance of the character:
+
+		modifier = { # Is King
+			condition = { type = kingdom }
+			factor = 0.5
+		}
+		modifier = { # Is Duke
+			condition = { type = duchy }
+			factor = 0.6
+		}
+		modifier = { # Is Count
+			condition = { type = county }
+			factor = 0.7
+		}
+		modifier = { # Is Heir
+			condition = { type = ruler_child }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = gender value = female }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = not value = { type = age value = 16 } }
+			factor = 1.5
+		}
+		modifier = { # Is an influent advisor
+			condition = { 
+				type = or
+				condition = { type = steward }
+				condition = { type = chancellor }
+				condition = { type = spymaster }
+				condition = { type = marshal }
+			}
+			factor = 0.9
+		}
+		modifier = { # Is an heretic preacher
+			condition = { type = trait value = detached_priest }
+			factor = 0.9
+		}
+		modifier = { # Is an heretic zealot fighter
+			condition = { type = trait value = martial_cleric }
+			factor = 0.8
+		}
+		modifier = { # Is an heretic scholar
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.7
+		}
+		modifier = { # Is an heretic master
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.6
+		}
+		modifier = { # Is a religious advisor of a ruler !
+			condition = { type = chaplain }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = diplomacy value = 9 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = badboy value = 11 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = enemy_same_religion }
+			factor = 0.66
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_advance value = { inquisition = yes } }
+			}
+			factor = 0.5
+		}
+	}
+
+	immidiate = {	#Woops
+		effect = { type = add_trait value = excommunicated }
+	}
+}
+
+# Chance to convert back from heresy if heresy does not exist in desmene anymore
+
+character_event = {
+	id = 7132
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = heretic }
+		condition = { type = and
+			condition = { type = capital
+				condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+			}
+			condition = { type = or
+				condition = { type = ai } #for CPU load reduction plus it gives ai a bit of a break
+				condition = { type = not
+					value = { type = any_demesne_province
+						condition = { type = has_province_effect value = { heretic = yes } }
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = or
+					condition = { type = title value = PAPA }
+					condition = { type = title value = HOSP }
+					condition = { type = title value = TEUT }
+					condition = { type = title value = TEMP }
+					condition = { type = title value = U000 }
+					condition = { type = title value = U001 }
+				}
+			}
+			factor = 0.01
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 2
+		}
+		modifier = { # Is an heretic preacher
+			condition = { type = trait value = detached_priest }
+			factor = 1.5
+		}
+		modifier = { # Is an heretic zealot fighter
+			condition = { type = trait value = martial_cleric }
+			factor = 2
+		}
+		modifier = { # Is an heretic scholar
+			condition = { type = trait value = scholarly_theologian }
+			factor = 3
+		}
+		modifier = { # Is an heretic master
+			condition = { type = trait value = mastermind_theologian }
+			factor = 4
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = heretic }
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = heretic }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = heretic }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = trait value = heretic }
+			}
+			factor = 4
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 0.5
+		}
+	}
+
+	immidiate = {	#Back into the light
+		effect = { type = remove_trait value = heretic }
+		effect = { type = piety value = 10 }
+	}
+}
+
+# Not Ruler: Chance to convert back from heresy if excommunicated (no choice)
+
+character_event = {
+	id = 7133
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = heretic }
+		condition = { type = trait value = excommunicated }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = or
+					condition = { type = title value = PAPA }
+					condition = { type = title value = HOSP }
+					condition = { type = title value = TEUT }
+					condition = { type = title value = TEMP }
+				}
+			}
+			factor = 0.01
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 2
+		}
+		modifier = { # Is an heretic preacher
+			condition = { type = trait value = detached_priest }
+			factor = 1.5
+		}
+		modifier = { # Is an heretic zealot fighter
+			condition = { type = trait value = martial_cleric }
+			factor = 2
+		}
+		modifier = { # Is an heretic scholar
+			condition = { type = trait value = scholarly_theologian }
+			factor = 3
+		}
+		modifier = { # Is an heretic master
+			condition = { type = trait value = mastermind_theologian }
+			factor = 4
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = heretic }
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = father
+				condition = { type = trait value = heretic }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = mother
+				condition = { type = trait value = heretic }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = trait value = heretic }
+			}
+			factor = 4
+		}
+		modifier = {
+			condition = {
+				type = spouse
+				condition = {
+					type = and
+					condition = { type = trait value = zealous }
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			factor = 0.5
+		}
+	}
+
+	immidiate = {	#Back into the light
+		effect = { type = remove_trait value = heretic }
+		effect = { type = remove_trait value = excommunicated }
+		effect = { type = prestige value = -25 }
+	}
+}
+
+# Ruler: Chance to convert back from heresy if excommunicated (choice)
+
+character_event = {
+	id = 7134
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = trait value = heretic }
+		condition = { type = trait value = excommunicated }
+		condition = { type = not value = { type = trait value = zealous } }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = or
+				condition = { type = title value = PAPA }
+				condition = { type = title value = HOSP }
+				condition = { type = title value = TEUT }
+				condition = { type = title value = TEMP }
+			}
+			factor = 0.01
+		}
+		modifier = { # Is an heretic preacher
+			condition = { type = trait value = detached_priest }
+			factor = 1.5
+		}
+		modifier = { # Is an heretic zealot fighter
+			condition = { type = trait value = martial_cleric }
+			factor = 2
+		}
+		modifier = { # Is an heretic scholar
+			condition = { type = trait value = scholarly_theologian }
+			factor = 3
+		}
+		modifier = { # Is an heretic master
+			condition = { type = trait value = mastermind_theologian }
+			factor = 4
+		}
+	}
+
+	action_a = {	#Yes!
+		ai_chance = 65
+		modifier = {
+			condition = { type = or
+				condition = { type = title value = PAPA }
+				condition = { type = title value = HOSP }
+				condition = { type = title value = TEUT }
+				condition = { type = title value = TEMP }
+			}
+			factor = 10
+		}
+		effect = { type = remove_trait value = heretic }
+		effect = { type = remove_trait value = excommunicated }
+		effect = { type = set_law value = church_supremacy }
+		effect = { type = prestige scale = -2 }
+	}
+
+	action_b = {	#No never!
+		ai_chance = 35
+		effect = { type = add_trait value = zealous }
+	}
+}
+
+# Church ask for the inquisition to appear in a realm striked by Heresy
+
+character_event = {
+	id = 7135
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { # Has heretic and no inqisition
+			type = capital
+			condition = {
+				type = and
+				condition = { type = has_province_effect value = { heretic = yes } }
+				condition = { type = same_religion }
+				condition = { type = not value = { type = has_advance value = { inquisition = yes } } }
+			}
+		}
+		condition = { type = exists value = PAPA } #check that there is a pope before doing the nasty csc switch
+		condition = { type = or
+			condition = { type = title value = PAPA }
+			condition = { type = title value = TEUT }
+			condition = { type = title value = HOSP }
+			condition = { type = title value = TEMP }
+			condition = { # The Pope have inquisition
+				type = papacy_csc
+				condition = {
+					type = capital
+					condition = { type = has_advance value = { inquisition = yes } }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = title value = PAPA }
+				condition = { type = title value = TEUT }
+				condition = { type = title value = HOSP }
+				condition = { type = title value = TEMP }
+			}
+			factor = 0.01
+		}
+	}
+
+	action_a = {	#Yes!
+		ai_chance = 65
+		modifier = {
+			condition = { type = or
+				condition = { type = title value = PAPA }
+				condition = { type = title value = HOSP }
+				condition = { type = title value = TEUT }
+				condition = { type = title value = TEMP }
+			}
+			factor = 10
+		}
+
+		effect = { type = add_advance value = inquisition }
+		effect = { type = create_courtier value = chaplain }
+		effect = { type = piety value = 25 }
+	}
+
+	action_b = {	#No!
+		ai_chance = 35
+		effect = { type = add_trait value = excommunicated }
+	}
+}
+
+#############################
+# Vassal reaction to Heresy #
+#############################
+
+# Ruler is heretic & Vassal is not:
+
+character_event = {
+	id = 7136
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = is_vassal }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = same_religion }
+		condition = {
+			type = liege
+			condition = { type = trait value = heretic }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { 
+				type = or 
+				condition = { type = trait value = ecclesiastical_education }
+				condition = { type = trait value = detached_priest }
+				condition = { type = trait value = martial_cleric }
+				condition = { type = trait value = scholarly_theologian }
+				condition = { type = trait value = mastermind_theologian }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.2
+		}
+		# Friends and Rivals
+
+		modifier = {
+			condition = { type = liege condition = { type = is_friend } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_rival } }
+			factor = 0.5
+		}
+	}
+
+	action_a = {	# Declare independence from the Heretic !
+		ai_chance = 33
+			#start AI modifier block
+			modifier = {
+				condition = { 
+					type = or 
+					condition = { type = trait value = ecclesiastical_education }
+					condition = { type = trait value = detached_priest }
+					condition = { type = trait value = martial_cleric }
+					condition = { type = trait value = scholarly_theologian }
+					condition = { type = trait value = mastermind_theologian }
+				}
+				factor = 2
+			}
+			modifier = {
+				condition = { type = trait value = crusader }
+				factor = 3
+			}
+			modifier = {
+				condition = { type = papacy }
+				factor = 100 # If by any chance the papal controller is vassal of an heretic
+			}
+			modifier = {
+				condition = { type = trait value = zealous }
+				factor = 2.5
+			}
+			modifier = {
+				condition = {
+					type = liege
+					condition = { type = trait value = excommunicated }
+				}
+				factor = 3
+			}
+			modifier = {
+				condition = {
+					type = not
+					value = {
+						type = any_demesne_province
+						condition = { type = has_province_effect value = { heretic = yes } }
+					}
+				}
+				factor = 3
+			}
+			#end AI modifier block
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = crusader }
+		}
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = zealous }
+		}
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = valorous }
+		}
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = energetic }
+		}
+		effect = { type = prestige value = 25 }
+		effect = { type = independence }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = remove_trait value = loyalist }
+		effect = { type = remove_trait value = rebellious }
+		effect = { type = trigger for = liege value = 7138 }
+	}
+	action_b = {	 # Convert to my liege's new Faith
+		ai_chance = 33
+			#start AI modifier block
+			modifier = {
+				condition = { type = trait value = sceptical }
+				factor = 1.2
+			}
+			modifier = {
+				condition = { type = trait value = coward }
+				factor = 1.5
+			}
+			modifier = {
+				condition = {
+					type = capital
+					condition = { type = has_province_effect value = { heretic = yes } }
+				}
+				factor = 2
+			}
+			modifier = {
+				condition = {
+					type = any_demesne_province
+					condition = { type = has_province_effect value = { heretic = yes } }
+				}
+				factor = 1.5
+			}
+			#end AI modifier block
+		effect = { type = add_trait value = heretic }
+		effect = { type = piety value = -25 }
+		effect = { type = remove_trait value = crusader }
+	}
+	action_c = {	#I am not sure
+		ai_chance = 33
+			#start AI modifier block
+			modifier = {
+				condition = { type = trait value = lazy }
+				factor = 2
+			}
+			#end AI modifier block
+		effect = { type = add_trait value = sceptical }
+		effect = { type = piety value = -10 }
+		effect = {
+			type = random
+			chance = 50
+			effect = {
+				type = remove_trait
+				value = crusader
+			}
+		}
+		effect = {
+			type = random
+			chance = 33
+			effect = {
+				type = add_trait
+				value = stress_symptom
+			}
+		}
+	}
+}
+
+# Vassal is heretic & Ruler is not:
+
+character_event = {
+	id = 7137
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = age value = 16 }
+		condition = { type = is_vassal }
+		condition = { type = trait value = heretic } 
+		condition = { type = same_religion }
+		condition = {
+			type = liege
+			condition = { type = not value = { type = trait value = heretic } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { 
+				type = or 
+				condition = { type = trait value = ecclesiastical_education }
+				condition = { type = trait value = detached_priest }
+				condition = { type = trait value = martial_cleric }
+				condition = { type = trait value = scholarly_theologian }
+				condition = { type = trait value = mastermind_theologian }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.2
+		}
+		# Friends and Rivals
+
+		modifier = {
+			condition = { type = liege condition = { type = is_friend } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_rival } }
+			factor = 0.5
+		}
+	}
+
+	action_a = {	# Declare independence from Ruler !
+		ai_chance = 50
+			#start AI modifier block
+			modifier = {
+				condition = { 
+					type = or 
+					condition = { type = trait value = ecclesiastical_education }
+					condition = { type = trait value = detached_priest }
+					condition = { type = trait value = martial_cleric }
+					condition = { type = trait value = scholarly_theologian }
+					condition = { type = trait value = mastermind_theologian }
+				}
+				factor = 2
+			}
+			modifier = {
+				condition = { type = trait value = zealous }
+				factor = 2
+			}
+			modifier = {
+				condition = { type = trait value = energetic }
+				factor = 1.5
+			}
+			modifier = {
+				condition = { type = trait value = valorous }
+				factor = 1.5
+			}
+			#end AI modifier block
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = zealous }
+		}
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = valorous }
+		}
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = energetic }
+		}
+		effect = { type = prestige value = 25 }
+		effect = { type = independence }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = remove_trait value = loyalist }
+		effect = { type = remove_trait value = rebellious }
+		effect = { type = trigger for = liege value = 7138 }
+	}
+	action_b = {	 # Stay under my liege
+		ai_chance = 50
+			#start AI modifier block
+			modifier = {
+				condition = { type = trait value = sceptical }
+				factor = 1.5
+			}
+			modifier = {
+				condition = { type = trait value = coward }
+				factor = 2
+			}
+			modifier = {
+				condition = { type = trait value = lazy }
+				factor = 1.5
+			}
+			#end AI modifier block
+		effect = {
+			type = random
+			chance = 33
+			effect = {
+				type = add_trait
+				value = stress_symptom
+			}
+		}
+	}
+}
+
+# Liege counter-part for independence of vassal (used by event 7136 & 7137)
+
+character_event = {
+	id = 7138
+	picture = "event_intrigue"
+
+	immidiate = { # Damn
+		effect = { type = prestige scale = -0.5 }
+		effect = { type = relation for = previous_char value = -50 } # Notification of who broke free
+	}
+}
+
+#########################
+# Troubles at the court #
+#########################
+
+# Non heretic courtier may leave if the ruler is heretic (and the contrary)
+
+character_event = {
+	id = 7139
+	
+	picture = "event_intrigue"
+	
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = ruler_child } }
+		condition = { type = or
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = not value = { type = ruler } } }
+		}
+		condition = { type = age value = 16 }
+		condition = {
+			type = or 
+			condition = { type = not value = { type = is_married } }
+			condition = { type = gender value = male }
+			}
+		condition = {
+			type = or 
+			condition = {
+				type = and
+				condition = { type = trait value = heretic } 
+				condition = {
+					type = ruler_csc
+					condition = { type = not value = { type = trait value = heretic } }
+				}
+			}
+			condition = {
+				type = and
+				condition = { type = not value = { type = trait value = heretic } }
+				condition = {
+					type = ruler_csc
+					condition = { type = trait value = heretic }
+				}
+			}
+		}
+		condition = {
+			type = or 
+			condition = {
+				type = and
+				condition = { type = religion value = catholic } 
+				condition = {
+					type = ruler_csc
+					condition = { type = religion value = catholic } 
+				}
+			}
+			condition = {
+				type = and
+				condition = { type = religion value = orthodox } 
+				condition = {
+					type = ruler_csc
+					condition = { type = religion value = orthodox }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { 
+				type = or 
+				condition = { type = trait value = ecclesiastical_education }
+				condition = { type = trait value = detached_priest }
+				condition = { type = trait value = martial_cleric }
+				condition = { type = trait value = scholarly_theologian }
+				condition = { type = trait value = mastermind_theologian }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 0.7
+		}
+		# Friends and Rivals
+
+		modifier = {
+			condition = { type = ruler_csc condition = { type = is_friend } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = is_rival } }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {#Courtier leave our court !
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty value = 1.0 }
+	}
+
+}
+
+# Heretic/non heretic courtier will kill each other
+# Event ID #7140 has been removed
+# had too high a CPU load relative to its interest value to players
+
+# Next id = 7141
+
+# Original Events:
+
+#########################################
+#           HERESY SERIES               #
+#########################################
+
+###########################
+# Heresy spreads rampart! #
+###########################
+
+# 1086 deprecated
+
+##################################
+# The flock returns to the fold! #
+##################################
+
+# 1087 deprecated
+
+###################
+# A New Religion! #
+###################
+
+# 1088 deprecated
+
+########################
+# Back into the Light! #
+########################
+
+# 1089 deprecated

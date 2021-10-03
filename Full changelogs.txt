@@ -1,0 +1,1024 @@
+The below is the IPv2 changelog, which may not be 100% "new" as a large number of changes are already in Deus Vult.
+- Great deal of scenario analysis and fixes
+- Brittany, Wallachia, North Sea islands, and parts of Rus are now NONE kingdom
+- Divided South Slavic blob into Croatian, Serbian and Bulgarian
+- Gave some cultures their proper names
+- Added Breton, Berber, Mordvin and Andalusi cultures
+- Slovaks turned into Bohemians instead of Hungarians
+- Scenarios adapted to the new duchies and kingdoms
+- Veldmaarschalk's new CoA's included for changed duchy and kingdoms
+- Veldmaarschalk's corrected CoA for Polotsk included
+- 1066: Emirate of Mallorca uses different tag
+- 1066: County of Lleida to Emirate of Zaragoza
+- 1066: Louis de Montbéliard made count of Verdun, given claim on Upper Lorraine and made direct vassal of the king
+- 1066: Robert de Conteville realized he had two sons and his wife was a bit older
+- 1066: Nizam of Seljuk Turks has been Persified
+- 1066: Count of Valladolid has improved his familial connections
+- 1066: Some Jews have spawned in Spain
+- 1066: Some new courtiers grace the county of Gelre
+- 1066: Gave poor Michael Dukas his wife
+- 1066: Added a large bunch of people to Croatia and Venice
+- 1066: Fixed a number of slight errors in (mostly) dead characters
+- 1066: Adjusted the Muslim situation a tad
+- 1066: Added alliance between England and Brittany
+- 1187: Made Tripoli elective
+- 1187: Adjusted Almohad ruler
+- 1187: Added some family for Saladin
+- 1337: Brunswick Welfs given their rightful dynasty
+- 1337: Set the situation between Marinids and Ziyanids to reflect the result of their war ended later in the year
+- 1337: Added a son for Marinid ruler
+- 1337: Changed Novgorod into a Republic
+- 1337: Gave rulers of Trebizond their proper dynasty and fixed some domestic matters there
+- 1337: Improved Anatolia's historicality
+- 1337: Revamped Il-Khanate and it's surroundings
+
+
+Full credits to Byakhiam for the original Improvement Pack, to FatD for the original scenario fixes, and to Veldmaarschalk for the new CoAs.
+Any errors introduced by this not present in the IPs are my fault :D
+
+-----------------------------------------------------------
+
+Changelist for IPV3:
+
+Database:
+Revised Province.csv to take new culture setup into account, this should (?) fix revolters
+Some Serbian names corrected
+Removed unneeded whitespace from names
+Aquitaine has a new colour so it no longer clashes with Aragon
+Chernigov has a new colour so it no longer clashes with Georgia
+All scenario starts edited to allow all christian kingdoms, duchies, and counties to be playable from the start.
+
+Graphics:
+Duchy of Mesopotamia has a new CoA so it no longer shares one with Armenia Minor
+Kingdom of Armenia now has a new CoA different from the duchy, that is historical for most of the timeperiod
+
+Characters (1066):
+Corrected some Welsh names
+Gave some Bretons their Breton names
+Made Judhael (Judith) de Rennes realize she was Breton, not French
+Gave Alberada of Buonalbergo (Apulia) a last name, an education, and made her forgiving
+Corrected Gaitelgrima of Salerno's birthdate
+Added a few missing De Hautevilles: Richard son of Drogo, Abelard's brothers Richard and Herman, Roger's bastard Jordan, Robert Guiscard's son Guy
+Gave Emma de Hauteville her correct mother Alberada and made her a bastard (disinherited), birthdate also corrected
+Made Dmitar Zvonimir and Petar Kresimir Trpimirovic of Croatia less fertile
+Turned Stjepan Trpimirovic into a bastard, so the Croat crown goes to Dmitar Zvonimir instead (as it should)
+Corrected Rixinde de Narbonne's birthdate (so she won't have a son at 14) and gave her some traits
+Gave Berenger de Milhaud some traits
+Gave Adele de Sabran some traits
+Centule de Béarn now starts with some gold and prestige like all other counts
+Added Godefroi de Boulougne
+Stefan Nemanjic and his court are now Serbs, not Bulgars.
+Mariam Bagratuni now lives with her husband Michael Dukas at scenario start
+Adalheid van Zutphen and father added, this makes them related to the Von Bonngaus from the Pfalz
+Some Van Loons added to the Netherlands
+Added Hermann Billung to Saxony
+Dirk van Holland now starts as a duke
+
+Provinces (1066):
+Hainaut is now Dutch culture
+Philippopolis is now Greek culture
+Zachlumia is now Serbian culture
+Sicily's muslim provinces are now Berber, not Arab
+
+1187 scenario changes:
+Gave Anna of Polen her right name (was Wojslavic)
+Corrected father of Vasilko Rurikovich
+Godfried van Brabant is now Duke of Brabant with Lower Lorraine as secondary title instead of the reverse
+Floris van Holland is now Duke of Holland with his brother the Bishop of Sticht as a vassal
+Sambor of Pomeralia now starts as a duke
+Gave Bretons their own culture instead of keeping them Franks
+Duchy of Armenia Minor is now (again) Kingdom of Armenia, representing the K. of Cilicia
+Henry Angevin now has English culture like his sons
+Revised ownership of Anatolian provinces as suggested by Praetor
+Hungary now also owns the king title of Croatia
+Principality of Suzdal has changed its primary title to Moskow
+Father of Elizabeth de Beaumont changed
+Alexios Angelos has moved to Thessalonika
+Mother of Mikhail Rurikovich corrected
+Added the dead Byzantine Emperor Manuel I Komnenus, married him to his wife Marie of Antioch, and added their son Alexios II
+Historian Maria Komenus added
+Fixed the Agnes Capet situation: she's now the widow of her historic husbands, the Byzantine emperors Alexios II and Andronikos I. She now also has her Byzantine name Anna.
+Nubian provinces are now orthodox to represent the coptic and nubian christian majority
+Nubia now exists again
+Deheurbarth now starts as an English vassal
+Some of the De Burgh's added to King Henry's court (would historically conquer Ireland)
+The Branas family of Adrianople have new family members and are now connected to the Angeloi, Dukoi and Komnenoi families.
+The Geza line of the Hungarian Arpad dynasty have been added and are now connected to the Komnenoi.
+The missing Baldwin III of Jerusalem is now married to Theodora Komnenos of Byzantium. 
+Eudokia Komnenos now has her real father, Alexios Komnenos instead of her elderly grandfather, Andronikos Komnenos.
+Eirene Dukas is now married to Emperor Alexios I Komnenos.
+Marie of Antioch is now married to Emperor Manuel Komnenos.
+
+1337 scenario changes:
+Reinaud of Gelre now starts as a duke (historically only in 1339)
+Guillaume of Hainaut now starts as duke of Holland (historically was Duke of Hainaut)
+Reconnected the d'Aragó dynasty (Aragon and Mallorca) to the d'Aragon dynasty (Trinacria)
+Armenia Minor is now the historic Kingdom of Cilicia, Guy de Lusignan is first to inherit
+Levon of Cilicia now has his right name, his first wife whom he murdered, his dead son, and the kinslayer trait.
+
+-----------------------------------------------------------
+
+Changelist for IPV4:
+
+Renamed Castillan culture to Castilian
+Galicia is now Portuguese (represents Galician)
+Iberian tag recycled for Vlach
+"Andalusi" provinces are now Berber
+Revised setup for Wales and Brittany proposed by Drachenfire:
+Welsh provinces given different income and terrain
+Welsh ruling dynasties revised
+Welsh generic courtier dynasties revised
+Breton generic courtier dynasties revised
+Breton ruling dynasties given Breton names
+Welsh and Breton namelist revised, also including suggestions by Llywelyn
+
+1066:
+Welsh province/duchy setup revised, and many characters added
+Marriages added to allow for proper succession in Welsh provinces
+Relinked the English Saxon royal dynasty in its proper order, also gave them their Saxon names
+The treacherous Roussel de Bailleul has appeared in Byzantium
+Wallachia's provinces are now Vlach Orthodox, rulers are still Pecheneg (represents Vlach [Romanian] majority which was in these lands as of early 10th C.)
+Birthdates of Berthold von Rheinfelden and Rixinde de Narbonne corrected
+
+1187:
+Tribe of Vlachs is now Principality of Vlachs
+Some Cumans turned into Pechenegs
+
+1337:
+Wallachia and Moldavia are now Vlach
+Some Cumans turned into Pechenegs
+
+-----------------------------------------------------------
+
+Changelist for IPV5:
+Interface: map modes now have button shortcuts (q to i), and buttons have tooltips.
+Event bugfix for event 8009 ("Your ruler's differing culture has caused you to find companionship with another ruler sharing your culture and circumstance") added: Georgian and "none" culture are now also possible triggers
+Rebellious trait is now the antithesis of loyalist, and vice versa -- a character can no longer be both
+Vlach culture can now appear by event, in Wallachian or Moldavian provinces that are turned christian.
+English melting pot will now only fire for Norman or English lords
+Event bugfix: Being rival with the pope will now only excommunicate fellow catholics
+Frankish name Thibaut changed to Thibault
+Characters with birthdate after scenario start removed, or birthdate corrected where possible
+Deathdates after game start removed
+Finished educations removed from children
+Inappropriate traits removed from young children (such as lustful)
+All children 5-15 now have an education set
+Stats of all characters revised so they have at least 16 points (minimum as of DV). This means some characters have become better in one or two traits but should make the difference between the starting generation and in-born characters less apparent
+Frankish culture is now French
+El Bierzo is now Portuguese (Galician), just like the rest of Galicia
+Lapps are now called Saami
+Country colour of Kasogs changed so it's no longer identical to Alania
+Country colour of Arborea changed so it's no longer identical to Corsica
+Event bugfix: events 8015 and 8108 (fosterling has become friend/rival with ruler child) will now only fire for ruler children actually living at the same court.
+Event bugfix: events that allow vassal independence now always notify liege of who broke free
+Event fix: Bulgarian mercenaries are now Bulgarian culture, not Croat
+NAFR reused for Khwarizm, MKHW name changed to Khwarizm; KHWA changed to Khwarizmia
+
+1066:
+Tatikios the Saracen Byzantine general added
+Armenian general Philaretos Brachamios added
+Constantine Diogenes, son of future emperor Romanos IV and Anna of Bulgaria added
+Karin is now ruled by Basil of Bulgaria, brother of Anna (represents Byz. theme of Edessa)
+Vlach provinces are Pecheneg again
+Cyrenaica now starts as rebellious, to represent the weak hold of Egypt over it
+Small castles+tech removed from England.
+Added small castles+tech to Evreux and Arques in Normandy
+Vassals of Byzantium and Seljuk Turks are now not at war at scenario start: war will be declared by the AI if needed. This should prevent the patchwork Seljuk conquests in Anatolia, and lead to a more plausible conquest.
+Godefroi de Hauteville and children added to Apulia
+Godefroi's son Robert de Hauteville is now Count of Foggia
+Date of birth of Berthold von Rheinvelden corrected (again)
+Changed DNA of Richard de Hauteville (son of Drogo) so it is unique
+Corrected birthdate of Robert Guiscard de Hauteville's third son Guy so that Roger Borsa remains primary heir
+Pedro Ansúres is now older so he won't be a father at 3, the mother of his children is no longer Helie de Sémur
+Removed duplicate of Isabel de Montfort
+Gozelon d'Ardennes is now Gozelo
+Added a claim on Upper Lorraine for Godfried Duke of Lower Lorraine. He has had the claim since 1044.
+
+1187:
+Tribe of Vlachs' province is Vlach, rest of Wallachia is Pecheneg
+Welsh Aberffraw dynasty restored to correct characters
+Frisia is again called Frisia, using the SGAL tag. This frees up the FRIE tag (Duchy of Gelre). The Frisian republic was fiercely independent and had to be conquered in war, it should not pledge to Germany.
+Novgorod situation fixed (was owned by two characters at the same time!)
+Richard Angevin's bastard Philip de Cognac has appeared
+Richard Angevin's chancellor William Longchamp, later Bishop of Ely, has appeared.
+Khwarizm is now a proper kingdom using the (free) kingdom tag NAFR, instead of an elevated duchy tag MKWH
+
+-----------------------------------------------------------
+
+Changelist for IPV6:
+
+Extended Norman namelist with many English norman names
+Changed names of many Normans from French to Norman forms
+Slight revisions of other culture's names
+"of Bulgaria" dynasty is now known as Kometopoulos, which was what the Byzantines called them
+Further Breton dynasty corrections
+Added multiple variations of Mohammed to arab namelist; made some other arab names more frequent
+Swapped Granada and Almeria so they use the correct tags (GRAN was Almeria, ALME was Granada)
+
+1066:
+Epirus now owned by Ioannes Angelos
+Manuel of Nicaea is now called Nikolaos
+Agnes Capet is now called Agnes-Anna Capet
+Judith of Nantes and family are now "Naoned" dynasty
+Odo Roahzon count of Penthievre is now "Penteur" dynasty
+Count of Leon (in Brittany) is now "Leon" dynasty
+Constantine Diogenes is now 'Konstantinos'
+Davit (son of Davit) Bagratuni now has his real name Athom
+Marriage of Iestyn Morgan and Angharad now properly ended
+Beni Helal is now an Arab shiite tribe
+Banu Suleims of Cyrenaica are now shiite
+Cyrenaica is now independent and an ally of Egypt, not its vassal
+Several vassals of Egypt turned shiite
+Ruler of Zenata now has the proper name "Banu Marin"
+Linked a few Zirid cadet branches to main line (such as Palermo & Granada)
+Revised taifa setup:
+-Badajoz, Toledo, Albarracin, Granada, Murcia, and Almeria are now Berber taifas
+-Valencia is now an independent taifa
+-Dénia (Mallorca/Balearics) is now ruled by a serb muslim (representing "saqaliba" -- muslim slaves from Slavic lands). Ruler of Dénia now has a father, his correct name, and a sister (married to heir of Zaragoza)
+-Most taifa claims removed, instead some Arabs now have claims on Berbers and vice versa.
+-Sevilla and Cordoba (the two Arab taifas) now start allied
+William the Conqueror has higher stats and revised traits
+Some names and nicknames added/changed for Bretons; Jafrez "Grenonat" now has facial hair.
+Armenian/Georgian Byzantines Basil Apocapes and Gregory Pakourianos have appeared
+Georgian Principality of Kartli is now ruled by the Baghvashi, rivals of the Bagratuni kings.
+Svend Estriksson King of Denmark lost his claims on English provinces, he now has a claim on the king title of England and the Duchy of York instead
+Added Harold Godwinson's brother to ENGL
+Merged two instances of the same character (Aelfgar Leofricson/of Mercia)
+
+1187:
+Culture of Arzhur de Angevin corrected (was 'none', is now Celtic)
+Double marriage of Manuel Komnenus and Marie-Xena removed
+Marie de Poitou now has her Byzantine name "Xena" appended
+
+-----------------------------------------------------------
+
+Changelist for IPV7:
+
+Database:
+Moray now Mountain terrain
+"Of Canossa" dynasty now "di Canossa"
+Added a number of Welsh & Breton dynasties
+Brittany is now split in two duchies: Lower Brittany (BRIT) and Upper Brittany (ELRI)
+Duchy of (Welsh) March (MADA) added
+Warwick now includes Gloucester
+GLOU is now Salisbury
+Country.csv and Province.csv further tweaked for improved cultural setups
+Event bugfix: Events 7024/5 "My lord, should we burn this building to the ground?" will now remove a building from the defender, not the attacker...
+Event bugfix: Event 8053 "Your friend's groveling loyalty..." now has the correct third action (found by AdmiralNelson)
+
+Graphics:
+Improved Welsh CoAs by Drachenfire & Gigau
+Altered CoA for GLOU
+New CoAs by Jordarkelf & Gigau
+
+1066:
+Gave the di Canossas of Toscana Italian names
+Names corrected of nobles in Seleukeia and Melitene
+Daughters added to county of Melitene
+Duplicate Cynan Aberffraw removed
+County of Shrewsbury (+Chester) now ruled by the Saxon Eadric the Wild
+Grand alliance created between the northern Saxons and Gwynned
+Rivalries added between southern Welsh
+Rivalries added for William the Conqueror and Eadric the Wild
+Rivalry added for Lübeck/Mecklemburg
+Rivalry added for Uppland/Sweden
+Lowered loyalty of the northern Saxons to make them even more likely to rebel
+Added Hereward the Wake to Lincolnshire, he has a claim on it (represents Isle of Ely), is friend of Morcar Leofricson, and rival of Willy the Conker
+Venice is a kingdom-level republic.
+
+1187:
+Gwynned split up between duchy of Gwynned (Perfeddwld) and county of Gwynned
+Powys' dynasty now Mathrafal
+Deheubarth's dynasty now Dinefwr
+Deheubarth no longer an English vassal
+Konstanza of Brittany now has a Breton name. For playability reasons her dynasty is set to that of her son.
+Jerusalem now ruled by Queen Sibylla. For playability reasons her dynasty is set to that of her husband.
+Baldwin II and Melisende of Jerusalem added
+Extended Folk of Jerusalem's family: added his first wife, her father, and made Sybille d'Anjou his daughter. This links Jerusalem to the Angevins as well as Philip of Flanders.
+Angevin ancestor is given the bastard trait to prevent possible inheritance of Jerusalem by England (gameplay fix)
+Added Gerard II van Wassenberg and his dead son Gerard (brother of Otto I, husband of Ida) to Gelre. Birthdate corrected
+Boulogne now ruled by Countess Ida (since 1173). Both her former marriages added
+County of Guines now ruled by Arnaud (lover of Ida countess of Boulogne)
+Added the De Rethel dynasty to the provine of Reims (family of Baldwin II of Jerusalem), linked them to Armenia
+Stephen of Armenia is now called Stepané
+Reims now ruled by Manasses de Rethel (representing county of Rethel); Marie Capet returned to Champagne (was still regentess for Henri in early 1187)
+Corrected data for Empress Maud and her father Henry I so they actually appear in the dynasty
+Added Henry I's dead son William Adelin, as well as William's wife Matilda-Isabella d'Anjou
+Henry II FitzEmpress' bastard William now is of the "de Longespée" dynasty
+Merged two instances of Henry the Young King
+Linked Henry the Young's wife to correct character, added their stillborn son William. Made Henry's wife Marguerite almost infertile.
+Brittany now a vassal of England, not France -- Konstanza ruled as regentess for Geoffrey's son Arthur, who was at the time expected to come to the throne of England as well.
+Venice is a kingdom-level republic.
+
+1337:
+Trebizond is now a kingdom again
+
+----
+DVIP 7.1 update:
+
+Database:
+WARW's displayed name is Warwick again
+Files are Windows format again, not UNIX (for editing)
+Country.csv revised so neighbouring kingdoms and neighbouring duchies no longer share colours
+
+1187:
+Calatrava now is the Knight Order of Calatrava.
+
+----
+DVIP 7.2 update:
+
+Database:
+Province.csv: Niebla is now part of the kingdom area of Castille, not Portugal.
+Country.csv: Changed colours of Arborea, Dwin, Badajoz, Barcelona, Molina, Gwynned
+Polotsk CoA removed (now in DV 2.1 beta patch)
+
+Events:
+Modified events have been checked for 2.1 compatibility
+Vlach melting pot moved to new file with more melting pots added:
+-Iberia (eventually turns arab and berber provinces into christian ones)
+-Sicily (eventually turns the Mezzogiorno and Sicily from norman, greek, or berber to italian)
+-Balt (eventually turns the Baltic coast German if held by Germans)
+
+1066:
+Nubia is now Greek to get a better namelist and give Nubia problems ruling over arab lands, and prevent arab catholics from marrying with Europeans before actual converts exist.
+Naples is now Duchy of Salerno (representing Duchy of Naples)
+Added or corrected a great number of Norman and Byzantine characters (thanks aylo1)
+Portugal setup revised, thanks Rogan de Auria
+University of Al-Karaouin is now in its proper province; improper advanced techs removed from Tunisia; Morocco advanced a bit
+Gave Hereward the Wake his wife a few years early (since courtiers never can marry)
+Added the remaining sons of Tancred de Hauteville, two surviving in Avranches
+Normandy's provinces are Norman
+Brittany is now only BRIT, not also ELRI (allowing a player to possibly conquer the Breton march and create the title, before Hoel creates it)
+Newly added characters now have some gold and prestige
+Added a few nicknames to characters
+Added Gospatrick of Dunbar, lord of Cumberland
+
+1187:
+Nubia is Greek
+Normandy's provinces are Norman
+
+----
+DVIP 8 update:
+
+Database:
+Minor further country.csv revisions to avoid colour clashes
+Province Chaldea (704) moved into Armenia region, was in a region of its own
+NAFR freed up again, MKHW is a kingdom tag already!
+Added db\eu2_country.csv for use with the built-in converter
+Added the "of Prussia" and "von Preussen" dynasties to Prussia, since most Prussian provinces only had one dynasty defined
+Lettigallish culture is now called Latgalian
+Ösel is now part of the creatable duchy of Estonia
+
+Events:
+Iberian melting pots now are more limited, so Portugal won't turn Catalan by event any more.
+German melting pot now only fires for intended area (Baltic coast), no longer for just any Eastern European province.
+Added Norman mercenaries for Byzantium and other Orthodox nations.
+Sceptical characters will no longer get the knight order events
+
+1066:
+Fes and surrounding provinces have received some more tech because of the university, Kairwan's area weakened some more
+Alp Arslan and Michael Doukas are now rivals
+Saxony now ruled by Ordulf Billung, not his son Magnus. Magnus only came to power in 1071. Ordulf has gotten illness so he will usually die within a few years.
+Mosul is rebellious (would repeatedly war with Seljuks from 1070 to 1085)
+Alp Arslan has his muslim first name Muhammad
+Malik Shah of Seljuks now has his real first name Jalal
+Nizam Al-Mulk now has hist first names Abu Ali
+Malik Shah and Nizam are now rivals (Malik would murder Nizam shortly after succeeding Alp Arslan)
+Marriage of Yusuf al-Mu'tamin al-Muqtadi and Kera al-Amiri now has proper start date
+Revised Iberian setup as proposed by Rogan de Auria:
+-Garcia of Galicia is now a martial cleric (educated by a priest) 
+-Henri de Bourgogne and Alfonso of Leon are friends; Henri's son is in Alfonso's court as a fosterling (would later inherit Portugal as dowry for marrying Alfonso's illegitimate daughter)
+-Alfonso of Leon has gotten a stat boost in intrigue
+-Duchy of Porto title is now held by Galicia, Portugal is now a series of counties. Nuno Mendes (former D. of Porto) is now rebellious with a claim on Bragança 
+-Sisnando de Coimbra is now Sisnando Davides
+Removed double marriage of Cynfyn of Powys and Angharad Dinefwr
+Archbishop Bogumil of Poland has his last name Jankowskie
+Gave a number of male lastnameless characters a generic dynasty name
+Tatikios the Byzantine general is now an arab, with a "dynasty" name of Tatikid
+Revised Baltan setup proposed by Herr Doctor implemented: pagan tribes, cultures, incomes revised
+A number of historic courtiers added to Iberia
+Transduero region (Castelo Branco, Salamanca, Valladolid, Molina) starts out struggling and looted. Was historically unoccupied at the time.
+Valladolid is a vassal of Léon, held by Pedro Ansúrez (a few years early)
+Changes suggested by aylo1:
+-Gave future pope Victor III his full name + nickname Victor 'Desiderius' Dauferio, placed him in Capua
+-Portraits of Godfried & Boudewijn de Boulogne altered
+-Added the De Briennes to Sens (descendants would play a rôle in the Crusader Kingdoms), linked them to Flanders
+-Added the De Joinvilles to Sens
+-Adjusted Pétronille "de Joigny"'s dynasty and family
+-Alix de Sens added (dynastic key character)
+-Chartres is now ruled by the De Breteuil family
+-De Courtenays and De Montlhérys added to France (later crusaders)
+-De Rethels added and linked to De Boulognes
+Linked the dynasty of Flanders to Charlemagne
+Linked the de Contevilles (William the Conqueror's half-brothers) to an illegitimate grandson of Charlemagne
+Sancho IV of Navarra and Sancho I of Aragon start allied
+Gave Rodrigo de Vivar his nickname 'El Cid Campeador'
+Vellido Dolfos (future assassin of Sancho el Fuerte) added to Urraca of Zamora's court
+Urraca of Zamora and her brother Alfonso of Léon are friends
+Taifas of Granada, Murcia, and Almeria start allied (would war together against Sevilla and Tangiers in 1067/68)
+Taifa of Sevilla is allied with Tangiers
+Ramon Berenguer de Barcelona has a claim on Montpellier, representing his lands there
+1187:
+Khwarizm is using the MKHW tag again (at kingdom level)
+Killed Empress Maud
+Cuenca (Santiago) and Calatrava are knight orders
+
+1337:
+Cuenca (Santiago), Calatrava, Alcantara are knight orders
+Emirate of Almeria is Emirate of Granada again
+Livonian Order is now a duchy-level vassal of Teutonic Order, with a few vassals of its own
+
+----
+DVIP version 9 changelog:
+
+Database:
+*)New event introduced to clear fosterling status from rulers. Should prevent the bug where a fosterling becomes bishop or republic ruler but also remain a fosterling, leading to game-breaking situations.
+*)Further dynastic updates to go along with character changes in scenarios.
+*)Breton names celtic;female;Hawiz and celtic;male;Eozen added
+*)Guyomarc'h and Guimarc'h added as male Breton names
+*)Some event text made "less goofy"
+*)Turkish culture event: special case for a few inland provinces in Anatolia. There is no way Turkish culture can ever reach Anatolia in a 1066 game otherwise.
+*)Jewish religious conversion event added (all other religions had one)
+*)Gwynned colour changed to light gray
+*)Irish tag is now Gaelic, representing Scottish and Irish celts
+*)Irish and Scottish name list revised
+*)Generic courtiers in Scotland revised (Highlands has Gaelic names, Lowlands Scottish names)
+*)Scottish Melting Pot event rewritten: it now works like the English one, and can introduce Scottish as a new culture in Saxon or Scandinavian provinces in Scotland.
+*)Breton courtier dynasties revised (Breton march has Gallo courtier dynasties)
+*)CoA of Breton March changed to the Dreux' CoA
+*)Dynastic revisions proposed by Hasimir Fenring:
+De Savoie #240 is now Di Savoia
+De Geneve #237 is now von Genf
+*)Prestige for events 7037-7039 is now scaled (thanks Veld)
+
+1066:
+*)Further cleanup of character file, removing unused deathdates and characters with birthdates beyond game start
+*)Further character revisions and additions by aylo1 for countless characters
+*)Several nicknames added to characters
+*)Expanded Charlemagne's geneology: all surviving families in 1066 which could claim a link to Charlemagne should now be connected
+*)Removed Luitgard and Liudolf from Saxony, these characters don't exist in any geneology I can find
+*) Added the De Namurs as courtiers in UPLO (later counts of Namur)
+Married Ida Billung to Albert III de Namur and corrected her birthdate
+Connected Hedwig de Namur to her parents and adjusted her birthdate
+*)Ended Vasco of Portugal's marriage properly, so he can potentially remarry
+*)Edith of Wessex is now Edithia, her dates are corrected
+Ahistorical children of Edithia of Wessex (by a father and son!) removed
+*)Dates of Hugues Capet corrected
+*)Charlemagne's grandson Bernard of Italy now has the blind trait
+*)Pepin de Vermandois lost "Quentin" in his name -- was a title, not a name
+*)Dates of early De Vermandoises corrected
+*)"Suniaro" de Barcelona is now Sunyer
+*)Gruffyd of Wales now has claims on Gwynned
+*)Changes/additions to Spanish jews as proposed by Joe Public 
+*)Russian changes by Walter Hawkwood -- many historic Russian characters added. Vyatich (russian pagan) realm added.
+*)Cuman king has claims on Pecheneg provinces to stimulate historical conquest
+*)First names removed again from Alp Arslan and Nizam al-Mulk (too confusing).
+*)Hassan-i Sabbah made friend of Nizam
+*)Breton setup corrected, thanks to Drachenfire, Hasimir Fenring, Veldmaarschalk:
+Birthdates of some Bretons are corrected
+Hawiz (Hawise) is duchess of Brittany, Hoel is her consort and count in his own right
+Hawiz (Brittany) has claims on some Norman provinces to stimulate trouble between BRIT and ENGL later on
+Guyomarc'h is count of (Breton) Leon
+*)Maredudd ap Bleddyn's DNA altered
+*)Cornwall province is now Breton, not Welsh (based on cornish being much closer to contintental celtic than to insular celtic).
+*)Scotland begins with Gaelic culture in the north and Saxon culture in the south. Scottish rulers are either Gaelic or Saxon with adjusted names.
+*)Alan the Red is in William king of England's court
+*)De Savoie and De Valois dynasty corrections (thanks Hasimir Fenring)
+*)Gudred Crovan has learned of his nickname, father, and exiled (half-?)brother
+*)Gave count Theodoulos Synadenos his wife and daughter, and correct dynasty
+
+1187:
+*)Further character revisions and additions by aylo1
+*)Scotland's northern provinces are Gaelic
+*)Marguerite d'Ibelin stopped cross-dressing
+
+----
+DVIP version 9.1 changelog:
+
+Database:
+*) Added several Russian names (Thanks Walter Haywood)
+*) Province names: Breton Leon now Léon, Iberian Leon now León. Feher and Fejer got the accent on the second E
+*) Colour of DEHEurbath changed so its not identical to Gwynned
+*) Added names to many cultures (from the "new names" forum thread)
+*) Some Byzantine dynasic names corrected to proper spelling
+*) Lower Brittany renamed to Brittany.
+*) Berber kingdom of Zenata renamed to Tlemcen (Zenata was the tribe, Tlemcen the realm)
+*) (Turkish) Bulgar renamed Volga Bulgaria
+*) Merged all duplicate dynasties -- any characters with the same last name are now the same dynasty
+
+1066:
+*) Rulers of Geneve now of "von Genf" dynasty, not generic "of Geneve"
+*) Alan the Red now Alan Rufus
+*) Scotland's capital has been moved to Fife (thanks Drachenfire)
+*) Penthièvre is ruled again by Eozen, not his son Jafrez
+*) Ahistorical family members removed from Léon
+*) Ruler of Fehér and his wife have been made 6 years older so they won't have had children before 14
+*) Breton claim on Arques changed to one on Avranches
+*) De Gaels have received their nicknames (Radulf stalre, Radulf de Guader)
+*) Rhiwallon of Dol killed and his son Jean added, delinked from Breton ducal dynasty and given 'FitzAlan' dynasty (ancestors of the House of Stewart)
+*) Brittany: Hoel is duke instead of his wife.
+*) Michael Doukas of Turnovo is no longer inbred
+*) Resolved a number of crashes caused by errors in Charlemagne's family tree
+*) Made Omar Khayyam friends with Nizam al-Mulik and Hassan i-Sabah
+*) Added a few shiites to Persia
+*) Fatimid dynasty is berber
+*) Tlemcen (Zenata) is shiite and sceptical, representing the Kharijites
+*) Balearic isles are ruled by serb muslims (Denia replaced the rulers with slavs)
+*) Name of Slavic founder of Denia completed to Muyahid ibn Yusuf ibn Ali
+*) Galicia and León start allied to represent León's nominal lordship
+*) Corrected the birthdate of a few jews in Castille
+*) Removed invalid marriage records
+
+1187:
+*) Buchan now ruled by Éua ingen Garnait of Buchan; husband and son added
+*) Eleanor now rules Aquitania, her son Richard the Lionheart is ruler of Gascony
+*) Richard the Lionheart is friends with his mother and with Philippe Auguste Capet
+*) French rulers of Geneve now of "of Geneve" dynasty, not German "von Genf"
+*) Changed two instances of the name Guyomarch to Guyomarc'h
+*) Arthur of Brittany and siblings given English culture
+*) Added a few shiites to Persia
+*) Removed invalid marriage records
+
+----
+DVIP version 9.2 changelog:
+
+Database:
+*) Upper Brittany renamed to Breton March
+*) Province 276 has been renamed to Hedmark
+*) Some dynasties renamed to localized versions
+*) Welsh naming list revised
+*) Porhoet dynasty renamed to De Porhoët
+*) Base income of Apulia and Consenza swapped
+*) Great number of Finnish dynasties added
+*) Buchanan dynasty added to Scotland
+*) Huntington dynasty renamed to Huntingdon
+*) Many Hungarian dynasties added
+*) Added a few Cornish dynasties
+
+1066:
+*) First three children of Raoul de Valois have lost Anna Rurikovich as their mother
+*) Restored nickname of Vladimir Monomakh
+*) Corrected errors in Scoruling dynasty and swapped some children's traits
+*) Verdun is now French as is its dynasty. Missing children added.
+*) Sundgau reassigned to Verdun
+*) Added the extended family of Drogo de Brevere
+*) Brient Penteur is count of Cornwall
+*) Robert de Conteville moved to Exeter (repr. Mortain)
+*) Characters added to Boulogne, Guines, Eu
+*) Gallo Bretons (re)turned into French and returned their original names
+*) Pedro Froilaz shares his father's dynasty
+*) Added missing characters to Capua
+*) Added the county of Lecce (repr. Brindisi)
+
+1187:
+*) Scots king William is now called The Lion, his dead brother Malcolm 'Virgo'.
+*) Baldwin of Utrecht is now Boudewijn
+*) Vikings of Orkney have their cognomen and claims on Western Isles
+*) Added several characters to Western Isles
+*) Added bastard son of John Lackland
+*) Added several minor nobles to England
+*) Linked up the dynasties of Flanders and Upper Lorraine
+*) Returned several Gallo Breton nobles to French culture and returned their original names
+*) Oultrejordain is ruled by Stephanie de Milly. Law has been changed to semisalic.
+*) Added multiple characters to the De Milly family of K. of Jerusalem
+*) Added county of Embriacos in Beirut repr. Jebail/Giblet
+*) Moved Joscelin de Courtenay to Safed and gave him his wife
+*) Spanish knight order has the right setup again
+
+1337:
+*) Ilkhanate setup revised
+
+
+----
+DVIP version 9.5 changelog:
+
+Database:
+*) Event 'The bastard son of another ruler petitions you to help him with a nefarious plot to kill his half-brother!' edited to not fire for the brother himself... 
+*) AI Event 'The infidels are attacking Muslim lands!' disabled for Jewish rulers 
+Culture 'Scottish' renamed to 'Lowland Scots' 
+*) Castillian melting pot event now gets its title
+
+1066:
+*) Revised Scottish setup thanks to Calgalus: 
+-Duchy setup revised 
+-Scots Gaelic characters received their proper names 
+-Characters moved to historic locations 
+-Duplicate Gospatrick of Dunbar removed
+*) al-Murabitids revisions suggested by Hasimir Fenring & Jinnai:
+-Canarias, Infa, Fes are independent
+-al-Murabitids get the pike technology
+-Canarais and Infa are pagan
+-Fes' income has been raised
+-al-Murabitids leader changed
+*) Double marriage of count of Belgrade corrected
+*) Alan count of Léon's name is corrected
+*) Domnall Crovan removed (no trace of him in geneologies)
+*) Helga Crovan added (sister of Godfrey, ancestor of the MacLeods)
+*) Godfrey Crovan renamed to Gofraidh
+*) Bertrade de Montfort (future Queen of France) stopped crossdressing
+*) "Eustachie d'Anduze" replaced with historical Bishop of Viviers: Gérard of Viviers
+*) Jehanne von Genf now Johanna
+
+1187: 
+*) Dafydd ab Owain's name corrected, made a kinslayer
+
+1337:
+*) Count of Rügen has some gold and prestige
+*) Changes in Georgia setup
+
+----
+Changelog for DVIP version 9.6:
+
+Database:
+*) Al-Muratibids are now Almoravids
+*) More historically correct flag for Almoravids
+*) 'Pneumonia' is now called 'Consumption'
+*) Event: 'Leave_court' has been replaced with a defect to random neighbour to prevent courtiers from not leaving at all
+*) Event: Non-christians in the knight orders are now killed off sooner to prevent muslim or pagan Grandmasters
+*) Enabled and fixed AI event 8010 'Having been separated by your circumstances for some time, you've re-discovered your close kinship with your brother'
+*) Prevented a few more incestuous possibilities by adding is_sibling workaround checks
+*) Added an event to clear the excommunicated status from all non-Catholics
+*) Recoloured banners for duchies and kingdoms thanks to Fenring :)
+
+1066:
+*) Further revisions to Almoravids: future king is now a sheik not a courtier, law changed, etc.
+*) Fes is independent
+*) Some Armenians and Georgians have adopted the Orthodox faith instead of the Roman heresy
+*) Ireland, Wales, Scotland, Lothian, Brittany changed to Monastic Supremacy instead of Ecclesiastical Balance to better represent religious authority of the Celtic church
+*) Cordoba has gotten a larger fort, domed church added
+*) King-consort Ingibjørg of Scotland changes: dates adjusted, and killed
+*) Ingibjørg's sister Sigrid's dates have also been changed
+*) Dates of Ingibjørg's sons adjusted to match her deathdate
+*) Máel Coluim King of Scots has been married to St. Margaret (was betrothed by 1066)
+*) Máel Coluim's probably ahistorical son Máel Coluim (Malcolm) deleted
+*) Hakon Earl of Lade has gotten his cognomen Sigurdsson
+*) Eirik Hakonarson (former King of Norway) has been turned into a bastard
+*) Gruffydd ap Cynan has gotten claims to the minor Welsh duchies
+*) Georgian revisions thanks to aylo1
+*) Replaced Isaakios Komnenos with Iosephos Tarchaneiotes as Prince of Antioch
+*) Enhanced stats of Ghavril of Melitene
+
+1187:
+*) Hospitaler Knights are a duchy-level vassal of Jerusalem to help them survive
+*) Knights Templar exist as a duchy-level vassal of Jerusalem, capital Hebron
+*) Stephanie de Milly has been placed in the 'de Toron' dynasty to allow her son to succeed
+*) Progon count of Epirus has the same dynasty as his sons now
+*) Georgian setup revised thanks to aylo1: great number of historic characters added, Queen Tamar now has vassals
+
+1337:
+*) Too many changes to list here in Byzantium/Armenia/Georgia setup thanks to aylo1
+
+----
+Changelog for DVIP version 9.7:
+
+1066:
+*) Resolved a potential crasher in the scenario selection
+
+1187:
+*) Resolved a potential crasher in the scenario selection
+*) Minor revisions to Georgian and Byzantine characters
+*) Cornwall turned Breton for better representation of Cornish
+
+1337:
+*) Resolved a potential crasher in the scenario selection
+*) Minor revisions to Georgian and Byzantine characters
+*) Orders of Livonia and Santiago use normal tags again (should fix their blank shield issue)
+*) Revised Scottish cultural setup along lines of earlier scenarios
+*) Cornwall turned Breton for better representation of Cornish
+
+----
+Changelog for DVIP release 28.08.2008: 
+
+Info:
+*) This is the first release to no longer use a version. Future releases will only use a date.
+*) DVIP-COA will no longer be distributed separately, the DVIP will now include all required files.
+
+Graphics: 
+*) New, more historically correct Coat of Arms for Naxos 
+*) New, cleaner, CoA for Dyfed
+*) Corrected CoAs of Bristol and Somerset
+
+Database: 
+*) Added several dynasties 
+*) Missing event text added for Norman mercenaries
+*) Added text for user defined traits a, b, c to prevent possible issues
+*) More banner revisions by Fenring :)
+*) Added several bugfixes events in new event file
+*) Corrected tech province and culture for mercenary events
+*) Added Assasins (Hashashins) as mercenaries
+*) Prevented 'Religious tensions' event from firing for wrong-religion vassals to prevent constant revolts
+*) Improved Cornwall's income to reflect the tin mining industry
+*) Revised Greek name list, thanks Durante
+
+
+1066: 
+*) Moved all living male characters from 'dynasty 1' into their own dynasty 
+*) Corrected a possible crasher in scenario selection
+*) Added multiple Welsh characters
+*) Added a mine to Cornwall
+
+1187: 
+*) Moved all living male characters from 'dynasty 1' into their own dynasty 
+*) Added multiple Welsh characters
+*) Made Assassins into Persian shiites
+*) Added a mine to Cornwall
+*) Made Alienor of Aquitaine and her husband rivals
+
+1337: 
+*) Moved all living male characters from 'dynasty 1' into their own dynasty 
+*) Added multiple new characters to Byzantium &c. thanks to aylo1
+*) Added Welsh characters, including the last heirs of the K. of Wales
+
+----
+Changelog for DVIP release 04.09.2008: 
+
+Database: 
+*) Saxon is now Anglo-Saxon
+*) Added many dynasties for use with the 1204 scenario
+*) Duchy of Thessalonica is now Duchy of Thessaly
+*) Changed default culture of LANG (Pisa) to italian
+*) Changed default culture of SPMA (Pomeralia) to westernslavic
+*) Changed default culture of STRA (Baden) to german
+*) Changed default culture of TRAN (Trinacria) to catalan
+
+Events:
+*) Realm duress event now has updated region checks so it won't fire in the Balkan for Balkan rulers
+
+1187:
+*) Various characters and nicknames added from the 1204 scenario
+*) Loyalty bug fixed in province 40 (Moray)
+
+----
+Changelog for DVIP release 10.03.2009: 
+
+Database: 
+*) Revisions to Gaelic and Scottish namelists
+*) Great revision of Scottish dynasties
+*) Province St. Gallen now St Gallen to work around bug
+
+Events:
+*) Automated education disabled by default
+*) Mongol weakening events fixed
+*) Minor tweaks to realm duress and crusader events
+
+1066:
+*) Hohenstaufens moved to Fürstenberg to better fit with actual realm in 1066
+*) Various Hohenstaufens added, thanks Veld
+*) Billung ancestor now has his full name, thanks Veld
+
+1187:
+*) Some more characters and nicknames added from the 1204 scenario
+*) Huge changes to Scotland and Russia thanks to Calgalus
+*) Western Isles now are as developed as neighbouring provinces (were most backwards in world)
+*) Reintroduces some Wends to Germany
+
+1204 (addon only):
+*) Removed some more crashers
+*) Sanitized province tech setup
+*) Minor name fixes
+
+----
+Changelog for DVIP release 16.08.2009:
+
+Database: 
+
+Events:
+*) New event added to force female rulers to abdicate (addon only)
+*) "A vassal is pleased with your wise and fair rule under Feudal Contract Law" will no longer keep firing for the same vassal
+*) Addon: Female inheritance added to selectable law list, thanks performer! As a result monastic supremacy has been removed
+
+1066:
+*) Removed claim from GWYN on DEHE, replaced with rivalry (thx Drachenfire)
+*) Gruffydd ap Cynan Aberffraw has a friendship with Rhys Dinefwr (D)
+
+1187:
+*) Some Bulgar Asens turned into Vlachs (thx Veld)
+*) Made the three Asen brothers of Bulgaria rivals (Veld)
+*) Added future Nicean emperor Theodore I Laskaris with his family to ERE
+*) Acominatus received his nickname
+*) Removed double selection of Novgorod in scenario setup
+*) Added David Huntingdon to the Dunkeld dynasty to avoid a game-over for SCOT
+
+1204 (addon only):
+*) Synced up some more characters with 1187 so their DNA, stats, and traits match
+*) Added father of Theodore I Laskaris so his brother is now linked
+*) Divided up the Slavic blob a little more in Croats, Serbs, Bulgars, Vlachs
+
+----
+Changelog for DVIP release 08.11.2009:
+
+Database / Events:
+*) Cultural adjustments across scenarios
+*) Caithness had no province info in 1187 & 1204
+*) db\events\Varia.txt moved from addon to main DVIP release
+*) New event added to prevent muslims on the Atlantic
+*) Addon only: Included slightly modified BoPack event files 
+*) Returned name of the dynasty of LOLO's dukes to "d'Ardennes" from "von den Ardennen"
+*) Changed Sicilian (Italian) melting pot to no longer try to convert Norman provinces (should they appear due to Bopack or similar)
+*) Changed IDs for melting pot events to proper range
+*) Modtext.csv now also in main DVIP release (needed for event text).
+*) Addon only: Added new friends events
+*) Filename changes !!! All DVIP events (except Grell's and BoPack's) are now prefixed with DVIP_. Please remove the old event files if updating.
+*) Event text modified for the "it is difficult to control a province so far away"
+*) Renamed leftover instances of 'Pneumonia' to 'Consumpaton' in event text.
+
+1066:
+*) Removed marriage of Godfrey of Lower Lorraine and Matilda of Canossa -- only happened in 1069 :(
+*) Replaced Godfrey the Hunchback (le Bossu) with his father Godfrey the Beard (le Barbu) as Duke of Lower Lorraine
+*) Corrected Godfrey le Barbu's wife's name to Doda, and linked her to the Counts of Rethe
+*) Lowered intrigue value of Khodoto of Vyatichs (should prevent huge demesne -- still needs work.)
+*) Removed Kingdom of Finland tag from pagan ruler of Finland province, now just a duke.
+*) Removed mythical Carolingian ancestry of the De Contevilles: actually descended of the Dukes of Flanders
+*) Extended the line of the d'Ardennes to link them with Charlemagne (through marriages)
+*) Changed Georgian and Armenian setup, thanks aylo1. Added some historical petty kingdoms and moved characters to their correct courts.
+*) Corrected heritage of various Byzantine, Georgian, and Armenian characters, thanks aylo1
+*) Gave a claim on Apulia to Abelard de Hauteville -- historically contested reign of the Guiscard.
+
+1187:
+*) Removed Kingdom of Finland tag from pagan ruler of Finland province, now just a duke.
+
+1204 (addon only):
+*) Several potential crashers removed
+*) Changed CoAs of Nicaea and Romania to more historically correct versions
+*) Removed Kingdom of Finland tag from pagan ruler of Finland province, now just a duke.
+
+1337:
+*) Corrected minor errors in scenario setup
+
+----
+Changelog for DVIP release 26.11.2009:
+
+Database / Events:
+*) Restored broken & disabled Paradox event for bastard's brother's reaction to legitimization 
+*) Added event to recreate Papacy as long as one catholic bishopric exists
+*) Added AI helper event file to stimulate historical conquests (work in progress, currently done: Turks -> Anatolia and Russkis -> Russian east & north)
+*) Corrected MTTH of new friends events (was way too high due to copy-paste error)
+*) Removed broken new friends events
+*) Nubians now using the none culture tag (thanks Llywelyn for the name list)
+*) Addon: Nubia is now recreatable (five provinces)
+*) Event edits: all children in knight orders or bishoprics (including fosterlings) now exclusively get ecclesiastical education
+*) New event: AI vassal at war, but with a liege at peace, gets an automatic white peace
+*) Tweaked Anatolian melting pot to also work the other way around (in case of a Byzantine counter-conquest)
+*) Edited province incomes, and province improvements minimum income values (it should now be possible to build grand shipyards, cathedrals, etc. in areas they historically were built).
+*) New events: vassals may adopt their liege's ruling laws (including cognatic primogenture in Addon)
+
+1066:
+*) Added missing marriage for count of Lecce's parents
+*) Added remaining De Hautevilles, including Beatrix and her children (the de Mortain's, in Taranto)
+*) Corrected order of Tancred de Hauteville's children's birth
+*) Moved a few minor de Hautevilles who served as mercenaries to the proper courts
+*) Corrected claim of Abelard on Apulia (accidentally set for Benevento in previous update)
+*) Removed starting war between BYZA and SELJ: now started by event within a few days of scenario start (most of the time; MTTH is 13 days at start). This means that Armenia is no longer always the first to fall to the Turkish hordes, another Anatolian vassal might be targeted first.
+*) Nubians now are Nubian culture, as are their provinces
+*) Added alliance between Nubia and muslim Egypt (Bakt)
+*) Added some additional character nicknames
+*) Removed Duchy of Normandy, now still held by Willy the Conker himself (historically until 1087)
+*) Many smaller tweaks to characters
+*) Addon: set some more countries to cognatic primogenture at start
+
+1187:
+*) Nubians now are Nubian culture, as are their provinces
+*) Added alliance between Nubia and muslim Egypt (Bakt)
+
+1204 (Addon only):
+*) Nubian provinces now Nubian
+*) Added Kingdom of Nubia
+*) Added alliance between Nubia and muslim Egypt (Bakt)
+
+1337:
+*) Nubian provinces now Nubian (except for coastal conquest - Nubia only conquered a few years before)
+
+----
+Changelog for DVIP release 05.12.2009:
+
+Database / Events:
+*) Modified some event text
+*) Added event text for vassals adopting their liege's law (inadvertently left out in main release last time)
+*) Added a few trade routes
+
+1066:
+*) Major revisions to Byzantium/Georgian/Armenian setup, thanks aylo1:
+**** Byzantium changes start ****
+	European Byzantium:
+	*) Botaneiates family (names, traits, birthdates corrected; now Prince of Turnovo)
+	*) Apokapes family (names, traits, birthdates corrected; now Prince of Karnuva)
+	*) Trajan Kometopoulos is dead (1065)
+	*) Future emperor Mikhael VII given nickname 'Parapinakes', traits corrected, given vassals to make him more likely to be elected
+	*) Georgios Monomachatos (future Prince of Dyrrachium) added -- this was supposed to be the count of Corfu in this update
+	*) Synadenos family (names, traits, birthdates corrected; now part of Vidin/Serbia)
+	*) Georgi Voiteh (major Bulgarian noble) added
+	*) Palaiologos family (names, traits, birthdates corrected)
+	*) Basileios Kourtikes added / changed
+	*) Major Byzantine historians & statemen added (Ioannes 'Skylitzes' Thrakesios, Mikhael Attaliates, Theophylact Hephaistos)
+	*) Multiple friendships between Byzantine nobles added
+
+	Asia Minor:
+	*) Ioannes Bourtzes renamed to Theognostos
+	*) Konstantinos X Doukas' son renamed 'Konstantios'
+	*) Mikhael Psellos's name fixed, given 'proud' & 'sceptical' traits. Also gold, prestige & piety.
+	*) Caesar Ioannes Doukas given 'energetic', 'indulgent' & 'intricate webweaver' traits. 
+	*) Andronikos Doukas (son of Caesar Ioannes) relocated to Nikomedia together with family, trait/stat changes
+	*) Zoe of Nikomedia (wife of Caesar Ioannes Doukas's younger son Konstantinos) now plain Zoe (until we discover her lastname).
+	*) Created Anna Doukaina - future wife of Georgios Palaiologos & big sister of Alexios I Komnenos's wife Eirene.
+	*) Bryennios family changes
+	*) Changes to Alexios I Komnenos and Tatikios (age, traits, location)
+
+	Asia/Near East:
+	*) Corrections to children of Aluzian Kometopoulos (dynasty, location)
+	*) Changed Count of Taron to Grigol Bakurianis, made part of Mesopotamia
+	*) House of Lampron given dynastic name 'Pahlavuni', vassalage changed
+	*) Made Philaretos Brakhamios Prince of Mesopotamia
+**** Byzantium changes end ****
+*) Corrections to Carolingian family tree (removed a crasher)
+*) Added yet more nicknames
+*) Duplicate character removed
+*) Spelling corrections in character names throughout
+*) Removed a lot of garbage from the file (could load faster, maybe)
+*) Removed accidentally remaing entry for Normandy in country file (non-addon only), possible crasher
+*) Removed score for Welsh characters without land (DVIP: Wales remnant)
+*) Removed double rivalry for DEHE
+*) Removed some dead characters without family ties
+*) Vyatichs now a republic (elective tribe)
+
+1187:
+*) Removed a lot of garbage from the file (could load faster, maybe)
+*) Removed score for Welsh characters without land (DVIP: Wales remnant)
+*) Restored Deheurbarth as a playable nation (accidentally left out)
+
+1204 (Addon only):
+*) Removed a lot of garbage from the file (could load faster, maybe)
+
+1337:
+*) Removed a lot of garbage from the file (could load faster, maybe)
+
+----
+Changelog for DVIP release 13-12-2009:
+
+Database / Events:
+*) Dynasty #374 now 'de Tosny'
+*) Addon: female inheritance event fixed
+*) Recreatable Duchy of Achaea now again using the ACHA tag
+*) Returned province of Maine to Normandy, moved Eu to Flanders (allows for better historic gameplay)
+*) Removed possibility for women to become martial clerics through education
+*) Addon: lowered age of education completion to 15. This corresponds to randomly spawned courtiers, and allows for fosterlings to switch religion if they are set to ecclesiastical education (catholic/orthodox switch on demand!)
+*) Addon: BoPack 'child unsuited for education tract' events allowed age range changed from 14-16 to 12-15
+*) Lowered MTTH of conquest events to see if they now will fire...
+*) Changed name of 1204 scenario to 'The Fourth Crusade (1204) - BETA' to reflect unpolished nature of scenario setup
+
+1066:
+*) Corrected ownership of Corfu
+*) Added second marriage for Sancho Jimenez of La Rioja and corrected birthdate of son
+*) Killed Muña Mayor of Castille (died 1032); corrected birthdate of sons, added Gonzalo
+*) Married the count of Loon to his wife
+*) Added second marriage of Fernan de Castilla
+*) Added first marriage of Ramon Berenguer 'el Vell' de Barcelona
+*) Removed multiple invented (mostly female) characters
+*) Added missing marriages in family tree of count of Tir Eoghain
+*) Corrections to Aberffraw family tree
+*) Made William Rufus de Normandie a rival of people he'd later have killed
+*) Removed 'Sigrid' from Lothian -- not born yet!
+*) Corrected age of Ranulf Flambard, made him a bastard (illegitimate son of a priest)
+*) Put descendants of Uldred of Northumbria in the 'of Bamburgh' dynasty and removed duplicates
+*) Corrected Waltheof count of Northampton's heritage (ties into above), gave claim on Northumberland
+*) Gave Eudes ('Odo') de Blois a claim on Troyes (ousted a year before)
+*) Roger de Beaumont, known as 'the Bearded', now has a beard
+*) Gave Stigand of Canterbury an ecclesiastical education
+*) Removed William 'Walcher' to (Upper) Lotharingia and made him French, not in England until 1070. Removed duplicate placed in Northumberland.
+*) Changed stats of Robert de Mowbray and put him in his home in Avranches (Montbray)
+*) Fixed up the de Tosny / de Stafford dynasty a bit (anyone know who 'Adelise de Tosny' is supposed to be?)
+*) Removed fake 'Robert de Brus' and family from ENGL
+*) Moved Henry de Ferrers and family to Norfolk and made them Normans
+*) Shifted some birthdates of fake characters so they don't all age on the same day, and gave them completed educations (should cut down on CPU load in the first few weeks in-game).
+*) Removed inbred from a few characters which should not have this trait
+*) Made mother of al-Mu'tasim Emir of Almeria older (can't have had child at 11!)
+*) Removed duplicate for Bécc Bairrche of Ulaid
+*) Downgraded Vyatichs to a duchy (don't want other pagans to pledge to them)
+*) Made Alexios Komnenus and Tatikios friends
+*) Achaea now again using the ACHA tag
+*) Restored Alexios Komnenos to former court and aged him back up
+
+1187:
+*) Achaea now again using the ACHA tag
+*) Made Rhys ap Gruffydd of Deheubath two years younger (1132 vs 1130)
+*) Added bastard son of Rhys, Maelgwn
+
+1204 (Addon only):
+*) Rulers of Serbia now Serbian
+*) Achaea now again using the ACHA tag
+*) Added Joan, bastard daughter of King John of England and wife of below
+*) Added Llywellyn the Great as ruler of Gwynned
+*) Added Gwenwynwyn of Powys
+*) Added remnant of Deheubarth: count Rhys 'Gryg' ap Rhys of Dyfed and bastard brother (vassal of Llywellyn)
+*) Removed (probably fake -- 'Einion of Gwynned'?) characters from Wales
+*) Added rivalry between the sons of Rhys
+*) 'Romania' now called 'Latin Empire' (more common name)
+*) Faroya now a county, not a duchy
+
+1337:
+*) Achaea now again using the ACHA tag
+*) Duplicate title for Achaea removed from Duck of Calabria, vassals are now tied to CALA tag
+
+Additional changes in DVIP: Wales:
+*) 1204: Powys is a duchy of two provinces
+*) Gwynned owns three provinces
+*) 1204: made Maelgwn ap Rhys count of Ystrad Tywi (vassal of Llywellyn)

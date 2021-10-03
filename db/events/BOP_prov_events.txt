@@ -1,0 +1,1966 @@
+# -------------------------
+# BOP_PROV_EVENTS by Ambrox
+# -------------------------
+# DV version 1.0
+# -------------------------
+#
+# THEME -> province's uneasiness decreases economy
+# ------------------------------------------------
+province_event = {	# 19000 - Economy uneasiness - revolt decreases economy
+	id = 19000
+	picture = "event_revolt"
+	trigger = { 	# not ai - not struggling - revolt
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = has_province_effect value = { struggling = yes } } }
+		condition = { type = has_province_effect value = { revolt = yes } }		
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/240 months
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# besieged castle
+		modifier = {
+			condition = { type = is_besieged }
+			factor = 0.75
+		}		
+	}
+	action_a = {	# decrease economy and prestige
+		effect = { type = ruler_prestige value = -15 }	
+		effect = { type = prosperity value = -1 }
+	}
+	action_b = {	# mantain economy paying gold and increase prestige
+		effect = { type = ruler_prestige value = +15 }	
+		effect = { type = ruler_gold scale = -0.33 }
+	}
+}
+province_event = {	# 19001 - Economy uneasiness - war and regiment_mobilized decrease economy
+	id = 19001
+	picture = "event_battle2"
+	trigger = { 	# not ai - not struggling - war
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = has_province_effect value = { struggling = yes } } }
+		condition = { type = regiment_mobilized	}
+		condition = { type = owner
+				condition = { type = atwar  } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/240 months
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# besieged castle
+		modifier = {
+			condition = { type = is_besieged }
+			factor = 0.75
+		}		
+	}
+	action_a = {	# decrease economy and piety and prestige
+		effect = { type = ruler_prestige value = -10 }	
+		effect = { type = ruler_piety value = -5 }	
+		effect = { type = prosperity value = -1 }
+	}
+	action_b = {	# mantain economy paying gold and increase piety and prestige
+		effect = { type = ruler_prestige value = +10 }	
+		effect = { type = ruler_piety value = +5 }	
+		effect = { type = ruler_gold scale = -0.33 }
+	}
+}
+province_event = {	# 19002 - Economy uneasiness - epidemics decrease economy
+	id = 19002
+	picture = "event_epidemics"
+	trigger = { 	# not ai - not struggling - epidemics
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = has_province_effect value = { struggling = yes } } }
+		condition = { type = or
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			condition = { type = has_province_effect value = { malaria = yes } }
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+		}
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/240 months
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# besieged castle
+		modifier = {
+			condition = { type = is_besieged }
+			factor = 0.75
+		}		
+	}
+	action_a = {	# decrease economy and piety
+		effect = { type = ruler_piety value = -15 }	
+		effect = { type = prosperity value = -1 }
+	}
+	action_b = {	# mantain economy paying gold and increase piety
+		effect = { type = ruler_piety value = +15 }	
+		effect = { type = ruler_gold scale = -0.33 }
+	}
+}
+province_event = {	# 19003 - Economy uneasiness - loot decreases economy
+	id = 19003
+	picture = "event_revolt2"
+	trigger = { 	# not ai - not struggling - looted
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = has_province_effect value = { struggling = yes } } }
+		condition = { type = has_province_effect value = { looted = yes } }		
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/240 months
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# besieged castle
+		modifier = {
+			condition = { type = is_besieged }
+			factor = 0.75
+		}		
+	}
+	action_a = {	# decrease economy and piety and prestige
+		effect = { type = ruler_prestige value = -5 }	
+		effect = { type = ruler_piety value = -10 }	
+		effect = { type = prosperity value = -1 }
+	}
+	action_b = {	# mantain economy paying gold and increase piety and prestige
+		effect = { type = ruler_prestige value = +5 }	
+		effect = { type = ruler_piety value = +10 }	
+		effect = { type = ruler_gold scale = -0.33 }
+	}
+}
+#
+# THEME -> provinces without bad effects increase their economy
+# -------------------------------------------------------------
+province_event = {	# 19010 - Flourishing economy - without bad effects economy increases 
+	id = 19010
+	picture = "event_prosperity"
+	trigger = { 	# not ai - not rich - not bad effects - not at war
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = has_province_effect value = { rich = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }		
+ 		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+  		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+ 		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+ 		condition = { type = not value = { type = has_province_effect value = { dysentery = yes } } }
+ 		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+ 		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+		condition = { type = not value = { type = regiment_mobilized } }
+		condition = { type = not value = { type = owner	condition = { type = atwar  } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 48/360 months
+		months = 120
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 1.4
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 1.56
+		}
+		# port improvements
+		modifier = {
+			condition = { type = has_improvement value = { civilian_harbour = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { naval_harbour = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { grand_shipyard = yes } }
+			factor = 0.7
+		}		
+		# terrain type
+		modifier = {
+			condition = { type = terrain value = plains }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = terrain value = forest }
+			factor = 0.85
+		}		
+		modifier = {
+			condition = { type = terrain value = hills }
+			factor = 0.9
+		}		
+	}
+	immidiate = {	# increase economy
+		effect = { type = prosperity value = +1 }
+	}
+}
+province_event = {	# 19011 - Flourishing economy - without bad effects gold increases (already rich)
+	id = 19011
+	picture = "event_castle"
+	trigger = { 	# not ai - rich - not bad effects - not at war
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_province_effect value = { rich = yes } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }		
+ 		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+  		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+ 		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+ 		condition = { type = not value = { type = has_province_effect value = { dysentery = yes } } }
+ 		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+ 		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+		condition = { type = not value = { type = regiment_mobilized } }
+		condition = { type = not value = { type = owner	condition = { type = atwar  } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 48/360 months
+		months = 120
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 1.4
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 1.56
+		}
+		# port improvements
+		modifier = {
+			condition = { type = has_improvement value = { civilian_harbour = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { naval_harbour = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { grand_shipyard = yes } }
+			factor = 0.7
+		}		
+		# terrain type
+		modifier = {
+			condition = { type = terrain value = plains }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = terrain value = forest }
+			factor = 0.85
+		}		
+		modifier = {
+			condition = { type = terrain value = hills }
+			factor = 0.9
+		}		
+	}
+	immidiate = {	# increase gold
+		effect = { type = ruler_gold scale = 0.2 }
+	}
+}
+#
+# THEME -> looted and besieged provinces may develop epidemics
+# ------------------------------------------------------------
+province_event = {	# 19020 - Epidemics - looted provinces bring dysentery
+	id = 19020
+	picture = "event_epidemics"
+	trigger = { 	# not ai - not dysentery - looted
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = has_province_effect value = { dysentery = yes } } }
+		condition = { type = has_province_effect value = { looted = yes } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/200 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# revolt province
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 0.9
+		}
+	}
+	action_a = {	# 75% chance to add dysentery
+		effect = { type = random chance = 75
+			effect = { type = add_province_effect value = dysentery }
+		}
+	}
+	action_b = {	# mantain health paying gold increasing prestige and piety
+		effect = { type = ruler_gold scale = -0.5 }
+		effect = { type = ruler_piety value = +15 }
+		effect = { type = ruler_prestige value = +10 }
+	}
+}
+province_event = {	# 19021 - Epidemics - besieged provinces bring typhoid_fever
+	id = 19021
+	picture = "event_sieges"
+	trigger = { 	# not ai - not typhoid_fever - is_besieged
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+		condition = { type = is_besieged }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/200 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# looted province
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.9
+		}
+	}
+	action_a = {	# 75% chance to add typhoid_fever
+		effect = { type = random chance = 75
+			effect = { type = add_province_effect value = typhoid_fever }
+		}
+	}
+	action_b = {	# mantain health paying gold and increasing piety and clergy power
+		effect = { type = ruler_gold scale = -0.33 }
+		effect = { type = ruler_piety value = +15 }
+		effect = { type = clergy_power value = +0.1 }		
+	}
+}
+#
+# THEME -> struggling provinces may revolt
+# ----------------------------------------
+province_event = { 	# 19030 - Revolt chance - struggling provinces during peacetime
+	id = 19030
+	picture = "event_revolt"
+	trigger = { 	# not ai - struggling - not revolt - not at_war
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_province_effect value = { struggling = yes } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = not value = { type = regiment_mobilized } }
+		condition = { type = not value = { type = owner	condition = { type = atwar  } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 7.5/240 months
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# looted province
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.75
+		}
+		# plague infested
+		modifier = {
+			condition = { type = or
+				condition = { type = has_province_effect value = { bubonic_plague = yes } }
+				condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+				condition = { type = has_province_effect value = { malaria = yes } }
+				condition = { type = has_province_effect value = { dysentery = yes } }
+				condition = { type = has_province_effect value = { small_pox = yes } }
+				condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			}
+			factor = 0.75
+		}		
+	}
+	action_a = {	# decrease peoples loyalty, ruler piety and 75% chance revolting
+		# loyalty decrease
+		effect = { type = peasant_loyalty value = -0.20 }
+		effect = { type = burgher_loyalty value = -0.15 }
+		effect = { type = clergy_loyalty value = -0.10 }
+		# piety decrease
+		effect = { type = ruler_piety value = -15 }
+		# revolt chance		
+		effect = { type = random chance = 75
+			effect = { type = add_province_effect value = revolt }
+			effect = { type = peasant_loyalty value = -0.20 }
+			effect = { type = burgher_loyalty value = -0.15 }
+			effect = { type = clergy_loyalty value = -0.10 }
+		}
+	}
+	action_b = {	# mantain status-quo paying gold
+		# gold decrease
+		effect = { type = ruler_gold scale = -0.25 }
+	}
+	action_c = {	# increase peoples loyalty, ruler piety and paying gold increase economy
+		# loyalty increase
+		effect = { type = peasant_loyalty value = +0.20 }
+		effect = { type = burgher_loyalty value = +0.15 }
+		effect = { type = clergy_loyalty value = +0.10 }
+		# piety increase
+		effect = { type = ruler_piety value = +15 }
+		# gold decrease 
+		effect = { type = ruler_gold scale = -1 }
+		# improve economy
+		effect = { type = prosperity value = +1 }
+	}
+}
+province_event = { 	# 19031 - Revolt chance - struggling provinces during wartime
+	id = 19031
+	picture = "event_battle2"
+	trigger = { 	# not ai - struggling - not revolt - at_war
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_province_effect value = { struggling = yes } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = regiment_mobilized }
+		condition = { type = owner condition = { type = atwar  } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 7.5/240 months
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# looted province
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.75
+		}
+		# plague infested
+		modifier = {
+			condition = { type = or
+				condition = { type = has_province_effect value = { bubonic_plague = yes } }
+				condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+				condition = { type = has_province_effect value = { malaria = yes } }
+				condition = { type = has_province_effect value = { dysentery = yes } }
+				condition = { type = has_province_effect value = { small_pox = yes } }
+				condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			}
+			factor = 0.75
+		}		
+	}
+	action_a = {	# decrease peoples loyalty, ruler piety and 75% chance revolting
+		# loyalty decrease
+		effect = { type = peasant_loyalty value = -0.20 }
+		effect = { type = burgher_loyalty value = -0.15 }
+		effect = { type = clergy_loyalty value = -0.10 }
+		# piety decrease
+		effect = { type = ruler_piety value = -20 }
+		# revolt chance		
+		effect = { type = random chance = 75
+			effect = { type = add_province_effect value = revolt }
+			effect = { type = peasant_loyalty value = -0.20 }
+			effect = { type = burgher_loyalty value = -0.15 }
+			effect = { type = clergy_loyalty value = -0.10 }
+		}
+	}
+	action_b = {	# mantain status-quo paying gold
+		# gold decrease
+		effect = { type = ruler_gold scale = -0.25 }
+	}
+	action_c = {	# increase peoples loyalty, ruler piety and paying gold increase economy
+		# loyalty increase
+		effect = { type = peasant_loyalty value = +0.20 }
+		effect = { type = burgher_loyalty value = +0.15 }
+		effect = { type = clergy_loyalty value = +0.10 }
+		# piety increase
+		effect = { type = ruler_piety value = +10 }
+		# gold decrease 
+		effect = { type = ruler_gold scale = -2 }
+		# improve economy
+		effect = { type = prosperity value = +1 }
+	}
+}
+#
+# THEME -> struggling and revolting provinces may lose buildings
+# --------------------------------------------------------------
+province_event = { 	# 19040 - Buildings - during peacetime people revolts against royal_post and court_of_justice
+	id = 19040
+	picture = "event_revolt2"
+	trigger = { 	# not ai - struggling - revolt - not at_war - royal_post and court_of_justice
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_province_effect value = { struggling = yes } }
+		condition = { type = has_province_effect value = { revolt = yes } }
+		condition = { type = not value = { type = regiment_mobilized } }
+		condition = { type = not value = { type = owner	condition = { type = atwar  } } }
+		condition = { type = has_improvement value = { royal_post = yes } }
+		condition = { type = has_improvement value = { court_of_justice = yes } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 7.5/240 months
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# looted province
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.75
+		}
+		# plague infested
+		modifier = {
+			condition = { type = or
+				condition = { type = has_province_effect value = { bubonic_plague = yes } }
+				condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+				condition = { type = has_province_effect value = { malaria = yes } }
+				condition = { type = has_province_effect value = { dysentery = yes } }
+				condition = { type = has_province_effect value = { small_pox = yes } }
+				condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			}
+			factor = 0.75
+		}		
+	}
+	action_a = {	# decrease peoples loyalty, ruler piety and destroy + 50% chance destroing
+		# loyalty decrease
+		effect = { type = peasant_loyalty value = -0.15 }
+		effect = { type = burgher_loyalty value = -0.10 }
+		# piety decrease
+		effect = { type = ruler_piety value = -15 }
+		# destroy court_of_justice		
+		effect = { type = remove_improvement value = court_of_justice }
+		# destroy chance		
+		effect = { type = random chance = 50
+			effect = { type = remove_improvement value = royal_post }
+		}
+	}
+	action_b = {	# mantain status-quo paying gold
+		# gold decrease
+		effect = { type = ruler_gold scale = -0.25 }
+	}
+	action_c = {	# increase peoples loyalty, ruler piety and paying gold ending revolt
+		# loyalty increase
+		effect = { type = peasant_loyalty value = +0.15 }
+		effect = { type = burgher_loyalty value = +0.10 }
+		# piety increase
+		effect = { type = ruler_piety value = +15 }
+		# gold decrease 
+		effect = { type = ruler_gold scale = -0.75 }
+		# stop revolt
+		effect = { type = remove_province_effect value = revolt }
+	}
+}
+province_event = { 	# 19041 - Buildings - during peacetime people revolts against grand_palace
+	id = 19041
+	picture = "event_revolt"
+	trigger = { 	# not ai - struggling - revolt - not at_war - grand_palace
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_province_effect value = { struggling = yes } }
+		condition = { type = has_province_effect value = { revolt = yes } }
+		condition = { type = not value = { type = regiment_mobilized } }
+		condition = { type = not value = { type = owner	condition = { type = atwar  } } }
+		condition = { type = has_improvement value = { grand_palace = yes } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 7.5/240 months
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# looted province
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.75
+		}
+		# plague infested
+		modifier = {
+			condition = { type = or
+				condition = { type = has_province_effect value = { bubonic_plague = yes } }
+				condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+				condition = { type = has_province_effect value = { malaria = yes } }
+				condition = { type = has_province_effect value = { dysentery = yes } }
+				condition = { type = has_province_effect value = { small_pox = yes } }
+				condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			}
+			factor = 0.75
+		}		
+	}
+	action_a = {	# decrease peoples loyalty, ruler piety and 75% chance destroing
+		# loyalty decrease
+		effect = { type = peasant_loyalty value = -0.15 }
+		effect = { type = burgher_loyalty value = -0.10 }
+		# piety decrease
+		effect = { type = ruler_piety value = -15 }
+		# destroy chance		
+		effect = { type = random chance = 75
+			effect = { type = remove_improvement value = grand_palace }
+		}
+	}
+	action_b = {	# mantain status-quo paying gold
+		# gold decrease
+		effect = { type = ruler_gold scale = -0.33 }
+	}
+	action_c = {	# increase peoples loyalty, ruler piety and paying gold ending revolt
+		# loyalty increase
+		effect = { type = peasant_loyalty value = +0.15 }
+		effect = { type = burgher_loyalty value = +0.10 }
+		# piety increase
+		effect = { type = ruler_piety value = +15 }
+		# gold decrease 
+		effect = { type = ruler_gold scale = -2 }
+		# stop revolt
+		effect = { type = remove_province_effect value = revolt }
+	}
+}
+province_event = { 	# 19042 - Buildings - during wartime people revolts against traininggrounds
+	id = 19042
+	picture = "event_revolt2"
+	trigger = { 	# not ai - struggling - revolt - at_war - traininggrounds - not waracademy
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_province_effect value = { struggling = yes } }
+		condition = { type = has_province_effect value = { revolt = yes } }
+		condition = { type = regiment_mobilized }
+		condition = { type = owner condition = { type = atwar  } }
+		condition = { type = has_improvement value = { traininggrounds = yes } }
+		condition = { type = not value = { type = has_improvement value = { waracademy = yes } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 7.5/240 months
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# looted province
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.75
+		}
+		# plague infested
+		modifier = {
+			condition = { type = or
+				condition = { type = has_province_effect value = { bubonic_plague = yes } }
+				condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+				condition = { type = has_province_effect value = { malaria = yes } }
+				condition = { type = has_province_effect value = { dysentery = yes } }
+				condition = { type = has_province_effect value = { small_pox = yes } }
+				condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			}
+			factor = 0.75
+		}		
+	}
+	action_a = {	# decrease peoples loyalty, ruler piety and 75% chance destroing
+		# loyalty decrease
+		effect = { type = peasant_loyalty value = -0.15 }
+		effect = { type = burgher_loyalty value = -0.10 }
+		# piety decrease
+		effect = { type = ruler_piety value = -15 }
+		# destroy chance		
+		effect = { type = random chance = 75
+			effect = { type = remove_improvement value = traininggrounds }
+		}
+	}
+	action_b = {	# mantain status-quo paying gold
+		# gold decrease
+		effect = { type = ruler_gold scale = -0.25 }
+	}
+	action_c = {	# increase peoples loyalty, ruler piety and paying gold ending revolt
+		# loyalty increase
+		effect = { type = peasant_loyalty value = +0.15 }
+		effect = { type = burgher_loyalty value = +0.10 }
+		# piety increase
+		effect = { type = ruler_piety value = +15 }
+		# gold decrease 
+		effect = { type = ruler_gold scale = -1 }
+		# stop revolt
+		effect = { type = remove_province_effect value = revolt }
+	}
+}
+province_event = { 	# 19043 - Buildings - during wartime people revolts against waracademy
+	id = 19043
+	picture = "event_revolt"
+	trigger = { 	# not ai - struggling - revolt - at_war - traininggrounds - waracademy
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_province_effect value = { struggling = yes } }
+		condition = { type = has_province_effect value = { revolt = yes } }
+		condition = { type = regiment_mobilized }
+		condition = { type = owner condition = { type = atwar  } }
+		condition = { type = has_improvement value = { traininggrounds = yes } }
+		condition = { type = has_improvement value = { waracademy = yes } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 7.5/240 months
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+		# looted province
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.75
+		}
+		# plague infested
+		modifier = {
+			condition = { type = or
+				condition = { type = has_province_effect value = { bubonic_plague = yes } }
+				condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+				condition = { type = has_province_effect value = { malaria = yes } }
+				condition = { type = has_province_effect value = { dysentery = yes } }
+				condition = { type = has_province_effect value = { small_pox = yes } }
+				condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			}
+			factor = 0.75
+		}		
+	}
+	action_a = {	# decrease peoples loyalty, ruler piety and destroy + 50% chance destroing
+		# loyalty decrease
+		effect = { type = peasant_loyalty value = -0.15 }
+		effect = { type = burgher_loyalty value = -0.10 }
+		# piety decrease
+		effect = { type = ruler_piety value = -15 }
+		# destroy waracademy		
+		effect = { type = remove_improvement value = waracademy }
+		# destroy chance		
+		effect = { type = random chance = 50
+			effect = { type = remove_improvement value = traininggrounds }
+		}
+	}
+	action_b = {	# mantain status-quo paying gold
+		# gold decrease
+		effect = { type = ruler_gold scale = -0.5 }
+	}
+	action_c = {	# increase peoples loyalty, ruler piety and paying gold ending revolt
+		# loyalty increase
+		effect = { type = peasant_loyalty value = +0.15 }
+		effect = { type = burgher_loyalty value = +0.10 }
+		# piety increase
+		effect = { type = ruler_piety value = +15 }
+		# gold decrease 
+		effect = { type = ruler_gold scale = -2 }
+		# stop revolt
+		effect = { type = remove_province_effect value = revolt }
+	}
+}
+#
+# THEME -> relations and consequences between people's power and gov laws
+# -----------------------------------------------------------------------
+province_event = {	# 19050 - Law and power - royal_preorgatory_law -> nobody over 33% --- noble
+	id = 19050
+	picture = "event_laws"
+	trigger = {		# not ai - royal_preorgatory_law - noble_power >= 33%  
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_law value = { royal_preorgatory_law = yes } }
+		condition = { type = noble_power value = 0.33  }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/180 months
+		months = 90
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+	}
+	action_a = {	# apply law -> decrease power and loyalty
+		effect = { type = noble_power value = -0.05 }
+		effect = { type = noble_loyalty value = -0.05 }
+	}
+	action_b = {	# not apply low -> decreasing prestige and increase loyalty
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = noble_loyalty value = +0.05 }		
+	}
+}
+province_event = {	# 19051 - Law and power - royal_preorgatory_law -> nobody over 33% --- clergy
+	id = 19051
+	picture = "event_laws"
+	trigger = {		# not ai - royal_preorgatory_law - clergy_power >= 33%  
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_law value = { royal_preorgatory_law = yes } }
+		condition = { type = clergy_power value = 0.33  }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/180 months
+		months = 90
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+	}
+	action_a = {	# apply law -> decrease power and loyalty
+		effect = { type = clergy_power value = -0.05 }
+		effect = { type = clergy_loyalty value = -0.05 }
+	}
+	action_b = {	# not apply low -> decreasing prestige and increase loyalty
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = clergy_loyalty value = +0.05 }		
+	}
+}
+province_event = {	# 19052 - Law and power - royal_preorgatory_law -> nobody over 33% --- burgher
+	id = 19052
+	picture = "event_laws"
+	trigger = {		# not ai - royal_preorgatory_law - burgher_power >= 33%  
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_law value = { royal_preorgatory_law = yes } }
+		condition = { type = burgher_power value = 0.33  }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/180 months
+		months = 90
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+	}
+	action_a = {	# apply law -> decrease power and loyalty
+		effect = { type = burgher_power value = -0.05 }
+		effect = { type = burgher_loyalty value = -0.05 }
+	}
+	action_b = {	# not apply low -> decreasing prestige and increase loyalty
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = burgher_loyalty value = +0.05 }		
+	}
+}
+province_event = {	# 19053 - Law and power - royal_preorgatory_law -> nobody over 33% --- peasant
+	id = 19053
+	picture = "event_laws"
+	trigger = {		# not ai - royal_preorgatory_law - peasant_power >= 33%  
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_law value = { royal_preorgatory_law = yes } }
+		condition = { type = peasant_power value = 0.33  }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/180 months
+		months = 90
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+	}
+	action_a = {	# apply law -> decrease power and loyalty
+		effect = { type = peasant_power value = -0.05 }
+		effect = { type = peasant_loyalty value = -0.05 }
+	}
+	action_b = {	# not apply low -> decreasing prestige and increase loyalty
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = peasant_loyalty value = +0.05 }		
+	}
+}
+province_event = {	# 19054 - Law and power - feudal_contract_law -> noble over 33% 
+	id = 19054
+	picture = "event_laws"
+	trigger = {		# not ai - feudal_contract_law - noble_power < 33%  
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_law value = { feudal_contract_law = yes } }
+		condition = { type = not value = { type = noble_power value = 0.33 } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/180 months
+		months = 90
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+	}
+	action_a = {	# apply law -> increase power and loyalty
+		effect = { type = noble_power value = +0.1 }
+		effect = { type = noble_loyalty value = +0.1 }
+	}
+	action_b = {	# not apply low -> decreasing prestige and loyalty
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = noble_loyalty value = -0.1 }		
+	}
+}
+province_event = {	# 19055 - Law and power - traditional_custom_law -> all over 20% --- noble
+	id = 19055
+	picture = "event_laws"
+	trigger = {		# not ai - traditional_custom_law - noble_power < 20%  
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_law value = { traditional_custom_law = yes } }
+		condition = { type = not value = { type = noble_power value = 0.2 } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/180 months
+		months = 90
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+	}
+	action_a = {	# apply law -> increase power and loyalty
+		effect = { type = noble_power value = +0.05 }
+		effect = { type = noble_loyalty value = +0.05 }
+	}
+	action_b = {	# not apply low -> decreasing prestige and loyalty
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = noble_loyalty value = -0.05 }		
+	}
+}
+province_event = {	# 19056 - Law and power - traditional_custom_law -> all over 20% --- clergy
+	id = 19056
+	picture = "event_laws"
+	trigger = {		# not ai - traditional_custom_law - clergy_power < 20%  
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_law value = { traditional_custom_law = yes } }
+		condition = { type = not value = { type = clergy_power value = 0.2 } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/180 months
+		months = 90
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+	}
+	action_a = {	# apply law -> increase power and loyalty
+		effect = { type = clergy_power value = +0.05 }
+		effect = { type = clergy_loyalty value = +0.05 }
+	}
+	action_b = {	# not apply low -> decreasing prestige
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = clergy_loyalty value = -0.05 }		
+	}
+}
+province_event = {	# 19057 - Law and power - traditional_custom_law -> all over 20% --- burgher
+	id = 19057
+	picture = "event_laws"
+	trigger = {		# not ai - traditional_custom_law - burgher_power < 20%  
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_law value = { traditional_custom_law = yes } }
+		condition = { type = not value = { type = burgher_power value = 0.2 } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/180 months
+		months = 90
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+	}
+	action_a = {	# apply law -> increase power and loyalty
+		effect = { type = burgher_power value = +0.05 }
+		effect = { type = burgher_loyalty value = +0.05 }
+	}
+	action_b = {	# not apply low -> decreasing prestige and loyalty
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = burgher_loyalty value = -0.05 }		
+	}
+}
+province_event = {	# 19058 - Law and power - traditional_custom_law -> all over 20% --- peasant
+	id = 19058
+	picture = "event_laws"
+	trigger = {		# not ai - traditional_custom_law - peasant_power < 20%  
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_law value = { traditional_custom_law = yes } }
+		condition = { type = not value = { type = peasant_power value = 0.2 } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/180 months
+		months = 90
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+	}
+	action_a = {	# apply law -> increase power and loyalty
+		effect = { type = peasant_power value = +0.05 }
+		effect = { type = peasant_loyalty value = +0.05 }
+	}
+	action_b = {	# not apply low -> decreasing prestige and loyalty
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = peasant_loyalty value = -0.05 }		
+	}
+}
+province_event = {	# 19059 - Law and power - popular_law -> burgher over 33% 
+	id = 19059
+	picture = "event_laws"
+	trigger = {		# not ai - popular_law - burgher_power < 33%  
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_law value = { popular_law = yes } }
+		condition = { type = not value = { type = burgher_power value = 0.33 } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/180 months
+		months = 90
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+	}
+	action_a = {	# apply law -> increase power and loyalty
+		effect = { type = burgher_power value = +0.1 }
+		effect = { type = burgher_loyalty value = +0.1 }
+	}
+	action_b = {	# not apply low -> decreasing prestige and loyalty
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = burgher_loyalty value = -0.1 }		
+	}
+}
+province_event = {	# 19060 - Law and power - popular_law -> peasant over 33% 
+	id = 19060
+	picture = "event_laws"
+	trigger = {		# not ai - popular_law - peasant_power < 33%  
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_law value = { popular_law = yes } }
+		condition = { type = not value = { type = peasant_power value = 0.33 } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 10/180 months
+		months = 90
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# owner title
+		modifier = {
+			condition = { type = owner
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = county } }
+			factor = 2
+		}
+		# owner efficiency
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 1.0 } } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.66 } } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = efficiency value = 0.33 } } }
+			factor = 0.3
+		}
+	}
+	action_a = {	# apply law -> increase power and loyalty
+		effect = { type = peasant_power value = +0.1 }
+		effect = { type = peasant_loyalty value = +0.1 }
+	}
+	action_b = {	# not apply low -> decreasing prestige and loyalty
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = peasant_loyalty value = -0.1 }		
+	}
+}
+#
+# THEME -> culture's event
+# ------------------------
+province_event = {	# 19100 - Culture change - set capital culture to the ruler ones  
+	id = 19100
+	picture = "event_castle"
+	trigger = {		# trigger for human ruler not vassal with same_religion
+		condition = { type = not value = { type = ai } }
+		condition = { type = capital value = yes }
+		condition = { type = owner
+			condition = { type = not value = { type = is_vassal } } 		
+			condition = { type = not value = { type = command } }
+		}
+		condition = { type = not value = { type = same_culture } }
+		condition = { type = same_religion }		
+	}
+	mean_time_to_happen = { # modifier range (min/max) -> 21/3000 months
+		months = 300
+		# laws
+		modifier = {
+			condition = { type = has_law value = {  royal_preorgatory_law = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_law value = {  traditional_custom_law = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_law value = {  popular_law = yes } }
+			factor = 1.5
+		}		
+		# ruler's traits
+		modifier = {
+			condition = { type = trait value = merciful }
+			factor = 1.75
+		}
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 0.75
+		}		
+		# capital's status
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 1.3
+		}		
+	}
+	action_a = {	# bloody way's change
+		effect = { type = set_to_realm_culture }
+		effect = { type = ruler_piety value = -500 }
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = peasant_loyalty value = -0.3 }
+		effect = { type = add_province_effect value = looted }
+		effect = { type = prosperity value = -4 }
+		effect = { type = remove_improvement value = court_of_justice }		
+	}
+	action_b = {	# gold way's change
+		effect = { type = set_to_realm_culture }
+		effect = { type = ruler_gold value = -5000 }
+		effect = { type = noble_loyalty value = +0.2 }
+		effect = { type = noble_power value = +0.1 }
+		effect = { type = prosperity value = -1 }
+	}
+	action_c = {	# no change
+		effect = { type = ruler_prestige value = 15 }	
+		effect = { type = ruler_piety value = 15 }
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

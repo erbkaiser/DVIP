@@ -1,0 +1,546 @@
+# Makes AI demobilize during peace times
+
+character_event = {
+	id = 9500
+
+	picture = "event_agriculture"
+	
+	trigger = {
+		condition = { type = ai }
+		condition = { type = ruler }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = culture value = mongol } }
+		condition = { type = not value = { type = any_demesne_province condition = { type = is_besieged } } }
+		condition = { type = or
+			condition = { type = any_demesne_province
+				condition = { type = regiment_mobilized }
+			}	
+			condition = { type = any_vassal
+				condition = { type = any_demesne_province
+					condition = { type = regiment_mobilized }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+	
+	immidiate = {
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }		
+	}
+}
+
+character_event = {
+	id = 9510
+	
+	picture = "event_templars"
+
+	trigger = { 
+		condition = { type = title value = TEMP }
+		condition = { type = ruler }
+		condition = { type = atwar }
+		condition = { type = not value = { type = has_law value = { church_supremacy = yes } } }
+		condition = { type = religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	action_a = {
+		effect = { type = add_regiment
+				tech_prov = 333
+				culture = frankish
+				mercenaries = yes
+				strength = {
+					heavy_cav = 1000
+					light_cav = 1500
+					heavy_inf = 1000
+					archers = 1500
+				}
+		}
+		effect = { type = set_law value = church_supremacy }
+	}
+}
+
+character_event = {
+	id = 9511
+	
+	picture = "event_templars"
+
+	trigger = { 
+		condition = { type = or
+			condition = { type = title value = TEUT }
+			condition = { type = title value = U001 }
+		}
+		condition = { type = ruler }
+		condition = { type = atwar }
+		condition = { type = not value = { type = has_law value = { church_supremacy = yes } } }
+		condition = { type = religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	action_a = {
+		effect = { type = add_regiment
+				tech_prov = 263
+				culture = german
+				mercenaries = yes
+				strength = {
+					heavy_cav = 1000
+					light_cav = 1500
+					heavy_inf = 1000
+					archers = 1500
+				}
+		}
+		effect = { type = set_law value = church_supremacy }
+	}
+}
+
+character_event = {
+	id = 9512
+	
+	picture = "event_templars"
+
+	trigger = { 
+		condition = { type = title value = HOSP }
+		condition = { type = ruler }
+		condition = { type = atwar }
+		condition = { type = not value = { type = has_law value = { church_supremacy = yes } } }
+		condition = { type = religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	action_a = {
+		effect = { type = add_regiment
+				tech_prov = 112
+				culture = frankish
+				mercenaries = yes
+				strength = {
+					heavy_cav = 1000
+					light_cav = 1500
+					heavy_inf = 1000
+					archers = 1500
+				}
+		}
+		effect = { type = set_law value = church_supremacy }
+	}
+}
+
+
+character_event = {
+	id = 9513
+	
+	picture = "event_templars"
+
+	trigger = { 
+		condition = { type = or
+			condition = { type = title value = TEUT }
+			condition = { type = title value = TEMP }
+			condition = { type = title value = HOSP }
+			condition = { type = title value = U000 }
+			condition = { type = title value = U001 }
+		}
+		condition = { type = ruler }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = has_law value = { ecclesical_balance = yes } } }
+		condition = { type = religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	action_a = {
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = set_law value = ecclesical_balance }
+	}
+}
+
+character_event = {
+	id = 9514
+	
+	picture = "event_battle"
+
+	trigger = { 
+		condition = { type = title value = TEMP }
+		condition = { type = ruler }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = religion value = catholic }
+		condition = { type = any_neighbour
+			condition = { type = or 
+				condition = { type = religion value = pagan }
+				condition = { type = religion value = muslim }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	action_a = {
+		ai_chance = 90
+		effect = { type = trigger for = this value = 9510 }
+		effect = { type = prestige value = 10 }
+		effect = { type = piety value = 10 }
+		effect = { type = declare_war value = load_target }
+	}
+	action_b = {
+		ai_chance = 10
+		effect = { type = prestige value = -25 }
+	}
+}
+
+character_event = {
+	id = 9515
+	
+	picture = "event_battle"
+
+	trigger = { 
+		condition = { type = or
+			condition = { type = title value = TEUT }
+			condition = { type = title value = U001 }
+		}
+		condition = { type = ruler }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = religion value = catholic }
+		condition = { type = any_neighbour
+			condition = { type = or 
+				condition = { type = religion value = pagan }
+				condition = { type = religion value = muslim }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	action_a = {
+		ai_chance = 90
+		effect = { type = trigger for = this value = 9511 }
+		effect = { type = prestige value = 10 }
+		effect = { type = piety value = 10 }
+		effect = { type = declare_war value = load_target }
+	}
+	action_b = {
+		ai_chance = 10
+		effect = { type = prestige value = -25 }
+	}
+}
+
+character_event = {
+	id = 9516
+	
+	picture = "event_battle"
+
+	trigger = { 
+		condition = { type = title value = HOSP }
+		condition = { type = ruler }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = religion value = catholic }
+		condition = { type = any_neighbour
+			condition = { type = or 
+				condition = { type = religion value = pagan }
+				condition = { type = religion value = muslim }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	action_a = {
+		ai_chance = 90
+		effect = { type = trigger for = this value = 9512 }
+		effect = { type = prestige value = 10 }
+		effect = { type = piety value = 10 }
+		effect = { type = declare_war value = load_target }
+	}
+	action_b = {
+		ai_chance = 10
+		effect = { type = prestige value = -25 }
+	}
+}
+
+character_event = {
+	id = 9517
+	
+	picture = "event_templars"
+
+	trigger = { 
+		condition = { type = title value = U000 }
+		condition = { type = ruler }
+		condition = { type = atwar }
+		condition = { type = not value = { type = has_law value = { church_supremacy = yes } } }
+		condition = { type = religion value = catholic }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	action_a = {
+		effect = { type = add_regiment
+				tech_prov = 199
+				culture = castillan
+				mercenaries = yes
+				strength = {
+					heavy_cav = 1000
+					light_cav = 1500
+					heavy_inf = 1000
+					archers = 1500
+				}
+		}
+		effect = { type = set_law value = church_supremacy }
+	}
+}
+
+character_event = {
+	id = 9518
+	
+	picture = "event_battle"
+
+	trigger = { 
+		condition = { type = title value = U000 }
+		condition = { type = ruler }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = religion value = catholic }
+		condition = { type = any_neighbour
+			condition = { type = or 
+				condition = { type = religion value = pagan }
+				condition = { type = religion value = muslim }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	action_a = {
+		ai_chance = 90
+		effect = { type = trigger for = this value = 9510 }
+		effect = { type = prestige value = 10 }
+		effect = { type = piety value = 10 }
+		effect = { type = declare_war value = load_target }
+	}
+	action_b = {
+		ai_chance = 10
+		effect = { type = prestige value = -25 }
+	}
+}
+
+###################################### 
+# Countering CKDV's crazy ass skills # 
+######################################
+
+character_event = { #Martial
+   id = 9530 
+
+   picture = "event_education" 
+
+   trigger = { 
+      condition = { type = age value = 12 } 
+      condition = { type = not value = { type = age value = 16 } } 
+	  condition = { type = or
+		condition = { type = martial value = 10 }
+		condition = { type = and
+			condition = { type = martial value = 8 }
+			condition = { type = diplomacy value = 8 }
+		}
+		condition = { type = and
+			condition = { type = martial value = 8 }
+			condition = { type = intrigue value = 8 }
+		}
+		condition = { type = and
+			condition = { type = martial value = 8 }
+			condition = { type = stewardship value = 8 }
+		}
+	  }
+   } 
+
+   mean_time_to_happen = { 
+      months = 18 
+   } 
+
+   immidiate = { 
+      effect = { type = random_list 
+		 10 = { type = no_effect }
+         25 = { type = martial value = -1 } 
+         20 = { type = martial value = -2 } 
+         18 = { type = martial value = -3 }  
+         17 = { type = martial value = -4 } 
+         10 = { type = martial value = -5 } 
+      } 
+   } 
+}
+
+character_event = { #Diplomacy
+   id = 9531 
+
+   picture = "event_education" 
+
+   trigger = { 
+      condition = { type = age value = 12 } 
+      condition = { type = not value = { type = age value = 16 } } 
+	  condition = { type = or
+		condition = { type = diplomacy value = 10 }
+		condition = { type = and
+			condition = { type = diplomacy value = 8 }
+			condition = { type = martial value = 8 }
+		}
+		condition = { type = and
+			condition = { type = diplomacy value = 8 }
+			condition = { type = intrigue value = 8 }
+		}
+		condition = { type = and
+			condition = { type = diplomacy value = 8 }
+			condition = { type = stewardship value = 8 }
+		}
+	  }
+   } 
+
+   mean_time_to_happen = { 
+      months = 18 
+   } 
+
+   immidiate = { 
+      effect = { type = random_list 
+		 10 = { type = no_effect }
+         25 = { type = diplomacy value = -1 } 
+         20 = { type = diplomacy value = -2 } 
+         18 = { type = diplomacy value = -3 }  
+         17 = { type = diplomacy value = -4 } 
+         10 = { type = diplomacy value = -5 } 
+      } 
+   } 
+}
+
+character_event = { #Intrigue
+   id = 9532 
+
+   picture = "event_education" 
+
+   trigger = { 
+      condition = { type = age value = 12 } 
+      condition = { type = not value = { type = age value = 16 } } 
+	  condition = { type = or
+		condition = { type = intrigue value = 10 }
+		condition = { type = and
+			condition = { type = intrigue value = 8 }
+			condition = { type = martial value = 8 }
+		}
+		condition = { type = and
+			condition = { type = intrigue value = 8 }
+			condition = { type = diplomacy value = 8 }
+		}
+		condition = { type = and
+			condition = { type = intrigue value = 8 }
+			condition = { type = stewardship value = 8 }
+		}
+	  }
+   } 
+
+   mean_time_to_happen = { 
+      months = 18 
+   } 
+
+   immidiate = { 
+      effect = { type = random_list 
+		 10 = { type = no_effect }
+         25 = { type = intrigue value = -1 } 
+         20 = { type = intrigue value = -2 } 
+         18 = { type = intrigue value = -3 }  
+         17 = { type = intrigue value = -4 } 
+         10 = { type = intrigue value = -5 } 
+      } 
+   } 
+}
+
+character_event = { #Stewardship
+   id = 9533 
+
+   picture = "event_education" 
+
+   trigger = { 
+      condition = { type = age value = 12 } 
+      condition = { type = not value = { type = age value = 16 } } 
+	  condition = { type = or
+		condition = { type = stewardship value = 10 }
+		condition = { type = and
+			condition = { type = stewardship value = 8 }
+			condition = { type = martial value = 8 }
+		}
+		condition = { type = and
+			condition = { type = stewardship value = 8 }
+			condition = { type = diplomacy value = 8 }
+		}
+		condition = { type = and
+			condition = { type = stewardship value = 8 }
+			condition = { type = intrigue value = 8 }
+		}
+	  }
+   } 
+
+   mean_time_to_happen = { 
+      months = 18 
+   } 
+
+   immidiate = { 
+      effect = { type = random_list 
+		 10 = { type = no_effect }
+         25 = { type = stewardship value = -1 } 
+         20 = { type = stewardship value = -2 } 
+         18 = { type = stewardship value = -3 }  
+         17 = { type = stewardship value = -4 } 
+         10 = { type = stewardship value = -5 } 
+      } 
+   } 
+}

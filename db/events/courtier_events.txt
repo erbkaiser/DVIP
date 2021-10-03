@@ -1,0 +1,5471 @@
+#####################################
+#    Courtier events: 7300-7399     #
+#                                   #
+# Thomas Corriol & Marcin Bartnicki #
+#####################################
+
+# These are fairly "generic" courtier events,
+# specific courtiers events (marshall events, steward events, etc...),
+# depending on traits and situations, are in separate files
+
+##########################
+# Old courtiers retiring #
+##########################
+
+# Health:
+
+character_event = {
+	id = 7300
+	
+	picture = "event_intrigue"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = ruler_child } }
+		condition = { type = age value = 45 }
+		condition = { type = not value = { type = health value = 3 } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = age value = 55 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = { type = age value = 65 }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = age value = 70 }
+			factor = 0.1
+		}
+
+		# loyalty modifiers:
+
+		modifier = {
+			condition = { type = loyalty value = 0.3 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = loyalty value = 0.6 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = loyalty value = 0.9 }
+			factor = 3
+		}
+	}
+
+	immidiate = {#Courtier retire due to poor health !
+		effect = { type = death }
+		}
+
+}
+
+# Piety:
+
+character_event = {
+	id = 7301
+	
+	picture = "event_religion"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = ruler_child } }
+		condition = { type = age value = 45 }
+		condition = { type = piety value = 25 }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = age value = 55 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = { type = age value = 65 }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = age value = 70 }
+			factor = 0.1
+		}
+
+		# loyalty modifiers:
+
+		modifier = {
+			condition = { type = loyalty value = 0.3 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = loyalty value = 0.6 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = loyalty value = 0.9 }
+			factor = 3
+		}
+	}
+
+	immidiate = {#Courtier retire in a monastery !
+		effect = { type = death }
+		}
+
+}
+
+##########################################
+# Disloyal courtiers swapping allegiance #
+##########################################
+
+# Prestigious courtier:
+
+character_event = {
+	id = 7302
+	
+	picture = "event_intrigue"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = or 
+			condition = { type = not value = { type = is_married } }
+			condition = { type = gender value = male }
+			}
+		condition = { type = prestige value = 25 }
+		condition = { type = not value = { type = loyalty value = 0.5 } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		# loyalty modifiers:
+
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.4 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.2 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_friend } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_rival } }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {#A prestigious Courtier leave our court !
+		effect = { type = trigger for = ruler value = 7303 }
+		effect = { type = courtier_defect value = best_neighbor }
+		effect = { type = loyalty value = 1.0 }
+		}
+
+}
+
+character_event = {
+	id = 7303 
+
+	picture = "event_intrigue"
+
+	immidiate = {#Curse
+		effect = { type = prestige value = -25 }
+	}
+}
+
+# Non Prestigious courtier:
+
+character_event = {
+	id = 7304
+	
+	picture = "event_intrigue"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = or 
+			condition = { type = not value = { type = is_married } }
+			condition = { type = gender value = male }
+			}
+		condition = { type = not value = { type = prestige value = 25 } }
+		condition = { type = not value = { type = loyalty value = 0.4 } }
+		condition = { type = age value = 16 }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		# loyalty modifiers:
+
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.2 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_friend } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = liege condition = { type = is_rival } }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {#Courtier leave our court !
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty value = 1.0 }
+		}
+
+}
+
+###########
+# Special #
+###########
+
+# These two events are used for all the events below
+
+character_event = {
+	id = 7305 
+
+	picture = "event_moneycollection"
+
+	immidiate = {#Reward your courtier generously
+		effect = { type = gold scale = -0.1 }
+	}
+}
+character_event = {
+	id = 73051 
+
+	picture = "event_moneycollection"
+
+	immidiate = {#Reward your courtier generously
+		effect = { type = gold scale = -100 }
+	}
+}
+
+character_event = {
+	id = 7306 
+
+	picture = "event_moneycollection"
+
+	immidiate = {#Give your courtier his due
+		effect = { type = gold scale = -0.05 }
+	}
+}
+
+
+##########################
+# Marshal generic events #
+##########################
+
+# Is Marshal and not in marshal position
+
+character_event = {
+	id = 7307
+
+	picture = "event_default"
+
+	trigger = {
+		condition = { type = ai }
+		condition = { type = age value = 16 }
+		condition = { type = gender value = male }
+		condition = { type = not value = { type = marshal } }
+		condition = { type = not value = { type = steward } }
+		condition = { type = not value = { type = chancellor } }
+		condition = { type = not value = { type = spymaster } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = martial value = 1 }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = ruler_csc condition = { type = religion value = catholic } }
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = ruler_csc condition = { type = religion value = orthodox } }
+			}
+			condition = { type = and
+				condition = { type = religion value = moslem }
+				condition = { type = ruler_csc condition = { type = religion value = moslem } }
+			}
+			condition = { type = and
+				condition = { type = religion value = pagan }
+				condition = { type = ruler_csc condition = { type = religion value = pagan } }
+			}
+		}
+		condition = { type = or
+			condition = { type = not value = { type = marshal_csc condition = { type = marshal } } }
+			condition = { type = and
+				condition = { type = martial value = 7 }
+				condition = { type = not value = { type = martial value = 8 } }
+				condition = { type = not value = { type = marshal_csc condition = { type = martial value = 7 } } }
+			}
+			condition = { type = and
+				condition = { type = martial value = 8 }
+				condition = { type = not value = { type = martial value = 9 } }
+				condition = { type = not value = { type = marshal_csc condition = { type = martial value = 8 } } }
+			}
+			condition = { type = and
+				condition = { type = martial value = 9 }
+				condition = { type = not value = { type = martial value = 10 } }
+				condition = { type = not value = { type = marshal_csc condition = { type = martial value = 9 } } }
+			}
+			condition = { type = and
+				condition = { type = martial value = 10 }
+				condition = { type = not value = { type = martial value = 11 } }
+				condition = { type = not value = { type = marshal_csc condition = { type = martial value = 10 } } }
+			}
+			condition = { type = and
+				condition = { type = martial value = 11 }
+				condition = { type = not value = { type = martial value = 12 } }
+				condition = { type = not value = { type = marshal_csc condition = { type = martial value = 11 } } }
+			}
+			condition = { type = and
+				condition = { type = martial value = 12 }
+				condition = { type = not value = { type = martial value = 13 } }
+				condition = { type = not value = { type = marshal_csc condition = { type = martial value = 12 } } }
+			}
+			condition = { type = and
+				condition = { type = martial value = 13 }
+				condition = { type = not value = { type = martial value = 14 } }
+				condition = { type = not value = { type = marshal_csc condition = { type = martial value = 13 } } }
+			}
+			condition = { type = and
+				condition = { type = martial value = 14 }
+				condition = { type = not value = { type = martial value = 15 } }
+				condition = { type = not value = { type = marshal_csc condition = { type = martial value = 14 } } }
+			}
+			condition = { type = and
+				condition = { type = martial value = 15 }
+				condition = { type = not value = { type = marshal_csc condition = { type = martial value = 15 } } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	immidiate = {
+		effect = { type = marshal }
+	}
+}
+
+# Is Marshal and in marshal position
+
+character_event = {
+	id = 7308
+	
+	picture = "event_marshal"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = marshal }
+		condition = { type = or 
+			condition = { type = trait value = misguided_warrior }
+			condition = { type = trait value = tough_soldier }
+			condition = { type = trait value = knowledged_tactician }
+			condition = { type = trait value = brilliant_strategist }
+			condition = { type = trait value = martial_cleric }
+			}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+	}
+
+	immidiate = {#Courtier earn respect and prestige with his/her position
+		effect = { type = prestige value = 50 }
+		effect = { type = loyalty value = 0.25 }
+		}
+
+}
+
+# Is not Marshal and in marshal position
+
+character_event = {
+	id = 7309
+	
+	picture = "event_marshal"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = marshal }
+		condition = { type = not value = { type = trait value = misguided_warrior } }
+		condition = { type = not value = { type = trait value = tough_soldier } }
+		condition = { type = not value = { type = trait value = knowledged_tactician } }
+		condition = { type = not value = { type = trait value = brilliant_strategist } }
+		condition = { type = not value = { type = trait value = martial_cleric } }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+	}
+
+	immidiate = {#Courtier dislike his/her position
+		effect = { type = prestige value = 20 }
+		}
+
+}
+
+# Is Marshal and prestigious
+
+character_event = {
+	id = 7310
+	
+	picture = "event_marshal"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = marshal }
+		condition = { type = prestige value = 25 }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = valourous }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.2
+		}
+
+		# Background trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 0.5
+		}
+
+	}
+
+	action_a = {#Reward him generously
+		effect = { type = trigger for = ruler value = 7305 }
+		effect = { type = loyalty value = 0.2 }
+		effect = { type = prestige value = 25 }
+		effect = { type = gold scale = 0.1 }
+	}
+
+	action_b = {#Give him is due
+		effect = { type = trigger for = ruler value = 7306 }
+		effect = { type = loyalty value = -0.1 }
+		effect = { type = gold scale = 0.05 }
+	}
+
+	action_c = {#Rebuff his demand
+		effect = { type = loyalty value = -0.33 }
+		effect = { type = random
+				chance = 33
+				effect = { type =  trigger for = marshal value = 7302 }
+		}
+	}
+}
+
+##########################
+# Steward generic events #
+##########################
+
+# Is Steward and not in Steward position
+
+character_event = {
+	id = 7311
+
+	picture = "event_default"
+
+	trigger = {
+		condition = { type = ai }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = marshal } }
+		condition = { type = not value = { type = steward } }
+		condition = { type = not value = { type = chancellor } }
+		condition = { type = not value = { type = spymaster } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = stewardship value = 1 }
+		condition = { type = not value = { type = ruler_csc condition = { type = is_rival } } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = ruler_csc condition = { type = religion value = catholic } }
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = ruler_csc condition = { type = religion value = orthodox } }
+			}
+			condition = { type = and
+				condition = { type = religion value = moslem }
+				condition = { type = ruler_csc condition = { type = religion value = moslem } }
+			}
+			condition = { type = and
+				condition = { type = religion value = pagan }
+				condition = { type = ruler_csc condition = { type = religion value = pagan } }
+			}
+		}
+		condition = { type = or
+			condition = { type = not value = { type = steward_csc condition = { type = steward } } }
+			condition = { type = and
+				condition = { type = stewardship value = 7 }
+				condition = { type = not value = { type = stewardship value = 8 } }
+				condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 7 } } }
+			}
+			condition = { type = and
+				condition = { type = stewardship value = 8 }
+				condition = { type = not value = { type = stewardship value = 9 } }
+				condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 8 } } }
+			}
+			condition = { type = and
+				condition = { type = stewardship value = 9 }
+				condition = { type = not value = { type = stewardship value = 10 } }
+				condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 9 } } }
+			}
+			condition = { type = and
+				condition = { type = stewardship value = 10 }
+				condition = { type = not value = { type = stewardship value = 11 } }
+				condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 10 } } }
+			}
+			condition = { type = and
+				condition = { type = stewardship value = 11 }
+				condition = { type = not value = { type = stewardship value = 12 } }
+				condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 11 } } }
+			}
+			condition = { type = and
+				condition = { type = stewardship value = 12 }
+				condition = { type = not value = { type = stewardship value = 13 } }
+				condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 12 } } }
+			}
+			condition = { type = and
+				condition = { type = stewardship value = 13 }
+				condition = { type = not value = { type = stewardship value = 14 } }
+				condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 13 } } }
+			}
+			condition = { type = and
+				condition = { type = stewardship value = 14 }
+				condition = { type = not value = { type = stewardship value = 15 } }
+				condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 14 } } }
+			}
+			condition = { type = and
+				condition = { type = stewardship value = 15 }
+				condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 15 } } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	immidiate = {
+		effect = { type = steward }
+	}
+}
+
+# Is Steward and in steward position
+
+character_event = {
+	id = 7312
+	
+	picture = "event_steward"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = steward }
+		condition = { type = or 
+			condition = { type = trait value = hole_in_the_pocket }
+			condition = { type = trait value = proven_accountant }
+			condition = { type = trait value = fortune_builder }
+			condition = { type = trait value = midas_touched }
+			condition = { type = trait value = scholarly_theologian }
+			condition = { type = trait value = mastermind_theologian }
+			}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+	}
+
+	immidiate = {#Courtier earn respect and prestige with his/her position
+		effect = { type = prestige value = 50 }
+		effect = { type = loyalty value = 0.25 }
+		}
+
+}
+
+# Is not Steward and in steward position
+
+character_event = {
+	id = 7313
+	
+	picture = "event_steward"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = steward }
+		condition = { type = not value = { type = trait value = hole_in_the_pocket } }
+		condition = { type = not value = { type = trait value = proven_accountant } }
+		condition = { type = not value = { type = trait value = fortune_builder } }
+		condition = { type = not value = { type = trait value = midas_touched } }
+		condition = { type = not value = { type = trait value = scholarly_theologian } }
+		condition = { type = not value = { type = trait value = mastermind_theologian } }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+	}
+
+	immidiate = {#Courtier dislike his/her position
+		effect = { type = prestige value = 20 }
+		}
+
+}
+
+# Is Steward and prestigious
+
+character_event = {
+	id = 7314
+	
+	picture = "event_steward"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = steward }
+		condition = { type = prestige value = 25 }
+		condition = { type = or 
+			condition = { type = not value = { type = is_married } }
+			condition = { type = gender value = male }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 1.2
+		}
+
+		# Background trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = hole_in_the_pocket }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = proven_accountant }
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = { type = trait value = fortune_builder }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = trait value = midas_touched }
+			factor = 0.5
+		}
+
+	}
+
+	action_a = {#Reward him generously
+		effect = { type = trigger for = ruler value = 7305 }
+		effect = { type = loyalty value = 0.2 }
+		effect = { type = prestige value = 25 }
+		effect = { type = gold scale = 0.1 }
+	}
+
+	action_b = {#Give him is due
+		effect = { type = trigger for = ruler value = 7306 }
+		effect = { type = loyalty value = -0.1 }
+		effect = { type = gold scale = 0.05 }
+	}
+
+
+	action_c = {#Rebuff his demand
+		effect = { type = loyalty value = -0.33 }
+		effect = { type = random
+				chance = 33
+				effect = { type =  trigger for = steward value = 7302 }
+		}
+	}
+}
+
+#############################
+# chancellor generic events #
+#############################
+
+# Is chancellor and not in chancellor position
+
+character_event = {
+	id = 7315
+
+	picture = "event_default"
+
+	trigger = {
+		condition = { type = ai }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = marshal } }
+		condition = { type = not value = { type = steward } }
+		condition = { type = not value = { type = chancellor } }
+		condition = { type = not value = { type = spymaster } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = diplomacy value = 1 }
+		condition = { type = not value = { type = ruler_csc condition = { type = is_rival } } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = ruler_csc condition = { type = religion value = catholic } }
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = ruler_csc condition = { type = religion value = orthodox } }
+			}
+			condition = { type = and
+				condition = { type = religion value = moslem }
+				condition = { type = ruler_csc condition = { type = religion value = moslem } }
+			}
+			condition = { type = and
+				condition = { type = religion value = pagan }
+				condition = { type = ruler_csc condition = { type = religion value = pagan } }
+			}
+		}
+		condition = { type = or
+			condition = { type = not value = { type = chancellor_csc condition = { type = chancellor } } }
+			condition = { type = and
+				condition = { type = diplomacy value = 7 }
+				condition = { type = not value = { type = diplomacy value = 8 } }
+				condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 7 } } }
+			}
+			condition = { type = and
+				condition = { type = diplomacy value = 8 }
+				condition = { type = not value = { type = diplomacy value = 9 } }
+				condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 8 } } }
+			}
+			condition = { type = and
+				condition = { type = diplomacy value = 9 }
+				condition = { type = not value = { type = diplomacy value = 10 } }
+				condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 9 } } }
+			}
+			condition = { type = and
+				condition = { type = diplomacy value = 10 }
+				condition = { type = not value = { type = diplomacy value = 11 } }
+				condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 10 } } }
+			}
+			condition = { type = and
+				condition = { type = diplomacy value = 11 }
+				condition = { type = not value = { type = diplomacy value = 12 } }
+				condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 11 } } }
+			}
+			condition = { type = and
+				condition = { type = diplomacy value = 12 }
+				condition = { type = not value = { type = diplomacy value = 13 } }
+				condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 12 } } }
+			}
+			condition = { type = and
+				condition = { type = diplomacy value = 13 }
+				condition = { type = not value = { type = diplomacy value = 14 } }
+				condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 13 } } }
+			}
+			condition = { type = and
+				condition = { type = diplomacy value = 14 }
+				condition = { type = not value = { type = diplomacy value = 15 } }
+				condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 14 } } }
+			}
+			condition = { type = and
+				condition = { type = diplomacy value = 15 }
+				condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 15 } } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	immidiate = {
+		effect = { type = chancellor }
+	}
+}
+
+# Is Chancellor and in chancellor position
+
+character_event = {
+	id = 7316
+	
+	picture = "event_chancellor"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = chancellor }
+		condition = { type = or 
+			condition = { type = trait value = amateurish_pettifogger }
+			condition = { type = trait value = proven_dealbreaker }
+			condition = { type = trait value = charismatic_negotiator }
+			condition = { type = trait value = grey_eminence }
+			condition = { type = trait value = martial_cleric }
+			condition = { type = trait value = scholarly_theologian }
+			condition = { type = trait value = mastermind_theologian }
+			}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+	}
+
+	immidiate = {#Courtier earn respect and prestige with his/her position
+		effect = { type = prestige value = 50 }
+		effect = { type = loyalty value = 0.25 }
+		}
+
+}
+
+# Is not Chancellor and in chancellor position
+
+character_event = {
+	id = 7317
+	
+	picture = "event_chancellor"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = chancellor }
+		condition = { type = not value = { type = trait value = amateurish_pettifogger } }
+		condition = { type = not value = { type = trait value = proven_dealbreaker } }
+		condition = { type = not value = { type = trait value = charismatic_negotiator } }
+		condition = { type = not value = { type = trait value = grey_eminence } }
+		condition = { type = not value = { type = trait value = detached_priest } }
+		condition = { type = not value = { type = trait value = martial_cleric } }
+		condition = { type = not value = { type = trait value = scholarly_theologian } }
+		condition = { type = not value = { type = trait value = mastermind_theologian } }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+	}
+
+	immidiate = {#Courtier dislike his/her position
+		effect = { type = prestige value = 20 }
+
+		}
+
+}
+
+# Is Chancellor and prestigious
+
+character_event = {
+	id = 7318
+	
+	picture = "event_chancellor"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = chancellor }
+		condition = { type = prestige value = 25 }
+		condition = { type = or 
+			condition = { type = not value = { type = is_married } }
+			condition = { type = gender value = male }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.6
+		}
+
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.6
+		}
+
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.2
+		}
+
+		# Background trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = amateurish_pettifogger }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = proven_dealbreaker }
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = { type = trait value = charismatic_negotiator }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = trait value = grey_eminence }
+			factor = 0.5
+		}
+
+	}
+
+	action_a = {#Reward him generously
+		effect = { type = trigger for = ruler value = 7305 }
+		effect = { type = loyalty value = 0.2 }
+		effect = { type = prestige value = 25 }
+		effect = { type = gold scale = 0.1 }
+	}
+
+	action_b = {#Give him is due
+		effect = { type = trigger for = ruler value = 7306 }
+		effect = { type = loyalty value = -0.1 }
+		effect = { type = gold scale = 0.05 }
+	}
+
+
+	action_c = {#Rebuff his demand
+		effect = { type = loyalty value = -0.33 }
+		effect = { type = random
+				chance = 33
+				effect = { type =  trigger for = chancellor value = 7302 }
+		}
+	}
+}
+
+
+#############################
+# spymaster generic events #
+#############################
+
+# Is spymaster and not in spymaster position
+
+character_event = {
+	id = 7319
+
+	picture = "event_default"
+
+	trigger = {
+		condition = { type = ai }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = marshal } }
+		condition = { type = not value = { type = steward } }
+		condition = { type = not value = { type = chancellor } }
+		condition = { type = not value = { type = spymaster } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = intrigue value = 1 }
+		condition = { type = not value = { type = ruler_csc condition = { type = is_rival } } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = ruler_csc condition = { type = religion value = catholic } }
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = ruler_csc condition = { type = religion value = orthodox } }
+			}
+			condition = { type = and
+				condition = { type = religion value = moslem }
+				condition = { type = ruler_csc condition = { type = religion value = moslem } }
+			}
+			condition = { type = and
+				condition = { type = religion value = pagan }
+				condition = { type = ruler_csc condition = { type = religion value = pagan } }
+			}
+		}
+		condition = { type = or
+			condition = { type = not value = { type = spymaster_csc condition = { type = spymaster } } }
+			condition = { type = and
+				condition = { type = intrigue value = 7 }
+				condition = { type = not value = { type = intrigue value = 8 } }
+				condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 7 } } }
+			}
+			condition = { type = and
+				condition = { type = intrigue value = 8 }
+				condition = { type = not value = { type = intrigue value = 9 } }
+				condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 8 } } }
+			}
+			condition = { type = and
+				condition = { type = intrigue value = 9 }
+				condition = { type = not value = { type = intrigue value = 10 } }
+				condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 9 } } }
+			}
+			condition = { type = and
+				condition = { type = intrigue value = 10 }
+				condition = { type = not value = { type = intrigue value = 11 } }
+				condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 10 } } }
+			}
+			condition = { type = and
+				condition = { type = intrigue value = 11 }
+				condition = { type = not value = { type = intrigue value = 12 } }
+				condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 11 } } }
+			}
+			condition = { type = and
+				condition = { type = intrigue value = 12 }
+				condition = { type = not value = { type = intrigue value = 13 } }
+				condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 12 } } }
+			}
+			condition = { type = and
+				condition = { type = intrigue value = 13 }
+				condition = { type = not value = { type = intrigue value = 14 } }
+				condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 13 } } }
+			}
+			condition = { type = and
+				condition = { type = intrigue value = 14 }
+				condition = { type = not value = { type = intrigue value = 15 } }
+				condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 14 } } }
+			}
+			condition = { type = and
+				condition = { type = intrigue value = 15 }
+				condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 15 } } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	immidiate = {
+		effect = { type = spymaster }
+	}
+}
+
+# Is Spymaster and in spymaster position
+
+character_event = {
+	id = 7320
+	
+	picture = "event_spymaster"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = spymaster }
+		condition = { type = or 
+			condition = { type = trait value = naive_wirepuller }
+			condition = { type = trait value = flamboyant_schemer }
+			condition = { type = trait value = intricate_webweaver }
+			condition = { type = trait value = illusive_shadow }
+			condition = { type = trait value = martial_cleric }
+			condition = { type = trait value = scholarly_theologian }
+			condition = { type = trait value = mastermind_theologian }
+			}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+	}
+
+	immidiate = {#Courtier earn respect and prestige with his/her position
+		effect = { type = prestige value = 50 }
+		effect = { type = loyalty value = 0.25 }
+		}
+
+}
+
+# Is not Spymaster and in spymaster position
+
+character_event = {
+	id = 7321
+	
+	picture = "event_spymaster"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = spymaster }
+		condition = { type = not value = { type = trait value = naive_wirepuller } }
+		condition = { type = not value = { type = trait value = flamboyant_schemer } }
+		condition = { type = not value = { type = trait value = intricate_webweaver } }
+		condition = { type = not value = { type = trait value = illusive_shadow } }
+		condition = { type = not value = { type = trait value = martial_cleric } }
+		condition = { type = not value = { type = trait value = scholarly_theologian } }
+		condition = { type = not value = { type = trait value = mastermind_theologian } }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+	}
+
+	immidiate = {#Courtier dislike his/her position
+		effect = { type = prestige value = 20 }
+
+		}
+
+}
+
+# Is Spymaster and prestigious
+
+character_event = {
+	id = 7322
+	
+	picture = "event_spymaster"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = spymaster }
+		condition = { type = prestige value = 25 }
+		condition = { type = or 
+			condition = { type = not value = { type = is_married } }
+			condition = { type = gender value = male }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 0.6
+		}
+
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 1.5
+		}
+
+		# Background trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = naive_wirepuller }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = flamboyant_schemer }
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = { type = trait value = intricate_webweaver }
+			factor = 0.66
+		}
+
+		modifier = {
+			condition = { type = trait value = illusive_shadow }
+			factor = 0.5
+		}
+
+	}
+
+	action_a = {#Reward him generously
+		effect = { type = trigger for = ruler value = 7305 }
+		effect = { type = loyalty value = 0.2 }
+		effect = { type = prestige value = 25 }
+		effect = { type = gold scale = 0.1 }
+	}
+
+	action_b = {#Give him is due
+		effect = { type = trigger for = ruler value = 7306 }
+		effect = { type = loyalty value = -0.1 }
+		effect = { type = gold scale = 0.05 }
+	}
+
+
+	action_c = {#Rebuff his demand
+		effect = { type = loyalty value = -0.33 }
+		effect = { type = random
+				chance = 33
+				effect = { type =  trigger for = spymaster value = 7302 }
+		}
+	}
+}
+
+###########################
+# chaplain generic events #
+###########################
+
+# Is chaplain and in not any position
+
+character_event = {
+	id = 7323
+
+	picture = "event_default"
+
+	trigger = {
+		condition = { type = ai }
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = piety value = 0 }
+		condition = { type = not value = { type = marshal } }
+		condition = { type = not value = { type = steward } }
+		condition = { type = not value = { type = chancellor } }
+		condition = { type = not value = { type = spymaster } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = or
+			condition = { type = trait value = detached_priest }
+			condition = { type = trait value = martial_cleric }
+			condition = { type = trait value = scholarly_theologian }
+			condition = { type = trait value = mastermind_theologian }
+		}
+		condition = { type = not value = { type = chaplain_csc condition = { type = chaplain } } }
+		condition = { type = not value = { type = ruler_csc condition = { type = is_rival } } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = ruler_csc condition = { type = religion value = catholic } }
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = ruler_csc condition = { type = religion value = orthodox } }
+			}
+			condition = { type = and
+				condition = { type = religion value = moslem }
+				condition = { type = ruler_csc condition = { type = religion value = moslem } }
+			}
+			condition = { type = and
+				condition = { type = religion value = pagan }
+				condition = { type = ruler_csc condition = { type = religion value = pagan } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+	}
+
+	immidiate = {
+		effect = { type = chaplain }
+	}
+}
+
+# Is Chaplain (only a Chaplain can be a chaplain)
+
+character_event = {
+	id = 7324
+	
+	picture = "event_chaplain"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = chaplain }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+	}
+
+	immidiate = {#Courtier earn respect and prestige with his/her position
+		effect = { type = piety value = 50 }
+		effect = { type = prestige value = 25 }
+		effect = { type = loyalty value = 0.25 }
+		}
+
+}
+
+# Is chaplain and prestigious
+
+character_event = {
+	id = 7325
+	
+	picture = "event_chaplain"
+	
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = chaplain }
+		condition = { type = prestige value = 25 }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.6
+		}
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 1.5
+		}
+
+		# Background trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.66
+		}
+
+	}
+
+	action_a = {#Reward him generously
+		effect = { type = trigger for = ruler value = 7305 }
+		effect = { type = loyalty value = 0.2 }
+		effect = { type = prestige value = 25 }
+		effect = { type = gold scale = 0.1 }
+	}
+
+	action_b = {#Give him is due
+		effect = { type = trigger for = ruler value = 7306 }
+		effect = { type = loyalty value = -0.1 }
+		effect = { type = gold scale = 0.05 }
+	}
+
+
+	action_c = {#Rebuff his demand
+		effect = { type = loyalty value = -0.33 }
+		effect = { type = random
+				chance = 33
+				effect = { type =  trigger for = chaplain value = 7302 }
+		}
+	}
+}
+
+#######################
+# Courtier conversion #
+#######################
+
+# This event is used for all the events below
+
+character_event = {
+	id = 7326 
+
+	picture = "event_religion"
+
+	immidiate = {#Praise our Lord
+		effect = { type = prestige value = 5 }
+		effect = { type = piety value = 15 }
+	}
+}
+
+# Catholic
+
+character_event = {
+	id = 7327
+	
+	picture = "event_religion"
+	
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = religion value = catholic } }
+		condition = { type = ruler_religion value = catholic }
+ 	}
+
+	mean_time_to_happen = {
+		months = 24
+
+		# Character modifiers:
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 5
+		}
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = piety value = 25 }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = religion value = catholic }
+			}
+			factor = 0.2
+		}
+
+
+		# Ruler modifiers:
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = sceptical }
+			}
+			factor = 2
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = heretic }
+			}
+			factor = 5
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = excommunicated }
+			}
+			factor = 5
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = not value = { type = piety value = 0 } }
+			}
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = crusader }
+			}
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = zealous }
+			}
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = piety value = 25 }
+			}
+			factor = 0.8
+		}
+
+		# Capital modifiers:
+
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = religion value = catholic }
+			}
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = not value = { type = religion value = catholic } }
+			}
+			factor = 2
+		}
+
+	}
+
+	action_a = {#Praise the Lord
+		effect = { type = set_to_realm_religion }
+		effect = { type = trigger for = ruler value = 7326 }
+	}
+}
+
+# Orthodox
+
+character_event = {
+	id = 7328
+	
+	picture = "event_religion"
+	
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = religion value = orthodox } }
+		condition = { type = ruler_religion value = orthodox }
+ 	}
+
+	mean_time_to_happen = {
+		months = 24
+
+		# Character modifiers:
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 5
+		}
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 7
+		}
+
+		modifier = {
+			condition = { type = piety value = 25 }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = religion value = orthodox }
+			}
+			factor = 0.2
+		}
+
+
+		# Ruler modifiers:
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = sceptical }
+			}
+			factor = 2
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = heretic }
+			}
+			factor = 5
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = not value = { type = piety value = 0 } }
+			}
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = zealous }
+			}
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = piety value = 25 }
+			}
+			factor = 0.8
+		}
+
+		# Capital modifiers:
+
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = religion value = orthodox }
+			}
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = not value = { type = religion value = orthodox } }
+			}
+			factor = 2
+		}
+
+	}
+
+	action_a = {#Praise the Lord
+		effect = { type = set_to_realm_religion }
+		effect = { type = trigger for = ruler value = 7326 }
+	}
+}
+
+# Muslim
+
+character_event = {
+	id = 7329
+	
+	picture = "event_religion"
+	
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = religion value = moslem } }
+		condition = { type = ruler_religion value = moslem }
+ 	}
+
+	mean_time_to_happen = {
+		months = 24
+
+		# Character modifiers:
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 5
+		}
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 7
+		}
+
+		modifier = {
+			condition = { type = piety value = 25 }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = religion value = moslem }
+			}
+			factor = 0.5
+		}
+
+
+		# Ruler modifiers:
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = sceptical }
+			}
+			factor = 2
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = heretic }
+			}
+			factor = 5
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = not value = { type = piety value = 0 } }
+			}
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = zealous }
+			}
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = piety value = 25 }
+			}
+			factor = 0.8
+		}
+
+		# Capital modifiers:
+
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = religion value = moslem }
+			}
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = not value = { type = religion value = moslem } }
+			}
+			factor = 2
+		}
+
+	}
+
+	action_a = {#Praise the Lord
+		effect = { type = set_to_realm_religion }
+		effect = { type = trigger for = ruler value = 7326 }
+	}
+}
+
+# Pagan
+
+character_event = {
+	id = 7330
+	
+	picture = "event_religion"
+	
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = religion value = pagan } }
+		condition = { type = ruler_religion value = pagan }
+ 	}
+
+	mean_time_to_happen = {
+		months = 48
+
+		# Character modifiers:
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 5
+		}
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 7
+		}
+
+		modifier = {
+			condition = { type = piety value = 25 }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = {
+				type = spouse
+				condition = { type = religion value = pagan }
+			}
+			factor = 0.5
+		}
+
+
+		# Ruler modifiers:
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = sceptical }
+			}
+			factor = 2
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = heretic }
+			}
+			factor = 5
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = not value = { type = piety value = 0 } }
+			}
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = trait value = zealous }
+			}
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = {
+				type = liege
+				condition = { type = piety value = 25 }
+			}
+			factor = 0.8
+		}
+
+		# Capital modifiers:
+
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = religion value = pagan }
+			}
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = not value = { type = religion value = pagan } }
+			}
+			factor = 2
+		}
+
+	}
+
+	action_a = {#Praise the Lord
+		effect = { type = set_to_realm_religion }
+		effect = { type = trigger for = ruler value = 7326 }
+	}
+}
+
+# Kinslayer Courtier discovered and trialed:
+
+character_event = {
+	id = 7331
+	
+	picture = "event_intrigue"
+	
+	trigger = {
+#		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = kinslayer }
+		condition = {
+			type = or 
+			condition = { type = not value = { type = intrigue value = 3 } }
+			condition = {
+				type = and
+				condition = { type = not value = { type = intrigue value = 4 } }
+				condition = { type = or
+					condition = { type = spymaster_csc condition = { type = intrigue value = 3 } }
+					condition = { type = ruler_csc condition = { type = intrigue value = 3 } }
+				}
+			}
+			condition = {
+				type = and
+				condition = { type = not value = { type = intrigue value = 5 } }
+				condition = { type = or
+					condition = { type = spymaster_csc condition = { type = intrigue value = 4 } }
+					condition = { type = ruler_csc condition = { type = intrigue value = 4 } }
+				}
+			}
+			condition = {
+				type = and
+				condition = { type = not value = { type = intrigue value = 6 } }
+				condition = { type = or
+					condition = { type = spymaster_csc condition = { type = intrigue value = 5 } }
+					condition = { type = ruler_csc condition = { type = intrigue value = 5 } }
+				}
+			}
+			condition = {
+				type = and
+				condition = { type = not value = { type = intrigue value = 7 } }
+				condition = { type = or
+					condition = { type = spymaster_csc condition = { type = intrigue value = 6 } }
+					condition = { type = ruler_csc condition = { type = intrigue value = 6 } }
+				}
+			}
+			condition = {
+				type = and
+				condition = { type = not value = { type = intrigue value = 8 } }
+				condition = { type = or
+					condition = { type = spymaster_csc condition = { type = intrigue value = 7 } }
+					condition = { type = ruler_csc condition = { type = intrigue value = 7 } }
+				}
+			}
+			condition = {
+				type = and
+				condition = { type = not value = { type = intrigue value = 9 } }
+				condition = { type = or
+					condition = { type = spymaster_csc condition = { type = intrigue value = 8 } }
+					condition = { type = ruler_csc condition = { type = intrigue value = 8 } }
+				}
+			}
+			condition = {
+				type = and
+				condition = { type = not value = { type = intrigue value = 10 } }
+				condition = { type = or
+					condition = { type = spymaster_csc condition = { type = intrigue value = 9 } }
+					condition = { type = ruler_csc condition = { type = intrigue value = 9 } }
+				}
+			}
+			condition = { type = or
+				condition = { type = spymaster_csc condition = { type = intrigue value = 10 } }
+				condition = { type = ruler_csc condition = { type = intrigue value = 10 } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		# Courtier traits:
+
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.5
+		}
+
+		# Ruler traits:
+
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = vengeful }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = forgiving }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = just }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = ruler_csc
+				condition = { type = trait value = arbitrary }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = trusting }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = suspicious }
+			}
+			factor = 0.8
+		}
+		
+		# Spymaster traits:
+
+		modifier = {
+			condition = {
+				type = spymaster_csc
+				condition = { type = trait value = energetic }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = spymaster_csc
+				condition = { type = trait value = lazy }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = spymaster_csc
+				condition = { type = trait value = trusting }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = spymaster_csc
+				condition = { type = trait value = suspicious }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = is_friend } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = is_rival } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = is_friend } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = is_rival } }
+			factor = 0.5
+		}
+	}
+
+	action_a = {#Put him to Death
+		ai_chance = 90
+			#start AI modifier block
+			modifier = {
+				condition = { type = trait value = schizofrenia }
+				factor = 10
+			}
+			#end AI modifier block
+		effect = { type = death }
+		effect = { type = random
+				chance = 25
+				effect = { type = add_trait for = ruler value = just }
+		}
+	}
+
+	action_b = {#Tolerate him at the court
+		ai_chance = 10
+		effect = { type = loyalty value = 0.25 }
+		effect = { type = random
+				chance = 10
+				effect = { type = add_trait for = ruler value = forgiving }
+		}
+		effect = { type = random
+				chance = 50
+				effect = { type = add_trait for = ruler value = arbitrary }
+		}
+	}
+}
+
+#######################################################################################
+# Events to help restock courts if the auto-generation of random courtiers is lagging #
+#######################################################################################
+
+character_event = { #A noble of some means flees from a distant land and asks that you grant him a place in your court.
+
+	id = 7332
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = not value = { type = court value = 6 } }
+			}
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = not value = { type = court value = 5 } }
+			}
+			condition = { type = and
+				condition = { type = county}
+				condition = { type = not value = { type = court value = 4 } }
+			}
+			condition = {
+				type = not value = {
+					type = steward_csc
+						condition = { type = steward }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+
+		months = 75
+
+		modifier = {
+			condition = {
+				type = not value = {
+					type = steward_csc
+						condition = { type = steward }
+				}
+			}
+			condition = {
+				type = not
+				value = { type = any_courtier
+					condition = { type = and
+						condition = { type = not value = { type = marshal } }
+						condition = { type = not value = { type = steward } }
+						condition = { type = not value = { type = chancellor } }
+						condition = { type = not value = { type = spymaster } }
+						condition = { type = not value = { type = chaplain } }
+						condition = { type = stewardship value = 5 }
+						condition = { type = age value = 16 }
+					}
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = court value = 5 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = duchy }
+				condition = { type = kingdom }
+			}
+			condition = { type = not value = { type = court value = 4 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 3 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 2 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 1 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 2
+		}
+	}
+
+	action_a = { #Grant him a place in your court
+		ai_chance = 90
+		effect = { type = gold scale = -0.15 }
+		effect = { type = create_courtier value = steward }
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = trusting }
+		}
+	}
+	action_b = { #I dare not grant you safe haven
+		ai_chance = 10
+		effect = { type = prestige value = -5 }
+		effect = { type = random chance = 33
+			effect = { type = piety value = -10 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = suspicious }
+		}
+	}
+}
+
+character_event = { #A noble warrior flees from a distant land and asks that you grant him a place in your court.
+
+	id = 7333
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = not value = { type = court value = 6 } }
+			}
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = not value = { type = court value = 5 } }
+			}
+			condition = { type = and
+				condition = { type = county}
+				condition = { type = not value = { type = court value = 4 } }
+			}
+			condition = {
+				type = not value = {
+					type = marshal_csc
+						condition = { type = marshal }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+
+		months = 75
+
+		modifier = {
+			condition = {
+				type = not value = {
+					type = marshal_csc
+						condition = { type = marshal }
+				}
+			}
+			condition = {
+				type = not
+				value = { type = any_courtier
+					condition = { type = and
+						condition = { type = gender value = male }
+						condition = { type = not value = { type = marshal } }
+						condition = { type = not value = { type = steward } }
+						condition = { type = not value = { type = chancellor } }
+						condition = { type = not value = { type = spymaster } }
+						condition = { type = not value = { type = chaplain } }
+						condition = { type = martial value = 5 }
+						condition = { type = age value = 16 }
+					}
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = court value = 5 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = duchy }
+				condition = { type = kingdom }
+			}
+			condition = { type = not value = { type = court value = 4 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 3 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 2 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 1 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 2
+		}
+	}
+
+	action_a = { #Grant him a place in your court
+		ai_chance = 90
+		effect = { type = gold scale = -0.15 }
+		effect = { type = create_courtier value = marshal }
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = trusting }
+		}
+	}
+	action_b = { #I dare not grant you safe haven
+		ai_chance = 10
+		effect = { type = prestige value = -5 }
+		effect = { type = random chance = 33
+			effect = { type = piety value = -10 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = suspicious }
+		}
+	}
+}
+
+character_event = { #A noble of some subtlety flees from a distant land and asks that you grant him a place in your court.
+
+	id = 7334
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = not value = { type = court value = 6 } }
+			}
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = not value = { type = court value = 5 } }
+			}
+			condition = { type = and
+				condition = { type = county}
+				condition = { type = not value = { type = court value = 4 } }
+			}
+			condition = {
+				type = not value = {
+					type = spymaster_csc
+						condition = { type = spymaster }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+
+		months = 75
+
+		modifier = {
+			condition = {
+				type = not value = {
+					type = spymaster_csc
+						condition = { type = spymaster }
+				}
+			}
+			condition = {
+				type = not
+				value = { type = any_courtier
+					condition = { type = and
+						condition = { type = not value = { type = marshal } }
+						condition = { type = not value = { type = steward } }
+						condition = { type = not value = { type = chancellor } }
+						condition = { type = not value = { type = spymaster } }
+						condition = { type = not value = { type = chaplain } }
+						condition = { type = intrigue value = 5 }
+						condition = { type = age value = 16 }
+					}
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = court value = 5 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = duchy }
+				condition = { type = kingdom }
+			}
+			condition = { type = not value = { type = court value = 4 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 3 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 2 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 1 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 2
+		}
+	}
+
+	action_a = { #Grant him a place in your court
+		ai_chance = 90
+		effect = { type = gold scale = -0.15 }
+		effect = { type = create_courtier value = spymaster }
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = trusting }
+		}
+	}
+	action_b = { #I dare not grant you safe haven
+		ai_chance = 10
+		effect = { type = prestige value = -5 }
+		effect = { type = random chance = 33
+			effect = { type = piety value = -10 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = suspicious }
+		}
+	}
+}
+
+character_event = { #A noble of some influence flees from a distant land and asks that you grant him a place in your court.
+
+	id = 7335
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = not value = { type = court value = 6 } }
+			}
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = not value = { type = court value = 5 } }
+			}
+			condition = { type = and
+				condition = { type = county}
+				condition = { type = not value = { type = court value = 4 } }
+			}
+			condition = {
+				type = not value = {
+					type = chancellor_csc
+						condition = { type = chancellor }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+
+		months = 75
+
+		modifier = {
+			condition = {
+				type = not value = {
+					type = chancellor_csc
+						condition = { type = chancellor }
+				}
+			}
+			condition = {
+				type = not
+				value = { type = any_courtier
+					condition = { type = and
+						condition = { type = not value = { type = marshal } }
+						condition = { type = not value = { type = steward } }
+						condition = { type = not value = { type = chancellor } }
+						condition = { type = not value = { type = spymaster } }
+						condition = { type = not value = { type = chaplain } }
+						condition = { type = diplomacy value = 5 }
+						condition = { type = age value = 16 }
+					}
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = court value = 5 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = duchy }
+				condition = { type = kingdom }
+			}
+			condition = { type = not value = { type = court value = 4 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 3 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 2 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 1 } }
+			factor = 0.35
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 2
+		}
+	}
+
+	action_a = { #Grant him a place in your court
+		ai_chance = 90
+		effect = { type = gold scale = -0.15 }
+		effect = { type = create_courtier value = chancellor }
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = trusting }
+		}
+	}
+	action_b = { #I dare not grant you safe haven
+		ai_chance = 10
+		effect = { type = prestige value = -5 }
+		effect = { type = random chance = 33
+			effect = { type = piety value = -10 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = suspicious }
+		}
+	}
+}
+
+character_event = { #The Pope asks that grant an itinerant bishop a place in your court.
+
+	id = 7336
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = religion value = catholic }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = not value = { type = court value = 7 } }
+			}
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = not value = { type = court value = 6 } }
+			}
+			condition = { type = and
+				condition = { type = county}
+				condition = { type = not value = { type = court value = 5 } }
+			}
+			condition = {
+				type = not value = {
+					type = chaplain_csc
+						condition = { type = chaplain }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+
+		months = 240
+
+		modifier = {
+			condition = {
+				type = not value = {
+					type = chaplain_csc
+						condition = { type = chaplain }
+				}
+			}
+			condition = {
+				type = not
+				value = { type = any_courtier
+					condition = { type = and
+						condition = { type = gender value = male }
+						condition = { type = not value = { type = marshal } }
+						condition = { type = not value = { type = steward } }
+						condition = { type = not value = { type = chancellor } }
+						condition = { type = not value = { type = spymaster } }
+						condition = { type = not value = { type = chaplain } }
+						condition = { type = piety value = 0 }
+						condition = { type = age value = 16 }
+						condition = { type = religion value = catholic }
+						condition = { type = not value = { type = trait value = excommunicated } }
+						condition = { type = not value = { type = trait value = heretic } }
+						condition = { type = or
+							condition = { type = trait value = detached_priest }
+							condition = { type = trait value = martial_cleric }
+							condition = { type = trait value = scholarly_theologian }
+							condition = { type = trait value = mastermind_theologian }
+						}
+					}
+				}
+			}
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = court value = 5 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = duchy }
+				condition = { type = kingdom }
+			}
+			condition = { type = not value = { type = court value = 4 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 3 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 2 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 1 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 2
+		}
+	}
+
+	action_a = { #I would be delighted to
+		ai_chance = 90
+		effect = { type = piety value = 5 }
+		effect = { type = gold scale = -0.15 }
+		effect = { type = create_courtier value = chaplain }
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = trusting }
+		}
+	}
+	action_b = { #I need no new bishop
+		ai_chance = 10
+		effect = { type = piety value = -15 }
+		effect = { type = random chance = 33
+			effect = { type = piety value = -25 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = suspicious }
+		}
+	}
+}
+
+character_event = { #The Patriarch asks that grant an itinerant bishop a place in your court.
+
+	id = 7337
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = religion value = orthodox }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = not value = { type = court value = 7 } }
+			}
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = not value = { type = court value = 6 } }
+			}
+			condition = { type = and
+				condition = { type = county}
+				condition = { type = not value = { type = court value = 5 } }
+			}
+			condition = {
+				type = not value = {
+					type = chaplain_csc
+						condition = { type = chaplain }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+
+		months = 240
+
+		modifier = {
+			condition = {
+				type = not value = {
+					type = chaplain_csc
+						condition = { type = chaplain }
+				}
+			}
+			condition = {
+				type = not
+				value = { type = any_courtier
+					condition = { type = and
+						condition = { type = gender value = male }
+						condition = { type = not value = { type = marshal } }
+						condition = { type = not value = { type = steward } }
+						condition = { type = not value = { type = chancellor } }
+						condition = { type = not value = { type = spymaster } }
+						condition = { type = not value = { type = chaplain } }
+						condition = { type = piety value = 0 }
+						condition = { type = age value = 16 }
+						condition = { type = religion value = orthodox }
+						condition = { type = not value = { type = trait value = heretic } }
+						condition = { type = or
+							condition = { type = trait value = detached_priest }
+							condition = { type = trait value = martial_cleric }
+							condition = { type = trait value = scholarly_theologian }
+							condition = { type = trait value = mastermind_theologian }
+						}
+					}
+				}
+			}
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = court value = 5 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = duchy }
+				condition = { type = kingdom }
+			}
+			condition = { type = not value = { type = court value = 4 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 3 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 2 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 1 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 2
+		}
+	}
+
+	action_a = { #I would be delighted to
+		ai_chance = 90
+		effect = { type = piety value = 5 }
+		effect = { type = gold scale = -0.15 }
+		effect = { type = create_courtier value = chaplain }
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = trusting }
+		}
+	}
+	action_b = { #I need no new bishop
+		ai_chance = 10
+		effect = { type = piety value = -15 }
+		effect = { type = random chance = 33
+			effect = { type = piety value = -25 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = suspicious }
+		}
+	}
+}
+
+
+character_event = { #A noble flees from a distant land and asks that you grant him a place in your court.
+
+	id = 7338
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = not value = { type = court value = 6 } }
+			}
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = not value = { type = court value = 5 } }
+			}
+			condition = { type = and
+				condition = { type = county}
+				condition = { type = not value = { type = court value = 4 } }
+			}
+			condition = { type = and
+				condition = { type = not value = { type = ai } }
+				condition = { type = not
+					value = { type = any_courtier
+						condition = { type = and
+							condition = { type = gender value = male }
+							condition = { type = age value = 16 }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+
+		months = 50
+
+		modifier = {
+			condition = { type = kingdom }
+			condition = { type = not value = { type = court value = 4 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = duchy }
+				condition = { type = kingdom }
+			}
+			condition = { type = not value = { type = court value = 3 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 2 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = court value = 1 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = atwar }
+			factor = 0.3
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.33
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 3
+		}
+	}
+
+	action_a = { #Grant him a place in your court
+		ai_chance = 90
+		effect = { type = gold scale = -0.05 }
+		effect = { type = create_courtier value = enemy_defector }
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = trusting }
+		}
+	}
+	action_b = { #I dare not grant you safe haven
+		ai_chance = 10
+		effect = { type = prestige value = -2 }
+		effect = { type = random chance = 50
+			effect = { type = piety value = -5 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = suspicious }
+		}
+	}
+}
+
+#############################################
+# New and Improved "I could be better set, by Byakhiam #
+#############################################
+
+character_event = {
+	id = 7339
+
+	picture = "event_tribunal"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = age value = 16 }
+		condition = { type = gender value = male }
+		condition = { type = not value = { type = trait value = bastard } }
+		condition = { type = not value = { type = or
+			condition = { type = marshal }
+			condition = { type = chancellor }
+			condition = { type = spymaster }
+			condition = { type = steward }
+			condition = { type = chaplain }
+			condition = { type = ruler }
+		} }
+		condition = { type = or
+			condition = { type = trait value = misguided_warrior }
+			condition = { type = trait value = tough_soldier }
+			condition = { type = trait value = knowledged_tactician }
+			condition = { type = trait value = brilliant_strategist }
+		}
+		condition = { type = or
+			condition = { type = and
+				condition = { type = ruler_child }
+				condition = { type = not value = { type = marshal_csc condition = { type = ruler_child } } }
+			}
+			condition = { type = or
+				condition = { type = not value = { type = marshal_csc condition = { type = martial value = 1 } } }
+				condition = { type = and
+					condition = { type = martial value = 7 }
+					condition = { type = not value = { type = martial value = 8 } }
+					condition = { type = not value = { type = marshal_csc condition = { type = martial value = 7 } } }
+				}
+				condition = { type = and
+					condition = { type = martial value = 8 }
+					condition = { type = not value = { type = martial value = 9 } }
+					condition = { type = not value = { type = marshal_csc condition = { type = martial value = 8 } } }
+				}
+				condition = { type = and
+					condition = { type = martial value = 9 }
+					condition = { type = not value = { type = martial value = 10 } }
+					condition = { type = not value = { type = marshal_csc condition = { type = martial value = 9 } } }
+				}
+				condition = { type = and
+					condition = { type = martial value = 10 }
+					condition = { type = not value = { type = martial value = 11 } }
+					condition = { type = not value = { type = marshal_csc condition = { type = martial value = 10 } } }
+				}
+				condition = { type = and
+					condition = { type = martial value = 11 }
+					condition = { type = not value = { type = martial value = 12 } }
+					condition = { type = not value = { type = marshal_csc condition = { type = martial value = 11 } } }
+				}
+				condition = { type = and
+					condition = { type = martial value = 12 }
+					condition = { type = not value = { type = martial value = 13 } }
+					condition = { type = not value = { type = marshal_csc condition = { type = martial value = 12 } } }
+				}
+				condition = { type = and
+					condition = { type = martial value = 13 }
+					condition = { type = not value = { type = martial value = 14 } }
+					condition = { type = not value = { type = marshal_csc condition = { type = martial value = 13 } } }
+				}
+				condition = { type = and
+					condition = { type = martial value = 14 }
+					condition = { type = not value = { type = martial value = 15 } }
+					condition = { type = not value = { type = marshal_csc condition = { type = martial value = 14 } } }
+				}
+				condition = { type = and
+					condition = { type = martial value = 15 }
+					condition = { type = not value = { type = marshal_csc condition = { type = martial value = 15 } } }
+				}
+			}
+		}
+		condition = { type = marshal_csc condition = { type = not value = { type = is_friend } } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = not value = { type = num_rivals value = 3 } }
+				condition = { type = marshal_csc
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = num_rivals value = 5 } }
+				}
+			}
+			condition = { type = marshal_csc condition = { type = is_rival } }
+		}
+		condition = { type = or
+			condition = { type = not value = { type = ruler_child } }
+			condition = { type = not value = { type = marshal_csc
+				condition = { type = ruler_child }
+				condition = { type = trait value = bastard }
+			} }
+		}
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = ruler_csc condition = { type = religion value = catholic } }
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = ruler_csc condition = { type = religion value = orthodox } }
+			}
+			condition = { type = and
+				condition = { type = religion value = moslem }
+				condition = { type = ruler_csc condition = { type = religion value = moslem } }
+			}
+			condition = { type = and
+				condition = { type = religion value = pagan }
+				condition = { type = ruler_csc condition = { type = religion value = pagan } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = not value = { type = marshal_csc condition = { type = martial value = 1 } } }
+			factor = 0.01
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			condition = { type = ruler_csc condition = { type = duchy } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			condition = { type = ruler_csc condition = { type = kingdom } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = prestige value = 25 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = prestige value = 50 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = marshal_csc condition = { type = or
+				condition = { type = trait value = misguided_warrior }
+				condition = { type = trait value = tough_soldier }
+				condition = { type = trait value = knowledged_tactician }
+				condition = { type = trait value = brilliant_strategist }
+			} } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = marshal_csc condition = { type = is_rival } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = marshal_csc condition = { type = ruler_child } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = marshal_csc condition = { type = trait value = modest } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = marshal_csc condition = { type = trait value = reckless } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = marshal_csc condition = { type = trait value = coward } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = is_friend } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = atwar } }
+			factor = 5.0
+		}
+	}
+
+	action_a = {
+		effect = { type = prestige value = 10 }
+		effect = { type = loyalty value = 0.1 }
+		effect = { type = loyalty for = marshal value = -0.3 }
+		effect = { type = random chance = 50
+			effect = { type = make_rival value = marshal }
+		}
+		effect = { type = random chance = 15
+			effect = { type = add_trait for = marshal value = depression }
+		}
+		effect = { type = marshal }
+	}
+	action_b = {
+		effect = { type = prestige value = -10 }
+		effect = { type = loyalty value = -0.3 }
+		effect = { type = loyalty for = marshal value = 0.1 }
+		effect = { type = random chance = 25
+			effect = { type = make_rival value = marshal }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+	action_c = {
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty for = marshal value = 0.3 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = depression }
+		}
+	}
+}
+
+character_event = {
+	id = 7340
+
+	picture = "event_tribunal"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = trait value = bastard } }
+		condition = { type = not value = { type = or
+			condition = { type = marshal }
+			condition = { type = chancellor }
+			condition = { type = spymaster }
+			condition = { type = steward }
+			condition = { type = chaplain }
+			condition = { type = ruler }
+		} }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = ruler_child }
+				condition = { type = gender value = male }
+				condition = { type = stewardship value = 1 }
+				condition = { type = or
+					condition = { type = not value = { type = steward_csc condition = { type = gender value = male } } }
+					condition = { type = and
+						condition = { type = or
+							condition = { type = trait value = hole_in_the_pocket  }
+							condition = { type = trait value = proven_accountant }
+							condition = { type = trait value = fortune_builder }
+							condition = { type = trait value = midas_touched }
+						}
+						condition = { type = or
+							condition = { type = steward_csc condition = { type = not value = { type = ruler_child } } }
+							condition = { type = and
+								condition = { type = stewardship value = 7 }
+								condition = { type = not value = { type = stewardship value = 8 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 7 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 8 }
+								condition = { type = not value = { type = stewardship value = 9 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 8 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 9 }
+								condition = { type = not value = { type = stewardship value = 10 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 9 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 10 }
+								condition = { type = not value = { type = stewardship value = 11 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 10 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 11 }
+								condition = { type = not value = { type = stewardship value = 12 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 11 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 12 }
+								condition = { type = not value = { type = stewardship value = 13 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 12 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 13 }
+								condition = { type = not value = { type = stewardship value = 14 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 13 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 14 }
+								condition = { type = not value = { type = stewardship value = 15 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 14 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 15 }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 15 } } }
+							}
+						}
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = ruler_child }
+				condition = { type = gender value = female }
+				condition = { type = stewardship value = 1 }
+				condition = { type = or
+					condition = { type = not value = { type = steward_csc condition = { type = or
+						condition = { type = ruler_child }
+						condition = { type = gender value = male }
+					} } }
+					condition = { type = and
+						condition = { type = or
+							condition = { type = trait value = hole_in_the_pocket  }
+							condition = { type = trait value = proven_accountant }
+							condition = { type = trait value = fortune_builder }
+							condition = { type = trait value = midas_touched }
+						}
+						condition = { type = steward_csc
+							condition = { type = not value = { type = ruler_child } }
+							condition = { type = not value = { type = gender value = male } }
+						}
+						condition = { type = or
+							condition = { type = and
+								condition = { type = stewardship value = 7 }
+								condition = { type = not value = { type = stewardship value = 8 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 7 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 8 }
+								condition = { type = not value = { type = stewardship value = 9 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 8 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 9 }
+								condition = { type = not value = { type = stewardship value = 10 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 9 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 10 }
+								condition = { type = not value = { type = stewardship value = 11 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 10 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 11 }
+								condition = { type = not value = { type = stewardship value = 12 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 11 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 12 }
+								condition = { type = not value = { type = stewardship value = 13 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 12 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 13 }
+								condition = { type = not value = { type = stewardship value = 14 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 13 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 14 }
+								condition = { type = not value = { type = stewardship value = 15 } }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 14 } } }
+							}
+							condition = { type = and
+								condition = { type = stewardship value = 15 }
+								condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 15 } } }
+							}
+						}
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = not value = { type = ruler_child } }
+				condition = { type = gender value = male }
+				condition = { type = or
+					condition = { type = trait value = hole_in_the_pocket  }
+					condition = { type = trait value = proven_accountant }
+					condition = { type = trait value = fortune_builder }
+					condition = { type = trait value = midas_touched }
+				}
+				condition = { type = or
+					condition = { type = not value = { type = steward_csc condition = { type = or
+						condition = { type = ruler_child }
+						condition = { type = gender value = male }
+					} } }
+					condition = { type = and
+						condition = { type = stewardship value = 7 }
+						condition = { type = not value = { type = stewardship value = 8 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 7 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 8 }
+						condition = { type = not value = { type = stewardship value = 9 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 8 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 9 }
+						condition = { type = not value = { type = stewardship value = 10 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 9 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 10 }
+						condition = { type = not value = { type = stewardship value = 11 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 10 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 11 }
+						condition = { type = not value = { type = stewardship value = 12 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 11 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 12 }
+						condition = { type = not value = { type = stewardship value = 13 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 12 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 13 }
+						condition = { type = not value = { type = stewardship value = 14 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 13 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 14 }
+						condition = { type = not value = { type = stewardship value = 15 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 14 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 15 }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 15 } } }
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = not value = { type = ruler_child } }
+				condition = { type = gender value = female }
+				condition = { type = or
+					condition = { type = trait value = hole_in_the_pocket  }
+					condition = { type = trait value = proven_accountant }
+					condition = { type = trait value = fortune_builder }
+					condition = { type = trait value = midas_touched }
+				}
+				condition = { type = or
+					condition = { type = not value = { type = is_married } }
+					condition = { type = spouse condition = { type = ruler } }
+				}
+				condition = { type = or
+					condition = { type = and
+						condition = { type = stewardship value = 7 }
+						condition = { type = not value = { type = stewardship value = 8 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 7 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 8 }
+						condition = { type = not value = { type = stewardship value = 9 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 8 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 9 }
+						condition = { type = not value = { type = stewardship value = 10 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 9 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 10 }
+						condition = { type = not value = { type = stewardship value = 11 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 10 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 11 }
+						condition = { type = not value = { type = stewardship value = 12 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 11 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 12 }
+						condition = { type = not value = { type = stewardship value = 13 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 12 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 13 }
+						condition = { type = not value = { type = stewardship value = 14 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 13 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 14 }
+						condition = { type = not value = { type = stewardship value = 15 } }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 14 } } }
+					}
+					condition = { type = and
+						condition = { type = stewardship value = 15 }
+						condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 15 } } }
+					}
+				}
+			}
+		}
+		condition = { type = steward_csc condition = { type = not value = { type = is_friend } } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = not value = { type = num_rivals value = 3 } }
+				condition = { type = steward_csc
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = num_rivals value = 5 } }
+				}
+			}
+			condition = { type = steward_csc condition = { type = is_rival } }
+		}
+		condition = { type = or
+			condition = { type = gender value = female }
+			condition = { type = not value = { type = ruler_child } }
+			condition = { type = not value = { type = steward_csc
+				condition = { type = ruler_child }
+				condition = { type = trait value = bastard }
+			} }
+		}
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = ruler_csc condition = { type = religion value = catholic } }
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = ruler_csc condition = { type = religion value = orthodox } }
+			}
+			condition = { type = and
+				condition = { type = religion value = moslem }
+				condition = { type = ruler_csc condition = { type = religion value = moslem } }
+			}
+			condition = { type = and
+				condition = { type = religion value = pagan }
+				condition = { type = ruler_csc condition = { type = religion value = pagan } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = not value = { type = steward_csc condition = { type = stewardship value = 1 } } }
+			factor = 0.01
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			condition = { type = ruler_csc condition = { type = duchy } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			condition = { type = ruler_csc condition = { type = kingdom } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = prestige value = 25 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = prestige value = 50 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = steward_csc condition = { type = or
+				condition = { type = trait value = hole_in_the_pocket }
+				condition = { type = trait value = proven_accountant }
+				condition = { type = trait value = fortune_builder }
+				condition = { type = trait value = midas_touched }
+			} } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = is_rival } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = ruler_child } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = trait value = modest } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = trait value = arbitrary } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = trait value = generous } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = is_friend } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = atwar } }
+			factor = 5.0
+		}
+	}
+
+	action_a = {
+		effect = { type = prestige value = 10 }
+		effect = { type = loyalty value = 0.1 }
+		effect = { type = loyalty for = steward value = -0.3 }
+		effect = { type = random chance = 50
+			effect = { type = make_rival value = steward }
+		}
+		effect = { type = random chance = 15
+			effect = { type = add_trait for = steward value = depression }
+		}
+		effect = { type = steward }
+	}
+	action_b = {
+		effect = { type = prestige value = -10 }
+		effect = { type = loyalty value = -0.3 }
+		effect = { type = loyalty for = steward value = 0.1 }
+		effect = { type = random chance = 25
+			effect = { type = make_rival value = steward }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+	action_c = {
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty for = steward value = 0.3 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = depression }
+		}
+	}
+}
+
+character_event = {
+	id = 7341
+
+	picture = "event_tribunal"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = trait value = bastard } }
+		condition = { type = not value = { type = or
+			condition = { type = marshal }
+			condition = { type = chancellor }
+			condition = { type = spymaster }
+			condition = { type = steward }
+			condition = { type = chaplain }
+			condition = { type = ruler }
+		} }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = ruler_child }
+				condition = { type = gender value = male }
+				condition = { type = diplomacy value = 1 }
+				condition = { type = or
+					condition = { type = not value = { type = chancellor_csc condition = { type = gender value = male } } }
+					condition = { type = and
+						condition = { type = or
+							condition = { type = trait value = amateurish_pettifogger  }
+							condition = { type = trait value = proven_dealbreaker }
+							condition = { type = trait value = charismatic_negotiator }
+							condition = { type = trait value = grey_eminence }
+						}
+						condition = { type = or
+							condition = { type = chancellor_csc condition = { type = not value = { type = ruler_child } } }
+							condition = { type = and
+								condition = { type = diplomacy value = 7 }
+								condition = { type = not value = { type = diplomacy value = 8 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 7 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 8 }
+								condition = { type = not value = { type = diplomacy value = 9 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 8 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 9 }
+								condition = { type = not value = { type = diplomacy value = 10 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 9 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 10 }
+								condition = { type = not value = { type = diplomacy value = 11 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 10 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 11 }
+								condition = { type = not value = { type = diplomacy value = 12 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 11 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 12 }
+								condition = { type = not value = { type = diplomacy value = 13 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 12 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 13 }
+								condition = { type = not value = { type = diplomacy value = 14 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 13 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 14 }
+								condition = { type = not value = { type = diplomacy value = 15 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 14 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 15 }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 15 } } }
+							}
+						}
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = ruler_child }
+				condition = { type = gender value = female }
+				condition = { type = diplomacy value = 1 }
+				condition = { type = or
+					condition = { type = not value = { type = chancellor_csc condition = { type = or
+						condition = { type = ruler_child }
+						condition = { type = gender value = male }
+					} } }
+					condition = { type = and
+						condition = { type = or
+							condition = { type = trait value = amateurish_pettifogger  }
+							condition = { type = trait value = proven_dealbreaker }
+							condition = { type = trait value = charismatic_negotiator }
+							condition = { type = trait value = grey_eminence }
+						}
+						condition = { type = chancellor_csc
+							condition = { type = not value = { type = ruler_child } }
+							condition = { type = not value = { type = gender value = male } }
+						}
+						condition = { type = or
+							condition = { type = and
+								condition = { type = diplomacy value = 7 }
+								condition = { type = not value = { type = diplomacy value = 8 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 7 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 8 }
+								condition = { type = not value = { type = diplomacy value = 9 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 8 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 9 }
+								condition = { type = not value = { type = diplomacy value = 10 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 9 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 10 }
+								condition = { type = not value = { type = diplomacy value = 11 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 10 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 11 }
+								condition = { type = not value = { type = diplomacy value = 12 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 11 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 12 }
+								condition = { type = not value = { type = diplomacy value = 13 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 12 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 13 }
+								condition = { type = not value = { type = diplomacy value = 14 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 13 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 14 }
+								condition = { type = not value = { type = diplomacy value = 15 } }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 14 } } }
+							}
+							condition = { type = and
+								condition = { type = diplomacy value = 15 }
+								condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 15 } } }
+							}
+						}
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = not value = { type = ruler_child } }
+				condition = { type = gender value = male }
+				condition = { type = or
+					condition = { type = trait value = amateurish_pettifogger  }
+					condition = { type = trait value = proven_dealbreaker }
+					condition = { type = trait value = charismatic_negotiator }
+					condition = { type = trait value = grey_eminence }
+				}
+				condition = { type = or
+					condition = { type = not value = { type = chancellor_csc condition = { type = or
+						condition = { type = ruler_child }
+						condition = { type = gender value = male }
+					} } }
+					condition = { type = and
+						condition = { type = diplomacy value = 7 }
+						condition = { type = not value = { type = diplomacy value = 8 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 7 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 8 }
+						condition = { type = not value = { type = diplomacy value = 9 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 8 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 9 }
+						condition = { type = not value = { type = diplomacy value = 10 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 9 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 10 }
+						condition = { type = not value = { type = diplomacy value = 11 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 10 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 11 }
+						condition = { type = not value = { type = diplomacy value = 12 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 11 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 12 }
+						condition = { type = not value = { type = diplomacy value = 13 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 12 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 13 }
+						condition = { type = not value = { type = diplomacy value = 14 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 13 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 14 }
+						condition = { type = not value = { type = diplomacy value = 15 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 14 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 15 }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 15 } } }
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = not value = { type = ruler_child } }
+				condition = { type = gender value = female }
+				condition = { type = or
+					condition = { type = trait value = amateurish_pettifogger  }
+					condition = { type = trait value = proven_dealbreaker }
+					condition = { type = trait value = charismatic_negotiator }
+					condition = { type = trait value = grey_eminence }
+				}
+				condition = { type = or
+					condition = { type = not value = { type = is_married } }
+					condition = { type = spouse condition = { type = ruler } }
+				}
+				condition = { type = or
+					condition = { type = and
+						condition = { type = diplomacy value = 7 }
+						condition = { type = not value = { type = diplomacy value = 8 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 7 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 8 }
+						condition = { type = not value = { type = diplomacy value = 9 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 8 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 9 }
+						condition = { type = not value = { type = diplomacy value = 10 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 9 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 10 }
+						condition = { type = not value = { type = diplomacy value = 11 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 10 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 11 }
+						condition = { type = not value = { type = diplomacy value = 12 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 11 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 12 }
+						condition = { type = not value = { type = diplomacy value = 13 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 12 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 13 }
+						condition = { type = not value = { type = diplomacy value = 14 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 13 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 14 }
+						condition = { type = not value = { type = diplomacy value = 15 } }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 14 } } }
+					}
+					condition = { type = and
+						condition = { type = diplomacy value = 15 }
+						condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 15 } } }
+					}
+				}
+			}
+		}
+		condition = { type = chancellor_csc condition = { type = not value = { type = is_friend } } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = not value = { type = num_rivals value = 3 } }
+				condition = { type = chancellor_csc
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = num_rivals value = 5 } }
+				}
+			}
+			condition = { type = chancellor_csc condition = { type = is_rival } }
+		}
+		condition = { type = or
+			condition = { type = gender value = female }
+			condition = { type = not value = { type = ruler_child } }
+			condition = { type = not value = { type = chancellor_csc
+				condition = { type = ruler_child }
+				condition = { type = trait value = bastard }
+			} }
+		}
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = ruler_csc condition = { type = religion value = catholic } }
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = ruler_csc condition = { type = religion value = orthodox } }
+			}
+			condition = { type = and
+				condition = { type = religion value = moslem }
+				condition = { type = ruler_csc condition = { type = religion value = moslem } }
+			}
+			condition = { type = and
+				condition = { type = religion value = pagan }
+				condition = { type = ruler_csc condition = { type = religion value = pagan } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = not value = { type = chancellor_csc condition = { type = diplomacy value = 1 } } }
+			factor = 0.01
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			condition = { type = ruler_csc condition = { type = duchy } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			condition = { type = ruler_csc condition = { type = kingdom } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = prestige value = 25 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = prestige value = 50 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = chancellor_csc condition = { type = or
+				condition = { type = trait value = amateurish_pettifogger }
+				condition = { type = trait value = proven_dealbreaker }
+				condition = { type = trait value = charismatic_negotiator }
+				condition = { type = trait value = grey_eminence }
+			} } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = is_rival } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = ruler_child } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = trait value = modest } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = trait value = deceitful } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = trait value = suspicious } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = is_friend } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = atwar } }
+			factor = 5.0
+		}
+	}
+
+	action_a = {
+		effect = { type = prestige value = 10 }
+		effect = { type = loyalty value = 0.1 }
+		effect = { type = loyalty for = chancellor value = -0.3 }
+		effect = { type = random chance = 50
+			effect = { type = make_rival value = chancellor }
+		}
+		effect = { type = random chance = 15
+			effect = { type = add_trait for = chancellor value = depression }
+		}
+		effect = { type = chancellor }
+	}
+	action_b = {
+		effect = { type = prestige value = -10 }
+		effect = { type = loyalty value = -0.3 }
+		effect = { type = loyalty for = chancellor value = 0.1 }
+		effect = { type = random chance = 25
+			effect = { type = make_rival value = chancellor }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+	action_c = {
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty for = chancellor value = 0.3 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = depression }
+		}
+	}
+}
+
+character_event = {
+	id = 7342
+
+	picture = "event_tribunal"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = trait value = bastard } }
+		condition = { type = not value = { type = or
+			condition = { type = marshal }
+			condition = { type = chancellor }
+			condition = { type = spymaster }
+			condition = { type = steward }
+			condition = { type = chaplain }
+			condition = { type = ruler }
+		} }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = ruler_child }
+				condition = { type = gender value = male }
+				condition = { type = intrigue value = 1 }
+				condition = { type = or
+					condition = { type = not value = { type = spymaster_csc condition = { type = gender value = male } } }
+					condition = { type = and
+						condition = { type = or
+							condition = { type = trait value = naive_wirepuller  }
+							condition = { type = trait value = flamboyant_schemer }
+							condition = { type = trait value = intricate_webweaver }
+							condition = { type = trait value = illusive_shadow }
+						}
+						condition = { type = or
+							condition = { type = spymaster_csc condition = { type = not value = { type = ruler_child } } }
+							condition = { type = and
+								condition = { type = intrigue value = 7 }
+								condition = { type = not value = { type = intrigue value = 8 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 7 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 8 }
+								condition = { type = not value = { type = intrigue value = 9 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 8 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 9 }
+								condition = { type = not value = { type = intrigue value = 10 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 9 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 10 }
+								condition = { type = not value = { type = intrigue value = 11 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 10 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 11 }
+								condition = { type = not value = { type = intrigue value = 12 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 11 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 12 }
+								condition = { type = not value = { type = intrigue value = 13 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 12 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 13 }
+								condition = { type = not value = { type = intrigue value = 14 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 13 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 14 }
+								condition = { type = not value = { type = intrigue value = 15 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 14 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 15 }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 15 } } }
+							}
+						}
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = ruler_child }
+				condition = { type = gender value = female }
+				condition = { type = intrigue value = 1 }
+				condition = { type = or
+					condition = { type = not value = { type = spymaster_csc condition = { type = or
+						condition = { type = ruler_child }
+						condition = { type = gender value = male }
+					} } }
+					condition = { type = and
+						condition = { type = or
+							condition = { type = trait value = naive_wirepuller  }
+							condition = { type = trait value = flamboyant_schemer }
+							condition = { type = trait value = intricate_webweaver }
+							condition = { type = trait value = illusive_shadow }
+						}
+						condition = { type = spymaster_csc
+							condition = { type = not value = { type = ruler_child } }
+							condition = { type = not value = { type = gender value = male } }
+						}
+						condition = { type = or
+							condition = { type = and
+								condition = { type = intrigue value = 7 }
+								condition = { type = not value = { type = intrigue value = 8 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 7 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 8 }
+								condition = { type = not value = { type = intrigue value = 9 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 8 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 9 }
+								condition = { type = not value = { type = intrigue value = 10 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 9 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 10 }
+								condition = { type = not value = { type = intrigue value = 11 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 10 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 11 }
+								condition = { type = not value = { type = intrigue value = 12 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 11 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 12 }
+								condition = { type = not value = { type = intrigue value = 13 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 12 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 13 }
+								condition = { type = not value = { type = intrigue value = 14 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 13 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 14 }
+								condition = { type = not value = { type = intrigue value = 15 } }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 14 } } }
+							}
+							condition = { type = and
+								condition = { type = intrigue value = 15 }
+								condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 15 } } }
+							}
+						}
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = not value = { type = ruler_child } }
+				condition = { type = gender value = male }
+				condition = { type = or
+					condition = { type = trait value = naive_wirepuller  }
+					condition = { type = trait value = flamboyant_schemer }
+					condition = { type = trait value = intricate_webweaver }
+					condition = { type = trait value = illusive_shadow }
+				}
+				condition = { type = or
+					condition = { type = not value = { type = spymaster_csc condition = { type = or
+						condition = { type = ruler_child }
+						condition = { type = gender value = male }
+					} } }
+					condition = { type = and
+						condition = { type = intrigue value = 7 }
+						condition = { type = not value = { type = intrigue value = 8 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 7 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 8 }
+						condition = { type = not value = { type = intrigue value = 9 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 8 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 9 }
+						condition = { type = not value = { type = intrigue value = 10 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 9 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 10 }
+						condition = { type = not value = { type = intrigue value = 11 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 10 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 11 }
+						condition = { type = not value = { type = intrigue value = 12 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 11 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 12 }
+						condition = { type = not value = { type = intrigue value = 13 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 12 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 13 }
+						condition = { type = not value = { type = intrigue value = 14 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 13 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 14 }
+						condition = { type = not value = { type = intrigue value = 15 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 14 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 15 }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 15 } } }
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = not value = { type = ruler_child } }
+				condition = { type = gender value = female }
+				condition = { type = or
+					condition = { type = trait value = naive_wirepuller  }
+					condition = { type = trait value = flamboyant_schemer }
+					condition = { type = trait value = intricate_webweaver }
+					condition = { type = trait value = illusive_shadow }
+				}
+				condition = { type = or
+					condition = { type = not value = { type = is_married } }
+					condition = { type = spouse condition = { type = ruler } }
+				}
+				condition = { type = or
+					condition = { type = and
+						condition = { type = intrigue value = 7 }
+						condition = { type = not value = { type = intrigue value = 8 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 7 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 8 }
+						condition = { type = not value = { type = intrigue value = 9 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 8 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 9 }
+						condition = { type = not value = { type = intrigue value = 10 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 9 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 10 }
+						condition = { type = not value = { type = intrigue value = 11 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 10 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 11 }
+						condition = { type = not value = { type = intrigue value = 12 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 11 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 12 }
+						condition = { type = not value = { type = intrigue value = 13 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 12 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 13 }
+						condition = { type = not value = { type = intrigue value = 14 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 13 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 14 }
+						condition = { type = not value = { type = intrigue value = 15 } }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 14 } } }
+					}
+					condition = { type = and
+						condition = { type = intrigue value = 15 }
+						condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 15 } } }
+					}
+				}
+			}
+		}
+		condition = { type = spymaster_csc condition = { type = not value = { type = is_friend } } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = not value = { type = num_rivals value = 3 } }
+				condition = { type = spymaster_csc
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = num_rivals value = 5 } }
+				}
+			}
+			condition = { type = spymaster_csc condition = { type = is_rival } }
+		}
+		condition = { type = or
+			condition = { type = gender value = female }
+			condition = { type = not value = { type = ruler_child } }
+			condition = { type = not value = { type = spymaster_csc
+				condition = { type = ruler_child }
+				condition = { type = trait value = bastard }
+			} }
+		}
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = ruler_csc condition = { type = religion value = catholic } }
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = ruler_csc condition = { type = religion value = orthodox } }
+			}
+			condition = { type = and
+				condition = { type = religion value = moslem }
+				condition = { type = ruler_csc condition = { type = religion value = moslem } }
+			}
+			condition = { type = and
+				condition = { type = religion value = pagan }
+				condition = { type = ruler_csc condition = { type = religion value = pagan } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 1 } } }
+			factor = 0.01
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			condition = { type = ruler_csc condition = { type = duchy } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			condition = { type = ruler_csc condition = { type = kingdom } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = forgiving }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = not value = { type = prestige value = 0 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = prestige value = 25 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = prestige value = 50 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = spymaster_csc condition = { type = or
+				condition = { type = trait value = naive_wirepuller }
+				condition = { type = trait value = flamboyant_schemer }
+				condition = { type = trait value = intricate_webweaver }
+				condition = { type = trait value = illusive_shadow }
+			} } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = is_rival } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = ruler_child } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = trait value = modest } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = trait value = honest } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = trait value = forgiving } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = trait value = trusting } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = is_friend } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = atwar } }
+			factor = 5.0
+		}
+	}
+
+	action_a = {
+		effect = { type = prestige value = 10 }
+		effect = { type = loyalty value = 0.1 }
+		effect = { type = loyalty for = spymaster value = -0.3 }
+		effect = { type = random chance = 50
+			effect = { type = make_rival value = spymaster }
+		}
+		effect = { type = random chance = 15
+			effect = { type = add_trait for = spymaster value = depression }
+		}
+		effect = { type = spymaster }
+	}
+	action_b = {
+		effect = { type = prestige value = -10 }
+		effect = { type = loyalty value = -0.3 }
+		effect = { type = loyalty for = spymaster value = 0.1 }
+		effect = { type = random chance = 25
+			effect = { type = make_rival value = spymaster }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+	action_c = {
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty for = spymaster value = 0.3 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = depression }
+		}
+	}
+}
+
+character_event = {
+	id = 7343
+
+	picture = "event_tribunal"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = age value = 16 }
+		condition = { type = gender value = male }
+		condition = { type = not value = { type = trait value = bastard } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = or
+			condition = { type = marshal }
+			condition = { type = chancellor }
+			condition = { type = spymaster }
+			condition = { type = steward }
+			condition = { type = chaplain }
+			condition = { type = ruler }
+		} }
+		condition = { type = or
+			condition = { type = trait value = detached_priest }
+			condition = { type = trait value = martial_cleric }
+			condition = { type = trait value = scholarly_theologian }
+			condition = { type = trait value = mastermind_theologian }
+		}
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = ruler_csc condition = { type = religion value = catholic } }
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = ruler_csc condition = { type = religion value = orthodox } }
+			}
+		}
+		condition = { type = or
+			condition = { type = and
+				condition = { type = not value = { type = trait value = heretic } }
+				condition = { type = ruler_csc condition = { type = not value = { type = trait value = heretic } } }
+			} 
+			condition = { type = and
+				condition = { type = trait value = heretic }
+				condition = { type = ruler_csc condition = { type = trait value = heretic } }
+			} 
+		}
+		condition = { type = or
+			condition = { type = and
+				condition = { type = ruler_child }
+				condition = { type = not value = { type = chaplain_csc condition = { type = ruler_child } } }
+			}
+			condition = { type = or
+				condition = { type = trait value = mastermind_theologian }
+				condition = { type = not value = { type = chaplain_csc condition = { type = chaplain } } }
+				condition = { type = and
+					condition = { type = trait value = detached_priest }
+					condition = { type = chaplain_csc condition = { type = trait value = detached_priest } }
+				}
+				condition = { type = and
+					condition = { type = trait value = martial_cleric }
+					condition = { type = chaplain_csc condition = { type = or
+						condition = { type = trait value = detached_priest }
+						condition = { type = trait value = martial_cleric }
+					} }
+				}
+				condition = { type = and
+					condition = { type = trait value = scholarly_theologian }
+					condition = { type = chaplain_csc condition = { type = or
+						condition = { type = trait value = detached_priest }
+						condition = { type = trait value = martial_cleric }
+						condition = { type = trait value = scholarly_theologian }
+					} }
+				}
+			}
+		}
+		condition = { type = chaplain_csc condition = { type = not value = { type = is_friend } } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = not value = { type = num_rivals value = 3 } }
+				condition = { type = chaplain_csc
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = num_rivals value = 5 } }
+				}
+			}
+			condition = { type = chaplain_csc condition = { type = is_rival } }
+		}
+		condition = { type = or
+			condition = { type = not value = { type = ruler_child } }
+			condition = { type = not value = { type = chaplain_csc
+				condition = { type = ruler_child }
+				condition = { type = trait value = bastard }
+			} }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = not value = { type = chaplain_csc condition = { type = chaplain } } }
+			factor = 0.01
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			condition = { type = ruler_csc condition = { type = duchy } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_child }
+			condition = { type = ruler_csc condition = { type = kingdom } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = piety value = 0 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = piety value = 25 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = piety value = 50 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = intrigue value = 10 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 14 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = diplomacy value = 10 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = diplomacy value = 10 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = diplomacy value = 14 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = not value = { type = intrigue value = 10 } } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = intrigue value = 10 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = intrigue value = 14 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = not value = { type = diplomacy value = 10 } } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = diplomacy value = 10 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = diplomacy value = 14 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = is_rival } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = ruler_child } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = modest } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = zealous } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = sceptical } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = is_friend } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = atwar } }
+			factor = 5.0
+		}
+	}
+
+	action_a = {
+		effect = { type = prestige value = 10 }
+		effect = { type = loyalty value = 0.1 }
+		effect = { type = loyalty for = chaplain value = -0.3 }
+		effect = { type = random chance = 50
+			effect = { type = make_rival value = chaplain }
+		}
+		effect = { type = random chance = 15
+			effect = { type = add_trait for = chaplain value = depression }
+		}
+		effect = { type = chaplain }
+	}
+	action_b = {
+		effect = { type = prestige value = -10 }
+		effect = { type = loyalty value = -0.3 }
+		effect = { type = loyalty for = chaplain value = 0.1 }
+		effect = { type = random chance = 25
+			effect = { type = make_rival value = chaplain }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+	action_c = {
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty for = chaplain value = 0.3 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = depression }
+		}
+	}
+}
+
+# Disloyal courtier wanting money for loyalty
+
+character_event = { # If my abilities are not valued in this court, I may begin to look for another
+	id = 7344
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = loyalty value = 0.5 } }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = ruler_csc condition = { type = is_rival } } }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.1 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = marshal }
+				condition = { type = chancellor }
+				condition = { type = spymaster }
+				condition = { type = steward }
+				condition = { type = chaplain }
+			}
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = is_friend } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = gender value = female }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = is_married }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = prestige value = 25 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = prestige value = 50 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = prestige value = 100 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_claims }
+			factor = 0.9
+		}
+	}
+
+	action_a = { # Maybe this token of goodwill will help you stay
+		ai_chance = 25
+		effect = { type = gold scale = 0.2 }
+		effect = { type = loyalty value = 0.2 }
+		effect = { type = trigger for = ruler value = 7345 }
+	}
+	action_b = { # This bag of gold proves you as very valuable to me
+		ai_chance = 25
+		effect = { type = gold scale = 0.5 }
+		effect = { type = loyalty value = 0.5 }
+		effect = { type = trigger for = ruler value = 7346 }
+	}
+	action_c = { # I don't have anything to spare for you
+		ai_chance = 25
+		effect = { type = loyalty value = -0.3 }
+	}
+	action_d = { # Good riddance then
+		ai_chance = 25
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = courtier_defect value = random_neighbor }
+	}
+}
+
+character_event = { # Token of goodwill to a courtier
+	id = 7345
+
+	picture = "event_moneycollection"
+
+	action_a = { # Ouch
+		effect = { type = gold scale = -0.2 }
+	}
+}
+
+character_event = { # A bag of gold to a courtier
+	id = 7346
+
+	picture = "event_moneycollection"
+
+	action_a = { # Ouch
+		effect = { type = gold scale = -0.5 }
+	}
+}
+
+##############
+# Youngers sons going off to become Knights
+##############
+
+# Hospitaler
+
+character_event = { # Your son wishes to join the Knights Hospitaller
+	id = 7347
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = exists value = HOSP }
+		condition = { type = gender value = male }
+		condition = { type = trait value = martial_cleric }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_child }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = primary_heir } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = any_ruler
+			condition = { type = title value = HOSP }
+			condition = { type = form_of_goverment value = knight_order }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+
+		modifier = {
+			condition = { type = martial value = 10 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 12 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 14 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 6 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 4 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chaplain }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Let him go
+		ai_chance = 80
+			modifier = { condition = { type = not value = { type = court value = 10 } } factor = 0.1 }
+			modifier = { condition = { type = is_independent } factor = 0.25 }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = add_trait value = crusader }
+		effect = { type = prestige value = 50 }
+		effect = { type = courtier_defect value = load_target }
+		effect = { type = trigger for = ruler value = 7350 }
+	}
+	action_b = { # I need his services here
+		ai_chance = 20
+		effect = { type = loyalty value = -0.2 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = sceptical }
+		}
+	}
+}
+
+# Templar
+
+character_event = { # Your son wishes to join the Knights Templar
+	id = 7348
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = exists value = TEMP }
+		condition = { type = gender value = male }
+		condition = { type = trait value = martial_cleric }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_child }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = primary_heir } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = any_ruler
+			condition = { type = title value = TEMP }
+			condition = { type = form_of_goverment value = knight_order }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+
+		modifier = {
+			condition = { type = martial value = 10 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 12 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 14 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 6 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 4 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chaplain }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Let him go
+		ai_chance = 80
+			modifier = { condition = { type = not value = { type = court value = 10 } } factor = 0.1 }
+			modifier = { condition = { type = is_independent } factor = 0.25 }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = add_trait value = crusader }
+		effect = { type = prestige value = 50 }
+		effect = { type = courtier_defect value = load_target }
+		effect = { type = trigger for = ruler value = 7350 }
+	}
+	action_b = { # I need his services here
+		ai_chance = 20
+		effect = { type = loyalty value = -0.2 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = sceptical }
+		}
+	}
+}
+
+# Teutonic
+
+character_event = { # Your son wishes to join the Teutonic Knights
+	id = 7349
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = exists value = TEUT }
+		condition = { type = gender value = male }
+		condition = { type = trait value = martial_cleric }
+		condition = { type = religion value = catholic }
+		condition = { type = ruler_child }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = primary_heir } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = any_ruler
+			condition = { type = title value = TEUT }
+			condition = { type = form_of_goverment value = knight_order }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+
+		modifier = {
+			condition = { type = martial value = 10 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 12 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 14 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 6 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 4 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chaplain }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Let him go
+		ai_chance = 80
+			modifier = { condition = { type = not value = { type = court value = 10 } } factor = 0.1 }
+			modifier = { condition = { type = is_independent } factor = 0.25 }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = add_trait value = crusader }
+		effect = { type = prestige value = 50 }
+		effect = { type = courtier_defect value = load_target }
+		effect = { type = trigger for = ruler value = 7350 }
+	}
+	action_b = { # I need his services here
+		ai_chance = 20
+		effect = { type = loyalty value = -0.2 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = sceptical }
+		}
+	}
+}
+
+character_event = { # Allowing your son to join a Knight Order has improved your standing with the Church
+	id = 7350
+
+	picture = "event_religion"
+
+	action_a = { # Great!
+		effect = { type = piety value = 50 }
+	}
+}
+
+# Next ID = 7351

@@ -1,0 +1,5362 @@
+###################################################
+# Events for getting lovers and dealing with them
+# ID range 8200-8299
+# By Byakhiam
+###################################################
+
+#################
+# Getting lovers
+# 8200-8229
+#################
+
+character_event = { # Your wife has grown old and less-than-attractive. Maybe a young mistress will bring some excitement to your life?
+	id = 8200
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = gender value = male }
+		condition = { type = not value = { type = trait value = chaste } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = is_married }
+		condition = { type = fertility value = 4 }
+		condition = { type = or
+			condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+			condition = { type = spouse condition = { type = is_friend } }
+		}
+		condition = { type = spouse
+			condition = { type = age value = 25 }
+			condition = { type = or
+				condition = { type = age value = 40 }
+				condition = { type = trait value = celibate }
+				condition = { type = trait value = pneumonia }
+				condition = { type = trait value = blind }
+				condition = { type = trait value = leper }
+				condition = { type = trait value = plagueinfested }
+				condition = { type = trait value = depression }
+				condition = { type = trait value = schizofrenia }
+				condition = { type = trait value = maniac }
+				condition = { type = not value = { type = fertility value = 4 } }
+			}
+		}
+		condition = { type = any_courtier
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 20 } }
+			condition = { type = fertility value = 4 }
+			condition = { type = not value = { type = father condition = { type = is_receiver } } } # Ick!
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = not value = { type = is_married } }
+			condition = { type = not value = { type = trait value = chaste } }
+			condition = { type = not value = { type = trait value = celibate } }
+			condition = { type = not value = { type = trait value = pneumonia } }
+			condition = { type = not value = { type = trait value = blind } }
+			condition = { type = not value = { type = trait value = leper } }
+			condition = { type = not value = { type = trait value = plagueinfested } }
+			condition = { type = not value = { type = trait value = depression } }
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = celibate } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = leper } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = plagueinfested } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = pneumonia } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = is_rival } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = is_friend } }
+			factor = 2.0
+		}
+	}
+
+	action_a = { # I'm sure my wife will allow me to indulge myself
+		ai_chance = 40
+		effect = { type = piety value = -10 }
+		effect = { type = random chance = 75
+			effect = { type = make_friend value = load_target }
+			effect = { type = lose_friend value = spouse }
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = lustful }
+		}
+		effect = { type = random chance = 50
+			effect = { type = add_trait for = spouse value = stress_symptom }
+		}
+	}
+	action_b = { # I'm sure my wife won't find out
+		ai_chance = 40
+		effect = { type = random chance = 75
+			effect = { type = add_trait value = deceitful }
+		}
+		effect = { type = random chance = 50
+			effect = { type = make_friend value = load_target }
+			effect = { type = lose_friend value = spouse }
+			effect = { type = create_courtier value = bastard }
+			effect = { type = piety value = -10 }
+		}
+		effect = { type = random chance = 50
+			effect = { type = loyalty for = spouse value = -1.0 }
+		}
+	}
+	action_c = { # No, it's a sin
+		ai_chance = 20
+		effect = { type = piety value = 10 }
+		effect = { type = random_list
+			25 = { type = no_effect }
+			40 = { type = add_trait value = chaste }
+			30 = { type = add_trait value = zealous }
+			5 = { type = add_trait value = celibate }
+		}
+	}
+}
+
+character_event = { # You have become infatuated to a girl in the same court
+	id = 8201
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 12 }
+		condition = { type = not value = { type = age value = 20 } }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = num_friends value = 3 } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+		condition = { type = any_courtier
+			condition = { type = gender value = female }
+			condition = { type = age value = 12 }
+			condition = { type = not value = { type = age value = 20 } }
+			condition = { type = not value = { type = num_friends value = 3 } }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = not value = { type = is_married } }
+			#condition = { type = not value = { type = is_sibling } } # Ick!
+			condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+			condition = { type = not value = { type = trait value = celibate } }
+			condition = { type = not value = { type = trait value = pneumonia } }
+			condition = { type = not value = { type = trait value = blind } }
+			condition = { type = not value = { type = trait value = leper } }
+			condition = { type = not value = { type = trait value = plagueinfested } }
+			condition = { type = not value = { type = trait value = depression } }
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			condition = { type = or
+				condition = { type = not value = { type = num_friends value = 1 } }
+				condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 100
+
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = gregarious }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = shy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # I can feel the love overtake me!
+		ai_chance = 50
+		effect = { type = random chance = 75
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_b = { # It will be fun for a while
+		ai_chance = 25
+		effect = { type = random chance = 25
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_c = { # She's not that pretty really
+		ai_chance = 25
+		effect = { type = random chance = 20
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+}
+
+character_event = { # A fosterling child has become infatuated with your daughter
+	id = 8202
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 12 }
+		condition = { type = trait value = fosterling }
+		condition = { type = not value = { type = age value = 16 } }
+		condition = { type = not value = { type = num_friends value = 4 } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+		condition = { type = any_courtier
+			condition = { type = gender value = female }
+			condition = { type = ruler_child }
+			condition = { type = age value = 12 }
+			condition = { type = not value = { type = age value = 20 } }
+			condition = { type = not value = { type = num_friends value = 4 } }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = not value = { type = is_married } }
+			condition = { type = not value = { type = trait value = celibate } }
+			condition = { type = not value = { type = trait value = pneumonia } }
+			condition = { type = not value = { type = trait value = blind } }
+			condition = { type = not value = { type = trait value = leper } }
+			condition = { type = not value = { type = trait value = plagueinfested } }
+			condition = { type = not value = { type = trait value = depression } }
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			condition = { type = or
+				condition = { type = not value = { type = num_friends value = 1 } }
+				condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = gregarious }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = shy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Aww, how sweet
+		ai_chance = 50
+		effect = { type = random chance = 75
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_b = { # Maybe it will pass
+		ai_chance = 25
+		effect = { type = random chance = 25
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_c = { # Separate them
+		ai_chance = 25
+		effect = { type = random chance = 20
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+}
+
+character_event = { # Your son has become infatuated with a fosterling girl
+	id = 8203
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = ruler_child }
+		condition = { type = age value = 12 }
+		condition = { type = not value = { type = age value = 20 } }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = num_friends value = 5 } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+		condition = { type = any_courtier
+			condition = { type = gender value = female }
+			condition = { type = trait value = fosterling }
+			condition = { type = age value = 12 }
+			condition = { type = not value = { type = age value = 16 } }
+			condition = { type = not value = { type = num_friends value = 4 } }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = not value = { type = trait value = celibate } }
+			condition = { type = not value = { type = trait value = pneumonia } }
+			condition = { type = not value = { type = trait value = blind } }
+			condition = { type = not value = { type = trait value = leper } }
+			condition = { type = not value = { type = trait value = plagueinfested } }
+			condition = { type = not value = { type = trait value = depression } }
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			condition = { type = or
+				condition = { type = not value = { type = num_friends value = 1 } }
+				condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = gregarious }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = shy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Aww, how sweet
+		ai_chance = 50
+		effect = { type = random chance = 75
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_b = { # Maybe it will pass
+		ai_chance = 25
+		effect = { type = random chance = 25
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_c = { # Separate them
+		ai_chance = 25
+		effect = { type = random chance = 20
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+}
+
+character_event = { # You have become infatuated with a fellow fosterling
+	id = 8204
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = trait value = fosterling }
+		condition = { type = age value = 12 }
+		condition = { type = not value = { type = age value = 16 } }
+		condition = { type = not value = { type = num_friends value = 4 } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+		condition = { type = any_courtier
+			condition = { type = gender value = female }
+			condition = { type = trait value = fosterling }
+			condition = { type = age value = 12 }
+			condition = { type = not value = { type = age value = 16 } }
+			condition = { type = not value = { type = num_friends value = 4 } }
+			#condition = { type = not value = { type = is_sibling } } # Ick!
+			condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = not value = { type = trait value = celibate } }
+			condition = { type = not value = { type = trait value = pneumonia } }
+			condition = { type = not value = { type = trait value = blind } }
+			condition = { type = not value = { type = trait value = leper } }
+			condition = { type = not value = { type = trait value = plagueinfested } }
+			condition = { type = not value = { type = trait value = depression } }
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			condition = { type = or
+				condition = { type = not value = { type = num_friends value = 1 } }
+				condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = gregarious }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = shy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # I can feel the love overtake me!
+		ai_chance = 50
+		effect = { type = random chance = 75
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_b = { # It will be fun for a while
+		ai_chance = 25
+		effect = { type = random chance = 25
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_c = { # She's not that pretty really
+		ai_chance = 25
+		effect = { type = random chance = 20
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+}
+
+character_event = { # You have fallen in love with your wife
+	id = 8205
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = is_married }
+		condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+		condition = { type = spouse
+			condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 200
+
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = age value = 25 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = age value = 40 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = age value = 50 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = num_of_children value = 1 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = num_of_children value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = num_of_children value = 5 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = num_of_children value = 7 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = lustful } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = chaste } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = illness } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = intestinal_worm } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = pneumonia } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = leper } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = plagueinfested } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = blind } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = stress_symptom } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = depression } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = schizofrenia } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = maniac } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = age value = 40 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = age value = 50 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = age value = 60 } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = not value = { type = age value = 25 } } }
+			factor = 0.66
+		}
+	}
+
+	action_a = { # This is a marriage of love
+		ai_chance = 75
+		effect = { type = make_friend value = spouse }
+		effect = { type = add_trait value = chaste }
+	}
+	action_b = { # But all the other girls!
+		ai_chance = 25
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = lustful }
+		}
+		effect = { type = random chance = 25
+			effect = { type = make_rival value = spouse }
+		}
+	}
+}
+
+character_event = { # You have had a definite falling out with your wife
+	id = 8206
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = is_married }
+		condition = { type = spouse
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 200
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = num_of_children value = 1 } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = num_of_children value = 3 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = num_of_children value = 5 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = num_of_children value = 7 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = lustful } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = chaste } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = illness } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = intestinal_worm } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = pneumonia } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = leper } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = plagueinfested } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = blind } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = stress_symptom } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = depression } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = schizofrenia } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = maniac } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = age value = 40 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = age value = 50 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = age value = 60 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = not value = { type = age value = 25 } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = any_friend condition = { type = gender value = female } }
+			condition = { type = spouse condition = { type = not value = { type = any_friend condition = { type = gender value = male } } } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+			condition = { type = spouse condition = { type = any_friend condition = { type = gender value = male } } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = any_friend condition = { type = gender value = female } }
+			condition = { type = spouse condition = { type = any_friend condition = { type = gender value = male } } }
+			factor = 2.0
+		}
+	}
+
+	action_a = { # I hate you too honey
+		ai_chance = 75
+		effect = { type = make_rival value = spouse }
+	}
+	action_b = { # Make amendments
+		ai_chance = 25
+		effect = { type = gold scale = -0.5 }
+	}
+}
+
+character_event = { # You have noticed that your wife has been spending quite some time with a young bachelor in your court
+	id = 8207
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = gender value = female }
+		condition = { type = is_married }
+		condition = { type = not value = { type = trait value = chaste } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = spouse
+			condition = { type = ruler }
+			#condition = { type = same_court }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+		}
+		condition = { type = any_courtier
+			condition = { type = gender value = male }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 30 } }
+			condition = { type = not value = { type = is_married } }
+			condition = { type = not value = { type = trait value = celibate } }
+			condition = { type = not value = { type = trait value = pneumonia } }
+			condition = { type = not value = { type = trait value = leper } }
+			condition = { type = not value = { type = trait value = plagueinfested } }
+			condition = { type = not value = { type = trait value = depression } }
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			condition = { type = not value = { type = trait value = war_invalid } }
+			condition = { type = not value = { type = mother condition = { type = is_receiver } } } # Ick!
+			#condition = { type = not value = { type = is_sibling } } # Ick!
+			condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+			condition = { type = or
+				condition = { type = not value = { type = num_friends value = 1 } }
+				condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 100
+
+		modifier = {
+			condition = { type = spouse condition = { type = any_friend condition = { type = gender value = female } } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = age value = 25 } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = age value = 40 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # It's probably nothing
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = trusting }
+			25 = { type = add_trait for = spouse value = generous }
+		}
+		effect = { type = random chance = 50
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_b = { # Keep her under a watchful eye
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = suspicious }
+			25 = { type = add_trait for = spouse value = selfish }
+		}
+		effect = { type = random chance = 75
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_c = { # Confront her about it
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = hostile }
+			25 = { type = add_trait for = spouse value = reckless }
+		}
+		effect = { type = random chance = 25
+			effect = { type = make_friend value = load_target }
+		}
+		effect = { type = random chance = 25
+			effect = { type = trigger for = spouse value = 8206 }
+		}
+	}
+	action_d = { # Exile him
+		ai_chance = 25
+		effect = { type = trigger for = load_target value = 8299 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = arbitrary }
+			25 = { type = add_trait for = spouse value = vengeful }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = stress_symptom }
+		}
+		effect = { type = random chance = 50
+			effect = { type = trigger for = spouse value = 8206 }
+		}
+	}
+}
+
+character_event = { # Your wife has blatantly got herself a lover from a young bachelor in your court
+	id = 8208
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = gender value = female }
+		condition = { type = is_married }
+		condition = { type = not value = { type = trait value = chaste } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = spouse
+			condition = { type = ruler }
+			#condition = { type = same_court }
+			condition = { type = is_rival }
+		}
+		condition = { type = any_courtier
+			condition = { type = gender value = male }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 30 } }
+			condition = { type = not value = { type = is_married } }
+			condition = { type = not value = { type = trait value = celibate } }
+			condition = { type = not value = { type = trait value = pneumonia } }
+			condition = { type = not value = { type = trait value = leper } }
+			condition = { type = not value = { type = trait value = plagueinfested } }
+			condition = { type = not value = { type = trait value = depression } }
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			condition = { type = not value = { type = trait value = war_invalid } }
+			condition = { type = not value = { type = mother condition = { type = is_receiver } } } # Ick!
+			condition = { type = or
+				condition = { type = not value = { type = num_friends value = 1 } }
+				condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+			}
+			#condition = { type = not value = { type = is_sibling } } # Ick!
+			condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 100
+
+		modifier = {
+			condition = { type = spouse condition = { type = any_friend condition = { type = gender value = female } } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = age value = 25 } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = age value = 40 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # What can I do about it?
+		ai_chance = 75
+		effect = { type = make_friend value = load_target }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = weak_willed }
+			25 = { type = add_trait for = spouse value = pragmatic }
+		}
+	}
+	action_b = { # I'll exile him, that'll teach her
+		ai_chance = 25
+		effect = { type = trigger for = load_target value = 8299 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = arbitrary }
+			25 = { type = add_trait for = spouse value = selfish }
+		}
+	}
+}
+
+character_event = { # You have been strongly taken by a young woman in your court
+	id = 8209
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = gender value = male }
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+		condition = { type = any_courtier
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 20 } }
+			condition = { type = not value = { type = father condition = { type = is_receiver } } } # Ick!
+			#condition = { type = not value = { type = is_sibling } } # Ick!
+			condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = not value = { type = trait value = celibate } }
+			condition = { type = not value = { type = trait value = pneumonia } }
+			condition = { type = not value = { type = trait value = leper } }
+			condition = { type = not value = { type = trait value = plagueinfested } }
+			condition = { type = not value = { type = trait value = depression } }
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			condition = { type = not value = { type = pregnant } }
+			condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+			condition = { type = not value = { type = spouse condition = { type = is_receiver } } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = not value = { type = is_rival } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = is_rival } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = trait value = chaste }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 40 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = fertility value = 6 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = fertility value = 8 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = fertility value = 9 }
+			factor = 0.8
+		}
+	}
+
+	action_a = { # Such irresitible girl, I shall court her
+		ai_chance = 33
+		effect = { type = random chance = 50
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_b = { # She seems fun enough to play around with
+		ai_chance = 33
+		effect = { type = random chance = 25
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random chance = 25
+			effect = { type = make_friend value = load_target }
+		}
+	}
+	action_c = { # She's not worth it
+		ai_chance = 34
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+}
+
+character_event = { # You have been strongly taken by a daughter of your neighbouring ruler
+	id = 8210
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = gender value = male }
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = any_neighbour
+					condition = { type = religion value = catholic }
+					condition = { type = num_of_daughters value = 1 }
+					condition = { type = any_child
+						condition = { type = gender value = female }
+						condition = { type = not value = { type = is_married } }
+						condition = { type = age value = 16 }
+						condition = { type = is_alive }
+						condition = { type = not value = { type = age value = 25 } }
+						condition = { type = not value = { type = father condition = { type = is_receiver } } } # Ick!
+						#condition = { type = not value = { type = is_sibling } } # Ick!
+						condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+						condition = { type = not value = { type = is_friend } }
+						condition = { type = not value = { type = is_rival } }
+						condition = { type = not value = { type = ruler } }
+						condition = { type = not value = { type = trait value = celibate } }
+						condition = { type = not value = { type = trait value = pneumonia } }
+						condition = { type = not value = { type = trait value = leper } }
+						condition = { type = not value = { type = trait value = plagueinfested } }
+						condition = { type = not value = { type = trait value = depression } }
+						condition = { type = not value = { type = trait value = schizofrenia } }
+						condition = { type = not value = { type = trait value = maniac } }
+						condition = { type = not value = { type = pregnant } }
+						condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+						condition = { type = save_target }
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = any_neighbour
+					condition = { type = religion value = orthodox }
+					condition = { type = num_of_daughters value = 1 }
+					condition = { type = any_child
+						condition = { type = gender value = female }
+						condition = { type = not value = { type = is_married } }
+						condition = { type = is_alive }
+						condition = { type = age value = 16 }
+						condition = { type = not value = { type = age value = 25 } }
+						condition = { type = not value = { type = father condition = { type = is_receiver } } } # Ick!
+						#condition = { type = not value = { type = is_sibling } } # Ick!
+						condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+						condition = { type = not value = { type = is_friend } }
+						condition = { type = not value = { type = is_rival } }
+						condition = { type = not value = { type = ruler } }
+						condition = { type = not value = { type = trait value = celibate } }
+						condition = { type = not value = { type = trait value = pneumonia } }
+						condition = { type = not value = { type = trait value = leper } }
+						condition = { type = not value = { type = trait value = plagueinfested } }
+						condition = { type = not value = { type = trait value = depression } }
+						condition = { type = not value = { type = trait value = schizofrenia } }
+						condition = { type = not value = { type = trait value = maniac } }
+						condition = { type = not value = { type = pregnant } }
+						condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+						condition = { type = save_target }
+					}
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = not value = { type = is_rival } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = is_rival } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = trait value = chaste }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 40 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = fertility value = 6 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = fertility value = 8 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = fertility value = 9 }
+			factor = 0.8
+		}
+	}
+
+	action_a = { # Such irresitible girl, I shall court her
+		ai_chance = 33
+		effect = { type = random chance = 50
+			effect = { type = make_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8296 }
+		}
+	}
+	action_b = { # She seems fun enough to play around with
+		ai_chance = 33
+		effect = { type = random chance = 25
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random chance = 25
+			effect = { type = make_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8296 }
+		}
+	}
+	action_c = { # She's not worth it
+		ai_chance = 34
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+}
+
+character_event = { # You have been strongly taken by a daughter of a vassal ruler
+	id = 8211
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = gender value = male }
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+		condition = { type = any_vassal
+			condition = { type = num_of_daughters value = 1 }
+			condition = { type = any_child
+				condition = { type = gender value = female }
+				condition = { type = not value = { type = is_married } }
+				condition = { type = age value = 16 }
+				condition = { type = not value = { type = age value = 25 } }
+				condition = { type = not value = { type = father condition = { type = is_receiver } } } # Ick!
+				#condition = { type = not value = { type = is_sibling } } # Ick!
+				condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+				condition = { type = not value = { type = is_friend } }
+				condition = { type = not value = { type = is_rival } }
+				condition = { type = not value = { type = ruler } }
+				condition = { type = not value = { type = trait value = celibate } }
+				condition = { type = not value = { type = trait value = pneumonia } }
+				condition = { type = not value = { type = trait value = leper } }
+				condition = { type = not value = { type = trait value = plagueinfested } }
+				condition = { type = not value = { type = trait value = depression } }
+				condition = { type = not value = { type = trait value = schizofrenia } }
+				condition = { type = not value = { type = trait value = maniac } }
+				condition = { type = not value = { type = pregnant } }
+				condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = not value = { type = is_rival } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = is_rival } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = trait value = chaste }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 40 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = fertility value = 6 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = fertility value = 8 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = fertility value = 9 }
+			factor = 0.8
+		}
+	}
+
+	action_a = { # Such irresitible girl, I shall court her
+		ai_chance = 33
+		effect = { type = random chance = 50
+			effect = { type = make_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8296 }
+		}
+	}
+	action_b = { # She seems fun enough to play around with
+		ai_chance = 33
+		effect = { type = random chance = 25
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random chance = 25
+			effect = { type = make_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8296 }
+		}
+	}
+	action_c = { # She's not worth it
+		ai_chance = 34
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+}
+
+character_event = { # You have been strongly taken by a daughter of your liege
+	id = 8212
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = gender value = male }
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+		condition = { type = liege
+			condition = { type = num_of_daughters value = 1 }
+			condition = { type = any_child
+				condition = { type = gender value = female }
+				condition = { type = not value = { type = is_married } }
+				condition = { type = age value = 16 }
+				condition = { type = not value = { type = age value = 25 } }
+				condition = { type = not value = { type = father condition = { type = is_receiver } } } # Ick!
+				#condition = { type = not value = { type = is_sibling } } # Ick!
+				condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+				condition = { type = not value = { type = is_friend } }
+				condition = { type = not value = { type = is_rival } }
+				condition = { type = not value = { type = ruler } }
+				condition = { type = not value = { type = trait value = celibate } }
+				condition = { type = not value = { type = trait value = pneumonia } }
+				condition = { type = not value = { type = trait value = leper } }
+				condition = { type = not value = { type = trait value = plagueinfested } }
+				condition = { type = not value = { type = trait value = depression } }
+				condition = { type = not value = { type = trait value = schizofrenia } }
+				condition = { type = not value = { type = trait value = maniac } }
+				condition = { type = not value = { type = pregnant } }
+				condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 400
+
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = not value = { type = is_rival } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = is_rival } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = trait value = chaste }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 40 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = fertility value = 6 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = fertility value = 8 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = fertility value = 9 }
+			factor = 0.8
+		}
+	}
+
+	action_a = { # Such irresitible girl, I shall court her
+		ai_chance = 33
+		effect = { type = random chance = 50
+			effect = { type = make_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8296 }
+		}
+	}
+	action_b = { # She seems fun enough to play around with
+		ai_chance = 33
+		effect = { type = random chance = 25
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random chance = 25
+			effect = { type = make_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8296 }
+		}
+	}
+	action_c = { # She's not worth it
+		ai_chance = 34
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+}
+
+character_event = { # You have been strongly taken by a daughter of a friendly ruler
+	id = 8213
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = gender value = male }
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+		condition = { type = any_friend
+			condition = { type = ruler }
+			condition = { type = num_of_daughters value = 1 }
+			condition = { type = any_child
+				condition = { type = gender value = female }
+				condition = { type = not value = { type = is_married } }
+				condition = { type = age value = 16 }
+				condition = { type = not value = { type = age value = 25 } }
+				#condition = { type = not value = { type = is_sibling } } # Ick!
+				condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+				condition = { type = not value = { type = is_friend } }
+				condition = { type = not value = { type = is_rival } }
+				condition = { type = not value = { type = ruler } }
+				condition = { type = not value = { type = trait value = celibate } }
+				condition = { type = not value = { type = trait value = pneumonia } }
+				condition = { type = not value = { type = trait value = leper } }
+				condition = { type = not value = { type = trait value = plagueinfested } }
+				condition = { type = not value = { type = trait value = depression } }
+				condition = { type = not value = { type = trait value = schizofrenia } }
+				condition = { type = not value = { type = trait value = maniac } }
+				condition = { type = not value = { type = pregnant } }
+				condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = not value = { type = is_rival } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = is_rival } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = trait value = chaste }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 40 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 50 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = fertility value = 6 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = fertility value = 8 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = fertility value = 9 }
+			factor = 0.8
+		}
+	}
+
+	action_a = { # Such irresitible girl, I shall court her
+		ai_chance = 33
+		effect = { type = random chance = 50
+			effect = { type = make_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8296 }
+		}
+	}
+	action_b = { # She seems fun enough to play around with
+		ai_chance = 33
+		effect = { type = random chance = 25
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random chance = 25
+			effect = { type = make_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8296 }
+		}
+	}
+	action_c = { # She's not worth it
+		ai_chance = 34
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+}
+
+# Romeo & Juliet, beginning
+
+character_event = { # Your son has fallen in love with your fierce rival's daughter!
+	id = 8214
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = ruler_child }
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = age value = 25 } }
+		condition = { type = not value = { type = trait value = bastard } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = any_friend condition = { type = gender value = female } } }
+		condition = { type = father
+			condition = { type = num_rivals value = 1 }
+			condition = { type = any_rival
+				condition = { type = ruler }
+				condition = { type = num_of_daughters value = 1 }
+				condition = { type = any_child
+					condition = { type = gender value = female }
+					condition = { type = ruler_child }
+					condition = { type = age value = 14 }
+					condition = { type = not value = { type = age value = 25 } }
+					condition = { type = not value = { type = trait value = celibate } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = trait value = war_invalid } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = any_friend condition = { type = gender value = male } } }
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 400
+
+		modifier = {
+			condition = { type = is_married }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # Maybe there is no harm in that
+		ai_chance = 50
+		effect = { type = make_friend value = load_target }
+		effect = { type = loyalty value = 0.1 }
+		effect = { type = trigger for = load_target value = 8215 }
+	}
+	action_b = { # Forbid him to have anything to do with her
+		ai_chance = 25
+		effect = { type = loyalty value = -0.3 }
+		effect = { type = random chance = 25
+			effect = { type = make_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8215 }
+		}
+	}
+	action_c = { # Disinherit and banish him!
+		ai_chance = 25
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = add_trait value = bastard }
+		effect = { type = make_friend value = load_target }
+		effect = { type = trigger for = load_target value = 8216 }
+		effect = { type = courtier_defect value = load_target }
+	}
+}
+
+character_event = { # Your daughter has got involved with your fierce rival's son!
+	id = 8215
+
+	picture = "event_intrigue2"
+
+	action_a = { # That is unfortunate
+		ai_chance = 75
+		effect = { type = no_effect }
+	}
+	action_b = { # Send her to a convent!
+		ai_chance = 25
+		effect = { type = death }
+	}
+}
+
+character_event = { # Your fierce rival has banished and disinherited his son for getting involved with your daughter. He has come to your court to seek for asylum
+	id = 8216
+
+	picture = "event_intrigue"
+
+	action_a = { # This presents intriguing opportunities
+		effect = { type = no_effect }
+	}
+}
+
+#####################
+# End of love events 
+# 8230-8249
+#####################
+
+character_event = { # Your feelings towards your loved one have cooled down significantly
+	id = 8230
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = trait value = stubborn } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = gender value = male }
+				condition = { type = any_friend
+					condition = { type = gender value = female }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = gender value = female }
+				condition = { type = any_friend
+					condition = { type = gender value = male }
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = is_friend } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = is_married }
+			condition = { type = not value = { type = spouse condition = { type = is_friend } } }
+			factor = 0.66
+		}
+#		modifier = {
+#			condition = { type = target_csc
+#				condition = { type = is_married }
+#				condition = { type = not value = { type = spouse condition = { type = is_friend } } }
+#			}
+#			factor = 0.66
+#		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 0.5
+		}
+	}
+
+	action_a = { # Evidently it is time to move on
+		ai_chance = 75
+		effect = { type = lose_friend value = load_target }
+		effect = { type = trigger for = load_target value = 8295 }
+	}
+	action_b = { # Try to make it work regardless
+		ai_chance = 25
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = stubborn }
+		}
+		effect = { type = random chance = 25
+			effect = { type = lose_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8295 }
+		}
+	}
+}
+
+#########################
+# Romance flavour events
+#########################
+
+# Happy romance, an unmarried couple
+
+character_event = { # You want to give a special surprise to your loved one, what shall it be?
+	id = 8250
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = not value = { type = is_married } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # I shall craft a love poem
+		ai_chance = 25
+		effect = { type = random_list
+			40 = { type = no_effect }
+			30 = { type = prestige value = -20 }
+			30 = { type = prestige value = 20 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+	action_b = { # I shall find the most beautiful flower in the forest
+		ai_chance = 25
+		effect = { type = random_list
+			40 = { type = no_effect }
+			30 = { type = prestige value = -10 }
+			30 = { type = prestige value = 10 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = illness }
+		}
+	}
+	action_c = { # I shall buy something nice in the market
+		ai_chance = 25
+		effect = { type = gold value = -25 }
+		effect = { type = random_list
+			40 = { type = no_effect }
+			30 = { type = prestige value = -5 }
+			30 = { type = prestige value = 5 }
+		}
+	}
+	action_d = { # I should be sufficient in myself
+		ai_chance = 25
+		effect = { type = random chance = 25
+			effect = { type = lose_friend value = load_target }
+		}
+	}
+}
+
+character_event = { # Being separated from your love by the needs of war is heart-aching
+	id = 8251
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = command }
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = not value = { type = is_married } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # This will merely deepen my love
+		ai_chance = 33
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = romantic }
+			25 = { type = add_trait value = honest }
+		}
+	}
+	action_b = { # I will resist Satan's temptations
+		ai_chance = 33
+		effect = { type = piety value = 10 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = zealous }
+			25 = { type = add_trait value = chaste }
+		}
+	}
+	action_c = { # Visiting some camp-followers should ease my pain
+		ai_chance = 34
+		effect = { type = piety value = -10 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = lustful }
+			25 = { type = add_trait value = deceitful }
+		}
+		effect = { type = random chance = 10
+			effect = { type = create_courtier value = bastard }
+		}
+	}
+}
+
+character_event = { # You have secured a week just for yourself and your lover
+	id = 8252
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = not value = { type = command } }
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = not value = { type = is_married } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # I shall take her to my isolated country cottage
+		ai_chance = 25
+		effect = { type = random chance = 50
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = lustful }
+		}
+	}
+	action_b = { # I shall take her to visit a glamorous foreign court
+		ai_chance = 25
+		effect = { type = gold value = -50 }
+		effect = { type = prestige value = 25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = proud }
+			25 = { type = add_trait value = gregarious }
+		}
+	}
+	action_c = { # I'll sponsor entertainment at the local court
+		ai_chance = 25
+		effect = { type = gold value = -25 }
+		effect = { type = prestige value = 10 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = lazy }
+			25 = { type = add_trait value = indulgent }
+		}
+	}
+	action_d = { # Bah, I'll spend the time with my mates instead
+		ai_chance = 25
+		effect = { type = prestige value = -10 }
+		effect = { type = random chance = 50
+			effect = { type = lose_friend value = load_target }
+		}
+	}
+}
+
+character_event = { # Your lover complains to you that you two never do anything exciting
+	id = 8253
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = not value = { type = command } }
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = not value = { type = is_married } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stubborn }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = weak_willed }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Throw a big party for her entertainment
+		ai_chance = 33
+		effect = { type = gold value = -25 }
+		effect = { type = prestige value = 10 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = generous }
+			25 = { type = add_trait value = weak_willed }
+		}
+	}
+	action_b = { # Take her to do something dangerous, like hunting
+		ai_chance = 33
+		effect = { type = prestige value = 25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = reckless }
+			25 = { type = add_trait value = energetic }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait for = load_target value = war_invalid }
+		}
+		effect = { type = random chance = 5
+			effect = { type = add_trait value = war_invalid }
+		}
+	}
+	action_c = { # She gets what she deserves
+		ai_chance = 34
+		effect = { type = prestige value = -5 }
+		effect = { type = random chance = 50
+			effect = { type = lose_friend value = load_target }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = selfish }
+		}
+	}
+}
+
+character_event = { # You always argue with your lover about everything
+	id = 8254
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = not value = { type = command } }
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = not value = { type = is_married } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stubborn }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = weak_willed }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # And have fiery make-ups
+		ai_chance = 25
+		effect = { type = random chance = 50
+			effect = { type = create_courtier value = bastard }
+		}
+	}
+	action_b = { # It's all her fault
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = stubborn }
+			25 = { type = add_trait value = hostile }
+		}
+		effect = { type = random chance = 50
+			effect = { type = lose_friend value = load_target }
+		}
+	}
+	action_c = { # I am probably to blame
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = weak_willed }
+			25 = { type = add_trait value = amiable }
+		}
+		effect = { type = random chance = 25
+			effect = { type = lose_friend value = load_target }
+		}
+	}
+	action_d = { # Dump her
+		ai_chance = 25
+		effect = { type = lose_friend value = load_target }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = pragmatic }
+			25 = { type = add_trait value = reckless }
+		}
+	}
+}
+
+# Dangerous love, she is married
+
+character_event = { # Loving a married woman is being quite a pain to your soul
+	id = 8255
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = is_married }
+			condition = { type = save_target }
+		}
+		condition = { type = not value = { type = spouse condition = { type = is_friend } } }
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = is_married } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # I will write a poem of my pain
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = romantic }
+			25 = { type = add_trait value = weak_willed }
+		}
+	}
+	action_b = { # King alcohol solves all problems
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = indulgent }
+			25 = { type = add_trait value = gregarious }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = illness }
+		}
+	}
+	action_c = { # I shall seek help from prayer
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = zealous }
+			25 = { type = add_trait value = modest }
+		}
+	}
+	action_d = { # She's married, I should forget her
+		effect = { type = lose_friend value = load_target }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = depression }
+		}
+	}
+}
+
+character_event = { # You have managed to arrange for a time to meet with your married lover
+	id = 8256
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = is_married }
+			condition = { type = not value = { type = pregnant } }
+			condition = { type = save_target }
+		}
+		condition = { type = not value = { type = spouse condition = { type = is_friend } } }
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = is_married } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Sneak into her chamber for a night of passion
+		ai_chance = 33
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = lustful }
+			25 = { type = add_trait value = reckless }
+		}
+		effect = { type = random_list
+			40 = { type = no_effect }
+			40 = { type = trigger for = load_target value = 8298 }
+			20 = { type = trigger for = load_target value = 8272 }
+		}
+		effect = { type = random chance = 5
+			effect = { type = death }
+		}
+	}
+	action_b = { # Arrange a ball and invite her to it
+		ai_chance = 33
+		effect = { type = gold value = -50 }
+		effect = { type = prestige value = 25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = indulgent }
+			25 = { type = add_trait value = proud }
+		}
+		effect = { type = random_list
+			85 = { type = no_effect }
+			10 = { type = trigger for = load_target value = 8298 }
+			5 = { type = trigger for = load_target value = 8272 }
+		}
+	}
+	action_c = { # Just meet her at the court
+		ai_chance = 34
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = lazy }
+			25 = { type = add_trait value = coward }
+		}
+	}
+}
+
+character_event = { # Your lover has brought you news that she has borne a child of yours
+	id = 8257
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = is_married }
+			condition = { type = not value = { type = pregnant } }
+			condition = { type = save_target }
+		}
+		condition = { type = not value = { type = spouse condition = { type = is_friend } } }
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = is_married } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # I'll take care of it
+		ai_chance = 50
+		effect = { type = create_courtier value = bastard }
+		effect = { type = piety value = -25 }
+	}
+	action_b = { # Send some money for support
+		ai_chance = 25
+		effect = { type = gold value = -50 }
+		effect = { type = random_list
+			75 = { type = trigger for = load_target value = 8298 }
+			25 = { type = trigger for = load_target value = 8272 }
+		}
+	}
+	action_c = { # Disown your responsibility on this matter
+		ai_chance = 25
+		effect = { type = lose_friend value = load_target }
+		effect = { type = trigger for = load_target value = 8298 }
+	}
+}
+
+character_event = { # You have begun hatching plans of eliminating your lover's spouse
+	id = 8258
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = ruler }
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = is_married }
+			condition = { type = spouse condition = { type = save_target } }
+		}
+		condition = { type = not value = { type = spouse condition = { type = is_friend } } }
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = not value = { type = is_married } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # They are just plans so far
+		ai_chance = 50
+		effect = { type = make_rival value = load_target }
+		effect = { type = trigger for = load_target value = 8199 }
+	}
+	action_b = { # I'd pay a fair bit of money to get rid of him
+		ai_chance = 15
+		effect = { type = make_rival value = load_target }
+		effect = { type = gold scale = -1.0 }
+		effect = { type = random chance = 50
+			effect = { type = prestige value = -100 }
+			effect = { type = piety value = -100 }
+		}
+		effect = { type = random chance = 33
+			effect = { type = trigger for = load_target value = 8297 }
+		}
+	}
+	action_c = { # I'd pay a lot of money to get rid of him
+		ai_chance = 15
+		effect = { type = make_rival value = load_target }
+		effect = { type = gold scale = -3.0 }
+		effect = { type = random chance = 25
+			effect = { type = prestige value = -100 }
+			effect = { type = piety value = -100 }
+		}
+		effect = { type = random chance = 75
+			effect = { type = trigger for = load_target value = 8297 }
+		}
+	}
+	action_d = { # She's not worth it
+		ai_chance = 20
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = wise }
+			25 = { type = add_trait value = coward }
+		}
+	}
+}
+
+character_event = { # This kind of unsatisfying relationship to a married woman is really becoming irksome to you
+	id = 8259
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = is_married }
+			condition = { type = save_target }
+		}
+		condition = { type = not value = { type = spouse condition = { type = is_friend } } }
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = is_married } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # And so it should end
+		ai_chance = 50
+		effect = { type = lose_friend value = load_target }
+	}
+	action_b = { # Maybe it can still work
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = romantic }
+			25 = { type = add_trait value = weak_willed }
+		}
+		effect = { type = random chance = 25
+			effect = { type = lose_friend value = load_target }
+		}
+	}
+	action_c = { # No, I will make it work!
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = selfish }
+			25 = { type = add_trait value = stubborn }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = stress_symptom }
+		}
+	}
+}
+
+# Adulterous love, he is married
+
+character_event = { # You are having a special occasion with your lover in the near future, but your wife is insistent on alternate plans
+	id = 8260
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = is_married }
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = save_target }
+		}
+		condition = { type = not value = { type = spouse condition = { type = or
+			condition = { type = is_friend }
+			condition = { type = is_rival }
+		} } }
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = not value = { type = is_married } } }
+#			factor = 0.5
+#		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Make an excuse about a business trip
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = deceitful }
+			25 = { type = add_trait for = spouse value = suspicious }
+		}
+		effect = { type = random chance = 25
+			effect = { type = trigger for = this value = 8206 }
+		}
+	}
+	action_b = { # Arrange a ball and invite your lover
+		ai_chance = 25
+		effect = { type = gold value = -25 }
+		effect = { type = prestige value = 10 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = indulgent }
+			25 = { type = add_trait value = gregarious }
+		}
+		effect = { type = random chance = 10
+			effect = { type = trigger for = this value = 8206 }
+		}
+	}
+	action_c = { # Send your wife to visit her family
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = arbitrary }
+			25 = { type = add_trait for = spouse value = vengeful }
+		}
+		effect = { type = random chance = 50
+			effect = { type = trigger for = this value = 8206 }
+		}
+	}
+	action_d = { # Spend the time with your wife instead
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = weak_willed }
+			25 = { type = add_trait value = pragmatic }
+		}
+		effect = { type = random chance = 50
+			effect = { type = lose_friend value = load_target }
+		}
+	}
+}
+
+character_event = { # Your wife has retired to the convent for a short while
+	id = 8261
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = is_married }
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = not value = { type = pregnant } }
+			condition = { type = save_target }
+		}
+		condition = { type = not value = { type = spouse condition = { type = or
+			condition = { type = is_friend }
+			condition = { type = is_rival }
+		} } }
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = not value = { type = is_married } } }
+#			factor = 0.5
+#		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = zealous } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = trusting } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = sceptical } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = suspicious } }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Perfect occasion to spend time with your lover
+		ai_chance = 25
+		effect = { type = piety value = -10 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = lustful }
+			25 = { type = add_trait value = reckless }
+		}
+		effect = { type = random chance = 50
+			effect = { type = create_courtier value = bastard }
+		}
+	}
+	action_b = { # Be discreet about it
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = deceitful }
+			25 = { type = add_trait value = energetic }
+		}
+		effect = { type = random chance = 20
+			effect = { type = create_courtier value = bastard }
+			effect = { type = piety value = -10 }
+		}
+	}
+	action_c = { # Only see your lover on friendship terms
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = chaste }
+			25 = { type = add_trait value = coward }
+		}
+		effect = { type = random chance = 10
+			effect = { type = lose_friend value = load_target }
+		}
+	}
+	action_d = { # Spend the time working instead
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = pragmatic }
+			25 = { type = add_trait value = wise }
+		}
+		effect = { type = random chance = 50
+			effect = { type = lose_friend value = load_target }
+		}
+	}
+}
+
+character_event = { # Your wife has grown suspicious of your regular business trips
+	id = 8262
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = is_married }
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = save_target }
+		}
+		condition = { type = not value = { type = spouse condition = { type = or
+			condition = { type = is_friend }
+			condition = { type = is_rival }
+		} } }
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = not value = { type = is_married } } }
+#			factor = 0.5
+#		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = suspicious } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = selfish } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = vengeful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = trusting } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = generous } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = forgiving } }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Tell her it's none of her business
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = hostile }
+			25 = { type = add_trait value = proud }
+		}
+		effect = { type = random chance = 50
+			effect = { type = trigger for = this value = 8206 }
+		}
+	}
+	action_b = { # Tell her how important these trips are
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = deceitful }
+			25 = { type = add_trait value = pragmatic }
+		}
+		effect = { type = random chance = 25
+			effect = { type = trigger for = this value = 8206 }
+		}
+	}
+	action_c = { # Make empty promises to her about it
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = weak_willed }
+			25 = { type = add_trait value = selfish }
+		}
+		effect = { type = random chance = 10
+			effect = { type = trigger for = this value = 8206 }
+		}
+	}
+	action_d = { # Spend more time at home as she wishes
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = modest }
+			25 = { type = add_trait value = amiable }
+		}
+		effect = { type = random chance = 50
+			effect = { type = lose_friend value = load_target }
+		}
+	}
+}
+
+character_event = { # Your lover has accused you of preferring your wife over her
+	id = 8263
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = is_married }
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = not value = { type = pregnant } }
+			condition = { type = save_target }
+		}
+		condition = { type = not value = { type = spouse condition = { type = or
+			condition = { type = is_friend }
+			condition = { type = is_rival }
+		} } }
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = not value = { type = is_married } } }
+#			factor = 0.5
+#		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 0.8
+		}
+	}
+
+	action_a = { # Buy her an expensive gift to prove your love
+		ai_chance = 25
+		effect = { type = gold value = -50 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = generous }
+			25 = { type = add_trait value = weak_willed }
+		}
+		effect = { type = random chance = 25
+			effect = { type = trigger for = this value = 8206 }
+		}
+	}
+	action_b = { # Take her to your country manor for some quality time
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = lustful }
+			25 = { type = add_trait value = reckless }
+		}
+		effect = { type = random chance = 50
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random chance = 50
+			effect = { type = trigger for = this value = 8206 }
+		}
+	}
+	action_c = { # Assure her of her importance by words only
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = lazy }
+			25 = { type = add_trait value = selfish }
+		}
+		effect = { type = random chance = 25
+			effect = { type = lose_friend value = load_target }
+		}
+		effect = { type = random chance = 10
+			effect = { type = trigger for = this value = 8206 }
+		}
+	}
+	action_d = { # Tell her that she is absolutely correct
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = cruel }
+			25 = { type = add_trait value = honest }
+		}
+		effect = { type = lose_friend value = load_target }
+	}
+}
+
+character_event = { # Seeing another woman behind your wife's back is becoming quite troublesome for you
+	id = 8264
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = is_married }
+		condition = { type = num_friends value = 1 }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = not value = { type = pregnant } }
+			condition = { type = save_target }
+		}
+		condition = { type = not value = { type = spouse condition = { type = or
+			condition = { type = is_friend }
+			condition = { type = is_rival }
+		} } }
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = not value = { type = is_married } } }
+#			factor = 0.5
+#		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = suspicious } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = trusting } }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # It's time to end such affairs and settle down
+		ai_chance = 50
+		effect = { type = lose_friend value = load_target }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = chaste }
+			25 = { type = add_trait value = pragmatic }
+		}
+	}
+	action_b = { # It will work out if I give it a bit more effort
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = romantic }
+			25 = { type = add_trait value = energetic }
+		}
+		effect = { type = random chance = 25
+			effect = { type = lose_friend value = load_target }
+		}
+		effect = { type = random chance = 10
+			effect = { type = trigger for = this value = 8206 }
+		}
+	}
+	action_c = { # I don't care for my wife
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = cruel }
+			25 = { type = add_trait value = lustful }
+		}
+		effect = { type = random chance = 50
+			effect = { type = trigger for = this value = 8206 }
+		}
+	}
+}
+
+# Marital events
+
+character_event = { # Being married to a woman you love is a blissful state
+	id = 8265
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = ruler }
+		condition = { type = is_married }
+		condition = { type = spouse condition = { type = is_friend } }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = num_of_children value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = num_of_children value = 5 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = num_of_children value = 7 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = num_of_children value = 1 } }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # It's such a stress-relief
+		ai_chance = 25
+			modifier = { condition = { type = trait value = stress_symptom } factor = 2.0 }
+			modifier = { condition = { type = spouse condition = { type = trait value = stress_symptom } } factor = 2.0 }
+		effect = { type = remove_trait value = stress_symptom }
+		effect = { type = remove_trait for = spouse value = stress_symptom }
+	}
+	action_b = { # It makes me feel so healthy
+		ai_chance = 25
+			modifier = { condition = { type = trait value = illness } factor = 2.0 }
+			modifier = { condition = { type = spouse condition = { type = trait value = illness } } factor = 2.0 }
+		effect = { type = remove_trait value = illness }
+		effect = { type = remove_trait for = spouse value = illness }
+	}
+	action_c = { # It makes me feel so virile
+		ai_chance = 50
+			modifier = { condition = { type = not value = { type = num_of_children value = 3 } } factor = 2.0 }
+			modifier = { condition = { type = spouse condition = { type = age value = 35 } } factor = 0.01 }
+		effect = { type = fertility value = 1 }
+		#effect = { type = fertility for = spouse value = 1 }
+	}
+}
+
+character_event = { # Your wife is spreading nasty rumours about you in the court
+	id = 8266
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = ruler }
+		condition = { type = is_married }
+		condition = { type = spouse condition = { type = is_rival } }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = deceitful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = cruel } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = vengeful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = hostile } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = honest } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = merciful } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = forgiving } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = amiable } }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Damn her!
+		effect = { type = random_list
+			25 = { type = add_trait value = coward }
+			25 = { type = add_trait value = lazy }
+			25 = { type = add_trait value = cruel }
+			25 = { type = add_trait value = sceptical }
+		}
+	}
+}
+
+character_event = { # Your wife is turning your advisors against you!
+	id = 8267
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = ruler }
+		condition = { type = is_married }
+		condition = { type = spouse condition = { type = is_rival } }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = deceitful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = cruel } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = vengeful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = hostile } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = honest } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = merciful } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = forgiving } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = amiable } }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Damn her!
+		effect = { type = random_list
+			20 = { type = loyalty for = marshal value = -1.0 }
+			20 = { type = loyalty for = chancellor value = -1.0 }
+			20 = { type = loyalty for = spymaster value = -1.0 }
+			20 = { type = loyalty for = steward value = -1.0 }
+			20 = { type = loyalty for = chaplain value = -1.0 }
+		}
+	}
+}
+
+character_event = { # Your wife has made your adulterous affair public!
+	id = 8268
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = ruler }
+		condition = { type = is_married }
+		condition = { type = spouse condition = { type = is_rival } }
+		condition = { type = num_friends value = 1 }
+		condition = { type = any_friend
+			condition = { type = age value = 16 }
+			condition = { type = gender value = female }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = deceitful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = cruel } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = vengeful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = hostile } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = honest } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = merciful } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = forgiving } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = amiable } }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Disown the affair
+		ai_chance = 50
+		effect = { type = lose_friend value = load_target }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = chaste }
+			25 = { type = add_trait value = modest }
+		}
+	}
+	action_b = { # Disregard her talks
+		ai_chance = 50
+		effect = { type = piety value = -25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = sceptical }
+			25 = { type = add_trait value = selfish }
+		}
+	}
+}
+
+character_event = { # Your wife has humiliated you publicly by too open association with her lover
+	id = 8269
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = ruler }
+		condition = { type = is_married }
+		condition = { type = spouse 
+			condition = { type = is_rival }
+			condition = { type = num_friends value = 1 }
+			condition = { type = any_friend
+				condition = { type = age value = 16 }
+				condition = { type = gender value = male }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = deceitful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = cruel } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = vengeful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = hostile } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = honest } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = merciful } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = forgiving } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = amiable } }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Bear it stoically
+		ai_chance = 75
+		effect = { type = prestige value = -50 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = pragmatic }
+			25 = { type = add_trait value = weak_willed }
+		}
+	}
+	action_b = { # Promise good money for his removal
+		ai_chance = 25
+		effect = { type = gold scale = -2.0 }
+		effect = { type = random chance = 50
+			effect = { type = trigger for = load_target value = 8297 }
+		}
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = vengeful }
+			25 = { type = add_trait value = reckless }
+		}
+	}
+}
+
+# Wife's adultery
+
+character_event = { # Your wife enjoys herself while you are away at war
+	id = 8270
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = gender value = female }
+		condition = { type = is_married }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = chaste } }
+		condition = { type = not value = { type = pregnant } }
+		condition = { type = spouse
+			condition = { type = ruler }
+			#condition = { type = same_court }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = command }
+		}
+		condition = { type = num_friends value = 1 }
+		condition = { type = any_friend
+			condition = { type = age value = 16 }
+			condition = { type = gender value = male }
+
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Surely they were discreet about it
+		ai_chance = 33
+		effect = { type = random chance = 25
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = deceitful }
+			25 = { type = add_trait value = energetic }
+		}
+	}
+	action_b = { # What, even in our bedroom?
+		ai_chance = 33
+		effect = { type = random chance = 50
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = lustful }
+			25 = { type = add_trait value = proud }
+		}
+	}
+	action_c = { # She should know better what awaits her
+		ai_chance = 34
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = chaste }
+			25 = { type = add_trait value = vengeful }
+		}
+	}
+}
+
+character_event = { # Your wife seems to be up to something behind your back
+	id = 8271
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = gender value = female }
+		condition = { type = is_married }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = chaste } }
+		condition = { type = not value = { type = pregnant } }
+		condition = { type = spouse
+			condition = { type = ruler }
+			#condition = { type = same_court }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+		}
+		condition = { type = num_friends value = 1 }
+		condition = { type = any_friend
+			condition = { type = age value = 16 }
+			condition = { type = gender value = male }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # I'm sure it's nothing
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = trusting }
+			25 = { type = add_trait for = spouse value = amiable }
+		}
+		effect = { type = random chance = 50
+			effect = { type = create_courtier value = bastard }
+		}
+	}
+	action_b = { # What can I do about it?
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = weak_willed }
+			25 = { type = add_trait for = spouse value = forgiving }
+		}
+		effect = { type = random chance = 50
+			effect = { type = create_courtier value = bastard }
+		}
+	}
+	action_c = { # Pick her up on it
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = suspicious }
+			25 = { type = add_trait for = spouse value = hostile }
+		}
+		effect = { type = random chance = 25
+			effect = { type = trigger for = spouse value = 8206 }
+		}
+	}
+	action_d = { # Make arrangements to have him removed
+		ai_chance = 25
+		effect = { type = trigger for = spouse value = 8294 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = vengeful }
+			25 = { type = add_trait for = spouse value = cruel }
+		}
+		effect = { type = random chance = 50
+			effect = { type = trigger for = load_target value = 8297 }
+		}
+	}
+}
+
+character_event = { # You have caught your wife of having committed adultery
+	id = 8272
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = gender value = female }
+		condition = { type = is_married }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = chaste } }
+		condition = { type = not value = { type = pregnant } }
+		condition = { type = spouse
+			condition = { type = ruler }
+			#condition = { type = same_court }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+		}
+		condition = { type = num_friends value = 1 }
+		condition = { type = any_friend
+			condition = { type = age value = 16 }
+			condition = { type = gender value = male }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Behead her
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = cruel }
+			25 = { type = add_trait for = spouse value = vengeful }
+		}
+		effect = { type = death }
+	}
+	action_b = { # Send her to a convent
+		ai_chance = 50
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = merciful }
+			25 = { type = add_trait for = spouse value = arbitrary }
+		}
+		effect = { type = death }
+	}
+	action_c = { # Forgive her
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = spouse value = forgiving }
+			25 = { type = add_trait for = spouse value = weak_willed }
+		}
+	}
+}
+
+# Unmarried lover can be a blessing if your wife hates you
+
+character_event = { # Your lover is eager to comfort you after you have had a particularly fiery row with your wife
+	id = 8273
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = gender value = male }
+		condition = { type = is_married }
+		condition = { type = spouse condition = { type = is_rival } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = chaste } }
+		condition = { type = num_friends value = 1 }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = not value = { type = is_married } }
+			condition = { type = not value = { type = pregnant } }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Retire to the country manor with her for a while
+		ai_chance = 33
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = modest }
+			25 = { type = add_trait value = deceitful }
+		}
+		effect = { type = random chance = 50
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random chance = 25
+			effect = { type = remove_trait value = stress_symptom }
+		}
+	}
+	action_b = { # I can have her in my castle
+		ai_chance = 33
+		effect = { type = piety value = -10 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = lustful }
+			25 = { type = add_trait value = selfish }
+		}
+		effect = { type = random chance = 50
+			effect = { type = remove_trait value = stress_symptom }
+		}
+		effect = { type = random chance = 25
+			effect = { type = create_courtier value = bastard }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait for = spouse value = vengeful }
+		}
+	}
+	action_c = { # I don't need comfort
+		ai_chance = 34
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = proud }
+			25 = { type = add_trait value = pragmatic }
+		}
+		effect = { type = random chance = 25
+			effect = { type = lose_friend value = load_target }
+		}
+	}
+}
+
+character_event = { # Your lover wonders why don't you get rid of your troublesome wife
+	id = 8274
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = gender value = male }
+		condition = { type = is_married }
+		condition = { type = spouse
+			condition = { type = is_rival }
+		}
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = num_friends value = 1 }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = not value = { type = is_married } }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = age value = 40 } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # She's right, I'll send my wife to the convent
+		ai_chance = 33
+		effect = { type = random_list
+			25 = { type = add_trait for = spouse value = hostile }
+			25 = { type = add_trait for = spouse value = deceitful }
+			25 = { type = add_trait for = spouse value = vengeful }
+			25 = { type = death value = spouse }
+		}
+	}
+	action_b = { # Promise good money to a specialist remover
+		ai_chance = 33
+		effect = { type = gold scale = -1.0 }
+		effect = { type = random_list
+			50 = { type = add_trait for = spouse value = war_invalid }
+			50 = { type = death value = spouse }
+		}
+		effect = { type = random chance = 10
+			effect = { type = prestige value = -100 }
+			effect = { type = piety value = -100 }
+			effect = { type = add_trait value = kinslayer }
+		}
+	}
+	action_c = { # It is too risky
+		ai_chance = 34
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = coward }
+			25 = { type = add_trait value = lazy }
+		}
+		effect = { type = random chance = 25
+			effect = { type = lose_friend value = load_target }
+		}
+	}
+}
+
+# Romeo & Juliet, the action
+
+character_event = { # Your son appeals to you that you cease your rivalry with his lover's father
+	id = 8275
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = num_of_sons value = 1 }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = any_child
+			condition = { type = age value = 16 }
+			condition = { type = gender value = male }
+			condition = { type = ruler_child }
+			condition = { type = num_friends value = 1 }
+			condition = { type = any_friend
+				condition = { type = gender value = female }
+				condition = { type = father
+					condition = { type = ruler }
+					condition = { type = num_rivals value = 1 }
+					condition = { type = any_rival
+						condition = { type = is_receiver }
+					}
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = trait value = forgiving }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = weak_willed }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = vengeful }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stubborn }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Peace this morning with it brings
+		ai_chance = 75
+		effect = { type = lose_rival value = load_target }
+		effect = { type = trigger for = load_target value = 8276 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = romantic }
+			25 = { type = add_trait value = forgiving }
+		}
+	}
+	action_b = { # This is a feud that won't be set aside!
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = pragmatic }
+			25 = { type = add_trait value = vengeful }
+		}
+	}
+}
+
+character_event = { # Your daughter's love to your rival's son has mended the rift between your two families
+	id = 8276
+
+	picture = "event_romance"
+
+	action_a = { # This is my daughter's jointure, for no more I demand
+		ai_chance = 50
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = romantic }
+			25 = { type = add_trait value = amiable }
+		}
+	}
+	action_b = { # Pfft!
+		ai_chance = 50
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = pragmatic }
+			25 = { type = add_trait value = hostile }
+		}
+	}
+}
+
+character_event = { # Your son wants to challenge your fierce rival's son into a duel for tainting the honour of his sister
+	id = 8277
+
+	picture = "event_joust"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = ruler_child }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = trait value = coward } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = command } }
+		condition = { type = father
+			condition = { type = num_rivals value = 1 }
+			condition = { type = num_of_daughters value = 1 }
+			condition = { type = any_child
+				condition = { type = gender value = female }
+				condition = { type = age value = 16 }
+				condition = { type = num_friends value = 1 }
+				condition = { type = any_friend
+					condition = { type = gender value = male }
+					condition = { type = not value = { type = command } }
+					condition = { type = not value = { type = trait value = war_invalid } }
+					condition = { type = father
+						condition = { type = ruler }
+						condition = { type = num_rivals value = 1 }
+						condition = { type = any_rival
+							condition = { type = ruler }
+							condition = { type = num_of_sons value = 1 }
+							condition = { type = any_child
+								condition = { type = is_receiver }
+							}
+						}
+					}
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = is_married }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # The injuries done shall not be excused!
+		ai_chance = 75
+			modifier = { condition = { type = primary_heir } factor = 0.1 }
+		effect = { type = trigger for = load_target value = 8278 }
+		effect = { type = random_list
+			40 = { type = no_effect }
+			40 = { type = add_trait value = war_invalid }
+			20 = { type = death }
+		}
+	}
+	action_b = { # Villain is he none
+		ai_chance = 25
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = coward }
+		}
+	}
+}
+
+character_event = { # You have been involved in a duel with your lover's brother
+	id = 8278
+
+	picture = "event_joust"
+
+	action_a = { # O, I am fortune's fool!
+		effect = { type = random_list
+			40 = { type = no_effect }
+			40 = { type = add_trait value = war_invalid }
+			20 = { type = death }
+		}
+	}
+}
+
+character_event = { # Your son has committed suicide because your rivalry prevented him from being united with his lover
+	id = 8279
+
+	picture = "event_death"
+
+	trigger = {
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = ruler_child }
+		condition = { type = num_friends value = 1 }
+		condition = { type = any_friend
+			condition = { type = gender value = female }
+			condition = { type = father
+				condition = { type = ruler }
+				condition = { type = num_rivals value = 1 }
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = num_of_sons value = 1 }
+					condition = { type = any_child
+						condition = { type = is_receiver }
+					}
+				}
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Never was a story of more woe than this!
+		effect = { type = death }
+		effect = { type = trigger for = load_target value = 8280 }
+	}
+}
+
+character_event = { # Your lover has committed suicide because your families rivalry prevented you two being united
+	id = 8280
+
+	picture = "event_death"
+
+	action_a = { # O happy dagger! This is thy sheath, let me die
+		effect = { type = death }
+	}
+}
+
+# Reaction events
+
+character_event = { # Assassins are expensive
+	id = 8294
+
+	picture = "event_crime"
+
+	immidiate = {
+		effect = { type = gold scale = -2.0 }
+	}
+}
+
+character_event = { # Your lover has left you!
+	id = 8295
+
+	picture = "event_intrigue"
+
+	action_a = { # Oh no!
+		effect = { type = no_effect }
+	}
+}
+
+character_event = { # Your unmarried daughter has got herself a powerful lover
+	id = 8296
+
+	picture = "event_romance"
+
+	action_a = { # That's quite some news
+		effect = { type = prestige value = 25 }
+	}
+}
+
+character_event = { # Ack, an assassin!
+	id = 8297
+
+	picture = "event_crime"
+
+	immidiate = { # Help, help!
+		effect = { type = random_list
+			50 = { type = add_trait value = war_invalid }
+			50 = { type = death }
+		}
+	}
+}
+
+character_event = { # An unexpected bundle of joy
+	id = 8298
+
+	picture = "event_romance"
+
+	action_a = { # Congratulations, I guess
+		effect = { type = create_courtier value = bastard }
+	}
+}
+
+character_event = { # You have been exiled for getting too close to the ruler's wife
+	id = 8299
+
+	picture = "event_appearance"
+
+	action_a = { # Should have been more careful
+		effect = { type = leave_court }
+	}
+}

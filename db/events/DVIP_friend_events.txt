@@ -1,0 +1,266 @@
+character_event = { # You have become friends with one of your allies
+	id = 23270
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = num_friends value = 5 } }
+		condition = { type = any_allied_ruler
+			condition = { type = not value = { type = num_friends value = 5 } }
+			condition = { type = relation value = 100 }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = not value = { type = is_receiver } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = gregarious }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = shy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # With a trustworthy friend by my side, all enemies will fall
+		ai_chance = 75
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random chance = 75
+			effect = { type = make_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8098 }
+		}
+	}
+	action_b = { # I pursue my glory alone
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = hostile }
+			25 = { type = add_trait value = proud }
+		}
+	}
+}
+character_event = { # One of your friendships is being ruined by your relationship
+	id = 23271
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = num_friends value = 3 }
+		condition = { type = any_friend
+			condition = { type = not value = { type = relation value = 20 }}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+	}
+
+	action_a = { # These things happen
+		ai_chance = 75
+		effect = { type = lose_friend value = load_target }
+		effect = { type = trigger for = load_target value = 8099 }
+	}
+	action_b = { # I'll strive to hold on to this despite our differences
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = amiable }
+		}
+	}
+}
+character_event = { # You have become friends with the Pope
+	id = 23272
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = piety value = 0 } }
+		condition = { type = not value = { type = num_friends value = 5 } }
+		condition = { type = any_same_religion_ruler
+			condition = { type = title value = PAPA }
+			condition = { type = relation value = 100 }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = not value = { type = is_receiver } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = gregarious }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = shy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # The Holy Father and I see eye-to-eye
+		ai_chance = 75
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random chance = 75
+			effect = { type = make_friend value = load_target }
+			effect = { type = trigger for = load_target value = 8098 }
+		}
+	}
+	action_b = { # I don't need him as a friend!
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = hostile }
+			25 = { type = add_trait value = proud }
+			1 = { type = add_trait value = excommunicated }
+		}
+	}
+}

@@ -1,0 +1,957 @@
+character_event = { # Break up huge realms
+	id = 23220
+	picture = "event_death"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = ai }
+		condition = { type = or
+			condition = { type = age value = 35 }
+			condition = { type = and
+				condition = { type = not value = { type = martial value = 12 } }
+				condition = { type = not value = { type = intrigue value = 10 } }
+			}
+		}
+		condition = { type = not value = { type = trait value = emperor } }
+		condition = { type = not value = { type = stability value = 2 } }
+		condition = { type = not value = { type = has_law value = { salic_gavelkind_law = yes } } }
+		condition = { type = not value = { type = has_law value = { semisalic_gavelkind_law = yes } } }
+		condition = { type = num_of_sons value = 2 }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = county }
+				condition = { type = size_of_demesne value = 4 }
+			}
+			condition = { type = and
+				condition = { type = not value = { type = culture value = russian } }
+				condition = { type = duchy }
+				condition = { type = num_duke_titles value = 4 }
+			}
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = num_king_titles value = 4 }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 24
+		modifier = {
+			condition = { type = num_duke_titles value = 5 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = num_duke_titles value = 7 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = num_king_titles value = 5 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = num_king_titles value = 7 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = county }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = duchy }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			condition = { type = not value = { type = difficulty value = 4 } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			condition = { type = not value = { type = difficulty value = 3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			condition = { type = not value = { type = difficulty value = 2 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 1 } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 9 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 7 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 5 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 0 }
+			condition = { type = not value = { type = stability value = 1 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = -2 }
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = stability value = -3 }
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.7
+		}
+	}
+	action_a = {#Salic gavelkind law
+		ai_chance = 50
+		modifier = {
+			condition = { type = num_of_sons value = 3 }
+			factor = 2
+		}
+		effect = { type = set_law value = salic_gavelkind_law }
+		effect = { type = health value = -50 }
+	}
+	action_b = {#Semisalic gavelkind law
+		ai_chance = 50
+		effect = { type = set_law value = semisalic_gavelkind_law }
+		effect = { type = health value = -50 }
+	}
+}
+
+character_event = { # Realm duress for too large realms
+	id = 23221
+	picture = "event_default"
+	trigger = {
+		condition = { type = ai }
+		condition = { type = is_independent }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = num_count_vassals value = 6 }
+			}
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = num_duke_vassals value = 10 }
+			}
+		}
+		condition = { type = not value = { type = stability value = 1 }}
+	}
+	mean_time_to_happen = {
+		months = 4
+		modifier = {
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = num_count_vassals value = 8 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = num_count_vassals value = 10 }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = num_duke_vassals value = 12 }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = num_duke_vassals value = 15 }
+			}
+			factor = 0.7
+		}
+	}
+	action_a = {
+		effect = { type = add_trait value = realm_duress }
+		effect = { type = add_trait for = worst_vassal value = rebellious }
+		effect = { type = add_trait for = random_vassal value = rebellious }
+		effect = { type = random chance = 50
+			effect = { type = add_trait for = random_vassal value = rebellious }
+		}
+		effect = { type = stability value = -1 }
+		effect = { type = random chance = 50
+			effect = { type = stability value = -1 }
+		}
+	}
+}
+
+character_event = { #raise fertility
+	id = 23222
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = age value = 20 } }
+		condition = { type = fertility value = 0 }
+		condition = { type = not value = { type = fertility value = 4 } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		#condition = { type = not value = { type = trait value = user_defined_b } } #homophile / mod
+	}
+
+	mean_time_to_happen = {
+		years = 3
+	}
+
+	action_a = {
+		effect = { type = random_list
+			15 = { type = no_effect }
+			40 = { type = fertility value = 1 }
+			30 = { type = fertility value = 2 }
+			15 = { type = fertility value = 3 }
+		}
+	}
+}
+character_event = { #lower fertility
+	id = 23223
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = age value = 20 } }
+		condition = { type = fertility value = 8 }
+		condition = { type = not value = { type = trait value = lustful } }
+		condition = { type = not value = { type = trait value = romantic } }
+	}
+
+	mean_time_to_happen = {
+		years = 2
+	}
+
+	action_a = {
+		effect = { type = random_list
+			15 = { type = no_effect }
+			40 = { type = fertility value = -1 }
+			30 = { type = fertility value = -2 }
+			15 = { type = fertility value = -3 }
+		}
+	}
+}
+
+character_event = { #Courtiers for order
+	id = 23224
+	picture = "event_religion"
+	trigger = {
+		condition = { type = ai }
+		condition = { type = ruler }
+		condition = { type = religion value = catholic }
+		condition = { type = form_of_goverment value = knight_order }
+		condition = { type = not value = { type = court value = 7 } }
+	}
+	mean_time_to_happen = { days = 5 }
+	action_a = {
+		effect = { type = create_courtier value = chaplain }
+		effect = { type = create_courtier value = chaplain }
+		effect = { type = create_courtier value = chaplain }
+		effect = { type = create_courtier value = chaplain }
+	}
+}
+character_event = { #Kill female rulers
+	id = 23225
+	picture = "event_death"
+	trigger = {
+		condition = { type = or
+			condition = { type = religion value = moslem }
+			condition = { type = religion value = jewish }
+			condition = { type = religion value = pagan }
+		}
+		condition = { type = ruler }
+		condition = { type = gender value = female }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = or
+			condition = { type = liege condition = { type = ai } }
+			condition = { type = is_independent }
+		}
+	}
+	mean_time_to_happen = { months = 1 }
+	action_a = { #
+		effect = { type = death }
+	}
+}
+
+character_event = { # Your friend has been excommunicated, perhaps you should convince the Pope to revoke this?
+	id = 23226
+
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = papacy }
+		condition = { type = num_friends value = 1 }
+		condition = { type = any_friend
+			condition = { type = trait value = excommunicated }
+			condition = { type = religion value = catholic }
+			condition = { type = not value = { type = trait value = heretic } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	action_a = { # Of course I will help my friend!
+		ai_chance = 80
+			modifier = { condition = { type = trait value = amiable }
+			factor = 2 }
+			modifier = { condition = { type = trait value = merciful }
+			factor = 2 }
+			modifier = { condition = { type = trait value = forgiving }
+			factor = 2 }
+			modifier = { condition = { type = trait value = sceptical } #Doesn't care for church rules anyway
+			factor = 10 }
+		effect = { type = trigger for = load_target value = 23227 }
+	}
+	action_b = { # No, I don't really like him anyway.
+		ai_chance = 20
+			modifier = { condition = { type = trait value = hostile }
+			factor = 5 }
+			modifier = { condition = { type = trait value = cruel }
+			factor = 5 }
+			modifier = { condition = { type = trait value = vengeful }
+			factor = 5 }
+			modifier = { condition = { type = trait value = zealous } #Pope's word is law
+			factor = 10 }
+		effect = { type = lose_friend value = load_target }
+		effect = { type = trigger for = load_target value = 8099 }
+
+	}
+}
+character_event = { # Your friend has revoked your excommunication!
+	id = 23227
+	picture = "event_religion"
+	action_a = { # Wonderful!
+		effect = { type = remove_trait value = excommunicated }
+	}
+}
+character_event = { # Kill huge non-feudals
+	id = 23228
+	picture = "event_death"
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = ai }
+		condition = { type = not value = { type = form_of_goverment value = feudal } }
+		condition = { type = not value = { type = stability value = 2 } }
+		condition = { type = or
+			condition = { type = age value = 35 }
+			condition = { type = and
+				condition = { type = not value = { type = martial value = 12 } }
+				condition = { type = not value = { type = intrigue value = 10 } }
+			}
+		}
+		condition = { type = not value = { type = trait value = proud } } #marker, see set_laws
+		condition = { type = or
+			condition = { type = and
+				condition = { type = county }
+				condition = { type = size_of_demesne value = 4 }
+			}
+			condition = { type = and
+				condition = { type = not value = { type = culture value = russian } }
+				condition = { type = duchy }
+				condition = { type = num_duke_titles value = 4 }
+			}
+			condition = { type = and
+				condition = { type = culture value = russian }
+				condition = { type = duchy }
+				condition = { type = num_duke_titles value = 8 }
+			}
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = num_king_titles value = 4 }
+			}
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = num_duke_titles value = 2 }
+				condition = { type = num_count_vassals value = 6 }
+			}
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = num_king_titles value = 2 }
+				condition = { type = num_duke_vassals value = 10 }
+			}
+			condition = { type = primary_heir
+				condition = { type = is_alive }
+				condition = { type = is_vassal }
+				condition = { type = save_target }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 24
+		modifier = {
+			condition = { type = num_duke_titles value = 5 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = num_duke_titles value = 7 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = num_king_titles value = 5 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = num_king_titles value = 7 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = county }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = duchy }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			condition = { type = not value = { type = difficulty value = 4 } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			condition = { type = not value = { type = difficulty value = 3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			condition = { type = not value = { type = difficulty value = 2 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 1 } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 9 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 7 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 5 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 0 }
+			condition = { type = not value = { type = stability value = 1 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = -2 }
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = stability value = -3 }
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.7
+		}
+	}
+	action_a = {#Heir: semisalic gavelkind law
+		ai_chance = 50
+		modifier = {
+			condition = { type = has_target }
+			factor = 2
+		}
+		effect = { type = set_law value = salic_gavelkind_law }
+		effect = { type = health value = -50 } #Kill 'em
+		effect = { type = add_trait value = proud } #Marker
+	}
+	action_b = {#No heirs: realm duress and badboy
+		ai_chance = 50
+		effect = { type = add_trait value = realm_duress }
+		effect = { type = add_trait for = worst_vassal value = rebellious }
+		effect = { type = add_trait for = random_vassal value = rebellious }
+		effect = { type = add_trait for = random_vassal value = rebellious }
+		effect = { type = add_trait for = random_vassal value = rebellious }
+		effect = { type = add_trait value = proud } #Marker
+	}
+}
+character_event = { #female ruler - abdicate
+	id = 23229
+	picture = "event_claim"
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = gender value = female }
+		condition = { type = is_alive }
+		#condition = { type = not value = { type = is_married } }
+		condition = { type = num_of_sons value = 1 }
+		condition = { type = not value = { type = trait value = proud } }
+		condition = { type = primary_heir
+			condition = { type = gender value = male }
+			condition = { type = is_alive }
+			condition = { type = not value = { type = ruler } }
+			condition = { type = age value = 17 }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	action_a = {
+		ai_chance = 70
+		effect = { type = death }
+	}
+	action_b = {
+		ai_chance = 30
+		effect = { type = add_trait value = proud }
+		#effect = { type = random chance = 80
+			effect = { type = trigger for = load_target value = 23231 }
+		#}
+	}
+}
+
+#23230 = female inheritance, skipped
+
+character_event = { #son of female ruler - reaction
+	id = 23231
+	picture = "event_intrigue"
+	action_a = {
+		ai_chance = 50
+			modifier = { condition = { type = trait value = weak_willed }
+			factor = 2 }
+			modifier = { condition = { type = trait value = coward }
+			factor = 2 }
+			modifier = { condition = { type = trait value = amiable }
+			factor = 2 }
+		effect = { type = random_list
+			33 = { type = add_trait value = weak_willed }
+			33 = { type = add_trait value = coward }
+			33 = { type = add_trait value = amiable }
+		}
+	}
+	action_b = {
+		ai_chance = 30
+			modifier = { condition = { type = trait value = proud }
+			factor = 3 }
+			modifier = { condition = { type = trait value = reckless }
+			factor = 3 }
+			modifier = { condition = { type = trait value = suspicious }
+			factor = 3 }
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = add_trait value = proud }
+		effect = { type = random chance = 80 effect = { type = make_rival value = mother } }
+	}
+	action_c = {
+		ai_chance = 20
+			modifier = { condition = { type = trait value = vengeful }
+			factor = 5 }
+			modifier = { condition = { type = trait value = hostile }
+			factor = 5 }
+			modifier = { condition = { type = trait value = deceitful }
+			factor = 5 }
+		effect = { type = death value = mother }
+		effect = { type = add_trait value = vengeful }
+		effect = { type = random chance = 80 effect = { type = add_trait value = kinslayer } }
+	}
+}
+
+###################################### 
+# Old age # 
+######################################
+
+character_event = { #With age comes a change in abilities
+   id = 23232 
+
+   picture = "event_oldman" 
+
+   trigger = { 
+      condition = { type = age value = 50 }
+	  condition = { type = or 
+		condition = { type = martial value = 7 }
+		condition = { type = diplomacy value = 7 }
+		condition = { type = stewardship value = 7 }
+		condition = { type = intrigue value = 7 }
+	  }
+   }
+
+   mean_time_to_happen = { 
+      years = 10
+   } 
+
+   immidiate = {
+      effect = { type = random chance = 10 effect = { type = martial value = -1 } }
+      effect = { type = random chance = 10 effect = { type = diplomacy value = -1 } }
+      effect = { type = random chance = 10 effect = { type = stewardship value = +1 } }
+      effect = { type = random chance = 10 effect = { type = intrigue value = +1 } }
+	}
+}
+
+character_event = { #With age comes wisdom
+   id = 23233
+
+   picture = "event_oldman" 
+
+   trigger = { 
+      condition = { type = age value = 50 } 
+	  condition = { type = not value = { type = trait value = wise } }
+	  condition = { type = not value = { type = trait value = reckless } }
+	  condition = { type = not value = { type = trait value = schizofrenia } }
+	  condition = { type = not value = { type = trait value = arbitrary } }
+	  condition = { type = not value = { type = trait value = lazy } }
+	  condition = { type = not value = { type = trait value = maniac } }
+	  condition = { type = not value = { type = trait value = weak_willed } }
+	  condition = { type = not value = { type = trait value = stubborn } }
+   }
+
+   mean_time_to_happen = { 
+      years = 25
+		modifier = {
+			condition = { type = trait value = illusive_shadow }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = grey_eminence }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = midas_touched }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = prodigy }
+			factor = 0.7
+		}
+	} 
+
+   immidiate = { 
+      effect = { type = random chance = 33 effect = { type = add_trait value = wise } }
+	}
+}
+
+character_event = { #With age comes trouble
+   id = 23234
+
+   picture = "event_oldman" 
+
+   trigger = { 
+      condition = { type = age value = 50 } 
+	  condition = { type = not value = { type = trait value = wise } }
+	  condition = { type = not value = { type = trait value = reckless } }
+	  condition = { type = not value = { type = trait value = schizofrenia } }
+	  condition = { type = not value = { type = trait value = arbitrary } }
+	  condition = { type = not value = { type = trait value = lazy } }
+	  condition = { type = not value = { type = trait value = maniac } }
+	  condition = { type = not value = { type = trait value = weak_willed } }
+	  condition = { type = not value = { type = trait value = stubborn } }
+   }
+
+   mean_time_to_happen = { 
+      years = 25
+		modifier = {
+			condition = { type = trait value = naive_wirepuller }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = amateurish_pettifogger }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = hole_in_the_pocket }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = prodigy }
+			factor = 0.7
+		}
+	}
+
+   immidiate = { 
+      effect = { type = random chance = 10 effect = { type = add_trait value = schizofrenia } }
+      effect = { type = random chance = 10 effect = { type = add_trait value = maniac } }
+      effect = { type = random chance = 10 effect = { type = add_trait value = weak_willed } }
+	}
+}
+
+character_event = {	# Prevent muslims on the ocean but allow Mediterranean & inner seas
+	id = 23235
+	picture = "event_death"
+	trigger = {
+		condition = { type = ai } #Saves a kajillion cycles, since all muslims are AI anyway
+		condition = { type = religion value = moslem } #Muslims only, they lack boats
+		condition = { type = not value = { type = combat } } #Exclude two things only possible on land -- saves CPU cycles
+		condition = { type = not value = { type = siege } }
+		condition = { type = command } #Only fire for people in charge of an army
+		condition = { type = location #CSC for location checks... Need to check each individual Atlantic province since all seazones are in the same area/region :(
+			condition = { type = or
+				condition = { type = province value = 852 }
+				condition = { type = province value = 853 }
+				condition = { type = province value = 854 }
+				condition = { type = province value = 855 }
+				condition = { type = province value = 856 }
+				condition = { type = province value = 857 }
+				condition = { type = province value = 858 }
+				condition = { type = province value = 859 }
+				condition = { type = province value = 860 }
+				condition = { type = province value = 861 }
+				condition = { type = province value = 862 }
+				condition = { type = province value = 863 }
+				condition = { type = province value = 864 }
+				condition = { type = province value = 865 }
+				condition = { type = province value = 866 }
+				condition = { type = province value = 867 }
+				condition = { type = province value = 868 }
+				condition = { type = province value = 869 }
+				condition = { type = province value = 870 }
+				condition = { type = province value = 871 }
+				condition = { type = province value = 872 }
+				condition = { type = province value = 873 }
+				condition = { type = province value = 874 }
+				condition = { type = province value = 875 }
+				condition = { type = province value = 876 }
+				condition = { type = province value = 877 }
+				condition = { type = province value = 878 }
+				condition = { type = province value = 879 }
+				condition = { type = province value = 880 }
+				condition = { type = province value = 881 }
+				condition = { type = province value = 882 }
+				condition = { type = province value = 883 }
+				condition = { type = province value = 884 }
+				condition = { type = province value = 885 }
+				condition = { type = province value = 886 }
+				condition = { type = province value = 887 }
+				condition = { type = province value = 888 }
+				condition = { type = province value = 889 }
+				condition = { type = province value = 890 }
+				condition = { type = province value = 891 }
+				condition = { type = province value = 892 }
+				condition = { type = province value = 893 }
+				condition = { type = province value = 894 }
+				condition = { type = province value = 895 }
+				condition = { type = province value = 902 }
+				condition = { type = province value = 903 }
+				condition = { type = province value = 904 }
+				condition = { type = province value = 905 }
+				condition = { type = province value = 906 }
+				condition = { type = province value = 907 }
+				condition = { type = province value = 908 }
+				condition = { type = province value = 909 }
+				condition = { type = province value = 910 }
+				condition = { type = province value = 996 }
+			}
+		}
+	}
+	mean_time_to_happen = { #Should fire more often to make sure nothing odd happens, but will be too CPU intensive :(
+		days = 30
+	}	
+	immidiate = {
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }		
+	}
+}
+
+province_event = { #Restoration of Papacy
+	id = 23236
+	picture = "event_religion"
+	trigger = {
+		condition = { type = ai }
+		condition = { type = not value = { type = exists value = PAPA } }
+		condition = { type = owner
+			condition = { type = form_of_goverment value = ecclestical }
+			condition = { type = religion value = catholic }
+			condition = { type = not value = { type = kingdom } } # Bugged if king-level becomes Pope
+			condition = { type = not value = { type = trait value = excommunicated } }
+			condition = { type = not value = { type = trait value = heretic } }
+			condition = { type = not value = { type = atwar } }
+			condition = { type = province province = 333 #Roma
+				condition = { type = or
+					condition = { type = not value = { type = religion value = { catholic } } }
+					condition = { type = not value = { type = ruler_religion value = catholic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+				}
+			}
+			condition = { type = province province = 222 #Avignon
+				condition = { type = or
+					condition = { type = not value = { type = religion value = { catholic } } }
+					condition = { type = not value = { type = ruler_religion value = catholic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+				}
+			}
+			condition = { type = province province = 90 #Aachen
+				condition = { type = or
+					condition = { type = not value = { type = religion value = { catholic } } }
+					condition = { type = not value = { type = ruler_religion value = catholic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+				}
+			}
+			condition = { type = province province = 171 #Valencia
+				condition = { type = or
+					condition = { type = not value = { type = religion value = { catholic } } }
+					condition = { type = not value = { type = ruler_religion value = catholic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+				}
+			}
+			condition = { type = province province = 23 #Salisbury
+				condition = { type = or
+					condition = { type = not value = { type = religion value = { catholic } } }
+					condition = { type = not value = { type = ruler_religion value = catholic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+				}
+			}
+			condition = { type = province province = 448 #Salzburg
+				condition = { type = or
+					condition = { type = not value = { type = religion value = { catholic } } }
+					condition = { type = not value = { type = ruler_religion value = catholic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+				}
+			}
+			condition = { type = province province = 774 #Jerusalem
+				condition = { type = or
+					condition = { type = not value = { type = religion value = { catholic } } }
+					condition = { type = not value = { type = ruler_religion value = catholic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+					condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+				}
+			}
+		}
+		condition = { type = capital }
+		condition = { type = religion value = catholic }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { heretic = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	action_a = { # Become Pope
+		effect = { type = create_tag value = PAPA }
+		effect = { type = add_improvement value = tilefactory }
+		effect = { type = add_improvement value = church }
+		effect = { type = add_improvement value = large_church }
+		effect = { type = add_advance value = stonepit }
+		effect = { type = add_advance value = brickwork_structures }
+		effect = { type = add_advance value = basilican_structures }
+		effect = { type = add_advance value = romanesque_vaulting }
+		effect = { type = ruler_piety value = 250 }
+		effect = { type = clergy_loyalty value = 0.3}
+		effect = { type = clergy_power value = 0.4}
+	}
+}

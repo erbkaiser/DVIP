@@ -1,0 +1,4791 @@
+# -------------------------
+# BOP_CHAR_EVENTS by Ambrox
+# -------------------------
+# DV version 1.0
+# -------------------------
+#
+# THEME -> Ruler's events
+# -----------------------
+character_event = {	# 19500 - Ruler and badboy - ruler poisoned (rewrote from Solmyr ID 20007)
+	id = 19500
+	picture = "event_poison"
+	trigger = {		# not ai - ruler - not in command
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 } 		
+		condition = { type = not value = { type = command } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 48/1348 months
+		months = 960
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = badboy value =  2 }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = badboy value = 10 }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.3
+		}
+		# piety
+		modifier = {
+			condition = { type = piety value =  500 }
+			factor = 1.05
+		}		
+		modifier = {
+			condition = { type = piety value = 1500 }
+			factor = 1.05
+		}
+		# prestige
+		modifier = {
+			condition = { type = prestige value =  500 }
+			factor = 1.05
+		}		
+		modifier = {
+			condition = { type = prestige value = 1500 }
+			factor = 1.05
+		}
+		# Ruler+Spymaster intrigue
+		modifier = {
+			condition = { type = capital
+				condition = { type = ruler_intrigue value = 15 } }			
+			factor = 1.05
+		}		
+		# traits
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = vengeful }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.1
+		}
+	}
+	immidiate = {	# becomes suspicious and illness - 75% death chance 
+		effect = { type = add_trait value = suspicious }
+		effect = { type = random_list
+			25 = { type = add_trait value = illness }
+			75 = { type = death }
+		}
+	}
+}
+character_event = {	# 19501 - Ruler and badboy - AI vassal of Human liege drop loyalty if levies are atwar under human control	
+	id = 19501
+	picture = "event_news"
+	trigger = {		# trigger for AI vassal of human liege only
+		condition = { type = ruler }
+		condition = { type = is_vassal }	
+		condition = { type = not value = { type = atwar } }
+		condition = { type = command }	
+		condition = { type = not value = { type = combat } }		
+		condition = { type = loyalty value = 0.5 }
+		condition = { type = liege	
+			condition = { type = not value = { type = ai } }
+			condition = { type = atwar } }	
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 5/150 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# liege's badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = liege
+				condition = { type = badboy value =  2 } }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = liege		
+				condition = { type = badboy value = 10 } }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = liege	
+				condition = { type = badboy value = 20 } }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = liege		
+				condition = { type = badboy value = 30 } }
+			factor = 0.3
+		}
+		# loyalty
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.8 } }
+			factor = 0.75
+		}
+		# liege's title
+		modifier = {	
+			condition = { type = liege
+				condition = { type = duchy } }
+			factor = 1.5
+		}		
+	}	
+	immidiate = {	# drop loyalty and trigger event for human liege
+		effect = { type = loyalty value = -0.6 }
+		effect = { type = trigger for = liege value = 19502 }
+	}
+}     
+character_event = {	# 19502 - Ruler and badboy - triggered by 19501 - Message about checking vassal's loyalty
+	id = 19502
+	picture = "event_news"
+	immidiate = {	# penality for vassal's loyalty decrease
+		effect = { type = prestige value = -10 }
+	}
+}
+character_event = {	# 19503 - Ruler and badboy - AI vassal of Human liege break free if loyalty is low and levies are atwar under human control
+	id = 19503
+	picture = "event_news"
+	trigger = {		# trigger for AI vassal of human liege only
+		condition = { type = ruler }
+		condition = { type = is_vassal }	
+		condition = { type = not value = { type = atwar } }
+		condition = { type = command }	
+		condition = { type = not value = { type = combat } }		
+		condition = { type = not value = { type = loyalty value = 0.5 } }	
+		condition = { type = liege	
+			condition = { type = not value = { type = ai } }
+			condition = { type = atwar } }	
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 5/150 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# liege's badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = liege
+				condition = { type = badboy value =  2 } }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = liege		
+				condition = { type = badboy value = 10 } }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = liege	
+				condition = { type = badboy value = 20 } }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = liege		
+				condition = { type = badboy value = 30 } }
+			factor = 0.3
+		}
+		# loyalty
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			factor = 0.75
+		}
+		# liege's title
+		modifier = {	
+			condition = { type = liege
+				condition = { type = duchy } }
+			factor = 1.5
+		}		
+	}	
+	immidiate = {	# gain indipendence and trigger event for human liege
+		effect = { type = independence }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = remove_trait value = loyalist }
+		effect = { type = remove_trait value = rebellious }
+		effect = { type = trigger for = liege value = 19504 }
+	}
+}     
+character_event = {	# 19504 - Ruler and badboy - triggered by 19503 - Message about vassal's independence
+	id = 19504
+	picture = "event_news"
+	immidiate = {	# penality for vassal's independence
+		effect = { type = prestige value = -25 }
+	}
+}
+character_event = {	# 19505 - Ruler and badboy - Pope asks for stopping wars among catholic
+	id = 19505
+	picture = "event_pope"
+	trigger = {		# not ai catholic king atwar against catholic enemy 
+		condition = { type = not value = { type = ai } }
+		condition = { type = kingdom }
+		condition = { type = atwar }		
+		condition = { type = not value = { type = combat } }
+		condition = { type = religion value = catholic }		
+		condition = { type = not value = { type = trait value = excommunicated } }		
+ 		condition = { type = exists value = PAPA }
+		condition = { type = not value = { type = papacy } }		
+		condition = { type = any_enemy
+			condition = { type = religion value = catholic } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) ->  3/180 months
+		months = 180
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# ruler badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = badboy value =  2 }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = badboy value = 10 } 
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.3
+		}
+		# crusade
+		modifier = {
+			condition = { type = crusade }
+			factor = 0.25
+		}		
+	}	
+	action_a = {	# Pope will is God will!
+		effect = { type = peace value = same_religion }
+		effect = { type = random chance = 75
+			effect = { type = trigger for = this value = 19506 } }		
+	}
+	action_b = {	# Soap bubble
+		effect = { type = add_trait value = sceptical }
+		effect = { type = piety value = -150 }			
+		effect = { type = random chance = 75
+			effect = { type = trigger for = this value = 19507 } }
+	}
+}
+character_event = {	# 19506 - Ruler and badboy - triggered by 19505 - Pope will is God will!
+	id = 19506
+	picture = "event_pope2"
+	action_a = {	# Pope want money!
+		effect = { type = gold value = -1000 }
+	}
+	action_b = {	# No payment
+		effect = { type = remove_trait value = zealous }
+		effect = { type = piety value = -100}			
+	}
+}
+character_event = {	# 19507 - Ruler and badboy - triggered by 19505 - Soap bubble...
+	id = 19507
+	picture = "event_pope2"
+	action_a = {	# Pope want money!
+		effect = { type = gold value = -1000 }
+	}
+	action_b = {	# No payment
+		effect = { type = random chance = 75
+			effect = { type = trigger for = this value = 19508 } }		
+	}
+}
+character_event = {	# 19508 - Ruler and badboy - triggered by 19507 - Don't joke with Pope!
+	id = 19508
+	picture = "event_pope"
+	action_a = {	# Pay double money!
+		effect = { type = gold value = -2000 }
+	}
+	action_b = {	# Make peace and pay money!
+		effect = { type = peace value = same_religion }		
+		effect = { type = gold value = -1000 }
+	}
+	action_c = {	# excommunicated
+		effect = { type = add_trait value = excommunicated }
+		effect = { type = piety value = -150 }	
+	}	
+}
+character_event = {	# 19510 - Ruler and badboy - ruler gains honest trait if he has an honourable reputation
+	id = 19510
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = trait value = honest } }
+		condition = { type = not value = { type = badboy value = 1 } }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+		### check for mtth
+		# not crazy
+		#condition = { type = not value = { type = trait value = schizofrenia } }
+		#condition = { type = not value = { type = trait value = maniac } }
+		# not religious traits
+		#condition = { type = not value = { type = trait value = heretic } }	
+		#condition = { type = not value = { type = trait value = excommunicated } }
+		#condition = { type = not value = { type = trait value = crusader } }
+		# not miscellaneous traits
+		#condition = { type = not value = { type = trait value = kinslayer } }	
+		#condition = { type = not value = { type = trait value = bastard } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 60/90 months
+		months = 60
+		# trait
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.5
+		}
+	}
+	immidiate = {	# gain trait and prestige
+		effect = { type = add_trait value = honest }
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = {	# 19511 - Ruler and badboy - ruler loses honest trait if he has a tarnished reputation
+	id = 19511
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = trait value = honest }
+		condition = { type = badboy value = 5 }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 3/60 months
+		months = 60
+		# badboy
+		modifier = {	# rather bad reputation
+			condition = { type = badboy value = 10 }
+			factor = 0.5
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 0.4
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.25
+		}
+	}
+	immidiate = {	# lose trait and prestige
+		effect = { type = remove_trait value = honest }
+		effect = { type = prestige value = -5 }
+	}
+}
+character_event = {	# 19512 - Ruler and badboy - ruler gains just trait if he has an honourable reputation
+	id = 19512
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = trait value = just } }
+		condition = { type = not value = { type = badboy value = 1 } }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 60/90 months
+		months = 60
+		# trait
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 1.5
+		}
+	}
+	immidiate = {	# gain trait and prestige
+		effect = { type = add_trait value = just }
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = {	# 19513 - Ruler and badboy - ruler loses just trait if he has a tarnished reputation
+	id = 19513
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = trait value = just }
+		condition = { type = badboy value = 5 }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 3/60 months
+		months = 60
+		# badboy
+		modifier = {	# rather bad reputation
+			condition = { type = badboy value = 10 }
+			factor = 0.5
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 0.4
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.25
+		}
+	}
+	immidiate = {	# lose trait and prestige
+		effect = { type = remove_trait value = just }
+		effect = { type = prestige value = -5 }
+	}
+}
+character_event = {	# 19514 - Ruler and badboy - ruler gains deceitful trait if he has a rather bad reputation
+	id = 19514
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = trait value = deceitful } }
+		condition = { type = badboy value = 10 }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 3/90 months
+		months = 60
+		# trait
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.5
+		}
+		# badboy
+		modifier = {	# very bad reputation
+			condition = { type = badboy value = 15 }
+			factor = 0.5
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 0.4
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.25
+		}
+	}
+	immidiate = {	# gain trait and lose prestige
+		effect = { type = add_trait value = deceitful }
+		effect = { type = prestige value = -5 }
+	}
+}
+character_event = {	# 19515 - Ruler and badboy - ruler loses deceitful trait if he has a respectable reputation
+	id = 19515
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = trait value = deceitful }
+		condition = { type = not value = { type = badboy value = 3 } }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 30/60 months
+		months = 60
+		# badboy
+		modifier = {	# an honourable reputation
+			condition = { type = not value = { type = badboy value = 1 } }
+			factor = 0.5
+		}
+	}
+	immidiate = {	# lose trait and gain prestige
+		effect = { type = remove_trait value = deceitful }
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = {	# 19516 - Ruler and badboy - ruler gains arbitrary trait if he has a rather bad reputation
+	id = 19516
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = trait value = arbitrary } }
+		condition = { type = badboy value = 10 }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 3/90 months
+		months = 60
+		# trait
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 1.5
+		}
+		# badboy
+		modifier = {	# very bad reputation
+			condition = { type = badboy value = 15 }
+			factor = 0.5
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 0.4
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.25
+		}
+	}
+	immidiate = {	# gain trait and lose prestige
+		effect = { type = add_trait value = arbitrary }
+		effect = { type = prestige value = -5 }
+	}
+}
+character_event = {	# 19517 - Ruler and badboy - ruler loses arbitrary trait if he has a respectable reputation
+	id = 19517
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = trait value = arbitrary }
+		condition = { type = not value = { type = badboy value = 3 } }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 30/60 months
+		months = 60
+		# badboy
+		modifier = {	# an honourable reputation
+			condition = { type = not value = { type = badboy value = 1 } }
+			factor = 0.5
+		}
+	}
+	immidiate = {	# lose trait and gain prestige
+		effect = { type = remove_trait value = arbitrary }
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = {	# 19518 - Ruler and badboy - ruler gains vengeful trait if he has a very bad reputation
+	id = 19518
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = trait value = vengeful } }
+		condition = { type = badboy value = 15 }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 3/90 months
+		months = 60
+		# trait
+		modifier = {
+			condition = { type = trait value = forgiving }
+			factor = 1.5
+		}
+		# badboy
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 0.5
+		}
+		modifier = {	# dishonourable scum
+			condition = { type = badboy value = 25 }
+			factor = 0.4
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.25
+		}
+	}
+	immidiate = {	# gain trait and lose prestige
+		effect = { type = add_trait value = vengeful }
+		effect = { type = prestige value = -5 }
+	}
+}
+character_event = {	# 19519 - Ruler and badboy - ruler loses vengeful trait if he has a respectable reputation
+	id = 19519
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = trait value = vengeful }
+		condition = { type = not value = { type = badboy value = 3 } }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 30/60 months
+		months = 60
+		# badboy
+		modifier = {	# an honourable reputation
+			condition = { type = not value = { type = badboy value = 1 } }
+			factor = 0.5
+		}
+	}
+	immidiate = {	# lose trait and gain prestige
+		effect = { type = remove_trait value = vengeful }
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = {	# 19520 - Ruler and badboy - ruler gains cruel trait if he has an extremely bad reputation
+	id = 19520
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = trait value = cruel } }
+		condition = { type = badboy value = 20 }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 3/90 months
+		months = 60
+		# trait
+		modifier = {
+			condition = { type = trait value = merciful }
+			factor = 1.5
+		}
+		# badboy
+		modifier = {	# dishonourable scum
+			condition = { type = badboy value = 25 }
+			factor = 0.25
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.2
+		}
+	}
+	immidiate = {	# gain trait and lose prestige
+		effect = { type = add_trait value = cruel }
+		effect = { type = prestige value = -5 }
+	}
+}
+character_event = {	# 19521 - Ruler and badboy - ruler loses cruel trait if he has a respectable reputation
+	id = 19521
+	picture = "event_trait"
+	trigger = {		# not ai ruler 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = trait value = cruel }
+		condition = { type = not value = { type = badboy value = 3 } }
+		# age 20-50
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = age value = 50 } }
+		# not command
+		condition = { type = not value = { type = command } }
+		# not atwar
+		condition = { type = not value = { type = atwar } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 30/60 months
+		months = 60
+		# badboy
+		modifier = {	# an honourable reputation
+			condition = { type = not value = { type = badboy value = 1 } }
+			factor = 0.5
+		}
+	}
+	immidiate = {	# lose trait and gain prestige
+		effect = { type = remove_trait value = cruel }
+		effect = { type = prestige value = 5 }
+	}
+}
+character_event = {	# 19522 - Ruler and badboy - advisor's defection 
+	id = 19522
+	picture = "event_leave"
+	trigger = {		# not ai advisor-not command-not illness-ruler badboy 1-not ruler parent
+		# not AI advisor
+		condition = { type = not value = { type = ai } }	
+		condition = { type = or
+			condition = { type = chancellor }
+			condition = { type = chaplain }
+			condition = { type = marshal }
+			condition = { type = spymaster }
+			condition = { type = steward }
+		}	
+		# not in command	
+		condition = { type = not value = { type = command } }
+		# not illness
+		condition = { type = not value = { type = trait value = illness } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }	
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+		condition = { type = not value = { type = trait value = schizofrenia } }	
+		condition = { type = not value = { type = trait value = maniac } }
+		# ruler badboy >= 1
+		condition = { type = ruler_csc
+			condition = { type = badboy value = 1 } }
+		### check ruler sibling
+		# not ruler's son
+		condition = { type = not value = { type = ruler_child } }
+		# not married inside court with ruler or ruler's son (but possible if spouse lives outside court)
+		condition = { type = or
+			condition = { type = not value = { type = is_married } }
+			condition = { type = spouse
+				condition = { type = not value = { type = ai } }
+				condition = { type = not value = { type = ruler } }
+				condition = { type = not value = { type = ruler_child } } }
+		}
+		# not ruler's father/mother 
+		condition = { type = not value = { type = any_child
+			condition = { type = not value = { type = ai } }
+			condition = { type = ruler } } }
+		# not ruler's brother/sister 
+		condition = { type = not value = { type = father
+			condition = { type = any_child
+				condition = { type = not value = { type = ai } }
+				condition = { type = ruler } } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 1/1200 months
+		months = 1200
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+		# ruler badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  2 } }
+			factor = 0.7
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 10 } }
+			factor = 0.5
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 20 } }
+			factor = 0.3
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 30 } }
+			factor = 0.1
+		}
+		# loyalty
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 1.0 } }
+			factor = 0.9
+		} 
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.75 } }
+			factor = 0.8
+		} 
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.50 } }
+			factor = 0.7
+		} 
+		# abilities
+		modifier = {
+			condition = { type = martial value = 10 }
+			factor = 0.8 
+		}
+		modifier = {
+			condition = { type = stewardship value = 10 }
+			factor = 0.8 
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.8 
+		}
+		modifier = {
+			condition = { type = diplomacy value = 10 }
+			factor = 0.8 
+		}		
+		# educations
+		modifier = { 
+			condition = { type = trait value = illusive_shadow } 
+			factor = 0.8
+		} 
+		modifier = { 
+			condition = { type = trait value = grey_eminence } 
+			factor = 0.8
+		} 
+		modifier = { 
+			condition = { type = trait value = brilliant_strategist  } 
+			factor = 0.8
+		} 
+		modifier = { 
+			condition = { type = trait value = midas_touched } 
+			factor = 0.8
+		} 
+		modifier = { 
+			condition = { type = trait value = mastermind_theologian } 
+			factor = 0.8
+		} 
+		# court number
+		modifier = {
+			condition = { type = court value = 15 }
+			factor = 0.9
+		} 
+		modifier = {
+			condition = { type = court value = 25 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = court value = 35 }
+			factor = 0.8
+		}
+	}
+	action_a = {	# advisor must remain
+		effect = { type = health value = -1 }
+		effect = { type = loyalty value = -0.5 }
+		effect = { type = random_list
+			50 = { type = add_trait value = stress_symptom }
+			30 = { type = add_trait value = depression }
+			15 = { type = add_trait value = illness }
+			 5 = { type = death }
+		}
+		effect = { type = trigger for = ruler value = 19523 }
+	}
+	action_b = {	# pay advisor 
+		effect = { type = gold scale = 0.25 }
+		effect = { type = add_trait value = lazy }
+		effect = { type = trigger for = ruler value = 19524 }		
+	}
+	action_c = {	# goodbye
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty value = 1.0 }		
+		effect = { type = trigger for = ruler value = 19525 }		
+	}	
+}     
+character_event = {	# 19523 - Ruler and badboy - triggered by 19522 - add badboy and cruel and subtract piety
+	id = 19523
+	picture = "event_trait"
+	action_a = {	# add badboy and cruel and subtract piety
+		effect = { type = badboy value = 1 }
+		effect = { type = add_trait value = cruel }
+		effect = { type = piety value = -50 }
+	}	
+}
+character_event = {	# 19524 - Ruler and badboy - triggered by 19522 - subtract gold and prestige from ruler
+	id = 19524
+	picture = "event_money"
+	action_a = {	# subtract gold and prestige from ruler
+		effect = { type = gold scale = -0.25 }
+ 		effect = { type = prestige value = -25 }
+	}	
+}
+character_event = {	# 19525 - Ruler and badboy - triggered by 19522 - subtract badboy and remove cruel
+	id = 19525
+	picture = "event_leave"
+	action_a = {	# subtract badboy
+		effect = { type = badboy value = -1 }
+		effect = { type = remove_trait value = cruel }
+	}
+}
+character_event = {	# 19526 - Ruler and badboy - hired criminals at court - crime buildings in capital
+	id = 19526
+	picture = "event_patrol"
+	trigger = {		# not ai ruler, not command, court 10, gold 2000, badboy 1 - crime buildings
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = command } }
+		condition = { type = court value = 10 }
+		condition = { type = gold value = 2000 }
+		condition = { type = badboy value = 1 }
+		# crime exists in capital
+		condition = { type = capital
+			condition = { type = or
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+		}
+		# ruler has a rival ruler and not atwar vs him
+		condition = { type = num_rivals value = 1 }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = not value = { type = any_enemy
+				condition = { type = is_receiver } }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 4/600 months	
+		months = 600
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = badboy value =  2 }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = badboy value = 10 }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.3
+		}
+		# gold
+		modifier = {
+			condition = { type = gold value =  5000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = gold value = 10000 }
+			factor = 0.7
+		}		
+		modifier = {
+			condition = { type = gold value = 15000 }
+			factor = 0.5
+		}		
+		modifier = {
+			condition = { type = gold value = 20000 }
+			factor = 0.3
+		}		
+	}
+	action_a = {	# be trusting	
+		effect = { type = add_trait value = trusting }
+		effect = { type = badboy value = -1 }
+		# criminals at night!
+		effect = { type = random chance = 50		
+			effect = { type = trigger for = this value = 19530 } }	
+	}
+	action_b = {	# enforce patrol	
+		effect = { type = gold scale = -0.5 }
+		# criminals at night!
+		effect = { type = random chance = 25		
+			effect = { type = trigger for = this value = 19530 } }	
+	}
+	action_c = {	# add claim 
+		effect = { type = add_trait value = stubborn }
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = add_title_claim value = load_target }
+		effect = { type = badboy value = +1 }
+		# criminals at night!
+		effect = { type = random chance = 50		
+			effect = { type = trigger for = this value = 19532 } }	
+	}	
+	action_d = {	# declare war
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = declare_war value = load_target }
+		# add_regiment to rival
+		effect = { type = trigger for = load_target value = 19535 }
+		# criminals at night!
+		effect = { type = random chance = 25		
+			effect = { type = trigger for = this value = 19532 } }	
+	}	
+}
+character_event = {	# 19527 - Ruler and badboy - hired criminals at court - ruler not catholic
+	id = 19527
+	picture = "event_patrol"
+	trigger = {		# not ai ruler, not command, court 10, gold 2000, badboy 1 - not catholic
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = command } }
+		condition = { type = court value = 10 }
+		condition = { type = gold value = 2000 }
+		condition = { type = badboy value = 1 }
+		# ruler isn't catholic
+		condition = { type = not value = { type = religion value = catholic } }
+		# ruler has a rival catholic ruler and not atwar vs him
+		condition = { type = num_rivals value = 1 }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = religion value = catholic }
+			condition = { type = not value = { type = any_enemy
+				condition = { type = is_receiver } }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 4/600 months	
+		months = 600
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = badboy value =  2 }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = badboy value = 10 }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.3
+		}
+		# gold
+		modifier = {
+			condition = { type = gold value =  5000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = gold value = 10000 }
+			factor = 0.7
+		}		
+		modifier = {
+			condition = { type = gold value = 15000 }
+			factor = 0.5
+		}		
+		modifier = {
+			condition = { type = gold value = 20000 }
+			factor = 0.3
+		}		
+	}
+	action_a = {	# be trusting	
+		effect = { type = add_trait value = trusting }
+		effect = { type = badboy value = -1 }
+		# criminals at night!
+		effect = { type = random chance = 50		
+			effect = { type = trigger for = this value = 19530 } }	
+	}
+	action_b = {	# enforce patrol	
+		effect = { type = gold scale = -0.5 }
+		# criminals at night!
+		effect = { type = random chance = 25		
+			effect = { type = trigger for = this value = 19530 } }	
+	}
+	action_c = {	# add claim 
+		effect = { type = add_trait value = stubborn }
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = add_title_claim value = load_target }
+		effect = { type = badboy value = +1 }
+		# criminals at night!
+		effect = { type = random chance = 50		
+			effect = { type = trigger for = this value = 19532 } }	
+	}	
+	action_d = {	# declare war
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = declare_war value = load_target }
+		# add_regiment to rival
+		effect = { type = trigger for = load_target value = 19535 }
+		# criminals at night!
+		effect = { type = random chance = 25		
+			effect = { type = trigger for = this value = 19532 } }	
+	}	
+}
+character_event = {	# 19528 - Ruler and badboy - hired criminals at court - ruler catholic and heretic
+	id = 19528
+	picture = "event_patrol"
+	trigger = {		# not ai ruler, not command, court 10, gold 2000, badboy 1 - catholic and heretic
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = command } }
+		condition = { type = court value = 10 }
+		condition = { type = gold value = 2000 }
+		condition = { type = badboy value = 1 }
+		# ruler catholic and heretic
+		condition = { type = religion value = catholic }
+		condition = { type = trait value = heretic }
+		# ruler has a rival catholic not-heretic ruler and not atwar vs him
+		condition = { type = num_rivals value = 1 }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = religion value = catholic }
+			condition = { type = not value = { type = trait value = heretic } }
+			condition = { type = not value = { type = any_enemy
+				condition = { type = is_receiver } }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 4/600 months	
+		months = 600
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = badboy value =  2 }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = badboy value = 10 }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.3
+		}
+		# gold
+		modifier = {
+			condition = { type = gold value =  5000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = gold value = 10000 }
+			factor = 0.7
+		}		
+		modifier = {
+			condition = { type = gold value = 15000 }
+			factor = 0.5
+		}		
+		modifier = {
+			condition = { type = gold value = 20000 }
+			factor = 0.3
+		}		
+	}
+	action_a = {	# be trusting	
+		effect = { type = add_trait value = trusting }
+		effect = { type = badboy value = -1 }
+		# criminals at night!
+		effect = { type = random chance = 50		
+			effect = { type = trigger for = this value = 19530 } }	
+	}
+	action_b = {	# enforce patrol	
+		effect = { type = gold scale = -0.5 }
+		# criminals at night!
+		effect = { type = random chance = 25		
+			effect = { type = trigger for = this value = 19530 } }	
+	}
+	action_c = {	# add claim 
+		effect = { type = add_trait value = stubborn }
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = add_title_claim value = load_target }
+		effect = { type = badboy value = +1 }
+		# criminals at night!
+		effect = { type = random chance = 50		
+			effect = { type = trigger for = this value = 19532 } }	
+	}	
+	action_d = {	# declare war
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = declare_war value = load_target }
+		# add_regiment to rival
+		effect = { type = trigger for = load_target value = 19535 }
+		# criminals at night!
+		effect = { type = random chance = 25		
+			effect = { type = trigger for = this value = 19532 } }	
+	}	
+}
+character_event = {	# 19529 - Ruler and badboy - hired criminals at court - ruler catholic and excommunicated
+	id = 19529
+	picture = "event_patrol"
+	trigger = {		# not ai ruler, not command, court 10, gold 2000, badboy 1 - catholic and excommunicated
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = not value = { type = command } }
+		condition = { type = court value = 10 }
+		condition = { type = gold value = 2000 }
+		condition = { type = badboy value = 1 }
+		# ruler catholic and excommunicated
+		condition = { type = religion value = catholic }
+		condition = { type = trait value = excommunicated }
+		# ruler has a rival catholic not-excommunicated ruler and not atwar vs him
+		condition = { type = num_rivals value = 1 }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = religion value = catholic }
+			condition = { type = not value = { type = trait value = excommunicated } }
+			condition = { type = not value = { type = any_enemy
+				condition = { type = is_receiver } }
+			}
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 4/600 months	
+		months = 600
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = badboy value =  2 }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = badboy value = 10 }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 0.3
+		}
+		# gold
+		modifier = {
+			condition = { type = gold value =  5000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = gold value = 10000 }
+			factor = 0.7
+		}		
+		modifier = {
+			condition = { type = gold value = 15000 }
+			factor = 0.5
+		}		
+		modifier = {
+			condition = { type = gold value = 20000 }
+			factor = 0.3
+		}		
+	}
+	action_a = {	# be trusting	
+		effect = { type = add_trait value = trusting }
+		effect = { type = badboy value = -1 }
+		# criminals at night!
+		effect = { type = random chance = 50		
+			effect = { type = trigger for = this value = 19530 } }	
+	}
+	action_b = {	# enforce patrol	
+		effect = { type = gold scale = -0.5 }
+		# criminals at night!
+		effect = { type = random chance = 25		
+			effect = { type = trigger for = this value = 19530 } }	
+	}
+	action_c = {	# add claim 
+		effect = { type = add_trait value = stubborn }
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = add_title_claim value = load_target }
+		effect = { type = badboy value = +1 }
+		# criminals at night!
+		effect = { type = random chance = 50		
+			effect = { type = trigger for = this value = 19532 } }	
+	}	
+	action_d = {	# declare war
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = declare_war value = load_target }
+		# add_regiment to rival
+		effect = { type = trigger for = load_target value = 19535 }
+		# criminals at night!
+		effect = { type = random chance = 25		
+			effect = { type = trigger for = this value = 19532 } }	
+	}	
+}
+character_event = {	# 19530 - Ruler and badboy - triggered by 19526/29 - killers shot courtiers!
+	id = 19530
+	picture = "event_killer"
+	action_a = {	# killers shot!
+		# shot courtier or steal gold
+		effect = { type = random_list
+			25 = { type = trigger for = best_courtier value = 19531 } 
+			25 = { type = trigger for = random_courtier value = 19531 }
+			25 = { type = trigger for = worst_courtier value = 19531 }
+			25 = { type = trigger for = ruler value = 19534 }
+		}
+	}
+}
+character_event = {	# 19531 - Ruler and badboy - triggered by 19530 - courtier's damage effects
+	id = 19531
+	picture = "event_cutthroat"
+	action_a = {	# courtier's damage effects
+		effect = { type = random_list
+			20 = { type = gold value = -50 } 
+			20 = { type = health value = -1 } 
+			15 = { type = add_trait value = stress_symptom } 
+			15 = { type = add_trait value = stutter } 
+			15 = { type = add_trait value = clubfooted } 
+			10 = { type = add_trait value = blind } 
+			 5 = { type = death } 
+		}
+	}
+}
+character_event = {	# 19532 - Ruler and badboy - triggered by 19526/29 - killers shot ruler!
+	id = 19532
+	picture = "event_killer"
+	action_a = {	# killers shot!
+		# shot ruler or steal gold
+		effect = { type = random_list
+			50 = { type = trigger for = ruler value = 19533 }
+			50 = { type = trigger for = ruler value = 19534 }
+		}
+	}
+}
+character_event = {	# 19533 - Ruler and badboy - triggered by 19532 - ruler's damage effects
+	id = 19533
+	picture = "event_cutthroat"
+	action_a = {	# ruler's damage effects
+		effect = { type = random_list
+			20 = { type = health value = -1 } 
+			20 = { type = add_trait value = stress_symptom } 
+			15 = { type = add_trait value = illness } 
+			15 = { type = add_trait value = stutter } 
+			15 = { type = add_trait value = clubfooted } 
+			15 = { type = add_trait value = blind } 
+		}
+	}
+}
+character_event = {	# 19534 - Ruler and badboy - triggered by 19530/32 - gold stealed
+	id = 19534
+	picture = "event_loot"
+	immidiate = {	# gold stealed
+		effect = { type = gold scale = -0.33 }
+		effect = { type = random chance = 66		
+			effect = { type = gold scale = -0.33 } }	
+		effect = { type = random chance = 33		
+			effect = { type = gold scale = -0.33 } }	
+	}
+}
+character_event = {	# 19535 - Ruler and badboy - triggered by 19526/29 - add regiment to AI rival enemy
+	id = 19535
+	picture = "event_setbattle"
+	action_a = {	# mercenaries
+		effect = { 	type = add_regiment 		
+				tech_prov = 333	
+				culture = italian
+				strength = {
+					light_cav = 1000	
+					pikemen = 1500
+					militia = 2500					
+				}
+		}
+	}
+}
+character_event = {	# 19540 - Ruler's abdication - elder self-abdication
+	id = 19540
+	picture = "event_oldman"
+	trigger = {		# not ai ruler-not command-not atwar-age >50-gold >500-not crazy-not heavy illness
+		# ruler
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		# war 
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = atwar } }
+		# age > 50
+		condition = { type = age value = 50 }
+		# stats
+		condition = { type = gold value = 500 }
+		# not crazy
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		# not heavy illness
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+	}
+	mean_time_to_happen = {	# 
+		months = 12
+		# difficulty level 
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.33
+		}		
+		# badboy 
+		modifier = {	# slightly tarnished reputation
+			condition = { type = badboy value =  2 }
+			factor = 1.25
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = badboy value = 10 }
+			factor = 1.5
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = badboy value = 20 }
+			factor = 1.75
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = badboy value = 30 }
+			factor = 2
+		}
+		# personality traits
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = trait value = stubborn }
+			factor = 4
+		}
+		# other traits
+		modifier = {
+			condition = { type = trait value = war_invalid }
+			factor = 0.67
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 0.67
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 0.67
+		}
+		modifier = {
+			condition = { type = trait value = realm_duress }
+			factor = 0.67
+		}
+		# age > 55
+		modifier = {
+			condition = { type = age value = 55 }
+			factor = 0.67
+		}
+		# age > 60
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 0.75
+		}
+		# duke
+		modifier = {
+			condition = { type = duchy }
+			factor = 1.5
+		}
+		# king
+		modifier = {
+			condition = { type = kingdom }
+			factor = 2.25
+		}
+		# primary_heir is ruler_child
+		modifier = {
+			condition = { type = primary_heir 
+				condition = { type = ruler_child }
+			}
+			factor = 0.67
+		}
+	}
+	action_a = {	# buy a castle and abdicate
+		effect = { type = gold value = -750 }
+#		effect = { type = death value = ruler }
+		effect = { type = leave_court }
+	}
+	action_b = {	# resist forever!
+		effect = { type = random chance = 50		
+			effect = { type = add_trait for = ruler value = energetic } }
+		effect = { type = random chance = 50		
+			effect = { type = add_trait for = ruler value = proud } }
+		effect = { type = random chance = 75		
+			effect = { type = add_trait for = ruler value = selfish } }
+		effect = { type = random chance = 75		
+			effect = { type = add_trait for = ruler value = stubborn } }
+	}
+}
+character_event = {	# 19541 - Ruler's abdication - primary heir murders ruler when he is seriously sick or crazy
+	id = 19541
+	picture = "event_troubles"
+	trigger = {		#
+		# ruler child
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler_child }
+		# role - doesn't work!!!
+#		condition = { type = primary_heir }
+		# war 
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = atwar } }
+		# gender/age > 16
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		# switch conditions
+		condition = { type = ruler_csc
+			condition = { type = not value = { type = ai } }
+			condition = { type = not value = { type = command } }
+			condition = { type = or
+				condition = { type = trait value = schizofrenia }
+				condition = { type = trait value = maniac }
+				condition = { type = trait value = plagueinfested }	
+				condition = { type = trait value = pneumonia }
+				condition = { type = trait value = inbred }
+				condition = { type = trait value = leper }
+				condition = { type = trait value = intestinal_worm }
+			}
+			# receiver is primary_heir
+			condition = { type = primary_heir
+				condition = { type = is_receiver }
+			}
+		}
+	}
+	mean_time_to_happen = {	# 
+		months = 12
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.33
+		}		
+		# ruler badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  2 } }
+			factor = 1.25
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  10 } }
+			factor = 1.5
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  20 } }
+			factor = 1.75
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  30 } }
+			factor = 2
+		}
+		# personality trait
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = merciful }
+			factor = 32
+		}
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 0.67
+		}
+		# piety
+		modifier = {
+			condition = { type = piety value =  10 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = piety value =  50 }
+			factor = 2.25
+		}
+		# intrigue
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			factor = 0.67
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.5
+		}
+		# age 
+		modifier = {
+			condition = { type = age value = 25 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = age value = 35 }
+			factor = 0.67
+		}
+		# ruler traits
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = trait value = war_invalid } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = trait value = depression } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = trait value = realm_duress } }	
+			factor = 0.75
+		}
+		# duke
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.5
+		}
+		# king
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = kingdom } }
+			factor = 2.25
+		}
+	}
+	action_a = {	# grab the throne
+		effect = { type = add_trait value = kinslayer }
+		effect = { type = add_trait value = pragmatic }
+		effect = { type = piety value = -100 }
+		effect = { type = death value = ruler }
+	}
+	action_b = {	# wait forever!
+		effect = { type = add_trait value = merciful }
+	}
+}
+character_event = {	# 19542 - Ruler's abdication - primary heir grabs trone with advisor help
+	id = 19542
+	picture = "event_spy"
+	trigger = {		#
+		# ruler child
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler_child }
+		# role doesn't work!!!
+#		condition = { type = primary_heir }
+		# war 
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = atwar } }
+		# gender/age > 16
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		# switch conditions
+		condition = { type = ruler_csc
+			condition = { type = not value = { type = ai } }
+			condition = { type = not value = { type = command } }
+			# not crazy
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			# not heavy illness
+			condition = { type = not value = { type = trait value = plagueinfested } }	
+			condition = { type = not value = { type = trait value = pneumonia } }
+			condition = { type = not value = { type = trait value = inbred } }
+			condition = { type = not value = { type = trait value = leper } }	
+			condition = { type = not value = { type = trait value = intestinal_worm } }
+			# receiver is primary_heir and not advisor
+			condition = { type = primary_heir
+				condition = { type = is_receiver }
+				condition = { type = not value = { type = steward } }
+				condition = { type = not value = { type = chancellor } }
+				condition = { type = not value = { type = spymaster } }	
+				condition = { type = not value = { type = marshal }	}		
+			}
+		}
+		condition = { type = steward_csc
+			condition = { type = steward }
+			condition = { type = not value = { type = command } }
+		}
+		condition = { type = chancellor_csc
+			condition = { type = chancellor }
+			condition = { type = not value = { type = command } }
+		}
+		condition = { type = marshal_csc
+			condition = { type = marshal }			
+			condition = { type = not value = { type = command } }
+		}
+		condition = { type = spymaster_csc
+			condition = { type = spymaster }	
+			condition = { type = not value = { type = command } }
+		}
+	}
+	mean_time_to_happen = {	# 
+		months = 12
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.33
+		}		
+		# ruler badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  2 } }
+			factor = 1.25
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  10 } }
+			factor = 1.5
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  20 } }
+			factor = 1.75
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  30 } }
+			factor = 2
+		}
+		# personality trait
+		modifier = {
+			condition = { type = trait value = merciful }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 16
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 32
+		}
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 0.67
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.75
+		}
+		# piety
+		modifier = {
+			condition = { type = piety value =  10 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = piety value =  50 }
+			factor = 2.25
+		}
+		# intrigue
+		modifier = {
+			condition = { type = intrigue value = 7 }
+			factor = 0.67
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.5
+		}
+		# age 
+		modifier = {
+			condition = { type = age value = 25 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = age value = 35 }
+			factor = 0.67
+		}
+		# ruler traits
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = trait value = war_invalid } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = trait value = depression } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = trait value = realm_duress } }
+			factor = 0.75
+		}
+		# duke
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.5
+		}
+		# king
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = kingdom } }
+			factor = 2.25
+		}
+	}
+	action_a = {
+		effect = { type = add_trait value = kinslayer }
+		effect = { type = add_trait value = cruel }
+		effect = { type = piety value = -100 }
+		effect = { type = death value = ruler }
+	}
+	action_b = {
+		effect = { type = add_trait value = coward }
+		effect = { type = piety value = -50 }
+		effect = { type = gold value = -150 }
+		effect = { type = trigger for = this value = 19543 }
+	}
+	action_c = {
+		effect = { type = add_trait value = trusting }
+	}
+}
+character_event = { # 19543 - Ruler's abdication - triggered by 19542 - advisor tries to kill ruler
+	id = 19543
+	picture = "event_plot"
+	action_a = {
+		effect = { type = random chance = 60
+			effect = { type = trigger for = marshal value = 19619 } }
+		effect = { type = random_list
+			40 = { type = add_trait for = ruler value = war_invalid }
+			60 = { type = death value = ruler }
+		}
+	}
+	action_b = {
+		effect = { type = random chance = 55
+			effect = { type = trigger for = spymaster value = 19619 } }
+		effect = { type = random_list
+			45 = { type = add_trait for = ruler value = hunchback }
+			55 = { type = death value = ruler }
+		}
+	}
+	action_c = {
+		effect = { type = random chance = 45
+			effect = { type = trigger for = chancellor value = 19619 } }
+		effect = { type = random_list
+			55 = { type = add_trait for = ruler value = blind }
+			45 = { type = death value = ruler }
+		}
+	}
+	action_d = {
+		effect = { type = random chance = 50
+			effect = { type = trigger for = steward value = 19619 } }
+		effect = { type = random_list
+			50 = { type = add_trait for = ruler value = clubfooted }
+			50 = { type = death value = ruler }
+		}
+	}
+}
+character_event = {	# 19550 - Ruler's childless - raise rule fertility (no male child)
+	id = 19550
+	picture = "event_child"
+	trigger = {		# not ai ruler-male-married-not command-fert <4-age 25/55-spouse not pregnant-not male child 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = gender value = male }		
+		condition = { type = is_married }
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = fertility value = 4 } }
+		condition = { type = age value = 25 }		
+		condition = { type = not value = { type = age value = 56 } }
+		condition = { type = spouse
+			condition = { type = not value = { type = pregnant } } }
+		condition = { type = not value = { type = any_child
+			condition = { type = gender value = male } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 12/580 months	
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.1
+		}		
+		# traits
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 0.5
+		}
+		# age
+		modifier = { 
+			condition = { type = age value = 25 }
+			factor = 0.8
+		} 
+		modifier = { 
+			condition = { type = age value = 35 }
+			factor = 0.6
+		} 
+		modifier = { 
+			condition = { type = age value = 45 }
+			factor = 0.4
+		} 
+	}
+	action_a = {	# black magic	
+		effect = { type = piety value = -100 }
+		effect = { type = prestige value = -50 }
+		effect = { type = gold value = -200 }
+		effect = { type = add_trait value = sceptical }
+		effect = { type = remove_trait value = crusader }
+		effect = { type = fertility value = +2 }
+		effect = { type = random chance = 50		
+			effect = { type = add_trait value = heretic }
+			effect = { type = health value = -2 }
+			effect = { type = fertility value = +2 }
+		}	
+	}
+	action_b = {	# potion	
+		effect = { type = piety value = -50 }
+		effect = { type = prestige value = -25 }
+		effect = { type = gold value = -100 }
+		effect = { type = remove_trait value = zealous }
+		effect = { type = remove_trait value = crusader }
+		effect = { type = fertility value = +1 }
+		effect = { type = random chance = 50
+			effect = { type = health value = -1 }
+			effect = { type = fertility value = +1 }
+		}	
+	}
+	action_c = {	# voyeur	
+		effect = { type = piety value = -25 }
+		effect = { type = prestige value = -100 }
+		effect = { type = gold value = -50 }
+		effect = { type = fertility value = +1 }
+		effect = { type = add_trait for = spouse value = lustful }
+		effect = { type = random chance = 50		
+			effect = { type = add_trait value = stress_symptom }
+			effect = { type = health for = spouse value = -1 }
+		}	
+	}
+	action_d = {	# nothing	
+		effect = { type = prestige value = -25 }
+	}
+}
+character_event = {	# 19551 - Ruler's childless - raise wife fertility (no male child)
+	id = 19551
+	picture = "event_child"
+	trigger = {		# not ai ruler-male-married-not command-spouse(fert<4-age 25/55-not pregnant)-not male child 
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = gender value = male }		
+		condition = { type = is_married }
+		condition = { type = not value = { type = command } }
+		condition = { type = spouse
+			condition = { type = not value = { type = fertility value = 4 } }
+			condition = { type = age value = 25 }			
+			condition = { type = not value = { type = age value = 56 } }
+			condition = { type = not value = { type = pregnant } } }
+		condition = { type = not value = { type = any_child
+			condition = { type = gender value = male } } }
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 12/580 months	
+		months = 120
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 1.1
+		}		
+		# traits
+		modifier = {
+			condition = { type = spouse
+				condition = { type = trait value = lustful } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = spouse
+				condition = { type = trait value = indulgent } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = spouse
+				condition = { type = trait value = temperate } }
+			factor = 0.5
+		}
+		# age
+		modifier = { 
+			condition = { type = spouse
+				condition = { type = age value = 25 } }
+			factor = 0.8
+		} 
+		modifier = { 
+			condition = { type = spouse
+				condition = { type = age value = 35 } }
+			factor = 0.6
+		} 
+		modifier = { 
+			condition = { type = spouse
+				condition = { type = age value = 45 } }
+			factor = 0.4
+		} 
+	}
+	action_a = {	# death
+		effect = { type = piety value = -500 }
+		effect = { type = prestige value = -100 }
+		effect = { type = add_trait value = sceptical }
+		effect = { type = remove_trait value = crusader }
+		effect = { type = death value = spouse }		
+	}
+	action_b = {	# bastard	
+		effect = { type = prestige value = -25 }
+		effect = { type = gold value = -100 }
+		effect = { type = remove_trait value = zealous }
+		effect = { type = create_courtier value = bastard }
+	}
+	action_c = {	# stallion	
+		effect = { type = piety value = -100 }
+		effect = { type = prestige value = -50 }
+		effect = { type = health for = spouse value = -1 }
+		effect = { type = add_trait for = spouse value = lustful }
+		effect = { type = random chance = 50		
+			effect = { type = health for = spouse value = -1 }
+			effect = { type = add_trait for = spouse value = indulgent }
+		}	
+	}
+	action_d = {	# nothing	
+		effect = { type = prestige value = -25 }
+	}
+}
+#
+# THEME -> Courtier's events
+# --------------------------
+character_event = {	# 19600 - Courtiers - unemployed and unmarried chars want leave court (rewrote from Total ID 22650)
+	id = 19600
+	picture = "event_leave"
+	trigger = {		# not ai-not ruler-unemployed-unmarried-not command-not atwar-not illness-male > 20 or female > 24
+		condition = { type = not value = { type = ai } }	
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = ruler_child } }
+		condition = { type = not value = { type = chancellor } }
+		condition = { type = not value = { type = chaplain } }
+		condition = { type = not value = { type = marshal } }
+		condition = { type = not value = { type = spymaster } }
+		condition = { type = not value = { type = steward } }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = trait value = illness } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }	
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+		condition = { type = not value = { type = trait value = schizofrenia } }	
+		condition = { type = not value = { type = trait value = maniac } }		
+		condition = { type = or
+			condition = { type = and
+				condition = { type = gender value = male } 		
+				condition = { type = age value = 21 }
+			}
+			condition = { type = and
+				condition = { type = gender value = female } 		
+				condition = { type = age value = 25 }
+			}
+		}
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 18/660 months
+		months = 400
+		# loyalty
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 1.0 } }
+			factor = 0.9
+		} 
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.75 } }
+			factor = 0.8
+		} 
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.50 } }
+			factor = 0.7
+		} 
+		# trait
+		modifier = { 
+			condition = { type = trait value = modest } 
+			factor = 1.1
+		} 
+		modifier = { 
+			condition = { type = trait value = proud } 
+			factor = 0.9
+		} 
+		modifier = { 
+			condition = { type = trait value = lazy  } 
+			factor = 1.5
+		} 
+		modifier = { 
+			condition = { type = trait value = energetic } 
+			factor = 0.9
+		} 
+		# age
+		modifier = { 
+			condition = { type = not value = { type = age value = 25 } } 
+			factor = 0.7
+		} 
+		modifier = { 
+			condition = { type = not value = { type = age value = 30 } } 
+			factor = 0.8
+		} 
+		modifier = { 
+			condition = { type = not value = { type = age value = 40 } } 
+			factor = 0.9
+		} 
+		# court
+		modifier = {
+			condition = { type = court value = 15 }
+			factor = 0.9
+		} 
+		modifier = {
+			condition = { type = court value = 25 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = court value = 35 }
+			factor = 0.65
+		}
+		# abilities
+		modifier = {
+			condition = { type = martial value = 10 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = stewardship value = 10 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = diplomacy value = 10 }
+			factor = 0.85
+		}		
+	}
+	action_a = {	# courtier must remain
+		effect = { type = add_trait value = lazy }
+		effect = { type = loyalty value = -0.3 }
+	}
+	action_b = {	# pay courtier for pleasures
+		effect = { type = gold scale = 0.1 }
+		effect = { type = prestige value = -5 }
+		effect = { type = piety value = -5 }
+		effect = { type = trigger for = ruler value = 19601 }		
+	}
+	action_c = {	# goodbye
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty value = 1.0 }		
+	}	
+}     
+character_event = {	# 19601 - Courtiers - triggered by 19600 - subtract 0.1 gold from ruler
+	id = 19601
+	picture = "event_money"
+	immidiate = {	# Pay your courtier
+		effect = { type = gold scale = -0.1 }
+	}
+}
+character_event = {	# 19602 - Courtiers - unmarried young female want husband
+	id = 19602
+	picture = "event_husband"
+	trigger = {		# not ai-female age 18-24-not ruler-unmarried-not pregnant-not illness-ruler: age 16-50 not plagued
+		condition = { type = not value = { type = ai } }
+		condition = { type = gender value = female }
+		condition = { type = age value = 18 }				
+		condition = { type = not value = { type = age value = 25 } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = ruler_child } }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = pregnant } }
+		condition = { type = not value = { type = trait value = illness } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = plagueinfested } }	
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = inbred } }	
+		condition = { type = not value = { type = trait value = leper } }	
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = schizofrenia } }	
+		condition = { type = not value = { type = trait value = maniac } }		
+		condition = { type = ruler_csc
+			condition = { type = age value = 16 } 
+			condition = { type = not value = { type = age value = 50 } }
+			condition = { type = not value = { type = command } }			
+			condition = { type = not value = { type = trait value = plagueinfested } } 
+			condition = { type = not value = { type = trait value = pneumonia } } 	
+			condition = { type = not value = { type = trait value = inbred } }	
+			condition = { type = not value = { type = trait value = leper } }	
+			condition = { type = not value = { type = trait value = intestinal_worm } }
+			condition = { type = not value = { type = trait value = blind } }
+			condition = { type = not value = { type = trait value = celibate } }
+		}
+	}
+	mean_time_to_happen = {	# modifier range (min/max) -> 18/484 months
+		months = 100
+		# trait
+		modifier = { 
+			condition = { type = trait value = zealous } 
+			factor = 1.1
+		} 
+		modifier = { 
+			condition = { type = trait value = sceptical } 
+			factor = 0.9
+		} 
+		modifier = { 
+			condition = { type = trait value = chaste } 
+			factor = 1.1
+		} 
+		modifier = { 
+			condition = { type = trait value = indulgent } 
+			factor = 0.85
+		} 
+		modifier = { 
+			condition = { type = trait value = temperate } 
+			factor = 4
+		} 
+		modifier = { 
+			condition = { type = trait value = lustful } 
+			factor = 0.75
+		}
+		# court
+		modifier = {
+			condition = { type = court value = 15 }
+			factor = 0.9
+		} 
+		modifier = {
+			condition = { type = court value = 25 }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = court value = 35 }
+			factor = 0.5
+		}		
+	}
+	action_a = {	# she must remain
+		effect = { type = add_trait value = temperate }
+		effect = { type = add_trait value = hostile }		
+	}
+	action_b = {	# ruler want you!
+		effect = { type = trigger for = this value = 19603 }		
+	}
+	action_c = {	# goodbye and good luck
+		effect = { type = trigger for = this value = 19619 }		
+	}	
+}     
+character_event = {	# 19603 - Courtiers - triggered by 19602 - ruler apply ius primae noctis 
+	id = 19603
+	picture = "event_ius"
+	action_a = {	# hard sex
+		effect = { type = trigger for = this value = 19604 }
+	}
+	action_b = {	# love is an art
+		effect = { type = trigger for = this value = 19609 }		
+	}	
+	action_c = {	# goodbye and good luck
+		effect = { type = trigger for = this value = 19619 }		
+	}	
+}
+character_event = {	# 19604 - Courtiers - triggered by 19603 - hard sex
+	id = 19604
+	picture = "event_violence"
+	action_a = {	# how can you do it?
+		effect = { type = add_trait value = depression }
+		effect = { type = add_trait value = vengeful }
+		effect = { type = trigger for = ruler value = 19606 }
+		effect = { type = random chance = 50
+			effect = { type = trigger for = this value = 19605 } }		
+	}
+}
+character_event = {	# 19605 - Courtiers - triggered by 19604 - woman defect
+	id = 19605
+	picture = "event_leave"
+	action_a = {	# goodbye animal
+		effect = { type = trigger for = this value = 19619 }		
+		effect = { type = trigger for = ruler value = 19608 }
+		effect = { type = random chance = 40
+			effect = { type = trigger for = ruler value = 19607 } }
+	}
+}
+character_event = {	# 19606 - Courtiers - triggered by 19604 - consequences for ruler
+	id = 19606
+	picture = "event_ius"
+	immidiate = {	# I'll do it again
+		effect = { type = badboy value = +2 }	
+		effect = { type = piety value = -30 }	
+		effect = { type = add_trait value = arbitrary }
+		effect = { type = add_trait value = indulgent }		
+	}
+}
+character_event = {	# 19607 - Courtiers - triggered by 19605 - illness for ruler
+	id = 19607
+	picture = "event_illness"
+	immidiate = {	# illness
+		effect = { type = add_trait value = illness }
+		effect = { type = fertility value = -3 }
+	}
+}
+character_event = {	# 19608 - Courtiers - triggered by 19605 - bastard for ruler
+	id = 19608
+	picture = "event_bastard"
+	immidiate = {	# bastard son
+		effect = { type = add_trait value = deceitful }	
+		effect = { type = create_courtier value = bastard }
+	}
+}
+character_event = {	# 19609 - Courtiers - triggered by 19603 - love is an art 
+	id = 19609
+	picture = "event_lovers"
+	action_a = {	# acc..., what I'll do now?
+		effect = { type = add_trait value = trusting }
+		effect = { type = loyalty value = 0.2 }
+		effect = { type = gold scale = 0.33 }		
+		effect = { type = trigger for = ruler value = 19612 }
+		effect = { type = random chance = 20
+			effect = { type = trigger for = ruler value = 19610 } }
+		effect = { type = random chance = 50
+			effect = { type = trigger for = ruler value = 19611 } }
+	}
+}
+character_event = {	# 19610 - Courtiers - triggered by 19609 - bastard for ruler
+	id = 19610
+	picture = "event_bastard"
+	immidiate = {	# bastard son
+		effect = { type = add_trait value = generous }
+		effect = { type = create_courtier value = bastard }
+	}
+}
+character_event = {	# 19611 - Courtiers - triggered by 19609 - stop flirt for ruler
+	id = 19611
+	picture = "event_again"
+	immidiate = {	# flirt must end
+		effect = { type = piety value = -15 }
+		effect = { type = add_trait value = cruel }		
+		effect = { type = add_trait value = selfish }
+	}
+}
+character_event = {	# 19612 - Courtiers - triggered by 19609 - consequences for ruler
+	id = 19612
+	picture = "event_money"
+	immidiate = {	# passion has its price
+		effect = { type = prestige value = -15 }
+		effect = { type = gold scale = -0.33 }
+		effect = { type = add_trait value = forgiving }
+	}
+}
+character_event = {	# 19619 - Courtiers - triggered by several events - courtier defect
+	id = 19619
+	picture = "event_leave"
+	action_a = {	# goodbye 
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty value = 1.0 }
+	}
+}
+character_event = {	# 19620 - Courtiers - male child not suited for martial_education
+	id = 19620
+	picture = "event_martial"
+	trigger = {		# not ai - not ruler - basic education - age 12/15 - not prodigy
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = martial_education }
+		condition = { type = age value = 12 }
+		condition = { type = not value = { type = age value = 15 } }	
+		condition = { type = not value = { type = trait value = prodigy } }
+	}
+	mean_time_to_happen = {	
+		months = 24
+		# key traits 
+		modifier = { 
+			condition = { type = trait value = cruel } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = energetic } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = romantic } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = valorous } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = zealous } 
+			factor = 8
+		}
+		# other positive traits
+		modifier = { 
+			condition = { type = trait value = arbitrary } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = hostile } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = stubborn } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = wise } 
+			factor = 2
+		}
+		# heavy negative traits 
+		modifier = { 
+			condition = { type = trait value = coward } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = lazy } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = merciful } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = reckless } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = weak_willed } 
+			factor = 0.5
+		}
+		# other negative traits 
+		modifier = { 
+			condition = { type = trait value = amiable } 
+			factor = 0.8
+		}		
+		modifier = { 
+			condition = { type = trait value = just } 
+			factor = 0.8
+		}		
+		modifier = { 
+			condition = { type = trait value = modest } 
+			factor = 0.8
+		}		
+		modifier = { 
+			condition = { type = trait value = pragmatic } 
+			factor = 0.8
+		}		
+		# age
+		modifier = { 
+			condition = { type = age value = 15 }
+			factor = 1.125
+		} 
+		# ruler_child
+		modifier = {
+			condition = { type = ruler_child }
+			factor = 0.667
+		}		
+		# fosterling
+		modifier = {
+			condition = { type = trait value = fosterling } 
+			factor = 1.5
+		} 
+	}
+	action_a = {	# become a misguided_warrior
+		effect = { type = remove_trait value = martial_education }	
+		effect = { type = add_trait value = misguided_warrior }
+		effect = { type = random_list
+			30 = { type = add_trait value = arbitrary }
+			30 = { type = add_trait value = hostile }
+			30 = { type = add_trait value = stubborn }
+			10 = { type = no_effect }
+		}
+	}
+	action_b = {	# switch to court_education
+		effect = { type = remove_trait value = martial_education }	
+		effect = { type = add_trait value = court_education }
+		effect = { type = random_list
+			40 = { type = add_trait value = amiable }
+			40 = { type = add_trait value = just }
+			20 = { type = add_trait value = temperate }
+		}
+	}
+	action_c = {	# switch to ecclesiastical_education
+		effect = { type = remove_trait value = martial_education }	
+		effect = { type = add_trait value = ecclesiastical_education }
+		effect = { type = random_list
+			40 = { type = add_trait value = chaste }
+			40 = { type = add_trait value = merciful }
+			20 = { type = add_trait value = zealous }
+		}
+	}
+}     
+character_event = {	# 19621 - Courtiers - male child not suited for court_education
+	id = 19621
+	picture = "event_court"
+	trigger = {		# not ai - not ruler - basic education - age 12/15 - not prodigy
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = court_education }
+		condition = { type = age value = 12 }
+		condition = { type = not value = { type = age value = 15 } }		
+		condition = { type = not value = { type = trait value = prodigy } }
+		condition = { type = gender value = male }		
+	}
+	mean_time_to_happen = {	
+		months = 24
+		# key traits
+		modifier = { 
+			condition = { type = trait value = amiable } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = just } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = temperate } 
+			factor = 8
+		}
+		# other positive traits
+		modifier = { 
+			condition = { type = trait value = coward } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = reckless } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = sceptical } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = selfish } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = weak_willed } 
+			factor = 2
+		}
+		# heavy negative traits
+		modifier = { 
+			condition = { type = trait value = arbitrary } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = hostile } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = stubborn } 
+			factor = 0.5
+		}
+		# other negative traits
+		modifier = { 
+			condition = { type = trait value = generous } 
+			factor = 0.8
+		}
+		modifier = { 
+			condition = { type = trait value = indulgent } 
+			factor = 0.8
+		}
+		modifier = { 
+			condition = { type = trait value = lustful } 
+			factor = 0.8
+		}
+		modifier = { 
+			condition = { type = trait value = proud } 
+			factor = 0.8
+		}
+		modifier = { 
+			condition = { type = trait value = valorous } 
+			factor = 0.8
+		}		
+		# age
+		modifier = { 
+			condition = { type = age value = 15 }
+			factor = 1.125
+		} 
+		# ruler_child
+		modifier = {
+			condition = { type = ruler_child }
+			factor = 0.667
+		}		
+		# fosterling
+		modifier = {
+			condition = { type = trait value = fosterling } 
+			factor = 1.5
+		} 
+	}
+	action_a = {	# become an amateurish_pettifogger
+		effect = { type = remove_trait value = court_education }	
+		effect = { type = add_trait value = amateurish_pettifogger }
+		effect = { type = random_list
+			30 = { type = add_trait value = gregarious }
+			30 = { type = add_trait value = honest }
+			30 = { type = add_trait value = trusting }
+			10 = { type = no_effect }
+		}
+	}
+	action_b = {	# become a hole_in_the_pocket
+		effect = { type = remove_trait value = court_education }	
+		effect = { type = add_trait value = hole_in_the_pocket }
+		effect = { type = random_list
+			30 = { type = add_trait value = pragmatic }
+			30 = { type = add_trait value = selfish }
+			30 = { type = add_trait value = shy }
+			10 = { type = no_effect }
+		}
+	}	
+	action_c = {	# switch to martial_education
+		effect = { type = remove_trait value = court_education }	
+		effect = { type = add_trait value = martial_education }
+		effect = { type = random_list
+			40 = { type = add_trait value = romantic }
+			30 = { type = add_trait value = energetic }
+			20 = { type = add_trait value = cruel }
+			10 = { type = add_trait value = valorous }
+		}
+	}
+	action_d = {	# switch to ecclesiastical_education
+		effect = { type = remove_trait value = court_education }	
+		effect = { type = add_trait value = ecclesiastical_education }
+		effect = { type = random_list
+			40 = { type = add_trait value = chaste }
+			40 = { type = add_trait value = merciful }
+			20 = { type = add_trait value = zealous }
+		}
+	}	
+}     
+character_event = {	# 19622 - Courtiers - male child not suited for ecclesiastical_education
+	id = 19622
+	picture = "event_ecclesiastical"
+	trigger = {		# not ai - not ruler - basic education - age 12/15 - not prodigy
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = ecclesiastical_education }
+		condition = { type = age value = 12 }
+		condition = { type = not value = { type = age value = 15 } }		
+		condition = { type = not value = { type = trait value = prodigy } }
+		condition = { type = gender value = male }		
+	}
+	mean_time_to_happen = {	
+		months = 24
+		# key traits 
+		modifier = { 
+			condition = { type = trait value = celibate } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = chaste } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = merciful } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = temperate } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = zealous } 
+			factor = 8
+		}
+		# other positive traits
+		modifier = { 
+			condition = { type = trait value = forgiving } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = generous } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = modest } 
+			factor = 2
+		}
+		# heavy negative traits
+		modifier = { 
+			condition = { type = trait value = cruel } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = indulgent } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = lustful } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = sceptical } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = vengeful } 
+			factor = 0.5
+		}
+		# other negative traits
+		modifier = { 
+			condition = { type = trait value = pragmatic } 
+			factor = 0.8
+		}		
+		modifier = { 
+			condition = { type = trait value = proud } 
+			factor = 0.8
+		}		
+		modifier = { 
+			condition = { type = trait value = selfish } 
+			factor = 0.8
+		}		
+		# age
+		modifier = { 
+			condition = { type = age value = 15 }
+			factor = 1.125
+		} 
+		# ruler_child
+		modifier = {
+			condition = { type = ruler_child }
+			factor = 0.667
+		}		
+		# fosterling
+		modifier = {
+			condition = { type = trait value = fosterling } 
+			factor = 1.5
+		} 
+	}
+	action_a = {	# become a detached_priest
+		effect = { type = remove_trait value = ecclesiastical_education }	
+		effect = { type = add_trait value = detached_priest }
+		effect = { type = random_list
+			30 = { type = add_trait value = forgiving }
+			30 = { type = add_trait value = generous }
+			30 = { type = add_trait value = modest }
+			10 = { type = no_effect }
+		}
+	}
+	action_b = {	# switch to martial_education
+		effect = { type = remove_trait value = ecclesiastical_education }	
+		effect = { type = add_trait value = martial_education }
+		effect = { type = random_list
+			40 = { type = add_trait value = romantic }
+			30 = { type = add_trait value = energetic }
+			20 = { type = add_trait value = cruel }
+			10 = { type = add_trait value = valorous }
+		}
+	}
+	action_c = {	# switch to court_education
+		effect = { type = remove_trait value = ecclesiastical_education }	
+		effect = { type = add_trait value = court_education }
+		effect = { type = random_list
+			40 = { type = add_trait value = amiable }
+			40 = { type = add_trait value = just }
+			20 = { type = add_trait value = temperate }
+		}
+	}	
+}     
+character_event = {	# 19623 - Courtiers - female child not suited for court_education
+	id = 19623
+	picture = "event_court"
+	trigger = {		# not ai - not ruler - basic education - age 12/15 - not prodigy
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = court_education }
+		condition = { type = age value = 12 }
+		condition = { type = not value = { type = age value = 15 } }		
+		condition = { type = not value = { type = trait value = prodigy } }
+		condition = { type = gender value = female }		
+	}
+	mean_time_to_happen = {	
+		months = 24
+		# key traits
+		modifier = { 
+			condition = { type = trait value = amiable } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = just } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = temperate } 
+			factor = 8
+		}
+		# other positive traits
+		modifier = { 
+			condition = { type = trait value = coward } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = reckless } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = sceptical } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = selfish } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = weak_willed } 
+			factor = 2
+		}
+		# heavy negative traits
+		modifier = { 
+			condition = { type = trait value = arbitrary } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = hostile } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = stubborn } 
+			factor = 0.5
+		}
+		# other negative traits
+		modifier = { 
+			condition = { type = trait value = generous } 
+			factor = 0.8
+		}
+		modifier = { 
+			condition = { type = trait value = indulgent } 
+			factor = 0.8
+		}
+		modifier = { 
+			condition = { type = trait value = lustful } 
+			factor = 0.8
+		}
+		modifier = { 
+			condition = { type = trait value = proud } 
+			factor = 0.8
+		}
+		modifier = { 
+			condition = { type = trait value = valorous } 
+			factor = 0.8
+		}		
+		# age
+		modifier = { 
+			condition = { type = age value = 15 }
+			factor = 1.125
+		} 
+		# ruler_child
+		modifier = {
+			condition = { type = ruler_child }
+			factor = 0.667
+		}		
+		# fosterling
+		modifier = {
+			condition = { type = trait value = fosterling } 
+			factor = 1.5
+		} 
+	}
+	action_a = {	# become an amateurish_pettifogger
+		effect = { type = remove_trait value = court_education }	
+		effect = { type = add_trait value = amateurish_pettifogger }
+		effect = { type = random_list
+			30 = { type = add_trait value = gregarious }
+			30 = { type = add_trait value = honest }
+			30 = { type = add_trait value = trusting }
+			10 = { type = no_effect }
+		}
+	}
+	action_b = {	# become a hole_in_the_pocket
+		effect = { type = remove_trait value = court_education }	
+		effect = { type = add_trait value = hole_in_the_pocket }
+		effect = { type = random_list
+			30 = { type = add_trait value = pragmatic }
+			30 = { type = add_trait value = selfish }
+			30 = { type = add_trait value = shy }
+			10 = { type = no_effect }
+		}
+	}	
+	action_c = {	# switch to ecclesiastical_education
+		effect = { type = remove_trait value = court_education }	
+		effect = { type = add_trait value = ecclesiastical_education }
+		effect = { type = random_list
+			40 = { type = add_trait value = chaste }
+			40 = { type = add_trait value = merciful }
+			20 = { type = add_trait value = zealous }
+		}
+	}	
+}     
+character_event = {	# 19624 - Courtiers - female child not suited for ecclesiastical_education
+	id = 19624
+	picture = "event_ecclesiastical"
+	trigger = {		# not ai - not ruler - basic education - age 12/15 - not prodigy
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = trait value = ecclesiastical_education }
+		condition = { type = age value = 12 }
+		condition = { type = not value = { type = age value = 15 } }		
+		condition = { type = not value = { type = trait value = prodigy } }
+		condition = { type = gender value = female }		
+	}
+	mean_time_to_happen = {	
+		months = 24
+		# key traits 
+		modifier = { 
+			condition = { type = trait value = celibate } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = chaste } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = merciful } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = temperate } 
+			factor = 8
+		}
+		modifier = { 
+			condition = { type = trait value = zealous } 
+			factor = 8
+		}
+		# other positive traits
+		modifier = { 
+			condition = { type = trait value = forgiving } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = generous } 
+			factor = 2
+		}
+		modifier = { 
+			condition = { type = trait value = modest } 
+			factor = 2
+		}
+		# heavy negative traits
+		modifier = { 
+			condition = { type = trait value = cruel } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = indulgent } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = lustful } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = sceptical } 
+			factor = 0.5
+		}
+		modifier = { 
+			condition = { type = trait value = vengeful } 
+			factor = 0.5
+		}
+		# other negative traits
+		modifier = { 
+			condition = { type = trait value = pragmatic } 
+			factor = 0.8
+		}		
+		modifier = { 
+			condition = { type = trait value = proud } 
+			factor = 0.8
+		}		
+		modifier = { 
+			condition = { type = trait value = selfish } 
+			factor = 0.8
+		}		
+		# age
+		modifier = { 
+			condition = { type = age value = 15 }
+			factor = 1.125
+		} 
+		# ruler_child
+		modifier = {
+			condition = { type = ruler_child }
+			factor = 0.667
+		}		
+		# fosterling
+		modifier = {
+			condition = { type = trait value = fosterling } 
+			factor = 1.5
+		} 
+	}
+	action_a = {	# become a detached_priest
+		effect = { type = remove_trait value = ecclesiastical_education }	
+		effect = { type = add_trait value = detached_priest }
+		effect = { type = random_list
+			30 = { type = add_trait value = forgiving }
+			30 = { type = add_trait value = generous }
+			30 = { type = add_trait value = modest }
+			10 = { type = no_effect }
+		}
+	}
+	action_b = {	# switch to court_education
+		effect = { type = remove_trait value = ecclesiastical_education }	
+		effect = { type = add_trait value = court_education }
+		effect = { type = random_list
+			40 = { type = add_trait value = amiable }
+			40 = { type = add_trait value = just }
+			20 = { type = add_trait value = temperate }
+		}
+	}	
+}     
+#
+# THEME -> In command events
+# --------------------------
+character_event = {	# 19700 - In command - char may encounter thieves
+	id = 19700
+	picture = "event_knights"
+	trigger = {		# not ai - in command - not combat - not siege - thieves_guild
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = location
+			condition = { type = or		
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+				condition = { type = has_improvement value = { highway_robber_band = yes } }			
+			}
+		}
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 80/726 months
+		months = 480
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}		
+		# thieves
+		modifier = {
+			condition = { type = location	
+				condition = { type = has_improvement value = { smugglers_ring = yes } } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = location	
+				condition = { type = has_improvement value = { highway_robber_band = yes } } }
+			factor = 0.5
+		}
+		# terrain
+		modifier = {
+			condition = { type = location	
+				condition = { type = or
+					condition = { type = terrain value = forest }
+					condition = { type = terrain value = march }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = location	
+				condition = { type = or
+					condition = { type = terrain value = hills }
+					condition = { type = terrain value = mountain }	
+				}
+			}
+			factor = 0.9
+		}		
+		# role
+		modifier = {
+			condition = { type = or
+				condition = { type = marshal }
+				condition = { type = chancellor }
+				condition = { type = spymaster }
+				condition = { type = steward }
+				condition = { type = chaplain }
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = ruler }
+			factor = 1.25
+		}
+		# traits
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.1
+		}		
+	}	
+	action_a = {	# surrender
+		effect = { type = add_trait value = coward }
+		effect = { type = prestige value = -25 }		
+		effect = { type = trigger for = this value = 19701 }
+	}
+	action_b = {	# escape
+		effect = { type = trigger for = this value = 19704 }
+	}
+	action_c = {	# combat
+		effect = { type = trigger for = this value = 19706 }
+	}	
+}
+character_event = {	# 19701 - In command - triggered by 19700 - pay ransom or die
+	id = 19701
+	picture = "event_prison"
+	action_a = {	# pay ransom
+		effect = { type = trigger for = ruler value = 19702 }
+	}
+	action_b = {	# pay part of ransom and risk death
+		effect = { type = trigger for = ruler value = 19703 }
+		effect = { type = health value = -1 }		
+		effect = { type = random chance = 50
+			effect = { type = trigger for = this value = 19707 } }
+	}
+	action_c = {	# no pay and die
+		effect = { type = trigger for = this value = 19707 }
+	}	
+}
+character_event = {	# 19702 - In command - triggered by ransom events - subtract 500 gold from ruler
+	id = 19702
+	picture = "event_money"
+	immidiate = {	# Pay 500 money
+		effect = { type = gold value = -500 }
+	}
+}
+character_event = {	# 19703 - In command - triggered by 19701 - subtract 150 gold from ruler
+	id = 19703
+	picture = "event_money"
+	immidiate = {	# Pay 150 money
+		effect = { type = gold value = -150 }
+	}
+}
+character_event = {	# 19704 - In command - triggered by 19700 - try to escape
+	id = 19704
+	picture = "event_jump"
+	action_a = {	# try to escape
+		effect = { type = add_trait value = reckless }	
+		effect = { type = prestige value = -10 }			
+		effect = { type = random chance = 50
+			effect = { type = health value = -1 }			
+			effect = { type = add_trait value = clubfooted }
+		}
+		effect = { type = random_list
+			65 = { type = trigger for = this value = 19701 }
+			35 = { type = trigger for = this value = 19705 }
+		}
+	}
+	action_b = {	# surrender
+		effect = { type = add_trait value = coward }	
+		effect = { type = prestige value = -25 }	
+		effect = { type = trigger for = this value = 19701 }
+	}
+	action_c = {	# combat
+		effect = { type = trigger for = this value = 19706 }
+	}	
+}
+character_event = {	# 19705 - In command - triggered by escape/combat events - finally safe
+	id = 19705
+	picture = "event_illness"
+	action_a = {	# finally safe
+		effect = { type = add_trait value = modest }	
+	}
+}
+character_event = {	# 19706 - In command - triggered by 19700 - combat as a knight
+	id = 19706
+	picture = "event_combat"
+	action_a = {	# combat
+		effect = { type = add_trait value = valorous }
+		effect = { type = prestige value = +30 }	
+		effect = { type = health value = -1 }		
+		effect = { type = random_list
+			65 = { type = trigger for = this value = 19722 }
+			35 = { type = trigger for = this value = 19705 }
+		}
+	}
+	action_b = {	# surrender
+		effect = { type = add_trait value = coward }	
+		effect = { type = prestige value = -25 }		
+		effect = { type = trigger for = this value = 19701 }
+	}
+}
+character_event = {	# 19707 - In command - triggered by prison events - hanged death
+	id = 19707
+	picture = "event_hanged"
+	immidiate = {	# hanged death
+		effect = { type = death }
+	}
+}
+character_event = {	# 19710 - In command - char may encounter wandering regiments - arabs
+	id = 19710
+	picture = "event_arabs"
+	trigger = {		# not ai - in command - not combat - not siege - location matching picture
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = location
+			condition = { type = or
+				condition = { type = region value = Asia_Minor }
+				condition = { type = region value = Middle_East }
+				condition = { type = region value = North_Africa } } }		
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 18/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# province at war
+		modifier = {
+			condition = { type = location
+				condition = { type = owner 
+					condition = { type = atwar } } }
+			factor = 0.35
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = add_trait value = coward }
+		effect = { type = piety value = -25 }
+		effect = { type = random_list
+			35 = { type = trigger for = this value = 19721 }
+			65 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_b = {	# single combat
+		effect = { type = add_trait value = valorous }
+		effect = { type = prestige value = +25 }
+		effect = { type = random_list
+			40 = { type = trigger for = this value = 19722 }
+			60 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_c = {	# buy mercenaries
+		effect = { type = add_regiment 
+				tech_prov = 719
+				culture = muslim
+				strength = {
+					light_cav = 400	
+					archer_cav = 100
+					militia = 1500					
+				}
+		}
+		effect = { type = trigger for = ruler value = 19720 }
+	}
+}
+character_event = {	# 19711 - In command - char may encounter wandering regiments - iberians
+	id = 19711
+	picture = "event_iberians"
+	trigger = {		# not ai - in command - not combat - not siege - location matching picture
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = location
+			condition = { type = region value = Spain }	}	
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 18/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# province at war
+		modifier = {
+			condition = { type = location
+				condition = { type = owner 
+					condition = { type = atwar } } }
+			factor = 0.35
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = add_trait value = coward }
+		effect = { type = piety value = -25 }
+		effect = { type = random_list
+			35 = { type = trigger for = this value = 19721 }
+			65 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_b = {	# single combat
+		effect = { type = add_trait value = valorous }
+		effect = { type = prestige value = +25 }
+		effect = { type = random_list
+			40 = { type = trigger for = this value = 19722 }
+			60 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_c = {	# buy mercenaries
+		effect = { type = add_regiment 
+				tech_prov = 196
+				culture = castillan
+				strength = {
+					light_cav = 400	
+					pikemen = 600
+					militia = 900					
+				}
+		}
+		effect = { type = trigger for = ruler value = 19720 }
+	}
+}
+character_event = {	# 19712 - In command - char may encounter wandering regiments - frenches
+	id = 19712
+	picture = "event_frenches"
+	trigger = {		# not ai - in command - not combat - not siege - location matching picture
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = location
+				condition = { type = region value = France } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 18/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# province at war
+		modifier = {
+			condition = { type = location
+				condition = { type = owner 
+					condition = { type = atwar } } }
+			factor = 0.35
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = add_trait value = coward }
+		effect = { type = piety value = -25 }
+		effect = { type = random_list
+			35 = { type = trigger for = this value = 19721 }
+			65 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_b = {	# single combat
+		effect = { type = add_trait value = valorous }
+		effect = { type = prestige value = +25 }
+		effect = { type = random_list
+			40 = { type = trigger for = this value = 19722 }
+			60 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_c = {	# buy mercenaries
+		effect = { 	type = add_regiment 
+				tech_prov = 114
+				culture = frankish
+				strength = {
+					heavy_cav = 400
+					light_cav = 500
+				}
+		}
+		effect = { type = trigger for = ruler value = 19720 }
+	}
+}
+character_event = {	# 19713 - In command - char may encounter wandering regiments - saxons
+	id = 19713
+	picture = "event_saxons"
+	trigger = {		# not ai - in command - not combat - not siege - location matching picture
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = location
+				condition = { type = region value = Britain } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 18/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# province at war
+		modifier = {
+			condition = { type = location
+				condition = { type = owner 
+					condition = { type = atwar } } }
+			factor = 0.35
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = add_trait value = coward }
+		effect = { type = piety value = -25 }
+		effect = { type = random_list
+			35 = { type = trigger for = this value = 19721 }
+			65 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_b = {	# single combat
+		effect = { type = add_trait value = valorous }
+		effect = { type = prestige value = +25 }
+		effect = { type = random_list
+			40 = { type = trigger for = this value = 19722 }
+			60 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_c = {	# buy mercenaries
+		effect = { 	type = add_regiment 
+				tech_prov = 58
+				culture = saxon
+				strength = {
+					heavy_cav = 100
+					light_cav = 250
+					heavy_inf = 500
+					archers = 400
+					militia = 500					
+				}
+		}		
+		effect = { type = trigger for = ruler value = 19720 }
+	}
+}
+character_event = {	# 19714 - In command - char may encounter wandering regiments - germans
+	id = 19714
+	picture = "event_germans"
+	trigger = {		# not ai - in command - not combat - not siege - location matching picture
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = location
+			condition = { type = or
+				condition = { type = region value = Germany }
+				condition = { type = region value = Netherlands } } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 18/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# province at war
+		modifier = {
+			condition = { type = location
+				condition = { type = owner 
+					condition = { type = atwar } } }
+			factor = 0.35
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = add_trait value = coward }
+		effect = { type = piety value = -25 }
+		effect = { type = random_list
+			35 = { type = trigger for = this value = 19721 }
+			65 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_b = {	# single combat
+		effect = { type = add_trait value = valorous }
+		effect = { type = prestige value = +25 }
+		effect = { type = random_list
+			40 = { type = trigger for = this value = 19722 }
+			60 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_c = {	# buy mercenaries
+		effect = { 	type = add_regiment 
+				tech_prov = 314
+				culture = german
+				strength = {
+					light_cav = 400
+					heavy_inf = 400
+					archers = 400
+					pikemen = 400				
+				}
+		}		
+		effect = { type = trigger for = ruler value = 19720 }
+	}
+}
+character_event = {	# 19715 - In command - char may encounter wandering regiments - slavics
+	id = 19715
+	picture = "event_slavics"
+	trigger = {		# not ai - in command - not combat - not siege - location matching picture
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = location
+			condition = { type = or
+				condition = { type = region value = Balkan }
+				condition = { type = region value = Italy }	} }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 18/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# province at war
+		modifier = {
+			condition = { type = location
+				condition = { type = owner 
+					condition = { type = atwar } } }
+			factor = 0.35
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = add_trait value = coward }
+		effect = { type = piety value = -25 }
+		effect = { type = random_list
+			35 = { type = trigger for = this value = 19721 }
+			65 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_b = {	# single combat
+		effect = { type = add_trait value = valorous }
+		effect = { type = prestige value = +25 }
+		effect = { type = random_list
+			40 = { type = trigger for = this value = 19722 }
+			60 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_c = {	# buy mercenaries
+		effect = { 	type = add_regiment 
+				tech_prov = 463
+				culture = southslavic
+				strength = {
+					heavy_inf = 800
+					archers = 550
+					militia = 1000				
+				}
+		}
+		effect = { type = trigger for = ruler value = 19720 }
+	}
+}
+character_event = {	# 19716 - In command - char may encounter wandering regiments - vikings
+	id = 19716
+	picture = "event_vikings"
+	trigger = {		# not ai - in command - not combat - not siege - location matching picture
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = location
+				condition = { type = region value = Scandinavia } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 18/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# province at war
+		modifier = {
+			condition = { type = location
+				condition = { type = owner 
+					condition = { type = atwar } } }
+			factor = 0.35
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = add_trait value = coward }
+		effect = { type = piety value = -25 }
+		effect = { type = random_list
+			35 = { type = trigger for = this value = 19721 }
+			65 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_b = {	# single combat
+		effect = { type = add_trait value = valorous }
+		effect = { type = prestige value = +25 }
+		effect = { type = random_list
+			40 = { type = trigger for = this value = 19722 }
+			60 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_c = {	# buy mercenaries
+		effect = { 	type = add_regiment 
+				tech_prov = 270
+				culture = norwegian
+				strength = {
+					heavy_inf = 1000	
+					militia = 1500
+				}
+		}
+		effect = { type = trigger for = ruler value = 19720 }
+	}
+}
+character_event = {	# 19717 - In command - char may encounter wandering regiments - mongols
+	id = 19717
+	picture = "event_mongols"
+	trigger = {		# not ai - in command - not combat - not siege - location matching picture
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = location
+			condition = { type = or
+				condition = { type = region value = Eastern_Europe }
+				condition = { type = region value = Russia } } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 18/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# province at war
+		modifier = {
+			condition = { type = location
+				condition = { type = owner 
+					condition = { type = atwar } } }
+			factor = 0.35
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = add_trait value = coward }
+		effect = { type = piety value = -25 }
+		effect = { type = random_list
+			35 = { type = trigger for = this value = 19721 }
+			65 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_b = {	# single combat
+		effect = { type = add_trait value = valorous }
+		effect = { type = prestige value = +25 }
+		effect = { type = random_list
+			40 = { type = trigger for = this value = 19722 }
+			60 = { type = trigger for = ruler value = 19719 }
+		}
+	}
+	action_c = {	# buy mercenaries
+		effect = { 	type = add_regiment 		
+				tech_prov = 600
+				culture = russian
+				strength = {
+					light_cav = 500
+					archer_cav = 500					
+				}
+		}
+		effect = { type = trigger for = ruler value = 19720 }
+	}
+}
+character_event = {	# 19718 - In command - char may encounter wandering fleet - saracin pirates
+	id = 19718
+	picture = "event_ships"
+	trigger = {		# not ai - in command - location matching picture
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = location
+				condition = { type = region value = Region_Sea } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 18/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# ruler at war
+		modifier = {
+			condition = { type = ruler_csc condition = { type = atwar } }
+			factor = 0.35
+		}
+	}	
+	action_a = {	# naval combat
+		effect = { type = add_trait value = coward }
+		effect = { type = piety value = -25 }
+		effect = { type = random_list
+			35 = { type = trigger for = this value = 19724 }
+			65 = { type = trigger for = ruler value = 19723 }
+		}
+	}
+	action_b = {	# single combat
+		effect = { type = add_trait value = valorous }
+		effect = { type = prestige value = +25 }
+		effect = { type = random_list
+			40 = { type = trigger for = this value = 19725 }
+			60 = { type = trigger for = ruler value = 19723 }
+		}
+	}
+	action_c = {	# buy mercenaries
+		effect = { 	type = add_regiment 		
+				tech_prov = 757
+				culture = turkish
+				strength = {
+					archers = 500
+					militia = 2250					
+				}
+		}
+		effect = { type = trigger for = ruler value = 19720 }
+	}
+}
+character_event = {	# 19719 - In command - triggered by 19710/7 - ruler gain gold (100) from land battle
+	id = 19719
+	picture = "event_setbattle"
+	immidiate = {	# Gain gold
+		effect = { type = gold value = +100 }
+	}
+}
+character_event = {	# 19720 - In command - triggered by 19710/8 - ruler pay gold (500) to recruit
+	id = 19720
+	picture = "event_money"
+	immidiate = {	# Pay gold to recruit
+		effect = { type = gold value = -500 }
+	}
+}
+character_event = {	# 19721 - In command - triggered by regiment combat events - land battle defeat
+	id = 19721
+	picture = "event_battle2"
+	action_a = {	# land battle defeat
+		effect = { type = remove_regiment }
+	}
+}
+character_event = {	# 19722 - In command - triggered by duel/combat events - valourous death
+	id = 19722
+	picture = "event_wood"
+	immidiate = {	# valourous death
+		effect = { type = death }
+	}
+}
+character_event = {	# 19723 - In command - triggered by 19718 - ruler gain gold (100) from naval battle
+	id = 19723
+	picture = "event_nbattle"
+	immidiate = {	# Gain gold
+		effect = { type = gold value = +100 }
+	}
+}
+character_event = {	# 19724 - In command - triggered by naval fleet event - naval battle defeat
+	id = 19724
+	picture = "event_sunk"
+	action_a = {	# naval battle defeat
+		effect = { type = remove_regiment }
+	}
+}
+character_event = {	# 19725 - In command - triggered by naval duel event - sea death
+	id = 19725
+	picture = "event_port"
+	immidiate = {	# sea death
+		effect = { type = death }
+	}
+}
+character_event = {	# 19730 - In command - char may provoke religious uprising in enemy lands - moslem
+	id = 19730
+	picture = "event_arabs"
+	trigger = {		# not ai - in command - atwar - not combat - not siege - not enemy not moslem - loc+ruler moslem
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = atwar }		
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = not value = { type = any_enemy
+			condition = { type = not value = { type = religion value = moslem } } } }
+		condition = { type = location
+			condition = { type = religion value = moslem }
+			condition = { type = ruler_religion value = moslem } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 5/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# ruler badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  2 } }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 10 } }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 20 } }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 30 } }
+			factor = 0.3
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = trigger for = this value = 19735 }
+	}
+	action_b = {	# peace
+		effect = { type = peace value = not_same_religion }
+		effect = { type = trigger for = ruler value = 19736 }		
+	}
+	action_c = {	# ransom
+		effect = { type = trigger for = this value = 19737 }
+	}
+}
+character_event = {	# 19731 - In command - char may provoke religious uprising in enemy lands - pagan
+	id = 19731
+	picture = "event_mongols"
+	trigger = {		# not ai - in command - atwar - not combat - not siege - not enemy not pagan - loc+ruler pagan
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = atwar }		
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = not value = { type = any_enemy
+			condition = { type = not value = { type = religion value = pagan } } } }
+		condition = { type = location
+			condition = { type = religion value = pagan }
+			condition = { type = ruler_religion value = pagan } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 5/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# ruler badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  2 } }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 10 } }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 20 } }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 30 } }
+			factor = 0.3
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = trigger for = this value = 19735 }
+	}
+	action_b = {	# peace
+		effect = { type = peace value = not_same_religion }
+		effect = { type = trigger for = ruler value = 19736 }		
+	}
+	action_c = {	# ransom
+		effect = { type = trigger for = this value = 19737 }
+	}
+}
+character_event = {	# 19732 - In command - char may provoke religious uprising in enemy lands - jewish
+	id = 19732
+	picture = "event_iberians"
+	trigger = {		# not ai - in command - atwar - not combat - not siege - ruler not jewish - not enemy not jewish - loc+ruler jewish
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = atwar }		
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = ruler_csc
+			condition = { type = not value = { type = religion value = jewish } } }
+		condition = { type = not value = { type = any_enemy
+			condition = { type = not value = { type = religion value = jewish } } } }
+		condition = { type = location
+			condition = { type = religion value = jewish }
+			condition = { type = ruler_religion value = jewish } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 5/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# ruler badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  2 } }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 10 } }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 20 } }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 30 } }
+			factor = 0.3
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = trigger for = this value = 19735 }
+	}
+	action_b = {	# peace
+		effect = { type = peace value = not_same_religion }
+		effect = { type = trigger for = ruler value = 19736 }		
+	}
+	action_c = {	# ransom
+		effect = { type = trigger for = this value = 19737 }
+	}
+}
+character_event = {	# 19733 - In command - char may provoke religious uprising in enemy lands - orthodox
+	id = 19733
+	picture = "event_iberians"
+	trigger = {		# not ai - in command - atwar - not combat - not siege - ruler not orthodox - not enemy not orthodox - loc+ruler orthodox
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = atwar }		
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = ruler_csc
+			condition = { type = not value = { type = religion value = orthodox } } }
+		condition = { type = not value = { type = any_enemy
+			condition = { type = not value = { type = religion value = orthodox } } } }
+		condition = { type = location
+			condition = { type = religion value = orthodox }
+			condition = { type = ruler_religion value = orthodox } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 5/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# ruler badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  2 } }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 10 } }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 20 } }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 30 } }
+			factor = 0.3
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = trigger for = this value = 19735 }
+	}
+	action_b = {	# peace
+		effect = { type = peace value = not_same_religion }
+		effect = { type = trigger for = ruler value = 19736 }		
+	}
+	action_c = {	# ransom
+		effect = { type = trigger for = this value = 19737 }
+	}
+}
+character_event = {	# 19734 - In command - char may provoke religious uprising in enemy lands - catholic
+	id = 19734
+	picture = "event_slavics"
+	trigger = {		# not ai - in command - atwar - not combat - not siege - ruler not catholic - not enemy not catholic - loc+ruler catholic
+		condition = { type = not value = { type = ai } }
+		condition = { type = command }
+		condition = { type = atwar }		
+		condition = { type = not value = { type = combat } }
+		condition = { type = not value = { type = siege } }
+		condition = { type = ruler_csc
+			condition = { type = not value = { type = religion value = catholic } } }
+		condition = { type = not value = { type = any_enemy
+			condition = { type = not value = { type = religion value = catholic } } } }
+		condition = { type = location
+			condition = { type = religion value = catholic }
+			condition = { type = ruler_religion value = catholic } }
+	}			
+	mean_time_to_happen = {	# modifier range (min/max) -> 5/260 months
+		months = 100
+		# difficulty level
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		# aggressiveness level
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.85
+		}
+		# ruler's title
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = duchy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = county } }
+			factor = 2
+		}
+		# martial education 
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 1.3
+		}
+		# ruler badboy
+		modifier = {	# slightly tarnished reputation
+			condition = { type = ruler_csc
+				condition = { type = badboy value =  2 } }
+			factor = 0.9
+		}		
+		modifier = {	# rather bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 10 } }
+			factor = 0.7
+		}
+		modifier = {	# extremely bad reputation
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 20 } }
+			factor = 0.5
+		}
+		modifier = {	# worse than dishonourable scum
+			condition = { type = ruler_csc		
+				condition = { type = badboy value = 30 } }
+			factor = 0.3
+		}
+	}	
+	action_a = {	# regiment combat
+		effect = { type = trigger for = this value = 19735 }
+	}
+	action_b = {	# peace
+		effect = { type = peace value = not_same_religion }
+		effect = { type = trigger for = ruler value = 19736 }		
+	}
+	action_c = {	# ransom
+		effect = { type = trigger for = this value = 19737 }
+	}
+}
+character_event = {	# 19735 - In command - triggered by 19730/4 - combat - peace - prison
+	id = 19735
+	picture = "event_setbattle"
+	action_a = {	# front combat
+		effect = { type = add_trait value = valorous }
+		effect = { type = prestige value = +30 }
+		effect = { type = random_list
+			20 = { type = trigger for = this value = 19721 }
+			70 = { type = trigger for = this value = 19722 }
+			10 = { type = trigger for = this value = 19719 }
+		}
+	}
+	action_b = {	# rear combat
+		effect = { type = add_trait value = coward }
+		effect = { type = prestige value = -15 }
+		effect = { type = piety value = -25 }
+		effect = { type = random_list
+			70 = { type = trigger for = this value = 19721 }
+			20 = { type = trigger for = this value = 19722 }
+			10 = { type = trigger for = this value = 19719 }
+		}
+	}
+	action_c = {	# peace
+		effect = { type = peace value = not_same_religion }	
+		effect = { type = trigger for = ruler value = 19736 }
+	}
+	action_d = {	# ransom
+		effect = { type = trigger for = this value = 19737 }
+	}	
+}
+character_event = {	# 19736 - In command - triggered by 19730/5 - ruler pay 200 gold for peace
+	id = 19736
+	picture = "event_money"
+	action_a = {	# pay gold
+		effect = { type = gold value = -200 }
+	}	
+}
+character_event = {	# 19737 - In command - triggered by 19735 - prison
+	id = 19737
+	picture = "event_prison"
+	action_a = {	# pay ransom
+		effect = { type = trigger for = ruler value = 19702 }
+	}
+	action_b = {	# pay torture
+		effect = { type = health value = -2 }
+		effect = { type = fertility value = -2 }				
+		effect = { type = random_list
+			20 = { type = add_trait value = war_invalid }
+			30 = { type = add_trait value = blind }
+			40 = { type = add_trait value = stutter }
+			10 = { type = no_effect }
+		}
+		effect = { type = random_list
+			10 = { type = trigger for = this value = 19707 }
+			90 = { type = trigger for = this value = 19705 }
+		}
+	}
+	action_c = {	# try to escape
+		effect = { type = add_trait value = clubfooted }
+		effect = { type = health value = -1 }
+		effect = { type = random_list
+			80 = { type = trigger for = this value = 19707 }
+			20 = { type = trigger for = this value = 19705 }
+		}
+	}
+}

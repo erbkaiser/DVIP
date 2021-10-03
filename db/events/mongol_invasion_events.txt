@@ -1,0 +1,2582 @@
+#########################################
+# MONGOL SIMULATION PACKAGE SERIES  	#
+#########################################
+
+##############################################
+# scaled and new events added by CS 05/07/04 #
+# last updated by CS March 05                #
+##############################################
+
+#############################
+# The Golden Horde	arrives	#
+#############################
+province_event = {
+	id = 1117
+	picture = "event_mongol"
+	trigger = {
+		condition = {
+			type = not
+			value = { type = difficulty value = 1 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1212 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1252
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = GOLD
+			}
+		}
+
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	action_a = {
+		effect = { type = create_tag value = GOLD }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+
+}
+#############################
+# The Golden Horde	arrives	#
+#############################
+province_event = {
+	id = 5500
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 2 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1212 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1252
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = GOLD
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	action_a = {
+		effect = { type = create_tag value = GOLD }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+
+}
+#############################
+# The Golden Horde	arrives	#
+#############################
+province_event = {
+	id = 5501
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 2 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 3 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1212 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1252
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = GOLD
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	action_a = {
+		effect = { type = create_tag value = GOLD }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+
+	}
+
+}
+#############################
+# The Golden Horde	arrives	#
+#############################
+province_event = {
+	id = 5502
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 3 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 4 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1212 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1252
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = GOLD
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	action_a = {
+		effect = { type = create_tag value = GOLD }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+
+}
+#############################
+# The Golden Horde	arrives	#
+#############################
+province_event = {
+	id = 5503
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 4 }
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1212 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1252
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = GOLD
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	action_a = {
+		effect = { type = create_tag value = GOLD }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+
+}
+#############################
+# The Ilkhanate	arrives		#
+#############################
+province_event = {
+	id = 1118
+	picture = "event_mongol"
+	trigger = {
+		condition = {
+			type = not
+			value = { type = difficulty value = 1 }
+		}
+		condition = { type = or
+			condition = { type = province value = 626 }
+			condition = { type = province value = 627 }
+			condition = { type = province value = 628 }
+			condition = { type = province value = 629 }
+			condition = { type = province value = 631 }
+		}
+		condition = { type = year value = 1227 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1266
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = ILKH
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	action_a = {
+		effect = { type = create_tag value = ILKH }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+
+}
+#############################
+# The Ilkhanate	arrives		#
+#############################
+province_event = {
+	id = 5504
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 2 }
+		}
+		condition = { type = or
+			condition = { type = province value = 626 }
+			condition = { type = province value = 627 }
+			condition = { type = province value = 628 }
+			condition = { type = province value = 629 }
+			condition = { type = province value = 631 }
+		}
+		condition = { type = year value = 1227 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1266
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = ILKH
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	action_a = {
+		effect = { type = create_tag value = ILKH }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+
+}
+#############################
+# The Ilkhanate	arrives		#
+#############################
+province_event = {
+	id = 5505
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 2 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 3 }
+		}
+		condition = { type = or
+			condition = { type = province value = 626 }
+			condition = { type = province value = 627 }
+			condition = { type = province value = 628 }
+			condition = { type = province value = 629 }
+			condition = { type = province value = 631 }
+		}
+		condition = { type = year value = 1227 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1266
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = ILKH
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	action_a = {
+		effect = { type = create_tag value = ILKH }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+
+}
+#############################
+# The Ilkhanate	arrives		#
+#############################
+province_event = {
+	id = 5506
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 3 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 4 }
+		}
+		condition = { type = or
+			condition = { type = province value = 626 }
+			condition = { type = province value = 627 }
+			condition = { type = province value = 628 }
+			condition = { type = province value = 629 }
+			condition = { type = province value = 631 }
+		}
+		condition = { type = year value = 1227 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1266
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = ILKH
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	action_a = {
+		effect = { type = create_tag value = ILKH }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+
+}
+#############################
+# The Ilkhanate	arrives		#
+#############################
+province_event = {
+	id = 5507
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 4 }
+		condition = { type = or
+			condition = { type = province value = 626 }
+			condition = { type = province value = 627 }
+			condition = { type = province value = 628 }
+			condition = { type = province value = 629 }
+			condition = { type = province value = 631 }
+		}
+		condition = { type = year value = 1227 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1266
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = ILKH
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	action_a = {
+		effect = { type = create_tag value = ILKH }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+
+}
+#############################
+# The Return of the Scourge	#
+#############################
+province_event = {
+	id = 1119
+	picture = "event_mongol"
+	trigger = {
+		condition = {
+			type = not
+			value = { type = difficulty value = 1 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1250 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1265
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = GOLD
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	action_a = {
+		effect = { type = create_tag value = GOLD }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+#############################
+# The Return of the Scourge	#
+#############################
+province_event = {
+	id = 5508
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 2 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1250 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1265
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = GOLD
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	action_a = {
+		effect = { type = create_tag value = GOLD }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+#############################
+# The Return of the Scourge	#
+#############################
+province_event = {
+	id = 5509
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 2 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 3 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1250 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1265
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = GOLD
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	action_a = {
+		effect = { type = create_tag value = GOLD }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+#############################
+# The Return of the Scourge	#
+#############################
+province_event = {
+	id = 5510
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 3 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 4 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1250 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1265
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = GOLD
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	action_a = {
+		effect = { type = create_tag value = GOLD }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+#############################
+# The Return of the Scourge	#
+#############################
+province_event = {
+	id = 5511
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 4 }
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1250 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1265
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = GOLD
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	action_a = {
+		effect = { type = create_tag value = GOLD }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+##############################
+# Reinforcements from Bolgar #
+##############################
+province_event = {
+	id = 1120
+	picture = "event_mongol"
+	trigger = {
+		condition = {
+			type = not
+			value = { type = difficulty value = 1 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1255 }
+		condition = { type = exists value = GOLD }
+		condition = {
+			type = demesne
+			value = GOLD
+		}
+		condition = {
+			type = not
+			value = {
+				type = realm_regiments
+				value = 4
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 12
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+	}
+
+	action_a = {
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+##############################
+# Reinforcements from Bolgar #
+##############################
+province_event = {
+	id = 5512
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 2 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1255 }
+		condition = { type = exists value = GOLD }
+		condition = {
+			type = demesne
+			value = GOLD
+		}
+		condition = {
+			type = not
+			value = {
+				type = realm_regiments
+				value = 5
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 12
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+	}
+
+	action_a = {
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+##############################
+# Reinforcements from Bolgar #
+##############################
+province_event = {
+	id = 5513
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 2 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 3 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1255 }
+		condition = { type = exists value = GOLD }
+		condition = {
+			type = demesne
+			value = GOLD
+		}
+		condition = {
+			type = not
+			value = {
+				type = realm_regiments
+				value = 6
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 12
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+	}
+
+	action_a = {
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+##############################
+# Reinforcements from Bolgar #
+##############################
+province_event = {
+	id = 5514
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 3 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 4 }
+		}
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1255 }
+		condition = { type = exists value = GOLD }
+		condition = {
+			type = demesne
+			value = GOLD
+		}
+		condition = {
+			type = not
+			value = {
+				type = realm_regiments
+				value = 7
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 12
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+	}
+
+	action_a = {
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+##############################
+# Reinforcements from Bolgar #
+##############################
+province_event = {
+	id = 5515
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 4 }
+		condition = { type = or
+			condition = { type = province value = 615 }
+			condition = { type = province value = 616 }
+			condition = { type = province value = 617 }
+		}
+		condition = { type = year value = 1255 }
+		condition = { type = exists value = GOLD }
+		condition = {
+			type = demesne
+			value = GOLD
+		}
+		condition = {
+			type = not
+			value = {
+				type = realm_regiments
+				value = 8
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 12
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+	}
+
+	action_a = {
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} }
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+##################################
+# Reinforcements from Samarkhand #
+##################################
+province_event = {
+	id = 1121
+	picture = "event_mongol"
+	trigger = {
+		condition = {
+			type = not
+			value = { type = difficulty value = 1 }
+		}
+		condition = { type = or
+			condition = { type = province value = 626 }
+			condition = { type = province value = 627 }
+			condition = { type = province value = 628 }
+			condition = { type = province value = 629 }
+			condition = { type = province value = 631 }
+		}
+		condition = { type = year value = 1260 }
+		condition = { type = exists value = ILKH }
+		condition = {
+			type = demesne
+			value = ILKH
+		}
+		condition = {
+			type = not
+			value = {
+				type = realm_regiments
+				value = 4
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 12
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+	}
+
+	action_a = {
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+##################################
+# Reinforcements from Samarkhand #
+##################################
+province_event = {
+	id = 5516
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 1 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 2 }
+		}
+		condition = { type = or
+			condition = { type = province value = 626 }
+			condition = { type = province value = 627 }
+			condition = { type = province value = 628 }
+			condition = { type = province value = 629 }
+			condition = { type = province value = 631 }
+		}
+		condition = { type = year value = 1260 }
+		condition = { type = exists value = ILKH }
+		condition = {
+			type = demesne
+			value = ILKH
+		}
+		condition = {
+			type = not
+			value = {
+				type = realm_regiments
+				value = 5
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 12
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+	}
+
+	action_a = {
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+##################################
+# Reinforcements from Samarkhand #
+##################################
+province_event = {
+	id = 5517
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 2 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 3 }
+		}
+		condition = { type = or
+			condition = { type = province value = 626 }
+			condition = { type = province value = 627 }
+			condition = { type = province value = 628 }
+			condition = { type = province value = 629 }
+			condition = { type = province value = 631 }
+		}
+		condition = { type = year value = 1260 }
+		condition = { type = exists value = ILKH }
+		condition = {
+			type = demesne
+			value = ILKH
+		}
+		condition = {
+			type = not
+			value = {
+				type = realm_regiments
+				value = 6
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 12
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+	}
+
+	action_a = {
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+##################################
+# Reinforcements from Samarkhand #
+##################################
+province_event = {
+	id = 5518
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 3 }
+		condition = {
+			type = not
+			value = { type = difficulty value = 4 }
+		}
+		condition = { type = or
+			condition = { type = province value = 626 }
+			condition = { type = province value = 627 }
+			condition = { type = province value = 628 }
+			condition = { type = province value = 629 }
+			condition = { type = province value = 631 }
+		}
+		condition = { type = year value = 1260 }
+		condition = { type = exists value = ILKH }
+		condition = {
+			type = demesne
+			value = ILKH
+		}
+		condition = {
+			type = not
+			value = {
+				type = realm_regiments
+				value = 7
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 12
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+	}
+
+	action_a = {
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+##################################
+# Reinforcements from Samarkhand #
+##################################
+province_event = {
+	id = 5519
+	picture = "event_mongol"
+	trigger = {
+		condition = { type = difficulty value = 4 }
+		condition = { type = or
+			condition = { type = province value = 626 }
+			condition = { type = province value = 627 }
+			condition = { type = province value = 628 }
+			condition = { type = province value = 629 }
+			condition = { type = province value = 631 }
+		}
+		condition = { type = year value = 1260 }
+		condition = { type = exists value = ILKH }
+		condition = {
+			type = demesne
+			value = ILKH
+		}
+		condition = {
+			type = not
+			value = {
+				type = realm_regiments
+				value = 8
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 12
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+	}
+
+	action_a = {
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = random chance = 75 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 50 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+		effect = { type = random chance = 25 effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} } }
+	}
+}
+
+############################################
+# The barbarians settle in Conquered lands #
+############################################
+
+character_event = {
+	id = 5590
+	
+	picture = "event_mongol"
+	
+	trigger = { 
+		condition = { 
+			type = or 
+			condition = { type = title value = GOLD }
+			condition = { type = title value = ILKH }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			condition = { type = not value = { type = difficulty value = 4 } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			condition = { type = not value = { type = difficulty value = 3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			condition = { type = not value = { type = difficulty value = 2 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 1 } }
+			factor = 0.7
+		}
+	}
+	
+	action_a = {#Some barbarians have chosen to settle
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+	}
+
+}
+############################################
+# Trouble is brewing in the homeland #
+############################################
+
+character_event = {
+	id = 5591
+	
+	picture = "event_mongol"
+	
+	trigger = { 
+		condition = { 
+			type = or 
+			condition = { type = title value = GOLD }
+			condition = { type = title value = ILKH }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			condition = { type = not value = { type = difficulty value = 4 } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			condition = { type = not value = { type = difficulty value = 3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			condition = { type = not value = { type = difficulty value = 2 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 1 } }
+			factor = 0.7
+		}
+	}
+	
+	action_a = {#We must send part of the army home!
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+	}
+
+}
+############################################
+# Serious Trouble is brewing in the homeland #
+############################################
+
+character_event = {
+	id = 5592
+	
+	picture = "event_mongol"
+	
+	trigger = { 
+		condition = { 
+			type = or 
+			condition = { type = title value = GOLD }
+			condition = { type = title value = ILKH }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 720
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			condition = { type = not value = { type = difficulty value = 4 } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			condition = { type = not value = { type = difficulty value = 3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			condition = { type = not value = { type = difficulty value = 2 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 1 } }
+			factor = 0.7
+		}
+	}
+	
+	action_a = {#We must send much of the army home!
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+		}
+	}
+
+}
+############################################
+# Dynastic Succession in the Horde - part 1 #
+############################################
+
+character_event = {
+	id = 5593
+	
+	picture = "event_death"
+	
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = ai }
+		condition = { type = or
+			condition = { type = age value = 35 }
+			condition = { type = and
+				condition = { type = not value = { type = martial value = 9 } }
+				condition = { type = not value = { type = intrigue value = 7 } }
+			}
+		}
+		condition = { type = not value = { type = has_law value = { salic_gavelkind_law = yes } } }
+		condition = { 
+			type = or 
+			condition = { type = title value = GOLD }
+			condition = { type = title value = ILKH }
+		}
+		condition = { type = primary_heir
+			condition  = { type = is_alive }
+			condition = { type = age value = 5 }
+			condition = { type = not value = { type = trait value = bastard } }
+			condition = { type = not value = { type = trait value = excommunicated } }
+		}
+		condition = { type = any_child
+			condition  = { type = is_alive }
+			condition = { type = gender value = male }
+			condition = { type = not value = { type = primary_heir } }
+			condition = { type = age value = 5 }
+			condition = { type = not value = { type = trait value = bastard } }
+			condition = { type = not value = { type = trait value = excommunicated } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			condition = { type = not value = { type = difficulty value = 4 } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			condition = { type = not value = { type = difficulty value = 3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			condition = { type = not value = { type = difficulty value = 2 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = difficulty value = 1 } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 9 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 7 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 5 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 3 } }
+			factor = 0.9
+		}
+	}
+	
+	action_a = {#There will be a struggle for the throne!
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = set_law value = salic_gavelkind_law }
+		effect = { type = trigger for = best_vassal value = 5596 }
+		effect = { type = trigger for = worst_vassal value = 5596 }
+		effect = { type = trigger for = random_vassal value = 5596 }
+		effect = { type = death }
+	}
+
+}
+
+############################################
+# Dynastic Succession in the Horde - part 2 #
+############################################
+
+character_event = { #a new ruler emerges
+	id = 5594
+	
+	picture = "event_claim"
+	
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = ai }
+		condition = { type = or
+			condition = { type = martial value = 9 }
+			condition = { type = intrigue value = 7 }
+		}
+		condition = { type = age value = 16 }
+		condition = { type = has_law value = { salic_gavelkind_law = yes } }
+		condition = { 
+			type = or 
+			condition = { type = title value = GOLD }
+			condition = { type = title value = ILKH }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+
+
+		modifier = {
+			condition = { type = not value = { type = health value = 9 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 7 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 5 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = health value = 3 } }
+			factor = 1.1
+		}
+	}
+	
+	action_a = {#A new Khan has risen to claim the throne!
+
+		effect = { type = set_law value = salic_consanguinity_law }
+		effect = { type = add_regiment culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment culture = mongol strength = { archer_cav = 5000 light_cav = 5000 } }
+	}
+}
+
+############################################
+# Dynastic Succession in the Horde - part 3 #
+############################################
+
+character_event = { #this one is no good
+	id = 5595
+	
+	picture = "event_claim"
+	
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = ai }
+		condition = { type = not value = { type = martial value = 7 } }
+		condition = { type = not value = { type = intrigue value = 5 } }
+		condition = { type = has_law value = { salic_gavelkind_law = yes } }
+		condition = { 
+			type = or 
+			condition = { type = title value = GOLD }
+			condition = { type = title value = ILKH }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	action_a = {
+		effect = { type = trigger for = best_vassal value = 5596 }
+		effect = { type = trigger for = worst_vassal value = 5596 }
+		effect = { type = trigger for = random_vassal value = 5596 }
+		effect = { type = death }
+	}
+}
+
+#############################################
+# Dynastic succession in the Horde - part 4 #
+#############################################
+
+character_event = { #Now might be a good time to break free from my weak liege!
+	id = 5596
+	picture = "event_mongol"
+
+	#triggered by one of the earlier succession events or can happen on its own.
+	trigger = {
+		condition = { type = is_vassal }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = realm_ruler
+			condition = { type = or
+				condition = { type = has_law value = { salic_gavelkind_law = yes } }
+				condition = { type = year value = 1350 }
+			}
+			condition = { type = or
+				condition = { type = title value = GOLD }
+				condition = { type = title value = ILKH }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+
+		modifier = {
+			condition = { type = realm_ruler
+				condition = { type = martial value = 9 }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = { type = realm_ruler
+				condition = { type = martial value = 12 }
+			}
+			factor = 10
+		}
+		modifier = {
+			condition = { type = realm_ruler
+				condition = { type = intrigue value = 7 }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = { type = realm_ruler
+				condition = { type = intrigue value = 10 }
+			}
+			factor = 10
+		}
+		modifier = {
+			condition = { type = not value = { type = year value = 1375 } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = not value = { type = year value = 1405 } }
+			factor = 5
+		}
+	}
+
+	action_a = { #I shall raise my personal guard and try it!
+		ai_chance = 75
+		effect = { type = add_title_claim value = liege }
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = declare_war value = liege }
+		effect = { type = set_law value = salic_consanguinity_law }
+		effect = { type = add_regiment culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		effect = { type = add_regiment culture = mongol strength = { archer_cav = 5000 light_cav = 5000 } }
+		effect = { type = random chance = 50
+			effect = { type = add_regiment culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+			effect = { type = add_regiment culture = mongol strength = { archer_cav = 5000 light_cav = 5000 } }
+		}
+	}
+	action_b = { #No, I will remain loyal and lend him some support for now
+		ai_chance = 25
+		effect = { type = loyalty value = 1.0 }
+		effect = { type = add_regiment culture = mongol strength = { archer_cav = 5000 light_cav = 5000 } }
+		effect = { type = random chance = 33
+			effect = { type = add_regiment culture = mongol strength = { archer_cav = 10000 light_cav = 10000 } }
+		}
+	}
+}
+
+#############################################
+# Dynastic succession in the Horde - part 5 #
+#############################################
+
+character_event = {
+	id = 5597
+	
+	picture = "event_death"
+	
+	trigger = { 
+		condition = { type = ruler }
+		condition = { type = ai }
+		condition = { 
+			type = or 
+			condition = { type = title value = GOLD }
+			condition = { type = title value = ILKH }
+		}
+		condition = { type = AND
+			condition = { type = not value = { type = primary_heir
+				condition  = { type = is_alive }
+				condition = { type = age value = 5 }
+				condition = { type = not value = { type = trait value = bastard } }
+			} }
+			condition = { type = not value = { type = any_child
+				condition  = { type = is_alive }
+				condition = { type = gender value = male }
+				condition = { type = not value = { type = primary_heir } }
+				condition = { type = age value = 5 }
+				condition = { type = not value = { type = trait value = bastard } }
+			} }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+
+	}
+	
+	action_a = {#Pretenders to the throne
+		effect = { type = create_courtier value = bastard }
+		effect = { type = create_courtier value = bastard }
+	}
+
+}
+
+#############################################
+# Dynastic succession in the Horde - part 6 #
+#############################################
+#Removed, overpowered in DV
+
+#character_event = { #Getting ready to challenge
+#	id = 5598
+#	
+#	picture = "event_death"
+#	
+#	trigger = { 
+#		condition = { type = not value = { type = ruler } }
+#		condition = { type = ai }
+#		condition = { type = father
+#			condition = { type = ruler }
+#			condition = { type = or 
+#				condition = { type = title value = GOLD }
+#				condition = { type = title value = ILKH }
+#			}
+#		}
+#		condition = { type = trait value = bastard }
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 12
+#
+#	}
+#	
+#	action_a = {#The throne could be mine!
+#		effect = { type = remove_trait value = bastard }
+#		effect = { type = martial value = 5 }
+#		effect = { type = stewardship value = 3 }
+#		effect = { type = intrigue value = 3 }
+#		effect = { type = diplomacy value = 3 }
+#		effect = { type = health value = 3 }
+#		effect = { type = fertility value = 3 }
+#		effect = { type = random chance = 33
+#			effect = { type = martial value = 3 }
+#		}
+#		effect = { type = random chance = 33
+#			effect = { type = stewardship value = 3 }
+#		}
+#		effect = { type = random chance = 33
+#			effect = { type = intrigue value = 3 }
+#		}
+#		effect = { type = random chance = 33
+#			effect = { type = diplomacy value = 3 }
+#		}
+#		effect = { type = random chance = 33
+#			effect = { type = health value = 3 }
+#		}
+#		effect = { type = random chance = 33
+#			effect = { type = fertility value = 1 }
+#		}
+#	}
+#
+#}
+
+
+###################################
+# Horde raids into adjacent lands #
+###################################
+
+province_x_province_event = { #The Golden Horde has raided one of our border provinces!
+
+	id = 5520
+	picture = "event_mongol"
+
+	trigger = {
+		condition = { type = exists value = GOLD }
+		condition = { type = to
+			condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		}
+		condition = { type = from
+			condition = { type = owner
+				condition = { type = realm_ruler
+					condition = { type = title value = GOLD }
+				}
+			}
+		}
+		condition = { type = to
+			condition = { type = owner
+				condition = { type = realm_ruler
+					condition = { type = not value = { type = title value = GOLD }}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = regiment_mobilized }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = regiment_mobilized }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_martial value = 3 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_martial value = 5 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_martial value = 8 }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_martial value = 11 }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_martial value = 14 }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = not value = { type = ruler_martial value = 3 } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = not value = { type = ruler_martial value = 5 } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = ruler_martial value = 8 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = ruler_martial value = 11 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = ruler_martial value = 14 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = owner
+					condition = { type = atwar }
+				}
+			}
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = atwar }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+	}
+
+	action_a = { #Curses!
+		effect = { type = to effect = { type = prosperity value = -1 }}
+		effect = { type = to effect = { type = ruler_gold scale = -0.25 }}
+		effect = { type = to
+			effect = { type = random chance = 25
+				effect = { type = add_province_effect value = looted }
+			}
+		}
+	}
+}
+
+province_x_province_event = { #The Ilkhanate has raided one of our border provinces!
+
+	id = 5521
+	picture = "event_mongol"
+
+	trigger = {
+		condition = { type = exists value = ILKH }
+		condition = { type = to
+			condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		}
+		condition = { type = from
+			condition = { type = owner
+				condition = { type = realm_ruler
+					condition = { type = title value = ILKH }
+				}
+			}
+		}
+		condition = { type = to
+			condition = { type = owner
+				condition = { type = realm_ruler
+					condition = { type = not value = { type = title value = ILKH }}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = regiment_mobilized }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = regiment_mobilized }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_martial value = 3 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_martial value = 5 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_martial value = 8 }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_martial value = 11 }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_martial value = 14 }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = not value = { type = ruler_martial value = 3 } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = not value = { type = ruler_martial value = 5 } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = ruler_martial value = 8 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = ruler_martial value = 11 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = ruler_martial value = 14 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = owner
+					condition = { type = atwar }
+				}
+			}
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = atwar }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+	}
+
+	action_a = { #Curses!
+		effect = { type = to effect = { type = prosperity value = -1 }}
+		effect = { type = to effect = { type = ruler_gold scale = -0.5 }}
+		effect = { type = to
+			effect = { type = random chance = 25
+				effect = { type = add_province_effect value = looted }
+			}
+		}
+	}
+}
+
+province_x_province_event = { #Mongols have raided one of our border provinces!
+
+	id = 5522
+	picture = "event_mongol"
+
+	trigger = {
+		condition = { type = to
+			condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		}
+		condition = { type = from
+			condition = { type = ruler_culture value = mongol }
+		}
+		condition = { type = not value = { type = same_realm } }
+		condition = { type = not value = { type = same_ruler } }
+	}
+
+	mean_time_to_happen = {
+		months = 1500
+
+		modifier = {
+			condition = { type = to
+				condition = { type = regiment_mobilized }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = regiment_mobilized }
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_martial value = 3 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_martial value = 5 } }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_martial value = 8 }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_martial value = 11 }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_martial value = 14 }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = not value = { type = ruler_martial value = 3 } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = not value = { type = ruler_martial value = 5 } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = ruler_martial value = 8 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = ruler_martial value = 11 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = ruler_martial value = 14 }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = owner
+					condition = { type = atwar }
+				}
+			}
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = atwar }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+	}
+
+	action_a = { #Curses!
+		effect = { type = to effect = { type = prosperity value = -1 }}
+		effect = { type = to effect = { type = ruler_gold scale = -0.25 }}
+		effect = { type = to
+			effect = { type = random chance = 15
+				effect = { type = add_province_effect value = looted }
+			}
+		}
+	}
+}
+
+
+#############################
+# More early reinforcements #
+#############################
+province_event = { #Hey, we mongols could use a little extra help!
+	id = 5523
+	picture = "event_mongol"
+
+	trigger = {
+		condition = { type = difficulty value = 2 }
+		condition = { type = exists value = GOLD }
+		condition = { type = demesne value = GOLD }
+		condition = { type = not value = { type = has_law value = { salic_gavelkind_law = yes } } }
+		condition = { type = ai } #just in case some nasty player manages to get their title somehow
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			condition = { type = capital value = yes }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = atwar }
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = atwar }
+			}
+			condition = { type = realm_regiments value = 10 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = atwar }
+			}
+			condition = { type = realm_regiments value = 15 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = atwar }
+			}
+			condition = { type = realm_regiments value = 20 }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = atwar }
+			}
+			condition = { type = realm_regiments value = 30 }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = year value = 1400 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+
+	}
+
+	action_a = { #This should be fun!
+		effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 10000 light_cav = 10000} }
+		effect = { type = random chance = 33
+			effect = { type = add_regiment country = GOLD culture = mongol strength = { archer_cav = 5000 light_cav = 5000} }
+		}
+	}
+}
+
+province_event = { #Hey, we mongols could use a little extra help!
+	id = 5524
+	picture = "event_mongol"
+
+	trigger = {
+		condition = { type = difficulty value = 2 }
+		condition = { type = exists value = ILKH }
+		condition = { type = demesne value = ILKH }
+		condition = { type = not value = { type = has_law value = { salic_gavelkind_law = yes } } }
+		condition = { type = ai } #just in case some nasty player manages to get their title somehow
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			condition = { type = capital value = yes }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = atwar }
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = atwar }
+			}
+			condition = { type = realm_regiments value = 10 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = atwar }
+			}
+			condition = { type = realm_regiments value = 15 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = atwar }
+			}
+			condition = { type = realm_regiments value = 20 }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = atwar }
+			}
+			condition = { type = realm_regiments value = 30 }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = year value = 1280 }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = year value = 1340 }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = year value = 1400 }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+
+	}
+
+	action_a = { #This should be fun!
+		effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 10000 light_cav = 10000} }
+		effect = { type = random chance = 33
+			effect = { type = add_regiment country = ILKH culture = mongol strength = { archer_cav = 5000 light_cav = 5000} }
+		}
+	}
+}

@@ -1,0 +1,4187 @@
+########################
+# Court Flavour Events #
+#       7900-7999      #
+#   by Thomas Corriol  #
+########################
+
+###############################
+#        Artistic events      #
+# Original idea from Bismarck #
+###############################
+
+# A famous writer proposed to compose your family chronicle
+
+character_event = {
+	id = 7900
+
+	picture = "event_youngsters"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = { type = has_advance value = chronicle_writing }
+		condition = { type = not value = { type = ai } }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_advance value = troubadours }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_advance value = heraldry }
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { library = yes } }
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { grand_palace = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+			factor = 1.35
+		}
+ 		modifier = {
+ 			condition = { type = has_province_effect value = { looted = yes } }
+ 			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+		# Bonus for Nordic Saga :-)
+		modifier = {
+			condition = {
+				type = or
+				condition = { type = culture value = Norwegian }
+				condition = { type = culture value = Swedish }
+				condition = { type = culture value = Danish }
+				condition = { type = culture value = Norse }
+			}
+			factor = 0.7
+		}
+	}
+
+	action_a = { 	#Give him patronage
+		effect = { type = prestige value = 45 }
+		effect = { type = gold value = -150 }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = proud }
+		}
+	}
+	action_b = { 	#Ignore him
+		effect = { type = piety value = 5 }
+		effect = { type = prestige value = -10 }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = modest }
+		}
+	}
+}
+
+# Your young wife takes a passion for romantic poetry
+
+character_event = {
+	id = 7901
+
+	picture = "event_romance"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = gender value = male }
+		condition = { type = is_married }
+		condition = { type = has_advance value = romantic_poetry }
+		condition = {
+			type = spouse
+			condition = { type = not value = { type = age value = 21 } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2400 # Yeah, very rare, it is an easter egg after all! :-p
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_advance value = troubadours }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = ballads }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { library = yes } }
+			}
+			factor = 0.95
+		}
+		# Easter egg !
+		modifier = {
+			condition = {
+				type = spouse
+				condition = {
+					type = or
+					condition = { type = culture value = Frankish }
+					condition = { type = culture value = Catalan }
+					condition = { type = culture value = Italian }
+					condition = { type = culture value = Occitan }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = pregnant }
+			factor = 0.75 #with no ice cream available, she must satisfy her cravings somehow :D
+		}
+	}
+
+	action_a = { 	#Buy her more books
+		effect = { type = gold value = -100 }
+		effect = { type = trigger for = spouse value = 7902 }
+		effect = { type = piety value = -10 }
+	}
+	action_b = { 	#Good for her, but no, she won't have my credit card for amazon.medieval.com
+		effect = { type = piety value = 5 }
+		effect = { type = trigger for = spouse value = 7903 }
+	}
+	action_c = { 	#Those are books by satan !
+		effect = { type = piety value = 15 }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = add_trait value = zealous }
+		}
+		effect = { type = trigger for = spouse value = 7904 }
+	}
+}
+
+# Wife events counter-part
+
+character_event = {
+	id = 7902 
+
+	picture = "event_romance"
+
+	immidiate = {#Darling, I love you so much !
+		effect = { type = fertility value = 2 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = lustful }
+		}
+	}
+}
+
+character_event = {
+	id = 7903 
+
+	picture = "event_intrigue2"
+
+	immidiate = {#Is it so ? Separate bed then !
+		effect = { type = fertility value = -2 }
+	}
+}
+
+character_event = {
+	id = 7904 
+
+	picture = "event_religion"
+
+	immidiate = {#To the covent for a while!
+		effect = { type = add_trait value = chaste }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = add_trait value = depression }
+		}
+	}
+}
+
+# A famous herald proposed his service
+
+character_event = {
+	id = 7905
+
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 12 }
+		condition = { type = has_advance value = heraldry }
+		condition = { type = has_law value = { feudal_contract_law = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_advance value = oblige_noblesse }
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { traininggrounds = yes } }
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { grand_palace = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { waracademy = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+			factor = 1.35
+		}
+ 		modifier = {
+ 			condition = { type = has_province_effect value = { looted = yes } }
+ 			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	action_a = { 	#Give him patronage
+		effect = { type = gold value = -200 }
+		effect = { type = create_courtier value = chancellor }
+		effect = { type = loyalty for = best_vassal value = 0.1 }
+		effect = { type = loyalty for = random_vassal value = 0.1 }
+		effect = { type = loyalty for = worst_vassal value = 0.2 }
+	}
+	action_b = { 	#Ignore him
+		effect = { type = prestige value = -5 }
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = suspicious }
+		}
+	}
+}
+
+# A destitute noble from a former enemy court ask for permanent hospitality
+
+character_event = {
+	id = 7906
+
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 12 }
+		condition = { type = has_advance value = oblige_noblesse }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = trait value = forgiving }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { templar_house = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { grand_palace = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { waracademy = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+			factor = 1.35
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	action_a = { 	#Welcome him to your court
+		effect = { type = gold value = -75 }
+		effect = { type = create_courtier value = enemy_defector }
+		effect = { type = loyalty for = random_courtier value = -0.15 }
+		effect = { type = loyalty for = worst_courtier value = -0.15 }
+		effect = { type = loyalty for = knight value = -0.15 }
+	}
+	action_b = { 	#Tell him he can only stay for the night
+		effect = { type = piety value = 15 }
+	}
+}
+
+# A troop of wandering jongleurs seek your patronage
+
+character_event = {
+	id = 7907
+
+	picture = "event_town"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 12 }
+		condition = { type = has_advance value = jongleurs }
+		condition = { type = not value = { type = ai } }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_advance value = troubadours }
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { medium_castle = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { grand_palace = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+			factor = 1.35
+		}
+ 		modifier = {
+ 			condition = { type = has_province_effect value = { looted = yes } }
+ 			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	action_a = { 	#Give them patronage
+		effect = { type = prestige value = 25 }
+		effect = { type = gold value = -75 }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = remove_trait value = stress_symptom }
+		}
+	}
+	action_b = { 	#Ignore them
+		effect = { type = prestige value = -5 }
+	}
+}
+
+# A travelling minstrel seeks your patronage
+
+character_event = {
+	id = 7908
+
+	picture = "event_youngsters"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 12 }
+		condition = { type = has_advance value = troubadours }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { medium_castle = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { grand_palace = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+			factor = 1.35
+		}
+ 		modifier = {
+ 			condition = { type = has_province_effect value = { looted = yes } }
+ 			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	action_a = { 	#Give him patronage
+		effect = { type = prestige value = 30 }
+		effect = { type = piety  value = -10 }
+		effect = { type = create_courtier value = spymaster }
+		effect = { type = gold value = -250 }
+	}
+	action_b = { 	#Ignore him
+		effect = { type = prestige value = -15 }
+		effect = { type = piety  value = 5 }
+	}
+}
+
+# The Church wants to organise a Miracle play for a local saint
+
+province_event = {
+	id = 7909
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = religion value = catholic }
+		condition = { type = has_advance value = { miracle_plays = yes } }
+		condition = { type = not value = { type = ai } }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_advance value = { relics = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { choir_song = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_improvement value = { theater = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 1.35
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	action_a = { 	#Sponsorise it
+		effect = { type = ruler_prestige value = 10 }
+		effect = { type = ruler_piety value = 30 }
+		effect = { type = ruler_gold value = -200 }
+		effect = { type = clergy_power value = 0.1 }
+		effect = { type = clergy_loyalty value = 0.3 }
+		effect = { type = burgher_loyalty value = 0.25 }
+		effect = { type = peasant_loyalty value = 0.2 }
+	}
+	action_b = { 	#If the Church wants it, the Church paid for it
+		effect = { type = ruler_prestige value = -5 }
+		effect = { type = ruler_piety value = -15 }
+		effect = { type = clergy_power value = -0.1 }
+		effect = { type = clergy_loyalty value = -0.3 }
+	}
+}
+
+# The Peasant wants to organise a great carnival and ask for your funding
+
+province_event = {
+	id = 7910
+
+	picture = "event_town"
+
+	trigger = {
+		condition = { type = religion value = catholic }
+		condition = { type = has_advance value = { carnivals = yes } }
+		condition = { type = not value = { type = ai } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = has_law value = { traditional_custom_law = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_improvement value = { theater = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 1.35
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	action_a = { 	#Sponsorise it
+		effect = { type = ruler_gold value = -100 }
+		effect = { type = noble_loyalty value = -0.1 }
+		effect = { type = burgher_loyalty value = 0.33 }
+		effect = { type = peasant_loyalty value = 0.33 }
+	}
+	action_b = { 	#It's a mockery against the current order
+		effect = { type = noble_power value = 0.1 }
+		effect = { type = noble_loyalty value = 0.15 }
+		effect = { type = burgher_loyalty value = -0.45 }
+		effect = { type = peasant_loyalty value = -0.45 }
+	}
+}
+
+# A mentally affected character discovered music and its virtues thanks to the new musical instruments in the kingdom
+
+character_event = {
+	id = 7911
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = gold value = 75 }
+		condition = {
+			type = or
+			condition = { type = trait value = stress_symptom }
+			condition = { type = trait value = depression }
+		}
+		condition = { type = has_advance value = musical_instruments }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = has_advance value = ballads }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = music_notation_system }
+			factor = 0.8
+		}
+	}
+
+	immidiate = { 	#  Musical instrument are expensive but music can do wonders
+		effect = { type = gold value = -75 }
+		effect = { type = remove_trait value = stress_symptom }
+		effect = { type = remove_trait value = depression }
+		effect = { type = martial value = -1 }
+	}
+}
+
+# A Great Artist seek your patronage
+
+character_event = {
+	id = 7912
+
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = age value = 12 }
+		condition = { type = has_advance value = ballads }
+		condition = { type = not value = { type = ai } }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_advance value = troubadours }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_advance value = musical_instruments }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = choir_song }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { medium_castle = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { grand_palace = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+			factor = 1.35
+		}
+ 		modifier = {
+ 			condition = { type = has_province_effect value = { looted = yes } }
+ 			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	action_a = { 	#Give him patronage
+		effect = { type = prestige value = 25 }
+		effect = { type = gold value = -75 }
+		effect = { type = loyalty for = random_courtier value = 0.1 }
+		effect = { type = loyalty for = worst_courtier value = 0.1 }
+		effect = { type = loyalty for = knight value = 0.1 }
+	}
+	action_b = { 	#Ignore him
+		effect = { type = prestige value = -5 }
+	}
+}
+
+# Fashion at the court: Keep your courtier busy by doing and undoing the fashion at the court
+
+character_event = {
+	id = 7913
+
+	picture = "event_youngsters"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 16 }
+		condition = { type = has_advance value = fashion_clothes }
+		condition = { type = has_advance value = clothmaking }
+		condition = {
+			type = capital
+			condition = { type = has_improvement value = { dyeworks = yes } }
+		}
+		condition = {
+			type = capital
+			condition = { type = has_improvement value = { spinningmill = yes } }
+		}
+		condition = { type = has_law value = { royal_preorgatory_law = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = has_advance value = local_merchant_houses }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_advance value = reknown_merchant_houses }
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { cathedral = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { grand_palace = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { theater = yes } }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+			factor = 1.35
+		}
+ 		modifier = {
+ 			condition = { type = has_province_effect value = { looted = yes } }
+ 			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	action_a = { 	# Introduce fashion at the court
+		effect = { type = gold value = -200 }
+		effect = { type = prestige value = 50 }
+		effect = { type = piety value = -5 }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = proud }
+		}
+		effect = { type = trigger for = random_courtier value = 7914 }
+		effect = { type = trigger for = best_courtier value = 7914 }
+		effect = { type = trigger for = knight value = 7914 }
+	}
+	action_b = { 	# There are better ways of spending the taxes
+		effect = { type = piety value = 5 }
+		effect = { type = prestige value = -10 }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = modest }
+		}
+	}
+}
+
+# Courtier events counter-part
+
+character_event = {
+	id = 7914
+
+	picture = "event_youngsters"
+
+	immidiate = {# Let's do as the King !
+		effect = { type = gold value = -50 }
+		effect = { type = prestige value = 10 }
+		effect = { type = piety value = -5 }
+		effect = { type = loyalty value = 0.1 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = proud }
+		}
+	}
+}
+
+# A young talented artist proposes to paint an iconic portrait of a venerated ancestor
+
+province_event = {
+	id = 7915
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = or
+			condition = { type = religion value = orthodox }
+			condition = { type = religion value = catholic }
+		}
+		condition = { type = has_advance value = { extravagant_decoration = yes } }
+		condition = { type = not value = { type = ai } }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.8
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.9
+#		}
+		modifier = {
+			condition = { type = has_advance value = { relics = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 1.35
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	action_a = { 	#Sponsorise him
+		effect = { type = ruler_prestige value = 30 }
+		effect = { type = ruler_piety value = 50 }
+		effect = { type = ruler_gold value = -150 }
+		effect = { type = clergy_loyalty value = 0.3 }
+		effect = { type = noble_loyalty value = 0.1 }
+	}
+	action_b = { 	#Ignore him
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_piety value = -10 }
+		effect = { type = clergy_loyalty value = -0.1 }
+	}
+}
+
+# A theater troup is becoming extremely popular but is lacking fundings
+
+province_event = {
+	id = 7916
+
+	picture = "event_town"
+
+	trigger = {
+		condition = { type = has_advance value = { vernacular_literature = yes } }
+		condition = { type = has_improvement value = { theater = yes } }
+		condition = { type = not value = { type = ai } }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_law value = { popular_law = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 1.35
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	action_a = { 	#Sponsorise them
+		effect = { type = ruler_gold value = -250 }
+		effect = { type = ruler_prestige value = 25 }
+		effect = { type = ruler_piety value = -10 }
+		effect = { type = noble_loyalty value = 0.25 }
+		effect = { type = clergy_loyalty value = -0.1 }
+		effect = { type = burgher_loyalty value = 0.33 }
+		effect = { type = peasant_loyalty value = 0.33 }
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = remove_province_effect value = revolt }
+		}
+	}
+	action_b = { 	#It's a mockery against the current order
+		effect = { type = ruler_piety value = 15 }
+		effect = { type = noble_power value = 0.1 }
+		effect = { type = clergy_power value = 0.2 }
+		effect = { type = clergy_loyalty value = 0.33 }
+		effect = { type = burgher_loyalty value = -0.45 }
+		effect = { type = peasant_loyalty value = -0.45 }
+	}
+}
+
+###############################
+#      Artistic events II     #
+# Original idea from Bismarck #
+###############################
+
+# Generic simple events
+
+# A formerly lost Greek epic poem has been rediscovered
+
+province_event = {
+	id = 7917
+
+	picture = "event_techinvention"
+
+	trigger = {
+		condition = { type = has_advance value = { the_seven_liberal_arts = yes } }
+#		condition = { type = not value = { type = ai } }
+		condition = {
+			type = or
+			condition = { type = ruler_religion value = catholic }
+			condition = { type = ruler_religion value = orthodox }
+		}
+		condition = {
+			type = or
+			condition = { type = region value = balkan }
+			condition = { type = culture value = greek }
+			condition = { type = religion value = orthodox }
+ 			condition = { type = culture value = muslim }
+			condition = { type = religion value = moslem }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3000
+
+		modifier = {
+			condition = { type = has_advance value = { cathedral_schools = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_advance value = { academic_disciplines = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { scholastics = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { library = yes } }
+			factor = 0.92
+		}
+		modifier = {
+			condition = { type = has_improvement value = { monastery = yes } }
+			factor = 0.97
+		}
+		modifier = {
+			condition = { type = has_improvement value = { university = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 1.35
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	immidiate = { 	# A grand discovery!
+		effect = { type = ruler_prestige value = 15 }
+	}
+}
+
+# A formerly lost Greek play has been rediscovered
+
+province_event = {
+	id = 7918
+
+	picture = "event_techinvention"
+
+	trigger = {
+		condition = { type = has_advance value = { the_seven_liberal_arts = yes } }
+#		condition = { type = not value = { type = ai } }
+		condition = {
+			type = or
+			condition = { type = ruler_religion value = catholic }
+			condition = { type = ruler_religion value = orthodox }
+		}
+		condition = {
+			type = or
+			condition = { type = region value = balkan }
+			condition = { type = culture value = greek }
+			condition = { type = religion value = orthodox }
+ 			condition = { type = culture value = muslim }
+			condition = { type = religion value = moslem }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3000
+
+		modifier = {
+			condition = { type = has_advance value = { cathedral_schools = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_advance value = { academic_disciplines = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { scholastics = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { library = yes } }
+			factor = 0.92
+		}
+		modifier = {
+			condition = { type = has_improvement value = { monastery = yes } }
+			factor = 0.97
+		}
+		modifier = {
+			condition = { type = has_improvement value = { university = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 1.35
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	immidiate = { 	# A grand discovery!
+		effect = { type = ruler_prestige value = 15 }
+	}
+}
+
+# A formerly lost Greek treatise on medicine has been rediscovered
+
+character_event = {
+	id = 7919
+
+	picture = "event_recovery"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = trait value = illness }
+		condition = {
+			type = ruler_csc
+			condition = { type = has_advance value = the_seven_liberal_arts }
+			condition = {
+				type = or
+				condition = { type = religion value = catholic }
+				condition = { type = religion value = orthodox }
+			}
+			condition = {
+				type = any_demesne_province
+				condition = {
+					type = or
+					condition = { type = region value = balkan }
+					condition = { type = culture value = greek }
+					condition = { type = religion value = orthodox }
+ 					condition = { type = culture value = muslim }
+					condition = { type = religion value = moslem }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = has_advance value = cathedral_schools }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_advance value = academic_disciplines }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = scholastics }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { library = yes } }
+			}
+			factor = 0.92
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { monastery = yes } }
+			}
+			factor = 0.97
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { university = yes } }
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+			factor = 1.35
+		}
+ 		modifier = {
+ 			condition = { type = has_province_effect value = { looted = yes } }
+ 			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	immidiate = { 	#  The Ancients knew how to treat your affliction
+		effect = { type = remove_trait value = illness }
+		effect = { type = trigger for = ruler value = 7920 }
+	}
+}
+
+# Ruler event counter-part
+
+character_event = {
+	id = 7920
+
+	picture = "event_techinvention"
+
+	immidiate = { 	# A grand discovery!
+		effect = { type = prestige value = 15 }
+	}
+}
+
+# A formerly lost Roman work of history has been rediscovered
+
+province_event = {
+	id = 7921
+
+	picture = "event_techinvention"
+
+	trigger = {
+		condition = { type = has_advance value = { the_seven_liberal_arts = yes } }
+#		condition = { type = not value = { type = ai } }
+		condition = {
+			type = or
+			condition = { type = ruler_religion value = catholic }
+			condition = { type = ruler_religion value = orthodox }
+		}
+		condition = {
+			type = or
+			condition = { type = region value = Italy }
+			condition = { type = culture value = italian }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+
+		modifier = {
+			condition = { type = has_advance value = { cathedral_schools = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_advance value = { academic_disciplines = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { scholastics = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { library = yes } }
+			factor = 0.92
+		}
+		modifier = {
+			condition = { type = has_improvement value = { monastery = yes } }
+			factor = 0.97
+		}
+		modifier = {
+			condition = { type = has_improvement value = { university = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 1.35
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	immidiate = { 	# A grand discovery!
+		effect = { type = ruler_prestige value = 15 }
+	}
+}
+
+# A Moslem work on optics has been discovered
+
+province_event = {
+	id = 7922
+
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = has_advance value = { the_seven_liberal_arts = yes } }
+#		condition = { type = not value = { type = ai } }
+		condition = {
+			type = or
+			condition = { type = ruler_religion value = catholic }
+			condition = { type = ruler_religion value = orthodox }
+		}
+		condition = {
+			type = or
+			condition = { type = region value = spain }
+			condition = { type = region value = North_Africa }
+			condition = { type = region value = Asia_Minor }
+			condition = { type = culture value = muslim }
+			condition = { type = religion value = moslem }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3000
+
+		modifier = {
+			condition = { type = has_advance value = { cathedral_schools = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_advance value = { academic_disciplines = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { scholastics = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { library = yes } }
+			factor = 0.92
+		}
+		modifier = {
+			condition = { type = has_improvement value = { university = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 1.35
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	immidiate = { 	# Amazing the heathens knew something we didn't
+		effect = { type = ruler_prestige value = 15 }
+	}
+}
+
+# A Moslem work on mathematics has been discovered
+
+province_event = {
+	id = 7923
+
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = has_advance value = { the_seven_liberal_arts = yes } }
+#		condition = { type = not value = { type = ai } }
+		condition = {
+			type = or
+			condition = { type = ruler_religion value = catholic }
+			condition = { type = ruler_religion value = orthodox }
+		}
+		condition = {
+			type = or
+			condition = { type = region value = Middle_East }
+			condition = { type = region value = North_Africa }
+			condition = { type = region value = Asia_Minor }
+			condition = { type = culture value = muslim }
+			condition = { type = religion value = moslem }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3000
+
+		modifier = {
+			condition = { type = has_advance value = { cathedral_schools = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_advance value = { academic_disciplines = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { scholastics = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { library = yes } }
+			factor = 0.92
+		}
+		modifier = {
+			condition = { type = has_improvement value = { university = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 1.35
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	immidiate = { 	# Amazing the heathens knew something we didn't
+		effect = { type = ruler_prestige value = 15 }
+	}
+}
+
+# A Moslem work on surgical techniques has been discovered
+
+character_event = {
+	id = 7924
+
+	picture = "event_recovery"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = {
+			type = or
+			condition = { type = trait value = illness }
+			condition = { type = trait value = war_invalid }
+		}
+		condition = {
+			type = ruler_csc
+			condition = { type = has_advance value = the_seven_liberal_arts }
+			condition = {
+				type = or
+				condition = { type = religion value = catholic }
+				condition = { type = religion value = orthodox }
+			}
+			condition = {
+				type = any_demesne_province
+				condition = {
+					type = or
+					condition = { type = region value = Spain }
+					condition = { type = region value = North_Africa }
+					condition = { type = region value = Asia_Minor }
+					condition = { type = culture value = muslim }
+					condition = { type = religion value = moslem }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1800
+
+		modifier = {
+			condition = { type = has_advance value = cathedral_schools }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_advance value = academic_disciplines }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = scholastics }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { library = yes } }
+			}
+			factor = 0.92
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { monastery = yes } }
+			}
+			factor = 0.97
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { university = yes } }
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = capital
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+			factor = 1.35
+		}
+ 		modifier = {
+ 			condition = { type = has_province_effect value = { looted = yes } }
+ 			factor = 2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 10
+		}
+	}
+
+	immidiate = { 	#  Amazing the heathens knew how to treat your affliction
+		effect = { type = remove_trait value = illness }
+		effect = { type = remove_trait value = war_invalid }
+	}
+}
+
+
+#####################################
+#           Hunting events          #
+# Original ideas by Walter Hawkwood #
+#####################################
+
+# Chasing a great boar
+
+character_event = {
+	id = 7925
+
+	picture = "event_hunting"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = health value = 5 } # Replace age < 50 check by a health check
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = clubfooted } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = {
+			type = ruler_csc
+			condition = { type = not value = { type = atwar } }
+		}
+		condition = {
+			type = marshal_csc
+			condition = { type = martial value = 1 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 2
+		}
+	}
+
+	action_a = { # Combat it
+		effect = { type = prestige value = 25 }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = add_trait value = valorous }
+		}
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = add_trait value = reckless }
+		}
+		effect = {
+			type = random
+			chance = 20
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = death }
+		}
+	}
+
+	action_b = { # Wait for marshal to arrive with the other and handle it
+		effect = { type = prestige value = 5 }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = modest }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = coward }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = wise }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait for = marshal value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = death value = marshal }
+		}
+	}
+
+	action_c = {#Let it go
+		effect = { type = prestige value = -5 }
+		effect = {
+			type = random
+			chance = 20
+			effect = { type = add_trait value = merciful }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = coward }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = lazy }
+		}
+	}
+}
+
+# Predatory beast terrorizes countryside
+
+character_event = {
+	id = 7926
+
+	picture = "event_hunting"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = health value = 5 } # Replace age < 50 check by a health check
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = clubfooted } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = {
+			type = marshal_csc
+			condition = { type = martial value = 1 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1800
+
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 2
+		}
+	}
+
+	action_a = { # Organise a great hunt and combat it yourself
+		effect = { type = prestige value = 30 }
+		effect = { type = gold value = -50 }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = energetic }
+		}
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = valorous }
+		}
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = reckless }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = death }
+		}
+	}
+
+	action_b = { # Organise a great hunt lead by your marshal to deal with it
+		effect = { type = prestige value = 5 }
+		effect = { type = gold value = -100 }
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = coward }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait for = marshal value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = death value = marshal }
+		}
+	}
+
+	action_c = {# Do Nothing
+		effect = { type = prestige value = -15 }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = add_province_effect value = revolt }
+		}
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = selfish }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = lazy }
+		}
+	}
+}
+
+# Chasing a great deer
+
+character_event = {
+	id = 7927
+
+	picture = "event_hunting"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = health value = 5 } # Replace age < 50 check by a health check
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = clubfooted } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = {
+			type = ruler_csc
+			condition = { type = not value = { type = atwar } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 2
+		}
+	}
+
+	action_a = { # Slay it
+		effect = { type = prestige value = 15 }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = indulgent }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = proud }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = cruel }
+		}
+	}
+
+	action_b = { # Let it go
+		effect = { type = piety value = 10 }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = merciful }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = temperate }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = lazy }
+		}
+	}
+}
+
+# Hunting season #
+
+character_event = {
+	id = 7928
+
+	picture = "event_hunting"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = has_vassal }
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = health value = 5 } # Replace age < 50 check by a health check
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = not value = { type = trait value = clubfooted } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 2
+		}
+	}
+
+	action_a = { # Invite your neighbors
+		effect = { type = prestige value = 50 }
+		effect = { type = gold value = -250 }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = generous }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = indulgent }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = energetic }
+		}
+		effect = {
+			type = random
+			chance = 3
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 1
+			effect = { type = death }
+		}
+		effect = { type = trigger for = best_neighbor value = 7929 }
+		effect = { type = trigger for = random_neighbor value = 7929 }
+		effect = { type = trigger for = worst_neighbor value = 7929 }
+	}
+
+	action_b = { # Invite your vassals
+		effect = { type = prestige value = 25 }
+		effect = { type = gold value = -150 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = generous }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = indulgent }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = energetic }
+		}
+		effect = {
+			type = random
+			chance = 3
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 1
+			effect = { type = death }
+		}
+		effect = { type = trigger for = best_vassal value = 7930 }
+		effect = { type = trigger for = random_vassal value = 7930 }
+		effect = { type = trigger for = worst_vassal value = 7930 }
+	}
+
+	action_c = { # Just have a good time with your court
+		effect = { type = prestige value = 10 }
+		effect = { type = gold value = -75 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = selfish }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = indulgent }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = generous }
+		}
+		effect = {
+			type = random
+			chance = 3
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 1
+			effect = { type = death }
+		}
+		effect = { type = trigger for = best_courtier value = 7931 }
+		effect = { type = trigger for = random_courtier value = 7931 }
+		effect = { type = trigger for = knight value = 7931 }
+	}
+
+	action_d = { # No hunting for me, no...
+		effect = { type = prestige value = -5 }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = selfish }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = temperate }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = lazy }
+		}
+	}
+}
+
+# neighbor event counter-part
+
+character_event = {
+	id = 7929
+
+	picture = "event_hunting"
+
+	action_a = { # Go
+		effect = { type = prestige value = 15 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = indulgent }
+		}
+		effect = {
+			type = random
+			chance = 7
+			effect = { type = remove_trait value = stress_symptom }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = energetic }
+		}
+		effect = {
+			type = random
+			chance = 3
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 1
+			effect = { type = death }
+		}
+	}
+
+	action_b = { # No
+		effect = { type = prestige value = -5 }
+	}
+}
+
+# vassal event counter-part
+
+character_event = {
+	id = 7930
+
+	picture = "event_hunting"
+
+	action_a = { # Go
+		effect = { type = prestige value = 10 }
+		effect = { type = loyalty value = 0.15 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = indulgent }
+		}
+		effect = {
+			type = random
+			chance = 7
+			effect = { type = remove_trait value = stress_symptom }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = energetic }
+		}
+		effect = {
+			type = random
+			chance = 3
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 1
+			effect = { type = death }
+		}
+	}
+
+	action_b = { # No
+		effect = { type = prestige value = -5 }
+		effect = { type = loyalty value = -0.1 }
+	}
+}
+
+# courtier event counter-part
+
+character_event = {
+	id = 7931
+
+	picture = "event_hunting"
+
+	immidiate = { # Go
+		effect = { type = prestige value = 5 }
+		effect = { type = loyalty value = 0.1 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = indulgent }
+		}
+		effect = {
+			type = random
+			chance = 7
+			effect = { type = remove_trait value = stress_symptom }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = energetic }
+		}
+		effect = {
+			type = random
+			chance = 3
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 1
+			effect = { type = death }
+		}
+	}
+
+}
+
+# Id 7932
+
+#######################################################
+# New flavour set, directed at players without vassals (primarily counts)
+# 6200-6299
+# By Byakhiam
+#######################################################
+
+##################################
+# Your son has got a servant maid pregnant
+##################################
+
+character_event = {
+	id = 6200
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = gender value = male }
+		condition = { type = ruler_child }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = age value = 25 } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = trait value = chaste } }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = father
+				condition = { type = not value = { type = has_vassal } }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = trait value = pneumonia }
+				condition = { type = trait value = plagueinfested }
+				condition = { type = trait value = leper }
+			}
+			factor = 5.0
+		}
+		modifier = {
+			condition = { type = or
+				condition = { type = trait value = maniac }
+				condition = { type = trait value = schizofrenia }
+				condition = { type = trait value = depression }
+			}
+			factor = 5.0
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = father condition = { type = trait value = lustful } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = father condition = { type = trait value = chaste } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = fertility value = 6 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = fertility value = 7 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = fertility value = 8 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = fertility value = 2 } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = not value = { type = fertility value = 1 } }
+			factor = 1.5
+		}
+	}
+
+	action_a = {
+		effect = { type = add_trait value = lustful }
+		effect = { type = prestige value = -10 }
+		effect = { type = piety value = -10 }
+		effect = { type = trigger for = ruler value = 6211 }
+	}
+	action_b = {
+		effect = { type = create_courtier value = bastard }
+		effect = { type = random chance = 50 
+			effect = { type = add_trait value = lustful }
+		}
+		effect = { type = random chance = 25
+			effect = { type = prestige value = -10 }
+			effect = { type = piety value = -10 }
+		}
+	}
+	action_c = {
+		effect = { type = loyalty value = -0.3 }
+		effect = { type = random chance = 50 
+			effect = { type = add_trait value = chaste }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = arbitrary }
+		}
+	}
+	action_d = {
+		effect = { type = add_trait value = chaste }
+		effect = { type = piety value = 10 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = zealous }
+		}
+	}
+}
+
+#############################
+# Your wife wants latest fashion fad
+#############################
+
+character_event = {
+	id = 6201
+
+	picture = "event_youngsters"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = gender value = female }
+		condition = { type = is_married }
+		condition = { type = not value = { type = trait value = modest } }
+		condition = { type = not value = { type = trait value = zealous } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = spouse
+			condition = { type = not value = { type = ai } }
+			condition = { type = ruler }
+			condition = { type = not value = { type = atwar } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = spouse
+				condition = { type = not value = { type = has_vassal } }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse
+				condition = { type = trait value = coward }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse
+				condition = { type = trait value = generous }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse
+				condition = { type = trait value = modest }
+			}
+			factor = 0.8
+		}
+	}
+
+	action_a = {
+		effect = { type = trigger for = spouse value = 6210 }
+		effect = { type = random_list
+			60 = { type = add_trait value = selfish }
+			40 = { type = add_trait value = proud }
+		}
+		effect = { type = random chance = 25 
+			effect = { type = remove_trait value = stress_symptom }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait for = spouse value = generous }
+		}
+		effect = { type = random chance = 5
+			effect = { type = add_next_advance value = sculptures }
+		}
+	}
+	action_b = {
+		effect = { type = trigger for = spouse value = 6211 }
+		effect = { type = random_list
+			35 = { type = add_trait value = modest }
+			35 = { type = add_trait value = proud }
+			20 = { type = add_trait value = selfish }
+			10 = { type = add_trait value = deceitful }
+		}
+	}
+	action_c = {
+		effect = { type = random_list
+			60 = { type = add_trait value = modest }
+			40 = { type = add_trait value = zealous }
+		}
+		effect = { type = random chance = 5
+			effect = { type = add_trait value = depression }
+			effect = { type = remove_trait value = stress_symptom }
+		}
+	}
+	action_d = {
+		effect = { type = add_trait for = spouse value = selfish }
+		effect = { type = random_list
+			20 = { type = add_trait value = modest }
+			40 = { type = add_trait value = proud }
+			40 = { type = add_trait value = deceitful }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = stress_symptom }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = depression }
+			effect = { type = remove_trait value = stress_symptom }
+		}
+	}
+}
+
+#######################################
+# This woman is accusing her husband of adultery
+#######################################
+
+character_event = {
+	id = 6204
+
+	picture = "event_tribunal"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = gender value = female }
+		condition = { type = is_married }
+		condition = { type = not value = { type = trait value = lustful } }
+		condition = { type = not value = { type = ruler } }
+		condition = { type = spouse
+			condition = { type = trait value = lustful }
+			condition = { type = not value = { type = ai } }
+			condition = { type = not value = { type = ruler } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = not value = { type = has_vassal } }
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = age value = 30 }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = age value = 40 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = arbitrary } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = coward } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = spouse condition = { type = trait value = cruel } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = trait value = lustful } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = trait value = zealous } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = trait value = chaste } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = trait value = just } }
+			factor = 0.8
+		}
+	}
+
+	action_a = {
+		effect = { type = add_trait value = lustful }
+		effect = { type = random chance = 50
+			effect = { type = loyalty value = -0.3 }
+		}
+		effect = { type = random chance = 50
+			effect = { type = loyalty for = spouse value = -0.3 }
+		}
+		effect = { type = random_list
+			40 = { type = no_effect }
+			30 = { type = add_trait for = ruler value = lustful }
+			30 = { type = add_trait for = ruler value = sceptical }
+		}
+	}
+	action_b = {
+		effect = { type = death }
+		effect = { type = random_list
+			50 = { type = loyalty for = spouse value = 0.3 }
+			50 = { type = loyalty for = spouse value = -0.3 }
+		}
+		effect = { type = random_list
+			40 = { type = no_effect }
+			30 = { type = add_trait for = ruler value = zealous }
+			30 = { type = add_trait for = ruler value = arbitrary }
+		}
+	}
+	action_c = {
+		effect = { type = death value = spouse }
+		effect = { type = random_list
+			20 = { type = no_effect }
+			40 = { type = add_trait for = ruler value = just }
+			40 = { type = add_trait for = ruler value = arbitrary }
+		}
+	}
+}
+
+########################
+# Reaction events for all events
+########################
+
+character_event = {
+	id = 6210
+
+	picture = "event_moneycollection"
+
+	action_a = {
+		effect = { type = gold scale = -0.5 }
+	}
+}
+
+character_event = {
+	id = 6211
+
+	picture = "event_moneycollection"
+
+	action_a = {
+		effect = { type = gold scale = -0.25 }
+	}
+}
+
+character_event = {
+	id = 6212
+
+	picture = "event_moneycollection"
+
+	action_a = {
+		effect = { type = gold scale = -0.1 }
+	}
+}
+
+character_event = {
+	id = 6213
+
+	picture = "event_religion"
+
+	action_a = {
+		effect = { type = piety value = 50 }
+	}
+}
+
+character_event = {
+	id = 6234
+
+	picture = "event_religion"
+
+	action_a = {
+		effect = { type = piety value = -25 }
+	}
+}
+
+##################
+# More flavour events
+##################
+# Local bishop wants to play chess with you, but he always wins (original idea by Jinnai)
+
+character_event = {
+	id = 6232
+
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = ruler }
+		condition = { type = age value = 20 }
+		condition = { type = not value = { type = trait value = wise } }
+		condition = { type = not value = { type = trait value = deceitful } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = kinslayer } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = not value = { type = has_vassal } }
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = chaplain_csc
+				condition = { type = chaplain }
+			}
+			factor = 0.75
+		}
+	}
+
+	action_a = {
+		effect = { type = piety value = 10 }
+		effect = { type = prestige value = -10 }
+		effect = { type = random_list
+			60 = { type = no_effect }
+			30 = { type = add_trait value = modest }
+			10 = { type = add_trait value = wise }
+		}
+	}
+	action_b = {
+		effect = { type = random_list
+			30 = { type = no_effect }
+			40 = { type = add_trait value = reckless }
+			20 = { type = add_trait value = proud } #FIX: ADD type = prestige value = 15 
+			10 = { type = add_trait value = deceitful } #FIX: ADD type = prestige value = -20 type = piety value = -20
+		}
+	}
+	action_c = {
+		effect = { type = prestige value = -5 }
+		effect = { type = piety value = -5 }
+	}
+}
+
+###################################################
+# Advisor is accused of using black magics, original idea by Jinnai
+
+character_event = {
+	id = 6233
+
+	picture = "event_tribunal"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = or
+			condition = { type = marshal }
+			condition = { type = chancellor }
+			condition = { type = spymaster }
+			condition = { type = steward }
+		}
+		condition = { type = or
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = county }
+					condition = { type = court value = 10 }
+				}
+			}
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = duchy }
+					condition = { type = court value = 14 }
+				}
+			}
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = kingdom }
+					condition = { type = court value = 18 }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = intrigue value = 3 } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = not value = { type = intrigue value = 6 } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = intrigue value = 14 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = county }
+					condition = { type = court value = 15 }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = county }
+					condition = { type = court value = 20 }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = county }
+					condition = { type = court value = 30 }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = county }
+					condition = { type = court value = 50 }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = duchy }
+					condition = { type = court value = 21 }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = duchy }
+					condition = { type = court value = 28 }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = duchy }
+					condition = { type = court value = 42 }
+				}
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = kingdom }
+					condition = { type = court value = 20 }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = kingdom }
+					condition = { type = court value = 30 }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = ruler_csc
+				condition = { type = and
+					condition = { type = kingdom }
+					condition = { type = court value = 50 }
+				}
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = trait value = zealous } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = trait value = sceptical } }
+			factor = 1.25
+		}
+	}
+
+	action_a = {
+		effect = { type = death }
+		effect = { type = trigger for = ruler value = 6213 }
+		effect = { type = random_list
+			60 = { type = add_trait for = ruler value = zealous }
+			40 = { type = add_trait for = ruler value = arbitrary }
+		}
+	}
+	action_b = {
+		effect = { type = random chance = 50
+			effect = { type = death }
+		}
+		effect = { type = random_list
+			40 = { type = no_effect }
+			30 = { type = add_trait for = ruler value = just }
+			30 = { type = add_trait for = ruler value = sceptical }
+		}
+	}
+	action_c = {
+		effect = { type = add_trait for = ruler value = sceptical }
+		effect = { type = trigger for = ruler value = 6234 }
+		effect = { type = random_list
+			20 = { type = no_effect }
+			40 = { type = add_trait value = sceptical }
+			40 = { type = add_trait value = excommunicated }
+		}
+		effect  = { type = random chance = 10
+			effect = { type = add_trait for = ruler value = excommunicated }
+		}
+	}
+}
+
+#########
+# Mentors
+
+# Knight
+
+character_event = {
+	id = 6202
+
+	picture = "event_marshal"
+
+	trigger = {
+		condition = { type = age value = 9 }
+		condition = { type = not value = { type = age value = 16 } }
+		condition = { type = or
+			condition = { type = ruler_child }
+			condition = { type = ruler }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = martial_education }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = trait value = suspicious } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = gender value = female }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 1.1
+		}
+	}
+
+	action_a = {
+		ai_chance = 90
+		effect = { type = trigger for = ruler value = 6215 }
+		effect = { type = create_courtier value = marshal }
+		effect = { type = random_list
+			10 = { type = no_effect }
+			80 = { type = martial value = 1 }
+			10 = { type = martial value = 2 }
+		}
+	}
+	action_b = {
+		ai_chance = 5
+		effect = { type = trigger for = ruler value = 6216 }
+		effect = { type = random_list
+			55 = { type = no_effect }
+			40 = { type = martial value = 1 }
+			5 = { type = martial value = 2 }
+		}
+	}
+	action_c = {
+		ai_chance = 5
+		effect = { type = prestige value = 5 }
+	}
+}
+
+# Negotiator
+
+character_event = {
+	id = 6205
+
+	picture = "event_chancellor"
+
+	trigger = {
+		condition = { type = age value = 9 }
+		condition = { type = not value = { type = age value = 16 } }
+		condition = { type = or
+			condition = { type = ruler_child }
+			condition = { type = ruler }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = ecclesiastical_education }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = trait value = suspicious } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 1.1
+		}
+	}
+
+	action_a = {
+		ai_chance = 90
+		effect = { type = trigger for = ruler value = 6215 }
+		effect = { type = create_courtier value = chancellor }
+		effect = { type = random_list
+			10 = { type = no_effect }
+			80 = { type = diplomacy value = 1 }
+			10 = { type = diplomacy value = 2 }
+		}
+	}
+	action_b = {
+		ai_chance = 5
+		effect = { type = trigger for = ruler value = 6216 }
+		effect = { type = random_list
+			55 = { type = no_effect }
+			40 = { type = diplomacy value = 1 }
+			5 = { type = diplomacy value = 2 }
+		}
+	}
+	action_c = {
+		ai_chance = 5
+		effect = { type = prestige value = 5 }
+	}
+}
+
+# Plotter
+
+character_event = {
+	id = 6207
+
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = age value = 9 }
+		condition = { type = not value = { type = age value = 16 } }
+		condition = { type = or
+			condition = { type = ruler_child }
+			condition = { type = ruler }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = ecclesiastical_education }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = trait value = suspicious } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 1.1
+		}
+	}
+
+	action_a = {
+		ai_chance = 90
+		effect = { type = trigger for = ruler value = 6215 }
+		effect = { type = create_courtier value = spymaster }
+		effect = { type = random_list
+			10 = { type = no_effect }
+			80 = { type = intrigue value = 1 }
+			10 = { type = intrigue value = 2 }
+		}
+	}
+	action_b = {
+		ai_chance = 5
+		effect = { type = trigger for = ruler value = 6216 }
+		effect = { type = random_list
+			55 = { type = no_effect }
+			40 = { type = intrigue value = 1 }
+			5 = { type = intrigue value = 2 }
+		}
+	}
+	action_c = {
+		ai_chance = 5
+		effect = { type = prestige value = 5 }
+	}
+}
+
+# Merchant
+
+character_event = {
+	id = 6209
+
+	picture = "event_steward"
+
+	trigger = {
+		condition = { type = age value = 9 }
+		condition = { type = not value = { type = age value = 16 } }
+		condition = { type = or
+			condition = { type = ruler_child }
+			condition = { type = ruler }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = or
+				condition = { type = ruler }
+				condition = { type = primary_heir }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = court_education }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = ruler_csc condition = { type = trait value = suspicious } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 1.1
+		}
+	}
+
+	action_a = {
+		ai_chance = 90
+		effect = { type = trigger for = ruler value = 6215 }
+		effect = { type = create_courtier value = steward }
+		effect = { type = random_list
+			10 = { type = no_effect }
+			80 = { type = stewardship value = 1 }
+			10 = { type = stewardship value = 2 }
+		}
+	}
+	action_b = {
+		ai_chance = 5
+		effect = { type = trigger for = ruler value = 6216 }
+		effect = { type = random_list
+			55 = { type = no_effect }
+			40 = { type = stewardship value = 1 }
+			5 = { type = stewardship value = 2 }
+		}
+	}
+	action_c = {
+		ai_chance = 5
+		effect = { type = prestige value = 5 }
+	}
+}
+
+# Money down the drain
+
+character_event = {
+	id = 6215
+
+	picture = "event_moneycollection"
+
+	immidiate = {
+		effect = { type = gold scale = -1 }
+	}
+}
+
+character_event = {
+	id = 6216
+
+	picture = "event_moneycollection"
+
+	immidiate = {
+		effect = { type = gold scale = -0.33 }
+	}
+}
+
+
+# Free IDs from deleted events 6217, 6218, 6219, 6228, 6229, 6230
+# Next free id 6235

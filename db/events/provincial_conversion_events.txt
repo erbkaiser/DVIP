@@ -1,0 +1,6520 @@
+#########################################
+# PROVINCE RELIGIOUS CONVERSION SERIES  #
+#########################################
+#########################################
+# Mass-scale Conversions   # by Guinnessmonkey	#
+#########################################
+province_x_province_event = {   # Catholic religion (spreading)
+	id = 1084
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = to condition = { type = not value = { type = religion value = catholic } } }
+		condition = { type = to condition = { type = ruler_religion value = catholic } }
+		condition = { type = from condition = { type = religion value = catholic } }
+		condition = { type = from condition = { type = ruler_religion value = catholic } }
+	}
+
+	mean_time_to_happen = {
+		months = 5000
+
+		modifier = {
+			condition = { type = to condition = { type = same_culture } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_province_effect value = { heretic = yes } } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = religion value = pagan } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = zealous } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = crusader } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = detached_priest } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = martial_cleric } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = scholarly_theologian } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = mastermind_theologian } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = scholarly_theologian } }
+			condition = { type = to condition = { type = religion value = orthodox } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = mastermind_theologian } }
+			condition = { type = to condition = { type = religion value = orthodox } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = merciful } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = just } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = energetic } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = chaste } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = excommunicated } }
+			factor = 1.4
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = sceptical } }
+			factor = 1.6
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = cruel } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = arbitrary } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = lazy } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = lustful } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { inquisition  = yes } } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { extravagant_decoration = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { vernacular_literature = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { bible_translations = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { critical_thinking = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { university = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { thieves_guild = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { smugglers_ring = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { highway_robber_band = yes } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { civilian_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { naval_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { grand_shipyard = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { extensive_roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { civilian_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { naval_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { grand_shipyard = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { extensive_roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = {  templar_house = yes } } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { school = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { church = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { large_church = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { domed_church = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  cathedral = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  monastery = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  templar_house = yes } } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { grand_palace = yes } } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to condition = { type = capital value = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 7 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 9 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 11 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.35 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.45 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.55 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.25 } } }
+			factor = 1.1
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.15 } } }
+			factor = 1.1
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.05 } } }
+			factor = 1.1
+               		 }
+               		 modifier = {
+			condition = { type = to condition = {  type = peasant_power value = 0.55 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = {  type = burgher_power value = 0.45 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = {  type = burgher_power value = 0.55 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = peasant_power value = 0.05 } } }
+			factor = 0.9
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = burgher_power value = 0.05 } } }
+			factor = 0.9
+               		 }
+		modifier = {
+			condition = {
+				type = to
+				condition = {
+					type = owner
+					condition = {
+						type = or
+						condition = { type = title value = HOSP }
+						condition = { type = title value = TEUT }
+						condition = { type = title value = TEMP }
+					}
+				}
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = from
+				condition = {
+					type = owner
+					condition = {
+						type = or
+						condition = { type = title value = HOSP }
+						condition = { type = title value = TEUT }
+						condition = { type = title value = TEMP }
+					}
+				}
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 1 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 2 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 3 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = 0 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -1 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -2 } }
+				}
+			}
+			factor = 1.1
+		}
+	}
+
+	action_a = {
+		effect = { type = to effect = { type = religion value = catholic } }
+		effect = { type = to effect = { type = ruler_piety value = 100 } }
+		effect = { type = to effect = { type = remove_province_effect value = heretic } } #in case it is
+	}
+
+}
+
+# 1085 now in Religious events
+
+# 1086-1089 now in Heresy events
+
+#########################################
+# The English melting pot				#
+#########################################
+# 1090-1091 now in Melting pots events
+
+#########################################
+# Mass-scale Conversions   # by Guinnessmonkey	#
+#########################################
+province_x_province_event = {   #conversion to Islam (religion only)
+	id = 9000
+
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = to condition = { type = not value = { type = religion value = moslem } } }
+		condition = { type = to condition = { type = ruler_religion value = moslem } }
+		condition = { type = from condition = { type = religion value = moslem } }
+		condition = { type = from condition = { type = ruler_religion value = moslem } }
+	}
+
+	mean_time_to_happen = {
+		months = 6000
+
+		modifier = {
+			condition = { type = to condition = { type = religion value = pagan } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_province_effect value = { heretic = yes } } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = same_culture } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = zealous } }
+			factor = 0.4
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = crusader } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = detached_priest } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = martial_cleric } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = scholarly_theologian } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = mastermind_theologian } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = merciful } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = just } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = energetic } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = chaste } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = excommunicated } }
+			factor = 1.4
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = sceptical } }
+			factor = 1.6
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = cruel } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = arbitrary } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = lazy } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { inquisition  = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { extravagant_decoration = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { vernacular_literature = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { bible_translations = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { critical_thinking = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { university = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { thieves_guild = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { smugglers_ring = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { highway_robber_band = yes } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { civilian_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { naval_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { grand_shipyard = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { extensive_roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { civilian_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { naval_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { grand_shipyard = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { extensive_roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { school = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { church = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { large_church = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { domed_church = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  cathedral = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  monastery = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  templar_house = yes } } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { grand_palace = yes } } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = to condition = { type = capital value = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 7 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 9 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 11 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.35 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.45 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.55 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.25 } } }
+			factor = 1.1
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.15 } } }
+			factor = 1.1
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.05 } } }
+			factor = 1.1
+               		 }
+               		 modifier = {
+			condition = { type = to condition = {  type = peasant_power value = 0.55 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = {  type = burgher_power value = 0.45 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = {  type = burgher_power value = 0.55 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = peasant_power value = 0.05 } } }
+			factor = 0.9
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = burgher_power value = 0.05 } } }
+			factor = 0.9
+               		 }
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 1 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 2 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 3 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = 0 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -1 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -2 } }
+				}
+			}
+			factor = 1.1
+		}
+	}
+
+	action_a = {
+		effect = { type = to effect = { type = religion value = moslem } }
+		effect = { type = to effect = { type = ruler_piety value = 100 } }
+		effect = { type = to effect = { type = remove_province_effect value = heretic } } #in case it is
+		effect = { type = to effect = { type = remove_improvement value = templar_house } }
+		effect = { type = to effect = { type = remove_improvement value = monastery } }
+		effect = { type = to effect = { type = remove_improvement value = church } }
+		effect = { type = to effect = { type = remove_improvement value = large_church } }
+		effect = { type = to effect = { type = remove_improvement value = domed_church } }
+		effect = { type = to effect = { type = remove_improvement value = cathedral } }
+	}
+
+}
+
+province_x_province_event = {   #pagan conversion (culture and religion)
+	id = 9001
+
+	picture = "event_pagan"
+
+	trigger = {
+		condition = { type = or
+			condition = { type = same_realm }		# Both provinces in same realm
+			condition = { type = same_ruler }		# Or in same demesne (not covered by same realm)
+		}
+		condition = {
+			type = or
+			condition = {
+				type = and
+				condition = { type = from condition = { type = religion value = pagan } }
+				condition = { type = to condition = { type = not value = { type = religion value = pagan } } }
+			}
+			condition = {
+				type = and
+				condition = { type = from condition = { type = same_culture } }
+				condition = { type = to condition = { type = not value = { type = same_culture } } }
+			}
+		}
+		condition = { type = from condition = { type = ruler_religion value = pagan } }
+		condition = { type = to condition = { type = ruler_religion value = pagan } }
+	}
+
+	mean_time_to_happen = {
+		months = 12000
+
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = religion value = pagan } } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_province_effect value = { heretic = yes } } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = same_culture }  }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = zealous } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = crusader } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = detached_priest } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = martial_cleric } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = scholarly_theologian } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = mastermind_theologian } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = merciful } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = just } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = energetic } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = sceptical } }
+			factor = 1.6
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = cruel } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = arbitrary } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = lazy } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { inquisition  = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { vernacular_literature = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { bible_translations = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { critical_thinking = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { university = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { thieves_guild = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { smugglers_ring = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { highway_robber_band = yes } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { civilian_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { naval_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { grand_shipyard = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { extensive_roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { civilian_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { naval_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { grand_shipyard = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { extensive_roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { templar_house = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { school = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { church = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { large_church = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { domed_church = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  cathedral = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  monastery = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  templar_house = yes } } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { grand_palace = yes } } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = to condition = { type = capital value = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = from condition = { type = capital value = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 7 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 9 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 11 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.35 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.45 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.55 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.25 } } }
+			factor = 1.1
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.15 } } }
+			factor = 1.1
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.05 } } }
+			factor = 1.1
+               		 }
+               	modifier = {
+			condition = { type = to condition = {  type = peasant_power value = 0.55 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = {  type = burgher_power value = 0.45 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = {  type = burgher_power value = 0.55 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = peasant_power value = 0.05 } } }
+			factor = 0.9
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = burgher_power value = 0.05 } } }
+			factor = 0.9
+               		 }
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 1 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 2 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 3 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = 0 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -1 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -2 } }
+				}
+			}
+			factor = 1.1
+		}
+
+	}
+
+	action_a = {
+		effect = { type = to effect = { type = religion value = pagan } }
+		effect = { type = to effect = { type = set_to_realm_culture } }
+		effect = { type = to effect = { type = ruler_piety value = 50 } }
+		effect = { type = to effect = { type = ruler_prestige value = 50 } }
+		effect = { type = to effect = { type = remove_province_effect value = heretic } } #in case it is
+		effect = { type = to effect = { type = remove_improvement value = templar_house } }
+		effect = { type = to effect = { type = remove_improvement value = monastery } }
+		effect = { type = to effect = { type = remove_improvement value = church } }
+		effect = { type = to effect = { type = remove_improvement value = large_church } }
+		effect = { type = to effect = { type = remove_improvement value = domed_church } }
+		effect = { type = to effect = { type = remove_improvement value = cathedral } }
+	}
+
+}
+
+#9002
+#9003
+#9004
+#9005
+
+province_x_province_event = {   #Orthodox religion only (spreading)
+	id = 9006
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = from condition = { type = religion value = orthodox } }
+		condition = { type = to condition = { type = not value = { type = religion value = orthodox } } }
+		condition = { type = from condition = { type = ruler_religion value = orthodox } }
+		condition = { type = to condition = { type = ruler_religion value = orthodox } }
+	}
+
+	mean_time_to_happen = {
+		months = 6000
+
+		modifier = {
+			condition = { type = to condition = { type = same_culture  } }
+			factor = 0.5
+        	}
+		modifier = {
+			condition = { type = to condition = { type = has_province_effect value = { heretic = yes } } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = religion value = pagan } }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = to condition = { type = trait value = zealous } }
+			factor = 0.4
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = crusader } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = detached_priest } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = martial_cleric } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = scholarly_theologian } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = mastermind_theologian } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = scholarly_theologian } }
+			condition = { type = to condition = { type = religion value = catholic } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = mastermind_theologian } }
+			condition = { type = to condition = { type = religion value = catholic } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = merciful } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = just } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = energetic } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = chaste } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = excommunicated } }
+			factor = 1.4
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = sceptical } }
+			factor = 1.6
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = cruel } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = arbitrary } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = lazy } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = lustful } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { inquisition  = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { extravagant_decoration = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { vernacular_literature = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { bible_translations = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { critical_thinking = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { university = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { thieves_guild = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { smugglers_ring = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { highway_robber_band = yes } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { civilian_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { naval_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { grand_shipyard = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { extensive_roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { civilian_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { naval_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { grand_shipyard = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { extensive_roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { templar_house = yes } } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { school = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { church = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { large_church = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { domed_church = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  cathedral = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  monastery = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  templar_house = yes } } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { grand_palace = yes } } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to condition = { type = capital value = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 7 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 9 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 11 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.35 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.45 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.55 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.25 } } }
+			factor = 1.1
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.15 } } }
+			factor = 1.1
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.05 } } }
+			factor = 1.1
+               		 }
+               		 modifier = {
+			condition = { type = to condition = {  type = peasant_power value = 0.55 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = {  type = burgher_power value = 0.45 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = {  type = burgher_power value = 0.55 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = peasant_power value = 0.05 } } }
+			factor = 0.9
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = burgher_power value = 0.05 } } }
+			factor = 0.9
+               		 }
+
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 1 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 2 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 3 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = 0 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -1 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -2 } }
+				}
+			}
+			factor = 1.1
+		}
+	}
+
+	action_a = {
+		effect = { type = to effect = { type = religion value = orthodox } }
+		effect = { type = to effect = { type = ruler_piety value = 100 } }
+		effect = { type = to effect = { type = remove_province_effect value = heretic } } #in case it is
+	}
+
+}
+
+#########################################
+# PROVINCE CULTURAL CONVERSION SERIES  #
+#########################################
+#########################################
+# by Guinnessmonkey	#
+#########################################
+
+
+#CUKTURAL CONVERSION
+###Event 9007 rewriten with kind thanks by Richard VanHouten (richvh)
+
+province_x_province_event = {
+	id = 9007
+
+	picture = "event_town"
+
+	trigger = {
+		condition = { type = or
+			condition = { type = same_realm }		# Both provinces in same realm
+			condition = { type = same_ruler }		# Or in same demesne (not covered by same realm)
+		}
+		condition = {					# The source province has the realm culture...
+			type = from
+			condition = {
+				type = same_culture
+			}
+		}
+		condition = {					# while the destination province does not
+			type = to
+			condition = {
+				type = not
+				value = {
+					type = same_culture
+				}
+			}
+		}
+		condition = { type = to				# Backwaters are insulated from cultural influence
+			condition = { type = or
+				condition = { type = has_improvement value = { roadnet = yes } }
+				condition = { type = has_improvement value = { civilian_harbour = yes } }
+			}
+		}
+		condition = { type = from			# ... and are insulated from influencing other cultures
+			condition = { type = or
+				condition = { type = has_improvement value = { roadnet = yes } }
+				condition = { type = has_improvement value = { civilian_harbour = yes } }
+			}
+		}
+		condition = { type = from			# Neither province is heretical
+			condition = { type = not
+				value = {
+					type = has_province_effect
+					value = { heretic = yes }
+				}
+			}
+		}
+		condition = { type = to
+			condition = { type = not
+				value = {
+					type = has_province_effect
+					value = { heretic = yes }
+				}
+			}
+		}
+		condition = { type = to				# The rulers of both provinces
+			condition = { type = not
+				value = { type = owner
+					condition = { type = atwar }
+				}
+			}
+		}
+		condition = { type = from			# ... are at peace
+			condition = { type = not
+				value = { type = owner
+					condition = { type = atwar }
+				}
+			}
+		}						#... and so is the realm ruler
+		condition = { type = from
+			condition = { type = not
+				value = { type = owner
+					condition = { type = realm_ruler
+						condition = { type = atwar }
+					}
+				}
+			}
+		}
+		condition = { type = from			#... and neither province's ruler
+			condition = { type = owner
+				condition = { type = not
+					value = { type = or
+						condition = { type = trait value = heretic }
+						condition = { type = trait value = excommunicated }
+					}
+				}
+			}
+		}
+		condition = { type = to				# ... is either heretical or excommunicate
+			condition = { type = owner
+				condition = { type = not
+					value = { type = or
+						condition = { type = trait value = heretic }
+						condition = { type = trait value = excommunicated }
+					}
+				}
+			}
+		}
+		condition = { type = from			# ... and neither is the realm ruler
+			condition = { type = owner
+				condition = { type = realm_ruler
+					condition = { type = not
+						value = { type = or
+							condition = { type = trait value = heretic }
+							condition = { type = trait value = excommunicated }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2000
+
+#religious modifiers
+		modifier = {
+			condition = { type = or
+				condition = { type = and
+					condition = { type = to
+						condition = { type = religion value = catholic }
+						condition = { type = owner
+							condition = { type = religion value = catholic }
+						}
+						condition = { type = owner
+							condition = { type = religion value = catholic }
+						}
+					}
+					condition = { type = from
+						condition = { type = religion value = catholic }
+						condition = { type = owner
+							condition = { type = religion value = catholic }
+						}
+					}
+				}
+				condition = { type = and
+					condition = { type = to
+						condition = { type = religion value = moslem }
+						condition = { type = owner
+							condition = { type = religion value = moslem }
+						}
+						condition = { type = owner
+							condition = { type = religion value = moslem }
+						}
+					}
+					condition = { type = from
+						condition = { type = religion value = moslem }
+						condition = { type = owner
+							condition = { type = religion value = moslem }
+						}
+					}
+				}
+				condition = { type = and
+					condition = { type = to
+						condition = { type = religion value = orthodox }
+						condition = { type = owner
+							condition = { type = religion value = orthodox }
+						}
+						condition = { type = owner
+							condition = { type = religion value = orthodox }
+						}
+					}
+					condition = { type = from
+						condition = { type = religion value = orthodox }
+						condition = { type = owner
+							condition = { type = religion value = orthodox }
+						}
+					}
+				}
+			}
+			factor = 0.3
+		}
+
+# Improvement modifiers
+
+# Everyone that's anyone goes to the grand palace to see the latest fashions from the capital		
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { grand_palace = yes } }
+			}
+			factor = 0.8
+		}
+# Have you seen the latest play from the capital?
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { theater = yes } }
+			}
+			factor = 0.8
+		}
+# Our teachers come from the capital!
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { school = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { university = yes } }
+			}
+			factor = 0.9
+		}
+# Have you heard the latest news from the capital?
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { royal_post = yes } }
+			}
+			factor = 0.9
+		}
+# Those new fads from the capital are corrupting our youth!
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { church = yes } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { large_church = yes } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { domed_church = yes } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { cathedral = yes } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { templar_house = yes } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { monastery = yes } }
+			}
+			factor = 1.2
+		}
+# Our ruler's a bum!  He can't even catch these scoundrels!
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+			factor = 1.2
+		}
+# We have good trade routes!
+		modifier = {
+			condition = { type = to
+				condition = { type = and
+					condition = { type = has_improvement value = { civilian_harbour = yes } }
+					condition = { type = has_improvement value = { roadnet = yes } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { extensive_roadnet = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { naval_harbour = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_improvement value = { grand_shipyard = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = and
+					condition = { type = has_improvement value = { civilian_harbour = yes } }
+					condition = { type = has_improvement value = { roadnet = yes } }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_improvement value = { extensive_roadnet = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_improvement value = { naval_harbour = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_improvement value = { grand_shipyard = yes } }
+			}
+			factor = 0.9
+		}
+
+#Tech modifiers
+
+# Those new fads from the capital are corrupting our youth!
+		modifier = {
+			condition = { type = to
+				condition = { type = has_advance value = { inquisition = yes } }
+			}
+			factor = 1.4
+		}
+# We have our own culture, and we're proud of it!
+		modifier = {
+			condition = { type = to
+				condition = { type = has_advance value = { vernacular_literature = yes } }
+			}
+			factor = 1.2
+		}
+# Our schools teach the latest courses!
+		modifier = {
+			condition = { type = to
+				condition = { type = has_advance value = { academic_disciplines = yes } }
+			}
+			factor = 0.9
+		}
+
+# I bought this at the fair!  Isn't it nice?
+		modifier = {
+			condition = { type = to
+				condition = { type = has_advance value = { international_fairs = yes } }
+			}
+			factor = 0.9
+		}
+# Our schools are reknowned!
+		modifier = {
+			condition = { type = to
+				condition = { type = has_advance value = { foreign_accreditation = yes } }
+			}
+			factor = 0.9
+		}
+
+#Province effects modifiers
+
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { malaria = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { dysentery = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { small_pox = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { looted = yes } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { struggling = yes } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { poor = yes } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { prosperous = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { rich = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = has_province_effect value = { revolt = yes } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_province_effect value = { malaria = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_province_effect value = { dysentery = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_province_effect value = { small_pox = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_province_effect value = { struggling = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_province_effect value = { poor = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_province_effect value = { prosperous = yes } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_province_effect value = { rich = yes } }
+			}
+			factor = 1.2
+		}
+#		modifier = {
+#			condition = { type = to
+#				condition = { type = has_province_effect value = { revolt = yes } }
+#			}
+#			factor = 0.9
+#		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_province_effect value = { looted = yes } }
+			}
+			factor = 0.5
+		}
+
+#Law modifiers
+
+# Our ruler has high standards
+		modifier = {
+			condition = { type = to
+				condition = { type = has_law value = { royal_preorgatory_law = yes } }
+			}
+			factor = 0.8
+		}
+# If it's good enough for grandpa, it's good enough for me.
+		modifier = {
+			condition = { type = to
+				condition = { type = has_law value = { traditional_custom_law = yes } }
+			}
+			factor = 1.1
+		}
+# We like things the way they are
+		modifier = {
+			condition = { type = to
+				condition = { type = has_law value = { popular_law = yes } }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_law value = { regal_supremacy = yes } }
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = has_law value = { church_supremacy = yes } }
+			}
+			factor = 1.05
+		}
+#		modifier = {
+#			condition = { type = to
+#				condition = { type = has_law value = { monastic_supremacy = yes } }
+#			}
+#			factor = 1.05
+#		}
+
+# Ruler trait modifiers
+
+		modifier = {
+			condition = { type = to
+				condition = { type = trait value = merciful }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = trait value = just }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = trait value = energetic }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = trait value = cruel }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = trait value = arbitrary }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = trait value = lazy }
+			}
+			factor = 1.1
+		}
+
+# Ruler attribute modifiers
+
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_stewardship value = 8 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_stewardship value = 11 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_stewardship value = 14 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_stewardship value = 6 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_stewardship value = 3 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_stewardship value = 1 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_intrigue value = 8 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_intrigue value = 11 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_intrigue value = 14 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_intrigue value = 6 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_intrigue value = 3 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not value = { type = ruler_intrigue value = 1 } }
+			}
+			factor = 1.1
+		}
+
+# Class power modifiers
+
+# Nobles and Burghers are the engines of cultural change
+
+		modifier = {
+			condition = { type = to
+				condition = { type = burgher_power value = 0.35 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = burgher_power value = 0.45 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = burgher_power value = 0.55 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not
+					value = { type = burgher_power value = 0.15 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not
+					value = { type = burgher_power value = 0.05 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = noble_power value = 0.35 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = noble_power value = 0.45 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = noble_power value = 0.55 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not
+					value = { type = noble_power value = 0.15 }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not
+					value = { type = noble_power value = 0.05 }
+				}
+			}
+			factor = 1.1
+		}
+
+# Peasants and clergy are conservative, and resist cultural change
+
+		modifier = {
+			condition = { type = to
+				condition = { type = peasant_power value = 0.45 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = peasant_power value = 0.55 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = clergy_power value = 0.55 }
+
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not
+					value = { type = peasant_power value = 0.05 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = not
+					value = { type = clergy_power value = 0.05 }
+				}
+			}
+			factor = 0.9
+		}
+
+# Terrain modifiers
+
+		modifier = {
+			condition = { type = to 
+				condition = { type = terrain value = desert }
+			}
+			factor = 1.25
+		}
+#		modifier = {
+#			condition = { type = from
+#				condition = { type = terrain value = desert }
+#			}
+#			factor = 1.1
+#		}
+		modifier = {
+			condition = { type = to
+				condition = { type = terrain value = forest }
+			}
+			factor = 1.1
+		}
+#		modifier = {
+#			condition = { type = from
+#				condition = { type = terrain value = forest }
+#			}
+#			factor = 1.1
+#		}
+		modifier = {
+			condition = { type = to
+				condition = { type = terrain value = hills }
+			}
+			factor = 1.25
+		}
+#		modifier = {
+#			condition = { type = from
+#				condition = { type = terrain value = hills }
+#			}
+#			factor = 1.25
+#		}
+		modifier = {
+			condition = { type = to
+				condition = { type = terrain value = mountain }
+			}
+			factor = 1.5
+		}
+#		modifier = {
+#			condition = { type = from
+#				condition = { type = terrain value = mountain }
+#			}
+#			factor = 1.5
+#		}
+		modifier = {
+			condition = { type = to
+				condition = { type = terrain value = march }
+			}
+			factor = 1.5
+		}
+#		modifier = {
+#			condition = { type = from
+#				condition = { type = terrain value = march }
+#			}
+#			factor = 1.5
+#		}
+
+# Ruler prestige modifiers
+
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_prestige value = 1000 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_prestige value = 10000 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = ruler_prestige value = 100000 }
+			}
+			factor = 0.9
+		}
+
+# Miscellaneous modifiers
+
+		modifier = {
+			condition = { type = same_ruler }
+			factor = 0.5
+		}
+		modifier = {
+	 		condition = { type = to
+				condition = { type = and
+					condition = { type = capital value = yes }
+					condition = { type = owner
+				  		condition = { type = is_independent }
+					}
+				}
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = from
+				condition = { type = and
+					condition = { type = capital value = yes }
+					condition = { type = owner
+						condition = { type = is_independent }
+					}
+				}
+			}
+			factor = 0.8
+		}
+
+#Era modifiers
+
+		modifier = {
+			condition = { type = not
+				value = { type = year value = 1100 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = year value = 1400 }
+			factor = 0.9
+		}
+
+# Culture modifiers
+
+#		modifier = {
+#			condition = { type = to
+#				condition = { type = region value = spain }
+#				condition = { type = culture value = muslim }
+#			}
+#			factor = 0.75
+#		}
+#		modifier = {
+#			condition = { type = to
+#				condition = { type = region value = eastern_europe }
+#				condition = { type = culture value = prussian }
+#			}
+#			factor = 0.75
+#		}
+#		modifier = {
+#			condition = { type = to
+#				condition = { type = or
+#					condition = { type = culture value = pecheneg }
+#					condition = { type = culture value = cuman }
+#					condition = { type = culture value = alan }
+#					condition = { type = culture value = latin }
+#					condition = { type = culture value = norman }
+#				}
+#			}
+#			factor = 0.75
+#		}
+#		modifier = {
+#			condition = { type = to
+#				condition = { type = region value = germany }
+#				condition = { type = culture value = prussian }
+#			}
+#			factor = 0.5
+#		}
+#		modifier = {
+#			condition = { type = from
+#				condition = { type = or
+#					condition = { type = culture value = greek }
+#				}
+#			}
+#			factor = 2.0
+#		}
+#		modifier = {
+#			condition = { type = from
+#				condition = { type = or
+#					condition = { type = culture value = german }
+#				}
+#			}
+#			factor = 0.8
+#		}
+#		modifier = {
+#			condition = { type = to
+#				condition = { type = or
+#					condition = { type = culture value = basque }
+#					condition = { type = culture value = dutch }
+#					condition = { type = culture value = armenian }
+#					condition = { type = culture value = georgian }
+#					condition = { type = culture value = frankish }
+#					condition = { type = culture value = german }
+#					condition = { type = culture value = italian }
+#					condition = { type = culture value = catalan }
+#					condition = { type = culture value = portuguese }
+#					condition = { type = culture value = bohemian }
+#				}
+#			}
+#			factor = 2.0
+#		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 1 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 2 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 3 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = 0 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -1 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -2 } }
+				}
+			}
+			factor = 1.1
+		}
+	}
+
+	action_a = {
+		effect = { type = to 
+			effect = { type = set_to_realm_culture }
+		}
+		effect = { type = to
+			effect = { type = ruler_prestige scale = .5 }
+		}
+#    effect = { type = to
+#      effect = { type = remove_province_effect value = revolt }
+#    }
+	}
+}
+########################################
+# Character-based province conversions #
+########################################
+
+###############################################################
+# Diocese Bishop asks permission to go out and convert people #
+###############################################################
+
+character_event = { #Your Diocese Bishop petitions you for permission to try to convert the heathen masses - Catholic
+
+	id = 9025
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = religion value = catholic }
+		condition = { type = piety value = 25 }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = {
+			type = chaplain_csc
+			condition = {
+			type = and
+				condition = {
+					type = or
+					condition = { type = trait value = martial_cleric }
+					condition = { type = trait value = mastermind_theologian }
+				}
+				condition = { type = not value = { type = trait value = zealous } }
+				condition = { type = not value = { type = trait value = sceptical } }
+				condition = { type = not value = { type = trait value = heretic } }
+				condition = { type = not value = { type = trait value = excommunicated } }
+				condition = { type = not value = { type = trait value = illness } }
+				condition = { type = not value = { type = trait value = intestinal_worm } }
+				condition = { type = not value = { type = trait value = pneumonia } }
+				condition = { type = not value = { type = trait value = plagueinfested } }
+				condition = { type = not value = { type = trait value = leper } }
+				condition = { type = piety value = 10 }
+				condition = { type = loyalty value = 0.9 }
+			}
+		}
+		condition = {
+			type = any_demesne_province
+			condition = { type = not value = { type = religion value = catholic } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = crusade }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = papacy }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_advance value = inquisition }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = atwar}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = ecclesiastical_education }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = gold value = 100 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = gold value = 500 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = gold value = 1000 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = piety value = 50 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = piety value = 100 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = mastermind_theologian }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = coward }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = energetic }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = lazy }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = reckless }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = indulgent }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = temperate }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = valorous}
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = war_invalid }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = wise }
+			}
+			factor = 0.9
+		}
+	}
+
+	action_a = { #You are granted leave to try
+		ai_chance = 65
+		effect = { type = piety value = 25 }
+		effect = { type = gold scale = -0.5 }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = zealous }
+		}
+		effect = { type = trigger for = chaplain value = 9027 }
+	}
+	action_b = { #It would be too dangerous to try at the moment
+		ai_chance = 35
+		modifier = {
+			condition = { type = or
+				condition = { type = title value = PAPA }
+				condition = { type = title value = TEUT }
+				condition = { type = title value = TEMP }
+				condition = { type = title value = HOSP }
+			}
+			factor = 0.0001
+		}
+		effect = { type = piety value = -10 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = sceptical }
+		}
+		effect = { type = trigger for = chaplain value = 9029 }
+	}
+}
+
+###############################################################
+# Diocese Bishop asks permission to go out and convert people #
+###############################################################
+
+character_event = { #Your Diocese Bishop petitions you for permission to try to convert the heathen masses - Orthodox
+
+	id = 9026
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = religion value = orthodox }
+		condition = { type = piety value = 10 }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = {
+			type = chaplain_csc
+			condition = {
+			type = and
+				condition = { type = trait value = martial_cleric }
+				condition = { type = not value = { type = trait value = zealous } }
+				condition = { type = not value = { type = trait value = sceptical } }
+				condition = { type = not value = { type = trait value = heretic } }
+				condition = { type = not value = { type = trait value = excommunicated } }
+				condition = { type = not value = { type = trait value = illness } }
+				condition = { type = not value = { type = trait value = intestinal_worm } }
+				condition = { type = not value = { type = trait value = pneumonia } }
+				condition = { type = not value = { type = trait value = plagueinfested } }
+				condition = { type = not value = { type = trait value = leper } }
+				condition = { type = piety value = 10 }
+				condition = { type = loyalty value = 0.9 }
+			}
+		}
+		condition = {
+			type = any_demesne_province
+			condition = { type = not value = { type = religion value = orthodox } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 960
+
+		modifier = {
+			condition = { type = has_advance value = inquisition }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = atwar}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = ecclesiastical_education }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = gold value = 100 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = gold value = 500 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = gold value = 1000 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = piety value = 100 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = piety value = 50 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = piety value = 100 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = coward }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = energetic }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = lazy }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = reckless }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = indulgent }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = temperate }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = valorous}
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = war_invalid }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = chaplain_csc
+				condition = { type = trait value = wise }
+			}
+			factor = 0.9
+		}
+	}
+
+	action_a = { #You are granted leave to try
+		effect = { type = piety value = 15 }
+		effect = { type = gold value = -10 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = zealous }
+		}
+		effect = { type = trigger for = chaplain value = 9028 }
+	}
+	action_b = { #It would be too dangerous to try at the moment
+		effect = { type = piety value = -10 }
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_trait value = sceptical }
+		}
+		effect = { type = trigger for = chaplain value = 9030 }
+	}
+}
+
+#########################################################
+# Diocese Bishop begins preaching to the heathen masses #
+#########################################################
+
+character_event = { #Your Diocese Bishop begins trying to Convert the Heathen Masses - Catholic
+	id = 9027
+	picture = "event_chaplain"
+
+	#triggered by 9025
+
+	action_a = { #I shall preach the Word of God everywhere I go!
+		effect = { type = piety value = 25 }
+		effect = { type = add_trait value = zealous }
+		effect = { type = remove_trait value = wise }
+		effect = { type = add_trait value = reckless }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = add_trait value = war_invalid } #injured while trying
+		}
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = death } #slain while trying
+			effect = { type = add_trait value = canonized }
+		}
+	}
+	action_b = { #I shall carefully work to convert them
+		effect = { type = piety value = 10 }
+		effect = { type = add_trait value = zealous }
+		effect = { type = remove_trait value = reckless }
+		effect = { type = add_trait value = wise }
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = death }
+			effect = { type = add_trait value = canonized }
+		}
+	}
+}
+
+character_event = { #Your Diocese Bishop begins trying to Convert the Heathen Masses - Orthodox
+	id = 9028
+	picture = "event_chaplain"
+
+	#triggered by 9026
+
+	action_a = { #I shall preach the Word of God everywhere I go!
+		effect = { type = piety value = 20 }
+		effect = { type = add_trait value = zealous }
+		effect = { type = remove_trait value = wise }
+		effect = { type = add_trait value = reckless }
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = death }
+			effect = { type = add_trait value = canonized }
+		}
+	}
+	action_b = { #I shall carefully work to convert them
+		effect = { type = piety value = 5 }
+		effect = { type = add_trait value = zealous }
+		effect = { type = remove_trait value = reckless }
+		effect = { type = add_trait value = wise }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = {
+			type = random
+			chance = 3
+			effect = { type = death }
+			effect = { type = add_trait value = canonized }
+		}
+	}
+}
+
+############################################################
+# Diocese Bishop is refused permission to convert heathens #
+############################################################
+
+character_event = { # Your Diocese Bishop is disappointed by your decision - Catholic
+	id = 9029
+	picture = "event_chaplain"
+
+	#triggered by 9025
+
+	immidiate = { # Perhaps I am not wanted here
+		effect = { type = piety value = 15 } #he gets some for having asked
+		effect = { type = loyalty value = -0.25 }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = loyalty value = -0.5 }
+		}
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = loyalty value = 1.0 }
+			effect = { type = courtier_defect value = random_neighbor }
+			effect = { type = piety value = 25 }
+			effect = { type = add_trait value = zealous }
+			effect = { type = add_trait value = reckless }
+			effect = {
+				type = random
+				chance = 25
+				effect = { type = death } #he tries to do it on his own and fails
+				effect = { type = add_trait value = canonized }
+			}
+		}
+	}
+}
+
+character_event = { # Your Diocese Bishop is disappointed by your decision - Orthodox 
+	id = 9030
+	picture = "event_chaplain"
+
+	#triggered by 9026
+
+	immidiate = { # Perhaps I am not wanted here
+		effect = { type = piety value = 10 } #he gets some for having asked
+		effect = { type = loyalty value = -0.2 }
+		effect = {
+			type = random
+			chance = 20
+			effect = { type = loyalty value = -0.5 }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = loyalty value = 1.0 }
+			effect = { type = courtier_defect value = random_neighbor }
+			effect = { type = piety value = 15 }
+			effect = { type = add_trait value = zealous }
+			effect = { type = add_trait value = reckless }
+			effect = {
+				type = random
+				chance = 15
+				effect = { type = death } #he tries to do it on his own and fails
+			}
+		}
+	}
+}
+
+##########################################################
+# Diocese Bishop is on a mission to convert the heathens #
+##########################################################
+
+province_event = { #Your Diocese Bishop says he is close to converting the heathen masses - Catholic
+	id = 9031
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = not value = { type = religion value = catholic } }
+		condition = { type = not value = { type = religion value = orthodox } }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = {
+			type = owner
+			condition = {
+				type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = zealous }
+					condition = {
+						type = or
+						condition = { type = trait value = wise }
+						condition = { type = trait value = reckless }
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = religion value = pagan }
+			factor = 0.65
+		}
+		modifier = {
+			condition = { type = religion value = orthodox }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = demesne value = TEUT }
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = demesne value = TEMP }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = demesne value = HOSP }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = demesne value = U000 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = demesne value = U001 }
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = has_improvement value = { templar_house = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_improvement value = { monastery = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { roadnet = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { extensive_roadnet = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { clerical_celibacy = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_advance value = { inquisition = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_advance value = { formalized_lithurgy = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_advance value = { jubilee = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { ascetism = yes } }
+			factor = 1.05
+		}
+		modifier = {
+			condition = { type = has_advance value = { apostolic_poverty = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { critical_bible_interpretations = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_advance value = { bible_translations = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { critical_thinking = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_advance value = { relics = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { heretic = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { poor = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { prosperous = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { rich = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 2
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.95
+#		}
+		modifier = {
+			condition = { type = has_law value = { ecclesical_balance = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = not value = { type = clergy_loyalty value = 0.9 } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = not value = { type = clergy_power value = 0.11 } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = not value = { type = clergy_power value = 0.25 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.31 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.65 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.75 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = clergy_power value = 1.0 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = peasant_loyalty value = 0.9 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = peasant_loyalty value = 0.75 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = peasant_loyalty value = 0.5 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = peasant_power value = 0.11 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = peasant_power value = 0.20 } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = peasant_power value = 0.3 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = peasant_power value = 0.4 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = peasant_power value = 0.5 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = peasant_power value = 0.65 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = peasant_power value = 0.75 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = peasant_power value = 1.0 }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = not value = { type = regiment_mobilized } }
+			condition = { type = crusade }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			condition = { type = not value = { type = crusade } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 7 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 9 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 11 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 6 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 4 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = forgiving }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = just}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = kinslayer }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = merciful }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = vengeful}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 100 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 200 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 5000 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = diplomacy value = 8 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = diplomacy value = 11 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = diplomacy value = 14 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = not value = { type = diplomacy value = 6 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = not value = { type = diplomacy value = 4 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = not value = { type = diplomacy value = 2 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = arbitrary }
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = cruel }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = crusader }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = arbitrary }
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = forgiving }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = generous }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = honest }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = indulgent }
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = just}
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = maniac }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = merciful }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = modest }
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = proud }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = selfish }
+				}
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = temperate }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = vengeful}
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = reckless }
+				}
+			}
+			factor = 0.66
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 50 }
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 75 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 100 }
+				}
+			}
+			factor = 0.85
+		}
+	}
+
+	action_a = { # I will give him my full support!
+		effect = { type = ruler_gold scale = -0.35 }
+		effect = { type = ruler_piety value = 25 }
+		effect = {
+			type = random
+			chance = 65
+			effect = { type = religion value = catholic }
+			effect = { type = remove_province_effect value = heretic }
+			effect = { type = ruler_piety value = 50 }
+		}
+		effect = {
+			type = random
+			chance = 20
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_b = { # Good luck!
+		effect = { type = ruler_gold scale = -0.15 }
+		effect = { type = ruler_piety value = 5 }
+		effect = {
+			type = random
+			chance = 35
+			effect = { type = religion value = catholic }
+			effect = { type = remove_province_effect value = heretic }
+			effect = { type = ruler_piety value = 20 }
+		}
+		effect = {
+			type = random
+			chance = 35
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_c = { # If he says so...
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = religion value = catholic }
+			effect = { type = remove_province_effect value = heretic }
+			effect = { type = ruler_piety value = 5 }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+}
+
+
+province_event = { #Your Diocese Bishop says he is close to converting the heathen masses - Orthodox
+	id = 9032
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = not value = { type = religion value = orthodox } }
+		condition = { type = not value = { type = religion value = catholic } }
+		condition = { type = ruler_religion value = orthodox }
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = {
+			type = owner
+			condition = {
+				type = chaplain_csc
+				condition = { type = and
+					condition = { type = trait value = zealous }
+					condition = {
+						type = or
+						condition = { type = trait value = wise }
+						condition = { type = trait value = reckless }
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = religion value = pagan }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = religion value = catholic }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_improvement value = { monastery = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { roadnet = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { extensive_roadnet = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { inquisition = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { formalized_lithurgy = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_advance value = { jubilee = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { ascetism = yes } }
+			factor = 1.05
+		}
+		modifier = {
+			condition = { type = has_advance value = { apostolic_poverty = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { critical_bible_interpretations = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { bible_translations = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { critical_thinking = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_advance value = { relics = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { heretic = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { bubonic_plague = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { pneumonic_plague = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { malaria = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { small_pox = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { typhoid_fever = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { dysentery = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { poor = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { prosperous = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { rich = yes } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 2
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.95
+#		}
+		modifier = {
+			condition = { type = has_law value = { ecclesical_balance = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = not value = { type = clergy_loyalty value = 0.9 } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = not value = { type = clergy_power value = 0.11 } }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = not value = { type = clergy_power value = 0.25 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.31 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.4 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.5 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.65 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.75 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = clergy_power value = 1.0 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = not value = { type = peasant_loyalty value = 0.9 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = peasant_loyalty value = 0.75 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = peasant_loyalty value = 0.5 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = peasant_power value = 0.11 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = peasant_power value = 0.20 } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = peasant_power value = 0.3 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = peasant_power value = 0.4 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = peasant_power value = 0.5 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = peasant_power value = 0.65 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = peasant_power value = 0.75 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = peasant_power value = 1.0 }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 7 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 9 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 11 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 6 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 4 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = arbitrary }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = forgiving }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = just}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = kinslayer }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = trait value = merciful }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = vengeful}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 100 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 200 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 5000 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = diplomacy value = 8 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = diplomacy value = 11 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = diplomacy value = 14 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = not value = { type = diplomacy value = 6 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = not value = { type = diplomacy value = 4 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = not value = { type = diplomacy value = 2 } }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = arbitrary }
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = cruel }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = arbitrary }
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = forgiving }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = generous }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = honest }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = indulgent }
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = just}
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = maniac }
+				}
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = merciful }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = modest }
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = proud }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = selfish }
+				}
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = temperate }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = vengeful}
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = reckless }
+				}
+			}
+			factor = 0.66
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 50 }
+				}
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 75 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 100 }
+				}
+			}
+			factor = 0.85
+		}
+	}
+
+	action_a = { # I will give him my full support!
+		effect = { type = ruler_gold scale = -0.35 }
+		effect = { type = ruler_piety value = 25 }
+		effect = {
+			type = random
+			chance = 60
+			effect = { type = religion value = orthodox }
+			effect = { type = remove_province_effect value = heretic }
+			effect = { type = ruler_piety value = 25 }
+		}
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_b = { # Good luck!
+		effect = { type = ruler_gold scale = -0.15 }
+		effect = { type = ruler_piety value = 10 }
+		effect = {
+			type = random
+			chance = 30
+			effect = { type = religion value = orthodox }
+			effect = { type = remove_province_effect value = heretic }
+			effect = { type = ruler_piety value = 5 }
+		}
+		effect = {
+			type = random
+			chance = 30
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_c = { # If he says so...
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = religion value = orthodox }
+			effect = { type = remove_province_effect value = heretic }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+}
+
+######################################
+# Your Diocese Bishop's Work is Done #
+######################################
+
+character_event = { # The Realm is at one, with Christ - Catholic
+	id = 9033
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = chaplain }
+		condition = { type = trait value = zealous }
+		condition = {
+			type = or
+			condition = { type = trait value = reckless }
+			condition = { type = trait value = wise }
+		}
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = {
+			type = ruler_csc
+			condition = { type = religion value = catholic }
+		}
+		condition = {
+			type = ruler_csc
+			condition = { type = not value = { type = trait value = sceptical } }
+		}
+		condition = {
+			type = ruler_csc
+			condition = { type = not value = { type = trait value = heretic } }
+		}
+		condition = {
+			type = ruler_csc
+			condition = { type = not value = { type = trait value = excommunicated } }
+		}
+		condition = {
+			type = not
+			value = {
+				type = any_demesne_province
+				condition = { type = not value = { type = religion value = catholic } }
+				condition = { type = not value = { type = religion value = orthodox } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	action_a = { # Halleluiah!
+		effect = { type = piety value = 100 }
+		effect = { type = prestige value = 50 }
+		effect = { type = remove_trait value = zealous }
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = just } #Enables possibility of canonization on death
+			effect = { type = piety value = 200 }
+		}
+	}
+}
+
+character_event = { # The Realm is at one, with Christ - Orthodox
+	id = 9034
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = chaplain }
+		condition = { type = trait value = zealous }
+		condition = {
+			type = or
+			condition = { type = trait value = reckless }
+			condition = { type = trait value = wise }
+		}
+		condition = { type = not value = { type = trait value = sceptical } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = {
+			type = ruler_csc
+			condition = { type = religion value = orthodox }
+		}
+		condition = {
+			type = ruler_csc
+			condition = { type = not value = { type = trait value = sceptical } }
+		}
+		condition = {
+			type = ruler_csc
+			condition = { type = not value = { type = trait value = heretic } }
+		}
+		condition = {
+			type = ruler_csc
+			condition = { type = not value = { type = trait value = excommunicated } }
+		}
+		condition = {
+			type = not
+			value = {
+				type = any_demesne_province
+				condition = { type = not value = { type = religion value = orthodox } }
+				condition = { type = not value = { type = religion value = catholic } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	action_a = { # Halleluiah!
+		effect = { type = piety value = 50 }
+		effect = { type = prestige value = 50 }
+		effect = { type = remove_trait value = zealous }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = just } #Enables possibility of canonization on death
+			effect = { type = piety value = 100 }
+		}
+	}
+}
+
+################################################
+# Province religious conversion: non-spreading #
+################################################
+
+# Catholic
+
+province_event = { # The clergy feel that the time is ripe to spread the word of God in this province
+
+	id = 9050
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = not value = { type = religion value = catholic } }
+		condition = { type = ruler_religion value = catholic }
+		condition = { type = or
+			condition = { type = capital value = yes }
+			condition = { type = and
+				condition = { type = clergy_power value = 0.15 }
+				condition = { type = clergy_loyalty value = 0.9 }
+			}
+		}
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = sceptical } }
+	}
+
+	mean_time_to_happen = {
+		months = 4000
+
+		modifier = {
+			condition = { type = capital value = yes }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = crusade }
+			factor = 0.65
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 0 } }
+			factor = 100
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 25 } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 50 } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 150 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 300 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 25 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 50 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = zealous }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = martial_cleric }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = mastermind_theologian }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = detached_priest }
+				}
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = energetic }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = lazy }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { church = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_improvement value = { templar_house = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.26 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.31 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.36 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.41 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.50 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.60 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.70 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.80 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.90 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ai }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = religion value = orthodox }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = religion value = pagan }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = region value = Asia_Minor }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = region value = Balkan }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = region value = Britain }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = region value = Eastern_Europe }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = region value = France }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = region value = Germany }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = region value = Italy }
+			factor = 0.33
+		}
+		modifier = {
+			condition = { type = region value = Middle_East }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = region value = Netherlands }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = region value = North_Africa }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = region value = Russia }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = region value = Scandinavia }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = region value = Spain }
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = or
+					condition = { type = title value = HOSP }
+					condition = { type = title value = TEUT }
+					condition = { type = title value = TEMP }
+				}
+			}
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 1.1
+		}
+	}
+
+	action_a = { # Embrace their cause with all your heart...and purse.
+		ai_chance = 45
+		modifier = {
+			condition = { type = capital value = yes }
+			factor = 1000
+		}
+		effect = { type = ruler_gold scale = -2 }
+		effect = { type = ruler_piety value = 50 }
+		effect = {
+			type = random
+			chance = 75
+			effect = { type = religion value = catholic }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_b = { # Grant them leave to preach to the masses
+		ai_chance = 35
+		effect = { type = clergy_power value = 0.15 }
+		effect = { type = clergy_loyalty value = 0.10 }
+		effect = { type = ruler_piety value = 10 }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = religion value = catholic }
+		}
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_c = { # Instruct them not to incite your public
+		ai_chance = 20
+		effect = { type = clergy_power value = -0.05 }
+		effect = { type = clergy_loyalty value = -0.05 }
+		effect = { type = ruler_piety value = -10 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = religion value = catholic }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+}
+
+# Orthodox
+
+province_event = { # The clergy feel that the time is ripe to spread the word of God in this province
+
+	id = 9051
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = not value = { type = religion value = orthodox } }
+		condition = { type = ruler_religion value = orthodox }
+		condition = { type = or
+			condition = { type = capital value = yes }
+			condition = { type = and
+				condition = { type = clergy_power value = 0.15 }
+				condition = { type = clergy_loyalty value = 0.9 }
+			}
+		}
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = sceptical } }
+	}
+
+	mean_time_to_happen = {
+		months = 5000
+
+		modifier = {
+			condition = { type = capital value = yes }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 0 } }
+			factor = 100
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 25 } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 50 } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 150 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 300 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 25 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 50 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = zealous }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = martial_cleric }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = mastermind_theologian }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = detached_priest }
+				}
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = energetic }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = lazy }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { church = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_improvement value = { templar_house = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.26 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.31 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.36 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.41 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.50 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.60 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.70 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.80 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.90 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ai }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = religion value = catholic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = religion value = pagan }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = region value = Asia_Minor }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = region value = Balkan }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = region value = Britain }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = region value = Eastern_Europe }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = region value = France }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = region value = Germany }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = region value = Italy }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = region value = Middle_East }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = region value = Netherlands }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = region value = North_Africa }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = region value = Russia }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = region value = Scandinavia }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = region value = Spain }
+			factor = 1.75
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 1.1
+		}
+	}
+
+	action_a = { # Embrace their cause with all your heart...and purse.
+		ai_chance = 35
+		modifier = {
+			condition = { type = capital value = yes }
+			factor = 1000
+		}
+		effect = { type = ruler_gold scale = -1 }
+		effect = { type = ruler_piety value = 25 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = religion value = orthodox }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_b = { # Grant them leave to preach to the masses
+		ai_chance = 45
+		effect = { type = clergy_power value = 0.15 }
+		effect = { type = clergy_loyalty value = 0.10 }
+		effect = { type = ruler_piety value = 5 }
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = religion value = orthodox }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_c = { # Warn them not to incite your public
+		ai_chance = 20
+		effect = { type = clergy_power value = -0.05 }
+		effect = { type = clergy_loyalty value = -0.05 }
+		effect = { type = ruler_piety value = -5 }
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = religion value = orthodox }
+		}
+	}
+}
+
+# Moslem
+
+province_event = { # The clergy feel that the time is ripe to spread the word of Allah in this province
+
+	id = 9052
+	picture = "event_muslim"
+
+	trigger = {
+		condition = { type = not value = { type = religion value = moslem } }
+		condition = { type = ruler_religion value = moslem }
+		condition = { type = or
+			condition = { type = capital value = yes }
+			condition = { type = and
+				condition = { type = clergy_power value = 0.15 }
+				condition = { type = clergy_loyalty value = 0.9 }
+			}
+		}
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = sceptical } }
+	}
+
+	mean_time_to_happen = {
+		months = 5000
+
+		modifier = {
+			condition = { type = capital value = yes }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 0 } }
+			factor = 100
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 25 } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 50 } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 150 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 300 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 25 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 50 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = zealous }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = martial_cleric }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = mastermind_theologian }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = detached_priest }
+				}
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = energetic }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = lazy }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { church = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_improvement value = { templar_house = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.26 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.31 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.36 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.41 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.50 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.60 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.70 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.80 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.90 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = religion value = catholic }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = religion value = pagan }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = region value = Asia_Minor }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = region value = Balkan }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = region value = Britain }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = region value = Eastern_Europe }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = region value = France }
+			factor = 1.75
+		}
+		modifier = {
+			condition = { type = region value = Germany }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = region value = Italy }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = region value = Middle_East }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = region value = Netherlands }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = region value = North_Africa }
+			factor = 0.65
+		}
+		modifier = {
+			condition = { type = region value = Russia }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = region value = Scandinavia }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = region value = Spain }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 1.1
+		}
+	}
+
+	action_a = { # Embrace their cause with all your heart...and purse.
+		ai_chance = 30
+		modifier = {
+			condition = { type = capital value = yes }
+			factor = 1000
+		}
+
+		effect = { type = ruler_gold scale = -1 }
+		effect = { type = ruler_piety value = 50 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = religion value = moslem }
+		}
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_b = { # Grant them leave to preach to the masses
+		ai_chance = 45
+		effect = { type = clergy_power value = 0.15 }
+		effect = { type = clergy_loyalty value = 0.10 }
+		effect = { type = ruler_piety value = 5 }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = religion value = moslem }
+		}
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_c = { # Warn them not to incite your public
+		ai_chance = 25
+		effect = { type = clergy_power value = -0.05 }
+		effect = { type = clergy_loyalty value = -0.05 }
+		effect = { type = ruler_piety value = -5 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = religion value = moslem }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+}
+
+# Pagan
+
+province_event = { # The druids feel that the time is ripe to bring the citizens of this province back in tune with the old Gods
+
+	id = 9053
+	picture = "event_pagan"
+
+	trigger = {
+		condition = { type = not value = { type = religion value = pagan } }
+		condition = { type = ruler_religion value = pagan }
+		condition = { type = or
+			condition = { type = capital value = yes }
+			condition = { type = and
+				condition = { type = clergy_power value = 0.15 }
+				condition = { type = clergy_loyalty value = 0.9 }
+			}
+		}
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = sceptical } }
+	}
+
+	mean_time_to_happen = {
+		months = 8000
+
+		modifier = {
+			condition = { type = capital value = yes }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = zealous }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = martial_cleric }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = mastermind_theologian }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = detached_priest }
+				}
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = energetic }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = lazy }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { church = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_improvement value = { templar_house = yes } }
+			factor = 5
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.26 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.31 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.36 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.41 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.50 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.60 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.70 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.80 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.90 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = religion value = catholic }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = religion value = orthodox }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = region value = Asia_Minor }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = region value = Balkan }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = region value = Britain }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = region value = Eastern_Europe }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = region value = France }
+			factor = 1.75
+		}
+		modifier = {
+			condition = { type = region value = Germany }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = region value = Italy }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = region value = Middle_East }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = region value = Netherlands }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = region value = North_Africa }
+			factor = 1.75
+		}
+		modifier = {
+			condition = { type = region value = Russia }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = region value = Scandinavia }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = region value = Spain }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 1.1
+		}
+	}
+
+	action_a = { # Embrace their cause with all your heart...and purse.
+		ai_chance = 30
+		modifier = {
+			condition = { type = capital value = yes }
+			factor = 1000
+		}
+
+		effect = { type = ruler_gold scale = -0.25 }
+		effect = {
+			type = random
+			chance = 35
+			effect = { type = religion value = pagan }
+		}
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_b = { # Grant them leave to preach to the masses
+		ai_chance = 45
+		effect = { type = clergy_power value = 0.15 }
+		effect = { type = clergy_loyalty value = 0.10 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = religion value = pagan }
+		}
+		effect = {
+			type = random
+			chance = 2
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_c = { # Warn them not to incite your public
+		ai_chance = 25
+		effect = { type = clergy_power value = -0.05 }
+		effect = { type = clergy_loyalty value = -0.05 }
+		effect = {
+			type = random
+			chance = 5
+			effect = { type = religion value = pagan }
+		}
+	}
+}
+######################
+# Jewish conversions #
+######################
+
+# Non-spreading
+
+province_event = { # The clergy feel that the time is ripe to spread the word of the Lord in this province
+
+	id = 9054
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = not value = { type = religion value = jewish } }
+		condition = { type = ruler_religion value = jewish }
+		condition = { type = clergy_power value = 0.15 }
+		condition = { type = clergy_loyalty value = 0.9 }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = sceptical } }
+	}
+
+	mean_time_to_happen = {
+		months = 6000
+
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 0 } }
+			factor = 100
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 25 } }
+			factor = 10
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_piety value = 50 } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 150 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 300 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 25 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = piety value = 50 }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = detached_priest }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = trait value = scholarly_theologian }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = mastermind_theologian }
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = zealous }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = martial_cleric }
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = mastermind_theologian }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = detached_priest }
+				}
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = energetic }
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = owner
+				condition = {
+					type = chaplain_csc
+					condition = { type = trait value = lazy }
+				}
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { church = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { domed_church = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { cathedral = yes } }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = has_improvement value = { templar_house = yes } }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.26 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.31 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.36 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.41 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.50 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.60 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.70 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.80 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = clergy_power value = 0.90 }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = region value = Asia_Minor }
+			factor = 0.75
+		}
+	}
+
+	action_a = { # Embrace their cause with all your heart...and purse.
+		ai_chance = 45
+		effect = { type = ruler_gold scale = -1 }
+		effect = { type = ruler_piety value = 50 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = religion value = jewish }
+		}
+		effect = {
+			type = random
+			chance = 15
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_b = { # Grant them leave to preach to the masses
+		ai_chance = 35
+		effect = { type = clergy_power value = 0.15 }
+		effect = { type = clergy_loyalty value = 0.10 }
+		effect = { type = ruler_piety value = 5 }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = religion value = jewish }
+		}
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+	action_c = { # Instruct them not to incite your public
+		ai_chance = 20
+		effect = { type = clergy_power value = -0.05 }
+		effect = { type = clergy_loyalty value = -0.05 }
+		effect = { type = ruler_piety value = -5 }
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = religion value = jewish }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+}
+
+# Jewish Spreading
+
+province_x_province_event = {
+	id = 9055
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = to condition = { type = not value = { type = religion value = jewish } } }
+		condition = { type = to condition = { type = ruler_religion value = jewish } }
+		condition = { type = from condition = { type = religion value = jewish } }
+		condition = { type = from condition = { type = ruler_religion value = jewish } }
+	}
+
+	mean_time_to_happen = {
+		months = 4000
+
+		modifier = {
+			condition = { type = to condition = { type = religion value = pagan } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_province_effect value = { heretic = yes } } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = same_culture } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = zealous } }
+			factor = 0.4
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = detached_priest } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = martial_cleric } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = scholarly_theologian } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = mastermind_theologian } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = merciful } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = just } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = energetic } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = chaste } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = sceptical } }
+			factor = 1.6
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = cruel } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = arbitrary } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = trait value = lazy } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { inquisition  = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { extravagant_decoration = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { vernacular_literature = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { bible_translations = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_advance value = { critical_thinking = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { university = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { thieves_guild = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { smugglers_ring = yes } } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { highway_robber_band = yes } } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { civilian_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { naval_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { grand_shipyard = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = from condition = { type = has_improvement value = { extensive_roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { civilian_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { naval_harbour = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { grand_shipyard = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { extensive_roadnet = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { school = yes } } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { church = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { large_church = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { domed_church = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  cathedral = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  monastery = yes } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = {  templar_house = yes } } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = to condition = { type = has_improvement value = { grand_palace = yes } } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = to condition = { type = capital value = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 7 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 9 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = ruler_stewardship value = 11 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.35 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.45 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = {  type = clergy_power value = 0.55 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.25 } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.15 } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = clergy_power value = 0.05 } } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = {  type = peasant_power value = 0.55 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = {  type = burgher_power value = 0.45 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = {  type = burgher_power value = 0.55 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = peasant_power value = 0.05 } } }
+			factor = 0.9
+               		 }
+		modifier = {
+			condition = { type = to condition = { type = not value = { type = burgher_power value = 0.05 } } }
+			factor = 0.9
+               		 }
+	}
+
+	action_a = {
+		effect = { type = to effect = { type = religion value = jewish } }
+		effect = { type = to effect = { type = ruler_piety value = 100 } }
+		effect = { type = to effect = { type = remove_province_effect value = heretic } } #in case it is
+		effect = { type = to effect = { type = remove_improvement value = templar_house } }
+		effect = { type = to effect = { type = remove_improvement value = monastery } }
+		effect = { type = to effect = { type = remove_improvement value = church } }
+		effect = { type = to effect = { type = remove_improvement value = large_church } }
+		effect = { type = to effect = { type = remove_improvement value = domed_church } }
+		effect = { type = to effect = { type = remove_improvement value = cathedral } }
+	}
+
+}

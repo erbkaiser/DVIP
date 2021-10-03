@@ -1,0 +1,5481 @@
+########################
+# War event: 7000-7099 #
+#                      #
+#    Thomas Corriol    #
+########################
+
+# Character killed
+# Character wounded
+# Recovery / Illness from wound
+
+# Martial attribute increase
+# War discoveries
+# Bonus troops for pious character (unscaled)
+
+# Pillages
+# Famine
+
+# Negociate peace
+
+# Peace of God
+# Truce of God
+
+# Bonus troops for prestigious character (scaled)
+# Character ransomed (scaled)
+
+# Display of Courage/Skill/etc. on the battlefield
+# Display of Cowardice/Ineptness/etc. on the battlefield
+
+# Desertion events for coward character or player
+
+# Law related events
+
+###
+
+#Events already coded by Paradox
+
+#Papal_Events.txt:
+#id = 1182 Papal Blessing in conflict
+
+#Lordship_Events.txt:
+#id = 1103 A claim-holder of the enemy joins your court
+#id = 1104 Enemy mercenaries defect to you (w/ id = 1962 Mercenaries defect!)
+#id = 1105 The heathens are splintered - A white peace is possible
+#id = 1109 Infiltrate and destroy enemy regiment (w/ id = 1965 Enemy operatives destroy our regiment!)
+#id = 1110 Fund traitors in enemy castle
+
+#Templar_Events.txt:
+#id = 900 Troops from the Templars
+#id = 901 Troops from the Hospitalers
+#id = 902 Troops from the Teutonic Order
+
+# a couple more events by CS added March 30/05
+# some major revisions done May 2005 by CS
+
+##############################
+# Character killed in combat #
+##############################
+
+character_event = {
+	id = 7000
+
+	picture = "event_death"
+
+	trigger = {
+		condition = { type = combat }
+	}
+
+	mean_time_to_happen = {
+		days = 600
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = not value = { type = martial value =  5 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = martial value =  5 }
+#			condition = { type = not value = { type = martial value = 10 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 2
+		}
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.3
+		}
+
+		# Background trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 3
+		}
+
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 2
+		}
+
+		# Allready wounded:
+
+		modifier = {
+			condition = { type = trait value = war_invalid }
+			factor = 0.3
+		}
+
+		# Game modifiers:
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {
+		effect = { type = death }
+		effect = { type = random chance = 50
+				effect = { type = stability value = -1 } }
+	}
+
+}
+
+###############################
+# Character wounded in combat #
+###############################
+
+character_event = {
+	id = 7001
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = combat }
+	}
+
+	mean_time_to_happen = {
+		days = 150
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = not value = { type = martial value =  5 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = martial value =  5 }
+#			condition = { type = not value = { type = martial value = 10 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 2
+		}
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.3
+		}
+
+		# Background trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 3
+		}
+
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 2
+		}
+
+		# Game modifiers:
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.9
+		}
+
+	}
+
+	immidiate = {
+		effect = { type = add_trait value = war_invalid }
+		effect = { type = health value = -2 }
+	}
+
+}
+
+################################
+# Recovery from a combat wound #
+################################
+
+character_event = {
+	id = 7002
+
+	picture = "event_recovery"
+
+	trigger = {
+		condition = { type = not
+				value = { type = command }
+			}
+		condition = { type = trait value = war_invalid }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		# Age modifiers:
+
+		modifier = {
+			condition = { type = age value =  25 }
+			condition = { type = not value = { type = age value = 40 } }
+			factor = 1.33
+		}
+		modifier = {
+			condition = { type = age value =  40 }
+			condition = { type = not value = { type = age value = 60 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 2.5
+		}
+
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = health
+					value = 5
+				}
+			}
+			factor = 2.0
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = health
+					value = 3
+				}
+			}
+			factor = 20.0
+		}
+	}
+
+	immidiate = {
+		effect = { type = remove_trait value = war_invalid }
+	}
+
+}
+
+###############################
+# Illness from a combat wound #
+###############################
+
+character_event = {
+	id = 7003
+
+	picture = "event_sickness"
+
+	trigger = {
+		condition = { type = trait value = war_invalid }
+		condition = { type = not value = { type = trait value = illness } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = intestinal_worm } }
+		condition = { type = not value = { type = trait value = leper } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		# Age modifiers:
+
+		modifier = {
+			condition = { type = age value =  25 }
+			condition = { type = not value = { type = age value = 40 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = age value =  40 }
+			condition = { type = not value = { type = age value = 60 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = age value = 60 }
+			factor = 0.2
+		}
+
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = health
+					value = 5
+				}
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = health
+					value = 3
+				}
+			}
+			factor = 0.05
+		}
+		# Still in command:
+
+		modifier = {
+			condition = { type = command }
+			factor = 0.3
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_trait value = illness }
+	}
+}
+
+
+####################
+# Various bonuses: #
+####################
+
+################################
+# Gain Experience in the field #
+################################
+
+character_event = {
+	id = 7004
+
+	picture = "event_marshal"
+
+	trigger = {
+		condition = { type = combat }
+		condition = { type = not value = { type = martial value = 20 } }
+	}
+
+	mean_time_to_happen = {
+		days = 600
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  5 }
+			condition = { type = not value = { type = martial value = 10 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 5
+		}
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.5
+		}
+
+	}
+
+	immidiate = {
+		effect = { type = martial value = 1 }
+	}
+
+}
+
+###################
+# War discoveries #
+###################
+
+character_event = {
+	id = 7005
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = shortbow }
+	}
+
+}
+
+character_event = {
+	id = 7006
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = slinged_javelin}
+	}
+
+}
+
+character_event = {
+	id = 7007
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = soft_leather }
+	}
+
+}
+
+character_event = {
+	id = 7008
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = has_advance value = ironworks }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = chained_leather}
+	}
+
+}
+
+character_event = {
+	id = 7009
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = has_advance value = cast_iron }
+		condition = { type = has_advance value = black_coal }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = quilted_coat}
+	}
+
+}
+
+character_event = {
+	id = 7010
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = has_advance value = ironworks }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = handaxe }
+	}
+
+}
+
+character_event = {
+	id = 7011
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = has_advance value = cast_iron }
+		condition = { type = has_advance value = black_coal }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = shortsword }
+	}
+
+}
+
+character_event = {
+	id = 7012
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = has_advance value = heraldry }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = longspear }
+	}
+
+}
+
+character_event = {
+	id = 7013
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = battering_ram }
+	}
+
+}
+
+character_event = {
+	id = 7014
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = has_advance value = siege_towers }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = hill_fort }
+	}
+
+}
+
+character_event = {
+	id = 7015
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = has_advance value = longbow }
+		condition = { type = has_advance value = light_crossbow }
+		condition = { type = has_advance value = pike }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		# Martial value modifiers:
+
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = defensive_terrain }
+	}
+
+}
+
+character_event = {
+	id = 7016
+
+	picture = "event_techspread"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = has_advance value = longsword }
+		condition = { type = has_advance value = lance }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 0.5
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_next_advance value = offensive_terrain }
+	}
+
+}
+
+#############################
+# Show Heroism in the field #
+#############################
+
+character_event = {
+	id = 7017
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = combat }
+	}
+
+	mean_time_to_happen = {
+		days = 150
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = martial value =  5 }
+			condition = { type = not value = { type = martial value = 10 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 5
+		}
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 2
+		}
+
+	}
+
+	immidiate = {
+		effect = { type = prestige value = 10 }
+	}
+
+}
+
+########################################
+# Bonus troop for very pious character #
+########################################
+
+# Unscaled: This should provide a good bonus for pious count and a slight bonus for king.
+
+#############################
+# Troops from the Templars  #
+#############################
+
+character_event = {
+	id = 7018
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = piety value =  100 }
+		condition = { type = atwar }
+		condition = { type = exists value = TEMP }
+		condition = { type = religion value = catholic }
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = critical_bible_interpretations
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = critical_thinking
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = trait
+				value = heretic
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = trait
+				value = excommunicated
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		# Piety value modifiers:
+
+		modifier = {
+			condition = { type = piety value =  250 }
+			condition = { type = not value = { type = piety value = 500  } }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = piety value =  500  }
+			condition = { type = not value = { type = piety value = 1000  } }
+			factor = 0.33
+		}
+
+		modifier = {
+			condition = { type = piety value =  1000  }
+			factor = 0.25
+		}
+
+		# Crusader modifiers:
+
+		modifier = {
+			condition = { type = region value = middle_east }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.5
+		}
+
+		# Personal traits modifiers:
+
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 3
+		}
+
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 2
+		}
+
+		# Other religious modifiers:
+
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.6
+		}
+
+		modifier = {
+			condition = { type = enemy_same_religion }
+			factor = 1.5
+		}
+
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.7
+#		}
+
+	}
+
+	action_a = {#We welcome the fighting Orders !
+		effect = { 	type = add_regiment
+				culture = templar_knight
+				strength = {
+					heavy_cav = 100
+					light_cav = 300
+					heavy_inf = 100
+				}
+		 }
+		effect = { type = random
+				chance = 25
+				effect = { type = mercenaries_defect }
+		}
+	}
+
+	action_b = {#The glory is ours!
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = proud
+				}
+			}
+	}
+}
+
+###############################
+# Troops from the Hospitalers #
+###############################
+
+character_event = {
+	id = 7019
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = piety value =  100 }
+		condition = { type = atwar }
+		condition = { type = exists value = HOSP }
+		condition = { type = religion value = catholic }
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = critical_bible_interpretations
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = critical_thinking
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = trait
+				value = heretic
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = trait
+				value = excommunicated
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		# Piety value modifiers:
+
+		modifier = {
+			condition = { type = piety value =  250 }
+			condition = { type = not value = { type = piety value = 500  } }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = piety value =  500  }
+			condition = { type = not value = { type = piety value = 1000  } }
+			factor = 0.33
+		}
+
+		modifier = {
+			condition = { type = piety value =  1000  }
+			factor = 0.25
+		}
+
+		# Crusader modifiers:
+
+		modifier = {
+			condition = { type = region value = middle_east }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.5
+		}
+
+		# Personal traits modifiers:
+
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 3
+		}
+
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 2
+		}
+
+		# Other religious modifiers:
+
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.6
+		}
+
+		modifier = {
+			condition = { type = enemy_same_religion }
+			factor = 1.5
+		}
+
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.7
+#		}
+
+	}
+
+	action_a = {#We welcome the fighting Orders !
+		effect = { 	type = add_regiment
+				culture = hospitaler_knights
+				strength = {
+					heavy_cav = 100
+					light_cav = 150
+					heavy_inf = 150
+					archers = 100
+				}
+		 }
+		effect = { type = random
+				chance = 25
+				effect = { type = mercenaries_defect }
+		}
+	}
+
+	action_b = {#The glory is ours!
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = proud
+				}
+			}
+	}
+
+}
+
+#################################
+# Troops from the Teutonic Order#
+#################################
+
+character_event = {
+	id = 7020
+
+	picture = "event_templars"
+
+	trigger = {
+		condition = { type = piety value =  100 }
+		condition = { type = atwar }
+		condition = { type = exists value = TEUT }
+		condition = { type = religion value = catholic }
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = critical_bible_interpretations
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = has_advance
+				value = critical_thinking
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = trait
+				value = heretic
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = trait
+				value = excommunicated
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		# Piety value modifiers:
+
+		modifier = {
+			condition = { type = piety value =  250 }
+			condition = { type = not value = { type = piety value = 500  } }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = piety value =  500  }
+			condition = { type = not value = { type = piety value = 1000  } }
+			factor = 0.33
+		}
+
+		modifier = {
+			condition = { type = piety value =  1000  }
+			factor = 0.25
+		}
+
+		# Crusader modifiers:
+
+		modifier = {
+			condition = { type = region value = eastern_europe }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.5
+		}
+
+		# Personal traits modifiers:
+
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.7
+		}
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 3
+		}
+
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 2
+		}
+
+		# Other religious modifiers:
+
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 0.6
+		}
+
+		modifier = {
+			condition = { type = enemy_same_religion }
+			factor = 1.5
+		}
+
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.7
+#		}
+
+	}
+
+	action_a = {#We welcome the fighting Orders !
+		effect = { 	type = add_regiment
+				culture = teutonic_order
+				strength = {
+					heavy_cav = 100
+					heavy_inf = 300
+					militia = 100
+				}
+		 }
+		effect = { type = random
+				chance = 25
+				effect = { type = mercenaries_defect }
+		}
+	}
+
+	action_b = {#The glory is ours!
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = proud
+				}
+			}
+	}
+
+}
+
+##########################
+# Various pillage events #
+##########################
+
+##################
+# In your domain #
+##################
+
+province_event = {
+	id = 7021
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = is_besieged }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 5 } }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  10 }
+			condition = { type = not value = { type = ruler_stewardship value = 15 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  15 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = any_enemy
+					condition = { type = not value = { type = ai } }
+				}
+			}
+			factor = 3 #gives player a chance to decide...although his troops may still occasionally take it upon themselves to do so anyway
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_province_effect value = looted }
+	}
+
+}
+
+province_event = {
+	id = 7022
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = is_besieged }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 5 } }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  10 }
+			condition = { type = not value = { type = ruler_stewardship value = 15 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  15 }
+			factor = 2
+		}
+	}
+
+	immidiate = {
+		effect = { type = add_province_effect value = revolt }
+	}
+
+}
+
+character_event = {
+	id = 7023
+
+	picture = "event_battle"
+
+	#triggered by 7024 or 7025
+
+	immidiate = {
+		effect = { type = remove_improvement }
+	}
+
+}
+
+
+########################
+# In the enemy domain #
+########################
+
+#################
+# Same religion #
+#################
+
+character_event = {
+	id = 7024
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = siege }
+		condition = { type = enemy_same_religion }
+		condition = { type = location
+			condition = { type = owner 
+				condition = { type = atwar }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		# Personal traits modifiers:
+
+		modifier = {
+			condition = { type = trait value = merciful }
+			factor = 5
+		}
+
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = forgiving }
+			factor = 3
+		}
+
+		modifier = {
+			condition = { type = trait value = vengeful }
+			factor = 0.7
+		}
+
+		# Other modifiers:
+
+		modifier = {
+			condition = { type = enemy_has_mercenaries }
+			factor = 0.7
+		}
+
+	}
+
+	action_a = {#Let's burn his province !
+		effect = { type = trigger for = load_target value = 7023 }
+		effect = { type = prestige value = -10 }
+		effect = { type = piety value = -25 }
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = cruel
+				}
+		}
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = vengeful
+				}
+		}
+	}
+
+	action_b = {#We are no vickings !
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = merciful
+				}
+		}
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = forgiving
+				}
+		}
+	}
+
+}
+
+######################
+# Different religion #
+######################
+
+character_event = {
+	id = 7025
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = siege }
+		condition = {
+			type = not
+			value = {
+				type = enemy_same_religion
+			}
+		}
+		condition = { type = location
+			condition = { type = owner 
+				condition = { type = atwar }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		# Personal traits modifiers:
+
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.3
+		}
+
+		modifier = {
+			condition = { type = trait value = merciful }
+			factor = 5
+		}
+
+		modifier = {
+			condition = { type = trait value = cruel }
+			factor = 0.5
+		}
+
+		# Other modifiers:
+
+		modifier = {
+			condition = { type = enemy_has_mercenaries }
+			factor = 0.7
+		}
+
+	}
+
+	action_a = {#Let's burn his province !
+		effect = { type = trigger for = load_target value = 7023 }
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = cruel
+				}
+		}
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = zealous
+				}
+		}
+	}
+
+	action_b = {#We are no vickings !
+		effect = { type = random
+				chance = 50
+				effect = {
+					type = add_trait
+					value = merciful
+				}
+		}
+	}
+}
+
+#####################################################
+# Economy is struggling while Regiment is mobilized #
+#####################################################
+
+province_event = {
+	id = 7026
+
+	picture = "event_agriculture"
+
+	trigger = {
+		condition = {
+		    type = regiment_mobilized
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = ruler_stewardship value =  2 }
+#			condition = { type = not value = { type = ruler_stewardship value = 5 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  5 }
+			condition = { type = not value = { type = ruler_stewardship value = 8 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  8 }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { hill_fort = yes } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { small_castle = yes } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { medium_castle = yes } }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { large_castle = yes } }
+			factor = 1.25
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { huge_castle = yes } }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { chickens = yes } }
+			factor = 1.1
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { goats = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { pigs = yes } }
+			factor = 1.05
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { sheep = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { cows = yes } }
+			factor = 1.3
+		}
+	}
+
+	action_a = {#Times are harsh !
+		effect = { type = prosperity value = -2 }
+		effect = { type = ruler_prestige value = -10 }
+		effect = { type = ruler_piety value = -25 }
+		effect = { type = peasant_loyalty value = -0.10 }
+	}
+
+	action_b = {#Try to alleviate the famine !
+		effect = { type = ruler_gold scale = -0.1 }
+		effect = { type = ruler_piety value = 10 }
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = prosperity value = -1 }
+		}
+	}
+
+}
+
+province_event = {
+	id = 7027
+
+	picture = "event_agriculture"
+
+	trigger = {
+		condition = {
+		    type = regiment_mobilized
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = ruler_stewardship value =  2 }
+#			condition = { type = not value = { type = ruler_stewardship value = 5 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  5 }
+			condition = { type = not value = { type = ruler_stewardship value = 8 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  8 }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { hill_fort = yes } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { small_castle = yes } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { medium_castle = yes } }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { large_castle = yes } }
+			factor = 1.25
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { huge_castle = yes } }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { chickens = yes } }
+			factor = 1.1
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { goats = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { pigs = yes } }
+			factor = 1.05
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { sheep = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { cows = yes } }
+			factor = 1.3
+		}
+	}
+
+	action_a = {#Times are harsh !
+		effect = { type = prosperity value = -4 }
+		effect = { type = remove_advance value = cows }
+		effect = { type = ruler_prestige value = -20 }
+		effect = { type = ruler_piety value = -40 }
+		effect = { type = peasant_loyalty value = -0.25 }
+		effect = { type = burgher_loyalty value = -0.10 }
+	}
+
+	action_b = {#Try to alleviate the famine !
+		effect = { type = prosperity value = -1 }
+		effect = { type = ruler_gold scale = -0.25 }
+		effect = { type = ruler_piety value = 15 }
+	}
+}
+
+province_event = {
+	id = 7028
+
+	picture = "event_plague"
+
+	trigger = {
+		condition = {
+		    type = regiment_mobilized
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = ruler_stewardship value =  2 }
+#			condition = { type = not value = { type = ruler_stewardship value = 5 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  5 }
+			condition = { type = not value = { type = ruler_stewardship value = 8 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  8 }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { hill_fort = yes } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { small_castle = yes } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { medium_castle = yes } }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { large_castle = yes } }
+			factor = 1.25
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { huge_castle = yes } }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { chickens = yes } }
+			factor = 1.1
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { goats = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { pigs = yes } }
+			factor = 1.05
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { sheep = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { cows = yes } }
+			factor = 1.3
+		}
+	}
+
+	action_a = {#Times are harsh !
+		effect = { type = prosperity value = -1 }
+		effect = { type = remove_advance value = cows }
+		effect = { type = remove_advance value = sheep }
+		effect = { type = ruler_prestige value = -30 }
+		effect = { type = ruler_piety value = -60 }
+		effect = { type = peasant_loyalty value = -0.33 }
+		effect = { type = burgher_loyalty value = -0.25 }
+		effect = { type = clergy_loyalty value = -0.10 }
+	}
+
+	action_b = {#Try to alleviate the famine !
+		effect = { type = ruler_gold scale = -0.33 }
+		effect = { type = ruler_piety value = 20 }
+	}
+}
+
+province_event = {
+	id = 7029
+
+	picture = "event_plague"
+
+	trigger = {
+		condition = {
+		    type = regiment_mobilized
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1500
+
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = ruler_stewardship value =  2 }
+#			condition = { type = not value = { type = ruler_stewardship value = 5 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  5 }
+			condition = { type = not value = { type = ruler_stewardship value = 8 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  8 }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { hill_fort = yes } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { small_castle = yes } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { medium_castle = yes } }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { large_castle = yes } }
+			factor = 1.25
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { huge_castle = yes } }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { chickens = yes } }
+			factor = 1.1
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { goats = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { pigs = yes } }
+			factor = 1.05
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { sheep = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { cows = yes } }
+			factor = 1.3
+		}
+	}
+
+	action_a = {#Times are harsh !
+		effect = { type = prosperity value = -2 }
+		effect = { type = remove_advance value = cows }
+		effect = { type = remove_advance value = sheep }
+		effect = { type = remove_advance value = pigs }
+		effect = { type = ruler_prestige value = -40 }
+		effect = { type = ruler_piety value = -80 }
+		effect = { type = peasant_loyalty value = -0.50 }
+		effect = { type = burgher_loyalty value = -0.33 }
+		effect = { type = clergy_loyalty value = -0.25 }
+		effect = { type = noble_loyalty value = -0.10 }
+	}
+
+	action_b = {#Try to alleviate the famine !
+		effect = { type = ruler_gold scale = -0.5 }
+		effect = { type = ruler_piety value = 25 }
+	}
+}
+
+province_event = {
+	id = 7030
+
+	picture = "event_plague"
+
+	trigger = {
+		condition = {
+		    type = regiment_mobilized
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1800
+
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = ruler_stewardship value =  2 }
+#			condition = { type = not value = { type = ruler_stewardship value = 5 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  5 }
+			condition = { type = not value = { type = ruler_stewardship value = 8 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  8 }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { hill_fort = yes } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { small_castle = yes } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { medium_castle = yes } }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { large_castle = yes } }
+			factor = 1.25
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { huge_castle = yes } }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { chickens = yes } }
+			factor = 1.1
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { goats = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { pigs = yes } }
+			factor = 1.05
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { sheep = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { cows = yes } }
+			factor = 1.3
+		}
+	}
+
+	action_a = {#Times are harsh !
+		effect = { type = prosperity value = -3 }
+		effect = { type = remove_advance value = cows }
+		effect = { type = remove_advance value = sheep }
+		effect = { type = remove_advance value = pigs }
+		effect = { type = remove_advance value = goats }
+		effect = { type = ruler_prestige value = -50 }
+		effect = { type = ruler_piety value = -100 }
+		effect = { type = peasant_loyalty value = -0.75 }
+		effect = { type = burgher_loyalty value = -0.50 }
+		effect = { type = clergy_loyalty value = -0.33 }
+		effect = { type = noble_loyalty value = -0.25 }
+	}
+
+	action_b = {#Try to alleviate the famine !
+		effect = { type = ruler_gold scale = -0.66 }
+		effect = { type = ruler_piety value = 30 }
+	}
+}
+
+province_event = {
+	id = 7031
+
+	picture = "event_plague"
+
+	trigger = {
+		condition = {
+		    type = regiment_mobilized
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2100
+
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = ruler_stewardship value =  2 }
+#			condition = { type = not value = { type = ruler_stewardship value = 5 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  5 }
+			condition = { type = not value = { type = ruler_stewardship value = 8 } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = ruler_stewardship value =  8 }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { hill_fort = yes } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { small_castle = yes } }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { medium_castle = yes } }
+			factor = 1.33
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { large_castle = yes } }
+			factor = 1.25
+		}
+
+		modifier = {
+			condition = { type = has_improvement value = { huge_castle = yes } }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { chickens = yes } }
+			factor = 1.1
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { goats = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { pigs = yes } }
+			factor = 1.05
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { sheep = yes } }
+			factor = 1.15
+		}
+
+		modifier = {
+			condition = { type = has_advance value = { cows = yes } }
+			factor = 1.3
+		}
+	}
+
+	action_a = {#Times are harsh !
+		effect = { type = prosperity value = -4 }
+		effect = { type = remove_advance value = cows }
+		effect = { type = remove_advance value = sheep }
+		effect = { type = remove_advance value = pigs }
+		effect = { type = remove_advance value = goats }
+		effect = { type = remove_advance value = chickens }
+		effect = { type = ruler_prestige value = -75 }
+		effect = { type = ruler_piety value = -150 }
+		effect = { type = peasant_loyalty value = -1.00 }
+		effect = { type = burgher_loyalty value = -0.75 }
+		effect = { type = clergy_loyalty value = -0.50 }
+		effect = { type = noble_loyalty value = -0.33 }
+		effect = { type = add_province_effect value = revolt }
+	}
+
+	action_b = {#Try to alleviate the famine !
+		effect = { type = ruler_gold scale = -0.75 }
+		effect = { type = ruler_piety value = 50 }
+	}
+
+}
+
+##################################################
+# Diplomatic success: A white peace is possible  #
+##################################################
+
+character_event = {
+	id = 7032
+	picture = "event_chancellor"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = not value = { type = ai } }
+		condition = { type = enemy_same_religion }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = not value = { type = diplomacy value = 5 } }
+			factor = 1.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#		modifier = {
+#			condition = { type = diplomacy value =  5 }
+#			condition = { type = not value = { type = diplomacy value = 10 } }
+#			factor = 0.7
+#		}
+
+		modifier = {
+			condition = { type = diplomacy value =  10 }
+			condition = { type = not value = { type = diplomacy value = 15 } }
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = { type = diplomacy value =  15 }
+			factor = 0.5
+		}
+
+		# Personal traits modifiers:
+
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = naive_wirepuller }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = trait value = flamboyant_schemer }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = trait value = intricate_webweaver }
+			factor = 0.75
+		}
+
+		modifier = {
+			condition = { type = trait value = illusive_shadow }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = amateurish_pettifogger }
+			factor = 3
+		}
+
+		modifier = {
+			condition = { type = trait value = proven_dealbreaker }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = charismatic_negociator }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = grey_eminence }
+			factor = 0.33
+		}
+
+	}
+
+	action_a = {#No thanks!
+	}
+
+	action_b = {#Yes thank you!
+		effect = { type = peace }
+		effect = {
+			type = random
+			chance = 25
+			effect = {
+				type = add_trait
+				value = energetic
+				}
+			}
+		effect = {
+			type = random
+			chance = 10
+			effect = {
+				type = add_trait
+				value = wise
+				}
+			}
+	}
+}
+
+#################
+# Peace of God  #
+#################
+
+character_event = {
+	id = 7033
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = religion value = catholic }
+		condition = { type = enemy_same_religion }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			condition = { type = crusade }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.5
+		}
+	}
+
+	action_a = {#Enforce it!
+		ai_chance = 50
+			modifier = {
+				condition = { type = or
+					condition = { type = title value = PAPA }
+					condition = { type = title value = TEMP }
+					condition = { type = title value = HOSP }
+					condition = { type = title value = TEUT }
+				}
+				factor = 100
+			}
+		effect = { type = trigger value = 7034 }
+		effect = { type = trigger for = random_enemy value = 7034 }
+	}
+
+	action_b = {#Ignore it !
+		ai_chance = 50
+			modifier = {
+				condition = { type = or
+					condition = { type = title value = PAPA }
+					condition = { type = title value = TEMP }
+					condition = { type = title value = HOSP }
+					condition = { type = title value = TEUT }
+				}
+				factor = 0.00001
+			}
+		effect = { type = piety value = -50 }
+		effect = {
+			type = random
+			chance = 25
+			effect = {
+				type = add_trait
+				value = excommunicated
+				}
+			}
+	}
+}
+
+character_event = {
+	id = 7034
+	picture = "event_religion"
+
+	action_a = {
+		effect = { type = remove_regiment }
+	}
+}
+
+#################
+# Truce of God  #
+#################
+
+character_event = {
+	id = 7035
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = not value = { type = ai } }
+		condition = { type = atwar }
+		condition = { type = religion value = catholic }
+		condition = { type = enemy_same_religion }
+	}
+
+	mean_time_to_happen = {
+		months = 1800
+
+		modifier = {
+			condition = { type = crusade }
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.5
+		}
+	}
+
+	action_a = {#Enforce it!
+		ai_chance = 50
+			modifier = {
+				condition = { type = or
+					condition = { type = title value = PAPA }
+					condition = { type = title value = TEMP }
+					condition = { type = title value = HOSP }
+					condition = { type = title value = TEUT }
+				}
+				factor = 100
+			}
+		effect = { type = peace value = same_religion }
+	}
+
+	action_b = {#Ignore it !
+		ai_chance = 50
+			modifier = {
+				condition = { type = or
+					condition = { type = title value = PAPA }
+					condition = { type = title value = TEMP }
+					condition = { type = title value = HOSP }
+					condition = { type = title value = TEUT }
+				}
+				factor = 0.00001
+			}
+		effect = { type = piety value = -100 }
+		effect = {
+			type = random
+			chance = 50
+			effect = {
+				type = add_trait
+				value = excommunicated
+				}
+			}
+	}
+}
+
+######################
+# id = 7036 reserved #
+######################
+
+# Should find a way to warn the enemy about the truce of god in MP.
+
+#########################################
+# Bonus troop for prestigious character #
+#########################################
+
+# Scaled: The higher the title the higher the prestige needed, the more troops, and the higher the maintenance cost
+
+# Count:
+
+character_event = {
+	id = 7037
+
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = county }
+		condition = { type = prestige value =  200 }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		# Prestige value modifiers:
+
+		modifier = {
+			condition = { type = prestige value =  250 }
+			condition = { type = not value = { type = prestige value = 400  } }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = prestige value =  400  }
+			condition = { type = not value = { type = prestige value = 600  } }
+			factor = 0.33
+		}
+
+		modifier = {
+			condition = { type = prestige value =  600  }
+			factor = 0.1
+		}
+	}
+
+	action_a = {#They are welcome!
+		effect = { type = add_regiment
+				tech_prov = 31
+				strength = {
+				heavy_cav = 20
+				archers = 300
+				militia = 180
+				}
+				culture = english
+			}
+		}
+
+	action_b = {#No we don't need them!
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = proud
+				}
+			}
+		}
+}
+
+# Duke:
+
+character_event = {
+	id = 7038
+
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = duchy }
+		condition = { type = prestige value =  500 }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		# Prestige value modifiers:
+
+		modifier = {
+			condition = { type = prestige value =  1000 }
+			condition = { type = not value = { type = prestige value = 2000  } }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = prestige value =  2000  }
+			condition = { type = not value = { type = prestige value = 4000  } }
+			factor = 0.33
+		}
+
+		modifier = {
+			condition = { type = prestige value =  4000  }
+			factor = 0.1
+		}
+	}
+
+	action_a = {#They are welcome!
+		effect = { type = add_regiment
+				tech_prov = 260
+				strength = {
+				heavy_cav = 100
+				light_cav = 200
+				archers = 400
+				militia = 300
+				}
+				culture = german
+			}
+		}
+
+	action_b = {#No we don't need them!
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = proud
+				}
+			}
+		}
+}
+
+# King:
+
+character_event = {
+	id = 7039
+
+	picture = "event_appearance"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = kingdom }
+		condition = { type = prestige value =  1000 }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		# Prestige value modifiers:
+
+		modifier = {
+			condition = { type = prestige value =  1500 }
+			condition = { type = not value = { type = prestige value = 3000  } }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = prestige value =  3000  }
+			condition = { type = not value = { type = prestige value = 5000  } }
+			factor = 0.33
+		}
+
+		modifier = {
+			condition = { type = prestige value =  5000  }
+			factor = 0.1
+		}
+	}
+
+	action_a = {#They are welcome!
+		effect = { type = add_regiment
+				tech_prov = 112
+				strength = {
+				heavy_cav = 100
+				light_cav = 400
+				heavy_inf = 800
+				archers = 500
+				militia = 200
+				}
+				culture = frankish
+			}
+		}
+
+	action_b = {#No we don't need them!
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = proud
+				}
+			}
+		}
+}
+
+################################
+# Character captured in combat #
+################################
+
+# Scaled events:
+
+# Simple courtier:
+
+character_event = {
+	id = 7040
+
+	picture = "event_moneycollection"
+
+	trigger = {
+		condition = { type = combat }
+		condition = { type = not value = { type = ruler } }
+	}
+
+	mean_time_to_happen = {
+		days = 360
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = not value = { type = martial value =  5 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = martial value =  5 }
+#			condition = { type = not value = { type = martial value = 10 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 3
+		}
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 1.3
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 0.7
+		}
+
+		# Note: Coward have more chance to get captured, valorous to get wounded
+
+		# Background trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 3
+		}
+
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 2
+		}
+
+		# Game modifiers:
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.9
+		}
+
+	}
+
+	action_a = {#Pay the ransom
+		effect = { type = gold scale = -0.2 }
+		effect = { type = prestige value = -25 }
+		effect = { type = random
+				chance = 25
+				effect = { type = death }
+			}
+	}
+
+	action_b = {#Try to escape !
+		effect = { type = random
+				chance = 75
+				effect = { type = death }
+			}
+	}
+}
+
+# Count :
+
+character_event = {
+	id = 7041
+
+	picture = "event_moneycollection"
+
+	trigger = {
+		condition = { type = combat }
+		condition = { type = county }
+	}
+
+	mean_time_to_happen = {
+		days = 900
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = not value = { type = martial value =  5 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = martial value =  5 }
+#			condition = { type = not value = { type = martial value = 10 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 3
+		}
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 1.3
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 0.7
+		}
+
+		# Note: Coward have more chance to get captured, valorous to get wounded
+
+		# Background trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 3
+		}
+
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 2
+		}
+
+		# Game modifiers:
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.9
+		}
+
+	}
+
+	action_a = {#Pay the ransom
+		effect = { type = gold scale = -0.5 }
+		effect = { type = prestige scale = -1.5 }
+		effect = { type = random
+				chance = 20
+				effect = { type = death }
+				effect = { type = trigger for = liege value = 7044 }
+			}
+	}
+
+	action_b = {#Try to escape !
+		effect = { type = random
+				chance = 75
+				effect = { type = death }
+				effect = { type = trigger for = liege value = 7044 }
+			}
+	}
+}
+
+# Duke:
+
+character_event = {
+	id = 7042
+
+	picture = "event_moneycollection"
+
+	trigger = {
+		condition = { type = combat }
+		condition = { type = duchy }
+	}
+
+	mean_time_to_happen = {
+		days = 900
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = not value = { type = martial value =  5 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = martial value =  5 }
+#			condition = { type = not value = { type = martial value = 10 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 3
+		}
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 1.3
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 0.7
+		}
+
+		# Note: Coward have more chance to get captured, valorous to get wounded
+
+		# Background trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 3
+		}
+
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 2
+		}
+
+		# Game modifiers:
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.9
+		}
+
+	}
+
+	action_a = {#Pay the ransom
+		effect = { type = gold scale = -1 }
+		effect = { type = prestige scale = -2.5 }
+		effect = { type = random
+				chance = 15
+				effect = { type = death }
+				effect = { type = trigger for = liege value = 7044 }
+			}
+	}
+
+	action_b = {#Try to escape !
+		effect = { type = random
+				chance = 75
+				effect = { type = death }
+				effect = { type = trigger for = liege value = 7044 }
+			}
+	}
+}
+
+# King:
+
+character_event = {
+	id = 7043
+
+	picture = "event_moneycollection"
+
+	trigger = {
+		condition = { type = combat }
+		condition = { type = kingdom }
+	}
+
+	mean_time_to_happen = {
+		days = 1800
+
+		# Martial value modifiers:
+
+		modifier = {
+			condition = { type = not value = { type = martial value =  5 } }
+			factor = 0.5
+		}
+
+# Base value is for this range, but we don't calculate x 1 multiplier to save CPU
+#
+#		modifier = {
+#			condition = { type = martial value =  5 }
+#			condition = { type = not value = { type = martial value = 10 } }
+#			factor = 1
+#		}
+
+		modifier = {
+			condition = { type = martial value =  10 }
+			condition = { type = not value = { type = martial value = 15 } }
+			factor = 2
+		}
+
+		modifier = {
+			condition = { type = martial value =  15 }
+			factor = 3
+		}
+
+		# Personal trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.5
+		}
+
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 1.3
+		}
+
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 0.7
+		}
+
+		# Note: Coward have more chance to get captured, valorous to get wounded
+
+		# Background trait modifiers:
+
+		modifier = {
+			condition = { type = trait value = martial_cleric }
+			factor = 1.2
+		}
+
+		modifier = {
+			condition = { type = trait value = misguided_warrior }
+			factor = 0.8
+		}
+
+		modifier = {
+			condition = { type = trait value = tough_soldier }
+			factor = 1.5
+		}
+
+		modifier = {
+			condition = { type = trait value = knowledged_tactitian }
+			factor = 3
+		}
+
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 2
+		}
+
+		# Game modifiers:
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 3 }
+			factor = 0.9
+		}
+
+		modifier = {
+			condition = { type = aggressiveness value = 4 }
+			factor = 0.9
+		}
+
+	}
+
+	action_a = {#Pay for him
+		effect = { type = gold scale = -1.5 }
+		effect = { type = prestige scale = -4 }
+		effect = { type = random
+				chance = 10
+				effect = { type = death }
+			}
+	}
+
+	action_b = {#Try to escape !
+		effect = { type = random
+				chance = 75
+				effect = { type = death }
+			}
+	}
+}
+
+# Hostage's liege:
+
+character_event = {
+	id = 7044
+
+	picture = "event_plague"
+
+	action_a = {#One of our vassal died in prison !
+		effect = { type = piety value = -25 }
+		effect = { type = prestige value = -10 }
+		effect = { type = loyalty for = worst_vassal value = -0.25 }
+		effect = { type = loyalty for = random_vassal value = -0.15 }
+		effect = { type = loyalty for = random_vassal value = -0.1 }
+		effect = { type = random
+				chance = 10
+				effect = {
+					type = add_trait
+					value = selfish
+				}
+			}
+		effect = { type = random
+				chance = 10
+				effect = {
+					type = add_trait
+					value = cruel
+				}
+			}
+	}
+}
+
+#################################
+# Behaviour on the battlefield: #
+#################################
+
+# Display of courage:
+
+character_event = {
+	id = 7045
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = combat }
+		condition = { type = not value = { type = trait value = valorous } }
+		condition = { type = not value = { type = trait value = coward } }
+		condition = { type = not value = { type = martial value = 20 } }
+	}
+
+	mean_time_to_happen = {
+		days = 720
+	}
+
+	immidiate = {
+		effect = { type = prestige value = 10 }
+		effect = { type = random
+				chance = 20
+				effect = {
+					type = add_trait
+					value = valorous
+				}
+			}
+		effect = { type = random
+				chance = 20
+				effect = {
+					type = martial
+					value = 1
+				}
+			}
+	}
+
+}
+
+# Display of cowardice:
+
+character_event = {
+	id = 7046
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = combat }
+		condition = { type = not value = { type = trait value = valorous } }
+		condition = { type = not value = { type = trait value = coward } }
+		condition = { type = martial value = 2 }
+	}
+
+	mean_time_to_happen = {
+		days = 720
+	}
+
+	immidiate = {
+		effect = { type = prestige value = -10 }
+		effect = { type = random
+				chance = 20
+				effect = {
+					type = add_trait
+					value = coward
+				}
+			}
+		effect = { type = random
+				chance = 20
+				effect = {
+					type = martial
+					value = -1
+				}
+			}
+	}
+
+}
+
+# Display of Skill:
+
+character_event = {
+	id = 7047
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = combat }
+		condition = { type = not value = { type = trait value = wise } }
+		condition = { type = not value = { type = trait value = reckless } }
+		condition = { type = not value = { type = martial value = 20 } }
+	}
+
+	mean_time_to_happen = {
+		days = 720
+	}
+
+	immidiate = {
+		effect = { type = prestige value = 15 }
+		effect = { type = random
+				chance = 10
+				effect = {
+					type = add_trait
+					value = wise
+				}
+			}
+		effect = { type = random
+				chance = 10
+				effect = {
+					type = martial
+					value = 1
+				}
+			}
+	}
+
+}
+
+# Display of Ineptness:
+
+character_event = {
+	id = 7048
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = combat }
+		condition = { type = not value = { type = trait value = wise } }
+		condition = { type = not value = { type = trait value = reckless } }
+		condition = { type = martial value = 2 }
+	}
+
+	mean_time_to_happen = {
+		days = 720
+	}
+
+	immidiate = {
+		effect = { type = prestige value = -15 }
+		effect = { type = random
+				chance = 10
+				effect = {
+					type = add_trait
+					value = reckless
+				}
+			}
+		effect = { type = random
+				chance = 10
+				effect = {
+					type = martial
+					value = -1
+				}
+			}
+	}
+
+}
+
+
+###############
+# Desertions: #
+###############
+
+# Character is a coward:
+
+character_event = {
+	id = 7049
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = command }
+		condition = { type = trait value = coward }
+	}
+
+	mean_time_to_happen = {
+		months = 480
+	}
+
+	immidiate = {
+		effect = { type = remove_regiment }
+	}
+
+}
+
+
+# Character is not heading the troops (scaled):
+
+# Count:
+
+character_event = {
+	id = 7050
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = county }
+		condition = { type = age value = 16 }
+		condition = { type = capital
+			condition = { type = realm_regiments value = 1 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+	}
+
+	immidiate = {
+		effect = { type = remove_regiment }
+		effect = { type = prestige value = -25 }
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = coward
+				}
+			}
+	}
+
+}
+
+# Duke:
+
+character_event = {
+	id = 7051
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = duchy }
+		condition = { type = age value = 16 }
+		condition = { type = capital
+			condition = { type = realm_regiments value = 1 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+	}
+
+	immidiate = {
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = prestige value = -50 }
+		effect = { type = loyalty for = worst_vassal value = -0.25 }
+		effect = { type = loyalty for = random_vassal value = -0.15 }
+		effect = { type = loyalty for = random_vassal value = -0.1 }
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = coward
+				}
+			}
+	}
+
+}
+
+# King:
+
+character_event = {
+	id = 7052
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = not value = { type = command } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = kingdom }
+		condition = { type = age value = 16 }
+		condition = { type = capital
+			condition = { type = realm_regiments value = 1 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+	}
+
+	immidiate = {
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = remove_regiment }
+		effect = { type = prestige value = -75 }
+		effect = { type = loyalty for = worst_vassal value = -0.25 }
+		effect = { type = loyalty for = random_vassal value = -0.25 }
+		effect = { type = loyalty for = random_vassal value = -0.15 }
+		effect = { type = loyalty for = random_vassal value = -0.1 }
+		effect = { type = random
+				chance = 25
+				effect = {
+					type = add_trait
+					value = coward
+				}
+			}
+	}
+
+}
+
+#######################
+# Law related events: #
+#######################
+
+character_event = {
+	id = 7053
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = not value = { type = ai } } # Heavy condition forthcoming and AI always mobilises vassals anyway
+		condition = { type = atwar }
+		condition = { type = has_law value = { feudal_contract_law = yes } }
+		condition = { type = has_vassal }
+		condition = { type = capital condition = { type = realm_regiments value = 1 } } # No need to make heavy CSC if no troops are mobilised
+		condition = { type = any_vassal
+			condition = { type = not value = { type = atwar } } #Not involved in a war of their own...
+			condition = { type = any_demesne_province
+				condition = { type = regiment_mobilized }
+			}
+			condition = { type = save_target }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+	}
+
+	action_a = {#Compensate vassal
+		effect = { type = gold scale = -0.5 }
+		effect = { type = trigger for = random_vassal value = 7054 }
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = just }
+		}
+	}
+
+	action_b = {#Keep him under arms !
+		effect = { type = trigger for = random_vassal value = 7055 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = arbitrary }
+		}
+	}
+}
+
+character_event = {
+	id = 7054
+
+	picture = "event_battle"
+
+	action_a = {#Stand by his side
+		ai_chance = 50
+			modifier = { condition = { type = trait value = loyalist } factor = 10.0 }
+			modifier = { condition = { type = trait value = valorous } factor = 2.0 }
+			modifier = { condition = { type = trait value = modest } factor = 2.0 }
+			modifier = { condition = { type = trait value = romantic } factor = 2.0 }
+		effect = { type = gold scale = 1.0 }
+		effect = { type = loyalty value = 0.2 }
+	}
+
+	action_b = {#This is not my war
+		ai_chance = 50
+			modifier = { condition = { type = trait value = rebellious } factor = 10.0 }
+			modifier = { condition = { type = trait value = coward } factor = 2.0 }
+			modifier = { condition = { type = trait value = proud } factor = 2.0 }
+			modifier = { condition = { type = trait value = pragmatic } factor = 2.0 }
+			modifier = { condition = { type = not value = { type = loyalty value = 0.8 } } factor = 2.0 }
+			modifier = { condition = { type = not value = { type = loyalty value = 0.5 } } factor = 2.0 }
+			modifier = { condition = { type = not value = { type = loyalty value = 0.3 } } factor = 2.0 }
+		effect = { type = gold scale = 1.0 }
+		effect = { type = loyalty value = -0.2 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = rebellious }
+			effect = { type = loyalty value = -0.3 }
+		}
+	}
+}
+
+character_event = {
+	id = 7055
+
+	picture = "event_battle"
+
+	action_a = {#Let's express our discontentment
+		ai_chance = 50
+			modifier = { condition = { type = trait value = rebellious } factor = 10.0 }
+			modifier = { condition = { type = trait value = coward } factor = 2.0 }
+			modifier = { condition = { type = trait value = proud } factor = 2.0 }
+			modifier = { condition = { type = trait value = pragmatic } factor = 2.0 }
+			modifier = { condition = { type = not value = { type = loyalty value = 0.8 } } factor = 2.0 }
+			modifier = { condition = { type = not value = { type = loyalty value = 0.5 } } factor = 2.0 }
+			modifier = { condition = { type = not value = { type = loyalty value = 0.3 } } factor = 2.0 }
+		effect = { type = loyalty value = -0.5 }
+		effect = { type = add_trait value = rebellious }
+	}
+
+	action_b = {#Never mind !
+		ai_chance = 50
+			modifier = { condition = { type = trait value = loyalist } factor = 10.0 }
+			modifier = { condition = { type = trait value = valorous } factor = 2.0 }
+			modifier = { condition = { type = trait value = modest } factor = 2.0 }
+			modifier = { condition = { type = trait value = romantic } factor = 2.0 }
+		effect = { type = prestige value = 10 }
+		effect = { type = random_list
+			40 = { type = no_effect }
+			25 = { type = add_trait value = valorous }
+			25 = { type = add_trait value = romantic }
+			10 = { type = add_trait value = rebellious }
+		}
+	}
+}
+
+character_event = {
+	id = 7056
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = has_law value = { traditional_custom_law = yes } }
+		condition = { type = capital condition = { type = realm_regiments value = 1 } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+	}
+
+	action_a = {#Release host
+		effect = { type = remove_regiment }
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = just }
+		}
+	}
+
+	action_b = {#Keep it under arms !
+		effect = { type = gold scale = -1.0 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = arbitrary }
+		}
+	}
+}
+
+character_event = {
+	id = 7057
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = atwar }
+		condition = { type = has_law value = { popular_law = yes } }
+		condition = { type = capital condition = { type = realm_regiments value = 1 } }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+	}
+
+	action_a = {#Release host
+		effect = { type = remove_regiment }
+		effect = { type = random chance = 10
+			effect = { type = add_trait value = just }
+		}
+	}
+
+	action_b = {#Keep it under arms !
+		effect = { type = add_province_effect value = revolt }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = arbitrary }
+		}
+	}
+}
+
+################################################
+# A Nobleman Distinguishes himself in Battle   #
+################################################
+
+character_event = {
+	id = 7059
+	picture = "event_marshal"
+
+	trigger = {
+		condition = { type = combat }
+	}
+
+	mean_time_to_happen = {
+		days = 300
+	}
+
+	action_a = {
+		effect = { type = create_courtier value = marshal }
+	}
+}
+
+
+########################
+########################
+##   Henry V Events   ##
+########################
+########################
+
+##############################
+# Once more into the breach! #
+##############################
+
+character_event = { #Regimental leader may have found a great opportunity to storm the enemy castle
+	id = 7060
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = siege }
+		condition = { type = not value = { type = trait value = coward } }
+	}
+
+	mean_time_to_happen = {
+
+		months = 36
+
+		modifier = {
+			condition = { type = not value = { type = martial value = 4 } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = martial value = 7 }
+			condition = { type = not value = { type = martial value = 10 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 10 }
+			condition = { type = not value = { type = martial value = 13 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = martial value = 13 }
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = location
+				condition = { type = has_improvement value = { hill_fort = yes } }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = location
+				condition = { type = has_improvement value = { small_castle = yes } }
+			}
+			factor = 0.8
+		}
+		#medium castle treated as base
+		modifier = {
+			condition = {
+				type = location
+				condition = { type = has_improvement value = { large_castle = yes } }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = location
+				condition = { type = has_improvement value = { huge_castle = yes } }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = location
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = location
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = location
+				condition = { type = has_improvement value = { court_of_justice = yes } }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = { type = trait value = brilliant_strategist }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = knowledged_tactician }
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = location
+				condition = {
+					type = owner
+					condition = { type = not value = { type = ai } }
+				}
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = { type = not value = { type = ai } }
+			factor = 5
+		}
+	}
+
+	action_a = { #Once more into the breach, dear friends!
+		effect = { type = prestige value = 5 }
+		effect = { type = add_trait value = reckless }
+		effect = { type = random chance = 75
+			effect = { type = win_siege }
+		}
+		effect = { type = random chance = 75
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = { type = random chance = 50
+			effect = { type = remove_regiment }
+			effect = { type = death }
+		}
+	}
+	action_b = { #Discression is the better part of valour!
+		effect = { type = random chance = 50
+			effect = { type = win_siege }
+		}
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = war_invalid }
+		}
+		effect = { type = random chance = 33
+			effect = { type = remove_regiment }
+			effect = { type = death }
+		}
+	}
+	action_c = { #Slow and steady wins the race!
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = wise }
+		}
+		effect = { type = random chance = 15
+			effect = { type = add_trait value = coward }
+		}
+	}
+}
+
+###############################################
+# Provinces bearing the brunt of enemy sieges #
+###############################################
+
+province_event = { #My lord, the enemy's siege troops are rampaging through the countryside!
+	id = 7061
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = not value = { type = has_province_effect value = { struggling = yes } } } #spam prevention
+	}
+
+	mean_time_to_happen = {
+		months = 90
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn them!
+		effect = { type = prosperity value = -1 }
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our fishing_wharf!
+	id = 7062
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { fishing_wharf = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = fishing_wharf }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our civilian_harbour!
+	id = 7063
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { civilian_harbour = yes } }
+		condition = { type = not value = { type = has_improvement value = { naval_harbour = yes } } }
+		condition = { type = not value = { type = has_improvement value = { grand_shipyard = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = civilian_harbour }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our naval_harbour 
+	id = 7064
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { naval_harbour = yes } }
+		condition = { type = not value = { type = has_improvement value = { grand_shipyard = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = naval_harbour }
+		effect = { type = random chance = 50
+			effect = { type = remove_improvement value = civilian_harbour }
+		}
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our grand_shipyard 
+	id = 7065
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { grand_shipyard = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = grand_shipyard }
+		effect = { type = random chance = 50
+			effect = { type = remove_improvement value = naval_harbour }
+			effect = { type = remove_improvement value = civilian_harbour }
+		}
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our sawmill 
+	id = 7066
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { sawmill = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = sawmill }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our forestry 
+	id = 7067
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { forestry = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = forestry }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our smithy 
+	id = 7068
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { smithy = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = smithy }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our armory 
+	id = 7069
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { armory = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = armory }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our mine 
+	id = 7070
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { mine = yes } }
+		condition = { type = not value = { type = has_improvement value = { improved_mine = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = mine }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our improved_mine 
+	id = 7071
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { improved_mine = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = improved_mine }
+		effect = { type = random chance = 66
+			effect = { type = remove_improvement value = mine }
+		}
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our watermills 
+	id = 7072
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { watermills = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = watermills }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our windmills 
+	id = 7073
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { windmills = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = windmills }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our cheese_dairy 
+	id = 7074
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { cheese_dairy = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = cheese_dairy }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our brewery 
+	id = 7075
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { brewery = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = brewery }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our dyeworks 
+	id = 7076
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { dyeworks = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = dyeworks }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our glassworks 
+	id = 7077
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { glassworks = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = glassworks }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our spinningmill 
+	id = 7078
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { spinningmill = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = spinningmill }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our tilefactory 
+	id = 7079
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { tilefactory = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = tilefactory }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our library 
+	id = 7080
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { library = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = library }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our school 
+	id = 7081
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { school = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = school }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our traininggrounds 
+	id = 7082
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { traininggrounds = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = traininggrounds }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our templar_house 
+	id = 7083
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { templar_house = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = templar_house }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our university 
+	id = 7084
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { university = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = university }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our waracademy 
+	id = 7085
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { waracademy = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = waracademy }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our moneylenders 
+	id = 7086
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { moneylenders = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = moneylenders }
+		effect = { type = random chance = 50
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our monastery 
+	id = 7087
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { monastery = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.33
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = monastery }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our church 
+	id = 7088
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { church = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = church }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our large_church 
+	id = 7089
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { large_church = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.4
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = large_church }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our domed_church 
+	id = 7090
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { domed_church = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.3
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = domed_church }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our cathedral 
+	id = 7091
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { cathedral = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.2
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = cathedral }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our theater 
+	id = 7092
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { theater = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = theater }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our grand_palace 
+	id = 7093
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { grand_palace = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = grand_palace }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our royal_post 
+	id = 7094
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { royal_post = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = royal_post }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our court_of_justice 
+	id = 7095
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { court_of_justice = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 0.5
+		}
+	}
+
+	action_a = { #Damn their zeal!
+		effect = { type = remove_improvement value = court_of_justice }
+		effect = { type = random chance = 20
+			effect = { type = prosperity value = -1 }
+		}
+		effect = { type = random chance = 10
+			effect = { type = add_province_effect value = looted }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our thieves_guild 
+	id = 7096
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { thieves_guild = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 1.5
+		}
+	}
+
+	action_a = { #Great!
+		effect = { type = remove_improvement value = thieves_guild }
+		effect = { type = random chance = 33
+			effect = { type = prosperity value = 1 }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our smugglers_ring 
+	id = 7097
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { smugglers_ring = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 1.5
+		}
+	}
+
+	action_a = { #Great!
+		effect = { type = remove_improvement value = smugglers_ring }
+		effect = { type = random chance = 33
+			effect = { type = prosperity value = 1 }
+		}
+	}
+}
+
+province_event = { #My lord, the troops besieging our province have destroyed our highway_robber_band 
+	id = 7098
+	picture = "event_siege"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_improvement value = { highway_robber_band = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = atwar } } #means it's probably rebels
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = enemy_same_religion } }
+			}
+			factor = 1.5
+		}
+	}
+
+	action_a = { #Great!
+		effect = { type = remove_improvement value = highway_robber_band }
+		effect = { type = random chance = 33
+			effect = { type = prosperity value = 1 }
+		}
+	}
+}
+
+province_event = { #Although there are still some militants around, the population seems to have begun to settle down once more in our province.
+	id = 7099
+	picture = "event_town"
+
+	trigger = {
+		condition = { type = is_besieged }
+		condition = { type = has_province_effect value = { revolt = yes } }
+		condition = { type = owner
+			condition = { type = not value = { type = atwar } } #which probably means that it is rebels besieging
+		}
+	}
+	mean_time_to_happen = {
+		months = 36
+	}
+
+	action_a = { #That's good news!
+		effect = { type = remove_province_effect value = revolt }
+		effect = { type = peasant_loyalty value = 0.65 }
+		effect = { type = burgher_loyalty value = 0.65 }
+		effect = { type = clergy_loyalty value = 0.65 }
+		effect = { type = noble_loyalty value = 0.65 }
+	}
+}

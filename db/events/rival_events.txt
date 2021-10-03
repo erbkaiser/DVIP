@@ -1,0 +1,4726 @@
+###################################################
+# Events for making rivals and dealing with them
+# ID range 8100-8199
+# By Byakhiam
+############################################################
+# See also "I could be better..." series in courtier_events
+############################################################
+
+########################
+# Making rivals events
+# 8100-8139
+########################
+
+# Generic courtier rivalries
+
+character_event = { # There is a child in the court who is always competing with you in everything
+	id = 8100
+
+	picture = "event_children"
+
+	trigger = {
+		condition = { type = age value = 5 }
+		condition = { type = not value = { type = age value = 16 } }
+		condition = { type = not value = { type = num_rivals value = 1 } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = gender value = male }
+				condition = { type = any_courtier
+					condition = { type = age value = 5 }
+					condition = { type = gender value = male }
+					condition = { type = not value = { type = age value = 16 } }
+					condition = { type = not value = { type = num_rivals value = 1 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = is_receiver } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = gender value = female }
+				condition = { type = any_courtier
+					condition = { type = age value = 5 }
+					condition = { type = gender value = female }
+					condition = { type = not value = { type = age value = 16 } }
+					condition = { type = not value = { type = num_rivals value = 1 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = is_receiver } }
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = ruler_child } # More rival-making events targeting them
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = primary_heir } # And them
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = fosterling } # And them
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = gender value = female } # Not as important ;)
+			factor = 1.5
+		}
+	}
+
+	action_a = { # That is unforgivable
+		ai_chance = 75
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+		}
+	}
+	action_b = { # I'll just have to bear with it
+		ai_chance = 25
+		effect = { type = random_list
+			30 = { type = add_trait value = stress_symptom }
+			50 = { type = no_effect }
+			10 = { type = diplomacy value = 1 }
+			10 = { type = intrigue value = 1 }
+		}
+	}
+}
+
+character_event = { # There is someone in your classes who always gives you trouble
+	id = 8101
+
+	picture = "event_education"
+
+	trigger = {
+		condition = { type = not value = { type = num_rivals value = 2 } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = trait value = court_education }
+				condition = { type = gender value = male }
+				condition = { type = any_courtier
+					condition = { type = trait value = court_education }
+					condition = { type = gender value = male }
+					condition = { type = not value = { type = num_rivals value = 2 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = is_receiver } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = trait value = court_education }
+				condition = { type = gender value = female }
+				condition = { type = any_courtier
+					condition = { type = trait value = court_education }
+					condition = { type = gender value = female }
+					condition = { type = not value = { type = num_rivals value = 2 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = is_receiver } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = trait value = ecclesiastical_education }
+				condition = { type = gender value = male }
+				condition = { type = any_courtier
+					condition = { type = trait value = ecclesiastical_education }
+					condition = { type = gender value = male }
+					condition = { type = not value = { type = num_rivals value = 2 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = is_receiver } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = trait value = ecclesiastical_education }
+				condition = { type = gender value = female }
+				condition = { type = any_courtier
+					condition = { type = trait value = ecclesiastical_education }
+					condition = { type = gender value = female }
+					condition = { type = not value = { type = num_rivals value = 2 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = is_receiver } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = trait value = martial_education }
+				condition = { type = any_courtier
+					condition = { type = trait value = martial_education }
+					condition = { type = not value = { type = num_rivals value = 2 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = is_receiver } }
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = ruler_child } # More rival-making events targeting them
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = primary_heir } # And them
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = fosterling } # And them
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = gender value = female } # Not as important ;)
+			factor = 1.5
+		}
+	}
+
+	action_a = { # This is serious, we will compete for the same spots
+		ai_chance = 75
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+		}
+	}
+	action_b = { # I'll just work harder to prove myself
+		ai_chance = 25
+		effect = { type = random_list
+			30 = { type = add_trait value = stress_symptom }
+			40 = { type = no_effect }
+			30 = { type = prestige value = 25 }
+		}
+	}
+}
+
+character_event = { # Competition on the same market is building up severe tensions with another young adult
+	id = 8102
+
+	picture = "event_youngsters"
+
+	trigger = {
+		condition = { type = not value = { type = num_rivals value = 3 } }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = age value = 25 } }
+		condition = { type = not value = { type = is_married } }
+		condition = { type = not value = { type = trait value = celibate } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = gender value = male }
+				condition = { type = any_courtier
+					condition = { type = age value = 16 }
+					condition = { type = not value = { type = age value = 25 } }
+					condition = { type = gender value = male }
+					condition = { type = not value = { type = trait value = celibate } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = is_married } }
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = num_friends value = 3 } }
+					condition = { type = not value = { type = is_receiver } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = gender value = female }
+				condition = { type = any_courtier
+					condition = { type = age value = 16 }
+					condition = { type = not value = { type = age value = 25 } }
+					condition = { type = gender value = female }
+					condition = { type = not value = { type = trait value = celibate } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = is_married } }
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = num_friends value = 3 } }
+					condition = { type = not value = { type = is_receiver } }
+					condition = { type = save_target }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = selfish }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = indulgent }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = generous }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # They are all mine!
+		ai_chance = 50
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+		}
+		effect = { type = random_list
+			20 = { type = no_effect }
+			40 = { type = add_trait value = lustful }
+			40 = { type = add_trait value = indulgent }
+		}
+	}
+	action_b = { # If my territory stays clear, it's alright
+		ai_chance = 25
+		effect = { type = random chance = 50
+			effect = { type = make_rival value = load_target }
+		}
+		effect = { type = random_list
+			50 = { type = no_effect }
+			30 = { type = add_trait value = selfish }
+			20 = { type = add_trait value = proud }
+		}
+	}
+	action_c = { # Shared good is better good
+		ai_chance = 25
+		effect = { type = piety value = -10 }
+		effect = { type = random_list
+			20 = { type = no_effect }
+			30 = { type = add_trait value = generous }
+			20 = { type = add_trait value = lustful }
+			30 = { type = add_trait value = pragmatic }
+		}
+	}
+}
+
+# Ruler rivalries
+
+character_event = { # A fellow vassal is an open enemy of the correct way of God. Surely this demands some action?
+	id = 8103
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = gender value = male }
+		condition = { type = trait value = zealous }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = excommunicated } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = rebellious } }
+		condition = { type = not value = { type = trait value = loyalist } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = religion value = catholic }
+				condition = { type = liege
+					condition = { type = religion value = catholic }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = not value = { type = trait value = excommunicated } }
+					condition = { type = any_vassal
+						condition = { type = gender value = male }
+						condition = { type = not value = { type = num_rivals value = 5 } }
+						condition = { type = not value = { type = is_friend } }
+						condition = { type = not value = { type = is_rival } }
+						condition = { type = or
+							condition = { type = trait value = heretic }
+							condition = { type = trait value = excommunicated }
+							condition = { type = not value = { type = religion value = catholic } }
+						}
+						condition = { type = save_target }
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = religion value = orthodox }
+				condition = { type = liege
+					condition = { type = religion value = orthodox }
+					condition = { type = not value = { type = trait value = heretic } }
+					condition = { type = any_vassal
+						condition = { type = gender value = male }
+						condition = { type = not value = { type = num_rivals value = 5 } }
+						condition = { type = not value = { type = is_friend } }
+						condition = { type = not value = { type = is_rival } }
+						condition = { type = or
+							condition = { type = trait value = heretic }
+							condition = { type = not value = { type = religion value = orthodox } }
+						}
+						condition = { type = save_target }
+					}
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Enemies of God need to be kept under watchful eye
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_b = { # How can my liege tolerate this?
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = rebellious }
+		}
+		effect = { type = random chance = 50
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_c = { # Surely my liege will take care of the transgressor
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = piety value = -10 }
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = loyalist }
+		}
+	}
+}
+
+character_event = { # You have been made aware that a fellow vassal harbours tendencies of disloyalty. This clearly demands some course of action to be taken?
+	id = 8104
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = is_vassal }
+		condition = { type = gender value = male }
+		condition = { type = trait value = loyalist }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = liege
+			condition = { type = not value = { type = trait value = realm_duress } }
+			condition = { type = any_vassal
+				condition = { type = trait value = rebellious }
+				condition = { type = gender value = male }
+				condition = { type = not value = { type = num_rivals value = 5 } }
+				condition = { type = not value = { type = is_friend } }
+				condition = { type = not value = { type = is_rival } }
+				condition = { type = not value = { type = trait value = pneumonia } }
+				condition = { type = not value = { type = trait value = blind } }
+				condition = { type = not value = { type = trait value = leper } }
+				condition = { type = not value = { type = trait value = plagueinfested } }
+				condition = { type = not value = { type = trait value = depression } }
+				condition = { type = not value = { type = trait value = schizofrenia } }
+				condition = { type = not value = { type = trait value = maniac } }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # I will keep an eye on him for any sign of treachery
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = loyalty value = 0.5 }
+		effect = { type = random chance = 50
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_b = { # I will provoke him to revealing his disloyalty
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = loyalty value = 0.25 }
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+		effect = { type = random_list
+			20 = { type = loyalty for = load_target value = -0.1 }
+			20 = { type = loyalty for = load_target value = -0.2 }
+			20 = { type = loyalty for = load_target value = -0.3 }
+			20 = { type = loyalty for = load_target value = -0.4 }
+			20 = { type = loyalty for = load_target value = -0.5 }
+		}
+	}
+	action_c = { # I doubt I should bother with this
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = loyalty value = -0.25 }
+		effect = { type = random chance = 50
+			effect = { type = remove_trait value = loyalist }
+		}
+	}
+}
+
+character_event = { # A fellow vassal is a die-hard enemy of your treacherous cause. This demands some action, surely?
+	id = 8105
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = is_vassal }
+		condition = { type = gender value = male }
+		condition = { type = trait value = rebellious }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = liege
+			condition = { type = not value = { type = trait value = realm_duress } }
+			condition = { type = any_vassal
+				condition = { type = trait value = loyalist }
+				condition = { type = gender value = male }
+				condition = { type = not value = { type = num_rivals value = 5 } }
+				condition = { type = not value = { type = is_friend } }
+				condition = { type = not value = { type = is_rival } }
+				condition = { type = not value = { type = trait value = pneumonia } }
+				condition = { type = not value = { type = trait value = blind } }
+				condition = { type = not value = { type = trait value = leper } }
+				condition = { type = not value = { type = trait value = plagueinfested } }
+				condition = { type = not value = { type = trait value = depression } }
+				condition = { type = not value = { type = trait value = schizofrenia } }
+				condition = { type = not value = { type = trait value = maniac } }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Keeping an eye on him should do for now
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random chance = 50
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_b = { # That kind of scum is why the fool still reigns
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = loyalty value = -0.5 }
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_c = { # Maybe he knows something that I don't?
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = loyalty value = 0.25 }
+		effect = { type = random chance = 50
+			effect = { type = remove_trait value = rebellious }
+		}
+	}
+}
+
+character_event = { # A fellow vassal has insulted you in front of your liege!
+	id = 8106
+
+	picture = "event_tribunal"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = is_vassal }
+		condition = { type = gender value = male }
+		condition = { type = not value = { type = trait value = rebellious } }
+		condition = { type = not value = { type = trait value = loyalist } }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = liege
+			condition = { type = any_vassal
+				condition = { type = gender value = male }
+				condition = { type = not value = { type = num_rivals value = 5 } }
+				condition = { type = not value = { type = is_friend } }
+				condition = { type = not value = { type = is_rival } }
+				condition = { type = not value = { type = is_receiver } }
+				condition = { type = not value = { type = trait value = rebellious } }
+				condition = { type = not value = { type = trait value = loyalist } }
+				condition = { type = not value = { type = trait value = pneumonia } }
+				condition = { type = not value = { type = trait value = blind } }
+				condition = { type = not value = { type = trait value = leper } }
+				condition = { type = not value = { type = trait value = plagueinfested } }
+				condition = { type = not value = { type = trait value = depression } }
+				condition = { type = not value = { type = trait value = schizofrenia } }
+				condition = { type = not value = { type = trait value = maniac } }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Swallow it, but bear a grudge
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = prestige scale = -0.5 }
+		effect = { type = loyalty value = -0.1 }
+		effect = { type = random_list
+			25 = { type = no_effect }
+			50 = { type = add_trait value = vengeful }
+			25 = { type = add_trait value = hostile }
+		}
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_b = { # Demand immediate compensation
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = random_list
+			25 = { type = loyalty value = -0.5 }
+			50 = { type = loyalty value = -0.25 } #FIX: Add "type = loyalty for = load_target value = -0.25"
+			25 = { type = loyalty for = load_target value = -0.5 }
+		}
+		effect = { type = random chance = 50
+			effect = { type = add_title_claim value = load_target }
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_c = { # Forgive and forget
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = prestige scale = -1.0 }
+		effect = { type = random_list
+			25 = { type = no_effect }
+			50 = { type = add_trait value = forgiving }
+			25 = { type = add_trait value = coward }
+		}
+	}
+}
+
+character_event = { # A neighbouring ruler has insulted you in a tourney!
+	id = 8107
+
+	picture = "event_joust"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = gender value = male }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = any_neighbour
+			condition = { type = gender value = male }
+			condition = { type = not value = { type = num_rivals value = 5 } }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = not value = { type = is_receiver } }
+			condition = { type = not value = { type = trait value = pneumonia } }
+			condition = { type = not value = { type = trait value = blind } }
+			condition = { type = not value = { type = trait value = leper } }
+			condition = { type = not value = { type = trait value = plagueinfested } }
+			condition = { type = not value = { type = trait value = depression } }
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Swallow it, but bear a grudge
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = prestige scale = -0.5 }
+		effect = { type = random_list
+			25 = { type = no_effect }
+			50 = { type = add_trait value = vengeful }
+			25 = { type = add_trait value = hostile }
+		}
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_b = { # Demand immediate compensation
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = prestige scale = -0.5 }
+			25 = { type = prestige scale = 0.5 }
+		}
+		effect = { type = random chance = 50
+			effect = { type = add_title_claim value = load_target }
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_c = { # Forgive and forget
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = prestige scale = -1.0 }
+		effect = { type = random_list
+			25 = { type = no_effect }
+			50 = { type = add_trait value = forgiving }
+			25 = { type = add_trait value = coward }
+		}
+	}
+}
+
+# Ruler-children and fosterling rivalries
+
+character_event = { # You have developed a serious rivalry with a child of the ruler
+	id = 8108
+
+	picture = "event_children"
+
+	trigger = {
+		condition = { type = age value = 5 }
+		condition = { type = not value = { type = age value = 16 } }
+		condition = { type = not value = { type = num_rivals value = 3 } }
+		condition = { type = trait value = fosterling }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = gender value = male }
+				condition = { type = ruler_csc
+					condition = { type = any_child
+						condition = { type = gender value = male }
+						condition = { type = age value = 5 }
+						condition = { type = not value = { type = age value = 16 } }
+						condition = { type = not value = { type = num_rivals value = 3 } }
+						condition = { type = not value = { type = trait value = pneumonia } }
+						condition = { type = not value = { type = trait value = blind } }
+						condition = { type = not value = { type = trait value = leper } }
+						condition = { type = not value = { type = trait value = plagueinfested } }
+						condition = { type = not value = { type = trait value = depression } }
+						condition = { type = not value = { type = trait value = schizofrenia } }
+						condition = { type = not value = { type = trait value = maniac } }
+						condition = { type = not value = { type = trait value = stress_symptom } }
+						condition = { type = not value = { type = is_friend } }
+						condition = { type = not value = { type = is_rival } }
+						condition = { type = ruler_child } # Must live at home
+						condition = { type = save_target }
+					}
+				}
+			}
+			condition = { type = and
+				condition = { type = gender value = female }
+				condition = { type = ruler_csc
+					condition = { type = any_child
+						condition = { type = gender value = female }
+						condition = { type = age value = 5 }
+						condition = { type = not value = { type = age value = 16 } }
+						condition = { type = not value = { type = num_rivals value = 3 } }
+						condition = { type = not value = { type = trait value = pneumonia } }
+						condition = { type = not value = { type = trait value = blind } }
+						condition = { type = not value = { type = trait value = leper } }
+						condition = { type = not value = { type = trait value = plagueinfested } }
+						condition = { type = not value = { type = trait value = depression } }
+						condition = { type = not value = { type = trait value = schizofrenia } }
+						condition = { type = not value = { type = trait value = maniac } }
+						condition = { type = not value = { type = trait value = stress_symptom } }
+						condition = { type = not value = { type = is_friend } }
+						condition = { type = not value = { type = is_rival } }
+						condition = { type = ruler_child } # Must live at home
+						condition = { type = save_target }
+					}
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # These differences cannot be mended
+		ai_chance = 75
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+		}
+	}
+	action_b = { # I'll try to get along
+		ai_chance = 25
+		effect = { type = random_list
+			30 = { type = add_trait value = stress_symptom }
+			50 = { type = no_effect }
+			10 = { type = diplomacy value = 1 }
+			10 = { type = intrigue value = 1 }
+		}
+	}
+}
+
+character_event = { # You have developed a serious rivalry with a fellow fosterling
+	id = 8109
+
+	picture = "event_children"
+
+	trigger = {
+		condition = { type = age value = 5 }
+		condition = { type = not value = { type = age value = 16 } }
+		condition = { type = not value = { type = num_rivals value = 3 } }
+		condition = { type = trait value = fosterling }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = stress_symptom } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = gender value = male }
+				condition = { type = any_courtier
+					condition = { type = trait value = fosterling }
+					condition = { type = gender value = male }
+					condition = { type = age value = 5 }
+					condition = { type = not value = { type = age value = 16 } }
+					condition = { type = not value = { type = num_rivals value = 3 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = is_receiver } }
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					#condition = { type = not value = { type = is_sibling } }
+					condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = gender value = female }
+				condition = { type = any_courtier
+					condition = { type = trait value = fosterling }
+					condition = { type = gender value = female }
+					condition = { type = age value = 5 }
+					condition = { type = not value = { type = age value = 16 } }
+					condition = { type = not value = { type = num_rivals value = 3 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = not value = { type = trait value = stress_symptom } }
+					condition = { type = not value = { type = is_receiver } }
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					#condition = { type = not value = { type = is_sibling } }
+					condition = { type = not value = { type = father condition = { type = any_child condition = { type = is_receiver } } } } #Replaces is_sibling check
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # These differences cannot be mended
+		ai_chance = 75
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+		}
+	}
+	action_b = { # I'll try to get along
+		ai_chance = 25
+		effect = { type = random_list
+			30 = { type = add_trait value = stress_symptom }
+			50 = { type = no_effect }
+			10 = { type = diplomacy value = 1 }
+			10 = { type = intrigue value = 1 }
+		}
+	}
+}
+
+character_event = { # You have grown to hate your father-in-law
+	id = 8110
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = or
+			condition = { type = ruler }
+			condition = { type = ruler_child }
+		}
+		condition = { type = gender value = male }
+		condition = { type = is_married }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = spouse condition = { type = father
+			condition = { type = is_alive }
+			condition = { type = ruler }
+			condition = { type = not value = { type = num_rivals value = 5 } }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = save_target }
+		} }
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Yup, I hate the old man
+		ai_chance = 75
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_b = { # Maybe we'll still get along
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = amiable }
+			25 = { type = add_trait value = weak_willed }
+		}
+	}
+}
+
+character_event = { # You have grown to dislike the heir of a rival
+	id = 8111
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = num_of_sons value = 1 }
+			condition = { type = not value = { type = has_law value = { elective_law = yes } } }
+			condition = { type = any_child
+				condition = { type = gender value = male }
+				condition = { type = not value = { type = trait value = bastard } }
+			}
+			condition = { type = primary_heir
+				condition = { type = age value = 16 }
+				condition = { type = not value = { type = num_rivals value = 5 } }
+				condition = { type = not value = { type = is_friend } }
+				condition = { type = not value = { type = is_rival } }
+				condition = { type = not value = { type = is_receiver } }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Son alike his father, and I hate them both
+		ai_chance = 75
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_b = { # He is not quite as irksome
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = amiable }
+			25 = { type = add_trait value = proud }
+		}
+	}
+}
+
+character_event = { # One of your fosterlings father is seriously getting on your nerves
+	id = 8112
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = has_fosterling }
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = any_courtier
+			condition = { type = trait value = fosterling }
+			condition = { type = father
+				condition = { type = ruler }
+				condition = { type = not value = { type = is_friend } }
+				condition = { type = not value = { type = is_rival } }
+				condition = { type = not value = { type = is_receiver } }
+				condition = { type = not value = { type = num_rivals value = 5 } }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # How dare he interfere with my court
+		ai_chance = 75
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_b = { # Maybe he has a point
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = weak_willed }
+			25 = { type = add_trait value = wise }
+		}
+	}
+}
+
+# Making rivals of enemies
+
+character_event = { # This war has turned into a personal grudge
+	id = 8113
+
+	picture = "event_battle"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_independent }
+		condition = { type = atwar }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = gender value = male }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = or
+			condition = { type = religion value = catholic }
+			condition = { type = religion value = orthodox }
+		}
+		condition = { type = or
+			condition = { type = and
+				condition = { type = county }
+				condition = { type = any_enemy
+					condition = { type = gender value = male }
+					condition = { type = county }
+					condition = { type = is_independent }
+					condition = { type = or
+						condition = { type = religion value = catholic }
+						condition = { type = religion value = orthodox }
+					}
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = num_rivals value = 5 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = duchy }
+				condition = { type = any_enemy
+					condition = { type = gender value = male }
+					condition = { type = duchy }
+					condition = { type = is_independent }
+					condition = { type = or
+						condition = { type = religion value = catholic }
+						condition = { type = religion value = orthodox }
+					}
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = num_rivals value = 5 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = any_enemy
+					condition = { type = gender value = male }
+					condition = { type = kingdom }
+					condition = { type = is_independent }
+					condition = { type = or
+						condition = { type = religion value = catholic }
+						condition = { type = religion value = orthodox }
+					}
+					condition = { type = not value = { type = is_friend } }
+					condition = { type = not value = { type = is_rival } }
+					condition = { type = not value = { type = num_rivals value = 5 } }
+					condition = { type = not value = { type = trait value = pneumonia } }
+					condition = { type = not value = { type = trait value = blind } }
+					condition = { type = not value = { type = trait value = leper } }
+					condition = { type = not value = { type = trait value = plagueinfested } }
+					condition = { type = not value = { type = trait value = depression } }
+					condition = { type = not value = { type = trait value = schizofrenia } }
+					condition = { type = not value = { type = trait value = maniac } }
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Indeed, this war is to death!
+		ai_chance = 75
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+		effect = { type = random chance = 25
+			effect = { type = add_title_claim value = load_target }
+		}
+	}
+	action_b = { # This is just a war, nothing personal
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = amiable }
+			25 = { type = add_trait value = pragmatic }
+		}
+	}
+}
+
+character_event = { # The enemy of my friend is my enemy, is that right?
+	id = 8114
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = num_friends value = 1 }
+		condition = { type = any_friend
+			condition = { type = ruler }
+			condition = { type = num_rivals value = 1 }
+			condition = { type = any_rival
+				condition = { type = ruler }
+				condition = { type = not value = { type = num_rivals value = 5 } }
+				condition = { type = not value = { type = is_rival } }
+				condition = { type = not value = { type = is_friend } }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Indeed it is
+		ai_chance = 66
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_b = { # My friend will manage
+		ai_chance = 34
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = selfish }
+			25 = { type = add_trait value = lazy }
+		}
+	}
+}
+
+character_event = { # The friend of my enemy is my enemy, is that right?
+	id = 8115
+
+	picture = "event_intrigue2"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = num_rivals value = 5 } }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = num_friends value = 1 }
+			condition = { type = any_friend
+				condition = { type = ruler }
+				condition = { type = not value = { type = num_rivals value = 5 } }
+				condition = { type = not value = { type = is_rival } }
+				condition = { type = not value = { type = is_friend } }
+				condition = { type = save_target }
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = romantic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = pragmatic }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = illness }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = leper }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = blind }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = stress_symptom }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = depression }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = schizofrenia }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = maniac }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Indeed it is
+		ai_chance = 66
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random chance = 75
+			effect = { type = make_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8199 }
+		}
+	}
+	action_b = { # My rivalry is personal
+		ai_chance = 34
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = romantic }
+			25 = { type = add_trait value = vengeful }
+		}
+	}
+}
+
+#######################
+# Losing rivals events
+# 8140-8149
+#######################
+
+character_event = { # A rival of yours is so much beneath you that it seems a bit silly of you to hold him as an enemy
+	id = 8140
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = num_rivals value = 3 }
+		condition = { type = any_rival
+			condition = { type = not value = { type = ruler } }
+			condition = { type = not value = { type = ruler_child } }
+			condition = { type = not value = { type = marshal } }
+			condition = { type = not value = { type = chancellor } }
+			condition = { type = not value = { type = spymaster } }
+			condition = { type = not value = { type = steward } }
+			condition = { type = not value = { type = chaplain } }
+			condition = { type = not value = { type = spouse condition = { type = is_receiver } } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+#		modifier = {
+#			condition = { type = not value = { type = target_csc condition = { type = same_court } } }
+#			factor = 0.1
+#		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Indeed, there is little point in this rivalry
+		ai_chance = 75
+		effect = { type = lose_rival value = load_target }
+		effect = { type = trigger for = load_target value = 8198 }
+	}
+	action_b = { # I never forget my enemies
+		ai_chance = 25
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = hostile }
+			25 = { type = add_trait value = vengeful }
+		}
+	}
+}
+
+#character_event = { # A rival of yours lives so distant that it seems a bit pointless to hold up the rivalry
+#	id = 8141
+#
+#	picture = "event_intrigue"
+#
+#	trigger = {
+#		condition = { type = not value = { type = ruler } }
+#		condition = { type = not value = { type = ruler_child } }
+#		condition = { type = num_rivals value = 3 }
+#		condition = { type = any_rival
+#			#condition = { type = not value = { type = same_court } }
+#			condition = { type = not value = { type = spouse condition = { type = is_receiver } } }
+#			condition = { type = save_target }
+#		}
+#		condition = { type = has_target }
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 150
+#
+#	}
+#
+#	action_a = { # Indeed, there is little point in this rivalry
+#		ai_chance = 75
+#		effect = { type = lose_rival value = load_target }
+#		effect = { type = trigger for = load_target value = 8198 }
+#	}
+#	action_b = { # I never forget my enemies
+#		ai_chance = 25
+#		effect = { type = random_list
+#			50 = { type = no_effect }
+#			25 = { type = add_trait value = hostile }
+#			25 = { type = add_trait value = vengeful }
+#		}
+#	}
+#}
+
+##################
+# What Rivals do
+# 8150-8199
+##################
+
+# Civil Warfare effects
+
+character_event = { # Your fierce rival is harbouring rebellious tendencies, while you have not made your mind up about your liege
+	id = 8150
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = not value = { type = trait value = rebellious } }
+		condition = { type = not value = { type = trait value = loyalist } }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = is_vassal }
+			condition = { type = trait value = rebellious }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = loyalty value = 0.9 }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.5 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.4 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.2 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.1 } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # I will support my liege just to spite my rival
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = add_trait value = loyalist }
+		effect = { type = loyalty value = 0.25 }
+	}
+	action_b = { # I don't like my liege enough
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = loyalty value = -0.1 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = rebellious }
+			effect = { type = loyalty value = -0.4 }
+		}
+	}
+	action_c = { # Maybe united hatred allows us to make up?
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = loyalty value = -0.5 }
+		effect = { type = add_trait value = rebellious }
+		effect = { type = random chance = 50
+			effect = { type = lose_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8198 }
+		}
+	}
+}
+
+character_event = { # Your fierce rival is known to be steadfastly loyal, while you have not made your mind up about your liege
+	id = 8151
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = not value = { type = trait value = rebellious } }
+		condition = { type = not value = { type = trait value = loyalist } }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = is_vassal }
+			condition = { type = trait value = loyalist }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = loyalty value = 0.9 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.5 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.4 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.2 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.1 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # I will seek to ruin my liege just to spite my rival
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = add_trait value = rebellious }
+		effect = { type = loyalty value = -0.25 }
+	}
+	action_b = { # This is a personal feud
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = loyalty value = 0.1 }
+	}
+	action_c = { # We should make up for our liege's sake
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = loyalty value = 0.5 }
+		effect = { type = add_trait value = loyalist }
+		effect = { type = random chance = 50
+			effect = { type = lose_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8198 }
+		}
+	}
+}
+
+character_event = { # You have been made aware that your fierce rival is also planning rebellious acts
+	id = 8152
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = trait value = rebellious }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = is_vassal }
+			condition = { type = trait value = rebellious }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 100
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = weak_willed }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stubborn }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # I will not let my rivalry interfere with my cause
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = loyalty value = -0.25 }
+	}
+	action_b = { # An opportunity to fight my rival!
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = loyalty value = 0.25 }
+		effect = { type = remove_trait value = rebellious }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = loyalist }
+			effect = { type = loyalty value = 0.25 }
+		}
+	}
+	action_c = { # Maybe united hatred allows us to make up?
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = loyalty value = -0.5 }
+		effect = { type = random chance = 50
+			effect = { type = lose_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8198 }
+		}
+	}
+}
+
+character_event = { # You have been made aware that your fierce rival is also a steadfast supporter of the existing order
+	id = 8153
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = trait value = loyalist }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = is_vassal }
+			condition = { type = trait value = loyalist }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 100
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = weak_willed }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stubborn }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # I will not let my rivalry interfere with my cause
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = loyalty value = 0.25 }
+	}
+	action_b = { # An opportunity to fight my rival!
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = loyalty value = -0.25 }
+		effect = { type = remove_trait value = loyalist }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = rebellious }
+			effect = { type = loyalty value = -0.25 }
+		}
+	}
+	action_c = { # We should make up for our liege's sake
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = loyalty value = 0.5 }
+		effect = { type = random chance = 50
+			effect = { type = lose_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8198 }
+		}
+	}
+}
+
+character_event = { # Your rivalry to your liege is straining your commitment to your feudal duties
+	id = 8154
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = not value = { type = trait value = rebellious } }
+		condition = { type = not value = { type = trait value = loyalist } }
+		condition = { type = liege
+			condition = { type = is_rival }
+			condition = { type = is_independent }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = loyalty value = 0.9 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.5 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.4 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.2 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.1 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stubborn }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = weak_willed }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # He is my enemy until death do us part!
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = loyalty value = -0.5 }
+		effect = { type = add_trait value = rebellious }
+	}
+	action_b = { # I should try to live with this
+		ai_chance = 25
+		effect = { type = loyalty value = -0.1 }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = rebellious }
+		}
+	}
+	action_c = { # I should try to make up for the sake of order
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = loyalty value = 0.1 }
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = loyalist }
+			effect = { type = lose_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8198 }
+		}
+	}
+}
+
+character_event = { # Your rivalry with your liege is seriously interfering with your unusually strong sense of duty
+	id = 8155
+
+	picture = "event_intrigue"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = trait value = loyalist }
+		condition = { type = liege
+			condition = { type = is_rival }
+			condition = { type = is_independent }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			condition = { type = loyalty value = 0.9 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.5 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.4 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.2 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = loyalty value = 0.1 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stubborn }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = weak_willed }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # I cannot stay loyal to my enemy
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = loyalty value = -0.5 }
+		effect = { type = remove_trait value = loyalist }
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = rebellious }
+		}
+	}
+	action_b = { # I have to consider this
+		ai_chance = 50
+		effect = { type = loyalty value = -0.1 }
+		effect = { type = random_list
+			60 = { type = no_effect }
+			30 = { type = remove_trait value = loyalist }
+			10 = { type = add_trait value = rebellious }
+		}
+	}
+	action_c = { # My feudal ties trump this petty rivalry
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = loyalty value = 0.5 }
+		effect = { type = lose_rival value = load_target }
+		effect = { type = trigger for = load_target value = 8198 }
+	}
+}
+
+# Claim rival's title
+
+# Vassal to vassal
+
+character_event = { # You have gained an opportunity of claiming your fierce rival's title!
+	id = 8156
+
+	picture = "event_claim"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = or
+			condition = { type = intrigue value = 8 }
+			condition = { type = spymaster_csc condition = { type = intrigue value = 15 } }
+		}
+		condition = { type = any_rival
+			condition = { type = is_vassal }
+			condition = { type = not value = { type = intrigue value = 9 } }
+			condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 16 } } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Claim his title!
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = add_title_claim value = load_target }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = reckless }
+			25 = { type = add_trait value = hostile }
+		}
+	}
+	action_b = { # It is not worth it
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = wise }
+			25 = { type = add_trait value = modest }
+		}
+	}
+	action_c = { # Try to reconcile your differences instead
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = amiable }
+			25 = { type = add_trait value = coward }
+		}
+		effect = { type = random chance = 50
+			effect = { type = lose_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8198 }
+		}
+	}
+}
+
+# Independent to independent
+
+character_event = { # You have gained an opportunity of claiming your fierce rival's title!
+	id = 8157
+
+	picture = "event_claim"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_independent }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = or
+			condition = { type = intrigue value = 8 }
+			condition = { type = spymaster_csc condition = { type = intrigue value = 15 } }
+		}
+		condition = { type = any_rival
+			condition = { type = is_independent }
+			condition = { type = not value = { type = intrigue value = 9 } }
+			condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 16 } } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Claim his title!
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = add_title_claim value = load_target }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = reckless }
+			25 = { type = add_trait value = hostile }
+		}
+	}
+	action_b = { # It is not worth it
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = wise }
+			25 = { type = add_trait value = modest }
+		}
+	}
+	action_c = { # Try to reconcile your differences instead
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = amiable }
+			25 = { type = add_trait value = coward }
+		}
+		effect = { type = random chance = 50
+			effect = { type = lose_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8198 }
+		}
+	}
+}
+
+# Vassal to liege
+
+character_event = { # You have gained an opportunity of claiming your liege's title, who is also your fierce rival!
+	id = 8158
+
+	picture = "event_claim"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_vassal }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = or
+			condition = { type = intrigue value = 8 }
+			condition = { type = spymaster_csc condition = { type = intrigue value = 15 } }
+		}
+		condition = { type = not value = { type = trait value = loyalist } }
+		condition = { type = liege
+			condition = { type = is_rival }
+			condition = { type = not value = { type = intrigue value = 9 } }
+			condition = { type = not value = { type = spymaster_csc condition = { type = intrigue value = 16 } } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = trait value = rebellious }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Claim his title!
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = add_title_claim value = load_target }
+		effect = { type = loyalty value = -0.25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = reckless }
+			25 = { type = add_trait value = hostile }
+		}
+		effect = { type = random chance = 50
+			effect = { type = add_trait value = rebellious }
+		}
+	}
+	action_b = { # It is not worth it
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = wise }
+			25 = { type = add_trait value = modest }
+		}
+	}
+	action_c = { # Try to reconcile your differences instead
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = loyalty value = 0.25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = amiable }
+			25 = { type = add_trait value = coward }
+		}
+		effect = { type = random chance = 50
+			effect = { type = lose_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8198 }
+			effect = { type = add_trait value = loyalist }
+		}
+	}
+}
+
+# Heresy effects
+
+character_event = { # Your fierce rival has embraced heretical ways
+	id = 8159
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = gender value = male }
+		condition = { type = not value = { type = trait value = heretic } }
+		condition = { type = not value = { type = trait value = zealous } }
+		condition = { type = not value = { type = title value = PAPA } }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = gender value = male }
+			condition = { type = trait value = heretic }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 100
+
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = excommunicated }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stubborn }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = weak_willed }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Surely God needs defenders against men like him!
+		ai_chance = 50
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = piety value = 25 }
+		effect = { type = add_trait value = zealous }
+	}
+	action_b = { # My enmity to him is quite secular, thanks
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			30 = { type = add_trait value = pragmatic }
+			20 = { type = add_trait value = sceptical }
+		}
+	}
+	action_c = { # There might be something truthful in his views
+		ai_chance = 25
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random chance = 25
+			effect = { type = lose_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8198 }
+			effect = { type = add_trait value = heretic }
+		}
+	}
+}
+
+character_event = { # Your fierce rival has also become a follower of the new way of Christ
+	id = 8160
+
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = gender value = male }
+		condition = { type = trait value = heretic }
+		condition = { type = any_rival
+			condition = { type = ruler }
+			condition = { type = gender value = male }
+			condition = { type = trait value = heretic }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 100
+
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = stubborn }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = weak_willed }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Maybe I need to re-evaluate our relations
+		ai_chance = 50
+		effect = { type = relation for = load_target value = 25 }
+		effect = { type = random chance = 50
+			effect = { type = lose_rival value = load_target }
+			effect = { type = trigger for = load_target value = 8198 }
+		}
+	}
+	action_b = { # I hate him nonetheless
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -25 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait value = pragmatic }
+			25 = { type = add_trait value = hostile }
+		}
+	}
+	action_c = { # I do not want to be associated with him in any way!
+		ai_chance = 25
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = remove_trait value = heretic }
+	}
+}
+
+# Courtier rivalries getting nasty
+
+character_event = { # A courtier has asked your permission to challenge his fierce rival into a duel
+	id = 8161
+
+	picture = "event_joust"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = gender value = male }
+		condition = { type = age value = 16 }
+		condition = { type = not value = { type = trait value = pneumonia } }
+		condition = { type = not value = { type = trait value = blind } }
+		condition = { type = not value = { type = trait value = leper } }
+		condition = { type = not value = { type = trait value = plagueinfested } }
+		condition = { type = not value = { type = trait value = depression } }
+		condition = { type = not value = { type = trait value = schizofrenia } }
+		condition = { type = not value = { type = trait value = maniac } }
+		condition = { type = not value = { type = trait value = war_invalid } }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = any_rival
+			condition = { type = not value = { type = ruler } }
+			condition = { type = gender value = male }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = trait value = pneumonia } }
+			condition = { type = not value = { type = trait value = blind } }
+			condition = { type = not value = { type = trait value = leper } }
+			condition = { type = not value = { type = trait value = plagueinfested } }
+			condition = { type = not value = { type = trait value = depression } }
+			condition = { type = not value = { type = trait value = schizofrenia } }
+			condition = { type = not value = { type = trait value = maniac } }
+			condition = { type = not value = { type = trait value = war_invalid } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = martial value = 7 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 9 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 5 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = not value = { type = martial value = 3 } }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # Allow the duel
+		ai_chance = 40
+		effect = { type = loyalty value = 0.3 }
+		effect = { type = loyalty for = load_target value = 0.3 }
+		effect = { type = random_list
+			10 = { type = death }
+			20 = { type = add_trait value = war_invalid }
+			40 = { type = no_effect }
+			20 = { type = add_trait for = load_target value = war_invalid }
+			10 = { type = death value = load_target }
+		}
+	}
+	action_b = { # Disallow it, but take no further action
+		ai_chance = 40
+		effect = { type = loyalty value = -0.2 }
+		effect = { type = loyalty for = load_target value = -0.2 }
+	}
+	action_c = { # Disallow it and banish the instigator
+		ai_chance = 20
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = loyalty for = load_target value = 0.3 }
+	}
+}
+
+character_event = { # There has been a murder in the court! One of your courtiers is suspected of this act, but there is no conclusive evidence
+	id = 8162
+
+	picture = "event_tribunal"
+
+	trigger = {
+		condition = { type = not value = { type = ruler } }
+		condition = { type = age value = 16 }
+		condition = { type = intrigue value = 7 }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = any_rival
+			condition = { type = not value = { type = ruler } }
+			condition = { type = age value = 16 }
+			condition = { type = not value = { type = intrigue value = 10 } }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = flamboyant_schemer }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = intricate_webweaver }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = illusive_shadow }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = intrigue value = 10 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = intrigue value = 13 }
+			factor = 0.9
+		}
+	}
+
+	action_a = { # Without evidence, there is nothing that can be done
+		ai_chance = 50
+		effect = { type = death value = load_target }
+		effect = { type = loyalty value = 0.3 }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = ruler value = forgiving }
+			25 = { type = add_trait for = ruler value = weak_willed }
+		}
+	}
+	action_b = { # Banish the suspect
+		ai_chance = 25
+		effect = { type = death value = load_target }
+		effect = { type = courtier_defect value = random_neighbor }
+		effect = { type = random_list
+			50 = { type = no_effect }
+			25 = { type = add_trait for = ruler value = just }
+			25 = { type = add_trait for = ruler value = suspicious }
+		}
+	}
+	action_c = { # Behead the suspect
+		ai_chance = 25
+		effect = { type = death value = load_target }
+		effect = { type = death }
+		effect = { type = random_list
+			75 = { type = no_effect }
+			25 = { type = add_trait for = ruler value = cruel }
+		}
+	}
+}
+
+# Rivals as advisors
+
+character_event = { # Your chancellor is plotting your demise with your vassals!
+	id = 8163
+
+	picture = "event_chancellor"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = chancellor_csc condition = { type = or
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			condition = { type = is_rival }
+		} }
+		condition = { type = any_vassal
+			condition = { type = not value = { type = trait value = loyalist } }
+			condition = { type = not value = { type = trait value = rebellious } }
+			condition = { type = not value = { type = primary_heir } }
+			condition = { type = not value = { type = age value = 16 } }
+			condition = { type = not value = { type = is_friend } }
+			condition = { type = not value = { type = is_rival } }
+			condition = { type = ai }
+			condition = { type = save_target }
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = diplomacy value = 8 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = diplomacy value = 10 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = diplomacy value = 13 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = diplomacy value = 5 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = diplomacy value = 3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = diplomacy value = 1 } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = diplomacy value = 12 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = diplomacy value = 15 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = trait value = deceitful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = trait value = proud } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = trait value = reckless } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = trait value = honest } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = trait value = modest } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = chancellor_csc condition = { type = trait value = coward } }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # Maybe I should review who is my chancellor...
+		effect = { type = loyalty for = load_target value = -0.5 }
+		effect = { type = add_trait for = load_target value = rebellious }
+	}
+}
+
+character_event = { # A large sum of money has vanished from the treasury!
+	id = 8164
+
+	picture = "event_steward"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = steward_csc condition = { type = or
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			condition = { type = is_rival }
+		} }
+	}
+
+	mean_time_to_happen = {
+		months = 100
+
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stewardship value = 8 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stewardship value = 10 }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stewardship value = 13 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = not value = { type = stewardship value = 5 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stewardship value = 3 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = not value = { type = stewardship value = 1 } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = stewardship value = 12 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = stewardship value = 15 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = trait value = deceitful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = trait value = proud } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = trait value = reckless } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = trait value = honest } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = trait value = modest } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = steward_csc condition = { type = trait value = coward } }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # Maybe I should review who is my steward...
+		effect = { type = gold scale = -1.0 }
+	}
+}
+
+character_event = { # Your standing in the church has plummeted severely recently!
+	id = 8165
+
+	picture = "event_chaplain"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = chaplain_csc condition = { type = or
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			condition = { type = is_rival }
+		} }
+	}
+
+	mean_time_to_happen = {
+		months = 100
+
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = deceitful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = reckless } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = honest } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = chaplain_csc condition = { type = trait value = coward } }
+			factor = 1.1
+		}
+	}
+
+	action_a = { # Maybe I should review who is my diocese bishop...
+		effect = { type = piety value = -50 }
+	}
+}
+
+character_event = { # A regiment of yours has deserted unexpectedly!
+	id = 8166
+
+	picture = "event_marshal"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = marshal_csc condition = { type = or
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			condition = { type = is_rival }
+		} }
+		condition = { type = capital condition = { type = realm_regiments value = 1 } }
+	}
+
+	mean_time_to_happen = {
+		months = 80
+
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = valorous }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = marshal_csc condition = { type = trait value = deceitful } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = marshal_csc condition = { type = trait value = honest } }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Maybe I should review who is my marshal...
+		effect = { type = remove_regiment }
+	}
+}
+
+character_event = { # A mysterious assassin has attacked you!
+	id = 8167
+
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = spymaster_csc condition = { type = or
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			condition = { type = is_rival }
+		} }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = trait value = deceitful } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = trait value = honest } }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # I should review who is my spymaster, if I live...
+		effect = { type = random_list
+			40 = { type = no_effect }
+			40 = { type = add_trait value = war_invalid }
+			20 = { type = death }
+		}
+	}
+}
+
+character_event = { # A claim of yours has become illegitimate!
+	id = 8168
+
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = spymaster_csc condition = { type = or
+			condition = { type = not value = { type = loyalty value = 0.3 } }
+			condition = { type = is_rival }
+		} }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = trait value = deceitful } }
+			factor = 0.66
+		}
+		modifier = {
+			condition = { type = spymaster_csc condition = { type = trait value = honest } }
+			factor = 1.5
+		}
+	}
+
+	action_a = { # Maybe I should review who is my spymaster...
+		effect = { type = remove_claim }
+	}
+} 
+
+# Ultimate rivalry
+
+character_event = { # Your rival is embroiled in a war, now could be a perfect moment to bring him down for good!
+	id = 8169
+
+	picture = "event_marshal"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = title value = PAPA } }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = is_independent }
+				condition = { type = county }
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = atwar }
+					condition = { type = is_independent }
+					condition = { type = county }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = is_independent }
+				condition = { type = duchy }
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = atwar }
+					condition = { type = or
+						condition = { type = and
+							condition = { type = is_independent }
+							condition = { type = county }
+							condition = { type = duchy }
+						}
+						condition = { type = and
+							condition = { type = is_vassal }
+							condition = { type = realm_ruler condition = { type = duchy } }
+						}
+					}
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = kingdom }
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = atwar }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = is_vassal }
+				condition = { type = realm_ruler condition = { type = duchy } }
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = atwar }
+					condition = { type = is_independent }
+					condition = { type = not value = { type = kingdom } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = is_vassal }
+				condition = { type = realm_ruler condition = { type = kingdom } }
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = atwar }
+					condition = { type = is_independent }
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # This time, it's war!
+		ai_chance = 75
+		effect = { type = relation for = load_target value = -50 }
+		effect = { type = add_title_claim value = load_target }
+		effect = { type = declare_war value = load_target }
+	}
+	action_b = { # Bad timing
+		ai_chance = 25
+		effect = { type = random chance = 25
+			effect = { type = add_trait value = coward }
+		}
+	}
+}
+
+# Ruler assassinations, three versions scaled by respective intrigue values
+
+character_event = { # Your spymaster has suggested that we will attempt to assassinate your fierce rival ruler. The chances are not too good however
+	id = 8170
+
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = trait value = honest } }
+		condition = { type = gold value = 200 }
+		condition = { type = intrigue value = 6 }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 8 }
+					condition = { type = not value = { type = intrigue value = 10 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc condition = { type = intrigue value = 10 } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 10 }
+					condition = { type = not value = { type = intrigue value = 12 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc condition = { type = intrigue value = 12 } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 12 }
+					condition = { type = not value = { type = intrigue value = 14 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc condition = { type = intrigue value = 14 } }
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 14 }
+					condition = { type = not value = { type = intrigue value = 16 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc condition = { type = intrigue value = 16 } }
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 12 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 15 }
+			factor = 0.8
+		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = not value = { type = intrigue value = 2 } } }
+#			factor = 0.8
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = not value = { type = intrigue value = 5 } } }
+#			factor = 0.8
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = intrigue value = 8 } }
+#			factor = 1.25
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = intrigue value = 12 } }
+#			factor = 1.25
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = intrigue value = 16 } }
+#			factor = 1.25
+#		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Damn the chances, send the assassins!
+		ai_chance = 33
+			modifier = { condition = { type = not value = { type = gold value = 500 } } factor = 2.0 }
+		effect = { type = gold value = -200 }
+		effect = { type = random chance = 50
+			effect = { type = prestige value = -100 }
+			effect = { type = piety value = -100 }
+			effect = { type = badboy value = 2 }
+		}
+		effect = { type = random chance = 50
+			effect = { type = trigger for = load_target value = 8173 }
+		}
+	}
+	action_b = { # Find the best assassins possible!
+		ai_chance = 33
+			modifier = { condition = { type = not value = { type = gold value = 500 } } factor = 0.01 }
+		effect = { type = gold value = -500 }
+		effect = { type = random chance = 25
+			effect = { type = prestige value = -100 }
+			effect = { type = piety value = -100 }
+			effect = { type = badboy value = 2 }
+		}
+		effect = { type = random chance = 75
+			effect = { type = trigger for = load_target value = 8173 }
+		}
+	}
+	action_c = { # This is too dishonest for me
+		ai_chance = 34
+		effect = { type = add_trait value = honest }
+	}
+}
+
+character_event = { # Your spymaster has suggested that we will attempt to assassinate your fierce rival ruler. The chances are decent as well
+	id = 8171
+
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = trait value = honest } }
+		condition = { type = gold value = 200 }
+		condition = { type = intrigue value = 6 }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 8 }
+					condition = { type = not value = { type = intrigue value = 10 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc
+						condition = { type = intrigue value = 8 }
+						condition = { type = not value = { type = intrigue value = 10 } }
+					}
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 10 }
+					condition = { type = not value = { type = intrigue value = 12 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc
+						condition = { type = intrigue value = 10 }
+						condition = { type = not value = { type = intrigue value = 12 } }
+					}
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 12 }
+					condition = { type = not value = { type = intrigue value = 14 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc
+						condition = { type = intrigue value = 12 }
+						condition = { type = not value = { type = intrigue value = 14 } }
+					}
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 14 }
+					condition = { type = not value = { type = intrigue value = 16 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc
+						condition = { type = intrigue value = 14 }
+						condition = { type = not value = { type = intrigue value = 16 } }
+					}
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 16 }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc
+						condition = { type = intrigue value = 16 }
+					}
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 12 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 15 }
+			factor = 0.8
+		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = not value = { type = intrigue value = 2 } } }
+#			factor = 0.8
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = not value = { type = intrigue value = 5 } } }
+#			factor = 0.8
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = intrigue value = 8 } }
+#			factor = 1.25
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = intrigue value = 12 } }
+#			factor = 1.25
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = intrigue value = 16 } }
+#			factor = 1.25
+#		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Sounds fair, send the assassins!
+		ai_chance = 33
+			modifier = { condition = { type = not value = { type = gold value = 500 } } factor = 2.0 }
+		effect = { type = gold value = -200 }
+		effect = { type = random chance = 50
+			effect = { type = prestige value = -100 }
+			effect = { type = piety value = -100 }
+			effect = { type = badboy value = 2 }
+		}
+		effect = { type = random chance = 50
+			effect = { type = trigger for = load_target value = 8174 }
+		}
+	}
+	action_b = { # Find the best assassins possible!
+		ai_chance = 33
+			modifier = { condition = { type = not value = { type = gold value = 500 } } factor = 0.01 }
+		effect = { type = gold value = -500 }
+		effect = { type = random chance = 25
+			effect = { type = prestige value = -100 }
+			effect = { type = piety value = -100 }
+			effect = { type = badboy value = 2 }
+		}
+		effect = { type = random chance = 75
+			effect = { type = trigger for = load_target value = 8174 }
+		}
+	}
+	action_c = { # This is too dishonest for me
+		ai_chance = 34
+		effect = { type = add_trait value = honest }
+	}
+}
+
+character_event = { # Your spymaster has suggested that we will attempt to assassinate your fierce rival ruler. The chances are distinctly favourable with this
+	id = 8172
+
+	picture = "event_spymaster"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = num_rivals value = 1 }
+		condition = { type = not value = { type = atwar } }
+		condition = { type = not value = { type = trait value = honest } }
+		condition = { type = gold value = 200 }
+		condition = { type = intrigue value = 6 }
+		condition = { type = or
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 8 }
+					condition = { type = not value = { type = intrigue value = 10 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc
+						condition = { type = not value = { type = intrigue value = 8 } }
+					}
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 10 }
+					condition = { type = not value = { type = intrigue value = 12 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc
+						condition = { type = not value = { type = intrigue value = 10 } }
+					}
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 12 }
+					condition = { type = not value = { type = intrigue value = 14 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc
+						condition = { type = not value = { type = intrigue value = 12 } }
+					}
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 14 }
+					condition = { type = not value = { type = intrigue value = 16 } }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc
+						condition = { type = not value = { type = intrigue value = 14 } }
+					}
+					condition = { type = save_target }
+				}
+			}
+			condition = { type = and
+				condition = { type = spymaster_csc
+					condition = { type = intrigue value = 16 }
+				}
+				condition = { type = any_rival
+					condition = { type = ruler }
+					condition = { type = spymaster_csc
+						condition = { type = not value = { type = intrigue value = 16 } }
+					}
+					condition = { type = save_target }
+				}
+			}
+		}
+		condition = { type = has_target }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 12 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = intrigue value = 15 }
+			factor = 0.8
+		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = not value = { type = intrigue value = 2 } } }
+#			factor = 0.8
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = not value = { type = intrigue value = 5 } } }
+#			factor = 0.8
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = intrigue value = 8 } }
+#			factor = 1.25
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = intrigue value = 12 } }
+#			factor = 1.25
+#		}
+#		modifier = {
+#			condition = { type = target_csc condition = { type = intrigue value = 16 } }
+#			factor = 1.25
+#		}
+		modifier = {
+			condition = { type = trait value = proud }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = deceitful }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = hostile }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = reckless }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = energetic }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = trait value = modest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = honest }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = amiable }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = coward }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = trait value = lazy }
+			factor = 1.25
+		}
+	}
+
+	action_a = { # Excellent, send the assassins!
+		ai_chance = 33
+			modifier = { condition = { type = not value = { type = gold value = 500 } } factor = 2.0 }
+		effect = { type = gold value = -200 }
+		effect = { type = random chance = 50
+			effect = { type = prestige value = -100 }
+			effect = { type = piety value = -100 }
+			effect = { type = badboy value = 2 }
+		}
+		effect = { type = random chance = 50
+			effect = { type = trigger for = load_target value = 8175 }
+		}
+	}
+	action_b = { # Find the best assassins possible!
+		ai_chance = 33
+			modifier = { condition = { type = not value = { type = gold value = 500 } } factor = 0.01 }
+		effect = { type = gold value = -500 }
+		effect = { type = random chance = 25
+			effect = { type = prestige value = -100 }
+			effect = { type = piety value = -100 }
+			effect = { type = badboy value = 2 }
+		}
+		effect = { type = random chance = 75
+			effect = { type = trigger for = load_target value = 8175 }
+		}
+	}
+	action_c = { # This is too dishonest for me
+		ai_chance = 34
+		effect = { type = add_trait value = honest }
+	}
+}
+
+character_event = { # Assassins sent by a rival are threatening your life!
+	id = 8173
+
+	picture = "event_crime"
+
+	immidiate = { # Oh no!
+		effect = { type = random_list
+			50 = { type = no_effect }
+			35 = { type = add_trait value = war_invalid }
+			15 = { type = death }
+		}
+	}
+}
+
+character_event = { # Assassins sent by a rival are threatening your life!
+	id = 8174
+
+	picture = "event_crime"
+
+	immidiate = { # Oh no!
+		effect = { type = random_list
+			25 = { type = no_effect }
+			50 = { type = add_trait value = war_invalid }
+			25 = { type = death }
+		}
+	}
+}
+
+character_event = { # Assassins sent by a rival are threatening your life!
+	id = 8175
+
+	picture = "event_crime"
+
+	immidiate = { # Oh no!
+		effect = { type = random_list
+			10 = { type = no_effect }
+			50 = { type = add_trait value = war_invalid }
+			40 = { type = death }
+		}
+	}
+}
+
+# General reaction events
+
+character_event = { # You have lost a rival
+	id = 8198
+
+	picture = "event_intrigue"
+
+	action_a = { # Good
+		effect = { type = no_effect }
+	}
+}
+
+character_event = { # You have gained a new rival
+	id = 8199
+
+	picture = "event_intrigue"
+
+	action_a = { # Damn
+		effect = { type = no_effect }
+	}
+}

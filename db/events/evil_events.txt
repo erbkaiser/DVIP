@@ -1,0 +1,2173 @@
+####################################################
+# Major Evil Event Series 5600-5699                #
+#                                                  #
+# Felix, qui potuit rerum cognoscere causas,       #
+# Atque metus omnis et inexorabile fatum           #
+# subiecit pedibus; strepitumque Acherontis avari! #
+# By PE                                            #
+#                                                  #
+# Latest revision: CS, March 2005                  #
+####################################################
+
+# 5600-5609 Province nuisances
+# 5620-5629 Province bad spread
+# 5650-5659 Ruler stress and insanity
+# 5690-5699 Ruler goodies
+
+
+##########################################
+##########################################
+##                                      ##
+## Province nuisance events (5600-5609) ##
+##                                      ##
+##########################################
+##########################################
+
+
+
+##########################################
+# Lack of Control Breeds Unrest		 #
+#                                        #
+# Note: Primary effect to lower loyalty. #
+# If loyalty already rock bottom, to not #
+# trigger to reduce the annoyance factor #
+#                                        #
+##########################################
+
+province_event = {
+	id = 5600
+	
+	picture = "event_rebellion"
+
+	trigger = {
+		condition = {
+			type = or
+			condition = { type = peasant_loyalty value = 0.2 }
+			condition = { type = burgher_loyalty value = 0.2 }
+			condition = { type = clergy_loyalty value = 0.2 }
+			condition = { type = noble_loyalty value = 0.2 }
+		}
+		condition = { type = owner condition = { type = not value = { type = efficiency value = 0.5 } } }
+	}
+
+	mean_time_to_happen = {
+
+		months = 2600 # should have fairly high base
+
+# The AI has a harder time dealing with evil events, so it will receive fewer of them
+		modifier = {
+			condition = { type = ai }
+			factor = 10.0
+		}
+
+# difficulty setting
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+# realm efficiency
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.4 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.5 } } }
+			factor = 0.9 # 40-49
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.3 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.4 } } }
+			factor = 0.8 # 30-39
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.2 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.3 } } }
+			factor = 0.7 # 20-29
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.1 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.2 } } }
+			factor = 0.5 # 10-19
+		}
+		modifier = {
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.1 } } }
+			factor = 0.2 # 0-9
+		}
+
+# improvements
+		modifier = {
+			condition = { type = has_improvement value = { royal_post = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_improvement value = { grand_palace = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_improvement value = { roadnet = yes } }
+			factor = 1.05
+		}
+		modifier = {
+			condition = { type = has_improvement value = { extensive_roadnet = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { court_of_justice = yes } }
+			factor = 1.05
+		}
+		modifier = {
+			condition = { type = has_improvement value = { hill_fort = yes } }
+			factor = 1.05
+		}
+		modifier = {
+			condition = { type = has_improvement value = { small_castle = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { medium_castle = yes } }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_castle = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_improvement value = { huge_castle = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 0.75
+		}
+# no law influence
+# no tech influence
+# military influence of great importance
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.5
+		}
+# extra stats influence
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 2 }
+			condition = { type = not value = { type = ruler_stewardship value = 4 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 4 }
+			condition = { type = not value = { type = ruler_stewardship value = 6 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 8 }
+			condition = { type = not value = { type = ruler_stewardship value = 10 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 10 }
+			condition = { type = not value = { type = ruler_stewardship value = 12 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 12 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_intrigue value = 2 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 2 }
+			condition = { type = not value = { type = ruler_intrigue value = 4 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 4 }
+			condition = { type = not value = { type = ruler_intrigue value = 6 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 8 }
+			condition = { type = not value = { type = ruler_intrigue value = 10 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 10 }
+			condition = { type = not value = { type = ruler_intrigue value = 12 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 12 }
+			factor = 2
+		}
+# province effects
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { poor = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { prosperous = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { rich = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.8
+		}
+	}
+
+	action_a = { #Bloody revolutionaries
+		effect = { type = peasant_loyalty value = -0.5 }
+		effect = { type = burgher_loyalty value = -0.5 }
+		effect = { type = clergy_loyalty value = -0.5 }
+		effect = { type = noble_loyalty value = -0.5 }
+	}
+	action_b = { #Buy off the leaders and the rabble will follow
+		effect = { type = ruler_gold scale = -0.35 }
+		effect = { type = peasant_loyalty value = -0.10 }
+		effect = { type = burgher_loyalty value = -0.10 }
+		effect = { type = clergy_loyalty value = -0.10 }
+		effect = { type = noble_loyalty value = -0.10 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = peasant_loyalty value = -0.20 }
+			effect = { type = burgher_loyalty value = -0.20 }
+			effect = { type = clergy_loyalty value = -0.20 }
+			effect = { type = noble_loyalty value = -0.20 }
+		}
+		effect = {
+			type = random
+			chance = 20
+			effect = { type = peasant_loyalty value = -0.30 }
+			effect = { type = burgher_loyalty value = -0.30 }
+			effect = { type = clergy_loyalty value = -0.30 }
+			effect = { type = noble_loyalty value = -0.30 }
+			effect = { type = add_province_effect value = revolt }
+		}
+	}
+}
+
+
+
+
+##########################################
+# Major Criminal Gang Established	 #
+#                                        #
+# Note: Does not happen if all three     #
+# criminal buildings are already present #
+##########################################
+
+province_event = {
+	id = 5601
+	
+	picture = "event_crime"
+
+	trigger = {
+		condition = {
+			type = not
+			value = {
+				type = and
+				condition = { type = has_improvement value = { thieves_guild = yes } }
+				condition = { type = has_improvement value = { smugglers_ring = yes } }
+				condition = { type = has_improvement value = { highway_robber_band = yes } }
+			}
+		}
+		condition = { type = owner condition = { type = not value = { type = efficiency value = 0.5 } } }
+	}
+
+	mean_time_to_happen = {
+
+		months = 2200 # should have fairly high base
+
+# The AI has a harder time dealing with evil events, so it will receive fewer of them
+		modifier = {
+			condition = { type = ai }
+			factor = 10.0
+		}
+
+# difficulty setting
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+# realm efficiency
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.4 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.5 } } }
+			factor = 0.9 # 40-49
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.3 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.4 } } }
+			factor = 0.8 # 30-39
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.2 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.3 } } }
+			factor = 0.7 # 20-29
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.1 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.2 } } }
+			factor = 0.5 # 10-19
+		}
+		modifier = {
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.1 } } }
+			factor = 0.2 # 0-9
+		}
+
+# improvements
+		modifier = {
+			condition = { type = has_improvement value = { royal_post = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { grand_palace = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = has_improvement value = { roadnet = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { extensive_roadnet = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { court_of_justice = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { hill_fort = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { small_castle = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { medium_castle = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_castle = yes } }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { huge_castle = yes } }
+			factor = 2.5
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 0.75
+		}
+# no law influence
+# no tech influence
+# military influence
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.6
+		}
+# stats influence
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 2 }
+			condition = { type = not value = { type = ruler_stewardship value = 4 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 4 }
+			condition = { type = not value = { type = ruler_stewardship value = 6 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 8 }
+			condition = { type = not value = { type = ruler_stewardship value = 10 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 10 }
+			condition = { type = not value = { type = ruler_stewardship value = 13 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 13 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_intrigue value = 2 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 2 }
+			condition = { type = not value = { type = ruler_intrigue value = 4 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 4 }
+			condition = { type = not value = { type = ruler_intrigue value = 6 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 8 }
+			condition = { type = not value = { type = ruler_intrigue value = 10 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 10 }
+			condition = { type = not value = { type = ruler_intrigue value = 13 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 13 }
+			factor = 2
+		}
+# province effects
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.6 # many people in desperate straits
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 0.8 # many people suffering deprivation
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { poor = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { prosperous = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { rich = yes } }
+			factor = 0.5 # lots of wealth to gain
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.8
+		}
+	}
+
+	action_a = { # These things happen
+		effect = { type = add_improvement value = thieves_guild }
+		effect = { type = add_improvement value = smugglers_ring }
+		effect = { type = add_improvement value = highway_robber_band }
+		}
+	action_b = { # Perhaps an accomodation can be reached
+		effect = { type = ruler_gold scale = -0.75 }
+		effect = { type = add_improvement value = thieves_guild }
+		effect = {
+			type = random
+			chance = 75
+			effect = { type = add_improvement value = smugglers_ring }
+		}
+		effect = {
+			type = random
+			chance = 75
+			effect = { type = add_improvement value = highway_robber_band }
+		}
+	}
+}
+
+
+
+##########################################
+# Court of Justice Firebombed		 #
+#                                        #
+#                                        #
+##########################################
+
+province_event = {
+	id = 5602
+	
+	picture = "event_crime"
+
+	trigger = {
+		condition = { type = has_improvement value = { court_of_justice = yes } }
+		condition = { type = owner condition = { type = not value = { type = efficiency value = 0.7 } } }
+	}
+
+	mean_time_to_happen = {
+
+		months = 1300 # should have decent base
+
+# The AI has a harder time dealing with evil events, so it will receive fewer of them
+		modifier = {
+			condition = { type = ai }
+			factor = 10.0
+		}
+
+# difficulty setting
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+# realm efficiency
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.5 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.7 } } }
+			factor = 0.9 # 50-69
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.30 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.5 } } }
+			factor = 0.8 # 30-49
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.2 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.3 } } }
+			factor = 0.7 # 20-29
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.1 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.2 } } }
+			factor = 0.5 # 10-20
+		}
+		modifier = {
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.1 } } }
+			factor = 0.2 # 0-10
+		}
+
+# improvements
+		modifier = {
+			condition = { type = has_improvement value = { royal_post = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { grand_palace = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { roadnet = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { extensive_roadnet = yes } }
+			factor = 1.1
+		}
+# Court of Justice _required_ for event
+#		modifier = {
+#			condition = { type = has_improvement value = { court_of_justice = yes } }
+#			factor = 2
+#		}
+		modifier = {
+			condition = { type = has_improvement value = { hill_fort = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { small_castle = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { medium_castle = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_castle = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { huge_castle = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 0.5
+		}
+# no law influence
+# no tech influence
+# military influence of utmost importance
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.2
+		}
+# stats influence
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 2 }
+			condition = { type = not value = { type = ruler_stewardship value = 4 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 4 }
+			condition = { type = not value = { type = ruler_stewardship value = 6 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 8 }
+			condition = { type = not value = { type = ruler_stewardship value = 10 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 10 }
+			condition = { type = not value = { type = ruler_stewardship value = 13 } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 13 }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_intrigue value = 2 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 2 }
+			condition = { type = not value = { type = ruler_intrigue value = 4 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 4 }
+			condition = { type = not value = { type = ruler_intrigue value = 6 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 8 }
+			condition = { type = not value = { type = ruler_intrigue value = 10 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 10 }
+			condition = { type = not value = { type = ruler_intrigue value = 13 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 13 }
+			factor = 2
+		}
+# province effects
+		modifier = {
+			condition = { type = has_province_effect value = { revolt = yes } }
+			factor = 0.4
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { poor = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { prosperous = yes } }
+			factor = 1.3
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { rich = yes } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.8
+		}
+	}
+
+	immidiate = { # These things happen
+		effect = { type = remove_improvement value = court_of_justice }
+	}
+}
+
+
+
+##########################################
+# A zealous firebrand preaches rebellion #
+#                                        #
+##########################################
+
+province_event = {
+	id = 5603
+	
+	picture = "event_heretic"
+
+	trigger = {
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+		condition = { type = owner condition = { type = not value = { type = efficiency value = 0.9 } } }
+	}
+
+	mean_time_to_happen = {
+
+		months = 1600
+
+# The AI has a harder time dealing with evil events, so it will receive fewer of them
+		modifier = {
+			condition = { type = ai }
+			factor = 10.0
+		}
+
+# difficulty setting
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+# realm efficiency
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.7 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.9 } } }
+			factor = 0.9 # 70-89
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.5 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.7 } } }
+			factor = 0.8 # 50-69
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.3 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.5 } } }
+			factor = 0.7 # 30-49
+		}
+		modifier = {
+			condition = { type = owner condition = { type = efficiency value = 0.1 } }
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.3 } } }
+			factor = 0.5 # 10-29
+		}
+		modifier = {
+			condition = { type = owner condition = { type = not value = { type = efficiency value = 0.1 } } }
+			factor = 0.2 # 0-9
+		}
+
+		modifier = {
+			condition = { type = owner condition = { type = trait value = lustful } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner condition = { type = trait value = proud } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner condition = { type = trait value = arbitrary } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner condition = { type = trait value = deceitful } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner condition = { type = trait value = vengeful } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner condition = { type = trait value = cruel } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner condition = { type = trait value = suspicious } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner condition = { type = trait value = sceptical } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner condition = { type = trait value = heretic } }
+			factor = 0.5
+		}
+
+# improvements
+		modifier = {
+			condition = { type = has_improvement value = { royal_post = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { grand_palace = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { roadnet = yes } }
+			factor = 1.05
+		}
+		modifier = {
+			condition = { type = has_improvement value = { extensive_roadnet = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { court_of_justice = yes } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = has_improvement value = { hill_fort = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { small_castle = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { medium_castle = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { large_castle = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { huge_castle = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { thieves_guild = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smugglers_ring = yes } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = has_improvement value = { highway_robber_band = yes } }
+			factor = 0.75
+		}
+
+# military influence of great importance
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.4
+		}
+# stats influence
+		modifier = {
+			condition = { type = not value = { type = ruler_stewardship value = 2 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 2 }
+			condition = { type = not value = { type = ruler_stewardship value = 4 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 4 }
+			condition = { type = not value = { type = ruler_stewardship value = 6 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 8 }
+			condition = { type = not value = { type = ruler_stewardship value = 10 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 10 }
+			condition = { type = not value = { type = ruler_stewardship value = 13 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = ruler_stewardship value = 13 }
+			factor = 2
+		}
+		modifier = {
+			condition = { type = not value = { type = ruler_intrigue value = 2 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 2 }
+			condition = { type = not value = { type = ruler_intrigue value = 4 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 4 }
+			condition = { type = not value = { type = ruler_intrigue value = 6 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 8 }
+			condition = { type = not value = { type = ruler_intrigue value = 10 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 10 }
+			condition = { type = not value = { type = ruler_intrigue value = 13 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = ruler_intrigue value = 13 }
+			factor = 2
+		}
+# province effects
+		modifier = {
+			condition = { type = has_province_effect value = { looted = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { struggling = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { poor = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { prosperous = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { rich = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.8
+		}
+	}
+
+	action_a = { # It is likely just harmless talk
+		effect = { type = add_province_effect value = revolt }
+		effect = { type = peasant_loyalty value = -0.5 }
+		effect = { type = burgher_loyalty value = -0.5 }
+		effect = { type = clergy_loyalty value = -0.3 }
+		effect = { type = noble_loyalty value = -0.3 }
+	}
+	action_b = { # Bring me the head of the holy man
+		effect = { type = peasant_loyalty value = -0.2 }
+		effect = { type = burgher_loyalty value = -0.2 }
+		effect = { type = clergy_loyalty value = -0.2 }
+		effect = { type = noble_loyalty value = -0.2 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = ruler_piety value = -50 }
+			effect = { type = add_province_effect value = revolt }
+			effect = { type = peasant_loyalty value = -1.0 }
+			effect = { type = burgher_loyalty value = -1.0 }
+			effect = { type = clergy_loyalty value = -0.4 }
+			effect = { type = noble_loyalty value = -0.4 }
+		}
+	}
+}
+
+
+
+##########################################
+##########################################
+##                                      ##
+## Province bad spread (5620-5629)      ##
+##                                      ##
+##########################################
+##########################################
+
+
+##########################################
+# The revolt spreads			 #
+#                                        #
+##########################################
+
+
+province_x_province_event = {
+	id = 5620
+
+	picture = "event_rebellion"
+
+	trigger	= {
+		condition = {
+			type = from
+			condition = {
+				type = has_province_effect
+				value = {
+					revolt = yes
+				}
+			}
+		}
+
+		condition = {
+			type = to
+			condition = {
+				type = not
+				value = {
+					type = has_province_effect
+					value = {
+						revolt = yes
+					}
+				}
+			}
+		}
+
+		condition = {
+			type = to
+			condition = {
+				type = owner
+				condition = {
+					type = not
+					value = {
+						type = efficiency
+						value = 0.7
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+	 	months = 480
+
+# The AI has a harder time dealing with evil events, so it will receive fewer of them
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = ai }
+			}
+			factor = 10.0
+		}
+
+# difficulty setting
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+# spreads best in big blobs
+		modifier = {
+			condition = { type = same_culture }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = same_ruler }
+			factor = 0.3
+		}
+		modifier = {
+			condition = { type = same_realm }
+			factor = 0.5
+		}
+
+# realm efficiency
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = owner condition = { type = efficiency value = 0.5 } }
+			}
+			factor = 0.8 # 50-
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = owner condition = { type = efficiency value = 0.3 } }
+				condition = { type = owner condition = { type = not value = { type = efficiency value = 0.5 } } }
+			}
+			factor = 0.7 # 30-49
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = owner condition = { type = efficiency value = 0.1 } }
+				condition = { type = owner condition = { type = not value = { type = efficiency value = 0.3 } } }
+			}
+			factor = 0.5 # 10-29
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = owner condition = { type = not value = { type = efficiency value = 0.1 } } }
+			}
+			factor = 0.2 # 0-9
+		}
+
+		# regiment not at home increases spread to neighboring provinces
+		modifier = {
+			condition = {
+				type = from
+				condition = { type = regiment_mobilized }
+			}
+			factor = 0.5
+		}
+
+		# regiment not at home increases spread into this province
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = regiment_mobilized }
+			}
+			factor = 0.25
+		}
+
+		modifier = {
+			condition = {
+				type = from
+				condition = { type = has_improvement value = { roadnet = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = has_improvement value = { roadnet = yes } }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = to
+				condition = { type = has_improvement value = { extensive_roadnet = yes } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 1 }
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 2 }
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = stability value = 3 }
+				}
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = 0 } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -1 } }
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = to
+				condition = { type = owner
+					condition = { type = not value = { type = stability value = -2 } }
+				}
+			}
+			factor = 0.8
+		}
+	}
+
+	immidiate = { # That is most unfortunate
+		effect = {
+			type = to
+
+			effect = {
+				type = add_province_effect
+				value = revolt
+			}
+		}
+	}
+}
+
+
+
+
+
+##########################################
+##########################################
+##                                      ##
+## Ruler stress & insanity (5650-5659)  ##
+##                                      ##
+##########################################
+##########################################
+
+
+##########################################
+# Your huge demesne is hard to manage	 #
+#                                        #
+##########################################
+
+character_event = {
+	id = 5650
+	
+	picture = "event_madness"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = efficiency value = 0.8 } }
+		condition = { type = not value = { type = trait	value = stress_symptom } }
+		condition = { type = not value = { type = trait	value = schizofrenia } }
+		condition = { type = not value = { type = trait	value = maniac } }
+	}
+
+	mean_time_to_happen = {
+
+		months = 2600 # high base
+
+# The AI has a harder time dealing with evil events, so it will receive fewer of them
+		modifier = {
+			condition = { type = ai }
+			factor = 10.0
+		}
+
+# difficulty setting
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+# realm efficiency
+		modifier = {
+			condition = { type = efficiency value = 0.7 }
+			condition = { type = not value = { type = efficiency value = 0.8 } }
+			factor = 0.9 # 70-79
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.6 }
+			condition = { type = not value = { type = efficiency value = 0.7 } }
+			factor = 0.8 # 60-69
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.5 }
+			condition = { type = not value = { type = efficiency value = 0.6 } }
+			factor = 0.6 # 50-59
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.4 }
+			condition = { type = not value = { type = efficiency value = 0.5 } }
+			factor = 0.4 # 40-49
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.3 }
+			condition = { type = not value = { type = efficiency value = 0.4 } }
+			factor = 0.3 # 30-39
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.2 }
+			condition = { type = not value = { type = efficiency value = 0.3 } }
+			factor = 0.2 # 20-29
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.1 }
+			condition = { type = not value = { type = efficiency value = 0.2 } }
+			factor = 0.1 # 10-19
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.1 } }
+			factor = 0.02 # 0-9
+		}
+
+# no law influence
+
+# no tech influence
+
+# traits influence
+		modifier = {
+			condition = { type = trait value = depression }  # it is no fun anymore
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = illness }  # it is tough to be ill
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = pneumonia  }  # pneumonia isn't all that nice either
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = intestinal_worm  }  # the stomach can cause problems
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = trait value = leper }  # leprosy is certainly not conductive to hard work
+			factor = 0.2
+		}
+		modifier = {
+			condition = { type = trait value = plagueinfested }  # ...but the plague is worse
+			factor = 0.1
+		}
+		modifier = {
+			condition = { type = trait value = stutter }  # all these face-to-face meetings are hard
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lisp }  # all these face-to-face meetings are hard
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = chaste }  # less sex means more time for work
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = trait value = lustful }  # busy, busy, busy
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = trait value = energetic }  # a regular bundle of energy
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = temperate }  # keeps a cool head
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = wise }  # more work for equal thoughts
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = trait value = trusting }  # trust is easily abused as efficiency falls
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }  # so many people to keep an eye on, so little time
+			factor = 0.9
+		}
+
+
+# stats influence
+#   health very important - especially if bad...
+		modifier = {
+			condition = { type = not value = { type = health value = 2 } }
+			factor = 0.25
+		}
+		modifier = {
+			condition = { type = health value = 2 }
+			condition = { type = not value = { type = health value = 4 } }
+			factor = 0.50
+		}
+		modifier = {
+			condition = { type = health value = 4 }
+			condition = { type = not value = { type = health value = 6 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = health value = 6 }
+			condition = { type = not value = { type = health value = 8 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = health value = 8 }
+			condition = { type = not value = { type = health value = 10 } }
+			factor = 1.75
+		}
+		modifier = {
+			condition = { type = health value = 10 }
+			factor = 2
+		}
+
+#   stewardship most important
+		modifier = {
+			condition = { type = not value = { type = stewardship value = 3 } }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = stewardship value = 3 }
+			condition = { type = not value = { type = stewardship value = 6 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = stewardship value = 6 }
+			condition = { type = not value = { type = stewardship value = 9 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = stewardship value = 9 }
+			condition = { type = not value = { type = stewardship value = 12 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = stewardship value = 12 }
+			condition = { type = not value = { type = stewardship value = 15 } }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = stewardship value = 15 }
+			factor = 2
+		}
+
+#   martial somewhat important
+		modifier = {
+			condition = { type = not value = { type = martial value = 6 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = martial value = 6 }
+			condition = { type = not value = { type = martial value = 9 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = martial value = 9 }
+			condition = { type = not value = { type = martial value = 12 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = martial value = 12 }
+			factor = 1.5
+		}
+
+#   intrigue somewhat important
+		modifier = {
+			condition = { type = not value = { type = intrigue value = 6 } }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { type = intrigue value = 6 }
+			condition = { type = not value = { type = intrigue value = 9 } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = intrigue value = 9 }
+			condition = { type = not value = { type = intrigue value = 12 } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = intrigue value = 12 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.8
+		}
+	}
+
+	action_a = { # This is all very stressful
+		effect = { type = health value = -1.0 }
+		effect = { type = fertility value = -1.0 }
+		effect = { type = add_trait value = stress_symptom }
+	}
+	action_b = { # I Must Work Harder...
+		effect = { type = health value = -1.0 }
+		effect = { type = fertility value = -1.0 }
+		effect = { type = stewardship value = 1.0 }
+		effect = { type = intrigue value = 1.0 }
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = maniac }
+		}
+		effect = {
+			type = random
+			chance = 10
+			effect = { type = add_trait value = schizofrenia }
+		}
+	}
+	action_c = { # I Must Multitask...
+		effect = { type = intrigue value = 1.0 }
+		effect = {
+			type = random
+			chance = 25
+			effect = { type = add_trait value = schizofrenia }
+		}
+	}
+}
+
+
+##########################################
+# So many enemies, so little time	 #
+#                                        #
+# Basically an extra chance at killing   #
+# off nuisances when schizophrenic	 #
+#                                        #
+##########################################
+
+character_event = {
+	id = 5651
+	
+	picture = "event_plague"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = efficiency value = 0.8 } }
+		condition = { type = trait value = schizofrenia }
+	}
+
+	mean_time_to_happen = {
+
+		months = 160
+
+# The AI has a harder time dealing with evil events, so it will receive fewer of them
+		modifier = {
+			condition = { type = ai }
+			factor = 10.0
+		}
+
+# difficulty setting
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+# realm efficiency
+		modifier = {
+			condition = { type = efficiency value = 0.7 }
+			condition = { type = not value = { type = efficiency value = 0.8 } }
+			factor = 0.8 # 70-79
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.6 }
+			condition = { type = not value = { type = efficiency value = 0.7 } }
+			factor = 0.7 # 60-69
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.5 }
+			condition = { type = not value = { type = efficiency value = 0.6 } }
+			factor = 0.6 # 50-59
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.4 }
+			condition = { type = not value = { type = efficiency value = 0.5 } }
+			factor = 0.5 # 40-49
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.3 }
+			condition = { type = not value = { type = efficiency value = 0.4 } }
+			factor = 0.4 # 30-39
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.2 }
+			condition = { type = not value = { type = efficiency value = 0.3 } }
+			factor = 0.3 # 20-29
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.1 }
+			condition = { type = not value = { type = efficiency value = 0.2 } }
+			factor = 0.2 # 10-19
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.1 } }
+			factor = 0.1 # 0-9
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.8
+		}
+	}
+
+	immidiate = { # Hahaha! Got you, traitors!
+		effect = { type = death value = random_vassal }
+		effect = { type = death value = random_courtier }
+	}
+}
+
+
+
+##########################################
+# Till death do us part		 	 #
+#                                        #
+# Would you marry this guy? (schizo)	 #
+#                                        #
+##########################################
+
+character_event = {
+	id = 5652
+	
+	picture = "event_plague"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = is_married }
+		condition = { type = not value = { type = efficiency value = 0.3 } }
+		condition = { type = trait value = schizofrenia }
+	}
+
+	mean_time_to_happen = {
+
+		months = 160
+
+# The AI has a harder time dealing with evil events, so it will receive fewer of them
+		modifier = {
+			condition = { type = ai }
+			factor = 10.0
+		}
+
+# difficulty setting
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+# realm efficiency
+		modifier = {
+			condition = { type = efficiency value = 0.2 }
+			condition = { type = not value = { type = efficiency value = 0.3 } }
+			factor = 0.9 # 20-29
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.1 }
+			condition = { type = not value = { type = efficiency value = 0.2 } }
+			factor = 0.7 # 10-19
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.1 } }
+			factor = 0.4 # 0-9
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.8
+		}
+	}
+
+	immidiate = { # Honey, I'm hooome!
+		effect = { type = death value = spouse }
+		effect = { type = add_trait value = kinslayer }
+		effect = { type = death value = random_courtier }
+	}
+}
+
+
+
+##########################################
+# No inheritance For YOU!	 	 #
+#                                        #
+# Those pesky heirs... (schizophrenia)	 #
+#                                        #
+##########################################
+
+character_event = {
+	id = 5653
+	
+	picture = "event_plague"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = { type = not value = { type = efficiency value = 0.3 } }
+		condition = { type = trait value = schizofrenia }
+		condition = { type = any_child
+			condition = { type = and
+				condition = { type = ruler_child }
+				condition = { type = is_alive }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+
+		months = 160
+
+# The AI has a harder time dealing with evil events, so it will receive fewer of them
+		modifier = {
+			condition = { type = ai }
+			factor = 10.0
+		}
+
+# difficulty setting
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.95
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.9
+		}
+
+# realm efficiency
+		modifier = {
+			condition = { type = efficiency value = 0.2 }
+			condition = { type = not value = { type = efficiency value = 0.3 } }
+			factor = 0.9 # 20-29
+		}
+		modifier = {
+			condition = { type = efficiency value = 0.1 }
+			condition = { type = not value = { type = efficiency value = 0.2 } }
+			factor = 0.6 # 10-19
+		}
+		modifier = {
+			condition = { type = not value = { type = efficiency value = 0.1 } }
+			factor = 0.3 # 0-9
+		}
+		modifier = {
+			condition = { type = stability value = 1 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = stability value = 2 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = stability value = 3 }
+			factor = 1.25
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = 0 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -1 } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = not value = { type = stability value = -2 } }
+			factor = 0.8
+		}
+	}
+
+	immidiate = { # Your plot is revealed!
+		effect = { type = death value = random_son }
+		effect = { type = add_trait value = kinslayer }
+		effect = { type = death value = random_courtier }
+	}
+}
+
+
+##########################################
+##########################################
+##                                      ##
+## Ruler goodies            (5690-5699) ##
+##                                      ##
+##########################################
+##########################################
+
+
+##########################################
+# The Church supports your rule		 #
+#                                        #
+##########################################
+
+character_event = {
+	id = 5690
+	
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = ruler }
+		condition = {
+			type = or
+			condition = { type = religion value = catholic }
+			condition = { type = religion value = orthodox }
+		}
+
+		condition = { type = piety value = 200 }
+		condition = { type = not value = { type = efficiency value = 0.5 } }
+	}
+
+	mean_time_to_happen = {
+
+		months = 240
+
+# The AI needs all the help it can get - especially when it has this low efficiency.
+# Time to help it a bit by letting the event fire more often. Grossly unfair, but that's life for you.
+		modifier = {
+			condition = { type = ai }
+			factor = 0.3
+		}
+
+# law influence
+		modifier = {
+			condition = { type = has_law value = { regal_supremacy = yes } }
+			factor = 1.2
+		}
+#		modifier = {
+#			condition = { type = has_law value = { monastic_supremacy = yes } }
+#			factor = 0.9
+#		}
+		modifier = {
+			condition = { type = has_law value = { ecclesical_balance = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_law value = { church_supremacy = yes } }
+			factor = 0.8
+		}
+
+# traits influence
+		modifier = {
+			condition = { type = trait value = zealous }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = crusader }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = chaste }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = temperate }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = wise }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = just }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = trusting }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = trait value = lustful }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = suspicious }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = trait value = sceptical }
+			factor = 2.5
+		}
+		modifier = {
+			condition = { type = trait value = heretic }
+			factor = 10
+		}
+
+# traits influence
+		modifier = {
+			condition = { type = piety value = 500 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 1000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 2000 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = piety value = 5000 }
+			factor = 0.9
+		}
+	}
+
+	immidiate = { # The Church is a valuable ally
+		effect = { type = create_courtier value = chaplain}
+		effect = { type = piety value = 50 }
+		effect = { type = prestige value = 50 }
+	}
+}
+

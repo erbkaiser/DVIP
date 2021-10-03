@@ -1,0 +1,1502 @@
+CK Country;EU2 Country;CK Name
+ABBA;ABB;Abbasid
+ABKH;GEO;Abkhazia
+ABYD;BUK;Merv
+ACHA;ATH;Achaia
+ADRI;BYZ;Macedonia
+AEGE;BYZ;Aegean Islands
+AKAB;MAM;Akaba
+AKER;NOR;Akershus
+ALAN;NOG;Alania
+ALEP;ALE;Aleppo
+ALEX;EGY;Alexandria
+ALGA;POR;Algarve
+ALGE;ALD;Alger
+ALHA;MAM;Damman
+ALJA;ALD;Mosul
+ALME;GRA;Granada
+ALMO;ALM;Almohad
+ANJO;ANJ;Anjou
+ANTI;ALE;Antioch
+APUL;APU;Apulia
+ARAB;ARA;Arabia
+ARAG;ARG;Aragon
+ARGY;SCO;Argyll
+ARMA;AMG;Gascony
+ARME;ARM;Armenia
+ARMI;AMI;Armenia Minor
+ARTO;ART;Artois
+ASCA;MAM;Ascalon
+ASSA;MAM;Assassin
+ASTU;ASU;Asturias
+ASWA;MAM;Aswan
+ATHO;SCO;Albany
+ATRI;KOL;Triers
+AUVE;AUV;Auvergne
+AYDI;MAM;Aydin
+AYYU;AYY;Ayyubid
+AZER;GEO;Azerbaijan
+AZOV;CRI;Azov
+BADA;CAS;Badajoz
+BAGH;IRA;Baghdad
+BALE;BAE;Balearic
+BASR;BAS;Basra
+BAVA;BAY;Bavaria
+BELG;SER;Rashka
+BELO;SUZ;Beloozero
+BENE;NAP;Benevento
+BENI;ARA;Beni Helal
+BERG;NOR;Bergen
+BERS;SWE;Bergslagen
+BERW;HAN;Brunswick
+BJAR;NVG;Bjarmia
+BOHE;BOH;Bohemia
+BOLG;AST;Khazaria
+BORD;AQU;Aquitaine
+BOSN;BOS;Bosnia
+BOUG;BUR;Burgundy
+BOUR;BOU;Bourbon
+BRAB;HAU;Brabant
+BRAG;POR;Porto
+BRAN;BRA;Brandenburg
+BRIT;BRI;Lower Brittany
+BUKH;BUK;Bukhara
+BULG;BUL;Bulgaria
+BURG;BUR;Burgundy
+BUTR;ALB;Epirus
+BYZA;BYZ;Byzantium
+C001;ICE;Vestisland                          
+C002;ICE;Austisland                          
+C003;EIR;Tir Connail                         
+C004;EIR;Tir Eoghain                         
+C005;EIR;Ulaid                               
+C006;SWE;Finnveden                           
+C007;EIR;Sligo                               
+C008;EIR;Mayo                                
+C009;EIR;Galway                              
+C010;EIR;Mide                                
+C011;EIR;Dublin                              
+C012;EIR;Osraige                             
+C013;EIR;Tuadmumu                            
+C014;EIR;Desmumu                             
+C015;EIR;Urmumu                              
+C016;EIR;Laigin                              
+C017;WLS;Hereford                            
+C018;WLS;Dyfed                               
+C019;WLS;Glamorgan                           
+C020;WLS;Gwent                               
+C021;ENG;Gloucester                          
+C022;ENG;Oxford                              
+C023;ENG;Salisbury                           
+C024;ENG;Surrey                              
+C025;ENG;Sussex                              
+C026;ENG;Hampshire                           
+C027;ENG;Dorset                              
+C028;ENG;Somerset                            
+C029;ENG;Devon                               
+C030;ENG;Exeter                              
+C031;CNW;Cornwall                            
+C032;ENG;Bristol                             
+C033;NOR;Faereyar                            
+C034;SCO;Shetland                            
+C035;SCO;Western Isles                       
+C036;SCO;Orkney                              
+C037;SCO;Caithness                           
+C038;SCO;Sutherland                          
+C039;SCO;Ross                                
+C040;SCO;Moray                               
+C041;SCO;Buchan                              
+C042;SCO;Mar                                 
+C043;SCO;Angus                               
+C044;SCO;Atholl                              
+C045;SCO;Argyll                              
+C046;SCO;Fife                                
+C047;SCO;Strathclyde                         
+C048;SCO;Lothian                             
+C049;SCO;Carrick                             
+C050;SCO;Galloway                            
+C051;SCO;Berwick                             
+C052;ENG;Northumberland                      
+C053;ENG;Cumberland                          
+C054;EIR;Isle of Man                         
+C055;ENG;Westmorland                         
+C056;ENG;Durham                              
+C057;YOR;York                                
+C058;LAN;Lancaster                           
+C059;ENG;Chester                             
+C060;WLS;Perfeddwlad                         
+C061;ENG;Lincoln                             
+C062;ENG;Leicester                           
+C063;ENG;Derby                               
+C064;WLS;Gwynedd                             
+C065;WLS;Powys                               
+C066;ENG;Shrewsbury                          
+C067;ENG;Warwick                             
+C068;ENG;Northampton                         
+C069;ENG;Bedford                             
+C070;ENG;Norfolk                             
+C071;ENG;Suffolk                             
+C072;ENG;Essex                               
+C073;ENG;Kent                                
+C074;FRA;Guines                              
+C075;FRA;Boulogne                            
+C076;FRA;Yperen                              
+C077;ART;Artois                              
+C078;FLA;Brugge                              
+C079;ZEE;Zeeland                             
+C080;HLL;Holland                             
+C081;HLL;Westfriesland                       
+C082;GEL;Sticht                              
+C083;GEL;Gelre                               
+C084;FRI;Frisia                              
+C085;OLD;Ostfriesland                        
+C086;OLD;Oldenburg                           
+C087;OLD;Osnabrück                           
+C088;MUN;Münster                             
+C089;MUN;Kleve                               
+C090;ZEE;Jülich                              
+C091;ZEE;Loon                                
+C092;ZEE;Breda                               
+C093;FLA;Gent                                
+C094;HAU;Hainaut                             
+C095;FRA;Amiens                              
+C096;FRA;Eu                                  
+C097;FRA;Arques                              
+C098;FRA;Vexin                               
+C099;FRA;Evreux                              
+C100;FRA;Avranches                           
+C101;BRI;Rennes                              
+C102;BRI;Penthievre                          
+C103;BRI;Leon                                
+C104;BRI;Cornouaille                         
+C105;BRI;Vannes                              
+C106;BRI;Nantes                              
+C107;FRA;Anjou                               
+C108;FRA;Maine                               
+C109;FRA;Vendome                             
+C110;ORL;Blois                               
+C111;ORL;Chartres                            
+C112;FRA;Ile de France                       
+C113;FRA;Vermandois                          
+C114;FRA;Reims                               
+C115;LUX;Luxembourg                          
+C116;HAU;Liege                               
+C117;HAU;Brabant                             
+C118;KOL;Andernach                           
+C119;KLE;Köln                                
+C120;HES;Göttingen                           
+C121;HES;Nassau                              
+C122;MAI;Leiningen                           
+C123;PFA;Mainz                               
+C124;PFA;Pfalz                               
+C125;BAD;Baden                               
+C126;STR;Nordgau                             
+C127;LOR;Lorraine                            
+C128;LOR;Metz                                
+C129;FRA;Verdun                              
+C130;FRA;Troyes                              
+C131;FRA;Sens                                
+C132;FRA;Auxerre                             
+C133;LOR;Saintois                            
+C134;STR;Sundgau                             
+C135;BUR;Besancon                            
+C136;BUR;Dijon                               
+C137;BUR;Nevers                              
+C138;ORL;Orleans                             
+C139;BOU;Bourges                             
+C140;BOU;Tourraine                           
+C141;FRA;Poitiers                            
+C142;FRA;Thouars                             
+C143;FRA;Saintonge                           
+C144;FRA;Lusignan                            
+C145;BOU;La Marche                           
+C146;BOU;Bourbon                             
+C147;BOU;Limousin                            
+C148;FRA;Angouleme                           
+C149;AQU;Bordeaux                            
+C150;AQU;Albret                              
+C151;BEA;Labourd                             
+C152;NAV;Navarra                             
+C153;CAS;Viscaya                             
+C154;CAS;Asturias de Santillana              
+C155;CAS;Asturias de Oviedo                  
+C156;CAS;Compostela                          
+C157;CAS;Santiago                            
+C158;POR;Porto                               
+C159;COI;Coimbra                             
+C160;POR;Lisboa                              
+C161;POR;Alcacer do Sal                      
+C162;POR;Silves                              
+C163;POR;Faro                                
+C164;CAS;Niebla                              
+C165;CAS;Cadiz                               
+C166;GRA;Algeciras                           
+C167;GRA;Malaga                              
+C168;GRA;Almeria                             
+C169;CAS;Murcia                              
+C170;ARG;Denia                               
+C171;ARG;Valencia                            
+C172;ARG;Castellon                           
+C173;CAT;Tarragona                           
+C174;ARG;Albarracin                          
+C175;ARG;Calatayud                           
+C176;CAS;Molina                              
+C177;CAS;Cuenca                              
+C178;CAS;La Mancha                           
+C179;CAS;Almansa                             
+C180;GRA;Granada                             
+C181;CAS;Cordoba                             
+C182;CAS;Sevilla                             
+C183;CAS;Aracena                             
+C184;CAS;Badajoz                             
+C185;POR;Mertola                             
+C186;POR;Evora                               
+C187;POR;Castelo Branco                      
+C188;POR;Braganza                            
+C189;CAS;El Bierzo                           
+C190;CAS;Leon                                
+C191;CAS;Zamora                              
+C192;CAS;Salamanca                           
+C193;CAS;Alcantara                           
+C194;CAS;Plasencia                           
+C195;CAS;Caceres                             
+C196;CAS;Calatrava                           
+C197;CAS;Toledo                              
+C198;CAS;Valladolid                          
+C199;CAS;Burgos                              
+C200;CAS;Soria                               
+C201;NAV;Rioja                               
+C202;ARG;Zaragoza                            
+C203;CAT;Lleida                              
+C204;CAT;Barcelona                           
+C205;CAT;Empuries                            
+C206;CAT;Urgell                              
+C207;ARG;Jaca                                
+C208;BEA;Bearn                               
+C209;AMG;Armagnac                            
+C210;AMG;Foix                                
+C211;ARG;Rosello                             
+C212;LGD;Narbonne                            
+C213;LGD;Carcassonne                         
+C214;TOU;Toulouse                            
+C215;TOU;Agen                                
+C216;TOU;Perigord                            
+C217;AUV;Auvergne                            
+C218;TOU;Rouergue                            
+C219;AUV;Gevaudan                            
+C220;LGD;Montpellier                         
+C221;PRO;Provence                            
+C222;DAU;Venaissin                           
+C223;LGD;Viviers                             
+C224;DAU;Forez                               
+C225;BUR;Macon                               
+C226;BUR;Charolais                           
+C227;DAU;Lyon                                
+C228;DAU;Dauphine Viennois                   
+C229;PRO;Forcalquier                         
+C230;SAV;Nice                                
+C231;SAV;Saluces                             
+C232;SAV;Monferrato                          
+C233;GEN;Genoa                               
+C234;MLO;Pavia                               
+C235;MLO;Lombardia                           
+C236;SAV;Piemonte                            
+C237;SAV;Savoie                              
+C238;SAV;Valais                              
+C239;SAV;Geneve                              
+C240;BUR;Chalons                             
+C241;HEL;Neuchatel                           
+C242;HEL;Aargau                              
+C243;HEL;Bodensee                            
+C244;HEL;Bern                                
+C245;HEL;Schwyz                              
+C246;HEL;Grisons                             
+C247;HEL;Chur                                
+C248;WUR;St. Gallen                          
+C249;BAD;Schwaben                            
+C250;BAD;Breisgau                            
+C251;WUR;Fürstenberg                         
+C252;THU;Ulm                                 
+C253;THU;Württemberg                         
+C254;SAC;Franken                             
+C255;SAC;Thüringen                           
+C256;HAN;Weimar                              
+C257;HAN;Braunschweig                        
+C258;BRE;Lüneburg                            
+C259;MEC;Celle                               
+C260;SHL;Mecklemburg                         
+C261;SHL;Hamburg                             
+C262;SHL;Lübeck                              
+C263;SHL;Holstein                            
+C264;DAN;Slesvig                             
+C265;DAN;Fyn                                 
+C266;DAN;Sjaelland                           
+C267;DAN;Jylland                             
+C268;NOR;Agder                               
+C269;NOR;Rogaland                            
+C270;NOR;Telemark                            
+C271;NOR;Vestfold                            
+C272;NOR;Akershus                            
+C273;NOR;Oppland                             
+C274;NOR;Bergenshus                          
+C275;NOR;Trøndelag                           
+C276;NOR;Hdemark                             
+C277;NOR;Naumadal                            
+C278;NOR;Hålogaland                          
+C279;SWE;Lappland                            
+C280;SWE;Västerbotten                        
+C281;SWE;Ångermanland                        
+C282;NOR;Jamtland                            
+C283;SWE;Medelpad                            
+C284;NOR;Herjedalen                          
+C285;SWE;Hälsingland                         
+C286;SWE;Gästrikland                         
+C287;SWE;Dalarna                             
+C288;SWE;Värmland                            
+C289;SWE;Västmanland                         
+C290;SWE;Uppland                             
+C291;FIN;Åland                               
+C292;SWE;Södermanland                        
+C293;SWE;Östergötland                        
+C294;SWE;Närke                               
+C295;SWE;Dal                                 
+C296;NOR;Viken                               
+C297;SWE;Västergötland                       
+C298;SWE;Småland                             
+C299;SWE;Kalmar Län                          
+C300;SWE;Öland                               
+C301;GOT;Gotland                             
+C302;DAN;Halland                             
+C303;DAN;Skåne                               
+C304;POM;Rügen                               
+C305;DAN;Bornholm                            
+C306;POM;Rostock                             
+C307;POM;Werle                               
+C308;POM;Wolgast                             
+C309;ALT;Altmark                             
+C310;ANH;Anhalt                              
+C311;SAC;Plauen                              
+C312;SAC;Meissen                             
+C313;THU;Ansbach                             
+C314;BAY;Nürnberg                            
+C315;BAY;Kempten                             
+C316;TYR;Tirol                               
+C317;TYR;Trent                               
+C318;MLO;Brescia                             
+C319;MAN;Verona                              
+C320;MLO;Cremona                             
+C321;PAR;Parma                               
+C322;PAR;Modena                              
+C323;PAR;Lucca                               
+C324;COR;Corsica                             
+C325;SAR;Arborea                             
+C326;SAR;Cagliari                            
+C327;TOS;Livorno                             
+C328;TOS;Firenze                             
+C329;PIS;Urbino                              
+C330;PIS;Siena                               
+C331;PIS;Piombino                            
+C332;PIS;Orbetello                           
+C333;PAP;Roma                                
+C334;NAP;Napoli                              
+C335;NAP;Benevento                           
+C336;NAP;Salerno                             
+C337;NAP;Consenza                            
+C338;NAP;Reggio                              
+C339;SIC;Messina                             
+C340;SIC;Palermo                             
+C341;SIC;Trapani                             
+C342;SIC;Agrigento                           
+C343;SIC;Siracusa                            
+C344;NAP;Taranto                             
+C345;NAP;Lecce                               
+C346;NAP;Bari                                
+C347;NAP;Apulia                              
+C348;NAP;Foggia                              
+C349;PIS;Spoleto                             
+C350;PIS;Ancona                              
+C351;PAR;Ravenna                             
+C352;PAR;Bologna                             
+C353;PAR;Ferrara                             
+C354;MAN;Padova                              
+C355;MAN;Mantua                              
+C356;VEN;Venezia                             
+C357;VEN;Treviso                             
+C358;VEN;Aquileia                            
+C359;TYR;Innsbruck                           
+C360;BAY;Oberbayern                          
+C361;BAY;Niederbayern                        
+C362;BOH;Cheb                                
+C363;BOH;Usti nad Labem                      
+C364;BRA;Lausitz                             
+C365;BRA;Brandenburg                         
+C366;STT;Stettin                             
+C367;POM;Slupsk                              
+C368;POM;Danzig                              
+C369;LIT;Chelminskie                         
+C370;LIT;Marienburg                          
+C371;LIT;Sambia                              
+C372;LIT;Memel                               
+C373;LIT;Kurs                                
+C374;LIT;Zemigalians                         
+C375;LIT;Lettigalians                        
+C376;LIT;Ösel                                
+C377;LIT;Livs                                
+C378;LIT;Reval                               
+C379;LIT;Dorpat                              
+C380;LIT;Narva                               
+C381;FIN;Nyland                              
+C382;SWE;Finland                             
+C383;FIN;Tavasts                             
+C384;FIN;Satakunta                           
+C385;FIN;Österbotten                         
+C386;FIN;Kemi                                
+C387;FIN;Kola                                
+C388;FIN;Karelen                             
+C389;FIN;Kajanaborg                          
+C390;FIN;Savolaks                            
+C391;FIN;Viborg                              
+C392;FIN;Kexholm                             
+C393;NVG;Onega                               
+C394;NVG;Trans-portage                       
+C395;NVG;North Dvina                         
+C396;NVG;Bjarmia                             
+C397;NVG;Samoyeds                            
+C398;SUZ;Ugra                                
+C399;SUZ;Syrj                                
+C400;KAZ;Zyriane                             
+C401;SUZ;Hlynov                              
+C402;SUZ;Veliky Ustug                        
+C403;MOS;Romny                               
+C404;MOS;Zaozerye                            
+C405;MOS;Chud                                
+C406;MOS;Vologda                             
+C407;MOS;Kostroma                            
+C408;MOS;Beloozero                           
+C409;NVG;Bezhetsky Verh                      
+C410;NVG;Novgorod                            
+C411;NVG;Vodi                                
+C412;NVG;Torzhok                             
+C413;PSK;Pksov                               
+C414;TVE;Starya Russa                        
+C415;LIT;Velikiye Luki                       
+C416;LIT;West Dvina                          
+C417;LIT;Vitebsk                             
+C418;LIT;Orsha                               
+C419;LIT;Polotsk                             
+C420;LIT;Aukshayts                           
+C421;LIT;Zhmud                               
+C422;LIT;Scalovia                            
+C423;LIT;Sudovia                             
+C424;LIT;Jacwiez                             
+C425;LIT;Podlasie                            
+C426;LIT;Yatvyagi                            
+C427;LIT;Galindia                            
+C428;POL;Kujawy                              
+C429;POL;Gnieznienskie                       
+C430;KUS;Lubusz                              
+C431;POL;Poznanskie                          
+C432;POL;Kaliskie                            
+C433;POL;Opole                               
+C434;POL;Lower Silesia                       
+C435;POL;Upper Silesia                       
+C436;BOH;Liberec                             
+C437;BOH;Praha                               
+C438;BOH;Hradec Kralove                      
+C439;BOH;Plzen                               
+C440;BOH;Opava                               
+C441;BOH;Ostrava                             
+C442;HUN;Trencín                             
+C443;HUN;Nitra                               
+C444;HUN;Esztergom                           
+C445;HUN;Pressburg                           
+C446;HAB;Morava                              
+C447;HAB;Passau                              
+C448;SLZ;Salzburg                            
+C449;HAB;Österreich                          
+C450;HUN;Sopron                              
+C451;HUN;Fejer                               
+C452;HUN;Pecs                                
+C453;HUN;Szekezfehervar                      
+C454;HUN;Vas                                 
+C455;SEI;Steiermark                          
+C456;KRN;Kärnten                             
+C457;KRN;Krain                               
+C458;IST;Istria                              
+C459;CRO;Veglia                              
+C460;CRO;Varadzin                            
+C461;CRO;Zagreb                              
+C462;CRO;Krizevci                            
+C463;CRO;Usora                               
+C464;CRO;Senj                                
+C465;CRO;Zadar                               
+C466;CRO;Zachlumia                           
+C467;CRO;Split                               
+C468;CRO;Ragusa                              
+C469;RAG;Zeta                                
+C470;ALB;Dyrrachion                          
+C471;ALB;Ochrid                              
+C472;ALB;Épieros                             
+C473;ALB;Árta                                
+C474;GRE;Corfu                               
+C475;ATH;Hellas                              
+C476;GRE;Achaia                              
+C477;GRE;Methone                             
+C478;GRE;Monemvasia                          
+C479;KRE;Kaneia                              
+C480;KRE;Chandax                             
+C481;ALB;Korinthos                           
+C482;ATH;Atheniai                            
+C483;KNI;Rhodos                              
+C484;GRE;Naxos                               
+C485;GRE;Euboia                              
+C486;GRE;Samos                               
+C487;GRE;Lesbos                              
+C488;ATH;Demetrias                           
+C489;ATH;Thessalia                           
+C490;GRE;Thessalonike                        
+C491;GRE;Chalkidike                          
+C492;GRE;Strymon                             
+C493;GRE;Philippopolis                       
+C494;BYZ;Adrianopolis                        
+C495;BYZ;Kaliopolis                          
+C496;BYZ;Byzantion                           
+C497;BYZ;Thrake                              
+C498;BUL;Mesembria                           
+C499;BUL;Tyrnovo                             
+C500;BUL;Serdica                             
+C501;SER;Naissus                             
+C502;SER;Rashka                              
+C503;BOS;Hum                                 
+C504;BOS;Rama                                
+C505;SER;Belgrade                            
+C506;SER;Vidin                               
+C507;BUL;Nikopolis                           
+C508;BUL;Dorostotum                          
+C509;BUL;Karvuna                             
+C510;BUL;Constantia                          
+C511;BUL;Galaz                               
+C512;MOL;Belgorod                            
+C513;MOL;Birlad                              
+C514;WAL;Turnu                               
+C515;WAL;Tirgoviste                          
+C516;WAL;Severin                             
+C517;HUN;Temes                               
+C518;HUN;Bacs                                
+C519;SIE;Feher                               
+C520;SIE;Bihar                               
+C521;HUN;Csanad                              
+C522;HUN;Pest                                
+C523;HUN;Heves                               
+C524;HUN;Gemer                               
+C525;HUN;Orava                               
+C526;POL;Cieszyn                             
+C527;POL;Krakowskie                          
+C528;POL;Sieradzko-Leczyckie                 
+C529;POL;Plock                               
+C530;POL;Czersk                              
+C531;POL;Sandomierskie                       
+C532;POL;Sacz                                
+C533;HUN;Saris                               
+C534;POL;Peremyshl                           
+C535;POL;Vladimir Volynsky                   
+C536;POL;Galich                              
+C537;HUN;Bereg                               
+C538;HUN;Abauj                               
+C539;HUN;Marmaros                            
+C540;HUN;Szekelyföld                         
+C541;MOL;Peresechen                          
+C542;MOL;Olvia                               
+C543;UKR;Oleshye                             
+C544;POL;Korsun                              
+C545;MOL;Torki                               
+C546;POL;Terebovl                            
+C547;POL;Kiev                                
+C548;LIT;Pinsk                               
+C549;LIT;Beresty                             
+C550;LIT;Minsk                               
+C551;LIT;Mstislavl                           
+C552;LIT;Turov                               
+C553;LIT;Lyubech                             
+C554;CRG;Chernigov                           
+C555;UKR;Pereyaslavl                         
+C556;UKR;Chortitza                           
+C557;CRI;Lukomorie                           
+C558;CRI;Lower Dniepr                        
+C559;CRI;Crimea                              
+C560;CRI;Cherson                             
+C561;CRI;Theodosia                           
+C562;CRI;Korchev                             
+C563;CRI;Lower Don                           
+C564;UKR;Desht-i-Kipchak                     
+C565;UKR;Sharukan                            
+C566;UKR;Sugrov                              
+C567;STE;Novgorod Seversky                   
+C568;LIT;Smolensk                            
+C569;MOL;Vyazma                              
+C570;TVE;Tver                                
+C571;MOS;Uglich                              
+C572;MOS;Yaroslavl                           
+C573;MOS;Pereyaslavl Zalessky                
+C574;MOS;Rostov                              
+C575;LIT;Moskva                              
+C576;LIT;Bryansk                             
+C577;STE;Pronsk                              
+C578;RYA;Kolomna                             
+C579;STE;Mordva                              
+C580;STE;Ryazan                              
+C581;RYA;Murom                               
+C582;RYA;Vladimir                            
+C583;RYA;Suzdal                              
+C584;RYA;Nizhny Novgorod                     
+C585;RYA;Gorodez                             
+C586;MOS;Galich Mersky                       
+C587;MOS;Mozhaysk                            
+C588;RYA;Merya                               
+C589;RYA;Grassland Cheremisa                 
+C590;RYA;Chuvash                             
+C591;RYA;Mountain Cheremisa                  
+C592;STE;Burtasy                             
+C593;STE;Khopyor                             
+C594;STE;Sarkel                              
+C595;STE;Don portage                         
+C596;CRI;Tana                                
+C597;CRI;Azov                                
+C598;CRI;Tmutarakan                          
+C599;CRI;Kuban                               
+C600;GEO;Abkhazia                            
+C601;GEO;Imeretia                            
+C602;GEO;Kasogs                              
+C603;GEO;Alania                              
+C604;GEO;Kuma                                
+C605;CRI;Manych                              
+C606;CRI;Yegorlyk                            
+C607;CRI;Sarpa                               
+C608;STE;Lower Volga                         
+C609;SUZ;Syrt                                
+C610;SUZ;Bulgar                              
+C611;SUZ;Kama                                
+C612;SUZ;Votyaki                             
+C613;SUZ;Bilyar                              
+C614;STE;Southern Ural                       
+C615;STE;Bashkirs                            
+C616;STE;Yaik                                
+C617;STE;Uzens                               
+C618;AST;Ryn Desert                          
+C619;STE;Saray                               
+C620;AST;Itil                                
+C621;NOG;Emba                                
+C622;KZK;Aral                                
+C623;NOG;Khwarizm                            
+C624;NOG;Mangyshlak                          
+C625;NOG;Usturt                              
+C626;UZB;Maverannahr                         
+C627;UZB;Kara-Kum                            
+C628;BUK;Bukhara                             
+C629;BUK;Turkmen                             
+C630;UZB;Merv                                
+C631;UZB;Dihistan                            
+C632;TIM;Khorasan                            
+C633;PER;Gurgan                              
+C634;PER;Nishapur                            
+C635;TIM;Qohistan                            
+C636;PER;Lut                                 
+C637;TIM;Sistan                              
+C638;PER;Yazd                                
+C639;TIM;Kerman                              
+C640;PER;Darab                               
+C641;TIM;Hormuz                              
+C642;TIM;Laristan                            
+C643;PER;Fars                                
+C644;PER;Shiraz                              
+C645;PER;Hendjan                             
+C646;PER;Esfahan                             
+C647;PER;Avhaz                               
+C648;PER;Khozistan                           
+C649;IRA;Basra                               
+C650;IRA;Kuwait                              
+C651;IRA;Damman                              
+C652;IRA;Al Hasa                             
+C653;PER;Bahrein                             
+C654;IRA;Rummah                              
+C655;IRA;Kufa                                
+C656;PER;Tigris                              
+C657;PER;Luristan                            
+C658;PER;Hamadan                             
+C659;PER;Qom                                 
+C660;PER;Qwivir                              
+C661;PER;Tabaristan                          
+C662;QAR;Mazandaran                          
+C663;QAR;Rayy                                
+C664;PER;Qazwin                              
+C665;QAR;Dailam                              
+C666;QAR;Gilan                               
+C667;QAR;Tabriz                              
+C668;QAR;Shirvan                             
+C669;QAR;Shemakha                            
+C670;QAR;Azerbaijan                          
+C671;QAR;Suenik                              
+C672;AKK;Dwin                                
+C673;AKK;Albania                             
+C674;AKK;Derbent                             
+C675;AKK;Semender                            
+C676;ARM;Kakheti                             
+C677;ARM;Guria                               
+C678;TRE;Trapezous                           
+C679;ARM;Kartli                              
+C680;ARM;Tao                                 
+C681;AKK;Ani                                 
+C682;AKK;Vaspurakan                          
+C683;AKK;Amida                               
+C684;AKK;Nisibin                             
+C685;QAR;Kurdistan                           
+C686;QAR;Oromieh                             
+C687;QAR;Kirkuk                              
+C688;PER;Al Miqdadiyah                       
+C689;PER;Ilam                                
+C690;IRA;Al Amarah                           
+C691;IRA;Al Nasiryah                         
+C692;IRA;Al Nadjaf                           
+C693;IRA;Baghdad                             
+C694;IRA;Karbala                             
+C695;QAR;Deir                                
+C696;QAR;Euphrates                           
+C697;QAR;Mosul                               
+C698;JER;Al Jazira                           
+C699;AKK;Bira                                
+C700;AKK;Taron                               
+C701;DUL;Mesopotamia                         
+C702;DUL;Karin                               
+C703;TRE;Theodosiopolis                      
+C704;TRE;Chaldea                             
+C705;DUL;Koloneia                            
+C706;DUL;Melitene                            
+C707;EDE;Edessa                              
+C708;EDE;Tell Bashir                         
+C709;JER;Asas                                
+C710;JER;Al Bichri                           
+C711;IRA;Sinjar                              
+C712;IRA;Suwaida                             
+C713;IRA;Druz                                
+C714;IRA;Az Zarqa                            
+C715;IRA;Al Habbariyah                       
+C716;ARA;Ar'ar                               
+C717;ARA;Al Jawf                             
+C718;ARA;Medina                              
+C719;ARA;Mecca                               
+C720;ARA;Hijaz                               
+C721;JER;Tabuk                               
+C722;JER;Petra                               
+C723;JER;Madaba                              
+C724;QAR;Amman                               
+C725;QAR;Irbid                               
+C726;QAR;Al Mafraq                           
+C727;QAR;Syria                               
+C728;QAR;Damascus                            
+C729;QAR;Tadmor                              
+C730;QAR;Palmyra                             
+C731;QAR;Homs                                
+C732;QAR;Hama                                
+C733;ALE;Aleppo                              
+C734;ALE;Aintab                              
+C735;AMI;Teluch                              
+C736;AMI;Lykandos                            
+C737;TUR;Kaisereia                           
+C738;TRE;Amisos                              
+C739;CAN;Sinope                              
+C740;CAN;Herakleia                           
+C741;TUR;Nikomedeia                          
+C742;TUR;Prusa                               
+C743;GRE;Kyzikos                             
+C744;GRE;Abydos                              
+C745;GRE;Smyrna                              
+C746;GRE;Ephesos                             
+C747;TEK;Lykia                               
+C748;GRE;Laodikeia                           
+C749;TUR;Dorylaion                           
+C750;TUR;Nikaea                              
+C751;CAN;Paphlagonia                         
+C752;TUR;Galatia                             
+C753;TUR;Ankyra                              
+C754;TUR;Sozopolis                           
+C755;TEK;Attaleia                            
+C756;CYP;Limisol                             
+C757;CYP;Famagusta                           
+C758;KAR;Seleukeia                           
+C759;TUR;Ikonion                             
+C760;TUR;Tyana                               
+C761;AMI;Tarsos                              
+C762;AMI;Adana                               
+C763;JER;Alexandretta                        
+C764;JER;Antiocheia                          
+C765;JER;Archa                               
+C766;JER;Tortosa                             
+C767;JER;Tripoli                             
+C768;JER;Baalbek                             
+C769;JER;Safed                               
+C770;JER;Beirut                              
+C771;JER;Tyrus                               
+C772;JER;Acre                                
+C773;JER;Tiberias                            
+C774;JER;Jerusalem                           
+C775;JER;Jaffa                               
+C776;JER;Hebron                              
+C777;JER;Kerak                               
+C778;JER;Monreal                             
+C779;JER;Beersheb                            
+C780;JER;Ascalon                             
+C781;JER;Darum                               
+C782;JER;Negev                               
+C783;JER;Maan                                
+C784;JER;Al 'Aqabah                          
+C785;MAM;Sinai                               
+C786;MAM;Eilat                               
+C787;MAM;El-Arish                            
+C788;MAM;Farama                              
+C789;MAM;Pelusia                             
+C790;MAM;Sarqihya                            
+C791;MAM;Quena                               
+C792;SUD;Nubia                               
+C793;SUD;Sudan                               
+C794;MAM;Aswan                               
+C795;MAM;Asyut                               
+C796;MAM;Cairo                               
+C797;MAM;Manupura                            
+C798;MAM;Delta                               
+C799;MAM;Gabiyaha                            
+C800;MAM;Gizeh                               
+C801;MAM;Buhairya                            
+C802;MAM;Alexandria                          
+C803;MAM;Quattara                            
+C804;MAM;Al Alamayn                          
+C805;MAM;Tobruk                              
+C806;TRI;Cyrenaica                           
+C807;TRI;Senoussi                            
+C808;TRI;Benghazi                            
+C809;TRI;Syrte                               
+C810;TRI;Leptis Magna                        
+C811;TRI;Tripolitana                         
+C812;KNI;Malta                               
+C813;TRI;Djerba                              
+C814;TUN;Gabes                               
+C815;TUN;Kairwan                             
+C816;TUN;Mahdia                              
+C817;TUN;Tunis                               
+C818;TUN;Medjerda                            
+C819;TUN;Bizerte                             
+C820;ALD;Annaba                              
+C821;ALD;Constantine                         
+C822;ALD;Bejaija                             
+C823;ALD;Biskra                              
+C824;ALD;Tell Atlas                          
+C825;ALD;Beni Yanni                          
+C826;ARG;Menorca                             
+C827;ARG;Mallorca                            
+C828;ALD;Kabilia                             
+C829;ALD;Mzab                                
+C830;ALD;Lemdiyya                            
+C831;ALD;Al Djazair                          
+C832;ALD;Orania                              
+C833;ALD;Atlas Mnt                           
+C834;ALD;Tlemcen                             
+C835;ALD;Hanyan                              
+C836;FEZ;Snassen                             
+C837;FEZ;Figuig                              
+C838;FEZ;El Rif                              
+C839;FEZ;Cebta                               
+C840;FEZ;Fes                                 
+C841;FEZ;Tangiers                            
+C842;FEZ;Infa                                
+C843;MOR;Marrakech                           
+C844;MOR;Massat                              
+C845;MOR;Anti-Atlas                          
+C846;MOR;Ifni                                
+C847;MOR;Tharasset                           
+C848;MOR;Canarias                            
+C849;;Atlantic                            
+C850;;Atlantic                            
+C851;;Sea of Canarias                     
+C852;;Atlantic                            
+C853;;Sea of Azores                       
+C854;;Atlantic                            
+C855;;Golfo de Cadiz                      
+C856;;Portugal Coast                      
+C857;;Atlantic                            
+C858;;Atlantic                            
+C859;;Cabo de Finisterre                  
+C860;;Bay of Biscay                       
+C861;;Bay of Biscay                       
+C862;;Belle Ile                           
+C863;;Bay of Biscay                       
+C864;;Bretagne Coast                      
+C865;;Atlantic                            
+C866;;Atlantic                            
+C867;;Atlantic                            
+C868;;Atlantic                            
+C869;;Coast of Iceland                    
+C870;;North Atlantic                      
+C871;;North Atlantic                      
+C872;;North Atlantic                      
+C873;;North Sea                           
+C874;;North Sea                           
+C875;;North Sea                           
+C876;;North Sea                           
+C877;;Sea of Shetland                     
+C878;;North Atlantic                      
+C879;;The Minch                           
+C880;;Moray Firth                         
+C881;;Firth of Forth                      
+C882;;The Wash                            
+C883;;Dogger-bank                         
+C884;;Waddenzee                           
+C885;;North Sea                           
+C886;;Skagerrak                           
+C887;;Gulf of Helholland                  
+C888;;Kattegat                            
+C889;;Gulf of Danzig                      
+C890;;Hanö-bukten                         
+C891;;Baltic Sea                          
+C892;;Ålands Hav                          
+C893;;Gulf of Finland                     
+C894;;Gulf of Bothnia                     
+C895;;Gulf of Bothnia                     
+C896;;Ladoga Lake                         
+C897;;Mälaren                             
+C898;PAP;Orvieto                             
+C899;;Hjälmaren                           
+C900;;Vättern                             
+C901;;Vänern                              
+C902;;White Sea                           
+C903;;Strait of Dover                     
+C904;;Channel Islands                     
+C905;;Land's End                          
+C906;;St. George's Channel                
+C907;;Irish Sea                           
+C908;;Donegal Bay                         
+C909;;Faroya                              
+C910;;Atlantic                            
+C911;;Madeira                             
+C912;;Coast of Morocco                    
+C913;;Strait of Gibraltar                 
+C914;;West of Mediterranean Sea           
+C915;;Golfo de Valencia                   
+C916;;Islas Baleares                      
+C917;;Ponant                              
+C918;;Mediterranean Sea                   
+C919;;Gulfe du Lion                       
+C920;;Lake Leman                          
+C921;;Cote d Azur                         
+C922;;Ligurian Sea                        
+C923;;Tyrrhenian Sea                      
+C924;;Coast of Sardegna                   
+C925;;Golfo di Napoli                     
+C926;;Strait di Messina                   
+C927;;Golfe de Hammamet                   
+C928;;Malta Channel                       
+C929;;Gulf of Sidra                       
+C930;;Golfo di Taranto                    
+C931;;Ionian Sea                          
+C932;;Strait of Otranto                   
+C933;;Adriatic Sea                        
+C934;;Gulf of Venice                      
+C935;;Aegean Sea                          
+C936;;Cyclades                            
+C937;;Sea of Crete                        
+C938;;Coast of Egypt                      
+C939;;Nile Delta                          
+C940;;Levant                              
+C941;;East of Mediterranean               
+C942;;Red Sea                             
+C943;;Persian Gulf                        
+C944;;Aral Sea                            
+C945;;Iskenderun Kör                      
+C946;;Gulf of Antalya                     
+C947;;Sea of Marmara                      
+C948;;Gulf of Varna                       
+C949;;Coast of Taurida                    
+C950;;Black Sea                           
+C951;;Coast of Kolkhida                   
+C952;;Azov Sea                            
+C953;;North of Caspian                    
+C954;;Gulf of Kizlyar                     
+C955;;Gulf of Kazakhs                     
+C956;;Apsheron peninsula                  
+C957;;Gulf of Krasnovodks                 
+C958;;South of Caspian                    
+C959;;Kara-Bogaz Gol                      
+C960;;Tiveriade Lake                      
+C961;;Dead Sea                            
+C962;;Duera                               
+C963;;Ebro                                
+C964;;Garonne                             
+C965;;Rhône                               
+C966;;Loire                               
+C967;;Thames                              
+C968;;Seine                               
+C969;;Schelde                             
+C970;;Rhein                               
+C971;;Wesser                              
+C972;;Elbe                                
+C973;;Oder                                
+C974;;Po                                  
+C975;;Duna                                
+C976;;Dunav                               
+C977;;Dunarea                             
+C978;;Dniester                            
+C979;;Dnepr                               
+C980;;Pripet                              
+C981;;Wisla                               
+C982;;Don                                 
+C983;;Sakarya                             
+C984;;Nile                                
+C985;;Jordan                              
+C986;;Galis                               
+C987;;Ithil                               
+C988;;Volga                               
+C989;;Kama                                
+C990;;Volkhov                             
+C991;;Dvina                               
+C992;;Danube                              
+C993;;Main                                
+C994;;Neva                                
+C995;BRE;Bremen                              
+C996;;Galway Bay                          
+C997;NAP;Capua                               
+C998;;Onega                               
+C999;;Black Clobucks                      
+CAIR;MAM;Cairo
+CALA;APU;Calabria
+CAMP;NAP;Salerno
+CAND;CAN;Candar
+CAST;CAS;Castille
+CATA;CAT;Barcelona
+CHAL;BYZ;Coloneia
+CHAM;CMG;Champagne
+CHEE;UKR;Cheremisa
+CHER;CRI;Cherson
+CILI;ARM;Armenia
+COIM;STR;Alsace
+CONN;CON;Connacht
+CONS;ALD;Constantine
+CORD;CRD;Cordoba
+CORN;CNW;Cornwall
+COUR;KUR;Courland
+CRIM;CRI;Crimea
+CROA;CRO;Croatia
+CUMA;CUM;Cuman
+CUMA;CUM;Cumans
+CUMB;ENG;Northumberland
+CURO;LIT;Curonian
+CYPR;CYP;Cyprus
+CYRE;CYR;Cyrenaica
+DAMA;DAM;Damascus
+DAMI;DAM;Damietta
+DAUP;DAU;Dauphine
+DBAS;IRA;Basra
+DBOH;BOH;Bohemia
+DCAS;CAS;Castilla
+DCRO;CRO;Croatia
+DEHE;WLS;Deheubarth
+DENM;DAN;Denmark
+DERB;KAZ;Derbent
+DFRA;FRA;Valois
+DGEO;GEO;Kartli
+DMES;MES;Mesopotamia
+DNAV;NAV;Navarra
+DONA;MOS;Sarkel
+DORO;BYZ;Turnovo
+DSER;SER;Dioclea
+DSYR;SYR;Syria
+DTUN;TUN;Tunis
+DYRR;BYZ;Dyrrachion
+EDES;EDE;Edessa
+EGYP;EGY;Egypt
+ELRI;BRI;Upper Brittany
+ENGL;ENG;England
+ERET;TUR;Eretnid
+ERZE;TUR;Erzerum
+ESAM;FIN;Eastern Sames
+ESFA;PER;Esfahan
+ESSX;ENG;Bedford
+ESTH;LAT;Esthonia
+ESTS;LIT;Estonia
+EUPH;IRA;Euphrates
+FARO;NOR;Färoya
+FATI;FAT;Fatimids
+FESA;FEZ;Fes
+FINL;FIN;Finland
+FLAN;FLA;Flanders
+FRAC;FRC;Franconia
+FRAN;FRA;France
+FRIE;GEL;Gelre
+GALA;BYZ;Charsianon
+GALC;VOL;Galicia
+GALE;JER;Galilee
+GALI;VOL;Galich
+GALL;SCO;Galloway
+GENO;GEN;Genoa
+GEOR;GEO;Georgia
+GERI;TUR;Germiyan
+GERM;GER;Germany
+GILA;PER;Gilan
+GLOU;ENG;Salisbury
+GOLD;STE;Golden Horde
+GOTL;GOT;Gotland
+GPOL;POL;Great Poland
+GRAN;GRA;Granada
+GWYN;WLS;Gwynedd
+HAIN;HLL;Holland
+HAMM;HAM;Hammadid
+HAMP;ENG;Somerset
+HELL;GRE;Athens
+HLYN;MOS;Hlynov
+HOLS;SHL;Holstein
+HOMS;ALE;Aleppo
+HORM;PER;Hormuz
+HOSP;KNI;Hospitaliers Order
+HREE;HEI;Holy Roman Empire
+HUNG;HUN;Hungary
+ICEL;ICE;Iceland
+IKON;TRE;Anatolia
+ILKH;TIM;Il-Khanat
+IMER;GEO;Abghazia
+INGE;FIN;Ingers
+IREL;EIR;Ireland
+ISTR;IST;Istria
+ITAL;ITA;Italy
+JAMT;NOR;Jämtland
+JERU;JER;Jerusalem
+KAFS;ARA;Kafsid
+KAIR;ALD;Kabylia
+KAJA;FIN;Kajanborg
+KAPP;BYZ;Kappadokia
+KARA;BUK;Bukhara
+KARB;IRA;Karbala
+KARE;FIN;Karelia
+KARM;KAR;Karaman
+KARN;KRN;Carinthia
+KASS;FIN;Kassogs
+KEXH;FIN;Kexholm
+KHAZ;KAZ;Khazars
+KHWA;UZB;Khwarizm
+KIEV;KIE;Kiev
+KIRK;IRA;Kirkuk
+KOLA;NVG;Kola
+KRAI;KRN;Krain
+KRAK;POL;Lesser Poland
+KRET;KRE;Krete
+LANC;LAN;Lancaster
+LANG;PIS;Pisa
+LAOD;GRE;Thracesia 
+LEIN;LEI;Leinster
+LEMA;TRI;Tripolitania
+LEON;LEO;León
+LETT;LIT;Lettigalians
+LITH;LIT;Lithuania
+LITT;LIT;Lithuanians
+LIVO;LIV;Livonia
+LOLO;LOR;Lower Lorraine
+LOMB;MLO;Lombardy
+LOTH;SCO;Lothian
+LPOL;POL;Little Poland
+LURI;PER;Kermanshah
+LUTA;PER;Khorasan
+LUXE;LUX;Luxembourg
+LYKI;BYZ;Cybyrrhaeot
+MADA;ENG;March
+MALE;ARA;Aleppo
+MALL;MLL;Mallorca
+MAML;MAM;Mamluk
+MAMM;ARA;Amman
+MANN;WLS;The Isles
+MARA;SCO;Moray
+MARB;ARA;Arabs
+MARC;ROM;Ancona
+MARI;LIT;Marinid
+MARR;MOR;Marrakech
+MAUR;MOR;Mauretania
+MAZA;PER;Mazandaran
+MAZO;POL;Mazovia
+MBAG;IRA;Baghdad
+MDAA;IRA;Damascus
+MDAM;IRA;Damascus
+MEAT;MEA;Meath
+MECK;MEC;Mecklemburg
+MEDE;IRA;Edessa
+MEDI;ARA;Medina
+MEIS;SAC;Meissen
+MELA;IRA;El-Arish
+MENT;BYZ;Mentese
+MESO;MES;Mesopotamia
+MILA;MLO;Lombardia
+MINS;MSK;Minsk
+MJER;ARA;Jerusalem 
+MKHW;ARA;Khwarizm
+MMAZ;ARA;Mazandaran
+MMED;ARA;Medina
+MMOS;IRA;Mosul
+MOLD;MOL;Moldau
+MORA;BOH;Moravia
+MORD;LIT;Mordvins
+MORO;MOR;Morocco
+MOSC;MOS;Moscow
+MOSK;MOS;Moskva
+MSIS;ARA;Sistan
+MTRI;TRI;Tripoli
+MUNS;MST;Munster
+MURA;MAM;al-Murabitids
+MURC;CAS;Murcia
+MURO;RYA;Murom-Ryazan
+NAFR;NAF;North Africa
+NAPL;NAP;Naples
+NAVA;NAV;Navarra
+NIKA;BYZ;Nikaea
+NIKO;BYZ;Paphlagonia
+NORF;ENG;Norfolk
+NORM;NRM;Normandy
+NORR;SWE;Norrland
+NORW;NOR;Norway
+NOSE;NVG;Novgorod-Severesk
+NOVG;NVG;Novgorod
+NUBI;SUD;Nubia
+ORKN;SCO;Orkney
+ORLE;ORL;Orleans
+OSTE;HAB;Österreich
+OSTR;SWE;Östergötland
+OTTO;TUR;Ottoman
+OULT;JER;Oultrejourdain
+OXFO;ENG;Oxford
+PALE;JER;Palestine
+PALM;MAM;Palmyra
+PAPA;PAP;Papal State
+PECH;CUM;Pechenegs
+PECS;HUN;Pecs
+PELO;GRE;Achaea
+PERE;MOS;Pereyaslavl
+PERS;PER;Persia
+PEST;HUN;Pest
+PETR;PET;Petra
+PICA;BOU;Berry
+PISA;BRI;Brittany
+PODL;POD;Podlasia
+POIT;POI;Poitou
+POLA;POL;Poland
+POLO;POK;Polotsk
+POLV;POL;Polovtsians
+POMM;POM;Pommerania
+PORT;POR;Portugal
+PRES;HUN;Esztergom
+PRON;NOV;Novgorod-Seversk
+PROV;PRO;Provence
+PRUS;PRU;Prussia
+PRUT;LAT;Pruthenians
+PSKO;VOL;Volhynia
+QARA;QAR;Qarakhnid
+QOMA;PER;Hamadan
+REBE;REB;Rebels
+ROMA;ROM;Ferrara
+ROST;MOS;Rostov
+RUMS;TUR;Rum
+RUSS;RUS;Rus
+RYAZ;RYA;Ryazan
+SALA;LEO;Léon
+SALI;PAR;Modena
+SAME;FIN;Sames
+SAMO;LIT;Samogitia
+SAMS;GRE;Samos
+SAND;POL;Kuyavia
+SARD;SAR;Sardinia
+SARU;LIT;Saruhan
+SATA;FIN;Satakunta
+SAVO;SAV;Savoie
+SAXO;SAC;Saxony
+SCHW;HEL;Upper Burgundy
+SCOT;SCO;Scotland
+SELJ;SEL;Seljuk Turks
+SERB;SER;Serbia
+SEVI;SEV;Sevilla
+SGAL;FRI;Frisia
+SHIR;PER;Fars
+SICI;SIC;Sicily
+SILE;SIL;Silesia
+SINA;JER;Sinai
+SINO;BYZ;Armeniacon
+SJAE;DAN;Sjælland
+SKAN;SKA;Skåne
+SLAV;CRO;Slavonia
+SLOV;SLO;Nyitra
+SMAL;SWE;Småland
+SMOL;SMO;Smolensk
+SOUM;FIN;Soumi
+SPMA;POM;Pomeralia
+SPOL;ROM;Spoleto
+STEI;SEI;Steiermark
+STRA;BAD;Baden
+STRY;BYZ;Strymon
+SUSS;ENG;Canterbury
+SUZD;CRG;Chernigov
+SVIG;JUT;Slesvig
+SWAB;SWA;Swabia
+SWED;SWE;Sweden
+SWIS;HEL;Swiss
+SYRI;SYR;Syria
+SZEK;SIE;Transylvania
+TABR;PER;Tabriz
+TANG;TAN;Tangiers
+TAVA;FIN;Tavasts
+TEJO;POR;Beja
+TEKK;TEK;Tekke
+TEME;HUN;Temes
+TEMP;KNI;Templar Order
+TEUT;LAT;Teutonic Order
+THES;THE;Thessalonika
+THRA;BYZ;Thrace
+THUR;THU;Thuringia
+TIGR;IRA;Tigris
+TIRO;TYR;Tirol
+TOLE;CAS;Toledo
+TORK;HUN;Ungvar
+TOSC;TOS;Toscana
+TOUL;TOU;Toulouse
+TRAN;SIC;Trinacria
+TRAP;TRE;Trapezous
+TREB;TRE;Trebizond
+TRIP;TRI;Tripoli
+TRON;NOR;Trøndelag
+TUNI;TUN;Africa
+TURK;TUR;Turkmens
+TURO;SMO;Turov
+TVER;TVE;Tver
+TYRE;SYR;Tyre
+U000;LEO;Order of Santiago
+U001;LIV;Livonian Knights
+U015;BYZ;Nicaea
+U016;GRE;Latin Empire
+U017;GRA;Andalusia
+U018;TOU;Aquitania
+U019;LOR;Lotharingia
+UGRI;ARG;Zaragoza
+ULST;ULS;Ulster
+UPLO;LOR;Upper Lorraine
+UPPL;SWE;Uppland
+URAL;SUZ;Bulgar
+USEZ;LIT;Usez
+VALE;VAL;Valencia
+VARN;BUL;Karnuva
+VAST;SWE;Västergötland
+VENE;VEN;Veneto
+VENI;VEN;Venice
+VERO;VER;Verona
+VIDI;BYZ;Vidin
+VISE;POK;Vitebsk
+VLAC;WAL;Vlachs
+VLAD;SUZ;Vladimir
+VOLG;UKR;Itil
+VOLH;VOL;Volhynia
+VOTE;LIT;Votes
+WALE;WLS;Wales
+WALL;WAL;Wallachia
+WARW;ENG;Warwick
+WEIS;SCO;Western Isles
+WIEL;POL;Greater Poland
+WSAM;NOR;Western Sames
+YARO;MOS;Yaroslavl
+YATV;LIT;Yatviags
+YORK;YOR;York
+ZARA;ARG;Zaragoza
+ZARB;CRO;Dalmatia
+ZEMI;LIT;Zemigalians
+ZENA;ARA;Zenata
+ZIRI;MOR;Zirid
+ZIYA;ARA;Ziyanids
+D003;;X
+D004;;X
+D019;;X
+D035;;X
+D065;;X
+D090;;X
+D093;;X
+D123;;X
+D135;;X
+D136;;X
+D146;;X
+D167;;X
+D170;;X
+D180;;X
+D194;;X
+D221;;X
+D235;;X
+D237;;X
+D254;;X
+D255;;X
+D292;;X
+D293;;X
+D308;;X
+D319;;X
+D320;;X
+D321;;X
+D322;;X
+D328;;X
+D330;;X
+D332;;X
+D336;;X
+D351;;X
+D352;;X
+D353;;X
+D355;;X
+D357;;X
+D358;;X
+D368;;X
+D405;;X
+D406;;X
+D408;;X
+D414;;X
+D417;;X
+D418;;X
+D428;;X
+D434;;X
+D448;;X
+D449;;X
+D469;;X
+D474;;X
+D486;;X
+D488;;X
+D490;;X
+D493;;X
+D504;;X
+D527;;X
+D530;;X
+D534;;X
+D544;;X
+D546;;X
+D547;;X
+D549;;X
+D552;;X
+D553;;X
+D560;;X
+D569;;X
+D572;;X
+D574;;X
+D576;;X
+D586;;X
+D592;;X
+D598;;X
+D600;;X
+D625;;X
+D628;;X
+D639;;X
+D641;;X
+D663;;X
+D673;;X
+D682;;X
+D701;;X
+D703;;X
+D719;;X
+D740;;X
+D750;;X
+D758;;X
+D763;;X
+D767;;X
+D773;;X
+D820;;X
+D995;;X

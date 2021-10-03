@@ -1,0 +1,4463 @@
+###########################################
+# province power series	5400-5499 block	  #
+# Last updated by Byakhiam Apr 14/05   #
+###########################################
+
+###############################################
+# Peasants are unhappy with their lot in life #
+###############################################
+
+province_event = {
+	id = 5408
+	
+	picture = "event_rebellion"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = { 
+			type = not 
+			value = { type = peasant_power value = 0.10 }
+		}
+		condition = {
+			type = peasant_power
+			value = 0.05
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_religion }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			factor = 1.0
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { traditional_custom_law = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { popular_law = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = peasant_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = peasant_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { church = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_church = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { domed_church = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { cathedral = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { #Perhaps their power should be changed?
+		effect = { type = peasant_loyalty value = -0.10 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = peasant_loyalty value = -0.15 }
+		}
+	}
+}
+
+#############################################
+# Peasants are upset with their lot in life #
+#############################################
+
+province_event = {
+	id = 5400
+	
+	picture = "event_rebellion"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = { 
+			type = not 
+			value = { type = peasant_power value = 0.05 }
+		}
+		condition = {
+			type = peasant_power
+			value = 0.01
+		}
+
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_religion }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			factor = 1.0
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { traditional_custom_law = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { popular_law = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = peasant_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = peasant_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { church = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_church = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { domed_church = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { cathedral = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { #let us try to buy their temporary happiness
+		effect = { type = ruler_gold scale = -0.5 }
+		effect = { type = ruler_prestige scale = -1 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = peasant_loyalty value = -0.20 }
+		}
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = peasant_loyalty value = 0.20 }
+		}
+	}
+	action_b = { #grant them the power they seek
+		effect = { type = ruler_prestige scale = -1 }			
+		effect = { type = peasant_power value = 0.05 }
+		effect = { type = peasant_loyalty value = 0.05 }
+		effect = { type = burgher_loyalty value = -0.15 }
+		effect = { type = clergy_loyalty value = -0.15 }
+		effect = { type = noble_loyalty value = -0.25 }
+	}
+	action_c = { #let the offal suffer
+		effect = { type = ruler_piety scale = -0.5 }
+		effect = { type = ruler_prestige scale = -1 }			
+		effect = { type = peasant_loyalty value = -0.25 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = peasant_loyalty value = -0.5 }
+		}
+	}
+}
+
+######################################
+# Peasants despise their lot in life #
+######################################
+
+province_event = {
+	id = 5401
+	
+	picture = "event_rebellion"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = {
+			 type = difficulty value = 3
+		}
+		condition = { 
+			type = not 
+			value = { type = peasant_power value = 0.01 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_religion }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { traditional_custom_law = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { popular_law = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = peasant_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = peasant_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.3
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { church = yes }
+			}
+			factor = 1.05
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_church = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { domed_church = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { cathedral = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { #we can only hope that gold will help
+		effect = { type = ruler_gold scale = -1 }
+		effect = { type = ruler_prestige scale = -2.5 }
+		effect = {
+			type = random
+			chance = 75
+			effect = { type = peasant_loyalty value = -0.75	}
+		}
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = peasant_loyalty value = 0.25 }
+		}
+	}
+	action_b = { #grant them the power they demand
+		effect = { type = ruler_prestige scale = -2.5 }
+		effect = { type = peasant_power value = 0.1 }
+		effect = { type = peasant_loyalty value = 0.1 }			
+		effect = { type = burgher_loyalty value = -0.5 }
+		effect = { type = clergy_loyalty value = -0.5 }
+		effect = { type = noble_loyalty value = -0.75 }
+	}
+	action_c = { #damn them to hell!
+		effect = { type = ruler_piety scale = -1 }
+		effect = { type = peasant_loyalty value = -0.75 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = peasant_loyalty value = -0.25 }
+		}
+	}
+}
+###############################################
+# Burghers are unhappy with their lot in life #
+###############################################
+
+province_event = {
+	id = 5409
+	
+	picture = "event_rebellion"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = { 
+			type = not 
+			value = { type = burgher_power value = 0.10 }
+		}
+		condition = {
+			type = burgher_power
+			value = 0.05
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_religion }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			factor = 1.0
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { traditional_custom_law = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { popular_law = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = burgher_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = burgher_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_gold
+					value = 0
+				}
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { civilian_harbour = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { naval_harbour = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { grand_shipyard = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { moneylenders = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { theater = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { court_of_justice = yes }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { #Perhaps their power should be changed?
+		effect = { type = burgher_loyalty value = -0.10 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = burgher_loyalty value = -0.15 }
+		}
+	}
+}
+
+#############################################
+# Burghers are upset with their lot in life #
+#############################################
+
+province_event = {
+	id = 5402
+	
+	picture = "event_rebellion"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = { 
+			type = not 
+			value = { type = burgher_power value = 0.05 }
+		}
+		condition = {
+			type = burgher_power
+			value = 0.01
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_religion }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			factor = 1.0
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { traditional_custom_law = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { popular_law = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = burgher_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = burgher_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_gold
+					value = 0
+				}
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { civilian_harbour = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { naval_harbour = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { grand_shipyard = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { moneylenders = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { theater = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { court_of_justice = yes }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { #let us try to buy their temporary happiness
+		effect = { type = ruler_gold scale = -0.5 }
+		effect = { type = ruler_prestige scale = -1 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = burgher_loyalty value = -0.2 }
+		}
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = burgher_loyalty value = 0.2 }
+		}
+	}
+	action_b = { #grant them the power they seek
+		effect = { type = ruler_prestige scale = -1 }			
+		effect = { type = burgher_power value = 0.05 }
+		effect = { type = burgher_loyalty value = 0.05 }
+		effect = { type = peasant_loyalty value = -0.15 }
+		effect = { type = clergy_loyalty value = -0.25 }
+		effect = { type = noble_loyalty value = -0.15 }
+	}
+	action_c = { #let them fend for themselves
+		effect = { type = ruler_prestige scale = -1 }
+		effect = { type = ruler_piety scale = -1 }
+		effect = { type = burgher_loyalty value = -0.25 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = burgher_loyalty value = -0.5 }
+		}
+	}
+}
+######################################
+# Burghers despise their lot in life #
+######################################
+
+province_event = {
+	id = 5403
+	
+	picture = "event_rebellion"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = {
+			type = difficulty value = 3
+		}
+		condition = { 
+			type = not 
+			value = { type = burgher_power value = 0.01 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.75
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_religion }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			factor = 0.95
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { traditional_custom_law = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { popular_law = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = burgher_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = burgher_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_gold
+					value = 0
+				}
+			}
+			factor = 0.3
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.3
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { civilian_harbour = yes }
+			}
+			factor = 1.05
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { naval_harbour = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { grand_shipyard = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { moneylenders = yes }
+			}
+			factor = 1.05
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { theater = yes }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { court_of_justice = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { #we can only hope that gold will help
+		effect = { type = ruler_gold scale = -1 }
+		effect = { type = ruler_prestige scale = -2.5 }
+		effect = {
+			type = random
+			chance = 75
+			effect = { type = burgher_loyalty value = -0.75 }
+		}
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = burgher_loyalty value = 0.1 }
+		}
+	}
+	action_b = { #grant them the power they demand
+		effect = { type = ruler_prestige scale = -2.5 }			
+		effect = { type = burgher_power value = 0.1 }
+		effect = { type = burgher_loyalty value = 0.1 }
+		effect = { type = peasant_loyalty value = -0.5 }
+		effect = { type = clergy_loyalty value = -0.75 }
+		effect = { type = noble_loyalty value = -0.5 }
+	}
+	action_c = { #damn them to hell!
+		effect = { type = ruler_piety scale = -1 }
+		effect = { type = burgher_loyalty value = -0.75 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = burgher_loyalty value = -0.25 }
+		}
+	}
+}
+##################################################
+# Clergy feel they are somewhat neglected	 #
+##################################################
+
+province_event = {
+	id = 5410
+	
+	picture = "event_religion"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = { 
+			type = not 
+			value = { type = clergy_power value = 0.10 }
+		}
+		condition = {
+			type = clergy_power
+			value = 0.05
+		}
+		condition = {
+			type = not 
+			value = { type = has_province_effect value = { heretic = yes } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = same_religion }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { regal_supremacy = yes }
+			}
+			factor = 1.1
+		}
+#		modifier = {
+#			condition = { 
+#				type = has_law
+#				value = { monastic_supremacy = yes }
+#			}
+#			factor = 1.0
+#		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { church_supremacy = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.05
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { church = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_church = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { domed_church = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { cathedral = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { moneylenders = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { theater = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { #Perhaps their power should be changed?
+
+		effect = { type = clergy_loyalty value = -0.10 }
+		effect = { 
+			type = random
+			chance = 50
+			effect = { type = clergy_loyalty value = -0.15 }
+		}
+	}
+}
+##################################################
+# Clergy upset with your support of the church #
+##################################################
+
+province_event = {
+	id = 5404
+	
+	picture = "event_religion"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = { 
+			type = not 
+			value = { type = clergy_power value = 0.05 }
+		}
+		condition = {
+			type = clergy_power
+			value = 0.01
+		}
+		condition = {
+			type = not 
+			value = { type = has_province_effect value = { heretic = yes } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = same_religion }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { regal_supremacy = yes }
+			}
+			factor = 1.1
+		}
+#		modifier = {
+#			condition = { 
+#				type = has_law
+#				value = { monastic_supremacy = yes }
+#			}
+#			factor = 1.0
+#		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { church_supremacy = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.05
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { church = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_church = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { domed_church = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { cathedral = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { moneylenders = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { theater = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { #perhaps paying indulgences would help?
+		effect = { type = ruler_gold scale = -0.5 }
+		effect = { type = ruler_prestige scale = -1 }
+		effect = { type = ruler_piety scale = 0.5 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = clergy_loyalty value = -0.2 }
+		}
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = clergy_loyalty value = 0.2 }
+		}
+	}
+	action_b = { #grant the clergy their due power
+		effect = { type = ruler_prestige scale = -1 }
+		effect = { type = ruler_piety scale = 1 }			
+		effect = { type = clergy_power value = 0.05 }
+		effect = { type = clergy_loyalty value = 0.05 }
+		effect = { type = peasant_loyalty value = -0.15 }
+		effect = { type = burgher_loyalty value = -0.25 }
+		effect = { type = noble_loyalty value = -0.15 }
+	}
+	action_c = { #let God feed his flock
+		effect = { type = ruler_prestige scale = -1 }
+		effect = { type = ruler_piety scale = -2 }
+		effect = { type = clergy_loyalty value = -0.25 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = clergy_loyalty value = -0.5 }
+			effect = { type = ruler_piety scale = -1 }
+		}
+	}
+}
+########################################
+# Clergy question your devotion	to God #
+########################################
+
+province_event = {
+	id = 5405
+	
+	picture = "event_heretic"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = {
+			type = difficulty value = 3
+		}
+		condition = { 
+			type = not 
+			value = { type = clergy_power value = 0.01 }
+		}
+		condition = {
+			type = not 
+			value = { type = has_province_effect value = { heretic = yes } }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = same_religion }
+			factor = 0.3
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { regal_supremacy = yes }
+			}
+			factor = 1.1
+		}
+#		modifier = {
+#			condition = { 
+#				type = has_law
+#				value = { monastic_supremacy = yes }
+#			}
+#			factor = 1.0
+#		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { ecclesical_balance = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { church_supremacy = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = clergy_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_piety
+					value = 0
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.4
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { church = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_church = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { domed_church = yes }
+			}
+			factor = 1.3
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { cathedral = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { moneylenders = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { theater = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { # We will fill the church's coffers!
+		effect = { type = ruler_gold scale = -1 }
+		effect = { type = ruler_prestige scale = -2.5 }
+		effect = { type = ruler_piety scale = 2 }
+		effect = { #viewed as false contrition
+			type = random
+			chance = 75
+			effect = { type = clergy_loyalty value = -0.75 }
+		}
+		effect = { 
+			type = random
+			chance = 33
+			effect = { type = clergy_loyalty value = 0.25 }
+		}
+	}
+	action_b = { #grant clergy the power they demand
+		effect = { type = ruler_prestige scale = -2.5 }
+		effect = { type = ruler_piety scale = 2 }
+		effect = { type = clergy_power value = 0.1 }
+		effect = { type = clergy_loyalty value = 0.1 }
+		effect = { type = peasant_loyalty value = -0.5 }
+		effect = { type = burgher_loyalty value = -0.75 }
+		effect = { type = noble_loyalty value = -0.5 }
+	}
+	action_c = { #damn them to hell!
+		effect = { type = ruler_piety scale = -5 }
+		effect = { type = clergy_loyalty value = -0.75 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = clergy_loyalty value = -0.25 }
+			effect = { type = ruler_piety scale = -2.5		 }
+		}
+	}
+}
+#################################
+# Nobles feel slighted of power #
+#################################
+
+province_event = {
+	id = 5411
+	
+	picture = "event_appearance"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = { 
+			type = not 
+			value = { type = noble_power value = 0.10 }
+		}
+		condition = {
+			type = noble_power
+			value = 0.05
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_religion }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { traditional_custom_law = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { popular_law = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = noble_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = noble_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_prestige
+					value = 0
+				}
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { small_castle = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { medium_castle = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_castle = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { huge_castle = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { grand_palace = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { waracademy = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { #Perhaps their power should be changed?
+		effect = { type = noble_loyalty value = -0.10 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = noble_loyalty value = -0.15 }
+		}
+	}
+}
+####################################
+# Nobles feel they lack real power #
+####################################
+
+province_event = {
+	id = 5406
+	
+	picture = "event_appearance"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = { 
+			type = not 
+			value = { type = noble_power value = 0.05 }
+		}
+		condition = {
+			type = noble_power
+			value = 0.01
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 1 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 2 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.85
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_religion }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { traditional_custom_law = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { popular_law = yes }
+			}
+			factor = 1.15
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = noble_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = noble_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_prestige
+					value = 0
+				}
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.7
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { small_castle = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { medium_castle = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_castle = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { huge_castle = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { grand_palace = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { waracademy = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { #Perhaps gold will appease them?
+		effect = { type = ruler_gold scale = -0.75 }
+		effect = { type = ruler_prestige scale = -1.5 }
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = noble_loyalty value = -0.2 }
+		}
+		effect = {
+			type = random
+			chance = 50
+			effect = { type = noble_loyalty value = 0.2 }
+		}
+	}
+	action_b = { #grant them the power they seek
+		effect = { type = ruler_prestige scale = -3 }			
+		effect = { type = noble_power value = 0.05 }
+		effect = { type = noble_loyalty value = 0.05 }
+		effect = { type = peasant_loyalty value = -0.25 }
+		effect = { type = burgher_loyalty value = -0.15 }
+		effect = { type = clergy_loyalty value = -0.15 }
+	}
+	action_c = { #keep them in their place
+		effect = { type = ruler_prestige scale = -2.5 }
+		effect = { type = noble_loyalty value = -0.35 }
+		effect = {
+			type = random
+			chance = 67
+			effect = { type = noble_loyalty value = -0.45 }
+		}
+	}
+}
+#######################################
+# Nobles challenge your right to rule #
+#######################################
+
+province_event = {
+	id = 5407
+	
+	picture = "event_battle"
+	
+	trigger = { 
+		condition = {
+			type = not
+			value = { type = ai }
+		}
+		condition = {
+			type = difficulty value = 3
+		}
+		condition = { 
+			type = not 
+			value = { type = noble_power value = 0.01 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+
+		modifier = {
+			condition = { type = difficulty value = 3 }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = difficulty value = 4 }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = regiment_mobilized }
+			factor = 0.5
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_religion }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = { 
+				type = not
+				value = { type = same_culture }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { royal_preorgatory_law = yes }
+			}
+			factor = 1.05
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { feudal_contract_law = yes }
+			}
+			factor = 0.3
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { traditional_custom_law = yes }
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = { 
+				type = has_law
+				value = { popular_law = yes }
+			}
+			factor = 0.99
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 2
+				}
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 4
+				}
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = not 
+				value = { 
+					type = ruler_stewardship
+					value = 6
+				}
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 8
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = ruler_stewardship
+				value = 10
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = noble_loyalty
+					value = 0.5
+				}
+			}
+			factor = 0.6
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = noble_loyalty
+					value = 0.75
+				}
+			}
+			factor = 0.85
+		}
+		modifier = {
+			condition = {
+				type = not
+				value = {
+					type = ruler_prestige
+					value = 0
+				}
+			}
+			factor = 0.2
+		}
+		modifier = {
+			condition = {
+				type = neighbor_province_effect
+				value = { revolt = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { looted = yes }
+			}
+			factor = 0.5
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { struggling = yes }
+			}
+			factor = 0.75
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { poor = yes }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { prosperous = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_province_effect
+				value = { rich = yes }
+			}
+			factor = 1.25
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { medium_castle = yes }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { large_castle = yes }
+			}
+			factor = 1.2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { huge_castle = yes }
+			}
+			factor = 1.5
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { grand_palace = yes }
+			}
+			factor = 2
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { waracademy = yes }
+			}
+			factor = 1.05
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { thieves_guild = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { smugglers_ring = yes }
+			}
+			factor = 0.8
+		}
+		modifier = {
+			condition = {
+				type = has_improvement
+				value = { highway_robber_band = yes }
+			}
+			factor = 0.3
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 1 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 2 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = stability value = 3 }
+			}
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = 0 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -1 } }
+			}
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = owner
+				condition = { type = not value = { type = stability value = -2 } }
+			}
+			factor = 0.9
+		}
+
+	}
+	
+	action_a = { #Let us buy their loyalty
+		effect = { type = ruler_gold scale = -1.5 }
+		effect = { type = ruler_prestige scale = -3 }
+		effect = {
+			type = random
+			chance = 75
+			effect = { type = noble_loyalty value = -0.75	}
+		}
+		effect = {
+			type = random
+			chance = 33
+			effect = { type = noble_loyalty value = 0.25 }
+		}
+	}
+	action_b = { #grant them the power they demand
+		effect = { type = ruler_prestige scale = -5 }			
+		effect = { type = noble_power value = 0.1 }
+		effect = { type = noble_loyalty value = 0.1 }
+		effect = { type = peasant_loyalty value = -0.75 }
+		effect = { type = burgher_loyalty value = -0.5 }
+		effect = { type = clergy_loyalty value = -0.5 }
+	}
+	action_c = { #They dare? They will die!
+		effect = { type = ruler_piety scale = -1 }
+		effect = { type = ruler_prestige scale = -7.5 }
+		effect = { type = noble_loyalty value = -0.75 }
+		effect = {
+			type = random
+			chance = 67
+			effect = { type = noble_loyalty value = -0.25 }
+		}
+	}
+}
+
+##################################################
+# Group powers increase with investment in them, idea by WanV
+##################################################
+# Burghers
+
+province_event = {
+	id = 5412
+
+	picture = "event_town"
+
+	trigger = {
+		condition = { type = burgher_power value = 0.1 }
+		condition = { type = not value = { type = burgher_power value = 0.8 } }
+		condition = { type = has_improvement value = { court_of_justice = yes } }
+		condition = { type = burgher_loyalty value = 0.5 }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { dysentery = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = ai }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = not value = { type = ai } }
+			condition = { type = owner condition = { type = duchy } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = not value = { type = ai } }
+			condition = { type = owner condition = { type = kingdom } }
+			factor = 4.0
+		}
+		modifier = {
+			condition = { type = has_improvement value = { brewery = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smithy = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Dyeworks = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Armory = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Glassworks = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Spinningmill = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Theater = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Monastery = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Church = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Large_Church = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Domed_Church = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Cathedral = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_advance value = { Sugerrefinery = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Papermaking = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Mint = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Guilds = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Reknown_merchant_houses = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Local_fairs = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { International_fairs = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Sculptures = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Musical_instruments = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Ballads = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Fashion_clothes = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Vernacular_literature = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Relics = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_advance value = { Music_notation_system = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_advance value = { Choir_song = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_advance value = { Tapestries = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_advance value = { Extravagant_decoration = yes } }
+			factor = 1.2
+		}
+	}
+
+	action_a = {
+		effect = { type = burgher_power value = 0.075 }
+		effect = { type = burgher_loyalty value = 0.1 }
+	}
+}
+
+# Clergy
+
+province_event = {
+	id = 5413
+
+	picture = "event_religion"
+
+	trigger = {
+		condition = { type = clergy_power value = 0.1 }
+		condition = { type = not value = { type = clergy_power value = 0.8 } }
+		condition = { type = has_improvement value = { church = yes } }
+		condition = { type = clergy_loyalty value = 0.5 }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { dysentery = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = ai }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = not value = { type = ai } }
+			condition = { type = owner condition = { type = duchy } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = not value = { type = ai } }
+			condition = { type = owner condition = { type = kingdom } }
+			factor = 4.0
+		}
+		modifier = {
+			condition = { type = has_improvement value = { brewery = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { moneylenders = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { smithy = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Dyeworks = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Armory = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Glassworks = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Spinningmill = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Theater = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Monastery = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Church = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Large_Church = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Domed_Church = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Cathedral = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { Sugerrefinery = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Papermaking = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Mint = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Guilds = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Reknown_merchant_houses = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Local_fairs = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { International_fairs = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Sculptures = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Musical_instruments = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Ballads = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Fashion_clothes = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Vernacular_literature = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Relics = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { Music_notation_system = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { Choir_song = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { Tapestries = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { Extravagant_decoration = yes } }
+			factor = 0.8
+		}
+	}
+
+	action_a = {
+		effect = { type = clergy_power value = 0.075 }
+		effect = { type = clergy_loyalty value = 0.1 }
+	}
+}
+
+# Nobles
+
+province_event = {
+	id = 5414
+
+	picture = "event_joust"
+
+	trigger = {
+		condition = { type = noble_power value = 0.1 }
+		condition = { type = not value = { type = noble_power value = 0.8 } }
+		condition = { type = has_improvement value = { traininggrounds = yes } }
+		condition = { type = noble_loyalty value = 0.5 }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { dysentery = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = ai }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = not value = { type = ai } }
+			condition = { type = owner condition = { type = duchy } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = not value = { type = ai } }
+			condition = { type = owner condition = { type = kingdom } }
+			factor = 4.0
+		}
+		modifier = {
+			condition = { type = has_improvement value = { waracademy = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Small_Castle = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Medium_Castle = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Large_Castle = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Huge_Castle = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Theater = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Grand_palace = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Templar_house = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Cheese_dairy = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_advance value = { Stripe_ploughing = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Rooting_out = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_advance value = { Ironplows = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_advance value = { Padded_horsecollars = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_advance value = { Pigs = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { Rich  = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { Prosperous = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { Poor = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { Struggling = yes } }
+			factor = 1.2
+		}
+	}
+
+	action_a = {
+		effect = { type = noble_power value = 0.075 }
+		effect = { type = noble_loyalty value = 0.1 }
+	}
+}
+
+# Peasants
+
+province_event = {
+	id = 5415
+
+	picture = "event_agriculture2"
+
+	trigger = {
+		condition = { type = peasant_power value = 0.1 }
+		condition = { type = not value = { type = peasant_power value = 0.8 } }
+		condition = { type = has_advance value = { two_field_system = yes } }
+		condition = { type = peasant_loyalty value = 0.5 }
+		condition = { type = not value = { type = has_province_effect value = { looted = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { bubonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { pneumonic_plague = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { malaria = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { dysentery = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { small_pox = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { typhoid_fever = yes } } }
+		condition = { type = not value = { type = has_province_effect value = { revolt = yes } } }
+	}
+
+	mean_time_to_happen = {
+		months = 900
+
+		modifier = {
+			condition = { type = ai }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = not value = { type = ai } }
+			condition = { type = owner condition = { type = duchy } }
+			factor = 2.0
+		}
+		modifier = {
+			condition = { type = not value = { type = ai } }
+			condition = { type = owner condition = { type = kingdom } }
+			factor = 4.0
+		}
+		modifier = {
+			condition = { type = has_improvement value = { waracademy = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Small_Castle = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Medium_Castle = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Large_Castle = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Huge_Castle = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Theater = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Grand_palace = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Templar_house = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_improvement value = { Cheese_dairy = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { Stripe_ploughing = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Rooting_out = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { Ironplows = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_advance value = { Padded_horsecollars = yes } }
+			factor = 0.8
+		}
+		modifier = {
+			condition = { type = has_advance value = { Pigs = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { Rich  = yes } }
+			factor = 1.2
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { Prosperous = yes } }
+			factor = 1.1
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { Poor = yes } }
+			factor = 0.9
+		}
+		modifier = {
+			condition = { type = has_province_effect value = { Struggling = yes } }
+			factor = 0.8
+		}
+	}
+
+	action_a = {
+		effect = { type = peasant_power value = 0.075 }
+		effect = { type = peasant_loyalty value = 0.1 }
+	}
+}
+
+# ID 5416-5418 "Wide-spread demesne events" have been moved to realm_disruption_events.txt file
+
+# ID 5419 -5499 free

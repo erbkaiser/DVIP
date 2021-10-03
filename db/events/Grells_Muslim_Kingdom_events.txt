@@ -1,0 +1,229 @@
+#############################
+# The Marinids	#
+#############################
+province_event = {
+	id = 41005
+	trigger = {
+		condition = { type = area value = 840 }
+		condition = { type = year value = 1225 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1400
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = MARI
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 320
+		modifier = {
+			condition = { type = year value = 1275 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = year value = 1325 }
+			factor = 1.5
+		}
+		modifier = {
+		condition = { type = not value = { type = ruler_religion value = abghazian } }
+			factor = 0.3
+		}
+
+		modifier = {
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = ALMO
+			}
+		}
+			factor = 0.3
+		}
+	}
+
+	action_a = {
+		effect = { type = create_tag value = MARI }
+		effect = { type = prosperity value = 1 }
+		effect = { type = add_regiment country = MARI culture = abghazian strength = { archer_cav = 4000 light_cav = 2000 heavy_cav = 1000} }
+		effect = { type = religion value = moslem }
+		effect = { type = culture value = abghazian }
+	}
+}
+
+#############################
+# The Khwarezmian Kingdom	#
+#############################
+province_event = {
+	id = 41012
+	trigger = {
+		condition = { type = area value = 623 }
+		condition = { type = year value = 1125 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1350
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = MKHW
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 320
+		modifier = {
+			condition = { type = year value = 1200 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = year value = 1250 }
+			factor = 1.5
+		}
+		modifier = {
+		condition = { type = not value = { type = ruler_religion value = turkish } }
+			factor = 0.3
+		}
+	}
+
+	action_a = {
+		effect = { type = create_tag value = MKHW }
+		effect = { type = prosperity value = 1 }
+		effect = { type = add_regiment country = MKHW culture = turkish strength = { archer_cav = 4000 light_cav = 2000 heavy_cav = 1000} }
+		effect = { type = religion value = moslem }
+		effect = { type = culture value = turkish }
+	}
+}
+
+
+#############################
+# The Ziyanids	#
+#############################
+province_event = {
+	id = 41014
+	trigger = {
+		condition = { type = area value = 834 }
+		condition = { type = year value = 1150 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1500
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = ZIYA
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 420
+		modifier = {
+			condition = { type = year value = 1300 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = year value = 1350 }
+			factor = 1.5
+		}
+		modifier = {
+		condition = { type = not value = { type = ruler_religion value = abghazian } }
+			factor = 0.3
+		}
+
+		modifier = {
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = HAMM
+			}
+		}
+			factor = 0.3
+		}
+	}
+
+	action_a = {
+		effect = { type = create_tag value = ZIYA }
+		effect = { type = prosperity value = 1 }
+		effect = { type = add_regiment country = ZIYA culture = abghazian strength = { archer_cav = 4000 light_cav = 2000 heavy_cav = 1000} }
+		effect = { type = religion value = moslem }
+		effect = { type = culture value = abghazian }
+	}
+}
+
+#############################
+# The Kafsids	#
+#############################
+province_event = {
+	id = 41016
+	trigger = {
+		condition = { type = area value = 817 }
+		condition = { type = year value = 1200 }
+		condition = {
+			type = not
+			value = {
+				type = year
+				value = 1500
+			}
+		}
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = KAFS
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 420
+		modifier = {
+			condition = { type = year value = 1350 }
+			factor = 1.5
+		}
+		modifier = {
+			condition = { type = year value = 1400 }
+			factor = 1.5
+		}
+		modifier = {
+		condition = { type = not value = { type = ruler_religion value = abghazian } }
+			factor = 0.3
+		}
+
+		modifier = {
+		condition = {
+			type = not
+			value = {
+				type = exists
+				value = ZIRI
+			}
+		}
+			factor = 0.3
+		}
+	}
+
+	action_a = {
+		effect = { type = create_tag value = KAFS }
+		effect = { type = prosperity value = 1 }
+		effect = { type = add_regiment country = KAFS culture = abghazian strength = { archer_cav = 4000 light_cav = 2000 heavy_cav = 1000} }
+		effect = { type = religion value = moslem }
+		effect = { type = culture value = abghazian }
+	}
+}

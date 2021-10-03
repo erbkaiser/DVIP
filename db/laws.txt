@@ -1,0 +1,163 @@
+salic_primogeniture_law	= {
+	group = 0
+#								1) One man takes it all	
+#								2) Depth in order of age
+#								3) ignoring women 
+#								4) ignoring siblings of women
+}
+
+semisalic_primogeniture_law	= {
+	group = 0
+#								1) One man takes it all
+#								2) Depth in order of age
+#								3) ignoring women
+#								4) include siblings of women
+}
+								
+salic_consanguinity_law = {
+	group = 0
+#								1) One man takes it all
+#								2) Bredth in order of power
+#								3) ignoring women 
+#								4) ignoring siblings of women
+}
+
+semisalic_consanguinity_law = {
+	group = 0
+#								1) One man takes it all
+#								2) Bredth in order of power
+#								3) ignoring women
+#								4) include siblings of women
+}
+
+salic_gavelkind_law = {
+	group = 0
+#								1) All titles divided, one for each heir
+#								2) Bredth in order of age, as long as there are more titles to divide
+#								3) ignoring women 
+#								4) ignoring siblings of women 
+}
+
+semisalic_gavelkind_law = {
+	group = 0
+#								1) All titles divided, one for each heir
+#								2) Bredth in order of age, as long as there are more titles to divide
+#								3) ignoring women
+#								4) include siblings of women
+}
+
+elective_law = {
+	group = 0
+#								1) One man takes it all
+#								2) Vassals in order of strength
+}
+
+royal_preorgatory_law = {
+	group = 1					
+#					max_power_nobles = 0.9
+#					max_power_clergy = 0.9
+#					max_power_burghers = 0.7
+#					max_power_peasants = 0.7
+#					tournir events
+#					ban_private_warfare (Feud CBs doesn't appear)
+#					percentage_tax = { nobles = 0.3 peasants = 0.9 burghers = 0.6 clergy = 1.0 }
+#					periodic_loyalty = { peasants = 0.01 burghers = 0.01 }
+#					SCUTAGE			(Min.0 Max.100)
+#					CROWN DUTY		(Min.50 Max.100)
+#					CENSUS TAX 		(Min.25 Max.100)
+#					TOLLS 			(Min.25 Max.100)
+}						
+
+feudal_contract_law	= {
+	group = 1
+#					max_power_nobles = 1.0
+#					max_power_clergy = 0.9
+#					max_power_burghers = 0.6
+#					max_power_peasants = 0.4
+#					tournir events
+#					allow_private_warfare (Feud CBs appear in standard fashion)
+#					percentage_tax = { nobles = 0 peasants = 1.0 burghers = 0.8 clergy = 1.0 }
+#					periodic_loyalty = { peasants = -0.03 burghers = -0.01 nobles = 0.03 }
+#					SCUTAGE			(Min.0 Max.50)
+#					CROWN DUTY		(Min.0 Max.50)
+#					CENSUS TAX 		(Min.50 Max.100)
+#					TOLLS 			(Min.50 Max.100)
+}				
+					
+traditional_custom_law = {
+	group = 1
+#					max_power_nobles = 0.8
+#					max_power_clergy = 0.8
+#					max_power_burghers = 0.8
+#					max_power_peasants = 0.8
+#					no tournir events
+#					oppose_private_warfare (Feud CBs appear, but cost prestige to initiate)
+#					percentage_tax = { nobles = 0.1 peasants = 0.8 burghers = 0.7 clergy = 1.0 }
+#					periodic_loyalty = { nobles = 0.01 }
+#					SCUTAGE			(Min.0 Max.70)
+#					CROWN DUTY		(Min.0 Max.70)
+#					CENSUS TAX 		(Min.0 Max.70)
+#					TOLLS 			(Min.0 Max.70)
+}
+				
+popular_law	= {
+	group = 1
+#					max_power_nobles = 0.4
+#					max_power_clergy = 0.6
+#					max_power_burghers = 1.0
+#					max_power_peasants = 0.9
+#					no tournir events
+#					ban_private_warfare (Feud CBs doesn't appear)
+#					percentage_tax = { nobles = 0.4 peasants = 0.7 burghers = 0.7 clergy = 1.0 }
+#					periodic_loyalty = { peasants = 0.01 burghers = 0.03 nobles = -0.03 }
+#					SCUTAGE			(Min.50 Max.100)
+#					CROWN DUTY		(Min.50 Max.100)
+#					CENSUS TAX 		(Min.0 Max.50)
+#					TOLLS 			(Min.0 Max.50)
+}				
+
+regal_supremacy = {
+	group = 2
+#						Religious Eventserie (religious_formalism)
+#						clergy power give military manpower (regal_control_of_churchlands)
+#						percentage_tax = { clergy = 0.5 nobles = 1.0 peasants = 1.0 burghers = 1.0 }
+#						periodic_loyalty = { clergy = -0.03 peasants = -0.01 }
+#						create_new_bishopric
+#						Usury Eventserie (encourage_usury)
+#						CHURCH DONATIONS (Min.0 Max.80)
+}
+
+monastic_supremacy = { #Ignore below -- now female inheritance
+	group = 0
+#						Religious Eventserie (religious_formalism)
+#						clergy power give money instead of military manpower (monastic_control_of_churchlands)
+#						percentage_tax = { clergy = 0.3 nobles = 1.0 peasants = 1.0 burghers = 1.0 }
+#						periodic_loyalty = { clergy = -0.01 }
+#						no_new_bishopric
+#						Usury Eventserie (accept_usury)
+#						aid_to_the_faith_duty (-%cost:monastries and templarhouses)
+#						CHURCH DONATIONS (Min.50 Max.100)
+}
+
+ecclesical_balance = {
+	group = 2
+#						Religious Eventserie (religious_tolerance)
+#						clergy power give some money and some military manpower (mixed_control_of_churchlands
+#						percentage_tax = { clergy = 0.3 nobles = 1.0 peasants = 1.0 burghers = 1.0 }
+#						periodic_loyalty = { clergy = -0.01 }
+#						no_new_bishopric
+#						Usury Eventserie (accept_usury)
+#						CHURCH DONATIONS (Min.30 Max.70)
+}
+						
+church_supremacy = {
+	group = 2
+#						Religious Eventserie (true_defender_of_the_faith)
+#						clergy power doesn't give money or military manpower (church_control_of_churchlands)
+#						percentage_tax = { clergy = 0.1 nobles = 1.0 peasants = 1.0 burghers = 1.0 } 
+#						periodic_loyalty = { clergy = 0.03 }
+#						create_new_bishopric
+#						Usury Eventserie (ban_usury)
+#						aid_to_the_faith_duty (-%cost:churches and cathedrals)
+#						CHURCH DONATIONS (Min.70 Max.100)
+}

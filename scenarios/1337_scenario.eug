@@ -1,0 +1,1837 @@
+name = "NAME_1337"
+header = {
+	name = "NAME_1337"
+    startyear = 1337 
+    endyear = 1452 
+    C001 = { 
+        gender = male 
+        type = county 
+        dna = "29860622935453" 
+        title = { C001 } 
+        } 
+    C002 = { 
+        gender = male 
+        type = county 
+        dna = "23291236381402" 
+        title = { C002 } 
+        } 
+    C003 = { 
+        gender = male 
+        type = county 
+        dna = "08185260980503" 
+        title = { C003 } 
+        } 
+    C004 = { 
+        gender = male 
+        type = county 
+        dna = "96191650536547" 
+        title = { C004 } 
+        } 
+    C006 = { 
+        gender = male 
+        type = county 
+        dna = "66178983985545" 
+        title = { C006 } 
+        } 
+    C007 = { 
+        gender = male 
+        type = county 
+        dna = "66800399301903" 
+        title = { C007 } 
+        } 
+    C008 = { 
+        gender = male 
+        type = county 
+        dna = "09481462718403" 
+        title = { C008 } 
+        } 
+    C012 = { 
+        gender = male 
+        type = county 
+        dna = "49089600444563" 
+        title = { C012 } 
+        } 
+    C013 = { 
+        gender = male 
+        type = county 
+        dna = "55443943515134" 
+        title = { C013 } 
+        } 
+    C014 = { 
+        gender = male 
+        type = county 
+        dna = "56304634908963" 
+        title = { C014 } 
+        } 
+    C015 = { 
+        gender = male 
+        type = county 
+        dna = "04635400456359" 
+        title = { C015 } 
+        } 
+    C017 = { 
+        gender = male 
+        type = county 
+        dna = "63368985420799" 
+        title = { C017 C066 } 
+        } 
+    C018 = { 
+        gender = male 
+        type = county 
+        dna = "80601683205609" 
+        title = { C018 } 
+        } 
+    C021 = { 
+        gender = male 
+        type = county 
+        dna = "01234444345654" 
+        title = { C021 } 
+        } 
+    C022 = { 
+        gender = male 
+        type = county 
+        dna = "03546330011201" 
+        title = { C022 } 
+        } 
+    C024 = { 
+        gender = male 
+        type = county 
+        dna = "03365300112046" 
+        title = { C024 } 
+        } 
+    C025 = { 
+        gender = male 
+        type = county 
+        dna = "75873695654468" 
+        title = { C025 C026 } 
+        } 
+    C029 = { 
+        gender = male 
+        type = county 
+        dna = "03450635063500" 
+        title = { C029 C030 } 
+        } 
+    C033 = { 
+        gender = male 
+        type = county 
+        dna = "00456054603560" 
+        title = { C033 } 
+        } 
+    C034 = { 
+        gender = male 
+        type = county 
+        dna = "00406564560060" 
+        title = { C034 } 
+        } 
+    C038 = { 
+        gender = male 
+        type = county 
+        dna = "79041987358896" 
+        title = { C038 } 
+        } 
+    C039 = { 
+        gender = male 
+        type = county 
+        dna = "01022184751911" 
+        title = { C039 } 
+        } 
+    C040 = { 
+        gender = male 
+        type = county 
+        dna = "42059898789883" 
+        title = { C040 } 
+        } 
+    C041 = { 
+        gender = male 
+        type = county 
+        dna = "75160781573657" 
+        title = { C041 } 
+        } 
+    C042 = { 
+        gender = male 
+        type = county 
+        dna = "29408015197497" 
+        title = { C042 } 
+        } 
+    C043 = { 
+        gender = male 
+        type = county 
+        dna = "97221556369243" 
+        title = { C043 } 
+        } 
+    C045 = { 
+        gender = male 
+        type = county 
+        dna = "09278898740969" 
+        title = { C045 } 
+        } 
+    C046 = { 
+        gender = male 
+        type = county 
+        dna = "87631740690505" 
+        title = { C046 } 
+        } 
+    C049 = { 
+        gender = female 
+        type = county 
+        dna = "04653406545941" 
+        title = { C049 } 
+        } 
+    C050 = { 
+        gender = male 
+        type = county 
+        dna = "00145645601233" 
+        title = { C050 } 
+        } 
+    C051 = { 
+        gender = male 
+        type = county 
+        dna = "80171020942123" 
+        title = { C051 } 
+        } 
+    C054 = { 
+        gender = male 
+        type = county 
+        dna = "23210515801695" 
+        title = { C054 } 
+        } 
+    C055 = { 
+        gender = male 
+        type = county 
+        dna = "01234213653056" 
+        title = { C055 C053 } 
+        } 
+    C057 = { 
+        gender = male 
+        type = county 
+        dna = "15301276730558" 
+        title = { C057 } 
+        } 
+    C058 = { 
+        gender = male 
+        type = county 
+        dna = "25635604563566" 
+        title = { C058 C062 } 
+        } 
+    C061 = { 
+        gender = female 
+        type = county 
+        dna = "98501085670150" 
+        title = { C061 C023 } 
+        } 
+    C063 = { 
+        gender = male 
+        type = county 
+        dna = "25023245163561" 
+        title = { C063 } 
+        } 
+    C065 = { 
+        gender = female 
+        type = county 
+        dna = "11827701507199" 
+        title = { C065 } 
+        } 
+    C067 = { 
+        gender = male 
+        type = county 
+        dna = "03789389311202" 
+        title = { C067 } 
+        } 
+    C068 = { 
+        gender = male 
+        type = county 
+        dna = "00643456336898" 
+        title = { C068 } 
+        } 
+    C070 = { 
+        gender = male 
+        type = county 
+        dna = "98021315072217" 
+        title = { C070 } 
+        } 
+    C071 = { 
+        gender = male 
+        type = county 
+        dna = "38882792018999" 
+        title = { C071 } 
+        } 
+    C073 = { 
+        gender = male 
+        type = county 
+        dna = "03639565436468" 
+        title = { C073 } 
+        } 
+    C084 = { 
+        gender = male 
+        type = county 
+        dna = "58800045374857" 
+        title = { C084 } 
+        } 
+    C085 = { 
+        gender = male 
+        type = county 
+        dna = "66602451636333" 
+        title = { C085 } 
+        } 
+    C086 = { 
+        gender = male 
+        type = county 
+        dna = "12397643950434" 
+        title = { C086 } 
+        } 
+    C089 = { 
+        gender = male 
+        type = county 
+        dna = "96575309773248" 
+        title = { C089 } 
+        } 
+    C090 = { 
+        gender = male 
+        type = county 
+        dna = "98439761512111" 
+        title = { C090 } 
+        } 
+    C091 = { 
+        gender = male 
+        type = county 
+        dna = "10463634563649" 
+        title = { C091 } 
+        } 
+    C095 = { 
+        gender = male 
+        type = county 
+        dna = "63368985420799" 
+        title = { C095 } 
+        } 
+    C096 = { 
+        gender = male 
+        type = county 
+        dna = "09328818437000" 
+        title = { C096 C074 } 
+        } 
+    C102 = { 
+        gender = female 
+        type = county 
+        dna = "23480266950102" 
+        title = { C102 } 
+        } 
+    C108 = { 
+        gender = male 
+        type = county 
+        dna = "11231100450303" 
+        title = { C108 } 
+        } 
+    C109 = { 
+        gender = male 
+        type = county 
+        dna = "20040915277389" 
+        title = { C109 } 
+        } 
+    C110 = { 
+        gender = male 
+        type = county 
+        dna = "05920741872487" 
+        title = { C110 } 
+        } 
+    C111 = { 
+        gender = male 
+        type = county 
+        dna = "16044708176852" 
+        title = { C111 } 
+        } 
+    C115 = { 
+        gender = male 
+        type = county 
+        dna = "52345635125768" 
+        title = { C115 } 
+        } 
+    C121 = { 
+        gender = male 
+        type = county 
+        dna = "23124416406232" 
+        title = { C121 } 
+        } 
+    C122 = { 
+        gender = male 
+        type = county 
+        dna = "23145710134254" 
+        title = { C122 } 
+        } 
+    C124 = { 
+        gender = male 
+        type = county 
+        dna = "00456305345602" 
+        title = { C124 } 
+        } 
+    C125 = { 
+        gender = male 
+        type = county 
+        dna = "44563054630140" 
+        title = { C125 } 
+        } 
+    C129 = { 
+        gender = male 
+        type = county 
+        dna = "44669123466832" 
+        title = { C129 } 
+        } 
+    C132 = { 
+        gender = male 
+        type = county 
+        dna = "67018506596265" 
+        title = { C132 } 
+        } 
+    C133 = { 
+        gender = male 
+        type = county 
+        dna = "66143857576990" 
+        title = { C133 } 
+        } 
+    C142 = { 
+        gender = male 
+        type = county 
+        dna = "29589750418963" 
+        title = { C142 } 
+        } 
+    C144 = { 
+        gender = male 
+        type = county 
+        dna = "83437237101383" 
+        title = { C144 } 
+        } 
+    C147 = { 
+        gender = female 
+        type = county 
+        dna = "55128845639071" 
+        title = { C147 } 
+        } 
+    C150 = { 
+        gender = male 
+        type = county 
+        dna = "77847590232254" 
+        title = { C150 } 
+        } 
+    C153 = { 
+        gender = female 
+        type = county 
+        dna = "35569657294207" 
+        title = { C153 } 
+        } 
+    C156 = { 
+        gender = male 
+        type = county 
+        dna = "97427961442640" 
+        title = { C156 } 
+        } 
+    C161 = { 
+        gender = male 
+        type = county 
+        dna = "53786606536932" 
+        title = { C161 } 
+        } 
+    C162 = { 
+        gender = male 
+        type = county 
+        dna = "43877590295279" 
+        title = { C162 } 
+        } 
+    C163 = { 
+        gender = male 
+        type = county 
+        dna = "44647469042384" 
+        title = { C163 } 
+        } 
+    C165 = { 
+        gender = male 
+        type = county 
+        dna = "25841608009177" 
+        title = { C165 C164 } 
+        } 
+    C170 = { 
+        gender = male 
+        type = county 
+        dna = "62064514132684" 
+        title = { C170 } 
+        } 
+    C172 = { 
+        gender = male 
+        type = county 
+        dna = "59208845118924" 
+        title = { C172 } 
+        } 
+    C173 = { 
+        gender = male 
+        type = county 
+        dna = "02640212006667" 
+        title = { C173 } 
+        } 
+    C183 = { 
+        gender = male 
+        type = county 
+        dna = "30841961169184" 
+        title = { C183 } 
+        } 
+    C185 = { 
+        gender = male 
+        type = county 
+        dna = "80767192657406" 
+        title = { C185 } 
+        } 
+    C186 = { 
+        gender = male 
+        type = county 
+        dna = "87991418610315" 
+        title = { C186 } 
+        } 
+    C187 = { 
+        gender = male 
+        type = county 
+        dna = "63272564445482" 
+        title = { C187 } 
+        } 
+    C188 = { 
+        gender = male 
+        type = county 
+        dna = "01868606711469" 
+        title = { C188 } 
+        } 
+    C189 = { 
+        gender = male 
+        type = county 
+        dna = "33876878352966" 
+        title = { C189 } 
+        } 
+    C194 = { 
+        gender = male 
+        type = county 
+        dna = "84858687888990" 
+        title = { C194 } 
+        } 
+    C195 = { 
+        gender = male 
+        type = county 
+        dna = "27506823585540" 
+        title = { C195 } 
+        } 
+    C199 = { 
+        gender = male 
+        type = county 
+        dna = "19165044106148" 
+        title = { C199 } 
+        } 
+    C201 = { 
+        gender = male 
+        type = county 
+        dna = "42285155493058" 
+        title = { C201 } 
+        } 
+    C203 = { 
+        gender = male 
+        type = county 
+        dna = "25092707290531" 
+        title = { C203 } 
+        } 
+    C205 = { 
+        gender = male 
+        type = county 
+        dna = "92170005720990" 
+        title = { C205 } 
+        } 
+    C206 = { 
+        gender = male 
+        type = county 
+        dna = "82467002610104" 
+        title = { C206 } 
+        } 
+    C207 = { 
+        gender = male 
+        type = county 
+        dna = "33647343122571" 
+        title = { C207 } 
+        } 
+    C208 = { 
+        gender = male 
+        type = county 
+        dna = "43759510283463" 
+        title = { C208 } 
+        } 
+    C209 = { 
+        gender = male 
+        type = county 
+        dna = "41188164008668" 
+        title = { C209 } 
+        } 
+    C210 = { 
+        gender = male 
+        type = county 
+        dna = "01748907428339" 
+        title = { C210 } 
+        } 
+    C212 = { 
+        gender = male 
+        type = county 
+        dna = "81234395345456" 
+        title = { C212 } 
+        } 
+    C216 = { 
+        gender = male 
+        type = county 
+        dna = "55956172859836" 
+        title = { C216 } 
+        } 
+    C217 = { 
+        gender = female 
+        type = county 
+        dna = "52226295874900" 
+        title = { C217 C075 } 
+        } 
+    C223 = { 
+        gender = male 
+        type = county 
+        dna = "11231331001030" 
+        title = { C223 } 
+        } 
+    C231 = { 
+        gender = male 
+        type = county 
+        dna = "64498692972448" 
+        title = { C231 } 
+        } 
+    C232 = { 
+        gender = male 
+        type = county 
+        dna = "13425189490951" 
+        title = { C232 } 
+        } 
+    C236 = { 
+        gender = male 
+        type = county 
+        dna = "38431992048326" 
+        title = { C236 } 
+        } 
+    C238 = { 
+        gender = male 
+        type = county 
+        dna = "41119110328514" 
+        title = { C238 } 
+        } 
+    C241 = { 
+        gender = male 
+        type = county 
+        dna = "31111112224531" 
+        title = { C241 } 
+        } 
+    C242 = { 
+        gender = male 
+        type = county 
+        dna = "11234353464338" 
+        title = { C242 C248 } 
+        } 
+    C249 = { 
+        gender = male 
+        type = county 
+        dna = "24935236406232" 
+        title = { C249 } 
+        } 
+    C250 = { 
+        gender = male 
+        type = county 
+        dna = "12345745630142" 
+        title = { C250 } 
+        } 
+    C251 = { 
+        gender = male 
+        type = county 
+        dna = "89703045630451" 
+        title = { C251 } 
+        } 
+    C253 = { 
+        gender = male 
+        type = county 
+        dna = "12341000113041" 
+        title = { C253 } 
+        } 
+    C257 = { 
+        gender = male 
+        type = county 
+        dna = "13563650353331" 
+        title = { C257 } 
+        } 
+    C258 = { 
+        gender = male 
+        type = county 
+        dna = "21345563456312" 
+        title = { C258 } 
+        } 
+    C263 = { 
+        gender = male 
+        type = county 
+        dna = "30521147289428" 
+        title = { C263 } 
+        } 
+    C266 = { 
+        gender = male 
+        type = county 
+        dna = "63467398729013" 
+        title = { C266 } 
+        } 
+    C269 = { 
+        gender = male 
+        type = county 
+        dna = "67261800041116" 
+        title = { C269 } 
+        } 
+    C270 = { 
+        gender = male 
+        type = county 
+        dna = "97739611069196" 
+        title = { C270 } 
+        } 
+    C271 = { 
+        gender = female 
+        type = county 
+        dna = "27878709678400" 
+        title = { C271 } 
+        } 
+    C275 = { 
+        gender = female 
+        type = county 
+        dna = "84423900440544" 
+        title = { C275 } 
+        } 
+    C276 = { 
+        gender = male 
+        type = county 
+        dna = "70203314746001" 
+        title = { C276 C273 } 
+        } 
+    C277 = { 
+        gender = male 
+        type = county 
+        dna = "34751674057227" 
+        title = { C277 } 
+        } 
+    C280 = { 
+        gender = male 
+        type = county 
+        dna = "05610456000000" 
+        title = { C280 } 
+        } 
+    C281 = { 
+        gender = male 
+        type = county 
+        dna = "05610456000456" 
+        title = { C281 } 
+        } 
+    C283 = { 
+        gender = male 
+        type = county 
+        dna = "00005610456000" 
+        title = { C283 } 
+        } 
+    C285 = { 
+        gender = male 
+        type = county 
+        dna = "65012397074853" 
+        title = { C285 } 
+        } 
+    C288 = { 
+        gender = male 
+        type = county 
+        dna = "41337830603200" 
+        title = { C288 } 
+        } 
+    C289 = { 
+        gender = male 
+        type = county 
+        dna = "41027927133280" 
+        title = { C289 C287 } 
+        } 
+    C290 = { 
+        gender = male 
+        type = county 
+        dna = "74833447345956" 
+        title = { C290 C286 C291 } 
+        } 
+    C293 = { 
+        gender = male 
+        type = county 
+        dna = "20278323137339" 
+        title = { C293 C298 } 
+        } 
+    C294 = { 
+        gender = male 
+        type = county 
+        dna = "39761645817462" 
+        title = { C294 } 
+        } 
+    C295 = { 
+        gender = female 
+        type = county 
+        dna = "07741182910109" 
+        title = { C295 } 
+        } 
+    C296 = { 
+        gender = male 
+        type = county 
+        dna = "49108529643036" 
+        title = { C296 } 
+        } 
+    C297 = { 
+        gender = male 
+        type = county 
+        dna = "35983144720054" 
+        title = { C297 } 
+        } 
+    C300 = { 
+        gender = male 
+        type = county 
+        dna = "40656040488379" 
+        title = { C300 C299 } 
+        } 
+    C302 = { 
+        gender = male 
+        type = county 
+        dna = "89596319777859" 
+        title = { C302 } 
+        } 
+    C304 = { 
+        gender = male 
+        type = county 
+        dna = "43021884581238" 
+        title = { C304 } 
+        } 
+    C307 = { 
+        gender = male 
+        type = county 
+        dna = "32852264304488" 
+        title = { C307 } 
+        } 
+    C308 = { 
+        gender = male 
+        type = county 
+        dna = "20676047600967" 
+        title = { C308 } 
+        } 
+    C310 = { 
+        gender = male 
+        type = county 
+        dna = "21234123465466" 
+        title = { C310 } 
+        } 
+    C313 = { 
+        gender = male 
+        type = county 
+        dna = "48604221525016" 
+        title = { C313 } 
+        } 
+    C314 = { 
+        gender = male 
+        type = county 
+        dna = "22212345115633" 
+        title = { C314 } 
+        } 
+    C316 = { 
+        gender = female 
+        type = county 
+        dna = "23434221434563" 
+        title = { C316 C359 } 
+        } 
+    C329 = { 
+        gender = male 
+        type = county 
+        dna = "46052971367298" 
+        title = { C329 } 
+        } 
+    C345 = { 
+        gender = male 
+        type = county 
+        dna = "54560365433543" 
+        title = { C345 } 
+        } 
+    C383 = { 
+        gender = male 
+        type = county 
+        dna = "17798423769239" 
+        title = { C383 C381 } 
+        } 
+    C387 = { 
+        gender = male 
+        type = county 
+        dna = "35143225879855" 
+        title = { C387 } 
+        } 
+    C391 = { 
+        gender = male 
+        type = county 
+        dna = "08661836539940" 
+        title = { C391 C390 } 
+        } 
+    C393 = { 
+        gender = male 
+        type = county 
+        dna = "20522038017242" 
+        title = { C393 } 
+        } 
+    C394 = { 
+        gender = male 
+        type = county 
+        dna = "98499958679098" 
+        title = { C394 } 
+        } 
+    C395 = { 
+        gender = male 
+        type = county 
+        dna = "61124768012054" 
+        title = { C395 } 
+        } 
+    C396 = { 
+        gender = male 
+        type = county 
+        dna = "93531661857524" 
+        title = { C396 } 
+        } 
+    C397 = { 
+        gender = male 
+        type = county 
+        dna = "91135333063577" 
+        title = { C397 } 
+        } 
+    C398 = { 
+        gender = male 
+        type = county 
+        dna = "13895036878843" 
+        title = { C398 } 
+        } 
+    C399 = { 
+        gender = male 
+        type = county 
+        dna = "27849439970165" 
+        title = { C399 } 
+        } 
+    C400 = { 
+        gender = male 
+        type = county 
+        dna = "98534352624068" 
+        title = { C400 } 
+        } 
+    C401 = { 
+        gender = male 
+        type = county 
+        dna = "27769776498995" 
+        title = { C401 } 
+        } 
+    C402 = { 
+        gender = male 
+        type = county 
+        dna = "94931972487755" 
+        title = { C402 } 
+        } 
+    C403 = { 
+        gender = male 
+        type = county 
+        dna = "32339242836021" 
+        title = { C403 } 
+        } 
+    C404 = { 
+        gender = male 
+        type = county 
+        dna = "42217622798223" 
+        title = { C404 } 
+        } 
+    C405 = { 
+        gender = male 
+        type = county 
+        dna = "60769960220648" 
+        title = { C405 } 
+        } 
+    C406 = { 
+        gender = male 
+        type = county 
+        dna = "68408009027062" 
+        title = { C406 } 
+        } 
+    C407 = { 
+        gender = male 
+        type = county 
+        dna = "10230873365097" 
+        title = { C407 } 
+        } 
+    C409 = { 
+        gender = male 
+        type = county 
+        dna = "86791605704400" 
+        title = { C409 } 
+        } 
+    C411 = { 
+        gender = male 
+        type = county 
+        dna = "00849607290916" 
+        title = { C411 C388 C392 } 
+        } 
+    C412 = { 
+        gender = male 
+        type = county 
+        dna = "95094222006130" 
+        title = { C412 } 
+        } 
+    C413 = { 
+        gender = male 
+        type = county 
+        dna = "54809850453316" 
+        title = { C413 } 
+        } 
+    C414 = { 
+        gender = male 
+        type = county 
+        dna = "37606861563136" 
+        title = { C414 } 
+        } 
+    C415 = { 
+        gender = male 
+        type = county 
+        dna = "85273041639818" 
+        title = { C415 } 
+        } 
+    C428 = { 
+        gender = male 
+        type = county 
+        dna = "44010923840058" 
+        title = { C428 } 
+        } 
+    C433 = { 
+        gender = male 
+        type = county 
+        dna = "45630637456170" 
+        title = { C433 } 
+        } 
+    C434 = { 
+        gender = male 
+        type = county 
+        dna = "46249637356757" 
+        title = { C434 } 
+        } 
+    C435 = { 
+        gender = male 
+        type = county 
+        dna = "14563483354687" 
+        title = { C435 } 
+        } 
+    C442 = { 
+        gender = male 
+        type = county 
+        dna = "01114504862645" 
+        title = { C442 } 
+        } 
+    C450 = { 
+        gender = male 
+        type = county 
+        dna = "24635423444536" 
+        title = { C450 } 
+        } 
+    C454 = { 
+        gender = male 
+        type = county 
+        dna = "04560204566644" 
+        title = { C454 } 
+        } 
+    C459 = { 
+        gender = male 
+        type = county 
+        dna = "45987754064530" 
+        title = { C459 } 
+        } 
+    C460 = { 
+        gender = male 
+        type = county 
+        dna = "00133100456543" 
+        title = { C460 } 
+        } 
+    C462 = { 
+        gender = male 
+        type = county 
+        dna = "10321304564564" 
+        title = { C462 } 
+        } 
+    C463 = { 
+        gender = male 
+        type = county 
+        dna = "23030002847534" 
+        title = { C463 } 
+        } 
+    C464 = { 
+        gender = male 
+        type = county 
+        dna = "58048460288622" 
+        title = { C464 } 
+        } 
+    C466 = { 
+        gender = male 
+        type = county 
+        dna = "21470860007918" 
+        title = { C466 } 
+        } 
+    C470 = { 
+        gender = male 
+        type = county 
+        dna = "93893896612014" 
+        title = { C470 } 
+        } 
+    C471 = { 
+        gender = male 
+        type = county 
+        dna = "02641039428175" 
+        title = { C471 } 
+        } 
+    C472 = { 
+        gender = male 
+        type = county 
+        dna = "06300637653800" 
+        title = { C472 C473 } 
+        } 
+    C477 = { 
+        gender = male 
+        type = county 
+        dna = "81150882517808" 
+        title = { C477 } 
+        } 
+    C481 = { 
+        gender = male 
+        type = county 
+        dna = "34061090012628" 
+        title = { C481 C476 } 
+        } 
+    C487 = { 
+        gender = male 
+        type = county 
+        dna = "80074529760836" 
+        title = { C487 } 
+        } 
+    C488 = { 
+        gender = female 
+        type = county 
+        dna = "07020409281301" 
+        title = { C488 } 
+        } 
+    C489 = { 
+        gender = male 
+        type = county 
+        dna = "53380337008821" 
+        title = { C489 } 
+        } 
+    C498 = { 
+        gender = male 
+        type = county 
+        dna = "98814517003511" 
+        title = { C498 } 
+        } 
+    C500 = { 
+        gender = male 
+        type = county 
+        dna = "66624844385827" 
+        title = { C500 } 
+        } 
+    C501 = { 
+        gender = male 
+        type = county 
+        dna = "50324857205947" 
+        title = { C501 } 
+        } 
+    C513 = { 
+        gender = male 
+        type = county 
+        dna = "37209877577759" 
+        title = { C513 } 
+        } 
+    C515 = { 
+        gender = male 
+        type = county 
+        dna = "99176899633227" 
+        title = { C515 } 
+        } 
+    C516 = { 
+        gender = male 
+        type = county 
+        dna = "60144669169375" 
+        title = { C516 } 
+        } 
+    C518 = { 
+        gender = male 
+        type = county 
+        dna = "04506560048685" 
+        title = { C518 } 
+        } 
+    C520 = { 
+        gender = male 
+        type = county 
+        dna = "44563546563045" 
+        title = { C520 } 
+        } 
+    C521 = { 
+        gender = male 
+        type = county 
+        dna = "45640604665404" 
+        title = { C521 } 
+        } 
+    C523 = { 
+        gender = male 
+        type = county 
+        dna = "11241571770695" 
+        title = { C523 } 
+        } 
+    C524 = { 
+        gender = male 
+        type = county 
+        dna = "12404563040565" 
+        title = { C524 } 
+        } 
+    C526 = { 
+        gender = male 
+        type = county 
+        dna = "46584033523840" 
+        title = { C526 } 
+        } 
+    C530 = { 
+        gender = male 
+        type = county 
+        dna = "91661409965242" 
+        title = { C530 } 
+        } 
+    C533 = { 
+        gender = male 
+        type = county 
+        dna = "17703896002456" 
+        title = { C533 } 
+        } 
+    C535 = { 
+        gender = male 
+        type = county 
+        dna = "01201612530217" 
+        title = { C535 } 
+        } 
+    C537 = { 
+        gender = male 
+        type = county 
+        dna = "45630489780355" 
+        title = { C537 } 
+        } 
+    C538 = { 
+        gender = male 
+        type = county 
+        dna = "11010399700463" 
+        title = { C538 } 
+        } 
+    C539 = { 
+        gender = male 
+        type = county 
+        dna = "45634456352456" 
+        title = { C539 } 
+        } 
+    C541 = { 
+        gender = male 
+        type = county 
+        dna = "87609430469370" 
+        title = { C541 } 
+        } 
+    C544 = { 
+        gender = male 
+        type = county 
+        dna = "95083476629475" 
+        title = { C544 } 
+        } 
+    C545 = { 
+        gender = male 
+        type = county 
+        dna = "01608969039253" 
+        title = { C545 } 
+        } 
+    C546 = { 
+        gender = male 
+        type = county 
+        dna = "26598502061113" 
+        title = { C546 } 
+        } 
+    C553 = { 
+        gender = male 
+        type = county 
+        dna = "02460590453180" 
+        title = { C553 } 
+        } 
+    C573 = { 
+        gender = male 
+        type = county 
+        dna = "10062612968290" 
+        title = { C573 } 
+        } 
+    C576 = { 
+        gender = male 
+        type = county 
+        dna = "00456345638236" 
+        title = { C576 } 
+        } 
+    C577 = { 
+        gender = male 
+        type = county 
+        dna = "18478645185648" 
+        title = { C577 } 
+        } 
+    C582 = { 
+        gender = female 
+        type = county 
+        dna = "98077553938642" 
+        title = { C582 } 
+        } 
+    C586 = { 
+        gender = male 
+        type = county 
+        dna = "96647799021890" 
+        title = { C586 } 
+        } 
+    C761 = { 
+        gender = male 
+        type = county 
+        dna = "45606541123785" 
+        title = { C761 } 
+        } 
+    C812 = { 
+        gender = male 
+        type = county 
+        dna = "94869269369716" 
+        title = { C812 } 
+        } 
+    AEGE = { 
+        gender = male 
+        type = duchy 
+        dna = "80086219614124" 
+        title = { AEGE C484 C485 } 
+        } 
+    ASTU = { 
+        gender = male 
+        type = duchy 
+        dna = "23720510394216" 
+        title = { ASTU C154 C155 } 
+        } 
+    BAVA = { 
+        gender = male 
+        type = duchy 
+        dna = "22456306300223" 
+        title = { BAVA C361 C447 } 
+        } 
+    BELO = { 
+        gender = male 
+        type = duchy 
+        dna = "79573271688523" 
+        title = { BELO C408 } 
+        } 
+    BERG = { 
+        gender = male 
+        type = duchy 
+        dna = "20571370586179" 
+        title = { BERG C268 C274 C278 } 
+        } 
+    BERW = { 
+        gender = male 
+        type = duchy 
+        dna = "27140050154345" 
+        title = { BERW C120 } 
+        } 
+    DBOH = { 
+        gender = male 
+        type = duchy 
+        dna = "83863024328449" 
+        title = { DBOH LUXE C362 C363 C436 C437 C439 } 
+        } 
+    BOUG = { 
+        gender = male 
+        type = duchy 
+        dna = "93551784512709" 
+        title = { BOUG C077 C135 C136 C140 C225 C226 C240 } 
+        } 
+    BOUR = { 
+        gender = male 
+        type = duchy 
+        dna = "57825825763274" 
+        title = { BOUR C145 C146 C224 } 
+        } 
+    BRAB = { 
+        gender = male 
+        type = duchy 
+        dna = "00000131231301" 
+        title = { BRAB C092 C117 } 
+        } 
+    BRAN = { 
+        gender = male 
+        type = duchy 
+        dna = "10234512351312" 
+        title = { BRAN C309 C365 C430 } 
+        } 
+    BRIT = { 
+        gender = male 
+        type = duchy 
+        dna = "90223277603357" 
+        title = { BRIT ELRI C101 C103 C104 C105 C106 } 
+        } 
+    CALA = { 
+        gender = male 
+        type = duchy 
+        dna = "71203653524222" 
+        title = { CALA C344 C346 C474 } 
+        } 
+    CONN = { 
+        gender = male 
+        type = duchy 
+        dna = "93611482985283" 
+        title = { CONN C009 } 
+        } 
+    CORN = { 
+        gender = male 
+        type = duchy 
+        dna = "98039301036373" 
+        title = { CORN GWYN C031 } 
+        } 
+    DCRO = { 
+        gender = male 
+        type = duchy 
+        dna = "01215463406438" 
+        title = { DCRO SLAV C461 } 
+        } 
+    ESTH = { 
+        gender = male 
+        type = duchy 
+        dna = "27605400561234" 
+        title = { ESTH C378 C380 } 
+        } 
+    FINL = { 
+        gender = male 
+        type = duchy 
+        dna = "57173155167604" 
+        title = { FINL C382 C384 C385 } 
+        } 
+    FLAN = { 
+        gender = male 
+        type = duchy 
+        dna = "96934031012510" 
+        title = { FLAN C076 C078 C093 C137 } 
+        } 
+    FRIE = { 
+        gender = male 
+        type = duchy 
+        dna = "37079264989472" 
+        title = { FRIE C083 } 
+        } 
+    GALI = { 
+        gender = male 
+        type = duchy 
+        dna = "29345602985206" 
+        title = { GALI C534 C536 } 
+        } 
+    DGEO = { 
+        gender = male 
+        type = duchy 
+        dna = "01000810146610" 
+        title = { DGEO C677 } 
+        } 
+    HAIN = { 
+        gender = male 
+        type = duchy 
+        dna = "47668503765831" 
+        title = { HAIN C079 C080 C081 C094 } 
+        } 
+    HELL = { 
+        gender = male 
+        type = duchy 
+        dna = "77232039421146" 
+        title = { HELL C475 C482 } 
+        } 
+    HOLS = { 
+        gender = male 
+        type = duchy 
+        dna = "89486795469535" 
+        title = { HOLS C261 C265 } 
+        } 
+    IMER = { 
+        gender = male 
+        type = duchy 
+        dna = "83030504791191" 
+        title = { IMER C600 C601 } 
+        } 
+    JAMT = { 
+        gender = male 
+        type = duchy 
+        dna = "97480228099558" 
+        title = { JAMT C282 C284 } 
+        } 
+    KIEV = { 
+        gender = male 
+        type = duchy 
+        dna = "31882531560041" 
+        title = { KIEV C547 } 
+        } 
+    KRET = { 
+        gender = male 
+        type = duchy 
+        dna = "68973713417804" 
+        title = { KRET C479 C480 } 
+        } 
+    LEIN = { 
+        gender = male 
+        type = duchy 
+        dna = "62229307527244" 
+        title = { LEIN C016 } 
+        } 
+    MAZO = { 
+        gender = male 
+        type = duchy 
+        dna = "98262132920308" 
+        title = { MAZO C529 } 
+        } 
+    MEAT = { 
+        gender = male 
+        type = duchy 
+        dna = "04563563456390" 
+        title = { MEAT C010 C011 } 
+        } 
+    MECK = { 
+        gender = male 
+        type = duchy 
+        dna = "42482097607151" 
+        title = { MECK C260 C306 } 
+        } 
+    MEIS = { 
+        gender = male 
+        type = duchy 
+        dna = "34863045633368" 
+        title = { MEIS THUR C255 C312 C364 } 
+        } 
+    MILA = { 
+        gender = male 
+        type = duchy 
+        dna = "76951270680794" 
+        title = { MILA C234 C235 C246 C320 } 
+        } 
+    MOLD = { 
+        gender = male 
+        type = duchy 
+        dna = "45028657643762" 
+        title = { MOLD C512 } 
+        } 
+    MORA = { 
+        gender = male 
+        type = duchy 
+        dna = "44704203215821" 
+        title = { MORA C438 C440 C441 } 
+        } 
+    MOSK = { 
+        gender = male 
+        type = duchy 
+        dna = "53444158240271" 
+        title = { MOSK C575 C578 } 
+        } 
+    NORM = { 
+        gender = male 
+        type = duchy 
+        dna = "90698597555699" 
+        title = { NORM C097 C098 C100 C107 } 
+        } 
+    ORKN = { 
+        gender = male 
+        type = duchy 
+        dna = "88777281707632" 
+        title = { ORKN C036 C037 } 
+        } 
+    POMM = { 
+        gender = male 
+        type = duchy 
+        dna = "93933546050067" 
+        title = { POMM C366 C367 } 
+        } 
+    PRON = { 
+        gender = male 
+        type = duchy 
+        dna = "78844860370591" 
+        title = { PRON C567 } 
+        } 
+    ROST = { 
+        gender = male 
+        type = duchy 
+        dna = "49989696582717" 
+        title = { ROST C574 } 
+        } 
+    RYAZ = { 
+        gender = male 
+        type = duchy 
+        dna = "08106759711602" 
+        title = { RYAZ C580 C581 } 
+        } 
+    SAVO = { 
+        gender = male 
+        type = duchy 
+        dna = "41740896808135" 
+        title = { SAVO C228 C237 C239 } 
+        } 
+    SAXO = { 
+        gender = male 
+        type = duchy 
+        dna = "86242524011239" 
+        title = { SAXO C311 } 
+        } 
+    SMOL = { 
+        gender = male 
+        type = duchy 
+        dna = "04965514186911" 
+        title = { SMOL C568 C569 } 
+        } 
+    SUZD = { 
+        gender = male 
+        type = duchy 
+        dna = "48247195550545" 
+        title = { SUZD C551 C554 } 
+        } 
+    SZEK = { 
+        gender = male 
+        type = duchy 
+        dna = "14462069563519" 
+        title = { SZEK C517 C519 C540 } 
+        } 
+    THES = { 
+        gender = male 
+        type = duchy 
+        dna = "86446157222783" 
+        title = { THES C490 C491 C493 C494 C495 } 
+        } 
+    TVER = { 
+        gender = male 
+        type = duchy 
+        dna = "89003651657717" 
+        title = { TVER C570 } 
+        } 
+    ULST = { 
+        gender = female 
+        type = duchy 
+        dna = "04631365265333" 
+        title = { ULST C005 } 
+        } 
+    UPLO = { 
+        gender = male 
+        type = duchy 
+        dna = "16457933269119" 
+        title = { UPLO C127 C128 } 
+        } 
+    WALL = { 
+        gender = male 
+        type = duchy 
+        dna = "07501025387015" 
+        title = { WALL C514 } 
+        } 
+    VARN = { 
+        gender = male 
+        type = duchy 
+        dna = "80279187106019" 
+        title = { VARN C509 C510 C511 } 
+        } 
+    VERO = { 
+        gender = male 
+        type = duchy 
+        dna = "44563638613652" 
+        title = { VERO C318 C319 C321 } 
+        } 
+    WEIS = { 
+        gender = male 
+        type = duchy 
+        dna = "20096528888879" 
+        title = { WEIS C035 } 
+        } 
+    VLAD = { 
+        gender = male 
+        type = duchy 
+        dna = "34427638906058" 
+        title = { VLAD C583 C584 C585 } 
+        } 
+    YARO = { 
+        gender = male 
+        type = duchy 
+        dna = "98836704283835" 
+        title = { YARO C571 C572 } 
+        } 
+    OSTE = { 
+        gender = male 
+        type = duchy 
+        dna = "03050900363138" 
+        title = { OSTE KARN C134 C446 C449 C455 C456 C457 } 
+        } 
+    MURC = { 
+        gender = male 
+        type = duchy 
+        dna = "21246483747525" 
+        title = { MURC C169 C179 } 
+        } 
+    SVIG = { 
+        gender = male 
+        type = duchy 
+        dna = "11266117100021" 
+        title = { SVIG C264 } 
+        } 
+    ARAG = { 
+        gender = male 
+        type = kingdom 
+        dna = "67866135066369" 
+        title = { ARAG CATA VALE ZARA C171 C174 C175 C202 C204 } 
+        } 
+    BASR = { 
+        gender = male 
+        type = kingdom 
+        dna = "83326537502428" 
+        title = { BASR C756 C757 } 
+        } 
+    BULG = { 
+        gender = male 
+        type = kingdom 
+        dna = "11020511020401" 
+        title = { BULG VIDI C499 C506 C507 C508 } 
+        } 
+    BYZA = { 
+        gender = male 
+        type = kingdom 
+        dna = "90876159276538" 
+        title = { BYZA C496 C497 } 
+        } 
+    CAST = { 
+        gender = male 
+        type = kingdom 
+        dna = "38356880238126" 
+        title = { CAST LEON CORD SALA DCAS TOLE C181 C190 C192 C197 C198 C200 } 
+        } 
+    DENM = { 
+        gender = male 
+        type = kingdom 
+        dna = "60568796141501" 
+        title = { DENM C267 } 
+        } 
+    ENGL = { 
+        gender = male 
+        type = kingdom 
+        dna = "32460566431792" 
+        title = { ENGL WALE BORD C019 C020 C027 C028 C032 C059 C060 C064 C069 C072 C143 C148 C149 C151 } 
+        } 
+    FRAN = { 
+        gender = male 
+        type = kingdom 
+        dna = "43042014725499" 
+        title = { FRAN ANJO ARMA AUVE CHAM ORLE TOUL C112 C113 C114 C130 C131 C138 C139 C141 C213 C214 C215 C218 C219 C227 } 
+        } 
+    GEOR = { 
+        gender = male 
+        type = kingdom 
+        dna = "92713108271738" 
+        title = { GEOR C676 C679 } 
+        } 
+    GERM = { 
+        gender = male 
+        type = kingdom 
+        dna = "84467328346752" 
+        title = { GERM C315 C360 } 
+        } 
+    HUNG = { 
+        gender = male 
+        type = kingdom 
+        dna = "44281741741090" 
+        title = { HUNG CROA C443 C445 C451 C452 C453 C522 C525 } 
+        } 
+    NAPL = { 
+        gender = male 
+        type = kingdom 
+        dna = "89824518809738" 
+        title = { NAPL JERU C221 C229 C334 C335 C336 C337 C338 C347 C348 C349 } 
+        } 
+    NAVA = { 
+        gender = male 
+        type = kingdom 
+        dna = "01838152533869" 
+        title = { NAVA DNAV C099 C152 } 
+        } 
+    POLA = { 
+        gender = male 
+        type = kingdom 
+        dna = "62069563519272" 
+        title = { POLA SAND WIEL C429 C431 C432 C527 C528 C531 C532 } 
+        } 
+    PORT = { 
+        gender = male 
+        type = kingdom 
+        dna = "28903089133788" 
+        title = { PORT C158 C159 C160 } 
+        } 
+    SCOT = { 
+        gender = male 
+        type = kingdom 
+        dna = "05931142959036" 
+        title = { SCOT C044 C047 C048 } 
+        } 
+    SERB = { 
+        gender = male 
+        type = kingdom 
+        dna = "43179671273921" 
+        title = { SERB C468 C469 C492 C502 C503 C505 } 
+        } 
+    SWED = { 
+        gender = male 
+        type = kingdom 
+        dna = "30609799354401" 
+        title = { SWED NORW C272 C292 C301 C303 } 
+        } 
+    TRAN = { 
+        gender = male 
+        type = kingdom 
+        dna = "02413047162145" 
+        title = { TRAN C339 C340 C341 C342 C343 } 
+        } 
+    CILI = { 
+        gender = male 
+        type = kingdom 
+        dna = "63166010312725" 
+        title = { CILI C735 C762 C763 } 
+        } 
+    BALE = { 
+        gender = male 
+        type = kingdom 
+        dna = "02788521650045" 
+        title = { BALE C211 C220 C325 C826 C827 } 
+        } 
+    NOSE = { 
+        gender = male 
+        type = kingdom 
+        dna = "15180944748412" 
+        title = { NOSE C504 } 
+        } 
+    ACHA = { 
+        gender = male 
+        type = duchy 
+        dna = "13131010502018" 
+        title = { ACHA C478 } 
+        } 
+    TREB = { 
+        gender = male 
+        type = kingdom 
+        dna = "94829009421402" 
+        title = { TREB C562 C598 C678 } 
+        } 
+    capital = { 0 1 2 3 4 0 6 7 8 0 0 0 12 13 14 15 0 17 18 0 0 21 22 0 24 25 0 0 0 29 0 0 0 33 34 0 0 0 38 39 40 41 42 43 0 45 46 0 0 49 50 51 0 0 54 55 56 57 58 0 0 61 0 63 0 65 0 67 68 0 70 71 0 73 0 0 0 0 0 0 0 0 82 0 84 85 86 87 88 89 90 91 0 0 0 95 96 0 0 0 0 0 102 0 0 0 0 0 108 109 110 111 0 0 0 115 116 0 0 119 0 121 122 123 124 125 126 0 0 129 0 0 132 133 0 0 0 0 0 0 0 0 142 0 144 0 0 147 0 0 150 0 0 153 0 0 156 0 0 0 0 161 162 163 0 165 0 0 0 0 170 0 172 173 0 0 176 0 0 0 0 0 182 183 0 185 186 187 188 189 0 191 0 193 194 195 196 0 0 199 0 201 0 203 0 205 206 207 208 209 210 0 212 0 0 0 216 75 0 0 0 0 0 223 0 0 0 0 0 0 0 231 232 0 0 0 236 0 238 0 0 241 242 0 0 0 0 247 0 249 250 251 252 253 254 0 256 257 258 0 0 0 262 263 0 0 266 0 0 269 270 271 0 0 0 275 276 277 0 0 280 281 0 283 0 285 0 0 288 289 290 0 0 293 294 295 296 297 0 0 300 0 302 0 304 0 0 307 308 0 310 0 0 313 314 0 316 317 0 0 0 0 0 0 0 0 0 0 0 329 330 0 332 333 0 0 0 0 0 0 0 0 0 0 0 345 0 0 0 0 350 351 352 353 354 355 0 357 358 0 0 0 0 0 0 0 0 0 368 0 0 371 0 0 0 375 376 0 0 379 0 0 0 383 0 0 0 387 0 0 0 391 0 393 394 395 396 397 398 399 400 401 402 403 404 405 406 407 0 409 0 411 412 413 414 415 0 417 0 0 0 0 0 0 0 0 0 427 428 0 0 0 0 433 434 435 0 0 0 0 0 0 442 0 444 0 0 0 448 0 450 0 0 0 454 0 0 0 0 459 460 0 462 463 464 0 466 0 0 0 470 471 472 0 0 0 0 477 0 0 0 481 0 0 0 0 0 487 488 489 0 0 0 0 0 0 0 0 498 0 500 501 0 0 0 0 0 0 0 0 0 0 0 513 0 515 516 0 518 0 520 521 0 523 524 0 526 0 0 0 530 0 0 533 0 535 0 537 538 539 0 541 542 543 544 545 546 0 0 0 0 0 0 553 0 0 556 0 558 559 0 0 0 563 564 0 566 0 0 0 0 0 0 573 0 0 576 577 0 0 0 0 582 0 0 0 586 587 588 589 590 591 592 593 594 595 596 0 0 599 0 0 602 603 604 605 606 607 0 609 610 0 612 613 0 615 616 617 618 619 620 621 622 623 624 625 0 627 0 0 0 0 632 0 0 635 0 0 638 0 0 0 0 0 0 0 0 0 648 0 650 651 652 653 654 0 0 657 0 0 0 0 0 0 0 0 0 0 0 669 0 0 0 673 674 675 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 709 710 0 0 713 714 0 716 717 0 719 720 721 722 723 0 725 726 0 728 729 730 731 732 733 0 0 0 737 0 0 0 0 0 0 744 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 761 0 0 764 765 766 0 768 769 770 771 772 773 0 775 776 777 778 779 780 781 782 783 784 785 786 0 788 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 809 810 811 812 813 814 815 816 0 818 819 820 821 822 823 824 825 0 0 828 829 830 831 832 833 0 835 836 837 838 839 0 841 0 0 0 0 0 0 848 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 898 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 995 0 0 0 0 0 0 485 0 0 0 0 597 0 0 0 0 0 0 0 0 0 0 0 0 155 0 0 0 670 0 184 0 0 361 0 408 997 274 0 120 0 437 0 0 136 146 117 0 365 105 0 0 344 0 0 0 0 0 0 0 9 0 0 31 0 0 461 0 0 0 0 0 0 0 0 0 0 0 0 0 378 0 0 382 93 0 83 0 536 157 0 0 233 677 0 0 0 79 0 482 0 261 0 641 0 0 601 0 282 0 0 628 0 0 0 547 0 0 480 0 0 331 0 16 0 0 0 0 0 636 0 0 0 0 0 0 0 661 529 11 260 0 312 702 234 512 441 575 0 0 0 0 0 97 0 410 36 0 0 0 0 0 0 555 0 0 0 0 0 419 366 0 567 0 0 0 663 0 574 580 0 0 421 0 0 237 311 0 0 0 643 0 0 0 739 305 0 568 0 0 0 0 0 0 0 554 0 0 540 0 0 0 490 0 0 0 0 328 0 0 0 0 0 0 570 5 127 0 0 0 514 509 0 0 319 35 0 0 0 583 611 0 572 0 0 0 449 0 0 0 0 0 0 0 0 0 169 0 0 0 0 264 0 0 0 0 0 0 0 171 757 0 0 499 0 496 197 0 614 267 0 72 112 676 360 522 0 0 0 0 423 0 334 152 0 0 0 527 159 0 48 505 292 0 339 0 0 0 774 724 693 767 727 787 0 683 718 0 0 637 0 0 0 0 0 0 0 222 356 735 0 0 0 0 0 0 0 827 0 0 0 504 0 478 746 704 0 753 0 748 662 608 180 483 0 667 817 0 0 0 843 747 0 742 0 0 745 245 755 370 678 0 0 834 0 386 0 0 389 0 0 557 0 0 0 579 0 0 0 0 0 279 0 0 0 0 0 0 797 0 0 758 0 0 0 0 177 377 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 } 
+    province = { 0 1 2 3 4 1221 6 7 8 1056 1135 1135 12 13 14 15 1119 17 18 1277 1277 21 22 61 24 25 25 1277 1277 29 29 1059 1277 33 34 1231 1152 1152 38 39 40 41 42 43 1296 45 46 1296 1296 49 50 51 56 55 54 55 56 57 58 1277 1277 61 58 63 1277 65 17 67 68 1277 70 71 1277 73 96 217 1080 1040 1080 1093 1093 1093 82 1082 84 85 86 87 88 89 90 91 1042 1080 1093 95 96 1149 1149 1289 1149 1045 102 1045 1045 1045 1045 1149 108 109 110 111 1278 1278 1278 115 116 1042 119 119 1035 121 122 123 124 125 126 1222 1222 129 1278 1278 132 133 1242 1040 1040 1080 1278 1278 1040 1278 142 1277 144 1041 1041 147 1277 1277 150 1277 1289 153 1020 1020 156 1085 1294 1294 1294 161 162 163 165 165 1348 1348 1348 1252 170 1265 172 173 1265 1265 176 1402 196 1252 1348 1272 182 183 1026 185 186 187 188 189 1272 191 1272 193 194 195 196 1272 1272 199 1272 201 1265 203 1265 205 206 207 208 209 210 1333 212 1278 1278 1278 216 217 1278 1278 1333 1288 1323 223 1041 1040 1040 1278 1181 1288 1088 231 232 1088 1140 1140 236 1181 238 1181 1040 241 242 0 1363 1363 1140 247 242 249 250 251 252 253 254 1138 256 257 258 995 1136 1097 262 263 1257 1097 266 1275 1033 269 270 271 1298 276 1033 275 276 277 1033 1387 280 281 1104 283 1104 285 290 289 288 289 290 290 1298 293 294 295 296 297 293 300 300 1298 302 1298 304 1191 1136 307 308 1044 310 1182 1138 313 314 1280 316 317 1230 1230 1140 1230 353 1117 1088 1333 1117 1213 1213 329 330 1117 332 333 1288 1288 1288 1288 1288 1300 1300 1300 1300 1300 1048 345 1048 1288 1288 1288 350 351 352 353 354 355 1324 357 358 316 1280 1029 1037 1037 1138 1044 1166 1166 368 1365 1365 371 1365 1403 1178 375 376 1403 1076 379 1076 383 1079 383 1079 1079 1371 387 411 1374 391 391 411 393 394 395 396 397 398 399 400 401 402 403 404 405 406 407 1031 409 1151 411 412 413 414 415 1165 417 417 1165 1286 1178 1178 1286 1286 1178 1178 427 428 1293 1044 1293 1293 433 434 435 1037 1037 1142 1037 1142 1142 442 1281 444 1281 1242 1029 448 1242 450 1281 1281 1281 454 1242 1242 1242 1324 459 460 1062 462 463 464 1324 466 1324 1297 1297 470 471 472 472 1048 1095 481 477 1339 1114 1114 481 1095 1349 1002 1002 1088 487 488 489 1208 1208 1297 1208 1208 1208 1271 1271 498 1269 500 501 1297 1297 1337 1297 1269 1269 1269 1227 1227 1227 1141 513 1226 515 516 1204 518 1204 520 521 1281 523 524 1281 526 1293 1293 1134 530 1293 1293 533 1084 535 1084 537 538 539 1204 541 542 543 544 545 546 1111 1286 1286 1286 1201 1286 553 1201 1159 556 1377 558 559 559 1088 1366 563 564 1159 566 1168 1193 1193 1220 1238 1238 573 1174 1143 576 577 1143 1381 1175 1175 582 1235 1235 1235 586 587 588 589 590 591 592 593 594 595 596 1007 1366 599 1102 1102 602 603 604 605 606 607 1347 609 610 1236 612 613 1274 615 616 617 618 619 620 621 622 623 624 625 1107 627 1107 1107 1107 1107 632 1133 1125 635 1125 1315 638 1099 1186 1099 1186 1186 1186 1186 1351 648 648 1306 650 651 652 653 654 1306 1306 657 1351 1351 1172 1133 1346 1172 1306 1172 1351 1351 669 669 1024 1306 1306 673 674 675 1279 1089 1366 1279 1306 1306 1306 1311 1306 1351 1351 1306 1306 1306 1306 1306 1306 1306 1306 1306 1306 1306 1306 1311 1311 1311 1139 1139 1341 1139 1311 1311 1311 709 710 1306 1306 713 714 1306 716 717 1312 719 720 721 722 723 1305 725 726 1308 728 729 730 731 732 733 1311 1325 737 737 1341 1190 1359 1359 1359 1359 744 1362 1340 1357 1345 1345 1359 1190 1343 1343 1345 1364 1266 1266 1397 1397 1343 761 1325 1325 764 765 766 1307 768 769 770 771 772 773 1304 775 776 777 778 779 780 781 782 783 784 785 786 1309 788 1394 1394 1394 1394 1394 1394 1394 1394 1394 1394 1394 1394 1394 1394 713 714 722 723 725 1305 809 810 811 812 813 814 815 816 1352 818 819 820 821 822 823 824 825 1333 1333 828 829 830 831 832 833 1369 835 836 837 838 839 1356 841 1356 1356 1356 1356 1356 1356 848 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 898 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 995 0 1032 0 0 0 0 0 0 } 
+    } 
+
+globaldata = { 
+    startdate = { year = 1337 month = january day = 0 } 
+    enddate = { year = 1453 month = january day = 0 } 
+    flags = { } 
+    papacy = { control = { type = 10 id = 55500 } } 
+    crusade = { active = no ended = no target = 0 } 
+    } 
+
+include = "scenarios\1337_scenario_characters.inc"
+include = "scenarios\1337_scenario_titles.inc"
+include = "scenarios\1337_scenario_relations.inc"
+include = "scenarios\1337_scenario_countries.inc"
+include = "scenarios\1337_scenario_provinces.inc"
+
+include = "db\dynasties.txt"
+include = "db\events.txt"
